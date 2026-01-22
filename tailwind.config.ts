@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Executive Theme Colors
+        "executive-cyan": "hsl(var(--executive-cyan))",
+        "executive-purple": "hsl(var(--executive-purple))",
+        "executive-green": "hsl(var(--executive-green))",
+        "executive-amber": "hsl(var(--executive-amber))",
+        "executive-rose": "hsl(var(--executive-rose))",
+      },
+      fontFamily: {
+        display: ["Space Grotesk", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,6 +94,10 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fadeInUp 0.6s ease-out",
+        "slide-in-left": "slideInLeft 0.6s ease-out",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "gradient": "gradient-shift 3s ease infinite",
       },
     },
   },
