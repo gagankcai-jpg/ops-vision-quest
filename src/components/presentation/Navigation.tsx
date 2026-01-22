@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, BarChart3, Cpu, Bot, FileText } from "lucide-react";
+import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,6 +16,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Summary", href: "#summary", icon: <FileText className="w-4 h-4" /> },
+    { label: "Comparison", href: "#comparison", icon: <LayoutGrid className="w-4 h-4" /> },
     { label: "AIOps", href: "#aiops", icon: <BarChart3 className="w-4 h-4" /> },
     { label: "ITOM", href: "#itom", icon: <Cpu className="w-4 h-4" /> },
     { label: "RPA/IA", href: "#rpa", icon: <Bot className="w-4 h-4" /> },

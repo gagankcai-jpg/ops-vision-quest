@@ -2,6 +2,7 @@ import Navigation from "@/components/presentation/Navigation";
 import HeroSection from "@/components/presentation/HeroSection";
 import ExecutiveSummary from "@/components/presentation/ExecutiveSummary";
 import CategorySection from "@/components/presentation/CategorySection";
+import VendorComparisonMatrix from "@/components/presentation/VendorComparisonMatrix";
 import { aiopsData, itomData, rpaData } from "@/data/marketData";
 
 const Index = () => {
@@ -15,6 +16,8 @@ const Index = () => {
         <div id="summary">
           <ExecutiveSummary />
         </div>
+
+        <VendorComparisonMatrix />
         
         <div id="aiops">
           <CategorySection data={aiopsData} index={0} />
