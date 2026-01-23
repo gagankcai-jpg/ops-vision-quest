@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid } from "lucide-react";
+import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download } from "lucide-react";
+import { generatePPTX } from "@/utils/generatePPTX";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +30,17 @@ const Navigation = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const handleExportPPTX = async () => {
+    setIsExporting(true);
+    try {
+      await generatePPTX();
+    } catch (error) {
+      console.error("Export failed:", error);
+    } finally {
+      setIsExporting(false);
+    }
   };
 
   return (
@@ -64,6 +77,14 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={handleExportPPTX}
+                disabled={isExporting}
+                className="flex items-center gap-2 px-4 py-2 ml-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-colors disabled:opacity-50"
+              >
+                <Download className="w-4 h-4" />
+                {isExporting ? "Exporting..." : "Export PPTX"}
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -98,6 +119,14 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={handleExportPPTX}
+                disabled={isExporting}
+                className="flex items-center gap-3 w-full px-4 py-3 mt-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-colors disabled:opacity-50"
+              >
+                <Download className="w-4 h-4" />
+                {isExporting ? "Exporting..." : "Export PPTX"}
+              </button>
             </div>
           </motion.div>
         )}
