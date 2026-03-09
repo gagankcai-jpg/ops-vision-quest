@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download } from "lucide-react";
+import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download, FileDown } from "lucide-react";
 import { generatePPTX } from "@/utils/generatePPTX";
+import { generatePDF } from "@/utils/generatePDF";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
