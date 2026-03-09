@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# Enterprise Technology Market Intelligence Insights
 
-## Project info
+An interactive executive intelligence report analyzing three high-growth enterprise technology markets — **AIOps & Observability**, **IT Operations Management (ITOM)**, and **RPA & Intelligent Automation** — with projections from 2024 to 2030.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Built with React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
 
-## How can I edit this code?
+## 📊 Overview
 
-There are several ways of editing your application.
+This application presents a comprehensive market intelligence dashboard covering:
 
-**Use Lovable**
+| Market | TAM 2024 | TAM 2030 | CAGR |
+|--------|----------|----------|------|
+| AIOps & Observability | $2.23B | $11.8B | 20.4% |
+| IT Operations Management | $51.7B | $105B | 10.9% |
+| RPA & Intelligent Automation | $15.4B | $32.8B | 16.3% |
+| **Combined** | **$69.3B** | **$149.6B** | **15.8%** |
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Executive Summary** — High-level TAM, CAGR, and strategic insights with interactive charts
+- **Vendor Comparison Matrix** — 30+ vendors across all three markets with sortable metrics
+- **Vendor Detail Modals** — Click any vendor row for deep-dive info including strengths, weaknesses, customers, and recent moves
+- **Market Growth Charts** — Recharts-powered visualizations for each category
+- **Use Cases & Trends** — Industry adoption data, emerging trends, and strategic opportunities
+- **PDF Export** — Download a fully styled, dark-themed PDF report
+- **PPTX Export** — Generate a PowerPoint presentation of the full report
+- **Responsive Design** — Optimized for desktop and mobile viewing
 
-**Use your preferred IDE**
+## 🛠 Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **React 18** + **TypeScript**
+- **Vite** — Fast dev server and build tooling
+- **Tailwind CSS** — Utility-first styling with custom design tokens
+- **shadcn/ui** — Accessible component primitives
+- **Recharts** — Data visualization
+- **Framer Motion** — Scroll-triggered animations
+- **jsPDF** + **jspdf-autotable** — PDF generation
+- **PptxGenJS** — PowerPoint export
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Getting Started
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/
+│   ├── presentation/
+│   │   ├── HeroSection.tsx          # Landing hero with key metrics
+│   │   ├── ExecutiveSummary.tsx      # Combined market overview
+│   │   ├── CategorySection.tsx      # Deep-dive per market category
+│   │   ├── VendorComparisonMatrix.tsx # Interactive vendor table + modals
+│   │   ├── MarketChart.tsx          # Recharts visualizations
+│   │   └── Navigation.tsx           # Top nav with export actions
+│   └── ui/                          # shadcn/ui components
+├── data/
+│   └── marketData.ts                # All market data (vendors, TAM, trends)
+├── utils/
+│   ├── generatePDF.ts               # PDF export logic
+│   └── generatePPTX.ts              # PPTX export logic
+└── pages/
+    └── Index.tsx                     # Main page layout
+```
 
-**Use GitHub Codespaces**
+## 📄 Data Sources
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Gartner Magic Quadrant Reports
+- Mordor Intelligence Market Analysis
+- Fortune Business Insights
+- QKS Group Research
 
-## What technologies are used for this project?
+## 📝 License
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 Enterprise Technology Market Analysis. Executive Intelligence Report.
