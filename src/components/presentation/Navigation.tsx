@@ -91,12 +91,20 @@ const Navigation = () => {
                 </button>
               ))}
               <button
+                onClick={handleExportPDF}
+                disabled={isExportingPDF}
+                className="flex items-center gap-2 px-4 py-2 ml-2 text-sm font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg transition-colors disabled:opacity-50"
+              >
+                <FileDown className="w-4 h-4" />
+                {isExportingPDF ? "Exporting..." : "PDF"}
+              </button>
+              <button
                 onClick={handleExportPPTX}
                 disabled={isExporting}
-                className="flex items-center gap-2 px-4 py-2 ml-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-colors disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-colors disabled:opacity-50"
               >
                 <Download className="w-4 h-4" />
-                {isExporting ? "Exporting..." : "Export PPTX"}
+                {isExporting ? "Exporting..." : "PPTX"}
               </button>
             </div>
 
