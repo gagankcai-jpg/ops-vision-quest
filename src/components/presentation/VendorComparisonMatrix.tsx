@@ -659,6 +659,122 @@ const VendorComparisonMatrix = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Vendor Detail Modal */}
+      <Dialog open={!!selectedVendor} onOpenChange={(open) => !open && setSelectedVendor(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-card border-border">
+          {selectedVendor && (() => {
+            const details = vendorDetails[selectedVendor.name];
+            const CategoryIcon = categoryIcons[selectedVendor.category];
+            if (!details) return (
+              <DialogHeader>
+                <DialogTitle className="text-foreground">{selectedVendor.name}</DialogTitle>
+                <p className="text-muted-foreground text-sm">Detailed information not available.</p>
+              </DialogHeader>
+            );
+            return (
+              <>
+                <DialogHeader>
+                  <div className="flex items-center gap-3 mb-1">
+                    <CategoryIcon className="w-5 h-5" style={{ color: categoryColors[selectedVendor.category] }} />
+                    <Badge variant="outline" style={{ borderColor: categoryColors[selectedVendor.category], color: categoryColors[selectedVendor.category] }}>
+                      {selectedVendor.category}
+                    </Badge>
+                    {selectedVendor.type === "emerging" && (
+                      <Badge variant="outline" className="bg-executive-amber/10 text-executive-amber border-executive-amber/30">Emerging</Badge>
+                    )}
+                  </div>
+                  <DialogTitle className="text-2xl text-foreground">{selectedVendor.name}</DialogTitle>
+                  <p className="text-muted-foreground text-sm mt-1">{details.description}</p>
+                </DialogHeader>
+
+                {/* Key Metrics */}
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <DollarSign className="w-4 h-4 mx-auto mb-1 text-primary" />
+                    <div className="text-lg font-bold text-foreground">{selectedVendor.marketCap >= 1000 ? `$${(selectedVendor.marketCap / 1000).toFixed(1)}T` : `$${selectedVendor.marketCap.toFixed(1)}B`}</div>
+                    <div className="text-xs text-muted-foreground">Market Cap</div>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <BarChart3 className="w-4 h-4 mx-auto mb-1 text-accent" />
+                    <div className="text-lg font-bold text-foreground">{selectedVendor.revenue >= 1 ? `$${selectedVendor.revenue.toFixed(2)}B` : `$${(selectedVendor.revenue * 1000).toFixed(0)}M`}</div>
+                    <div className="text-xs text-muted-foreground">Revenue</div>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <TrendingUp className="w-4 h-4 mx-auto mb-1 text-executive-green" />
+                    <div className="text-lg font-bold text-foreground">{selectedVendor.growthRate}%</div>
+                    <div className="text-xs text-muted-foreground">Growth Rate</div>
+                  </div>
+                </div>
+
+                {/* Company Info */}
+                <div className="grid grid-cols-2 gap-3 mt-4">
+                  <div className="flex items-center gap-2 text-sm"><Calendar className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">Founded:</span><span className="text-foreground">{details.founded}</span></div>
+                  <div className="flex items-center gap-2 text-sm"><Globe className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">HQ:</span><span className="text-foreground">{details.hq}</span></div>
+                  <div className="flex items-center gap-2 text-sm"><Users className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">Employees:</span><span className="text-foreground">{details.employees}</span></div>
+                  <div className="flex items-center gap-2 text-sm"><Shield className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">CEO:</span><span className="text-foreground">{details.ceo}</span></div>
+                </div>
+
+                {/* Strengths & Weaknesses */}
+                <div className="grid grid-cols-2 gap-4 mt-5">
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Award className="w-4 h-4 text-executive-green" />Strengths</h4>
+                    <ul className="space-y-1">
+                      {details.strengths.map((s, i) => (
+                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                          <span className="text-executive-green mt-0.5">•</span>{s}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Target className="w-4 h-4 text-executive-amber" />Weaknesses</h4>
+                    <ul className="space-y-1">
+                      {details.weaknesses.map((w, i) => (
+                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                          <span className="text-executive-amber mt-0.5">•</span>{w}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Key Products */}
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Cpu className="w-4 h-4 text-primary" />Key Products</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {details.keyProducts.map((p, i) => (
+                      <Badge key={i} variant="secondary" className="text-xs">{p}</Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recent Moves */}
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Zap className="w-4 h-4 text-executive-amber" />Recent Strategic Moves</h4>
+                  <ul className="space-y-1">
+                    {details.recentMoves.map((m, i) => (
+                      <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <ExternalLink className="w-3 h-3 mt-0.5 text-primary shrink-0" />{m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Customers */}
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Building2 className="w-4 h-4 text-accent" />Key Customers</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {details.customers.map((c, i) => (
+                      <Badge key={i} variant="outline" className="text-xs">{c}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </>
+            );
+          })()}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
