@@ -45,6 +45,17 @@ const Navigation = () => {
     }
   };
 
+  const handleExportPDF = async () => {
+    setIsExportingPDF(true);
+    try {
+      await generatePDF();
+    } catch (error) {
+      console.error("PDF export failed:", error);
+    } finally {
+      setIsExportingPDF(false);
+    }
+  };
+
   return (
     <>
       <motion.nav
