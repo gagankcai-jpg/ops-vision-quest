@@ -12,7 +12,15 @@ import {
   Bot,
   X,
   Search,
-  ChevronDown
+  ChevronDown,
+  ExternalLink,
+  Globe,
+  Users,
+  Calendar,
+  Award,
+  Zap,
+  Target,
+  Shield
 } from "lucide-react";
 import { 
   Table, 
@@ -27,11 +35,51 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuCheckboxItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+// Extended vendor detail info
+const vendorDetails: Record<string, { founded: string; hq: string; employees: string; ceo: string; description: string; strengths: string[]; weaknesses: string[]; keyProducts: string[]; recentMoves: string[]; customers: string[] }> = {
+  "Dynatrace": { founded: "2005", hq: "Waltham, MA", employees: "5,000+", ceo: "Rick McConnell", description: "AI-powered full-stack observability platform providing automatic and intelligent monitoring for cloud ecosystems.", strengths: ["Davis AI engine for root cause analysis", "Full-stack auto-instrumentation", "15-year Gartner MQ Leader"], weaknesses: ["Premium pricing", "Complex initial setup for hybrid environments"], keyProducts: ["Dynatrace Platform", "Davis AI", "Grail Data Lakehouse"], recentMoves: ["Launched Davis CoPilot (GenAI)", "Acquired Rookout for code-level debugging"], customers: ["SAP", "Kroger", "Samsung", "Air Canada"] },
+  "Splunk (Cisco)": { founded: "2003", hq: "San Francisco, CA", employees: "8,500+", ceo: "Gary Steele", description: "Industry-leading SIEM and observability platform, acquired by Cisco in 2024 for $28B to create an end-to-end security and observability powerhouse.", strengths: ["Massive ecosystem & SPL query language", "Cisco integration synergies", "Strong in security analytics"], weaknesses: ["Expensive at scale", "Complex licensing model"], keyProducts: ["Splunk Enterprise", "Splunk Cloud", "SOAR", "ITSI"], recentMoves: ["$28B Cisco acquisition closed March 2024", "Integrating with Cisco's networking telemetry"], customers: ["92 of Fortune 100", "US DoD", "Airbus", "Heineken"] },
+  "Datadog": { founded: "2010", hq: "New York, NY", employees: "6,500+", ceo: "Olivier Pomel", description: "Cloud-native monitoring and analytics platform unifying infrastructure metrics, APM, logs, and security in a single SaaS platform.", strengths: ["Best-in-class cloud-native monitoring", "Rapid product expansion (20+ products)", "35% revenue growth"], weaknesses: ["Costs can escalate with data volume", "Less suited for on-prem environments"], keyProducts: ["Infrastructure Monitoring", "APM", "Log Management", "Cloud SIEM", "Bits AI"], recentMoves: ["Launched Bits AI copilot", "Expanded into cloud cost management", "LLM Observability product"], customers: ["Samsung", "Peloton", "Whole Foods", "Comcast"] },
+  "New Relic": { founded: "2008", hq: "San Francisco, CA", employees: "2,800+", ceo: "Arun Samudrala", description: "Full-stack observability platform offering consumption-based pricing model with 30+ capabilities on a single platform.", strengths: ["Transparent consumption pricing", "Strong developer experience", "Full-stack coverage"], weaknesses: ["Market share pressure from Datadog", "Slower growth vs. peers"], keyProducts: ["New Relic One", "APM 360", "Vulnerability Management", "AI Monitoring"], recentMoves: ["Taken private by Francisco Partners & TPG", "AI monitoring for LLM apps"], customers: ["ZenDesk", "REI", "Domino's", "Epic Games"] },
+  "Grafana Labs": { founded: "2014", hq: "New York, NY", employees: "1,200+", ceo: "Raj Dutt", description: "Open-source observability platform powering visualization and monitoring with the most popular dashboarding tool in the industry.", strengths: ["Open-source community (20M+ users)", "50% growth rate", "Composable architecture"], weaknesses: ["Revenue still scaling", "Enterprise features catching up"], keyProducts: ["Grafana", "Loki", "Tempo", "Mimir", "Grafana Cloud"], recentMoves: ["$240M Series D at $6B valuation", "Launched Grafana SLO and Incident"], customers: ["Bloomberg", "JP Morgan", "eBay", "PayPal"] },
+  "ServiceNow ITOM": { founded: "2003", hq: "Santa Clara, CA", employees: "22,000+", ceo: "Bill McDermott", description: "Enterprise ITOM suite within the Now Platform delivering IT operations management, AIOps, and cloud management.", strengths: ["44% ITSM market share", "Platform stickiness", "Strong AI investments"], weaknesses: ["High total cost of ownership", "Complex implementation"], keyProducts: ["ITOM Visibility", "ITOM Health", "Cloud Management", "AIOps"], recentMoves: ["Now Assist GenAI across platform", "Acquired G2K for cloud observability"], customers: ["85% of Fortune 500", "Deloitte", "NASA"] },
+  "Elastic": { founded: "2012", hq: "San Francisco, CA", employees: "3,500+", ceo: "Ash Kulkarni", description: "Search-powered observability and security analytics platform built on the Elasticsearch engine.", strengths: ["ELK Stack ubiquity", "Strong in log analytics and search", "Open-source roots"], weaknesses: ["Licensing changes created friction", "Competitive pressure from Datadog"], keyProducts: ["Elastic Observability", "Elastic Security", "Elasticsearch", "Kibana"], recentMoves: ["Re-licensed to AGPL", "Elastic AI Assistant launch"], customers: ["Cisco", "Uber", "Netflix", "Adobe"] },
+  "Sumo Logic": { founded: "2010", hq: "Redwood City, CA", employees: "1,000+", ceo: "Keith Nealon", description: "Cloud-native machine data analytics platform providing log management, infrastructure monitoring, and cloud SIEM.", strengths: ["Cloud-native architecture", "Integrated SIEM capabilities", "Strong compliance features"], weaknesses: ["Smaller scale vs. competitors", "Limited APM capabilities"], keyProducts: ["Cloud SIEM", "Cloud SOAR", "Log Analytics", "Infrastructure Monitoring"], recentMoves: ["Acquired by Francisco Partners (2023)", "Focus on security analytics"], customers: ["Anheuser-Busch", "Airbnb", "Samsung", "Zuora"] },
+  "LogicMonitor": { founded: "2007", hq: "Santa Barbara, CA", employees: "1,200+", ceo: "Christina Kosmowski", description: "AI-powered hybrid observability platform providing unified monitoring across cloud and on-prem infrastructure.", strengths: ["$800M in total funding", "45% growth rate", "Strong hybrid cloud monitoring"], weaknesses: ["Not yet profitable", "Narrower product portfolio"], keyProducts: ["LM Envision", "LM Logs", "LM Container Monitoring"], recentMoves: ["$800M growth round at $2.4B valuation", "Launched Edwin AI"], customers: ["Uber", "Spotify", "Sony", "Instacart"] },
+  "Chronosphere": { founded: "2019", hq: "New York, NY", employees: "300+", ceo: "Martin Mao", description: "Cloud-native observability platform focused on controlling costs and complexity of monitoring data at scale.", strengths: ["80% growth rate", "Cost optimization focus", "Founded by ex-Uber engineers"], weaknesses: ["Early-stage revenue", "Limited brand recognition"], keyProducts: ["Chronosphere Platform", "Telemetry Pipeline", "Change Intelligence"], recentMoves: ["Named Gartner MQ Leader 2024", "Raised $343M total"], customers: ["DoorDash", "Snap", "Abnormal Security"] },
+  "ServiceNow": { founded: "2003", hq: "Santa Clara, CA", employees: "22,000+", ceo: "Bill McDermott", description: "The dominant enterprise platform for IT service management and digital workflows, expanding aggressively into AI-powered operations.", strengths: ["Dominant ITSM market position (44%)", "$8.9B revenue scale", "Platform lock-in"], weaknesses: ["Premium pricing deters SMBs", "Complex implementation timelines"], keyProducts: ["ITSM", "ITOM", "ITAM", "CSM", "Now Platform", "Now Assist"], recentMoves: ["Now Assist GenAI rollout", "Vancouver release with AI features", "$100B+ market cap"], customers: ["85% of Fortune 500", "NASA", "Deloitte", "US Army"] },
+  "Microsoft": { founded: "1975", hq: "Redmond, WA", employees: "228,000+", ceo: "Satya Nadella", description: "Tech giant with Azure-based ITOM capabilities including Azure Monitor, Azure Arc, and System Center for hybrid operations management.", strengths: ["Azure ecosystem integration", "Copilot AI across products", "Massive enterprise footprint"], weaknesses: ["Fragmented ITOM tooling", "Less specialized than pure-play vendors"], keyProducts: ["Azure Monitor", "Azure Arc", "System Center", "Intune", "Sentinel"], recentMoves: ["Copilot for IT Operations", "Azure AI integration", "$3.1T market cap"], customers: ["95% of Fortune 500", "Every major enterprise globally"] },
+  "Broadcom (CA)": { founded: "1961", hq: "Palo Alto, CA", employees: "20,000+", ceo: "Hock Tan", description: "Infrastructure software giant following $61B VMware acquisition, consolidating legacy CA Technologies ITOM products.", strengths: ["Massive installed base", "VMware + CA + Symantec portfolio", "Cost optimization focus"], weaknesses: ["Customer friction from license changes", "Innovation pace concerns"], keyProducts: ["DX NetOps", "DX APM", "VMware vRealize", "Automic"], recentMoves: ["$61B VMware acquisition (2023)", "Aggressive bundling strategy", "Subscription transition"], customers: ["Major global banks", "Telcos", "Government agencies"] },
+  "IBM": { founded: "1911", hq: "Armonk, NY", employees: "280,000+", ceo: "Arvind Krishna", description: "Legacy IT powerhouse with Watson AIOps and Cloud Pak for operations, focusing on hybrid cloud and AI-driven automation.", strengths: ["Deep enterprise relationships", "Watson AI brand", "Consulting arm"], weaknesses: ["Slow organic growth (3%)", "Complex product portfolio"], keyProducts: ["Watson AIOps", "Instana", "Turbonomic", "Cloud Pak"], recentMoves: ["Acquired Apptio for $4.6B", "WatsonX AI platform launch", "Divested Weather Company"], customers: ["70% of Fortune 50", "BNP Paribas", "Vodafone"] },
+  "Atlassian": { founded: "2002", hq: "Sydney, Australia", employees: "12,000+", ceo: "Mike Cannon-Brookes", description: "Collaboration and ITSM platform known for Jira Service Management, expanding into IT operations with Compass and Statuspage.", strengths: ["28% growth rate", "Strong developer community", "Cloud migration momentum"], weaknesses: ["Less mature ITOM capabilities", "Server product sunset concerns"], keyProducts: ["Jira Service Management", "Compass", "Statuspage", "Opsgenie"], recentMoves: ["Cloud-only strategy", "AI-powered Atlassian Intelligence", "Acquired Loom"], customers: ["NASA", "Tesla", "Spotify", "Samsung"] },
+  "BMC Software": { founded: "1980", hq: "Houston, TX", employees: "6,500+", ceo: "Ayman Sayed", description: "Enterprise IT management vendor with Helix ITSM and TrueSight operations management for large-scale environments.", strengths: ["Strong mainframe management", "Enterprise-grade reliability", "BMC Helix platform"], weaknesses: ["Slow cloud transition", "Declining market mindshare"], keyProducts: ["BMC Helix ITSM", "TrueSight", "Control-M", "MainView"], recentMoves: ["BMC Helix with GenAI", "HelixGPT launch", "KKR ownership"], customers: ["80% of Forbes Global 50", "Major banks", "Airlines"] },
+  "SolarWinds": { founded: "1999", hq: "Austin, TX", employees: "2,500+", ceo: "Sudhakar Ramakrishna", description: "Mid-market IT monitoring and management platform known for affordable, easy-to-deploy network and systems monitoring.", strengths: ["Strong mid-market position", "Affordable pricing", "Easy deployment"], weaknesses: ["Brand damage from 2020 breach", "4% slow growth"], keyProducts: ["SolarWinds Observability", "Network Performance Monitor", "Server & Application Monitor"], recentMoves: ["SolarWinds Observability SaaS launch", "Recovered from supply chain attack", "Thoma Bravo take-private"], customers: ["499 of Fortune 500 (historically)", "US Military", "Universities"] },
+  "Ivanti": { founded: "1985", hq: "South Jordan, UT", employees: "3,500+", ceo: "Jeff Abbott", description: "Unified IT platform combining endpoint management, IT service management, and security into a single solution.", strengths: ["Unified IT approach", "Strong endpoint management", "Government sector presence"], weaknesses: ["Recent security vulnerabilities in products", "Integration complexity"], keyProducts: ["Ivanti Neurons", "Endpoint Manager", "Service Manager", "Connect Secure"], recentMoves: ["Ivanti Neurons AI platform", "Addressed critical VPN vulnerabilities", "Unified platform push"], customers: ["US DoD", "96 of Fortune 100", "UK NHS"] },
+  "Freshworks": { founded: "2010", hq: "San Mateo, CA", employees: "5,500+", ceo: "Dennis Woodside", description: "SME-focused business software platform providing affordable ITSM, CRM, and customer support solutions.", strengths: ["22% growth rate", "SME-friendly pricing", "Modern UX"], weaknesses: ["Limited enterprise penetration", "Smaller scale vs ServiceNow"], keyProducts: ["Freshservice", "Freshdesk", "Freshsales", "Freddy AI"], recentMoves: ["Freddy AI copilot launch", "Focus on profitability", "IPO in 2021"], customers: ["Bridgestone", "Databricks", "PhonePe", "Blue Nile"] },
+  "Atera": { founded: "2016", hq: "Tel Aviv, Israel", employees: "500+", ceo: "Gil Pekelman", description: "AI-powered IT management platform for MSPs and IT departments with rapid deployment and per-technician pricing.", strengths: ["65% growth rate", "Unique per-technician pricing", "Fast 5-min setup"], weaknesses: ["Early revenue stage ($80M)", "Limited enterprise features"], keyProducts: ["Atera Platform", "Action AI", "Copilot", "Network Discovery"], recentMoves: ["$77M Series B funding", "Action AI autonomous resolution", "MSP market expansion"], customers: ["10,000+ MSPs globally", "Mid-market IT teams"] },
+  "UiPath": { founded: "2005", hq: "New York, NY", employees: "4,000+", ceo: "Daniel Dines", description: "Leading enterprise RPA platform with AI-powered automation capabilities, process mining, and end-to-end automation suite.", strengths: ["6x Gartner MQ Leader", "Largest pure-play RPA vendor", "Strong community (3M+ developers)"], weaknesses: ["Path to profitability concerns", "Competition from hyperscalers"], keyProducts: ["UiPath Platform", "AI Center", "Process Mining", "Document Understanding", "Autopilot"], recentMoves: ["Autopilot GenAI assistant", "Acquired Re:infer for NLP", "CEO transition and return"], customers: ["CrowdStrike", "Uber", "NASA", "Deutsche Post"] },
+  "MS Power Automate": { founded: "2016 (as Flow)", hq: "Redmond, WA", employees: "Part of Microsoft", ceo: "Satya Nadella", description: "Microsoft's low-code automation platform integrated into the Power Platform and M365 ecosystem with the fastest growth in RPA.", strengths: ["45% growth rate (fastest)", "M365 ecosystem integration", "10M+ monthly active users"], weaknesses: ["Less sophisticated for complex automations", "Enterprise governance challenges"], keyProducts: ["Power Automate Desktop", "Cloud Flows", "Process Mining", "AI Builder"], recentMoves: ["Copilot in Power Automate", "Process mining integration", "Generative AI flow creation"], customers: ["Every M365 enterprise customer", "T-Mobile", "Coca-Cola"] },
+  "Automation Anywhere": { founded: "2003", hq: "San Jose, CA", employees: "2,800+", ceo: "Mihir Shukla", description: "Cloud-native intelligent automation platform combining RPA, AI, and process discovery for enterprise automation.", strengths: ["Cloud-native architecture", "Strong AI integration", "Generative AI early mover"], weaknesses: ["Revenue scale behind UiPath", "Market share pressure"], keyProducts: ["Automation 360", "AARI", "Process Discovery", "Document Automation"], recentMoves: ["Generative AI-powered automation", "$2.5B+ total funding", "Google Cloud partnership"], customers: ["Dell", "Goldman Sachs", "Juniper Networks", "Siemens"] },
+  "SS&C Blue Prism": { founded: "2001", hq: "London, UK", employees: "1,500+", ceo: "Bill Stone (SS&C)", description: "Enterprise-grade RPA platform acquired by SS&C Technologies, focused on regulated industries and complex process automation.", strengths: ["Enterprise security focus", "Strong in regulated industries", "Centralized management"], weaknesses: ["8% slow growth", "Integration into SS&C ongoing"], keyProducts: ["Blue Prism Cloud", "Digital Workers", "Process Intelligence", "Decision"], recentMoves: ["SS&C acquisition completed", "Cloud migration push", "AI integration roadmap"], customers: ["Pfizer", "Coca-Cola European Partners", "Zurich Insurance"] },
+  "Appian": { founded: "1999", hq: "McLean, VA", employees: "2,200+", ceo: "Matt Calkins", description: "Low-code automation platform combining process mining, RPA, and AI for enterprise workflow automation.", strengths: ["Low-code leader", "Process mining + RPA combo", "Government sector strength"], weaknesses: ["Smaller revenue scale", "18% moderate growth"], keyProducts: ["Appian Platform", "Process Mining", "RPA", "AI Process Designer"], recentMoves: ["AI Process Designer launch", "Data fabric architecture", "Government cloud expansion"], customers: ["US Army", "Fannie Mae", "T-Mobile", "Roche"] },
+  "IBM RPA": { founded: "2020 (WDG acq.)", hq: "Armonk, NY", employees: "Part of IBM", ceo: "Arvind Krishna", description: "IBM's automation division offering RPA integrated with Watson AI and Cloud Pak for Business Automation.", strengths: ["Watson AI integration", "IBM consulting leverage", "Enterprise relationships"], weaknesses: ["Late RPA market entry", "Fragmented automation portfolio"], keyProducts: ["IBM RPA", "Watson Orchestrate", "Cloud Pak for Business Automation"], recentMoves: ["WatsonX AI integration", "Orchestrate digital worker", "Consulting-led automation"], customers: ["Vodafone", "BNP Paribas", "Telefonica"] },
+  "Pega": { founded: "1983", hq: "Cambridge, MA", employees: "6,500+", ceo: "Alan Trefler", description: "Enterprise application platform combining BPM, CRM, and intelligent automation with AI-driven decisioning.", strengths: ["Deep CRM integration", "AI-powered decisioning", "40+ years enterprise experience"], weaknesses: ["10% slow growth", "Complex platform learning curve"], keyProducts: ["Pega Platform", "Customer Decision Hub", "Robotic Automation", "Process Fabric"], recentMoves: ["Pega GenAI Blueprint", "Auto-generated workflows", "Blueprint free tool viral growth"], customers: ["HSBC", "Pfizer", "Cigna", "Vodafone"] },
+  "WorkFusion": { founded: "2010", hq: "New York, NY", employees: "500+", ceo: "Adam Devine", description: "AI-powered intelligent automation platform specialized in financial crime compliance and AML/KYC automation.", strengths: ["AML/KYC specialization", "Pre-built compliance bots", "AI-native platform"], weaknesses: ["Narrow vertical focus", "Small revenue base"], keyProducts: ["WorkFusion Platform", "Turabot (SAR)", "Evelyn (KYC)", "Isaac (Transaction Monitoring)"], recentMoves: ["$340M total funding", "Expanded to fraud detection", "Named AI bot personas"], customers: ["Standard Chartered", "Deutsche Bank", "HSBC", "Top 10 US banks"] },
+  "Celonis": { founded: "2011", hq: "Munich, Germany", employees: "3,000+", ceo: "Alex Rinke", description: "Process mining and execution management platform helping enterprises discover, improve, and automate business processes.", strengths: ["60% growth rate", "Process mining market leader", "$13B valuation"], weaknesses: ["Not yet profitable", "Category still maturing"], keyProducts: ["Celonis EMS", "Process Intelligence", "Action Engine", "Process Copilot"], recentMoves: ["Process Copilot GenAI launch", "Object-centric process mining", "Industry-specific solutions"], customers: ["Uber", "Siemens", "L'Oréal", "ABB", "Dell"] },
+  "Moveworks": { founded: "2016", hq: "Mountain View, CA", employees: "550+", ceo: "Bhavin Shah", description: "AI-powered employee experience platform using LLMs to automate IT support, HR, and enterprise service desk interactions.", strengths: ["85% growth rate (highest)", "GenAI-native architecture", "$315M raised"], weaknesses: ["Pre-revenue scale ($100M)", "Narrow IT support focus expanding"], keyProducts: ["Moveworks Platform", "Creator Studio", "Employee Experience Insights"], recentMoves: ["GPT-powered copilot", "Expanded beyond IT to HR/Finance", "Creator Studio for custom AI bots"], customers: ["Hearst", "DocuSign", "Broadcom", "Palo Alto Networks"] },
+};
 
 // Comprehensive vendor data with numeric metrics for filtering
 const vendorData = [
@@ -97,6 +145,7 @@ const VendorComparisonMatrix = () => {
   const [revenueRange, setRevenueRange] = useState([0, 100]);
   const [growthRateRange, setGrowthRateRange] = useState([0, 100]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [selectedVendor, setSelectedVendor] = useState<typeof vendorData[0] | null>(null);
 
   // Normalize values for slider (log scale for market cap and revenue)
   const normalizeValue = (value: number, max: number) => (Math.log10(value + 1) / Math.log10(max + 1)) * 100;
@@ -506,7 +555,8 @@ const VendorComparisonMatrix = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ delay: index * 0.02 }}
-                      className="border-border hover:bg-secondary/30 transition-colors group"
+                      className="border-border hover:bg-secondary/30 transition-colors group cursor-pointer"
+                      onClick={() => setSelectedVendor(vendor)}
                     >
                       <TableCell className="font-medium">
                         <div className="flex items-center gap-3">
@@ -609,6 +659,122 @@ const VendorComparisonMatrix = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Vendor Detail Modal */}
+      <Dialog open={!!selectedVendor} onOpenChange={(open) => !open && setSelectedVendor(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-card border-border">
+          {selectedVendor && (() => {
+            const details = vendorDetails[selectedVendor.name];
+            const CategoryIcon = categoryIcons[selectedVendor.category];
+            if (!details) return (
+              <DialogHeader>
+                <DialogTitle className="text-foreground">{selectedVendor.name}</DialogTitle>
+                <p className="text-muted-foreground text-sm">Detailed information not available.</p>
+              </DialogHeader>
+            );
+            return (
+              <>
+                <DialogHeader>
+                  <div className="flex items-center gap-3 mb-1">
+                    <CategoryIcon className="w-5 h-5" style={{ color: categoryColors[selectedVendor.category] }} />
+                    <Badge variant="outline" style={{ borderColor: categoryColors[selectedVendor.category], color: categoryColors[selectedVendor.category] }}>
+                      {selectedVendor.category}
+                    </Badge>
+                    {selectedVendor.type === "emerging" && (
+                      <Badge variant="outline" className="bg-executive-amber/10 text-executive-amber border-executive-amber/30">Emerging</Badge>
+                    )}
+                  </div>
+                  <DialogTitle className="text-2xl text-foreground">{selectedVendor.name}</DialogTitle>
+                  <p className="text-muted-foreground text-sm mt-1">{details.description}</p>
+                </DialogHeader>
+
+                {/* Key Metrics */}
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <DollarSign className="w-4 h-4 mx-auto mb-1 text-primary" />
+                    <div className="text-lg font-bold text-foreground">{selectedVendor.marketCap >= 1000 ? `$${(selectedVendor.marketCap / 1000).toFixed(1)}T` : `$${selectedVendor.marketCap.toFixed(1)}B`}</div>
+                    <div className="text-xs text-muted-foreground">Market Cap</div>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <BarChart3 className="w-4 h-4 mx-auto mb-1 text-accent" />
+                    <div className="text-lg font-bold text-foreground">{selectedVendor.revenue >= 1 ? `$${selectedVendor.revenue.toFixed(2)}B` : `$${(selectedVendor.revenue * 1000).toFixed(0)}M`}</div>
+                    <div className="text-xs text-muted-foreground">Revenue</div>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <TrendingUp className="w-4 h-4 mx-auto mb-1 text-executive-green" />
+                    <div className="text-lg font-bold text-foreground">{selectedVendor.growthRate}%</div>
+                    <div className="text-xs text-muted-foreground">Growth Rate</div>
+                  </div>
+                </div>
+
+                {/* Company Info */}
+                <div className="grid grid-cols-2 gap-3 mt-4">
+                  <div className="flex items-center gap-2 text-sm"><Calendar className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">Founded:</span><span className="text-foreground">{details.founded}</span></div>
+                  <div className="flex items-center gap-2 text-sm"><Globe className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">HQ:</span><span className="text-foreground">{details.hq}</span></div>
+                  <div className="flex items-center gap-2 text-sm"><Users className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">Employees:</span><span className="text-foreground">{details.employees}</span></div>
+                  <div className="flex items-center gap-2 text-sm"><Shield className="w-4 h-4 text-muted-foreground" /><span className="text-muted-foreground">CEO:</span><span className="text-foreground">{details.ceo}</span></div>
+                </div>
+
+                {/* Strengths & Weaknesses */}
+                <div className="grid grid-cols-2 gap-4 mt-5">
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Award className="w-4 h-4 text-executive-green" />Strengths</h4>
+                    <ul className="space-y-1">
+                      {details.strengths.map((s, i) => (
+                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                          <span className="text-executive-green mt-0.5">•</span>{s}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Target className="w-4 h-4 text-executive-amber" />Weaknesses</h4>
+                    <ul className="space-y-1">
+                      {details.weaknesses.map((w, i) => (
+                        <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                          <span className="text-executive-amber mt-0.5">•</span>{w}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Key Products */}
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Cpu className="w-4 h-4 text-primary" />Key Products</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {details.keyProducts.map((p, i) => (
+                      <Badge key={i} variant="secondary" className="text-xs">{p}</Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recent Moves */}
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Zap className="w-4 h-4 text-executive-amber" />Recent Strategic Moves</h4>
+                  <ul className="space-y-1">
+                    {details.recentMoves.map((m, i) => (
+                      <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <ExternalLink className="w-3 h-3 mt-0.5 text-primary shrink-0" />{m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Customers */}
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2"><Building2 className="w-4 h-4 text-accent" />Key Customers</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {details.customers.map((c, i) => (
+                      <Badge key={i} variant="outline" className="text-xs">{c}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </>
+            );
+          })()}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
