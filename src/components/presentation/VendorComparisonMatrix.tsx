@@ -555,7 +555,8 @@ const VendorComparisonMatrix = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ delay: index * 0.02 }}
-                      className="border-border hover:bg-secondary/30 transition-colors group"
+                      className="border-border hover:bg-secondary/30 transition-colors group cursor-pointer"
+                      onClick={() => setSelectedVendor(vendor)}
                     >
                       <TableCell className="font-medium">
                         <div className="flex items-center gap-3">
