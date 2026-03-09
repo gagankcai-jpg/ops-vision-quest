@@ -145,6 +145,7 @@ const VendorComparisonMatrix = () => {
   const [revenueRange, setRevenueRange] = useState([0, 100]);
   const [growthRateRange, setGrowthRateRange] = useState([0, 100]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [selectedVendor, setSelectedVendor] = useState<typeof vendorData[0] | null>(null);
 
   // Normalize values for slider (log scale for market cap and revenue)
   const normalizeValue = (value: number, max: number) => (Math.log10(value + 1) / Math.log10(max + 1)) * 100;
