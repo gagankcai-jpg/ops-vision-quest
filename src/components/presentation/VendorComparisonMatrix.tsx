@@ -12,7 +12,15 @@ import {
   Bot,
   X,
   Search,
-  ChevronDown
+  ChevronDown,
+  ExternalLink,
+  Globe,
+  Users,
+  Calendar,
+  Award,
+  Zap,
+  Target,
+  Shield
 } from "lucide-react";
 import { 
   Table, 
