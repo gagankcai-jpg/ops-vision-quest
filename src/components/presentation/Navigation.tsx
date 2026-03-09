@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download } from "lucide-react";
+import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download, FileDown } from "lucide-react";
 import { generatePPTX } from "@/utils/generatePPTX";
+import { generatePDF } from "@/utils/generatePDF";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
+  const [isExportingPDF, setIsExportingPDF] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +42,17 @@ const Navigation = () => {
       console.error("Export failed:", error);
     } finally {
       setIsExporting(false);
+    }
+  };
+
+  const handleExportPDF = async () => {
+    setIsExportingPDF(true);
+    try {
+      await generatePDF();
+    } catch (error) {
+      console.error("PDF export failed:", error);
+    } finally {
+      setIsExportingPDF(false);
     }
   };
 
@@ -78,12 +91,20 @@ const Navigation = () => {
                 </button>
               ))}
               <button
+                onClick={handleExportPDF}
+                disabled={isExportingPDF}
+                className="flex items-center gap-2 px-4 py-2 ml-2 text-sm font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg transition-colors disabled:opacity-50"
+              >
+                <FileDown className="w-4 h-4" />
+                {isExportingPDF ? "Exporting..." : "PDF"}
+              </button>
+              <button
                 onClick={handleExportPPTX}
                 disabled={isExporting}
-                className="flex items-center gap-2 px-4 py-2 ml-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-colors disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-colors disabled:opacity-50"
               >
                 <Download className="w-4 h-4" />
-                {isExporting ? "Exporting..." : "Export PPTX"}
+                {isExporting ? "Exporting..." : "PPTX"}
               </button>
             </div>
 
@@ -119,6 +140,14 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={handleExportPDF}
+                disabled={isExportingPDF}
+                className="flex items-center gap-3 w-full px-4 py-3 mt-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg transition-colors disabled:opacity-50"
+              >
+                <FileDown className="w-4 h-4" />
+                {isExportingPDF ? "Exporting..." : "Export PDF"}
+              </button>
               <button
                 onClick={handleExportPPTX}
                 disabled={isExporting}
