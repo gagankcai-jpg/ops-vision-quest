@@ -1,24 +1,26 @@
-import { BarChart3, Cpu, Bot } from "lucide-react";
+import { BarChart3, Cpu, Bot, Sparkles, ShieldCheck } from "lucide-react";
 
+// Scope: AI-powered anomaly detection, APM, distributed tracing,
+// log analytics, and ML-driven infrastructure monitoring.
+// Source: Mordor Intelligence, Grand View Research 2024.
 export const aiopsData = {
   id: "aiops",
   title: "AIOps & Observability",
-  subtitle: "AI-Driven IT Operations Intelligence",
+  subtitle: "AI-Driven IT Operations & Application Performance",
   icon: BarChart3,
   color: "hsl(199 89% 48%)",
   colorClass: "text-primary",
-  tam2024: "$2.23B",
-  tam2030: "$11.8B",
-  cagr: "20.4%",
+  tam2024: "$4.1B",
+  tam2030: "$16.8B",
+  cagr: "26.2%",
   chartData: [
-    { year: "2024", value: 2.2 },
-    { year: "2025", value: 2.67 },
-    { year: "2026", value: 3.2 },
-    { year: "2027", value: 4.0 },
-    { year: "2028", value: 5.2 },
-    { year: "2029", value: 7.0 },
-    { year: "2030", value: 9.0 },
-    { year: "2034", value: 11.8 },
+    { year: "2024", value: 4.1 },
+    { year: "2025", value: 5.2 },
+    { year: "2026", value: 6.5 },
+    { year: "2027", value: 8.2 },
+    { year: "2028", value: 10.4 },
+    { year: "2029", value: 13.2 },
+    { year: "2030", value: 16.8 },
   ],
   topVendors: [
     { name: "Dynatrace", type: "leader" as const, metric: "15yr Leader", description: "Highest Gartner execution score" },
@@ -61,24 +63,28 @@ export const aiopsData = {
   ],
 };
 
+// Scope: IT Service Management (ITSM) + ITOM platforms — service desk,
+// incident/change/problem management, CMDB, asset management.
+// Excludes APM/monitoring (AIOps) and pure cloud infrastructure.
+// Source: Gartner ITSM Magic Quadrant 2024, IDC IT Operations.
 export const itomData = {
   id: "itom",
-  title: "IT Operations Management",
-  subtitle: "Enterprise Infrastructure & Service Management",
+  title: "IT Service & Operations Management",
+  subtitle: "ITSM, CMDB, Change & Asset Management Platforms",
   icon: Cpu,
   color: "hsl(262 83% 58%)",
   colorClass: "text-accent",
-  tam2024: "$51.7B",
-  tam2030: "$105B",
-  cagr: "10.9%",
+  tam2024: "$13.5B",
+  tam2030: "$27.8B",
+  cagr: "12.7%",
   chartData: [
-    { year: "2024", value: 51.7 },
-    { year: "2025", value: 57 },
-    { year: "2026", value: 63 },
-    { year: "2027", value: 72 },
-    { year: "2028", value: 82 },
-    { year: "2029", value: 93 },
-    { year: "2030", value: 105 },
+    { year: "2024", value: 13.5 },
+    { year: "2025", value: 15.2 },
+    { year: "2026", value: 17.1 },
+    { year: "2027", value: 19.3 },
+    { year: "2028", value: 21.8 },
+    { year: "2029", value: 24.6 },
+    { year: "2030", value: 27.8 },
   ],
   topVendors: [
     { name: "ServiceNow", type: "leader" as const, metric: "44% Share", description: "Dominant ITSM/ITOM platform" },
@@ -181,4 +187,129 @@ export const rpaData = {
   ],
 };
 
-export const allCategories = [aiopsData, itomData, rpaData];
+// Scope: Autonomous AI agents for IT operations — LLM-native ITSM copilots,
+// self-healing infrastructure agents, zero-touch service desk automation.
+// Nascent market post-2023. Source: IDC Agentic AI 2024, Gartner emerging tech.
+export const agentopsData = {
+  id: "agentops",
+  title: "Agentic IT Operations",
+  subtitle: "Autonomous AI Agents for IT & Service Management",
+  icon: Sparkles,
+  color: "hsl(38 92% 50%)",
+  colorClass: "text-executive-amber",
+  tam2024: "$2.4B",
+  tam2030: "$18.6B",
+  cagr: "40.4%",
+  chartData: [
+    { year: "2024", value: 2.4 },
+    { year: "2025", value: 3.4 },
+    { year: "2026", value: 4.7 },
+    { year: "2027", value: 6.6 },
+    { year: "2028", value: 9.3 },
+    { year: "2029", value: 13.1 },
+    { year: "2030", value: 18.6 },
+  ],
+  topVendors: [
+    { name: "ServiceNow Now Assist", type: "leader" as const, metric: "Enterprise #1", description: "AI agents across the Now Platform" },
+    { name: "Microsoft Copilot for IT", type: "leader" as const, metric: "48% Growth", description: "Fastest enterprise adoption" },
+    { name: "Moveworks", type: "leader" as const, metric: "$315M Raised", description: "LLM-native IT support agents" },
+    { name: "Atlassian Intelligence", type: "leader" as const, metric: "35% Growth", description: "Dev & ops AI agents" },
+    { name: "Aisera", type: "leader" as const, metric: "$150M Raised", description: "Generative AI service desk" },
+    { name: "PagerDuty Copilot", type: "leader" as const, metric: "AIOps + AI", description: "Autonomous incident response" },
+    { name: "Freshservice Freddy AI", type: "leader" as const, metric: "SME Leader", description: "Conversational AI for ITSM" },
+    { name: "BMC HelixGPT", type: "leader" as const, metric: "Enterprise", description: "GenAI across Helix ITSM" },
+    { name: "Dynatrace Davis AI", type: "leader" as const, metric: "Self-Healing", description: "Autonomous infrastructure AI" },
+    { name: "IBM Watson Orchestrate", type: "leader" as const, metric: "Digital Workers", description: "AI agent orchestration platform" },
+  ],
+  emergingVendors: [
+    { name: "Leena AI", type: "emerging" as const, metric: "95% Growth", description: "Autonomous employee helpdesk" },
+    { name: "Espressive Barista", type: "emerging" as const, metric: "$75M Raised", description: "Virtual IT support agent" },
+    { name: "Rezolve.ai", type: "emerging" as const, metric: "MS Teams-Native", description: "Zero-touch IT resolution" },
+    { name: "Gaspar AI", type: "emerging" as const, metric: "Slack-Native", description: "AI helpdesk for Slack orgs" },
+  ],
+  useCases: [
+    { title: "Autonomous Incident Resolution", description: "AI agents detect, diagnose, and resolve IT incidents end-to-end without human intervention" },
+    { title: "Self-Healing Infrastructure", description: "Continuous remediation agents that auto-correct misconfigurations and performance degradation" },
+    { title: "Intelligent Change Management", description: "AI evaluates change risk, routes approvals, and monitors post-deployment health autonomously" },
+    { title: "Proactive Employee IT Support", description: "LLM-powered virtual agents resolve 70%+ of employee IT requests via chat and voice" },
+    { title: "Autonomous Knowledge Management", description: "AI agents surface, update, and validate knowledge articles in real-time based on ticket patterns" },
+  ],
+  trends: [
+    { title: "Multi-Agent Orchestration", description: "Specialized AI agents collaborating in orchestrated workflows across ITSM, monitoring, and security" },
+    { title: "LLM-Powered Runbooks", description: "Natural language runbook execution — agents interpret intent and carry out complex multi-step remediation" },
+    { title: "Zero-Touch Service Requests", description: "Fully automated fulfillment for 60–80% of standard IT requests with no human touchpoints" },
+    { title: "Copilot-Embedded Platforms", description: "Every major ITSM and monitoring vendor embedding generative AI copilots into core workflows" },
+  ],
+  opportunities: [
+    "Enterprise service desk AI replacement ($6B+ addressable)",
+    "Agentic ITSM platform differentiation",
+    "Cross-functional agent orchestration (IT + HR + Finance)",
+    "Voice-based autonomous IT support",
+    "Autonomous compliance auditing & remediation",
+    "Industry-specific pre-trained agentic workflows",
+  ],
+};
+
+export const secopsData = {
+  id: "secops",
+  title: "Security Operations (SecOps)",
+  subtitle: "Autonomous Threat Detection, Investigation & Response",
+  icon: ShieldCheck,
+  color: "hsl(346 77% 49%)",
+  colorClass: "text-executive-rose",
+  tam2024: "$22.3B",
+  tam2030: "$52.7B",
+  cagr: "15.4%",
+  chartData: [
+    { year: "2024", value: 22.3 },
+    { year: "2025", value: 25.7 },
+    { year: "2026", value: 29.7 },
+    { year: "2027", value: 34.2 },
+    { year: "2028", value: 39.5 },
+    { year: "2029", value: 45.6 },
+    { year: "2030", value: 52.7 },
+  ],
+  topVendors: [
+    { name: "CrowdStrike", type: "leader" as const, metric: "$3.1B Rev", description: "Falcon platform — endpoint to SIEM" },
+    { name: "Palo Alto XSOAR", type: "leader" as const, metric: "SOAR Leader", description: "Most deployed SOAR platform" },
+    { name: "Microsoft Sentinel", type: "leader" as const, metric: "52% Growth", description: "Fastest-growing cloud SIEM" },
+    { name: "Splunk SOAR", type: "leader" as const, metric: "Enterprise", description: "Playbook automation incumbent" },
+    { name: "IBM QRadar SOAR", type: "leader" as const, metric: "AI-Powered", description: "Watson AI-driven SOC platform" },
+    { name: "ServiceNow SecOps", type: "leader" as const, metric: "ITSM-Native", description: "Security incident + change integration" },
+    { name: "Exabeam", type: "leader" as const, metric: "UEBA Leader", description: "User & entity behavior analytics" },
+    { name: "Securonix", type: "leader" as const, metric: "Cloud SIEM", description: "Open XDR + SOAR platform" },
+    { name: "Google Chronicle", type: "leader" as const, metric: "Petabyte-Scale", description: "Cloud-native SIEM on Google infra" },
+    { name: "Elastic SIEM", type: "leader" as const, metric: "Open-Source", description: "ELK-stack security analytics" },
+  ],
+  emergingVendors: [
+    { name: "Tines", type: "emerging" as const, metric: "110% Growth", description: "No-code security automation" },
+    { name: "Torq", type: "emerging" as const, metric: "120% Growth", description: "AI hyperautomation for SecOps" },
+    { name: "Radiant Security", type: "emerging" as const, metric: "AI SOC", description: "Fully autonomous SOC analyst" },
+    { name: "D3 Security", type: "emerging" as const, metric: "Smart SOAR", description: "Next-gen SOAR with case management" },
+  ],
+  useCases: [
+    { title: "Automated Threat Detection & Triage", description: "AI models classify and prioritize alerts at machine speed, reducing analyst fatigue by 80%+" },
+    { title: "AI-Powered Incident Investigation", description: "Autonomous correlation of IOCs, threat intel, and user behavior across hybrid environments" },
+    { title: "SOAR Playbook Automation", description: "Pre-built and AI-generated playbooks automate containment, enrichment, and escalation workflows" },
+    { title: "Threat Intelligence Enrichment", description: "Real-time integration of external threat feeds to contextualize and prioritize active incidents" },
+    { title: "Compliance & Audit Automation", description: "Continuous evidence collection and policy enforcement for SOC 2, ISO 27001, and NIST frameworks" },
+  ],
+  trends: [
+    { title: "Generative AI for SOC Analysts", description: "LLM-powered investigation assistants explaining threats in plain language and suggesting remediation" },
+    { title: "Autonomous Threat Response", description: "SOAR platforms executing containment without analyst approval for high-confidence, low-risk incidents" },
+    { title: "Unified SIEM + SOAR + XDR", description: "Platform consolidation replacing point solutions — vendors racing to build single-pane-of-glass SecOps" },
+    { title: "AI-Native Security Copilots", description: "Microsoft Copilot for Security, CrowdStrike Charlotte AI, and Palo Alto Copilot redefining analyst UX" },
+  ],
+  opportunities: [
+    "AI SOC analyst augmentation (reduces analyst headcount gap)",
+    "Cloud-native SIEM/SOAR platform consolidation",
+    "Identity threat detection & response (ITDR) expansion",
+    "OT/ICS security automation for critical infrastructure",
+    "Multi-cloud security operations center unification",
+    "Autonomous threat hunting and proactive exposure management",
+  ],
+};
+
+export const allCategories = [aiopsData, itomData, rpaData, agentopsData, secopsData];
+
+export type MarketData = typeof aiopsData;

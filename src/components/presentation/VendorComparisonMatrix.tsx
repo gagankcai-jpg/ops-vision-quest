@@ -1,11 +1,11 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Filter, 
-  SortAsc, 
-  SortDesc, 
-  TrendingUp, 
-  DollarSign, 
+import {
+  Filter,
+  SortAsc,
+  SortDesc,
+  TrendingUp,
+  DollarSign,
   Building2,
   BarChart3,
   Cpu,
@@ -20,7 +20,9 @@ import {
   Award,
   Zap,
   Target,
-  Shield
+  Shield,
+  Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 import { 
   Table, 
@@ -79,6 +81,18 @@ const vendorDetails: Record<string, { founded: string; hq: string; employees: st
   "WorkFusion": { founded: "2010", hq: "New York, NY", employees: "500+", ceo: "Adam Devine", description: "AI-powered intelligent automation platform specialized in financial crime compliance and AML/KYC automation.", strengths: ["AML/KYC specialization", "Pre-built compliance bots", "AI-native platform"], weaknesses: ["Narrow vertical focus", "Small revenue base"], keyProducts: ["WorkFusion Platform", "Turabot (SAR)", "Evelyn (KYC)", "Isaac (Transaction Monitoring)"], recentMoves: ["$340M total funding", "Expanded to fraud detection", "Named AI bot personas"], customers: ["Standard Chartered", "Deutsche Bank", "HSBC", "Top 10 US banks"] },
   "Celonis": { founded: "2011", hq: "Munich, Germany", employees: "3,000+", ceo: "Alex Rinke", description: "Process mining and execution management platform helping enterprises discover, improve, and automate business processes.", strengths: ["60% growth rate", "Process mining market leader", "$13B valuation"], weaknesses: ["Not yet profitable", "Category still maturing"], keyProducts: ["Celonis EMS", "Process Intelligence", "Action Engine", "Process Copilot"], recentMoves: ["Process Copilot GenAI launch", "Object-centric process mining", "Industry-specific solutions"], customers: ["Uber", "Siemens", "L'Oréal", "ABB", "Dell"] },
   "Moveworks": { founded: "2016", hq: "Mountain View, CA", employees: "550+", ceo: "Bhavin Shah", description: "AI-powered employee experience platform using LLMs to automate IT support, HR, and enterprise service desk interactions.", strengths: ["85% growth rate (highest)", "GenAI-native architecture", "$315M raised"], weaknesses: ["Pre-revenue scale ($100M)", "Narrow IT support focus expanding"], keyProducts: ["Moveworks Platform", "Creator Studio", "Employee Experience Insights"], recentMoves: ["GPT-powered copilot", "Expanded beyond IT to HR/Finance", "Creator Studio for custom AI bots"], customers: ["Hearst", "DocuSign", "Broadcom", "Palo Alto Networks"] },
+  // Agentic Ops vendors
+  "Aisera": { founded: "2017", hq: "Palo Alto, CA", employees: "300+", ceo: "Muddu Sudhakar", description: "Generative AI service management platform delivering autonomous IT and HR support through conversational AI and proactive resolution.", strengths: ["GenAI-native architecture", "$150M raised", "95% first-contact resolution"], weaknesses: ["Smaller scale vs. incumbents", "Brand recognition still growing"], keyProducts: ["Aisera AISM", "AI Copilot", "AiseraGPT", "Workflow Automation"], recentMoves: ["AiseraGPT enterprise launch", "Expanded to HR & Finance agents", "Partnered with ServiceNow"], customers: ["Zoom", "Autodesk", "Dartmouth Health", "Condé Nast"] },
+  "PagerDuty Copilot": { founded: "2009", hq: "San Francisco, CA", employees: "900+", ceo: "Jennifer Tejada", description: "AI-powered incident management platform that autonomously detects, triages, and coordinates response to operational incidents.", strengths: ["AIOps + copilot integration", "Largest on-call customer base", "Strong enterprise footprint"], weaknesses: ["Slowing growth (~7%)", "Competitive pressure from observability vendors"], keyProducts: ["PagerDuty Operations Cloud", "AIOps", "Copilot", "Automation Actions"], recentMoves: ["Copilot for incident summarization", "Automation Actions GA", "Operations Cloud launch"], customers: ["GE Healthcare", "Comcast", "DoorDash", "Twilio"] },
+  "Leena AI": { founded: "2018", hq: "San Francisco, CA", employees: "300+", ceo: "Adit Jain", description: "Autonomous employee IT and HR helpdesk powered by a fine-tuned LLM that resolves 95%+ of employee queries without human escalation.", strengths: ["95% auto-resolution rate", "MS Teams & Slack native", "60+ enterprise connectors"], weaknesses: ["Early revenue stage", "Limited brand recognition outside APAC"], keyProducts: ["Leena AI Autonomous Agent", "WorkLM", "HR Helpdesk", "IT Helpdesk"], recentMoves: ["WorkLM enterprise LLM launch", "Series C funding ($30M)", "Expanded to North America"], customers: ["Coca-Cola", "Nestlé", "Air Asia", "Puma"] },
+  "Espressive": { founded: "2018", hq: "Santa Clara, CA", employees: "150+", ceo: "Pat Calhoun", description: "Enterprise virtual support agent (Barista) providing personalized, AI-driven self-service for IT, HR, and facilities management.", strengths: ["Fortune 500 customers", "Omnichannel support (Teams, Slack, web)", "Deep ITSM integrations"], weaknesses: ["Smaller team limits roadmap speed", "$75M raised (needs more scale)"], keyProducts: ["Espressive Barista", "Barista for IT", "Barista for HR"], recentMoves: ["$75M Series C funding", "Barista AI native upgrade", "Expanded HR & facilities modules"], customers: ["Dell", "Abbott", "Hewlett Packard Enterprise", "Levi Strauss"] },
+  // Security Ops vendors
+  "CrowdStrike": { founded: "2011", hq: "Austin, TX", employees: "10,000+", ceo: "George Kurtz", description: "Leading cloud-native endpoint protection and extended detection & response (XDR) platform with AI-powered threat intelligence and automated response.", strengths: ["$3.1B ARR, 33% growth", "Falcon platform breadth (EDR to SIEM)", "Threat Graph AI processes 1T events/day"], weaknesses: ["Premium pricing", "2024 global IT outage reputational impact"], keyProducts: ["Falcon XDR", "Falcon Fusion SOAR", "Charlotte AI", "Threat Graph", "Next-Gen SIEM"], recentMoves: ["Charlotte AI general availability", "Next-Gen SIEM launch", "Acquired Bionic for ASPM"], customers: ["AMD", "Goldman Sachs", "AWS", "Berkshire Hathaway"] },
+  "Palo Alto XSOAR": { founded: "2005", hq: "Santa Clara, CA", employees: "15,000+", ceo: "Nikesh Arora", description: "Industry-leading SOAR platform (Cortex XSOAR) and unified security operations suite combining SIEM, SOAR, and XDR into Cortex.", strengths: ["Most deployed SOAR platform globally", "Cortex platform breadth", "$8B+ security revenue"], weaknesses: ["High total cost", "Platform complexity for mid-market"], keyProducts: ["Cortex XSOAR", "Cortex XDR", "XSIAM", "Cortex Copilot"], recentMoves: ["XSIAM AI-driven SOC platform launch", "Cortex Copilot GA", "Acquired Talon Cyber Security"], customers: ["British Telecom", "Orange", "US Air Force", "Generali Insurance"] },
+  "Exabeam": { founded: "2013", hq: "Foster City, CA", employees: "900+", ceo: "Adam Geller", description: "Cloud-native SIEM and security operations platform built on user and entity behavior analytics (UEBA) to detect insider threats and compromised accounts.", strengths: ["UEBA market leader", "28% growth rate", "Behavior-based detection reduces false positives"], weaknesses: ["Revenue scale vs. Microsoft/Splunk", "Competitive from XDR platforms"], keyProducts: ["Exabeam Security Operations Platform", "Smart Timelines", "Threat Center", "UEBA"], recentMoves: ["Merged with LogRhythm (2024)", "New-Scale SIEM launch", "AI-Analyst release"], customers: ["Fidelity", "Intel", "Stanford Health", "City of San Jose"] },
+  "Securonix": { founded: "2008", hq: "Addison, TX", employees: "700+", ceo: "Nayaki Nayyar", description: "Cloud-native open XDR platform combining SIEM, SOAR, and UEBA with Spotter AI for natural language threat investigation.", strengths: ["Open XDR architecture", "Spotter AI natural language queries", "Strong MSSPs channel"], weaknesses: ["Not publicly traded (private)", "Brand awareness behind Splunk/Microsoft"], keyProducts: ["Securonix Unified Defense SIEM", "SOAR", "UEBA", "Spotter AI"], recentMoves: ["Spotter AI GA for NL threat hunting", "Acquired Cybersponse (SOAR)", "US$1B+ valuation"], customers: ["Pfizer", "US Army Corps", "Santander", "Fannie Mae"] },
+  "Tines": { founded: "2018", hq: "Dublin, Ireland", employees: "300+", ceo: "Eoin Hinchy", description: "No-code security automation platform enabling security teams to build powerful workflows without engineering support, with AI-assisted automation builder.", strengths: ["110% NRR growth rate", "No-code accessibility", "AI Story Builder for workflow creation"], weaknesses: ["Early revenue stage", "Still building enterprise brand"], keyProducts: ["Tines Automation Platform", "AI Story Builder", "Tines Library (1000+ templates)"], recentMoves: ["AI Story Builder launch", "Raised $50M Series B", "1,000+ pre-built workflow library"], customers: ["OpenAI", "Canva", "Intercom", "PagerDuty"] },
+  "Torq": { founded: "2020", hq: "Denver, CO", employees: "200+", ceo: "Ofer Smadari", description: "AI-powered security hyperautomation platform that autonomously handles tier-1 SOC alerts end-to-end, reducing analyst workload by 90%+.", strengths: ["120% growth rate", "Autonomous tier-1 case closure", "AI-first architecture"], weaknesses: ["Very early stage ($100M total raised)", "Limited brand outside security-native buyers"], keyProducts: ["Torq HyperSOC", "Autonomous Cases", "Torq AI Security Agents"], recentMoves: ["HyperSOC autonomous case platform launch", "$70M Series B funding", "AI Security Agents release"], customers: ["Wiz", "Semrush", "Fiverr", "Applied Systems"] },
 };
 
 // Comprehensive vendor data with numeric metrics for filtering
@@ -118,6 +132,30 @@ const vendorData = [
   { name: "WorkFusion", category: "RPA", marketCap: 0.8, revenue: 0.12, growthRate: 35, type: "leader", highlight: "AML/KYC bots" },
   { name: "Celonis", category: "RPA", marketCap: 13.0, revenue: 0.5, growthRate: 60, type: "emerging", highlight: "Process mining" },
   { name: "Moveworks", category: "RPA", marketCap: 2.1, revenue: 0.1, growthRate: 85, type: "emerging", highlight: "$315M raised" },
+
+  // Agentic IT Operations
+  { name: "ServiceNow", category: "AgenticOps", marketCap: 165.0, revenue: 8.9, growthRate: 34, type: "leader", highlight: "Now Assist AI agents" },
+  { name: "Microsoft", category: "AgenticOps", marketCap: 3100.0, revenue: 2.5, growthRate: 48, type: "leader", highlight: "Copilot for IT — fastest" },
+  { name: "Moveworks", category: "AgenticOps", marketCap: 2.1, revenue: 0.1, growthRate: 85, type: "leader", highlight: "LLM-native IT agents" },
+  { name: "Aisera", category: "AgenticOps", marketCap: 0.9, revenue: 0.05, growthRate: 72, type: "leader", highlight: "AiseraGPT platform" },
+  { name: "Atlassian", category: "AgenticOps", marketCap: 52.0, revenue: 3.5, growthRate: 35, type: "leader", highlight: "Dev & ops AI agents" },
+  { name: "PagerDuty Copilot", category: "AgenticOps", marketCap: 1.8, revenue: 0.45, growthRate: 22, type: "leader", highlight: "Incident AI copilot" },
+  { name: "Freshworks", category: "AgenticOps", marketCap: 4.5, revenue: 0.58, growthRate: 38, type: "leader", highlight: "Freddy AI agents" },
+  { name: "BMC Software", category: "AgenticOps", marketCap: 8.5, revenue: 2.2, growthRate: 18, type: "leader", highlight: "HelixGPT" },
+  { name: "Leena AI", category: "AgenticOps", marketCap: 0.3, revenue: 0.02, growthRate: 95, type: "emerging", highlight: "95% auto-resolution" },
+  { name: "Espressive", category: "AgenticOps", marketCap: 0.5, revenue: 0.03, growthRate: 88, type: "emerging", highlight: "Barista virtual agent" },
+
+  // Security Operations
+  { name: "CrowdStrike", category: "SecOps", marketCap: 75.0, revenue: 3.1, growthRate: 33, type: "leader", highlight: "Falcon XDR + Charlotte AI" },
+  { name: "Palo Alto XSOAR", category: "SecOps", marketCap: 98.0, revenue: 8.0, growthRate: 19, type: "leader", highlight: "XSOAR/XSIAM leader" },
+  { name: "Microsoft", category: "SecOps", marketCap: 3100.0, revenue: 3.5, growthRate: 52, type: "leader", highlight: "Sentinel fastest SIEM" },
+  { name: "Splunk (Cisco)", category: "SecOps", marketCap: 28.0, revenue: 3.7, growthRate: 18, type: "leader", highlight: "SOAR enterprise incumbent" },
+  { name: "IBM", category: "SecOps", marketCap: 175.0, revenue: 1.8, growthRate: 12, type: "leader", highlight: "QRadar SOAR + Watson" },
+  { name: "ServiceNow", category: "SecOps", marketCap: 165.0, revenue: 8.9, growthRate: 24, type: "leader", highlight: "SecOps + ITSM bridge" },
+  { name: "Exabeam", category: "SecOps", marketCap: 2.5, revenue: 0.35, growthRate: 28, type: "leader", highlight: "UEBA market leader" },
+  { name: "Securonix", category: "SecOps", marketCap: 1.7, revenue: 0.22, growthRate: 32, type: "leader", highlight: "Open XDR platform" },
+  { name: "Tines", category: "SecOps", marketCap: 1.2, revenue: 0.08, growthRate: 110, type: "emerging", highlight: "No-code automation" },
+  { name: "Torq", category: "SecOps", marketCap: 0.8, revenue: 0.04, growthRate: 120, type: "emerging", highlight: "AI hyperautomation" },
 ];
 
 type SortField = "name" | "marketCap" | "revenue" | "growthRate";
@@ -127,17 +165,21 @@ const categoryColors: Record<string, string> = {
   "AIOps": "hsl(199 89% 48%)",
   "ITOM": "hsl(262 83% 58%)",
   "RPA": "hsl(142 71% 45%)",
+  "AgenticOps": "hsl(38 92% 50%)",
+  "SecOps": "hsl(346 77% 49%)",
 };
 
 const categoryIcons: Record<string, typeof BarChart3> = {
   "AIOps": BarChart3,
   "ITOM": Cpu,
   "RPA": Bot,
+  "AgenticOps": Sparkles,
+  "SecOps": ShieldCheck,
 };
 
 const VendorComparisonMatrix = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(["AIOps", "ITOM", "RPA"]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(["AIOps", "ITOM", "RPA", "AgenticOps", "SecOps"]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>(["leader", "emerging"]);
   const [sortField, setSortField] = useState<SortField>("marketCap");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");

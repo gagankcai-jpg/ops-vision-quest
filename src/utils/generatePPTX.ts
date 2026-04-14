@@ -1,4 +1,3 @@
-import pptxgen from "pptxgenjs";
 import { aiopsData, itomData, rpaData } from "@/data/marketData";
 
 const COLORS = {
@@ -21,6 +20,7 @@ const toTableRows = (data: string[][]) => {
 };
 
 export const generatePPTX = async () => {
+  const { default: pptxgen } = await import("pptxgenjs");
   const pptx = new pptxgen();
 
   pptx.author = "Enterprise Market Intelligence";

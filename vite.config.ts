@@ -12,10 +12,23 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  base: mode === "production" ? "/wp-content/plugins/autonomous-it-insights/app/" : "/",
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-charts": ["recharts"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-ui": ["@radix-ui/react-dialog", "@radix-ui/react-select", "@radix-ui/react-tooltip"],
+        },
+      },
     },
   },
 }));

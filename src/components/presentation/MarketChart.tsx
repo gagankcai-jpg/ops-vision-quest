@@ -64,7 +64,7 @@ const MarketChart = ({ data, title, color, gradientId }: MarketChartProps) => {
 };
 
 interface ComparisonChartProps {
-  data: Array<{ name: string; aiops: number; itom: number; rpa: number }>;
+  data: Array<{ name: string; aiops: number; itom: number; rpa: number; agentops: number; secops: number }>;
 }
 
 export const ComparisonChart = ({ data }: ComparisonChartProps) => {
@@ -76,23 +76,24 @@ export const ComparisonChart = ({ data }: ComparisonChartProps) => {
       transition={{ duration: 0.6 }}
       className="bg-card border border-border rounded-2xl p-6"
     >
-      <h3 className="text-lg font-semibold text-foreground mb-4">Market Comparison ($ Billions)</h3>
+      <h3 className="text-lg font-semibold text-foreground mb-1">5-Market TAM Comparison ($ Billions)</h3>
+      <p className="text-xs text-muted-foreground mb-4">AIOps · ITOM · RPA · Agentic Ops · Security Ops</p>
       <div className="h-80">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(222 47% 16%)" />
-            <XAxis 
-              dataKey="name" 
-              stroke="hsl(215 20% 55%)" 
+            <XAxis
+              dataKey="name"
+              stroke="hsl(215 20% 55%)"
               fontSize={12}
               tickLine={false}
             />
-            <YAxis 
-              stroke="hsl(215 20% 55%)" 
+            <YAxis
+              stroke="hsl(215 20% 55%)"
               fontSize={12}
               tickLine={false}
             />
-            <Tooltip 
+            <Tooltip
               contentStyle={{
                 backgroundColor: "hsl(222 47% 10%)",
                 border: "1px solid hsl(222 47% 16%)",
@@ -100,12 +101,12 @@ export const ComparisonChart = ({ data }: ComparisonChartProps) => {
                 color: "hsl(210 40% 96%)"
               }}
             />
-            <Legend 
-              wrapperStyle={{ color: "hsl(210 40% 96%)" }}
-            />
+            <Legend wrapperStyle={{ color: "hsl(210 40% 96%)" }} />
             <Bar dataKey="aiops" name="AIOps" fill="hsl(199 89% 48%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="itom" name="ITOM" fill="hsl(262 83% 58%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="rpa" name="RPA/IA" fill="hsl(142 71% 45%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="agentops" name="Agentic Ops" fill="hsl(38 92% 50%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="secops" name="SecOps" fill="hsl(346 77% 49%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

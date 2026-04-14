@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download, FileDown } from "lucide-react";
+import { Menu, X, BarChart3, Cpu, Bot, FileText, LayoutGrid, Download, FileDown, Sparkles, ShieldCheck } from "lucide-react";
 import { generatePPTX } from "@/utils/generatePPTX";
 import { generatePDF } from "@/utils/generatePDF";
+import { toast } from "sonner";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +25,8 @@ const Navigation = () => {
     { label: "AIOps", href: "#aiops", icon: <BarChart3 className="w-4 h-4" /> },
     { label: "ITOM", href: "#itom", icon: <Cpu className="w-4 h-4" /> },
     { label: "RPA/IA", href: "#rpa", icon: <Bot className="w-4 h-4" /> },
+    { label: "Agentic", href: "#agentops", icon: <Sparkles className="w-4 h-4" /> },
+    { label: "SecOps", href: "#secops", icon: <ShieldCheck className="w-4 h-4" /> },
   ];
 
   const scrollToSection = (href: string) => {
@@ -38,8 +41,10 @@ const Navigation = () => {
     setIsExporting(true);
     try {
       await generatePPTX();
+      toast.success("PPTX exported successfully");
     } catch (error) {
       console.error("Export failed:", error);
+      toast.error("PPTX export failed. Please try again.");
     } finally {
       setIsExporting(false);
     }
@@ -49,8 +54,10 @@ const Navigation = () => {
     setIsExportingPDF(true);
     try {
       await generatePDF();
+      toast.success("PDF exported successfully");
     } catch (error) {
       console.error("PDF export failed:", error);
+      toast.error("PDF export failed. Please try again.");
     } finally {
       setIsExportingPDF(false);
     }

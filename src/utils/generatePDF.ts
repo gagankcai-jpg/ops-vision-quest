@@ -1,5 +1,4 @@
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+import type jsPDFType from "jspdf";
 import { aiopsData, itomData, rpaData } from "@/data/marketData";
 
 const COLORS = {
@@ -14,26 +13,26 @@ const COLORS = {
   border: [39, 39, 42] as [number, number, number],
 };
 
-const addPageBackground = (doc: jsPDF) => {
+const addPageBackground = (doc: jsPDFType) => {
   doc.setFillColor(...COLORS.background);
   doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), "F");
 };
 
-const addHeader = (doc: jsPDF, title: string, color: [number, number, number] = COLORS.text) => {
+const addHeader = (doc: jsPDFType, title: string, color: [number, number, number] = COLORS.text) => {
   doc.setTextColor(...color);
   doc.setFontSize(28);
   doc.setFont("helvetica", "bold");
   doc.text(title, 20, 30);
 };
 
-const addSubheader = (doc: jsPDF, text: string, y: number) => {
+const addSubheader = (doc: jsPDFType, text: string, y: number) => {
   doc.setTextColor(...COLORS.muted);
   doc.setFontSize(12);
   doc.setFont("helvetica", "normal");
   doc.text(text, 20, y);
 };
 
-const addSectionTitle = (doc: jsPDF, text: string, y: number, color: [number, number, number] = COLORS.text) => {
+const addSectionTitle = (doc: jsPDFType, text: string, y: number, color: [number, number, number] = COLORS.text) => {
   doc.setTextColor(...color);
   doc.setFontSize(16);
   doc.setFont("helvetica", "bold");
@@ -41,7 +40,7 @@ const addSectionTitle = (doc: jsPDF, text: string, y: number, color: [number, nu
   return y + 8;
 };
 
-const addMetricBoxes = (doc: jsPDF, metrics: { label: string; value: string }[], y: number, color: [number, number, number]) => {
+const addMetricBoxes = (doc: jsPDFType, metrics: { label: string; value: string }[], y: number, color: [number, number, number]) => {
   const boxWidth = 55;
   const gap = 5;
   const startX = 20;
@@ -66,7 +65,7 @@ const addMetricBoxes = (doc: jsPDF, metrics: { label: string; value: string }[],
   return y + 32;
 };
 
-const createCategoryPages = (doc: jsPDF, data: typeof aiopsData, color: [number, number, number]) => {
+const createCategoryPages = (doc: jsPDFType, data: typeof aiopsData, color: [number, number, number]) => {
   // Page 1: Overview
   doc.addPage();
   addPageBackground(doc);
@@ -165,6 +164,10 @@ const createCategoryPages = (doc: jsPDF, data: typeof aiopsData, color: [number,
 };
 
 export const generatePDF = async () => {
+  const [{ default: jsPDF }, { default: autoTable }] = await Promise.all([
+    import("jspdf"),
+    import("jspdf-autotable"),
+  ]);
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
 
   // Title page
