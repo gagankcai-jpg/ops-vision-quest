@@ -24,7 +24,7 @@ $app_url    = $plugin_url . 'app/';
   <link rel="icon" href="<?php echo esc_url( get_site_icon_url() ); ?>">
 
   <!-- React App Styles -->
-  <link rel="stylesheet" crossorigin href="<?php echo esc_url( $app_url ); ?>assets/index-D3txkmmw.css">
+  <link rel="stylesheet" crossorigin href="<?php echo esc_url( $app_url ); ?>assets/index-CiqVBKV8.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -36,6 +36,6 @@ $app_url    = $plugin_url . 'app/';
   <div id="root"></div>
 
   <!-- React App Bundle -->
-  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-CUVZPfET.js"></script>
+  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-BXINcxAY.js"></script>
 </body>
 </html>

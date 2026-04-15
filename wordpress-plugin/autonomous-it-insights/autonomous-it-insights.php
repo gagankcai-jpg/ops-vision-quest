@@ -258,18 +258,29 @@ Return ONLY valid JSON matching this exact structure (no markdown fences, no exp
     {"year": "2029", "value": X.X},
     {"year": "2030", "value": X.X}
   ],
-  "topVendors": [
-    {"name": "VendorName", "metric": "key metric (rev/val/share)", "description": "10-word differentiator"},
-    {"name": "VendorName", "metric": "...", "description": "..."},
-    {"name": "VendorName", "metric": "...", "description": "..."},
-    {"name": "VendorName", "metric": "...", "description": "..."},
-    {"name": "VendorName", "metric": "...", "description": "..."}
+  "vendors": [
+    {
+      "name": "VendorName",
+      "type": "leader|challenger|niche",
+      "marketCap": "\$XX.XB or Private \$X.XB val or Div. of ParentCo or —",
+      "revenue": "\$X.XB ARR or \$XXXM Rev or Est. \$XXM ARR or —",
+      "growth": "+XX% YoY or —",
+      "highlight": "short badge e.g. Gartner Leader, 44% Share, Fastest Growth",
+      "description": "one crisp sentence differentiator"
+    }
+    ... 50 total established vendors ordered by market prominence ...
   ],
-  "emergingVendors": [
-    {"name": "VendorName", "metric": "funding or growth", "description": "differentiator"},
-    {"name": "VendorName", "metric": "...", "description": "..."},
-    {"name": "VendorName", "metric": "...", "description": "..."},
-    {"name": "VendorName", "metric": "...", "description": "..."}
+  "startups": [
+    {
+      "name": "StartupName",
+      "type": "startup|emerging",
+      "marketCap": "Private \$XXM val or Private or Open Source or —",
+      "revenue": "Est. \$XXM ARR or Early Stage or Pre-rev or —",
+      "growth": "+XX% YoY or —",
+      "highlight": "short badge e.g. YC W24, 120% Growth, AI-Native",
+      "description": "one crisp sentence differentiator"
+    }
+    ... 50 total startups/emerging players ordered by momentum ...
   ],
   "useCases": [
     {"title": "Use Case Name", "description": "one sentence with adoption stats if known"},
@@ -287,7 +298,14 @@ Return ONLY valid JSON matching this exact structure (no markdown fences, no exp
   "opportunities": ["opportunity 1", "opportunity 2", "opportunity 3", "opportunity 4", "opportunity 5", "opportunity 6"]
 }
 
-Rules: chartData values must compound consistently with the stated CAGR. TAM values must match chartData 2024 and 2030 entries. Use real vendor names only. Metric field: use format like "\$3.1B Rev", "44% Share", "\$800M Val", "32% Growth".
+Rules:
+- chartData values must compound consistently with the stated CAGR.
+- TAM values must match chartData 2024 and 2030 entries.
+- Use real vendor and startup names only — no fictional companies.
+- vendors array: 50 entries, ordered from highest to lowest market prominence (leaders first, then challengers, then niche).
+- startups array: 50 entries, ordered by momentum and funding (hottest first).
+- For public companies use real market caps. For private unicorns use known valuations. For smaller privates use "Est. \$XM ARR". Use "—" only when truly unknown.
+- type field must be exactly one of: "leader", "challenger", "niche", "startup", "emerging".
 PROMPT;
 }
 

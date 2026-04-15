@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { TrendingUp, BarChart3, Cpu, Bot, Sparkles, ShieldCheck } from "lucide-react";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import type { MarketData } from "@/data/marketData";
@@ -34,7 +35,26 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse delay-1000" />
 
-      <div className="container relative z-10 px-6">
+      {/* Scroll Indicator — anchored to the section bottom, not the container */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+      >
+        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+          <span className="text-sm">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 bg-primary rounded-full"
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="container relative z-10 px-6 pb-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,7 +81,7 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
           >
             <span className="text-foreground">Autonomous IT</span>
             <br />
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[size:200%_auto] animate-gradient">
+            <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
               Market Intelligence 2025–2030
             </span>
           </motion.h1>
@@ -87,37 +107,19 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
               const liveMarket = markets?.[card.slug];
               const tam = formatTAM(liveMarket?.tam2030, card.value);
               return (
-                <CategoryCard
-                  key={card.slug}
-                  icon={card.icon}
-                  title={liveMarket?.title ?? card.title}
-                  value={tam}
-                  label="2030 TAM"
-                  color={card.color}
-                  delay={0.8 + i * 0.1}
-                />
+                <Link key={card.slug} to={`/market/${card.slug}`} className="block">
+                  <CategoryCard
+                    icon={card.icon}
+                    title={liveMarket?.title ?? card.title}
+                    value={tam}
+                    label="2030 TAM"
+                    color={card.color}
+                    delay={0.8 + i * 0.1}
+                  />
+                </Link>
               );
             })}
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2 text-muted-foreground">
-            <span className="text-sm">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1.5 h-1.5 bg-primary rounded-full"
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

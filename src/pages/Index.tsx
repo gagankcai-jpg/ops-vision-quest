@@ -6,7 +6,6 @@ import { useMarketData } from "@/hooks/useMarketData";
 
 const ExecutiveSummary = lazy(() => import("@/components/presentation/ExecutiveSummary"));
 const VendorComparisonMatrix = lazy(() => import("@/components/presentation/VendorComparisonMatrix"));
-const CategorySection = lazy(() => import("@/components/presentation/CategorySection"));
 
 const Index = () => {
   const { data: markets, status, lastRefresh } = useMarketData();
@@ -28,26 +27,6 @@ const Index = () => {
 
           <div id="comparison">
             <VendorComparisonMatrix />
-          </div>
-
-          <div id="aiops">
-            <CategorySection data={markets.aiops} index={0} />
-          </div>
-
-          <div id="itom">
-            <CategorySection data={markets.itom} index={1} />
-          </div>
-
-          <div id="rpa">
-            <CategorySection data={markets.rpa} index={2} />
-          </div>
-
-          <div id="agentops">
-            <CategorySection data={markets.agentops} index={3} />
-          </div>
-
-          <div id="secops">
-            <CategorySection data={markets.secops} index={4} />
           </div>
         </Suspense>
 

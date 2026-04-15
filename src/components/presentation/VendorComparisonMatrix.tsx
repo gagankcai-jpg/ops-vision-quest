@@ -24,13 +24,13 @@ import {
   Sparkles,
   ShieldCheck,
 } from "lucide-react";
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,6 +48,7 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { allCategories } from "@/data/marketData";
 
 // Extended vendor detail info
 const vendorDetails: Record<string, { founded: string; hq: string; employees: string; ceo: string; description: string; strengths: string[]; weaknesses: string[]; keyProducts: string[]; recentMoves: string[]; customers: string[] }> = {
@@ -81,12 +82,10 @@ const vendorDetails: Record<string, { founded: string; hq: string; employees: st
   "WorkFusion": { founded: "2010", hq: "New York, NY", employees: "500+", ceo: "Adam Devine", description: "AI-powered intelligent automation platform specialized in financial crime compliance and AML/KYC automation.", strengths: ["AML/KYC specialization", "Pre-built compliance bots", "AI-native platform"], weaknesses: ["Narrow vertical focus", "Small revenue base"], keyProducts: ["WorkFusion Platform", "Turabot (SAR)", "Evelyn (KYC)", "Isaac (Transaction Monitoring)"], recentMoves: ["$340M total funding", "Expanded to fraud detection", "Named AI bot personas"], customers: ["Standard Chartered", "Deutsche Bank", "HSBC", "Top 10 US banks"] },
   "Celonis": { founded: "2011", hq: "Munich, Germany", employees: "3,000+", ceo: "Alex Rinke", description: "Process mining and execution management platform helping enterprises discover, improve, and automate business processes.", strengths: ["60% growth rate", "Process mining market leader", "$13B valuation"], weaknesses: ["Not yet profitable", "Category still maturing"], keyProducts: ["Celonis EMS", "Process Intelligence", "Action Engine", "Process Copilot"], recentMoves: ["Process Copilot GenAI launch", "Object-centric process mining", "Industry-specific solutions"], customers: ["Uber", "Siemens", "L'Oréal", "ABB", "Dell"] },
   "Moveworks": { founded: "2016", hq: "Mountain View, CA", employees: "550+", ceo: "Bhavin Shah", description: "AI-powered employee experience platform using LLMs to automate IT support, HR, and enterprise service desk interactions.", strengths: ["85% growth rate (highest)", "GenAI-native architecture", "$315M raised"], weaknesses: ["Pre-revenue scale ($100M)", "Narrow IT support focus expanding"], keyProducts: ["Moveworks Platform", "Creator Studio", "Employee Experience Insights"], recentMoves: ["GPT-powered copilot", "Expanded beyond IT to HR/Finance", "Creator Studio for custom AI bots"], customers: ["Hearst", "DocuSign", "Broadcom", "Palo Alto Networks"] },
-  // Agentic Ops vendors
   "Aisera": { founded: "2017", hq: "Palo Alto, CA", employees: "300+", ceo: "Muddu Sudhakar", description: "Generative AI service management platform delivering autonomous IT and HR support through conversational AI and proactive resolution.", strengths: ["GenAI-native architecture", "$150M raised", "95% first-contact resolution"], weaknesses: ["Smaller scale vs. incumbents", "Brand recognition still growing"], keyProducts: ["Aisera AISM", "AI Copilot", "AiseraGPT", "Workflow Automation"], recentMoves: ["AiseraGPT enterprise launch", "Expanded to HR & Finance agents", "Partnered with ServiceNow"], customers: ["Zoom", "Autodesk", "Dartmouth Health", "Condé Nast"] },
   "PagerDuty Copilot": { founded: "2009", hq: "San Francisco, CA", employees: "900+", ceo: "Jennifer Tejada", description: "AI-powered incident management platform that autonomously detects, triages, and coordinates response to operational incidents.", strengths: ["AIOps + copilot integration", "Largest on-call customer base", "Strong enterprise footprint"], weaknesses: ["Slowing growth (~7%)", "Competitive pressure from observability vendors"], keyProducts: ["PagerDuty Operations Cloud", "AIOps", "Copilot", "Automation Actions"], recentMoves: ["Copilot for incident summarization", "Automation Actions GA", "Operations Cloud launch"], customers: ["GE Healthcare", "Comcast", "DoorDash", "Twilio"] },
   "Leena AI": { founded: "2018", hq: "San Francisco, CA", employees: "300+", ceo: "Adit Jain", description: "Autonomous employee IT and HR helpdesk powered by a fine-tuned LLM that resolves 95%+ of employee queries without human escalation.", strengths: ["95% auto-resolution rate", "MS Teams & Slack native", "60+ enterprise connectors"], weaknesses: ["Early revenue stage", "Limited brand recognition outside APAC"], keyProducts: ["Leena AI Autonomous Agent", "WorkLM", "HR Helpdesk", "IT Helpdesk"], recentMoves: ["WorkLM enterprise LLM launch", "Series C funding ($30M)", "Expanded to North America"], customers: ["Coca-Cola", "Nestlé", "Air Asia", "Puma"] },
   "Espressive": { founded: "2018", hq: "Santa Clara, CA", employees: "150+", ceo: "Pat Calhoun", description: "Enterprise virtual support agent (Barista) providing personalized, AI-driven self-service for IT, HR, and facilities management.", strengths: ["Fortune 500 customers", "Omnichannel support (Teams, Slack, web)", "Deep ITSM integrations"], weaknesses: ["Smaller team limits roadmap speed", "$75M raised (needs more scale)"], keyProducts: ["Espressive Barista", "Barista for IT", "Barista for HR"], recentMoves: ["$75M Series C funding", "Barista AI native upgrade", "Expanded HR & facilities modules"], customers: ["Dell", "Abbott", "Hewlett Packard Enterprise", "Levi Strauss"] },
-  // Security Ops vendors
   "CrowdStrike": { founded: "2011", hq: "Austin, TX", employees: "10,000+", ceo: "George Kurtz", description: "Leading cloud-native endpoint protection and extended detection & response (XDR) platform with AI-powered threat intelligence and automated response.", strengths: ["$3.1B ARR, 33% growth", "Falcon platform breadth (EDR to SIEM)", "Threat Graph AI processes 1T events/day"], weaknesses: ["Premium pricing", "2024 global IT outage reputational impact"], keyProducts: ["Falcon XDR", "Falcon Fusion SOAR", "Charlotte AI", "Threat Graph", "Next-Gen SIEM"], recentMoves: ["Charlotte AI general availability", "Next-Gen SIEM launch", "Acquired Bionic for ASPM"], customers: ["AMD", "Goldman Sachs", "AWS", "Berkshire Hathaway"] },
   "Palo Alto XSOAR": { founded: "2005", hq: "Santa Clara, CA", employees: "15,000+", ceo: "Nikesh Arora", description: "Industry-leading SOAR platform (Cortex XSOAR) and unified security operations suite combining SIEM, SOAR, and XDR into Cortex.", strengths: ["Most deployed SOAR platform globally", "Cortex platform breadth", "$8B+ security revenue"], weaknesses: ["High total cost", "Platform complexity for mid-market"], keyProducts: ["Cortex XSOAR", "Cortex XDR", "XSIAM", "Cortex Copilot"], recentMoves: ["XSIAM AI-driven SOC platform launch", "Cortex Copilot GA", "Acquired Talon Cyber Security"], customers: ["British Telecom", "Orange", "US Air Force", "Generali Insurance"] },
   "Exabeam": { founded: "2013", hq: "Foster City, CA", employees: "900+", ceo: "Adam Geller", description: "Cloud-native SIEM and security operations platform built on user and entity behavior analytics (UEBA) to detect insider threats and compromised accounts.", strengths: ["UEBA market leader", "28% growth rate", "Behavior-based detection reduces false positives"], weaknesses: ["Revenue scale vs. Microsoft/Splunk", "Competitive from XDR platforms"], keyProducts: ["Exabeam Security Operations Platform", "Smart Timelines", "Threat Center", "UEBA"], recentMoves: ["Merged with LogRhythm (2024)", "New-Scale SIEM launch", "AI-Analyst release"], customers: ["Fidelity", "Intel", "Stanford Health", "City of San Jose"] },
@@ -95,150 +94,154 @@ const vendorDetails: Record<string, { founded: string; hq: string; employees: st
   "Torq": { founded: "2020", hq: "Denver, CO", employees: "200+", ceo: "Ofer Smadari", description: "AI-powered security hyperautomation platform that autonomously handles tier-1 SOC alerts end-to-end, reducing analyst workload by 90%+.", strengths: ["120% growth rate", "Autonomous tier-1 case closure", "AI-first architecture"], weaknesses: ["Very early stage ($100M total raised)", "Limited brand outside security-native buyers"], keyProducts: ["Torq HyperSOC", "Autonomous Cases", "Torq AI Security Agents"], recentMoves: ["HyperSOC autonomous case platform launch", "$70M Series B funding", "AI Security Agents release"], customers: ["Wiz", "Semrush", "Fiverr", "Applied Systems"] },
 };
 
-// Comprehensive vendor data with numeric metrics for filtering
-const vendorData = [
-  // AIOps & Observability
-  { name: "Dynatrace", category: "AIOps", marketCap: 15.2, revenue: 1.4, growthRate: 25, type: "leader", highlight: "15yr Gartner Leader" },
-  { name: "Splunk (Cisco)", category: "AIOps", marketCap: 28.0, revenue: 3.7, growthRate: 12, type: "leader", highlight: "Acquired by Cisco 2024" },
-  { name: "Datadog", category: "AIOps", marketCap: 42.5, revenue: 2.1, growthRate: 35, type: "leader", highlight: "Cloud-native leader" },
-  { name: "New Relic", category: "AIOps", marketCap: 5.8, revenue: 0.9, growthRate: 18, type: "leader", highlight: "Full-stack platform" },
-  { name: "Grafana Labs", category: "AIOps", marketCap: 6.0, revenue: 0.35, growthRate: 50, type: "leader", highlight: "Open-source leader" },
-  { name: "ServiceNow ITOM", category: "AIOps", marketCap: 165.0, revenue: 8.9, growthRate: 24, type: "leader", highlight: "44% market share" },
-  { name: "Elastic", category: "AIOps", marketCap: 8.5, revenue: 1.2, growthRate: 15, type: "leader", highlight: "ELK ecosystem" },
-  { name: "Sumo Logic", category: "AIOps", marketCap: 1.7, revenue: 0.3, growthRate: 10, type: "leader", highlight: "Cloud SIEM" },
-  { name: "LogicMonitor", category: "AIOps", marketCap: 2.4, revenue: 0.22, growthRate: 45, type: "emerging", highlight: "$800M funding" },
-  { name: "Chronosphere", category: "AIOps", marketCap: 1.6, revenue: 0.08, growthRate: 80, type: "emerging", highlight: "Gartner Leader 2024" },
-  
-  // ITOM
-  { name: "ServiceNow", category: "ITOM", marketCap: 165.0, revenue: 8.9, growthRate: 24, type: "leader", highlight: "Dominant platform" },
-  { name: "Microsoft", category: "ITOM", marketCap: 3100.0, revenue: 62.0, growthRate: 16, type: "leader", highlight: "Azure Stack" },
-  { name: "Broadcom (CA)", category: "ITOM", marketCap: 680.0, revenue: 38.0, growthRate: 8, type: "leader", highlight: "Legacy infrastructure" },
-  { name: "IBM", category: "ITOM", marketCap: 175.0, revenue: 14.5, growthRate: 3, type: "leader", highlight: "Watson AIOps" },
-  { name: "Atlassian", category: "ITOM", marketCap: 52.0, revenue: 3.5, growthRate: 28, type: "leader", highlight: "High growth" },
-  { name: "BMC Software", category: "ITOM", marketCap: 8.5, revenue: 2.2, growthRate: 5, type: "leader", highlight: "Helix ITSM" },
-  { name: "SolarWinds", category: "ITOM", marketCap: 2.8, revenue: 0.75, growthRate: 4, type: "leader", highlight: "Mid-market" },
-  { name: "Ivanti", category: "ITOM", marketCap: 3.2, revenue: 0.95, growthRate: 12, type: "leader", highlight: "Unified IT" },
-  { name: "Freshworks", category: "ITOM", marketCap: 4.5, revenue: 0.58, growthRate: 22, type: "leader", highlight: "SME focus" },
-  { name: "Atera", category: "ITOM", marketCap: 0.5, revenue: 0.08, growthRate: 65, type: "emerging", highlight: "Fast deploy" },
-  
-  // RPA & Intelligent Automation
-  { name: "UiPath", category: "RPA", marketCap: 12.5, revenue: 1.31, growthRate: 24, type: "leader", highlight: "6x Gartner Leader" },
-  { name: "MS Power Automate", category: "RPA", marketCap: 3100.0, revenue: 4.5, growthRate: 45, type: "leader", highlight: "#1 growth rate" },
-  { name: "Automation Anywhere", category: "RPA", marketCap: 6.8, revenue: 0.7, growthRate: 22, type: "leader", highlight: "Pure-play leader" },
-  { name: "SS&C Blue Prism", category: "RPA", marketCap: 1.6, revenue: 0.18, growthRate: 8, type: "leader", highlight: "Enterprise focus" },
-  { name: "Appian", category: "RPA", marketCap: 2.8, revenue: 0.55, growthRate: 18, type: "leader", highlight: "Low-code leader" },
-  { name: "IBM RPA", category: "RPA", marketCap: 175.0, revenue: 0.4, growthRate: 15, type: "leader", highlight: "Watson AI" },
-  { name: "Pega", category: "RPA", marketCap: 3.5, revenue: 1.35, growthRate: 10, type: "leader", highlight: "CRM focus" },
-  { name: "WorkFusion", category: "RPA", marketCap: 0.8, revenue: 0.12, growthRate: 35, type: "leader", highlight: "AML/KYC bots" },
-  { name: "Celonis", category: "RPA", marketCap: 13.0, revenue: 0.5, growthRate: 60, type: "emerging", highlight: "Process mining" },
-  { name: "Moveworks", category: "RPA", marketCap: 2.1, revenue: 0.1, growthRate: 85, type: "emerging", highlight: "$315M raised" },
+// ── Parsers ──────────────────────────────────────────────────────────────────
+function parseMarketCapNum(s?: string): number {
+  if (!s || s === "—" || s.startsWith("Pre-") || s.startsWith("Early") || s === "Open Source") return 0;
+  const m = s.match(/\$(\d+(?:\.\d+)?)\s*([TBM])/i);
+  if (!m) return 0;
+  const v = parseFloat(m[1]);
+  const u = m[2].toUpperCase();
+  if (u === "T") return v * 1000;
+  if (u === "M") return v / 1000;
+  return v; // B
+}
 
-  // Agentic IT Operations
-  { name: "ServiceNow", category: "AgenticOps", marketCap: 165.0, revenue: 8.9, growthRate: 34, type: "leader", highlight: "Now Assist AI agents" },
-  { name: "Microsoft", category: "AgenticOps", marketCap: 3100.0, revenue: 2.5, growthRate: 48, type: "leader", highlight: "Copilot for IT — fastest" },
-  { name: "Moveworks", category: "AgenticOps", marketCap: 2.1, revenue: 0.1, growthRate: 85, type: "leader", highlight: "LLM-native IT agents" },
-  { name: "Aisera", category: "AgenticOps", marketCap: 0.9, revenue: 0.05, growthRate: 72, type: "leader", highlight: "AiseraGPT platform" },
-  { name: "Atlassian", category: "AgenticOps", marketCap: 52.0, revenue: 3.5, growthRate: 35, type: "leader", highlight: "Dev & ops AI agents" },
-  { name: "PagerDuty Copilot", category: "AgenticOps", marketCap: 1.8, revenue: 0.45, growthRate: 22, type: "leader", highlight: "Incident AI copilot" },
-  { name: "Freshworks", category: "AgenticOps", marketCap: 4.5, revenue: 0.58, growthRate: 38, type: "leader", highlight: "Freddy AI agents" },
-  { name: "BMC Software", category: "AgenticOps", marketCap: 8.5, revenue: 2.2, growthRate: 18, type: "leader", highlight: "HelixGPT" },
-  { name: "Leena AI", category: "AgenticOps", marketCap: 0.3, revenue: 0.02, growthRate: 95, type: "emerging", highlight: "95% auto-resolution" },
-  { name: "Espressive", category: "AgenticOps", marketCap: 0.5, revenue: 0.03, growthRate: 88, type: "emerging", highlight: "Barista virtual agent" },
+function parseRevenueNum(s?: string): number {
+  if (!s || s === "—" || s.startsWith("Pre-") || s.startsWith("Early")) return 0;
+  const m = s.match(/\$(\d+(?:\.\d+)?)\s*([TBM])/i);
+  if (!m) return 0;
+  const v = parseFloat(m[1]);
+  const u = m[2].toUpperCase();
+  if (u === "T") return v * 1000;
+  if (u === "M") return v / 1000;
+  return v;
+}
 
-  // Security Operations
-  { name: "CrowdStrike", category: "SecOps", marketCap: 75.0, revenue: 3.1, growthRate: 33, type: "leader", highlight: "Falcon XDR + Charlotte AI" },
-  { name: "Palo Alto XSOAR", category: "SecOps", marketCap: 98.0, revenue: 8.0, growthRate: 19, type: "leader", highlight: "XSOAR/XSIAM leader" },
-  { name: "Microsoft", category: "SecOps", marketCap: 3100.0, revenue: 3.5, growthRate: 52, type: "leader", highlight: "Sentinel fastest SIEM" },
-  { name: "Splunk (Cisco)", category: "SecOps", marketCap: 28.0, revenue: 3.7, growthRate: 18, type: "leader", highlight: "SOAR enterprise incumbent" },
-  { name: "IBM", category: "SecOps", marketCap: 175.0, revenue: 1.8, growthRate: 12, type: "leader", highlight: "QRadar SOAR + Watson" },
-  { name: "ServiceNow", category: "SecOps", marketCap: 165.0, revenue: 8.9, growthRate: 24, type: "leader", highlight: "SecOps + ITSM bridge" },
-  { name: "Exabeam", category: "SecOps", marketCap: 2.5, revenue: 0.35, growthRate: 28, type: "leader", highlight: "UEBA market leader" },
-  { name: "Securonix", category: "SecOps", marketCap: 1.7, revenue: 0.22, growthRate: 32, type: "leader", highlight: "Open XDR platform" },
-  { name: "Tines", category: "SecOps", marketCap: 1.2, revenue: 0.08, growthRate: 110, type: "emerging", highlight: "No-code automation" },
-  { name: "Torq", category: "SecOps", marketCap: 0.8, revenue: 0.04, growthRate: 120, type: "emerging", highlight: "AI hyperautomation" },
-];
+function parseGrowthNum(s?: string): number {
+  if (!s || s === "—") return 0;
+  const m = s.match(/([+-]?\d+(?:\.\d+)?)/);
+  return m ? parseFloat(m[1]) : 0;
+}
+
+// ── Category mappings ─────────────────────────────────────────────────────────
+const CATEGORY_LABELS: Record<string, string> = {
+  aiops: "AIOps",
+  itom: "ITOM",
+  rpa: "RPA",
+  agentops: "AgentOps",
+  secops: "SecOps",
+};
+
+const categoryColors: Record<string, string> = {
+  "AIOps":    "hsl(199 89% 48%)",
+  "ITOM":     "hsl(262 83% 58%)",
+  "RPA":      "hsl(142 71% 45%)",
+  "AgentOps": "hsl(38 92% 50%)",
+  "SecOps":   "hsl(346 77% 49%)",
+};
+
+const categoryIcons: Record<string, typeof BarChart3> = {
+  "AIOps":    BarChart3,
+  "ITOM":     Cpu,
+  "RPA":      Bot,
+  "AgentOps": Sparkles,
+  "SecOps":   ShieldCheck,
+};
+
+// ── Build derived vendor rows from allCategories ──────────────────────────────
+type VendorRow = {
+  name: string;
+  type: string;
+  marketCap?: string;
+  revenue?: string;
+  growth?: string;
+  highlight?: string;
+  description: string;
+  categoryId: string;
+  categoryLabel: string;
+  color: string;
+  marketCapNum: number;
+  revenueNum: number;
+  growthNum: number;
+};
+
+const allVendorRows: VendorRow[] = allCategories.flatMap((cat) => {
+  const label = CATEGORY_LABELS[cat.id] ?? cat.id;
+  const toRow = (v: { name: string; type: string; marketCap?: string; revenue?: string; growth?: string; highlight?: string; description: string }): VendorRow => ({
+    name: v.name,
+    type: v.type,
+    marketCap: v.marketCap,
+    revenue: v.revenue,
+    growth: v.growth,
+    highlight: v.highlight,
+    description: v.description,
+    categoryId: cat.id,
+    categoryLabel: label,
+    color: cat.color,
+    marketCapNum: parseMarketCapNum(v.marketCap),
+    revenueNum: parseRevenueNum(v.revenue),
+    growthNum: parseGrowthNum(v.growth),
+  });
+  return [
+    ...((cat.vendors ?? []) as Parameters<typeof toRow>[0][]).map(toRow),
+    ...((cat.startups ?? []) as Parameters<typeof toRow>[0][]).map(toRow),
+  ];
+});
+
+const ALL_CATEGORIES = ["AIOps", "ITOM", "RPA", "AgentOps", "SecOps"];
+const ALL_TYPES = ["leader", "challenger", "niche", "startup", "emerging"];
 
 type SortField = "name" | "marketCap" | "revenue" | "growthRate";
 type SortDirection = "asc" | "desc";
 
-const categoryColors: Record<string, string> = {
-  "AIOps": "hsl(199 89% 48%)",
-  "ITOM": "hsl(262 83% 58%)",
-  "RPA": "hsl(142 71% 45%)",
-  "AgenticOps": "hsl(38 92% 50%)",
-  "SecOps": "hsl(346 77% 49%)",
-};
-
-const categoryIcons: Record<string, typeof BarChart3> = {
-  "AIOps": BarChart3,
-  "ITOM": Cpu,
-  "RPA": Bot,
-  "AgenticOps": Sparkles,
-  "SecOps": ShieldCheck,
-};
-
 const VendorComparisonMatrix = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(["AIOps", "ITOM", "RPA", "AgenticOps", "SecOps"]);
-  const [selectedTypes, setSelectedTypes] = useState<string[]>(["leader", "emerging"]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(ALL_CATEGORIES);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>(ALL_TYPES);
   const [sortField, setSortField] = useState<SortField>("marketCap");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [marketCapRange, setMarketCapRange] = useState([0, 100]);
   const [revenueRange, setRevenueRange] = useState([0, 100]);
   const [growthRateRange, setGrowthRateRange] = useState([0, 100]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [selectedVendor, setSelectedVendor] = useState<typeof vendorData[0] | null>(null);
-
-  // Normalize values for slider (log scale for market cap and revenue)
-  const normalizeValue = (value: number, max: number) => (Math.log10(value + 1) / Math.log10(max + 1)) * 100;
-  const denormalizeValue = (normalized: number, max: number) => Math.pow(10, (normalized / 100) * Math.log10(max + 1)) - 1;
+  const [selectedVendor, setSelectedVendor] = useState<VendorRow | null>(null);
 
   const maxMarketCap = 3200;
   const maxRevenue = 65;
-  const maxGrowth = 100;
+  const maxGrowth = 250;
+
+  const normalizeValue = (value: number, max: number) => (Math.log10(value + 1) / Math.log10(max + 1)) * 100;
+  const denormalizeValue = (normalized: number, max: number) => Math.pow(10, (normalized / 100) * Math.log10(max + 1)) - 1;
 
   const filteredAndSortedVendors = useMemo(() => {
-    return vendorData
+    return allVendorRows
       .filter((vendor) => {
-        // Search filter
-        if (searchQuery && !vendor.name.toLowerCase().includes(searchQuery.toLowerCase())) {
-          return false;
-        }
-        // Category filter
-        if (!selectedCategories.includes(vendor.category)) {
-          return false;
-        }
-        // Type filter
-        if (!selectedTypes.includes(vendor.type)) {
-          return false;
-        }
-        // Market cap range
-        const normalizedMC = normalizeValue(vendor.marketCap, maxMarketCap);
-        if (normalizedMC < marketCapRange[0] || normalizedMC > marketCapRange[1]) {
-          return false;
-        }
-        // Revenue range
-        const normalizedRev = normalizeValue(vendor.revenue, maxRevenue);
-        if (normalizedRev < revenueRange[0] || normalizedRev > revenueRange[1]) {
-          return false;
-        }
-        // Growth rate range
-        if (vendor.growthRate < growthRateRange[0] || vendor.growthRate > growthRateRange[1]) {
-          return false;
-        }
+        if (searchQuery && !vendor.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+        if (!selectedCategories.includes(vendor.categoryLabel)) return false;
+        if (!selectedTypes.includes(vendor.type)) return false;
+        const normalizedMC = normalizeValue(vendor.marketCapNum, maxMarketCap);
+        if (normalizedMC < marketCapRange[0] || normalizedMC > marketCapRange[1]) return false;
+        const normalizedRev = normalizeValue(vendor.revenueNum, maxRevenue);
+        if (normalizedRev < revenueRange[0] || normalizedRev > revenueRange[1]) return false;
+        if (vendor.growthNum < growthRateRange[0] || vendor.growthNum > growthRateRange[1]) return false;
         return true;
       })
       .sort((a, b) => {
-        const aVal = a[sortField];
-        const bVal = b[sortField];
-        if (typeof aVal === "string" && typeof bVal === "string") {
-          return sortDirection === "asc" 
-            ? aVal.localeCompare(bVal) 
-            : bVal.localeCompare(aVal);
+        if (sortField === "name") {
+          return sortDirection === "asc"
+            ? a.name.localeCompare(b.name)
+            : b.name.localeCompare(a.name);
         }
-        return sortDirection === "asc" 
-          ? (aVal as number) - (bVal as number) 
-          : (bVal as number) - (aVal as number);
+        if (sortField === "marketCap") {
+          return sortDirection === "asc" ? a.marketCapNum - b.marketCapNum : b.marketCapNum - a.marketCapNum;
+        }
+        if (sortField === "revenue") {
+          return sortDirection === "asc" ? a.revenueNum - b.revenueNum : b.revenueNum - a.revenueNum;
+        }
+        if (sortField === "growthRate") {
+          return sortDirection === "asc" ? a.growthNum - b.growthNum : b.growthNum - a.growthNum;
+        }
+        return 0;
       });
   }, [searchQuery, selectedCategories, selectedTypes, sortField, sortDirection, marketCapRange, revenueRange, growthRateRange]);
 
@@ -253,23 +256,23 @@ const VendorComparisonMatrix = () => {
 
   const clearFilters = () => {
     setSearchQuery("");
-    setSelectedCategories(["AIOps", "ITOM", "RPA"]);
-    setSelectedTypes(["leader", "emerging"]);
+    setSelectedCategories(ALL_CATEGORIES);
+    setSelectedTypes(ALL_TYPES);
     setMarketCapRange([0, 100]);
     setRevenueRange([0, 100]);
     setGrowthRateRange([0, 100]);
   };
 
-  const activeFiltersCount = 
-    (selectedCategories.length < 3 ? 1 : 0) +
-    (selectedTypes.length < 2 ? 1 : 0) +
+  const activeFiltersCount =
+    (selectedCategories.length < ALL_CATEGORIES.length ? 1 : 0) +
+    (selectedTypes.length < ALL_TYPES.length ? 1 : 0) +
     (marketCapRange[0] > 0 || marketCapRange[1] < 100 ? 1 : 0) +
     (revenueRange[0] > 0 || revenueRange[1] < 100 ? 1 : 0) +
     (growthRateRange[0] > 0 || growthRateRange[1] < 100 ? 1 : 0);
 
   const SortIcon = ({ field }: { field: SortField }) => {
     if (sortField !== field) return <SortAsc className="w-4 h-4 opacity-30" />;
-    return sortDirection === "asc" 
+    return sortDirection === "asc"
       ? <SortAsc className="w-4 h-4 text-primary" />
       : <SortDesc className="w-4 h-4 text-primary" />;
   };
@@ -285,11 +288,27 @@ const VendorComparisonMatrix = () => {
     return `$${(value * 1000).toFixed(0)}M`;
   };
 
+  const typeLabel: Record<string, string> = {
+    leader: "Leader",
+    challenger: "Challenger",
+    niche: "Niche",
+    startup: "Startup",
+    emerging: "Emerging",
+  };
+
+  const typeBadgeClass: Record<string, string> = {
+    leader: "bg-primary/10 text-primary border-primary/30",
+    challenger: "bg-accent/10 text-accent border-accent/30",
+    niche: "bg-muted text-muted-foreground border-border",
+    startup: "bg-executive-amber/10 text-executive-amber border-executive-amber/30",
+    emerging: "bg-executive-green/10 text-executive-green border-executive-green/30",
+  };
+
   return (
     <section id="comparison" className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-      
+
       <div className="container px-6 relative z-10">
         {/* Header */}
         <motion.div
@@ -302,7 +321,7 @@ const VendorComparisonMatrix = () => {
             Vendor Comparison Matrix
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Interactive analysis of {vendorData.length} vendors across AIOps, ITOM, and RPA markets
+            Interactive analysis of {allVendorRows.length} vendors across all five Autonomous IT markets
           </p>
         </motion.div>
 
@@ -344,27 +363,28 @@ const VendorComparisonMatrix = () => {
                   <Button variant="outline" className="gap-2">
                     <Building2 className="w-4 h-4" />
                     Categories
+                    {selectedCategories.length < ALL_CATEGORIES.length && (
+                      <Badge variant="secondary" className="ml-1 px-1.5 py-0 text-xs">
+                        {selectedCategories.length}
+                      </Badge>
+                    )}
                     <ChevronDown className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {["AIOps", "ITOM", "RPA"].map((cat) => (
+                  {ALL_CATEGORIES.map((cat) => (
                     <DropdownMenuCheckboxItem
                       key={cat}
                       checked={selectedCategories.includes(cat)}
                       onCheckedChange={(checked) => {
-                        if (checked) {
-                          setSelectedCategories([...selectedCategories, cat]);
-                        } else {
-                          setSelectedCategories(selectedCategories.filter((c) => c !== cat));
-                        }
+                        setSelectedCategories(checked
+                          ? [...selectedCategories, cat]
+                          : selectedCategories.filter((c) => c !== cat)
+                        );
                       }}
                     >
                       <span className="flex items-center gap-2">
-                        <div 
-                          className="w-2 h-2 rounded-full" 
-                          style={{ backgroundColor: categoryColors[cat] }} 
-                        />
+                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: categoryColors[cat] }} />
                         {cat}
                       </span>
                     </DropdownMenuCheckboxItem>
@@ -378,40 +398,35 @@ const VendorComparisonMatrix = () => {
                   <Button variant="outline" className="gap-2">
                     <TrendingUp className="w-4 h-4" />
                     Type
+                    {selectedTypes.length < ALL_TYPES.length && (
+                      <Badge variant="secondary" className="ml-1 px-1.5 py-0 text-xs">
+                        {selectedTypes.length}
+                      </Badge>
+                    )}
                     <ChevronDown className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuCheckboxItem
-                    checked={selectedTypes.includes("leader")}
-                    onCheckedChange={(checked) => {
-                      if (checked) {
-                        setSelectedTypes([...selectedTypes, "leader"]);
-                      } else {
-                        setSelectedTypes(selectedTypes.filter((t) => t !== "leader"));
-                      }
-                    }}
-                  >
-                    Market Leaders
-                  </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem
-                    checked={selectedTypes.includes("emerging")}
-                    onCheckedChange={(checked) => {
-                      if (checked) {
-                        setSelectedTypes([...selectedTypes, "emerging"]);
-                      } else {
-                        setSelectedTypes(selectedTypes.filter((t) => t !== "emerging"));
-                      }
-                    }}
-                  >
-                    Emerging Vendors
-                  </DropdownMenuCheckboxItem>
+                  {ALL_TYPES.map((t) => (
+                    <DropdownMenuCheckboxItem
+                      key={t}
+                      checked={selectedTypes.includes(t)}
+                      onCheckedChange={(checked) => {
+                        setSelectedTypes(checked
+                          ? [...selectedTypes, t]
+                          : selectedTypes.filter((x) => x !== t)
+                        );
+                      }}
+                    >
+                      {typeLabel[t]}
+                    </DropdownMenuCheckboxItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
 
               {/* Advanced Filters Toggle */}
-              <Button 
-                variant={isFilterOpen ? "default" : "outline"} 
+              <Button
+                variant={isFilterOpen ? "default" : "outline"}
                 className="gap-2"
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
               >
@@ -449,10 +464,10 @@ const VendorComparisonMatrix = () => {
                     <div className="flex items-center justify-between">
                       <label className="text-sm font-medium flex items-center gap-2">
                         <DollarSign className="w-4 h-4 text-primary" />
-                        Market Cap
+                        Market Cap / Valuation
                       </label>
                       <span className="text-xs text-muted-foreground">
-                        {formatMarketCap(denormalizeValue(marketCapRange[0], maxMarketCap))} - {formatMarketCap(denormalizeValue(marketCapRange[1], maxMarketCap))}
+                        {formatMarketCap(denormalizeValue(marketCapRange[0], maxMarketCap))} – {formatMarketCap(denormalizeValue(marketCapRange[1], maxMarketCap))}
                       </span>
                     </div>
                     <Slider
@@ -473,7 +488,7 @@ const VendorComparisonMatrix = () => {
                         Annual Revenue
                       </label>
                       <span className="text-xs text-muted-foreground">
-                        {formatRevenue(denormalizeValue(revenueRange[0], maxRevenue))} - {formatRevenue(denormalizeValue(revenueRange[1], maxRevenue))}
+                        {formatRevenue(denormalizeValue(revenueRange[0], maxRevenue))} – {formatRevenue(denormalizeValue(revenueRange[1], maxRevenue))}
                       </span>
                     </div>
                     <Slider
@@ -494,7 +509,7 @@ const VendorComparisonMatrix = () => {
                         Growth Rate
                       </label>
                       <span className="text-xs text-muted-foreground">
-                        {growthRateRange[0]}% - {growthRateRange[1]}%
+                        {growthRateRange[0]}% – {growthRateRange[1]}%
                       </span>
                     </div>
                     <Slider
@@ -518,13 +533,15 @@ const VendorComparisonMatrix = () => {
           animate={{ opacity: 1 }}
           className="flex items-center gap-4 mb-4 text-sm text-muted-foreground"
         >
-          <span>Showing <strong className="text-foreground">{filteredAndSortedVendors.length}</strong> of {vendorData.length} vendors</span>
-          {selectedCategories.length < 3 && (
+          <span>
+            Showing <strong className="text-foreground">{filteredAndSortedVendors.length}</strong> of {allVendorRows.length} entries
+          </span>
+          {selectedCategories.length < ALL_CATEGORIES.length && (
             <div className="flex gap-2">
               {selectedCategories.map((cat) => (
-                <Badge 
-                  key={cat} 
-                  variant="outline" 
+                <Badge
+                  key={cat}
+                  variant="outline"
                   className="text-xs"
                   style={{ borderColor: categoryColors[cat], color: categoryColors[cat] }}
                 >
@@ -546,7 +563,7 @@ const VendorComparisonMatrix = () => {
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent border-border">
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:text-foreground transition-colors"
                   onClick={() => handleSort("name")}
                 >
@@ -556,17 +573,18 @@ const VendorComparisonMatrix = () => {
                   </div>
                 </TableHead>
                 <TableHead>Category</TableHead>
-                <TableHead 
-                  className="cursor-pointer hover:text-foreground transition-colors text-right"
+                <TableHead>Type</TableHead>
+                <TableHead
+                  className="cursor-pointer hover:text-foreground transition-colors text-right hidden md:table-cell"
                   onClick={() => handleSort("marketCap")}
                 >
                   <div className="flex items-center justify-end gap-2">
-                    Market Cap
+                    Mkt Cap / Val
                     <SortIcon field="marketCap" />
                   </div>
                 </TableHead>
-                <TableHead 
-                  className="cursor-pointer hover:text-foreground transition-colors text-right"
+                <TableHead
+                  className="cursor-pointer hover:text-foreground transition-colors text-right hidden md:table-cell"
                   onClick={() => handleSort("revenue")}
                 >
                   <div className="flex items-center justify-end gap-2">
@@ -574,7 +592,7 @@ const VendorComparisonMatrix = () => {
                     <SortIcon field="revenue" />
                   </div>
                 </TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:text-foreground transition-colors text-right"
                   onClick={() => handleSort("growthRate")}
                 >
@@ -583,75 +601,83 @@ const VendorComparisonMatrix = () => {
                     <SortIcon field="growthRate" />
                   </div>
                 </TableHead>
-                <TableHead>Highlight</TableHead>
+                <TableHead className="hidden lg:table-cell">Highlight</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <AnimatePresence mode="popLayout">
                 {filteredAndSortedVendors.map((vendor, index) => {
-                  const CategoryIcon = categoryIcons[vendor.category];
+                  const CategoryIcon = categoryIcons[vendor.categoryLabel] ?? BarChart3;
+                  const rowKey = `${vendor.categoryId}-${vendor.name}`;
                   return (
                     <motion.tr
-                      key={vendor.name}
+                      key={rowKey}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      transition={{ delay: index * 0.02 }}
-                      className="border-border hover:bg-secondary/30 transition-colors group cursor-pointer"
+                      transition={{ delay: Math.min(index * 0.01, 0.3) }}
+                      className="border-border hover:bg-secondary/30 transition-colors cursor-pointer"
                       onClick={() => setSelectedVendor(vendor)}
                     >
                       <TableCell className="font-medium">
-                        <div className="flex items-center gap-3">
-                          <span className="text-foreground">{vendor.name}</span>
-                          {vendor.type === "emerging" && (
-                            <Badge variant="outline" className="text-xs bg-executive-amber/10 text-executive-amber border-executive-amber/30">
-                              Emerging
-                            </Badge>
-                          )}
-                        </div>
+                        <span className="text-foreground">{vendor.name}</span>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-2">
-                          <CategoryIcon 
-                            className="w-4 h-4" 
-                            style={{ color: categoryColors[vendor.category] }} 
+                          <CategoryIcon
+                            className="w-4 h-4"
+                            style={{ color: categoryColors[vendor.categoryLabel] }}
                           />
-                          <span 
+                          <span
                             className="text-sm"
-                            style={{ color: categoryColors[vendor.category] }}
+                            style={{ color: categoryColors[vendor.categoryLabel] }}
                           >
-                            {vendor.category}
+                            {vendor.categoryLabel}
                           </span>
                         </div>
                       </TableCell>
-                      <TableCell className="text-right font-mono text-sm">
-                        {formatMarketCap(vendor.marketCap)}
+                      <TableCell>
+                        <Badge
+                          variant="outline"
+                          className={`text-xs ${typeBadgeClass[vendor.type] ?? ""}`}
+                        >
+                          {typeLabel[vendor.type] ?? vendor.type}
+                        </Badge>
                       </TableCell>
-                      <TableCell className="text-right font-mono text-sm">
-                        {formatRevenue(vendor.revenue)}
+                      <TableCell className="text-right font-mono text-sm hidden md:table-cell">
+                        {vendor.marketCap ?? "—"}
+                      </TableCell>
+                      <TableCell className="text-right font-mono text-sm hidden md:table-cell">
+                        {vendor.revenue ?? "—"}
                       </TableCell>
                       <TableCell className="text-right">
-                        <div 
-                          className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium"
-                          style={{ 
-                            backgroundColor: vendor.growthRate >= 30 
-                              ? "hsl(142 71% 45% / 0.15)" 
-                              : vendor.growthRate >= 15 
-                                ? "hsl(199 89% 48% / 0.15)" 
-                                : "hsl(var(--muted))",
-                            color: vendor.growthRate >= 30 
-                              ? "hsl(142 71% 45%)" 
-                              : vendor.growthRate >= 15 
-                                ? "hsl(199 89% 48%)" 
-                                : "hsl(var(--muted-foreground))"
-                          }}
-                        >
-                          <TrendingUp className="w-3 h-3" />
-                          {vendor.growthRate}%
-                        </div>
+                        {vendor.growth && vendor.growth !== "—" ? (
+                          <div
+                            className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium"
+                            style={{
+                              backgroundColor:
+                                vendor.growthNum >= 30
+                                  ? "hsl(142 71% 45% / 0.15)"
+                                  : vendor.growthNum >= 15
+                                  ? "hsl(199 89% 48% / 0.15)"
+                                  : "hsl(var(--muted))",
+                              color:
+                                vendor.growthNum >= 30
+                                  ? "hsl(142 71% 45%)"
+                                  : vendor.growthNum >= 15
+                                  ? "hsl(199 89% 48%)"
+                                  : "hsl(var(--muted-foreground))",
+                            }}
+                          >
+                            <TrendingUp className="w-3 h-3" />
+                            {vendor.growth}
+                          </div>
+                        ) : (
+                          <span className="text-muted-foreground text-sm">—</span>
+                        )}
                       </TableCell>
-                      <TableCell className="text-muted-foreground text-sm max-w-[200px] truncate">
-                        {vendor.highlight}
+                      <TableCell className="text-muted-foreground text-sm max-w-[200px] truncate hidden lg:table-cell">
+                        {vendor.highlight ?? "—"}
                       </TableCell>
                     </motion.tr>
                   );
@@ -659,7 +685,7 @@ const VendorComparisonMatrix = () => {
               </AnimatePresence>
               {filteredAndSortedVendors.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">
+                  <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
                     <div className="flex flex-col items-center gap-2">
                       <Filter className="w-8 h-8 opacity-50" />
                       <span>No vendors match your filters</span>
@@ -697,7 +723,7 @@ const VendorComparisonMatrix = () => {
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-primary" />
-            <span>15-30% (Moderate)</span>
+            <span>15–30% (Moderate)</span>
           </div>
         </motion.div>
       </div>
@@ -707,24 +733,53 @@ const VendorComparisonMatrix = () => {
         <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-card border-border">
           {selectedVendor && (() => {
             const details = vendorDetails[selectedVendor.name];
-            const CategoryIcon = categoryIcons[selectedVendor.category];
+            const CategoryIcon = categoryIcons[selectedVendor.categoryLabel] ?? BarChart3;
             if (!details) return (
               <DialogHeader>
+                <div className="flex items-center gap-3 mb-1">
+                  <CategoryIcon className="w-5 h-5" style={{ color: categoryColors[selectedVendor.categoryLabel] }} />
+                  <Badge variant="outline" style={{ borderColor: categoryColors[selectedVendor.categoryLabel], color: categoryColors[selectedVendor.categoryLabel] }}>
+                    {selectedVendor.categoryLabel}
+                  </Badge>
+                  <Badge variant="outline" className={`text-xs ${typeBadgeClass[selectedVendor.type] ?? ""}`}>
+                    {typeLabel[selectedVendor.type] ?? selectedVendor.type}
+                  </Badge>
+                </div>
                 <DialogTitle className="text-foreground">{selectedVendor.name}</DialogTitle>
-                <p className="text-muted-foreground text-sm">Detailed information not available.</p>
+                <p className="text-muted-foreground text-sm mt-1">{selectedVendor.description}</p>
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <DollarSign className="w-4 h-4 mx-auto mb-1 text-primary" />
+                    <div className="text-sm font-bold text-foreground">{selectedVendor.marketCap ?? "—"}</div>
+                    <div className="text-xs text-muted-foreground">Mkt Cap / Val</div>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <BarChart3 className="w-4 h-4 mx-auto mb-1 text-accent" />
+                    <div className="text-sm font-bold text-foreground">{selectedVendor.revenue ?? "—"}</div>
+                    <div className="text-xs text-muted-foreground">Revenue</div>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                    <TrendingUp className="w-4 h-4 mx-auto mb-1 text-executive-green" />
+                    <div className="text-sm font-bold text-foreground">{selectedVendor.growth ?? "—"}</div>
+                    <div className="text-xs text-muted-foreground">Growth</div>
+                  </div>
+                </div>
+                {selectedVendor.highlight && (
+                  <p className="text-xs text-muted-foreground mt-3">Highlight: {selectedVendor.highlight}</p>
+                )}
               </DialogHeader>
             );
             return (
               <>
                 <DialogHeader>
                   <div className="flex items-center gap-3 mb-1">
-                    <CategoryIcon className="w-5 h-5" style={{ color: categoryColors[selectedVendor.category] }} />
-                    <Badge variant="outline" style={{ borderColor: categoryColors[selectedVendor.category], color: categoryColors[selectedVendor.category] }}>
-                      {selectedVendor.category}
+                    <CategoryIcon className="w-5 h-5" style={{ color: categoryColors[selectedVendor.categoryLabel] }} />
+                    <Badge variant="outline" style={{ borderColor: categoryColors[selectedVendor.categoryLabel], color: categoryColors[selectedVendor.categoryLabel] }}>
+                      {selectedVendor.categoryLabel}
                     </Badge>
-                    {selectedVendor.type === "emerging" && (
-                      <Badge variant="outline" className="bg-executive-amber/10 text-executive-amber border-executive-amber/30">Emerging</Badge>
-                    )}
+                    <Badge variant="outline" className={`text-xs ${typeBadgeClass[selectedVendor.type] ?? ""}`}>
+                      {typeLabel[selectedVendor.type] ?? selectedVendor.type}
+                    </Badge>
                   </div>
                   <DialogTitle className="text-2xl text-foreground">{selectedVendor.name}</DialogTitle>
                   <p className="text-muted-foreground text-sm mt-1">{details.description}</p>
@@ -734,18 +789,18 @@ const VendorComparisonMatrix = () => {
                 <div className="grid grid-cols-3 gap-3 mt-4">
                   <div className="bg-secondary/50 rounded-lg p-3 text-center">
                     <DollarSign className="w-4 h-4 mx-auto mb-1 text-primary" />
-                    <div className="text-lg font-bold text-foreground">{selectedVendor.marketCap >= 1000 ? `$${(selectedVendor.marketCap / 1000).toFixed(1)}T` : `$${selectedVendor.marketCap.toFixed(1)}B`}</div>
-                    <div className="text-xs text-muted-foreground">Market Cap</div>
+                    <div className="text-sm font-bold text-foreground">{selectedVendor.marketCap ?? "—"}</div>
+                    <div className="text-xs text-muted-foreground">Mkt Cap / Val</div>
                   </div>
                   <div className="bg-secondary/50 rounded-lg p-3 text-center">
                     <BarChart3 className="w-4 h-4 mx-auto mb-1 text-accent" />
-                    <div className="text-lg font-bold text-foreground">{selectedVendor.revenue >= 1 ? `$${selectedVendor.revenue.toFixed(2)}B` : `$${(selectedVendor.revenue * 1000).toFixed(0)}M`}</div>
+                    <div className="text-sm font-bold text-foreground">{selectedVendor.revenue ?? "—"}</div>
                     <div className="text-xs text-muted-foreground">Revenue</div>
                   </div>
                   <div className="bg-secondary/50 rounded-lg p-3 text-center">
                     <TrendingUp className="w-4 h-4 mx-auto mb-1 text-executive-green" />
-                    <div className="text-lg font-bold text-foreground">{selectedVendor.growthRate}%</div>
-                    <div className="text-xs text-muted-foreground">Growth Rate</div>
+                    <div className="text-sm font-bold text-foreground">{selectedVendor.growth ?? "—"}</div>
+                    <div className="text-xs text-muted-foreground">Growth</div>
                   </div>
                 </div>
 
