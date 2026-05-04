@@ -87,11 +87,13 @@ export const generatePPTX = async () => {
   });
 
   const summaryData = [
-    ["Category", "TAM 2024", "TAM 2030", "CAGR"],
-    ["AIOps & Observability", "$2.23B", "$11.8B (2034)", "20.4%"],
-    ["IT Operations Management", "$51.7B", "$105B", "10.9%"],
-    ["RPA & Intelligent Automation", "$15.4B", "$32.8B", "16.3%"],
-    ["Combined Total", "$69.3B", "$149.6B", "—"],
+    ["Category", "TAM 2025", "TAM 2030", "CAGR"],
+    ["AIOps & Observability", "$22.0B", "$52.5B", "19.0%"],
+    ["IT Service & Operations Mgmt", "$31.8B", "$54.8B", "11.5%"],
+    ["RPA & Intelligent Automation", "$17.8B", "$44.7B", "20.2%"],
+    ["Agentic IT Operations", "$7.8B", "$49.8B", "44.8%"],
+    ["Security Operations (SecOps)", "$28.2B", "$54.1B", "13.9%"],
+    ["Combined Total", "$107.6B", "$255.9B", "~21.9% avg"],
   ];
 
   summarySlide.addTable(toTableRows(summaryData), {
@@ -151,7 +153,7 @@ export const generatePPTX = async () => {
 
     // Metrics
     const metrics = [
-      { label: "TAM 2024", value: data.tam2024 },
+      { label: "TAM 2025", value: (data.tam2025 ?? data.tam2024) as string },
       { label: "TAM 2030", value: data.tam2030 },
       { label: "CAGR", value: data.cagr },
     ];
@@ -229,51 +231,63 @@ export const generatePPTX = async () => {
       fontFace: "Arial",
     });
 
-    const vendorTableData = [
-      ["#", "Vendor", "Key Metric", "Description"],
-      ...data.topVendors.map((v, idx) => [
-        String(idx + 1),
-        v.name,
-        v.metric,
-        v.description,
-      ]),
-    ];
+    // Use actual data structure: vendors[] for established, startups[] for emerging
+    const establishedVendors: any[] = (data as any).vendors ?? [];
+    const startupVendors: any[] = (data as any).startups ?? [];
 
-    vendorsSlide.addTable(toTableRows(vendorTableData), {
-      x: 0.5,
-      y: 1,
-      w: 9,
-      colW: [0.5, 2.5, 2, 4],
-      fontFace: "Arial",
-      fontSize: 10,
-      color: COLORS.text,
-      fill: { color: COLORS.cardBg },
-      border: { type: "solid", color: COLORS.border, pt: 1 },
-    });
+    // Top established vendors table (first 10)
+    const topVendorRows = establishedVendors.slice(0, 10).map((v: any, idx: number) => [
+      String(idx + 1),
+      v.name,
+      v.highlight ?? v.type,
+      v.marketCap ?? "—",
+      v.description,
+    ]);
 
-    // Emerging vendors
-    vendorsSlide.addText("Emerging Players", {
-      x: 0.5,
-      y: 4.2,
-      w: 9,
-      h: 0.4,
-      fontSize: 14,
-      bold: true,
-      color: COLORS.amber,
-      fontFace: "Arial",
-    });
+    if (topVendorRows.length > 0) {
+      const vendorTableData = [
+        ["#", "Vendor", "Highlight", "Mkt Cap", "Description"],
+        ...topVendorRows,
+      ];
+      vendorsSlide.addTable(toTableRows(vendorTableData), {
+        x: 0.5,
+        y: 1,
+        w: 9,
+        colW: [0.4, 2, 1.5, 1.3, 3.8],
+        fontFace: "Arial",
+        fontSize: 9,
+        color: COLORS.text,
+        fill: { color: COLORS.cardBg },
+        border: { type: "solid", color: COLORS.border, pt: 1 },
+      });
+    }
 
-    data.emergingVendors.forEach((v, idx) => {
-      vendorsSlide.addText(`${v.name} (${v.metric})`, {
-        x: 0.5 + (idx % 2) * 4.5,
-        y: 4.6 + Math.floor(idx / 2) * 0.35,
-        w: 4.3,
-        h: 0.35,
-        fontSize: 11,
-        color: COLORS.muted,
+    // Emerging / startup players (first 8, two columns)
+    if (startupVendors.length > 0) {
+      vendorsSlide.addText("Emerging Players", {
+        x: 0.5,
+        y: 4.2,
+        w: 9,
+        h: 0.4,
+        fontSize: 14,
+        bold: true,
+        color: COLORS.amber,
         fontFace: "Arial",
       });
-    });
+
+      startupVendors.slice(0, 8).forEach((v: any, idx: number) => {
+        const label = v.highlight ? `${v.name} · ${v.highlight}` : v.name;
+        vendorsSlide.addText(label, {
+          x: 0.5 + (idx % 2) * 4.5,
+          y: 4.65 + Math.floor(idx / 2) * 0.32,
+          w: 4.3,
+          h: 0.3,
+          fontSize: 10,
+          color: COLORS.muted,
+          fontFace: "Arial",
+        });
+      });
+    }
 
     // Use Cases & Trends slide
     const trendsSlide = pptx.addSlide({ masterName: "EXECUTIVE_MASTER" });

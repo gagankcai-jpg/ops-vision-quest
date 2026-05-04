@@ -1,4 +1,5 @@
 import type jsPDFType from "jspdf";
+import autoTable from "jspdf-autotable";
 import { aiopsData, itomData, rpaData } from "@/data/marketData";
 
 const COLORS = {
@@ -73,7 +74,7 @@ const createCategoryPages = (doc: jsPDFType, data: typeof aiopsData, color: [num
   addSubheader(doc, data.subtitle, 40);
 
   let y = addMetricBoxes(doc, [
-    { label: "TAM 2024", value: data.tam2024 },
+    { label: "TAM 2025", value: (data.tam2025 ?? data.tam2024) as string },
     { label: "TAM 2030", value: data.tam2030 },
     { label: "CAGR", value: data.cagr },
   ], 50, color);
@@ -91,32 +92,38 @@ const createCategoryPages = (doc: jsPDFType, data: typeof aiopsData, color: [num
   });
 
   y = (doc as any).lastAutoTable.finalY + 10;
-  y = addSectionTitle(doc, "Top Vendors", y);
 
-  autoTable(doc, {
-    startY: y,
-    head: [["#", "Vendor", "Key Metric", "Description"]],
-    body: data.topVendors.map((v, i) => [String(i + 1), v.name, v.metric, v.description]),
-    theme: "grid",
-    styles: { fillColor: COLORS.cardBg, textColor: COLORS.text, fontSize: 8, cellPadding: 3, lineColor: COLORS.border },
-    headStyles: { fillColor: [30, 30, 34], textColor: color, fontStyle: "bold" },
-    columnStyles: { 0: { cellWidth: 10 }, 1: { cellWidth: 35 }, 2: { cellWidth: 30 } },
-    margin: { left: 20, right: 20 },
-  });
+  const topVendors = (data as any).topVendors ?? [];
+  const emergingVendors = (data as any).emergingVendors ?? [];
 
-  y = (doc as any).lastAutoTable.finalY + 8;
-  y = addSectionTitle(doc, "Emerging Players", y, COLORS.amber);
+  if (topVendors.length > 0) {
+    y = addSectionTitle(doc, "Top Vendors", y);
+    autoTable(doc, {
+      startY: y,
+      head: [["#", "Vendor", "Key Metric", "Description"]],
+      body: topVendors.map((v: any, i: number) => [String(i + 1), v.name, v.metric, v.description]),
+      theme: "grid",
+      styles: { fillColor: COLORS.cardBg, textColor: COLORS.text, fontSize: 8, cellPadding: 3, lineColor: COLORS.border },
+      headStyles: { fillColor: [30, 30, 34], textColor: color, fontStyle: "bold" },
+      columnStyles: { 0: { cellWidth: 10 }, 1: { cellWidth: 35 }, 2: { cellWidth: 30 } },
+      margin: { left: 20, right: 20 },
+    });
+    y = (doc as any).lastAutoTable.finalY + 8;
+  }
 
-  data.emergingVendors.forEach((v) => {
-    doc.setTextColor(...COLORS.text);
-    doc.setFontSize(9);
-    doc.setFont("helvetica", "bold");
-    doc.text(`• ${v.name}`, 22, y);
-    doc.setFont("helvetica", "normal");
-    doc.setTextColor(...COLORS.muted);
-    doc.text(`(${v.metric}) — ${v.description}`, 22 + doc.getTextWidth(`• ${v.name} `), y);
-    y += 6;
-  });
+  if (emergingVendors.length > 0) {
+    y = addSectionTitle(doc, "Emerging Players", y, COLORS.amber);
+    emergingVendors.forEach((v: any) => {
+      doc.setTextColor(...COLORS.text);
+      doc.setFontSize(9);
+      doc.setFont("helvetica", "bold");
+      doc.text(`• ${v.name}`, 22, y);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(...COLORS.muted);
+      doc.text(`(${v.metric}) — ${v.description}`, 22 + doc.getTextWidth(`• ${v.name} `), y);
+      y += 6;
+    });
+  }
 
   // Page 2: Use Cases & Trends
   doc.addPage();
@@ -164,10 +171,7 @@ const createCategoryPages = (doc: jsPDFType, data: typeof aiopsData, color: [num
 };
 
 export const generatePDF = async () => {
-  const [{ default: jsPDF }, { default: autoTable }] = await Promise.all([
-    import("jspdf"),
-    import("jspdf-autotable"),
-  ]);
+  const { default: jsPDF } = await import("jspdf");
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
 
   // Title page
@@ -195,12 +199,14 @@ export const generatePDF = async () => {
 
   autoTable(doc, {
     startY: 42,
-    head: [["Category", "TAM 2024", "TAM 2030", "CAGR"]],
+    head: [["Category", "TAM 2025", "TAM 2030", "CAGR"]],
     body: [
-      ["AIOps & Observability", "$2.23B", "$11.8B (2034)", "20.4%"],
-      ["IT Operations Management", "$51.7B", "$105B", "10.9%"],
-      ["RPA & Intelligent Automation", "$15.4B", "$32.8B", "16.3%"],
-      ["Combined Total", "$69.3B", "$149.6B", "—"],
+      ["AIOps & Observability", "$22.0B", "$52.5B", "19.0%"],
+      ["IT Service & Operations Mgmt", "$31.8B", "$54.8B", "11.5%"],
+      ["RPA & Intelligent Automation", "$17.8B", "$44.7B", "20.2%"],
+      ["Agentic IT Operations", "$7.8B", "$49.8B", "44.8%"],
+      ["Security Operations (SecOps)", "$28.2B", "$54.1B", "13.9%"],
+      ["Combined Total", "$107.6B", "$255.9B", "~21.9% avg"],
     ],
     theme: "grid",
     styles: { fillColor: COLORS.cardBg, textColor: COLORS.text, fontSize: 10, cellPadding: 5, lineColor: COLORS.border },

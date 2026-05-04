@@ -29,8 +29,8 @@ function formatBillions(n: number): string {
   return `$${n % 1 === 0 ? n.toFixed(0) : n.toFixed(1)}B`;
 }
 
-// Static fallback totals (corrected figures)
-const FALLBACK = { tam2024: 57.7, tam2030: 148.7, growth: 158, cagr: 22.2 };
+// Static fallback totals — 2025 baseline (AIOps $22B + ITOM $31.8B + RPA $17.8B + Agentic $7.8B + SecOps $28.2B)
+const FALLBACK = { tam2025: 107.6, tam2030: 255.9, growth: 138, cagr: 21.9 };
 
 const SLUGS = ["aiops", "itom", "rpa", "agentops", "secops"] as const;
 
@@ -38,9 +38,9 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
   // Compute combined stats from live data if available
   const hasMaps = markets && Object.keys(markets).length > 0;
 
-  const combined2024 = hasMaps
-    ? SLUGS.reduce((sum, s) => sum + parseTAM(markets![s]?.tam2024), 0)
-    : FALLBACK.tam2024;
+  const combined2025 = hasMaps
+    ? SLUGS.reduce((sum, s) => sum + parseTAM(markets![s]?.tam2025 as string), 0)
+    : FALLBACK.tam2025;
 
   const combined2030 = hasMaps
     ? SLUGS.reduce((sum, s) => sum + parseTAM(markets![s]?.tam2030), 0)
@@ -50,17 +50,17 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
     ? SLUGS.reduce((sum, s) => sum + parseCAGR(markets![s]?.cagr), 0) / SLUGS.length
     : FALLBACK.cagr;
 
-  const growthPct = combined2024 > 0
-    ? Math.round(((combined2030 - combined2024) / combined2024) * 100)
+  const growthPct = combined2025 > 0
+    ? Math.round(((combined2030 - combined2025) / combined2025) * 100)
     : FALLBACK.growth;
 
-  const comparisonData = ["2024", "2026", "2028", "2030"].map((year) => ({
+  const comparisonData = ["2025", "2026", "2028", "2030"].map((year) => ({
     name: year,
-    aiops:    hasMaps ? getChartValue(markets!.aiops, year)    : [4.1,  6.5,  10.4, 16.8][["2024","2026","2028","2030"].indexOf(year)],
-    itom:     hasMaps ? getChartValue(markets!.itom, year)     : [13.5, 17.1, 21.8, 27.8][["2024","2026","2028","2030"].indexOf(year)],
-    rpa:      hasMaps ? getChartValue(markets!.rpa, year)      : [15.4, 21.0, 27.0, 32.8][["2024","2026","2028","2030"].indexOf(year)],
-    agentops: hasMaps ? getChartValue(markets!.agentops, year) : [2.4,  4.7,  9.3,  18.6][["2024","2026","2028","2030"].indexOf(year)],
-    secops:   hasMaps ? getChartValue(markets!.secops, year)   : [22.3, 29.7, 39.5, 52.7][["2024","2026","2028","2030"].indexOf(year)],
+    aiops:    hasMaps ? getChartValue(markets!.aiops, year)    : [22.0, 26.2, 37.1, 52.5][["2025","2026","2028","2030"].indexOf(year)],
+    itom:     hasMaps ? getChartValue(markets!.itom, year)     : [31.8, 35.5, 44.1, 54.8][["2025","2026","2028","2030"].indexOf(year)],
+    rpa:      hasMaps ? getChartValue(markets!.rpa, year)      : [17.8, 21.4, 30.9, 44.7][["2025","2026","2028","2030"].indexOf(year)],
+    agentops: hasMaps ? getChartValue(markets!.agentops, year) : [7.8,  11.3, 23.7, 49.8][["2025","2026","2028","2030"].indexOf(year)],
+    secops:   hasMaps ? getChartValue(markets!.secops, year)   : [28.2, 32.2, 41.7, 54.1][["2025","2026","2028","2030"].indexOf(year)],
   }));
 
   const tam2030Str = formatBillions(combined2030);
@@ -69,7 +69,7 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
     {
       icon: <Zap className="w-6 h-6" />,
       title: "AI-First Transformation",
-      description: "80% of vendors integrating GenAI capabilities by 2025. Agentic AI is the fastest-growing segment at 40%+ CAGR — emerging as the next frontier across all five markets.",
+      description: "GenAI is now standard across all five markets. Agentic AI is the fastest-growing segment at 44.8% CAGR — Gartner forecasts 70% of enterprises deploying agentic IT ops by 2029.",
       color: "hsl(199 89% 48%)",
     },
     {
@@ -119,8 +119,8 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-sm text-muted-foreground mb-2">Combined TAM 2024</div>
-              <div className="text-4xl font-bold text-foreground">{formatBillions(combined2024)}</div>
+              <div className="text-sm text-muted-foreground mb-2">Combined TAM 2025</div>
+              <div className="text-4xl font-bold text-foreground">{formatBillions(combined2025)}</div>
               <div className="text-xs text-muted-foreground mt-1">5 markets</div>
             </div>
             <div>
@@ -131,7 +131,7 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
             <div>
               <div className="text-sm text-muted-foreground mb-2">Total Growth</div>
               <div className="text-4xl font-bold text-executive-green">+{growthPct}%</div>
-              <div className="text-xs text-muted-foreground mt-1">2024–2030</div>
+              <div className="text-xs text-muted-foreground mt-1">2025–2030</div>
             </div>
             <div>
               <div className="text-sm text-muted-foreground mb-2">Avg. CAGR</div>

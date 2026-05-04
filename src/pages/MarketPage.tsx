@@ -1,12 +1,10 @@
-import { lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
-import Navigation from "@/components/presentation/Navigation";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { allCategories } from "@/data/marketData";
 import { useMarketData } from "@/hooks/useMarketData";
-import { ChevronLeft } from "lucide-react";
 import { LAST_UPDATED } from "@/data/lastUpdated";
-
-const CategorySection = lazy(() => import("@/components/presentation/CategorySection"));
+import { PageShell } from "@/components/layout/PageShell";
+import CategorySection from "@/components/presentation/CategorySection";
 
 const SLUG_ORDER = ["aiops", "itom", "rpa", "agentops", "secops"];
 
@@ -18,9 +16,7 @@ const MarketPage = () => {
   const liveData = markets?.[slug ?? ""];
 
   // Merge live TAM/chart data over static structure data
-  const data = staticData
-    ? { ...staticData, ...(liveData ?? {}) }
-    : null;
+  const data = staticData ? { ...staticData, ...(liveData ?? {}) } : null;
 
   const displayDate =
     status === "live" && lastRefresh
@@ -29,12 +25,16 @@ const MarketPage = () => {
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-background font-sans flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-muted-foreground mb-4">Market not found.</p>
-          <Link to="/" className="text-primary hover:underline">← Back to Overview</Link>
+      <PageShell footerLogoId="market-404">
+        <div className="container flex min-h-[60vh] items-center justify-center px-6">
+          <div className="text-center">
+            <p className="mb-4 text-muted-foreground">Market not found.</p>
+            <Link to="/" className="text-primary hover:underline">
+              ← Back to Overview
+            </Link>
+          </div>
         </div>
-      </div>
+      </PageShell>
     );
   }
 
@@ -45,52 +45,84 @@ const MarketPage = () => {
   const nextData = nextSlug ? allCategories.find((c) => c.id === nextSlug) : null;
 
   return (
-    <div className="min-h-screen bg-background font-sans">
-      <Navigation />
-
-      <main className="pt-20">
-        {/* Breadcrumb */}
-        <div className="container px-6 py-6 flex items-center justify-between">
+    <PageShell
+      dataDate={displayDate}
+      isLive={status === "live"}
+      footerLogoId="market-footer"
+    >
+      {/* Breadcrumb / meta strip */}
+      <div className="border-b border-border/60 bg-card/30">
+        <div className="container flex items-center justify-between px-6 py-4">
           <Link
             to="/"
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ChevronLeft className="w-4 h-4" />
-            Back to Overview
+            <ChevronLeft className="h-4 w-4" />
+            Back to overview
           </Link>
-          <span className="text-xs text-muted-foreground">
-            Data as of {displayDate}
-            {status === "live" && <span className="ml-2 text-green-400">● Live</span>}
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="text-xs text-muted-foreground">
+              Data as of {displayDate}
+              {status === "live" && (
+                <span className="ml-2 text-success">● Live</span>
+              )}
+            </span>
+            {nextData && (
+              <Link
+                to={`/market/${nextData.id}`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {nextData.title}
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+            )}
+          </div>
         </div>
+      </div>
 
-        <Suspense fallback={null}>
-          <CategorySection data={data} index={0} />
-        </Suspense>
+      <CategorySection data={data} index={0} />
 
-        {/* Prev / Next navigation */}
-        <div className="container px-6 py-12 border-t border-border flex items-center justify-between gap-4">
+      {/* Prev / Next navigation */}
+      <nav
+        aria-label="Adjacent markets"
+        className="border-t border-border/60"
+      >
+        <div className="container flex items-center justify-between gap-4 px-6 py-10">
           {prevData ? (
             <Link
               to={`/market/${prevData.id}`}
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              <ChevronLeft className="w-4 h-4" />
-              <span>{prevData.title}</span>
+              <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+              <span>
+                <span className="block text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                  Previous market
+                </span>
+                <span>{prevData.title}</span>
+              </span>
             </Link>
-          ) : <div />}
+          ) : (
+            <span />
+          )}
           {nextData ? (
             <Link
               to={`/market/${nextData.id}`}
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors ml-auto"
+              className="group ml-auto inline-flex items-center gap-2 text-right text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              <span>{nextData.title}</span>
-              <ChevronLeft className="w-4 h-4 rotate-180" />
+              <span>
+                <span className="block text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                  Next market
+                </span>
+                <span>{nextData.title}</span>
+              </span>
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-          ) : <div />}
+          ) : (
+            <span />
+          )}
         </div>
-      </main>
-    </div>
+      </nav>
+    </PageShell>
   );
 };
 

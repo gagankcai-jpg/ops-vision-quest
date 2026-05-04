@@ -1,54 +1,48 @@
-import { lazy, Suspense } from "react";
-import Navigation from "@/components/presentation/Navigation";
+import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import HeroSection from "@/components/presentation/HeroSection";
-import { LAST_UPDATED, COPYRIGHT_YEAR } from "@/data/lastUpdated";
+import SignalsTeaser from "@/components/presentation/SignalsTeaser";
+import { PageShell } from "@/components/layout/PageShell";
+import { LAST_UPDATED } from "@/data/lastUpdated";
 import { useMarketData } from "@/hooks/useMarketData";
 
 const ExecutiveSummary = lazy(() => import("@/components/presentation/ExecutiveSummary"));
 const VendorComparisonMatrix = lazy(() => import("@/components/presentation/VendorComparisonMatrix"));
 
 const Index = () => {
+  const location = useLocation();
   const { data: markets, status, lastRefresh } = useMarketData();
-  const displayDate = status === "live" && lastRefresh
-    ? new Date(lastRefresh).toLocaleDateString("en-US", { month: "long", year: "numeric" })
-    : LAST_UPDATED;
+
+  // Scroll to section when navigated here from another page
+  useEffect(() => {
+    const scrollTo = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (!scrollTo) return;
+    const timer = setTimeout(() => {
+      const el = document.getElementById(scrollTo);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [location.state]);
+
+  const displayDate =
+    status === "live" && lastRefresh
+      ? new Date(lastRefresh).toLocaleDateString("en-US", { month: "long", year: "numeric" })
+      : LAST_UPDATED;
 
   return (
-    <div className="min-h-screen bg-background font-sans">
-      <Navigation />
+    <PageShell noTopPadding dataDate={displayDate} isLive={status === "live"}>
+      <HeroSection markets={markets} dataDate={displayDate} />
+      <SignalsTeaser />
 
-      <main>
-        <HeroSection markets={markets} dataDate={displayDate} />
-
-        <Suspense fallback={null}>
-          <div id="summary">
-            <ExecutiveSummary markets={markets} />
-          </div>
-
-          <div id="comparison">
-            <VendorComparisonMatrix />
-          </div>
-        </Suspense>
-
-        {/* Footer */}
-        <footer className="py-12 border-t border-border bg-card">
-          <div className="container px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-muted-foreground">
-                © {COPYRIGHT_YEAR} Autonomous IT Market Intelligence. Executive Intelligence Report.
-              </div>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span>
-                  Data as of {displayDate}
-                  {status === "live" && <span className="ml-2 text-xs text-green-400">● Live</span>}
-                  {" · "}Sources: Gartner, IDC, Mordor Intelligence, Fortune Business Insights, QKS Group
-                </span>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </main>
-    </div>
+      <Suspense fallback={null}>
+        <div id="summary">
+          <ExecutiveSummary markets={markets} />
+        </div>
+        <div id="comparison">
+          <VendorComparisonMatrix />
+        </div>
+      </Suspense>
+    </PageShell>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Filter,
@@ -12,7 +13,6 @@ import {
   Bot,
   X,
   Search,
-  ChevronDown,
   ExternalLink,
   Globe,
   Users,
@@ -23,7 +23,22 @@ import {
   Shield,
   Sparkles,
   ShieldCheck,
+  GitCompare,
+  ArrowUpRight,
+  Map as MapIcon,
+  TableProperties,
+  Radio,
+  Crown,
+  Activity,
 } from "lucide-react";
+import { vendorProfiles, toVendorSlug } from "@/data/vendorProfiles";
+import {
+  ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid,
+  Tooltip as RTooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList,
+} from "recharts";
+import { Surface } from "@/components/ui/surface";
+import { Stat } from "@/components/ui/stat";
+import { cn } from "@/lib/utils";
 import {
   Table,
   TableBody,
@@ -42,12 +57,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuCheckboxItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { allCategories } from "@/data/marketData";
 
 // Extended vendor detail info
@@ -123,6 +132,18 @@ function parseGrowthNum(s?: string): number {
   return m ? parseFloat(m[1]) : 0;
 }
 
+const MONTHS: Record<string, number> = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+};
+
+function parseEventDate(event?: string): number {
+  if (!event) return 0;
+  const m = event.match(/(\w{3})\s+(\d{4})/);
+  if (!m || !(m[1] in MONTHS)) return 0;
+  return new Date(+m[2], MONTHS[m[1]], 1).getTime();
+}
+
 // ── Category mappings ─────────────────────────────────────────────────────────
 const CATEGORY_LABELS: Record<string, string> = {
   aiops: "AIOps",
@@ -157,6 +178,8 @@ type VendorRow = {
   growth?: string;
   highlight?: string;
   description: string;
+  recentEvent?: string;
+  recentEventTs: number;
   categoryId: string;
   categoryLabel: string;
   color: string;
@@ -167,7 +190,7 @@ type VendorRow = {
 
 const allVendorRows: VendorRow[] = allCategories.flatMap((cat) => {
   const label = CATEGORY_LABELS[cat.id] ?? cat.id;
-  const toRow = (v: { name: string; type: string; marketCap?: string; revenue?: string; growth?: string; highlight?: string; description: string }): VendorRow => ({
+  const toRow = (v: { name: string; type: string; marketCap?: string; revenue?: string; growth?: string; highlight?: string; description: string; recentEvent?: string }): VendorRow => ({
     name: v.name,
     type: v.type,
     marketCap: v.marketCap,
@@ -175,6 +198,8 @@ const allVendorRows: VendorRow[] = allCategories.flatMap((cat) => {
     growth: v.growth,
     highlight: v.highlight,
     description: v.description,
+    recentEvent: v.recentEvent,
+    recentEventTs: parseEventDate(v.recentEvent),
     categoryId: cat.id,
     categoryLabel: label,
     color: cat.color,
@@ -194,7 +219,424 @@ const ALL_TYPES = ["leader", "challenger", "niche", "startup", "emerging"];
 type SortField = "name" | "marketCap" | "revenue" | "growthRate";
 type SortDirection = "asc" | "desc";
 
+/* ── Helpers ──────────────────────────────────────────────────────────── */
+
+function formatSignalDate(ts: number): string {
+  if (!ts) return "—";
+  const d = new Date(ts);
+  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
+function formatBubbleRevenue(v: number): string {
+  if (v >= 1) return `$${v.toFixed(1)}B`;
+  return `$${(v * 1000).toFixed(0)}M`;
+}
+
+function formatBubbleMarketCap(v: number): string {
+  if (v >= 1000) return `$${(v / 1000).toFixed(1)}T`;
+  if (v >= 1) return `$${v.toFixed(1)}B`;
+  return `$${(v * 1000).toFixed(0)}M`;
+}
+
+/* ── Market Map (bubble plot) ─────────────────────────────────────────── */
+
+interface MarketMapPoint extends VendorRow {
+  // ScatterChart needs numeric fields under known keys
+  x: number;
+  y: number;
+  z: number;
+}
+
+function MarketMapTooltip({ active, payload }: { active?: boolean; payload?: { payload: MarketMapPoint }[] }) {
+  if (!active || !payload || payload.length === 0) return null;
+  const p = payload[0].payload;
+  return (
+    <div className="rounded-lg border border-border bg-popover p-3 text-xs shadow-lg">
+      <div className="mb-1 flex items-center gap-2">
+        <span
+          className="h-2 w-2 rounded-full"
+          style={{ backgroundColor: categoryColors[p.categoryLabel] }}
+        />
+        <span className="font-semibold text-foreground">{p.name}</span>
+      </div>
+      <div className="space-y-0.5 text-muted-foreground">
+        <div>{p.categoryLabel} · <span className="capitalize">{p.type}</span></div>
+        <div>Revenue: <span className="text-foreground tabular-nums">{p.revenue ?? "—"}</span></div>
+        <div>Growth: <span className="text-foreground tabular-nums">{p.growth ?? "—"}</span></div>
+        <div>Mkt Cap: <span className="text-foreground tabular-nums">{p.marketCap ?? "—"}</span></div>
+      </div>
+      <p className="mt-2 border-t border-border pt-2 text-[10px] uppercase tracking-wider text-primary">
+        Click to open profile
+      </p>
+    </div>
+  );
+}
+
+/* Custom dot renderer — gives leaders a stronger ring; renders clickable circle.
+   Bubble radius capped at 14 so a few mega-cap names don't dominate the plot. */
+const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fill?: string }) => {
+  const { cx, cy, payload, fill } = props;
+  if (cx == null || cy == null || !payload) return null;
+  const isLeader = payload.type === "leader";
+  const r = Math.max(3.5, Math.min(14, Math.sqrt(payload.z) * 2.2));
+  return (
+    <g style={{ cursor: "pointer" }}>
+      <circle
+        cx={cx}
+        cy={cy}
+        r={r}
+        fill={fill}
+        fillOpacity={isLeader ? 0.7 : 0.4}
+        stroke={fill}
+        strokeWidth={isLeader ? 1.5 : 0.75}
+        strokeOpacity={isLeader ? 1 : 0.5}
+      />
+    </g>
+  );
+};
+
+type ShowMode = "leaders" | "top50" | "all";
+
+function MarketMap({
+  data, totalCount, medians, navigate, onPeek, selectedCategories, onToggleCategory,
+}: {
+  data: VendorRow[];
+  totalCount: number;
+  medians: { x: number; y: number };
+  navigate: ReturnType<typeof useNavigate>;
+  onPeek: (v: VendorRow) => void;
+  selectedCategories: string[];
+  onToggleCategory: (cat: string) => void;
+}) {
+  const [showMode, setShowMode] = useState<ShowMode>("top50");
+
+  /* Apply show-mode declutter on top of upstream filters */
+  const visiblePoints: MarketMapPoint[] = (() => {
+    let rows = data;
+    if (showMode === "leaders") {
+      rows = data.filter((v) => v.type === "leader");
+    } else if (showMode === "top50") {
+      rows = [...data].sort((a, b) => b.revenueNum - a.revenueNum).slice(0, 50);
+    }
+    return rows.map((v) => ({
+      ...v,
+      x: v.revenueNum,
+      y: v.growthNum,
+      z: Math.max(v.marketCapNum, 0.01),
+    }));
+  })();
+
+  /* Top-3 labeled vendors — fewer labels, well-spaced. Recompute medians for the visible set. */
+  const labeledTop = [...visiblePoints]
+    .sort((a, b) => b.revenueNum - a.revenueNum)
+    .slice(0, 3);
+
+  const visibleMedians = (() => {
+    if (visiblePoints.length === 0) return medians;
+    const xs = visiblePoints.map((v) => v.revenueNum).sort((a, b) => a - b);
+    const ys = visiblePoints.map((v) => v.growthNum).sort((a, b) => a - b);
+    return { x: xs[Math.floor(xs.length / 2)], y: ys[Math.floor(ys.length / 2)] };
+  })();
+
+  const handleClick = (point: MarketMapPoint) => {
+    const slug = toVendorSlug(point.name);
+    const hasProfile = !!vendorProfiles[`${point.categoryId}/${slug}`];
+    if (hasProfile) navigate(`/vendor/${point.categoryId}/${slug}`);
+    else onPeek(point);
+  };
+
+  const tokens = {
+    grid: "hsl(217 24% 22% / 0.4)",
+    axis: "hsl(215 20% 80%)",
+    tick: "hsl(217 24% 30%)",
+    median: "hsl(215 20% 70% / 0.45)",
+    label: "hsl(210 40% 98%)",
+    labelHalo: "hsl(222 47% 7%)",
+  };
+
+  /* Custom label renderer — adds a dark halo behind text + offsets to avoid bubble overlap.
+     Used via LabelList content prop. recharts passes (x, y, value, index, ...) per element. */
+  const renderTopLabel = (labelProps: { x?: number | string; y?: number | string; value?: string | number; index?: number }) => {
+    const { x: rawX, y: rawY, value, index = 0 } = labelProps;
+    const x = typeof rawX === "number" ? rawX : parseFloat(rawX ?? "");
+    const y = typeof rawY === "number" ? rawY : parseFloat(rawY ?? "");
+    if (!isFinite(x) || !isFinite(y) || !value) return <g key={`empty-${index}`} />;
+    // Alternate label position to avoid stacking when bubbles cluster
+    const offsetY = index % 2 === 0 ? -24 : -42;
+    const offsetX = index % 2 === 0 ? -8 : 8;
+    const anchor = index % 2 === 0 ? "end" : "start";
+    return (
+      <g pointerEvents="none" key={`label-${index}`}>
+        {/* connector line */}
+        <line
+          x1={x}
+          y1={y - 6}
+          x2={x + offsetX}
+          y2={y + offsetY + 4}
+          stroke={tokens.label}
+          strokeOpacity={0.5}
+          strokeDasharray="2 2"
+        />
+        {/* halo */}
+        <text
+          x={x + offsetX}
+          y={y + offsetY}
+          textAnchor={anchor}
+          fontSize={11}
+          fontWeight={700}
+          stroke={tokens.labelHalo}
+          strokeWidth={4}
+          strokeLinejoin="round"
+          paintOrder="stroke"
+          fill={tokens.label}
+        >
+          {String(value)}
+        </text>
+      </g>
+    );
+  };
+
+  return (
+    <Surface variant="default" padding="lg">
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h3 className="font-display text-base font-semibold tracking-tight text-foreground sm:text-lg">
+            Market map
+          </h3>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Revenue (x) × growth (y), bubble size = market cap. Click a bubble for the full profile.
+          </p>
+        </div>
+
+        {/* Show-mode toggle (declutter the chart) */}
+        <div className="inline-flex items-center gap-1 rounded-lg border border-border bg-card p-0.5 text-[11px]">
+          {([
+            { id: "leaders", label: "Leaders" },
+            { id: "top50",   label: "Top 50" },
+            { id: "all",     label: "All" },
+          ] as const).map((opt) => (
+            <button
+              key={opt.id}
+              onClick={() => setShowMode(opt.id)}
+              className={cn(
+                "rounded-md px-2 py-1 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                showMode === opt.id
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+              aria-pressed={showMode === opt.id}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Category legend — separate row so labels never collide with chart content */}
+      <div className="mb-3 flex flex-wrap items-center gap-1.5 text-[11px] text-muted-foreground">
+        <span className="mr-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/60">
+          Filter map
+        </span>
+        {Object.entries(categoryColors).map(([cat, color]) => {
+          const active = selectedCategories.includes(cat);
+          return (
+            <button
+              key={cat}
+              onClick={() => onToggleCategory(cat)}
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                active
+                  ? "border-border/60 bg-card text-foreground"
+                  : "border-dashed border-border/40 bg-transparent text-muted-foreground/50 hover:text-muted-foreground"
+              )}
+              aria-pressed={active}
+              title={active ? `Hide ${cat}` : `Show only ${cat}`}
+            >
+              <span
+                className={cn("h-2 w-2 rounded-full transition-opacity", active ? "opacity-100" : "opacity-25")}
+                style={{ backgroundColor: color }}
+              />
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
+      {visiblePoints.length === 0 ? (
+        <div className="flex h-[440px] items-center justify-center text-sm text-muted-foreground">
+          No vendors with both revenue and growth in the current filter.
+        </div>
+      ) : (
+        <div className="relative h-[500px] w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <ScatterChart margin={{ top: 32, right: 36, bottom: 56, left: 56 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke={tokens.grid} />
+              <XAxis
+                type="number"
+                dataKey="x"
+                name="Revenue"
+                scale="log"
+                domain={[0.01, "dataMax"]}
+                allowDataOverflow
+                tickFormatter={formatBubbleRevenue}
+                stroke={tokens.axis}
+                tick={{ fontSize: 11 }}
+                axisLine={{ stroke: tokens.tick }}
+                tickLine={false}
+                label={{ value: "Revenue (log)", position: "insideBottom", offset: -36, fill: tokens.axis, fontSize: 10, fontWeight: 600 }}
+              />
+              <YAxis
+                type="number"
+                dataKey="y"
+                name="Growth"
+                domain={[0, "dataMax"]}
+                tickFormatter={(v: number) => `+${v}%`}
+                stroke={tokens.axis}
+                tick={{ fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+                width={56}
+                label={{ value: "Growth YoY", angle: -90, position: "insideLeft", offset: 8, fill: tokens.axis, fontSize: 10, fontWeight: 600 }}
+              />
+              <ZAxis type="number" dataKey="z" range={[40, 600]} name="Market cap" />
+
+              {/* Quadrant guides */}
+              <ReferenceLine x={visibleMedians.x} stroke={tokens.median} strokeDasharray="4 4" />
+              <ReferenceLine y={visibleMedians.y} stroke={tokens.median} strokeDasharray="4 4" />
+
+              <RTooltip
+                cursor={{ strokeDasharray: "3 3" }}
+                content={<MarketMapTooltip />}
+              />
+
+              <Scatter
+                data={visiblePoints}
+                shape={MapDot as unknown as React.ComponentType<unknown>}
+                onClick={(p) => handleClick(p as unknown as MarketMapPoint)}
+              >
+                {visiblePoints.map((p, i) => (
+                  <Cell key={`cell-${i}`} fill={categoryColors[p.categoryLabel]} />
+                ))}
+              </Scatter>
+
+              {/* Top-3 labeled vendors with custom halo + connector to bubble */}
+              <Scatter
+                data={labeledTop}
+                shape={() => <g />}
+                isAnimationActive={false}
+              >
+                <LabelList dataKey="name" content={renderTopLabel as never} />
+              </Scatter>
+            </ScatterChart>
+          </ResponsiveContainer>
+
+          {/* Quadrant labels — diagonal corners, larger gap from chart edges */}
+          <div className="pointer-events-none absolute right-10 top-1 hidden items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/65 sm:flex">
+            High growth · Large scale ↗
+          </div>
+          <div className="pointer-events-none absolute bottom-16 left-16 hidden items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/55 sm:flex">
+            ↙ Slowing · Smaller
+          </div>
+        </div>
+      )}
+
+      {/* Footer: bubble-size legend + plot count */}
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-muted-foreground">
+        <span className="inline-flex flex-wrap items-center gap-3">
+          <span className="font-medium uppercase tracking-wider text-muted-foreground/70">Bubble size</span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="block h-1.5 w-1.5 rounded-full bg-muted-foreground/70" />
+            <span className="tabular-nums">$1B</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="block h-2.5 w-2.5 rounded-full bg-muted-foreground/70" />
+            <span className="tabular-nums">$10B</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="block h-4 w-4 rounded-full bg-muted-foreground/70" />
+            <span className="tabular-nums">$100B+</span>
+          </span>
+          <span className="ml-2 inline-flex items-center gap-1.5">
+            <span className="block h-2 w-2 rounded-full border border-foreground bg-foreground/40" />
+            Leader (brighter ring)
+          </span>
+        </span>
+        <span>
+          <span className="font-semibold tabular-nums text-foreground">{visiblePoints.length}</span> shown ·{" "}
+          <span className="tabular-nums">{totalCount}</span> in filter
+        </span>
+      </div>
+    </Surface>
+  );
+}
+
+/* ── Leaderboard card ─────────────────────────────────────────────────── */
+
+function LeaderboardCard({
+  title, icon, rows, valueFor, subtitleFor, navigate, onPeek, max = 4,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  rows: VendorRow[];
+  valueFor: (v: VendorRow) => string;
+  subtitleFor?: (v: VendorRow) => string | undefined;
+  navigate: ReturnType<typeof useNavigate>;
+  onPeek: (v: VendorRow) => void;
+  max?: number;
+}) {
+  const visible = rows.slice(0, max);
+  return (
+    <Surface variant="default" padding="sm">
+      <div className="mb-2 flex items-center gap-1.5 px-1">
+        {icon}
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{title}</h3>
+      </div>
+      {visible.length === 0 ? (
+        <p className="py-3 text-center text-xs text-muted-foreground">No data in current filter.</p>
+      ) : (
+        <ol className="space-y-0.5">
+          {visible.map((v, i) => {
+            const slug = toVendorSlug(v.name);
+            const hasProfile = !!vendorProfiles[`${v.categoryId}/${slug}`];
+            const subtitle = subtitleFor?.(v);
+            return (
+              <li key={`${v.categoryId}/${v.name}`}>
+                <button
+                  onClick={() => hasProfile ? navigate(`/vendor/${v.categoryId}/${slug}`) : onPeek(v)}
+                  className="group flex w-full items-center gap-2 rounded-md px-1.5 py-1 text-left transition-colors hover:bg-secondary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <span className="w-3 shrink-0 text-[10px] font-mono font-semibold tabular-nums text-muted-foreground/60">
+                    {i + 1}
+                  </span>
+                  <span
+                    className="h-1.5 w-1.5 shrink-0 rounded-full"
+                    style={{ backgroundColor: categoryColors[v.categoryLabel] }}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <span className="block truncate text-xs font-medium text-foreground transition-colors group-hover:text-primary">
+                      {v.name}
+                    </span>
+                    {subtitle && (
+                      <span className="block truncate text-[10px] text-muted-foreground/80">
+                        {subtitle}
+                      </span>
+                    )}
+                  </div>
+                  <span className="shrink-0 text-[11px] font-semibold tabular-nums text-foreground">
+                    {valueFor(v)}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+    </Surface>
+  );
+}
+
 const VendorComparisonMatrix = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>(ALL_CATEGORIES);
   const [selectedTypes, setSelectedTypes] = useState<string[]>(ALL_TYPES);
@@ -205,6 +647,7 @@ const VendorComparisonMatrix = () => {
   const [growthRateRange, setGrowthRateRange] = useState([0, 100]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedVendor, setSelectedVendor] = useState<VendorRow | null>(null);
+  const [viewMode, setViewMode] = useState<"map" | "table">("map");
 
   const maxMarketCap = 3200;
   const maxRevenue = 65;
@@ -244,6 +687,55 @@ const VendorComparisonMatrix = () => {
         return 0;
       });
   }, [searchQuery, selectedCategories, selectedTypes, sortField, sortDirection, marketCapRange, revenueRange, growthRateRange]);
+
+  /* ── Aggregate stats over the filtered set ─────────────────────────── */
+  const aggregateStats = useMemo(() => {
+    const total = filteredAndSortedVendors.length;
+    const leaders = filteredAndSortedVendors.filter((v) => v.type === "leader").length;
+    const withGrowth = filteredAndSortedVendors.filter((v) => v.growthNum > 0);
+    const avgGrowth = withGrowth.length > 0
+      ? withGrowth.reduce((s, v) => s + v.growthNum, 0) / withGrowth.length
+      : 0;
+    const sixMonthsAgo = Date.now() - 1000 * 60 * 60 * 24 * 30 * 6;
+    const recentSignals = filteredAndSortedVendors.filter((v) => v.recentEventTs >= sixMonthsAgo).length;
+    return { total, leaders, avgGrowth, recentSignals };
+  }, [filteredAndSortedVendors]);
+
+  /* ── Top movers leaderboards (filtered) ────────────────────────────── */
+  const topByGrowth = useMemo(
+    () => filteredAndSortedVendors.filter((v) => v.growthNum > 0)
+      .sort((a, b) => b.growthNum - a.growthNum)
+      .slice(0, 5),
+    [filteredAndSortedVendors]
+  );
+
+  const topByRevenue = useMemo(
+    () => filteredAndSortedVendors.filter((v) => v.revenueNum > 0)
+      .sort((a, b) => b.revenueNum - a.revenueNum)
+      .slice(0, 5),
+    [filteredAndSortedVendors]
+  );
+
+  const topBySignals = useMemo(
+    () => filteredAndSortedVendors.filter((v) => v.recentEventTs > 0)
+      .sort((a, b) => b.recentEventTs - a.recentEventTs)
+      .slice(0, 5),
+    [filteredAndSortedVendors]
+  );
+
+  /* ── Map data: vendors with both revenue + growth ──────────────────── */
+  const mapData = useMemo(
+    () => filteredAndSortedVendors.filter((v) => v.revenueNum > 0 && v.growthNum > 0),
+    [filteredAndSortedVendors]
+  );
+
+  /* Quadrant medians for the map's reference lines */
+  const mapMedians = useMemo(() => {
+    if (mapData.length === 0) return { x: 0, y: 0 };
+    const xs = mapData.map((v) => v.revenueNum).sort((a, b) => a - b);
+    const ys = mapData.map((v) => v.growthNum).sort((a, b) => a - b);
+    return { x: xs[Math.floor(xs.length / 2)], y: ys[Math.floor(ys.length / 2)] };
+  }, [mapData]);
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
@@ -312,246 +804,348 @@ const VendorComparisonMatrix = () => {
       <div className="container px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-6 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Market intelligence
+          </p>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Vendor Comparison Matrix
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Interactive analysis of {allVendorRows.length} vendors across all five Autonomous IT markets
+          <p className="mx-auto mt-3 max-w-3xl text-sm text-muted-foreground sm:text-base">
+            Interactive analysis of {allVendorRows.length} vendors across all five Autonomous IT markets — visualize the landscape, then drill in.
           </p>
         </motion.div>
 
-        {/* Search and Filter Bar */}
+        {/* Filter bar — predictable two-row layout: controls on top, chips below */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.05 }}
+          className="mb-5 rounded-xl border border-border bg-card/40 p-3 sm:p-4"
+        >
+          {/* Row 1: search + advanced + clear */}
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="relative min-w-[240px] flex-1 sm:flex-initial sm:w-80">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search vendors…"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="h-9 border-border bg-card pl-9 text-sm"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
+                  aria-label="Clear search"
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              )}
+            </div>
+
+            <Button
+              variant={isFilterOpen ? "default" : "outline"}
+              size="sm"
+              className="h-9 gap-1.5"
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+            >
+              <Filter className="h-3.5 w-3.5" />
+              Advanced
+              {activeFiltersCount > 0 && (
+                <Badge variant="secondary" className="ml-1 px-1.5 py-0 text-[10px]">
+                  {activeFiltersCount}
+                </Badge>
+              )}
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-9 text-muted-foreground hover:text-foreground"
+              onClick={clearFilters}
+              disabled={
+                selectedCategories.length === ALL_CATEGORIES.length &&
+                selectedTypes.length === ALL_TYPES.length &&
+                activeFiltersCount === 0 &&
+                !searchQuery
+              }
+            >
+              <X className="mr-1 h-3.5 w-3.5" />
+              Reset
+            </Button>
+          </div>
+
+          {/* Row 2: category chips */}
+          <div className="mt-3 flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 w-20 shrink-0 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/70">
+              Categories
+            </span>
+            {ALL_CATEGORIES.map((cat) => {
+              const active = selectedCategories.includes(cat);
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setSelectedCategories(active
+                      ? selectedCategories.filter((c) => c !== cat)
+                      : [...selectedCategories, cat]);
+                  }}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    active
+                      ? "shadow-sm"
+                      : "border-dashed border-border/60 bg-transparent text-muted-foreground/60 hover:border-border hover:text-muted-foreground"
+                  )}
+                  style={
+                    active
+                      ? {
+                          backgroundColor: `${categoryColors[cat]}1f`,
+                          borderColor: categoryColors[cat],
+                          color: categoryColors[cat],
+                        }
+                      : undefined
+                  }
+                  aria-pressed={active}
+                >
+                  <span
+                    className={cn("h-2 w-2 rounded-full transition-opacity", active ? "opacity-100" : "opacity-30")}
+                    style={{ backgroundColor: categoryColors[cat] }}
+                  />
+                  {cat}
+                </button>
+              );
+            })}
+            <button
+              onClick={() => setSelectedCategories([...ALL_CATEGORIES])}
+              className="ml-1 text-[10px] font-medium text-muted-foreground/60 underline-offset-2 transition-colors hover:text-foreground hover:underline"
+              disabled={selectedCategories.length === ALL_CATEGORIES.length}
+            >
+              {selectedCategories.length === ALL_CATEGORIES.length ? "" : "All"}
+            </button>
+          </div>
+
+          {/* Row 3: type chips */}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 w-20 shrink-0 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/70">
+              Type
+            </span>
+            {ALL_TYPES.map((t) => {
+              const active = selectedTypes.includes(t);
+              return (
+                <button
+                  key={t}
+                  onClick={() => {
+                    setSelectedTypes(active
+                      ? selectedTypes.filter((x) => x !== t)
+                      : [...selectedTypes, t]);
+                  }}
+                  className={cn(
+                    "rounded-full border px-2.5 py-1 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    active
+                      ? "border-primary/60 bg-primary/15 text-primary shadow-sm"
+                      : "border-dashed border-border/60 bg-transparent text-muted-foreground/60 hover:border-border hover:text-muted-foreground"
+                  )}
+                  aria-pressed={active}
+                >
+                  {typeLabel[t]}
+                </button>
+              );
+            })}
+            <button
+              onClick={() => setSelectedTypes([...ALL_TYPES])}
+              className="ml-1 text-[10px] font-medium text-muted-foreground/60 underline-offset-2 transition-colors hover:text-foreground hover:underline"
+              disabled={selectedTypes.length === ALL_TYPES.length}
+            >
+              {selectedTypes.length === ALL_TYPES.length ? "" : "All"}
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Advanced Filters Panel — collapses under the bar above */}
+        <AnimatePresence>
+          {isFilterOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden"
+            >
+              <div className="mb-5 grid grid-cols-1 gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-3">
+                {/* Market Cap Filter */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center gap-2 text-sm font-medium">
+                      <DollarSign className="h-4 w-4 text-primary" />
+                      Market Cap / Valuation
+                    </label>
+                    <span className="text-xs text-muted-foreground">
+                      {formatMarketCap(denormalizeValue(marketCapRange[0], maxMarketCap))} – {formatMarketCap(denormalizeValue(marketCapRange[1], maxMarketCap))}
+                    </span>
+                  </div>
+                  <Slider value={marketCapRange} onValueChange={setMarketCapRange} min={0} max={100} step={1} className="w-full" />
+                </div>
+
+                {/* Revenue Filter */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center gap-2 text-sm font-medium">
+                      <BarChart3 className="h-4 w-4 text-accent" />
+                      Annual Revenue
+                    </label>
+                    <span className="text-xs text-muted-foreground">
+                      {formatRevenue(denormalizeValue(revenueRange[0], maxRevenue))} – {formatRevenue(denormalizeValue(revenueRange[1], maxRevenue))}
+                    </span>
+                  </div>
+                  <Slider value={revenueRange} onValueChange={setRevenueRange} min={0} max={100} step={1} className="w-full" />
+                </div>
+
+                {/* Growth Rate Filter */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center gap-2 text-sm font-medium">
+                      <TrendingUp className="h-4 w-4 text-success" />
+                      Growth Rate
+                    </label>
+                    <span className="text-xs text-muted-foreground">
+                      {growthRateRange[0]}% – {growthRateRange[1]}%
+                    </span>
+                  </div>
+                  <Slider value={growthRateRange} onValueChange={setGrowthRateRange} min={0} max={100} step={1} className="w-full" />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Stats inline strip + view toggle + result count */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mb-6"
+          className="mb-5 flex flex-wrap items-center gap-2 sm:gap-3"
         >
-          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-            {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                placeholder="Search vendors..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 bg-card border-border"
-              />
-              {searchQuery && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7"
-                  onClick={() => setSearchQuery("")}
-                >
-                  <X className="w-3 h-3" />
-                </Button>
-              )}
-            </div>
+          <Stat icon={<Building2 className="h-3.5 w-3.5" />} label="Tracked" value={aggregateStats.total} />
+          <Stat icon={<Crown className="h-3.5 w-3.5" />} label="Leaders" value={aggregateStats.leaders} tone="primary" />
+          <Stat
+            icon={<TrendingUp className="h-3.5 w-3.5" />}
+            label="Avg growth"
+            tone="success"
+            value={aggregateStats.avgGrowth > 0 ? `+${aggregateStats.avgGrowth.toFixed(1)}%` : "—"}
+          />
+          <Stat
+            icon={<Activity className="h-3.5 w-3.5" />}
+            label="Signals (6 mo)"
+            tone="warning"
+            value={aggregateStats.recentSignals}
+          />
 
-            {/* Filter Controls */}
-            <div className="flex flex-wrap gap-3">
-              {/* Category Filter */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="gap-2">
-                    <Building2 className="w-4 h-4" />
-                    Categories
-                    {selectedCategories.length < ALL_CATEGORIES.length && (
-                      <Badge variant="secondary" className="ml-1 px-1.5 py-0 text-xs">
-                        {selectedCategories.length}
-                      </Badge>
-                    )}
-                    <ChevronDown className="w-4 h-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {ALL_CATEGORIES.map((cat) => (
-                    <DropdownMenuCheckboxItem
-                      key={cat}
-                      checked={selectedCategories.includes(cat)}
-                      onCheckedChange={(checked) => {
-                        setSelectedCategories(checked
-                          ? [...selectedCategories, cat]
-                          : selectedCategories.filter((c) => c !== cat)
-                        );
-                      }}
-                    >
-                      <span className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: categoryColors[cat] }} />
-                        {cat}
-                      </span>
-                    </DropdownMenuCheckboxItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+          <span className="ml-auto inline-flex items-center gap-3 text-xs text-muted-foreground">
+            <span className="hidden sm:inline">
+              <span className="font-semibold tabular-nums text-foreground">{filteredAndSortedVendors.length}</span> of <span className="tabular-nums">{allVendorRows.length}</span>
+            </span>
 
-              {/* Type Filter */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="gap-2">
-                    <TrendingUp className="w-4 h-4" />
-                    Type
-                    {selectedTypes.length < ALL_TYPES.length && (
-                      <Badge variant="secondary" className="ml-1 px-1.5 py-0 text-xs">
-                        {selectedTypes.length}
-                      </Badge>
-                    )}
-                    <ChevronDown className="w-4 h-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {ALL_TYPES.map((t) => (
-                    <DropdownMenuCheckboxItem
-                      key={t}
-                      checked={selectedTypes.includes(t)}
-                      onCheckedChange={(checked) => {
-                        setSelectedTypes(checked
-                          ? [...selectedTypes, t]
-                          : selectedTypes.filter((x) => x !== t)
-                        );
-                      }}
-                    >
-                      {typeLabel[t]}
-                    </DropdownMenuCheckboxItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-
-              {/* Advanced Filters Toggle */}
-              <Button
-                variant={isFilterOpen ? "default" : "outline"}
-                className="gap-2"
-                onClick={() => setIsFilterOpen(!isFilterOpen)}
-              >
-                <Filter className="w-4 h-4" />
-                Filters
-                {activeFiltersCount > 0 && (
-                  <Badge variant="secondary" className="ml-1 px-1.5 py-0 text-xs">
-                    {activeFiltersCount}
-                  </Badge>
+            {/* View toggle */}
+            <span className="inline-flex items-center gap-1 rounded-lg border border-border bg-card p-1">
+              <button
+                onClick={() => setViewMode("map")}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  viewMode === "map"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
-              </Button>
-
-              {activeFiltersCount > 0 && (
-                <Button variant="ghost" size="sm" onClick={clearFilters}>
-                  <X className="w-4 h-4 mr-1" />
-                  Clear
-                </Button>
-              )}
-            </div>
-          </div>
-
-          {/* Advanced Filters Panel */}
-          <AnimatePresence>
-            {isFilterOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.2 }}
-                className="overflow-hidden"
+                aria-pressed={viewMode === "map"}
               >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 mt-4 bg-card border border-border rounded-xl">
-                  {/* Market Cap Filter */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium flex items-center gap-2">
-                        <DollarSign className="w-4 h-4 text-primary" />
-                        Market Cap / Valuation
-                      </label>
-                      <span className="text-xs text-muted-foreground">
-                        {formatMarketCap(denormalizeValue(marketCapRange[0], maxMarketCap))} – {formatMarketCap(denormalizeValue(marketCapRange[1], maxMarketCap))}
-                      </span>
-                    </div>
-                    <Slider
-                      value={marketCapRange}
-                      onValueChange={setMarketCapRange}
-                      min={0}
-                      max={100}
-                      step={1}
-                      className="w-full"
-                    />
-                  </div>
-
-                  {/* Revenue Filter */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium flex items-center gap-2">
-                        <BarChart3 className="w-4 h-4 text-accent" />
-                        Annual Revenue
-                      </label>
-                      <span className="text-xs text-muted-foreground">
-                        {formatRevenue(denormalizeValue(revenueRange[0], maxRevenue))} – {formatRevenue(denormalizeValue(revenueRange[1], maxRevenue))}
-                      </span>
-                    </div>
-                    <Slider
-                      value={revenueRange}
-                      onValueChange={setRevenueRange}
-                      min={0}
-                      max={100}
-                      step={1}
-                      className="w-full"
-                    />
-                  </div>
-
-                  {/* Growth Rate Filter */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-executive-green" />
-                        Growth Rate
-                      </label>
-                      <span className="text-xs text-muted-foreground">
-                        {growthRateRange[0]}% – {growthRateRange[1]}%
-                      </span>
-                    </div>
-                    <Slider
-                      value={growthRateRange}
-                      onValueChange={setGrowthRateRange}
-                      min={0}
-                      max={100}
-                      step={1}
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* Results Summary */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex items-center gap-4 mb-4 text-sm text-muted-foreground"
-        >
-          <span>
-            Showing <strong className="text-foreground">{filteredAndSortedVendors.length}</strong> of {allVendorRows.length} entries
+                <MapIcon className="h-3.5 w-3.5" />
+                Map
+              </button>
+              <button
+                onClick={() => setViewMode("table")}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  viewMode === "table"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+                aria-pressed={viewMode === "table"}
+              >
+                <TableProperties className="h-3.5 w-3.5" />
+                Table
+              </button>
+            </span>
           </span>
-          {selectedCategories.length < ALL_CATEGORIES.length && (
-            <div className="flex gap-2">
-              {selectedCategories.map((cat) => (
-                <Badge
-                  key={cat}
-                  variant="outline"
-                  className="text-xs"
-                  style={{ borderColor: categoryColors[cat], color: categoryColors[cat] }}
-                >
-                  {cat}
-                </Badge>
-              ))}
-            </div>
-          )}
         </motion.div>
 
+        {/* Top movers leaderboards (after filters + stats so the data is framed by user-controlled filters first) */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="mb-6 grid grid-cols-1 gap-3 md:grid-cols-3"
+        >
+          <LeaderboardCard
+            title="Fastest growing"
+            icon={<TrendingUp className="h-3.5 w-3.5 text-success" />}
+            rows={topByGrowth}
+            valueFor={(v) => v.growth ?? "—"}
+            navigate={navigate}
+            onPeek={setSelectedVendor}
+          />
+          <LeaderboardCard
+            title="Largest by ARR"
+            icon={<DollarSign className="h-3.5 w-3.5 text-primary" />}
+            rows={topByRevenue}
+            valueFor={(v) => v.revenue ?? "—"}
+            navigate={navigate}
+            onPeek={setSelectedVendor}
+          />
+          <LeaderboardCard
+            title="Latest signals"
+            icon={<Radio className="h-3.5 w-3.5 text-warning" />}
+            rows={topBySignals}
+            valueFor={(v) => formatSignalDate(v.recentEventTs)}
+            subtitleFor={(v) => v.recentEvent}
+            navigate={navigate}
+            onPeek={setSelectedVendor}
+          />
+        </motion.div>
+
+        {/* Market Map view */}
+        {viewMode === "map" && (
+          <motion.div
+            key="map-view"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <MarketMap
+              data={mapData}
+              totalCount={filteredAndSortedVendors.length}
+              medians={mapMedians}
+              navigate={navigate}
+              onPeek={setSelectedVendor}
+              selectedCategories={selectedCategories}
+              onToggleCategory={(cat) => {
+                setSelectedCategories((prev) =>
+                  prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
+                );
+              }}
+            />
+          </motion.div>
+        )}
+
+        {/* Table view */}
+        {viewMode === "table" && (
+        <>
         {/* Table */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -602,6 +1196,7 @@ const VendorComparisonMatrix = () => {
                   </div>
                 </TableHead>
                 <TableHead className="hidden lg:table-cell">Highlight</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -609,6 +1204,10 @@ const VendorComparisonMatrix = () => {
                 {filteredAndSortedVendors.map((vendor, index) => {
                   const CategoryIcon = categoryIcons[vendor.categoryLabel] ?? BarChart3;
                   const rowKey = `${vendor.categoryId}-${vendor.name}`;
+                  const slug = toVendorSlug(vendor.name);
+                  const profileKey = `${vendor.categoryId}/${slug}`;
+                  const hasProfile = !!vendorProfiles[profileKey];
+                  const profilePath = `/vendor/${vendor.categoryId}/${slug}`;
                   return (
                     <motion.tr
                       key={rowKey}
@@ -617,10 +1216,23 @@ const VendorComparisonMatrix = () => {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ delay: Math.min(index * 0.01, 0.3) }}
                       className="border-border hover:bg-secondary/30 transition-colors cursor-pointer"
-                      onClick={() => setSelectedVendor(vendor)}
+                      onClick={() => {
+                        if (hasProfile) navigate(profilePath);
+                        else setSelectedVendor(vendor);
+                      }}
                     >
                       <TableCell className="font-medium">
-                        <span className="text-foreground">{vendor.name}</span>
+                        {hasProfile ? (
+                          <Link
+                            to={profilePath}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-foreground transition-colors hover:text-primary"
+                          >
+                            {vendor.name}
+                          </Link>
+                        ) : (
+                          <span className="text-foreground">{vendor.name}</span>
+                        )}
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-2">
@@ -653,31 +1265,63 @@ const VendorComparisonMatrix = () => {
                       <TableCell className="text-right">
                         {vendor.growth && vendor.growth !== "—" ? (
                           <div
-                            className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium"
-                            style={{
-                              backgroundColor:
-                                vendor.growthNum >= 30
-                                  ? "hsl(142 71% 45% / 0.15)"
-                                  : vendor.growthNum >= 15
-                                  ? "hsl(199 89% 48% / 0.15)"
-                                  : "hsl(var(--muted))",
-                              color:
-                                vendor.growthNum >= 30
-                                  ? "hsl(142 71% 45%)"
-                                  : vendor.growthNum >= 15
-                                  ? "hsl(199 89% 48%)"
-                                  : "hsl(var(--muted-foreground))",
-                            }}
+                            className={cn(
+                              "inline-flex items-center gap-1 rounded-full px-2 py-1 text-sm font-medium tabular-nums",
+                              vendor.growthNum >= 30
+                                ? "bg-success/15 text-success"
+                                : vendor.growthNum >= 15
+                                ? "bg-info/15 text-info"
+                                : vendor.growthNum < 0
+                                ? "bg-danger/15 text-danger"
+                                : "bg-muted/40 text-muted-foreground"
+                            )}
                           >
-                            <TrendingUp className="w-3 h-3" />
+                            <TrendingUp className="h-3 w-3" />
                             {vendor.growth}
                           </div>
                         ) : (
-                          <span className="text-muted-foreground text-sm">—</span>
+                          <span className="text-sm text-muted-foreground">—</span>
                         )}
                       </TableCell>
                       <TableCell className="text-muted-foreground text-sm max-w-[200px] truncate hidden lg:table-cell">
                         {vendor.highlight ?? "—"}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <div className="inline-flex items-center justify-end gap-1">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(`/compare?v=${profileKey}`);
+                            }}
+                            className="inline-flex items-center gap-1 rounded-md border border-border bg-card px-2 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            title="Add to compare"
+                          >
+                            <GitCompare className="h-3 w-3" />
+                            <span className="hidden md:inline">Compare</span>
+                          </button>
+                          {hasProfile ? (
+                            <Link
+                              to={profilePath}
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1 rounded-md border border-primary/30 bg-primary/10 px-2 py-1 text-[11px] font-medium text-primary transition-colors hover:border-primary/50 hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              title="View full profile"
+                            >
+                              Profile
+                              <ArrowUpRight className="h-3 w-3" />
+                            </Link>
+                          ) : (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedVendor(vendor);
+                              }}
+                              className="inline-flex items-center gap-1 rounded-md border border-border bg-card px-2 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              title="Quick view"
+                            >
+                              Peek
+                            </button>
+                          )}
+                        </div>
                       </TableCell>
                     </motion.tr>
                   );
@@ -685,7 +1329,7 @@ const VendorComparisonMatrix = () => {
               </AnimatePresence>
               {filteredAndSortedVendors.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
+                  <TableCell colSpan={8} className="text-center py-12 text-muted-foreground">
                     <div className="flex flex-col items-center gap-2">
                       <Filter className="w-8 h-8 opacity-50" />
                       <span>No vendors match your filters</span>
@@ -699,33 +1343,9 @@ const VendorComparisonMatrix = () => {
             </TableBody>
           </Table>
         </motion.div>
+        </>
+        )}
 
-        {/* Legend */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
-        >
-          <span className="font-medium">Categories:</span>
-          {Object.entries(categoryColors).map(([cat, color]) => (
-            <div key={cat} className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
-              <span>{cat}</span>
-            </div>
-          ))}
-          <span className="mx-4 h-4 w-px bg-border" />
-          <span className="font-medium">Growth:</span>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-executive-green" />
-            <span>≥30% (High)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-primary" />
-            <span>15–30% (Moderate)</span>
-          </div>
-        </motion.div>
       </div>
 
       {/* Vendor Detail Modal */}
@@ -868,6 +1488,37 @@ const VendorComparisonMatrix = () => {
                   </div>
                 </div>
               </>
+            );
+          })()}
+
+          {/* Action footer — always present so users can jump to full profile or compare */}
+          {selectedVendor && (() => {
+            const slug = toVendorSlug(selectedVendor.name);
+            const profileKey = `${selectedVendor.categoryId}/${slug}`;
+            const hasProfile = !!vendorProfiles[profileKey];
+            return (
+              <div className="mt-6 flex flex-col gap-2 border-t border-border pt-4 sm:flex-row sm:justify-end">
+                <button
+                  onClick={() => {
+                    setSelectedVendor(null);
+                    navigate(`/compare?v=${profileKey}`);
+                  }}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <GitCompare className="h-4 w-4" />
+                  Add to compare
+                </button>
+                {hasProfile && (
+                  <Link
+                    to={`/vendor/${selectedVendor.categoryId}/${slug}`}
+                    onClick={() => setSelectedVendor(null)}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    View full profile
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                )}
+              </div>
             );
           })()}
         </DialogContent>

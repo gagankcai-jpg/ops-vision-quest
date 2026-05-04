@@ -61,7 +61,23 @@ export default {
   			'executive-purple': 'hsl(var(--executive-purple))',
   			'executive-green': 'hsl(var(--executive-green))',
   			'executive-amber': 'hsl(var(--executive-amber))',
-  			'executive-rose': 'hsl(var(--executive-rose))'
+  			'executive-rose': 'hsl(var(--executive-rose))',
+  			success: {
+  				DEFAULT: 'hsl(var(--success))',
+  				foreground: 'hsl(var(--success-foreground))'
+  			},
+  			warning: {
+  				DEFAULT: 'hsl(var(--warning))',
+  				foreground: 'hsl(var(--warning-foreground))'
+  			},
+  			danger: {
+  				DEFAULT: 'hsl(var(--danger))',
+  				foreground: 'hsl(var(--danger-foreground))'
+  			},
+  			info: {
+  				DEFAULT: 'hsl(var(--info))',
+  				foreground: 'hsl(var(--info-foreground))'
+  			}
   		},
   		fontFamily: {
   			display: [
@@ -131,7 +147,13 @@ export default {
   			'fade-in-up': 'fadeInUp 0.6s ease-out',
   			'slide-in-left': 'slideInLeft 0.6s ease-out',
   			'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-  			'gradient': 'gradient-shift 3s ease infinite'
+  			'gradient': 'gradient-shift 3s ease infinite',
+  			'count-up': 'count-up 0.6s ease-out'
+  		},
+  		backgroundImage: {
+  			'gradient-brand': 'linear-gradient(135deg, hsl(var(--executive-cyan)) 0%, hsl(var(--executive-purple)) 100%)',
+  			'gradient-accent': 'linear-gradient(135deg, hsl(var(--executive-purple)) 0%, hsl(var(--executive-rose)) 100%)',
+  			'grid-faint': 'linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px)'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',

@@ -1,162 +1,212 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { TrendingUp, BarChart3, Cpu, Bot, Sparkles, ShieldCheck } from "lucide-react";
+import {
+  TrendingUp, BarChart3, Cpu, Bot, Sparkles, ShieldCheck, ArrowRight, Brain,
+} from "lucide-react";
+import { Area, AreaChart, ResponsiveContainer } from "recharts";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import type { MarketData } from "@/data/marketData";
+import { AmbientBackground } from "@/components/layout/AmbientBackground";
+import { cn } from "@/lib/utils";
 
 interface HeroSectionProps {
   markets?: Record<string, MarketData>;
   dataDate?: string;
 }
 
-const STATIC_CARDS = [
-  { slug: "aiops",    icon: <BarChart3 className="w-7 h-7" />,    title: "AIOps & Observability",    value: "$16.8B", label: "2030 TAM", color: "primary" },
-  { slug: "itom",     icon: <Cpu className="w-7 h-7" />,           title: "IT Service & Ops Mgmt",    value: "$27.8B", label: "2030 TAM", color: "accent" },
-  { slug: "rpa",      icon: <Bot className="w-7 h-7" />,           title: "RPA & Intelligent Auto.",   value: "$32.8B", label: "2030 TAM", color: "executive-green" },
-  { slug: "agentops", icon: <Sparkles className="w-7 h-7" />,      title: "Agentic IT Operations",    value: "$18.6B", label: "2030 TAM", color: "executive-amber" },
-  { slug: "secops",   icon: <ShieldCheck className="w-7 h-7" />,   title: "Security Operations",      value: "$52.7B", label: "2030 TAM", color: "executive-rose" },
+interface CategorySpec {
+  slug: string;
+  short: string;
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  fallbackTAM: string;
+  fallbackTrajectory: number[];
+  accent: string; // tailwind text token
+  hex: string; // for chart fill
+}
+
+const CATEGORIES: CategorySpec[] = [
+  { slug: "aiops",    short: "AIOps",     title: "AIOps & Observability",   icon: BarChart3,   fallbackTAM: "$52.5B", fallbackTrajectory: [22.0, 26.2, 31.4, 37.1, 44.0, 52.5], accent: "text-executive-cyan",   hex: "hsl(199 89% 60%)" },
+  { slug: "itom",     short: "ITOM",      title: "IT Service & Ops Mgmt",   icon: Cpu,         fallbackTAM: "$54.8B", fallbackTrajectory: [31.8, 35.5, 39.5, 44.1, 49.2, 54.8], accent: "text-executive-purple", hex: "hsl(262 83% 64%)" },
+  { slug: "rpa",      short: "RPA / IA",  title: "RPA & Intelligent Auto.", icon: Bot,         fallbackTAM: "$44.7B", fallbackTrajectory: [17.8, 21.4, 25.6, 30.9, 37.3, 44.7], accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
+  { slug: "agentops", short: "AgentOps",  title: "Agentic Operations",      icon: Sparkles,    fallbackTAM: "$49.8B", fallbackTrajectory: [7.8,  11.3, 16.4, 23.7, 34.3, 49.8], accent: "text-executive-amber",  hex: "hsl(38 95% 58%)" },
+  { slug: "secops",   short: "SecOps",    title: "Security Operations",     icon: ShieldCheck, fallbackTAM: "$54.1B", fallbackTrajectory: [28.2, 32.2, 36.6, 41.7, 47.5, 54.1], accent: "text-executive-rose",   hex: "hsl(350 89% 62%)" },
 ];
 
 function formatTAM(raw: string | number | undefined, fallback: string): string {
-  if (!raw) return fallback;
+  if (raw == null) return fallback;
   if (typeof raw === "number") return `$${raw}B`;
   return raw.startsWith("$") ? raw : `$${raw}`;
 }
 
+function trajectoryFor(market: MarketData | undefined, fallback: number[]): { v: number }[] {
+  const chart = market?.chartData;
+  if (chart && chart.length >= 2) return chart.map((c) => ({ v: c.value }));
+  return fallback.map((v) => ({ v }));
+}
+
 const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
+  const reduceMotion = useReducedMotion();
   const displayDate = dataDate ?? LAST_UPDATED;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:60px_60px] opacity-30" />
+    <section className="relative overflow-hidden border-b border-border/60 pt-28 pb-20 sm:pt-32 sm:pb-24">
+      <AmbientBackground variant="hero" />
 
-      {/* Glowing Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse delay-1000" />
-
-      {/* Scroll Indicator — anchored to the section bottom, not the container */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
-      >
-        <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-sm">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-primary rounded-full"
-            />
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="container relative z-10 px-6 pb-28">
+      <div className="container relative z-10 px-6">
+        {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-6xl mx-auto"
+          transition={{ duration: 0.5 }}
+          className="flex justify-center"
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary mb-8"
-          >
-            <TrendingUp className="w-4 h-4" />
-            <span className="text-sm font-medium">Executive Market Intelligence · Data as of {displayDate}</span>
-          </motion.div>
-
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-display"
-          >
-            <span className="text-foreground">Autonomous IT</span>
-            <br />
-            <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
-              Market Intelligence 2025–2030
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-1.5 text-xs font-medium text-primary">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
             </span>
-          </motion.h1>
+            <TrendingUp className="h-3.5 w-3.5" />
+            <span className="tabular-nums">Live intelligence · Updated {displayDate}</span>
+          </span>
+        </motion.div>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12"
-          >
-            Deep-dive analysis across AIOps, ITOM, RPA, Agentic Operations, and Security Operations — the five pillars of the Autonomous IT stack
-          </motion.p>
+        {/* Headline */}
+        <motion.h1
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="mx-auto mt-6 max-w-4xl text-center font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl"
+        >
+          The state of{" "}
+          <span className="bg-gradient-brand bg-clip-text text-transparent">
+            Autonomous IT
+          </span>
+          <span className="block text-foreground/90">2025–2030</span>
+        </motion.h1>
 
-          {/* Category Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
+        {/* Subhead */}
+        <motion.p
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.12 }}
+          className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg"
+        >
+          Analyst-grade coverage across the five pillars of the autonomous enterprise stack
+          — AIOps, ITOM, RPA, Agentic Operations, and Security Operations.
+          500+ vendors. Refreshed weekly.
+        </motion.p>
+
+        {/* Primary actions */}
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+        >
+          <Link
+            to="/market/aiops"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-md transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            {STATIC_CARDS.map((card, i) => {
-              const liveMarket = markets?.[card.slug];
-              const tam = formatTAM(liveMarket?.tam2030, card.value);
-              return (
-                <Link key={card.slug} to={`/market/${card.slug}`} className="block">
-                  <CategoryCard
-                    icon={card.icon}
-                    title={liveMarket?.title ?? card.title}
-                    value={tam}
-                    label="2030 TAM"
-                    color={card.color}
-                    delay={0.8 + i * 0.1}
-                  />
-                </Link>
-              );
-            })}
-          </motion.div>
+            Explore the markets
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            to="/signals"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/40 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            Latest signals
+          </Link>
+        </motion.div>
+
+        {/* Provenance */}
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.32 }}
+          className="mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground/70"
+        >
+          <Brain className="h-3 w-3" />
+          <span>
+            Refreshed weekly by Claude · Sources: Gartner, IDC, Mordor Intelligence
+          </span>
+        </motion.div>
+
+        {/* Category cards with sparkline trajectories */}
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+        >
+          {CATEGORIES.map((cat) => {
+            const live = markets?.[cat.slug];
+            const tam2030 = formatTAM(live?.tam2030, cat.fallbackTAM);
+            const cagr = live?.cagr ?? null;
+            const traj = trajectoryFor(live, cat.fallbackTrajectory);
+            return (
+              <Link
+                key={cat.slug}
+                to={`/market/${cat.slug}`}
+                className={cn(
+                  "group relative flex flex-col gap-3 overflow-hidden rounded-xl border border-border bg-card/60 p-5 backdrop-blur",
+                  "transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-card hover:shadow-lg",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                )}
+              >
+                <div className="flex items-center justify-between">
+                  <span className={cn("inline-flex h-9 w-9 items-center justify-center rounded-lg bg-card", cat.accent)}>
+                    <cat.icon className="h-4 w-4" />
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    {cat.short}
+                  </span>
+                </div>
+
+                <div>
+                  <p className="text-xs leading-tight text-muted-foreground">
+                    {live?.title ?? cat.title}
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-bold tabular-nums text-foreground">
+                    {tam2030}
+                  </p>
+                  <p className="mt-0.5 text-[11px] text-muted-foreground">
+                    2030 TAM{cagr ? ` · ${cagr} CAGR` : ""}
+                  </p>
+                </div>
+
+                <div className="-mb-1 h-10 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={traj} margin={{ top: 2, right: 0, left: 0, bottom: 0 }}>
+                      <defs>
+                        <linearGradient id={`spark-${cat.slug}`} x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%"   stopColor={cat.hex} stopOpacity={0.45} />
+                          <stop offset="100%" stopColor={cat.hex} stopOpacity={0}    />
+                        </linearGradient>
+                      </defs>
+                      <Area
+                        type="monotone"
+                        dataKey="v"
+                        stroke={cat.hex}
+                        strokeWidth={1.75}
+                        fill={`url(#spark-${cat.slug})`}
+                        isAnimationActive={!reduceMotion}
+                        animationDuration={900}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors group-hover:text-primary">
+                  Explore market
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </Link>
+            );
+          })}
         </motion.div>
       </div>
     </section>
-  );
-};
-
-interface CategoryCardProps {
-  icon: React.ReactNode;
-  title: string;
-  value: string;
-  label: string;
-  color: string;
-  delay: number;
-}
-
-const CategoryCard = ({ icon, title, value, label, color, delay }: CategoryCardProps) => {
-  const colorClasses: Record<string, string> = {
-    primary:           "text-primary border-primary/30 bg-primary/5",
-    accent:            "text-accent border-accent/30 bg-accent/5",
-    "executive-green": "text-executive-green border-executive-green/30 bg-executive-green/5",
-    "executive-amber": "text-executive-amber border-executive-amber/30 bg-executive-amber/5",
-    "executive-rose":  "text-executive-rose border-executive-rose/30 bg-executive-rose/5",
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.6 }}
-      whileHover={{ scale: 1.02, y: -4 }}
-      className={`p-5 rounded-2xl border backdrop-blur-sm ${colorClasses[color]} transition-all duration-300 cursor-pointer`}
-    >
-      <div className="mb-3">{icon}</div>
-      <h3 className="text-xs font-medium text-muted-foreground mb-2 leading-tight">{title}</h3>
-      <div className="text-2xl font-bold text-foreground mb-1">{value}</div>
-      <div className="text-xs text-muted-foreground">{label}</div>
-    </motion.div>
   );
 };
 

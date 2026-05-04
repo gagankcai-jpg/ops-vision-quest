@@ -1,5 +1,12 @@
 import { Bot } from "lucide-react";
 
+// Scope: Intelligent Process Automation (IPA) — RPA + AI/ML + NLP + process mining.
+// Excludes pure hyperautomation (low-code/iPaaS) and standalone BPM.
+// Source: Grand View Research IPA Market 2025 ($14.55B → $44.74B at 22.6% CAGR 2025-2030).
+//         Gartner RPA software actuals 2024: $3.6B pure RPA (14.5% growth, decelerating).
+//         GenAI expanding addressable automation from ~50% to ~70% of processes (UiPath data).
+//         Gartner: 60%+ enterprise apps will have agentic capabilities by 2026,
+//         compressing standalone RPA pricing while expanding total automation TAM.
 export const rpaData = {
   id: "rpa",
   title: "RPA & Intelligent Automation",
@@ -7,32 +14,38 @@ export const rpaData = {
   icon: Bot,
   color: "hsl(142 71% 45%)",
   colorClass: "text-executive-green",
-  tam2024: "$15.4B",
-  tam2030: "$32.8B",
-  cagr: "16.3%",
+  tam2025: "$17.8B",
+  tam2030: "$44.7B",
+  cagr: "20.2%",
+  tamScope: "Intelligent Process Automation (IPA) — RPA software + AI/ML-augmented workflows + NLP + document intelligence. Excludes pure hyperautomation (low-code/iPaaS platforms) and standalone BPM. Note: pure RPA software is ~$3.6B (Gartner 2024); IPA scope is ~5× larger.",
+  sources: [
+    "Grand View Research — Intelligent Process Automation Market (2025)",
+    "Gartner Market Share: RPA Software Worldwide (2024)",
+    "Forrester — AI Is Reshaping Automation Markets (2024)",
+    "MarketsandMarkets — Intelligent Automation Market (2025)",
+  ],
   chartData: [
-    { year: "2024", value: 15.4 },
-    { year: "2025", value: 18 },
-    { year: "2026", value: 21 },
-    { year: "2027", value: 24 },
-    { year: "2028", value: 27 },
-    { year: "2029", value: 30 },
-    { year: "2030", value: 32.8 },
+    { year: "2025", value: 17.8 },
+    { year: "2026", value: 21.4 },
+    { year: "2027", value: 25.7 },
+    { year: "2028", value: 30.9 },
+    { year: "2029", value: 37.1 },
+    { year: "2030", value: 44.7 },
   ],
   vendors: [
-    { name: "UiPath", type: "leader" as const, marketCap: "$8.5B", revenue: "$1.31B Rev", growth: "+24% YoY", highlight: "6x Gartner Leader", description: "Enterprise RPA platform with AI-powered automation and process mining" },
-    { name: "Microsoft Power Automate", type: "leader" as const, marketCap: "Div. of $3.1T", revenue: "—", growth: "+50% YoY", highlight: "M365 Bundled", description: "Low-code automation deeply integrated across the Microsoft 365 ecosystem" },
-    { name: "Automation Anywhere", type: "leader" as const, marketCap: "Private $6.8B", revenue: "Est. $700M ARR", growth: "+25% YoY", highlight: "Pure-Play RPA", description: "Cloud-native RPA with the AI-powered Process Reasoning Engine" },
-    { name: "SS&C Blue Prism", type: "leader" as const, marketCap: "Acq. $1.6B", revenue: "Est. $300M Rev", growth: "—", highlight: "Enterprise Unattended", description: "Mature RPA platform strong in financial services and unattended automation" },
-    { name: "Appian", type: "leader" as const, marketCap: "$2.2B", revenue: "$440M Rev", growth: "+18% YoY", highlight: "Low-Code Leader", description: "Process automation platform combining BPM, RPA, and AI" },
-    { name: "Pega", type: "leader" as const, marketCap: "$4.5B", revenue: "$1.4B Rev", growth: "+12% YoY", highlight: "Case Mgmt+RPA", description: "Intelligent automation for customer engagement and operational excellence" },
-    { name: "IBM RPA (Automation)", type: "leader" as const, marketCap: "Div. of IBM", revenue: "—", growth: "—", highlight: "Watson AI", description: "IBM's enterprise automation combining RPA, AI, and process intelligence" },
-    { name: "WorkFusion", type: "leader" as const, marketCap: "Private", revenue: "Est. $150M ARR", growth: "+20% YoY", highlight: "AML/KYC Bots", description: "Pre-trained intelligent automation for AML, KYC, and compliance" },
-    { name: "SAP Build Process", type: "leader" as const, marketCap: "Div. of $220B", revenue: "—", growth: "+20% YoY", highlight: "ERP-Native", description: "SAP Intelligent RPA natively embedded in SAP workflows and ERP" },
+    { name: "UiPath", type: "leader" as const, marketCap: "$8.5B", revenue: "$1.31B Rev", growth: "+24% YoY", highlight: "6x Gartner Leader", description: "Enterprise RPA platform with AI-powered automation and process mining", recentEvent: "Apr 2026: Launched Maestro agentic platform; acquired WorkFusion (Feb 2026) and Peak.ai" },
+    { name: "Microsoft Power Automate", type: "leader" as const, marketCap: "Div. of $3.1T", revenue: "—", growth: "+50% YoY", highlight: "M365 Bundled", description: "Low-code automation deeply integrated across the Microsoft 365 ecosystem", recentEvent: "Apr 2026: Copilot flows GA; 20M+ active users automating across M365" },
+    { name: "Automation Anywhere", type: "leader" as const, marketCap: "Private $6.8B", revenue: "Est. $700M ARR", growth: "+25% YoY", highlight: "Pure-Play RPA", description: "Cloud-native RPA with the AI-powered Process Reasoning Engine", recentEvent: "Nov 2025: Acquired Aisera (GenAI ITSM) to expand autonomous enterprise" },
+    { name: "SS&C Blue Prism", type: "leader" as const, marketCap: "Acq. $1.6B", revenue: "Est. $300M Rev", growth: "—", highlight: "Enterprise Unattended", description: "Mature RPA platform strong in financial services and unattended automation", recentEvent: "Dec 2025: Launched Interact for human-in-the-loop enterprise automation" },
+    { name: "Appian", type: "leader" as const, marketCap: "$2.2B", revenue: "$440M Rev", growth: "+18% YoY", highlight: "Low-Code Leader", description: "Process automation platform combining BPM, RPA, and AI", recentEvent: "Mar 2026: Launched AI Skills for no-code document processing at scale" },
+    { name: "Pega", type: "challenger" as const, marketCap: "$4.5B", revenue: "$1.4B Rev", growth: "+12% YoY", highlight: "Case Mgmt+RPA", description: "Intelligent automation for customer engagement and operational excellence", recentEvent: "Feb 2026: Launched Blueprint AI to generate automation from natural language" },
+    { name: "IBM RPA (Automation)", type: "challenger" as const, marketCap: "Div. of IBM", revenue: "—", growth: "—", highlight: "Watson AI", description: "IBM's enterprise automation combining RPA, AI, and process intelligence", recentEvent: "Jan 2026: Integrated with watsonx Orchestrate for agent-to-bot handoff" },
+    { name: "WorkFusion (UiPath)", type: "challenger" as const, marketCap: "Div. of UiPath", revenue: "Est. $150M ARR", growth: "+20% YoY", highlight: "AML/KYC Bots", description: "Pre-trained intelligent automation for AML, KYC, and compliance — acquired by UiPath Feb 2026 to strengthen financial services portfolio" },
+    { name: "SAP Build Process", type: "leader" as const, marketCap: "Div. of $220B", revenue: "—", growth: "+20% YoY", highlight: "ERP-Native", description: "SAP Intelligent RPA natively embedded in SAP workflows and ERP", recentEvent: "Mar 2026: Extended with Joule AI agent for end-to-end ERP automation" },
     { name: "ServiceNow RPA", type: "leader" as const, marketCap: "Div. of $180B", revenue: "—", growth: "+22% YoY", highlight: "ITSM+Automation", description: "RPA capabilities embedded within the ServiceNow platform" },
-    { name: "Celonis", type: "leader" as const, marketCap: "Private $13B", revenue: "Est. $400M ARR", growth: "+40% YoY", highlight: "Process Mining #1", description: "Process mining and execution management for enterprise automation" },
-    { name: "Nintex", type: "challenger" as const, marketCap: "Private", revenue: "Est. $200M ARR", growth: "+15% YoY", highlight: "SharePoint+RPA", description: "Workflow automation deeply integrated with SharePoint and Microsoft 365" },
-    { name: "Kofax (Tungsten)", type: "challenger" as const, marketCap: "Private $3.3B", revenue: "Est. $400M Rev", growth: "+10% YoY", highlight: "Capture+Automation", description: "Intelligent automation combining document capture, RPA, and analytics" },
+    { name: "Celonis", type: "leader" as const, marketCap: "Private $13B", revenue: "Est. $400M ARR", growth: "+40% YoY", highlight: "Process Mining #1", description: "Process mining and execution management for enterprise automation", recentEvent: "Jan 2026: Raised $1B at $13B valuation to expand process intelligence AI" },
+    { name: "Nintex", type: "challenger" as const, marketCap: "Private", revenue: "Est. $200M ARR", growth: "+15% YoY", highlight: "SharePoint+RPA", description: "Workflow automation deeply integrated with SharePoint and Microsoft 365", recentEvent: "Feb 2026: Launched AI Assistant for plain-English workflow generation" },
+    { name: "Kofax (Tungsten)", type: "challenger" as const, marketCap: "Private $3.3B", revenue: "Est. $400M Rev", growth: "+10% YoY", highlight: "Capture+Automation", description: "Intelligent automation combining document capture, RPA, and analytics", recentEvent: "Nov 2025: Rebranded to Tungsten Automation; launched GenAI document capture" },
     { name: "OpenText", type: "challenger" as const, marketCap: "$13.7B", revenue: "$5.8B Rev", growth: "+7% YoY", highlight: "ECM+Automation", description: "Enterprise content management with embedded process automation" },
     { name: "Laserfiche", type: "challenger" as const, marketCap: "Private", revenue: "Est. $150M Rev", growth: "+15% YoY", highlight: "ECM+BPM", description: "Document management and business process automation platform" },
     { name: "Hyland", type: "challenger" as const, marketCap: "Private", revenue: "Est. $600M Rev", growth: "+10% YoY", highlight: "Healthcare Content", description: "Content services and process automation for healthcare and enterprise" },

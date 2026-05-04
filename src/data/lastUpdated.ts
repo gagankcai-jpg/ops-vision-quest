@@ -1,4 +1,4 @@
-export const LAST_UPDATED = "April 2026";
+export const LAST_UPDATED = "May 2026";
 export const REPORT_PERIOD = "2025–2030";
 export const COPYRIGHT_YEAR = "2026";
 export const DATA_SOURCES = [

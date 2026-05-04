@@ -28,6 +28,25 @@ add_filter( 'cron_schedules', function( $schedules ) {
     return $schedules;
 } );
 
+// ─── SPA Route Handler (BrowserRouter) ───────────────────────────────────────
+// Intercepts React Router paths so direct URLs / refreshes don't 404.
+// The WordPress .htaccess already rewrites unknown paths to index.php;
+// this hook then serves the React SPA template before WP emits a 404.
+
+add_action( 'template_redirect', function() {
+    // 'market-intelligence' catches BrowserRouter deep-link paths under the WP page slug
+    // (e.g. /market-intelligence/market/aiops, /market-intelligence/vendor/aiops/dynatrace).
+    // The others are kept for any legacy direct-root paths.
+    $spa_prefixes = [ 'market-intelligence', 'market', 'vendor', 'signals', 'compare', 'about', 'pricing' ];
+    $path  = ltrim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
+    $first = strtok( $path, '/' );
+    if ( $first && in_array( $first, $spa_prefixes, true ) ) {
+        status_header( 200 );
+        include AIT_PLUGIN_DIR . 'templates/page-market-intel.php';
+        exit;
+    }
+}, 1 );
+
 // ─── Page Template Registration ──────────────────────────────────────────────
 
 add_filter( 'theme_page_templates', function( $templates ) {
@@ -73,6 +92,17 @@ add_action( 'rest_api_init', function() {
         'permission_callback' => '__return_true',
         'args'                => [
             'slug' => [ 'required' => true, 'sanitize_callback' => 'sanitize_key' ],
+        ],
+    ] );
+
+    // GET /wp-json/ait/v1/vendor-profile/{category}/{vendor}
+    register_rest_route( 'ait/v1', '/vendor-profile/(?P<category>[a-z0-9_-]+)/(?P<vendor>[a-z0-9_-]+)', [
+        'methods'             => 'GET',
+        'callback'            => 'ait_api_get_vendor_profile',
+        'permission_callback' => '__return_true',
+        'args'                => [
+            'category' => [ 'required' => true, 'sanitize_callback' => 'sanitize_key' ],
+            'vendor'   => [ 'required' => true, 'sanitize_callback' => 'sanitize_key' ],
         ],
     ] );
 
@@ -148,6 +178,31 @@ function ait_api_get_market( WP_REST_Request $request ) {
     ] );
 }
 
+function ait_api_get_vendor_profile( WP_REST_Request $request ): WP_REST_Response|WP_Error {
+    global $wpdb;
+    $category    = $request->get_param( 'category' );
+    $vendor      = $request->get_param( 'vendor' );
+    $profile_key = "$category/$vendor";
+    $table       = $wpdb->prefix . 'ait_vendor_profiles';
+
+    $row = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT profile_json, refreshed_at FROM $table WHERE profile_key = %s",
+            $profile_key
+        )
+    );
+
+    if ( ! $row ) {
+        return new WP_Error( 'not_found', "No profile found for: $profile_key", [ 'status' => 404 ] );
+    }
+
+    return rest_ensure_response( [
+        'profile_key'  => $profile_key,
+        'profile'      => json_decode( $row->profile_json, true ),
+        'refreshed_at' => $row->refreshed_at,
+    ] );
+}
+
 function ait_api_trigger_refresh() {
     $result = ait_run_refresh();
     if ( is_wp_error( $result ) ) {
@@ -189,52 +244,56 @@ function ait_run_refresh() {
         update_option( 'ait_last_refresh', gmdate( 'Y-m-d H:i:s' ) );
     }
 
+    // Refresh vendor drill-down profiles (SWOT, sentiment, ICP, future focus)
+    ait_refresh_vendor_profiles();
+
     return $saved;
 }
 
 function ait_get_market_prompt( string $slug ): string {
+    $current_month_year = date( 'F Y' );
     $scopes = [
         'aiops' => [
             'name'    => 'AIOps & Observability',
-            'scope'   => 'AI-powered anomaly detection, ML-driven event correlation, Application Performance Monitoring (APM), distributed tracing, infrastructure monitoring with ML, log analytics platforms.',
-            'exclude' => 'IT service desk/ticketing (that is ITSM/ITOM), pure endpoint security, RPA/automation tools.',
-            'tam'     => 'approx $4B in 2024, growing to $16-20B by 2030 at ~25% CAGR.',
-            'vendors' => 'Dynatrace, Datadog, Splunk (Cisco), New Relic, IBM Instana, Grafana Labs, AppDynamics (Cisco), Elastic Observability, LogicMonitor, Chronosphere.',
+            'scope'   => 'AI-powered anomaly detection, ML-driven event correlation, Application Performance Monitoring (APM), distributed tracing, infrastructure monitoring with ML, log analytics platforms, and commercial observability suites.',
+            'exclude' => 'IT service desk/ticketing (ITSM/ITOM), pure endpoint security, RPA/automation tools, open-source-only tooling.',
+            'tam'     => 'approx $22.0B in 2025, growing to $52.5B by 2030 at ~19.0% CAGR. Sources: Grand View Research AIOps Platform (2025), Gartner MQ Observability Platforms (Jul 2025).',
+            'vendors' => 'Dynatrace, Datadog, Splunk (Cisco), New Relic, IBM Instana, Grafana Labs, AppDynamics (Cisco), Elastic Observability, PagerDuty, LogicMonitor, Chronosphere, Honeycomb.',
         ],
         'itom'  => [
             'name'    => 'IT Service & Operations Management (ITSM/ITOM)',
-            'scope'   => 'IT service desk platforms, incident/change/problem management, CMDB (Configuration Management Database), IT asset management, endpoint management, unified ITSM suites.',
-            'exclude' => 'APM and observability monitoring (that is AIOps), cloud infrastructure provisioning (IaaS), pure network monitoring, RPA bots.',
-            'tam'     => 'approx $13-14B in 2024, growing to $26-30B by 2030 at ~12-13% CAGR.',
-            'vendors' => 'ServiceNow, BMC Software (Helix), Ivanti, Atlassian (Jira Service Management), Freshservice, Microsoft (System Center/SCSM), SolarWinds Service Desk, ManageEngine.',
+            'scope'   => 'IT service desk platforms, incident/change/problem management, CMDB, IT asset management, configuration automation, event management, cloud ops, workload automation.',
+            'exclude' => 'APM and observability monitoring (covered in AIOps), cloud IaaS provisioning, pure network monitoring, RPA bots, managed services.',
+            'tam'     => 'approx $31.8B in 2025, growing to $54.8B by 2030 at ~11.5% CAGR. Sources: Grand View Research ITSM (2025), Mordor Intelligence ITOM (2025), Gartner ITOM Market Share (2025).',
+            'vendors' => 'ServiceNow, BMC Software (Helix), Ivanti, Atlassian (Jira Service Management), Freshservice, Microsoft (System Center/SCSM), SolarWinds Service Desk, ManageEngine, TOPdesk, Cherwell.',
         ],
         'rpa'   => [
-            'name'    => 'RPA & Intelligent Process Automation',
-            'scope'   => 'Robotic Process Automation (attended + unattended bots), intelligent automation platforms, process mining, document intelligence (IDP), low-code workflow automation.',
-            'exclude' => 'Conversational AI assistants (AgentOps), pure BPM suites without automation, ERP systems.',
-            'tam'     => 'approx $14-16B in 2024 (broader IA market), growing to $30-38B by 2030 at ~15-18% CAGR.',
-            'vendors' => 'UiPath, Automation Anywhere, Microsoft Power Automate, SS&C Blue Prism, Appian, Celonis, Pega, SAP Build Process Automation, IBM RPA, WorkFusion.',
+            'name'    => 'RPA & Intelligent Process Automation (IPA)',
+            'scope'   => 'Robotic Process Automation (attended + unattended bots), AI/ML-augmented intelligent automation, process mining, document intelligence (IDP), NLP-powered workflow automation.',
+            'exclude' => 'Conversational AI assistants (Agentic Ops), pure BPM suites without automation bots, ERP systems, standalone low-code/iPaaS platforms.',
+            'tam'     => 'approx $17.8B in 2025 (IPA scope), growing to $44.7B by 2030 at ~20.2% CAGR. Note: pure RPA software alone is ~$3.6B (Gartner 2024). Sources: Grand View Research IPA (2025), Forrester AI Reshaping Automation (2024).',
+            'vendors' => 'UiPath, Automation Anywhere, Microsoft Power Automate, SS&C Blue Prism, Appian, Celonis, Pega, SAP Build Process Automation, IBM RPA, WorkFusion, Kofax (Tungsten).',
         ],
         'agentops' => [
             'name'    => 'Agentic IT Operations',
-            'scope'   => 'Autonomous AI agents for IT operations — LLM-native ITSM copilots, self-healing infrastructure agents, AI-powered zero-touch service desk, multi-agent orchestration for IT workflows. This is a nascent market that emerged in 2023-2024.',
-            'exclude' => 'Traditional chatbots without reasoning (pre-GPT era), pure RPA bots, standard ITSM workflow automation.',
-            'tam'     => 'approx $2-3B in 2024 (nascent/emerging), growing rapidly to $18-25B by 2030 at ~40-50% CAGR.',
-            'vendors' => 'ServiceNow (Now Assist), Microsoft (Copilot for IT), Moveworks, Aisera, PagerDuty Copilot, Freshservice Freddy AI, BMC HelixGPT, Dynatrace Davis AI, IBM Watson Orchestrate, Leena AI.',
+            'scope'   => 'Autonomous AI agents for IT operations — LLM-native ITSM copilots, self-healing infrastructure agents, multi-agent orchestration, AI-powered zero-touch service desk, agentic workflow platforms.',
+            'exclude' => 'Traditional chatbots without LLM reasoning, pure RPA bots, standard ITSM workflow automation, generic LLM APIs.',
+            'tam'     => 'approx $7.8B in 2025, growing to ~$49.8B by 2030 at ~44.8% CAGR. High growth but risk caveat: Gartner (Oct 2025) warns 40%+ of agentic AI projects may be cancelled by 2027 due to ROI uncertainty. Sources: MarketsandMarkets AI Agents (2025), Grand View Research AI Agents (May 2025).',
+            'vendors' => 'ServiceNow (Now Assist), Microsoft (Copilot for IT), Moveworks, Aisera, PagerDuty Copilot, Freshservice Freddy AI, BMC HelixGPT, Dynatrace Davis AI, IBM Watson Orchestrate, Salesforce Agentforce.',
         ],
         'secops' => [
             'name'    => 'Security Operations (SecOps)',
-            'scope'   => 'Full SOC technology stack: SIEM (Security Information & Event Management), SOAR (Security Orchestration Automation & Response), XDR (Extended Detection & Response), Managed Detection & Response (MDR) platforms, threat intelligence platforms, SOC automation.',
-            'exclude' => 'Standalone endpoint antivirus, network firewalls, IAM/PAM (unless bundled in SecOps platform), vulnerability scanners.',
-            'tam'     => 'approx $21-24B in 2024, growing to $48-58B by 2030 at ~15-17% CAGR.',
-            'vendors' => 'CrowdStrike (Falcon/Charlotte AI), Palo Alto Networks (Cortex XSOAR/XSIAM), Microsoft Sentinel, Splunk Enterprise Security/SOAR, IBM QRadar SOAR, Google Chronicle (SIEM), Exabeam, Securonix, Tines, Torq.',
+            'scope'   => 'SOC technology stack: SIEM, SOAR, XDR, threat intelligence platforms, SOC automation. XDR is fastest-growing sub-segment at ~31% CAGR.',
+            'exclude' => 'Standalone endpoint antivirus, network firewalls, IAM/PAM (unless bundled), vulnerability management (~$16B separate market), MDR/MSSP managed services.',
+            'tam'     => 'approx $28.2B in 2025, growing to $54.1B by 2030 at ~13.9% CAGR. Sources: MarketsandMarkets XDR (Aug 2025), Threat Intelligence (2025); Grand View Research SOAR/SIEM (2025).',
+            'vendors' => 'CrowdStrike (Falcon/Charlotte AI), Palo Alto Networks (Cortex XSOAR/XSIAM), Microsoft Sentinel, Splunk Enterprise Security/SOAR, IBM QRadar SOAR, Google Chronicle (SIEM), Exabeam, Securonix, SentinelOne, Rapid7.',
         ],
     ];
 
     $s = $scopes[ $slug ] ?? $scopes['aiops'];
 
     return <<<PROMPT
-You are a senior enterprise technology market analyst. Provide an accurate JSON snapshot for the "{$s['name']}" market as of April 2026.
+You are a senior enterprise technology market analyst. Provide an accurate JSON snapshot for the "{$s['name']}" market as of {$current_month_year}.
 
 MARKET SCOPE (strictly follow this):
 - INCLUDE: {$s['scope']}
@@ -246,11 +305,12 @@ Return ONLY valid JSON matching this exact structure (no markdown fences, no exp
 {
   "title": "short market title (max 6 words)",
   "subtitle": "one-line description of scope",
-  "tam2024": "\$X.XB",
+  "tam2025": "\$X.XB",
   "tam2030": "\$XX.XB",
   "cagr": "XX.X%",
+  "tamScope": "one sentence: what is included and what is explicitly excluded from this TAM",
+  "sources": ["Analyst Firm — Report Name (Year)", "Analyst Firm — Report Name (Year)", "Analyst Firm — Report Name (Year)"],
   "chartData": [
-    {"year": "2024", "value": X.X},
     {"year": "2025", "value": X.X},
     {"year": "2026", "value": X.X},
     {"year": "2027", "value": X.X},
@@ -265,8 +325,9 @@ Return ONLY valid JSON matching this exact structure (no markdown fences, no exp
       "marketCap": "\$XX.XB or Private \$X.XB val or Div. of ParentCo or —",
       "revenue": "\$X.XB ARR or \$XXXM Rev or Est. \$XXM ARR or —",
       "growth": "+XX% YoY or —",
-      "highlight": "short badge e.g. Gartner Leader, 44% Share, Fastest Growth",
-      "description": "one crisp sentence differentiator"
+      "highlight": "short badge ≤18 chars e.g. Gartner Leader, 44% Share",
+      "description": "one crisp differentiator sentence (≤80 characters)",
+      "recentEvent": "(OPTIONAL) Omit this key entirely if no notable event in the past 12 months. Only include for a confirmed major acquisition, funding round >$50M, or landmark product launch. Format: 'Mon YYYY: brief description' (≤90 chars total)"
     }
     ... 50 total established vendors ordered by market prominence ...
   ],
@@ -277,8 +338,9 @@ Return ONLY valid JSON matching this exact structure (no markdown fences, no exp
       "marketCap": "Private \$XXM val or Private or Open Source or —",
       "revenue": "Est. \$XXM ARR or Early Stage or Pre-rev or —",
       "growth": "+XX% YoY or —",
-      "highlight": "short badge e.g. YC W24, 120% Growth, AI-Native",
-      "description": "one crisp sentence differentiator"
+      "highlight": "short badge ≤18 chars e.g. YC W24, 120% Growth, AI-Native",
+      "description": "one crisp differentiator sentence (≤80 characters)",
+      "recentEvent": "(OPTIONAL) Omit this key entirely if no notable event in the past 12 months. Only include for a confirmed major acquisition, funding round >$50M, or landmark product launch. Format: 'Mon YYYY: brief description' (≤90 chars total)"
     }
     ... 50 total startups/emerging players ordered by momentum ...
   ],
@@ -299,13 +361,19 @@ Return ONLY valid JSON matching this exact structure (no markdown fences, no exp
 }
 
 Rules:
-- chartData values must compound consistently with the stated CAGR.
-- TAM values must match chartData 2024 and 2030 entries.
+- chartData values must compound consistently with the stated CAGR. Series starts at 2025.
+- tam2025 must match chartData year "2025" value. tam2030 must match chartData year "2030" value.
+- tamScope must be a single sentence clearly stating what is in and out of the TAM.
+- sources must list 2-4 real analyst reports. Format: "Firm — Report Title (Year)".
 - Use real vendor and startup names only — no fictional companies.
 - vendors array: 50 entries, ordered from highest to lowest market prominence (leaders first, then challengers, then niche).
 - startups array: 50 entries, ordered by momentum and funding (hottest first).
 - For public companies use real market caps. For private unicorns use known valuations. For smaller privates use "Est. \$XM ARR". Use "—" only when truly unknown.
 - type field must be exactly one of: "leader", "challenger", "niche", "startup", "emerging".
+- FORMATTING (UI renders in constrained layouts — strict limits prevent clipping):
+  - description: ≤80 characters. One sentence. No semicolons chaining two thoughts.
+  - highlight: ≤18 characters. Badge label only — no punctuation.
+  - recentEvent: ≤90 characters total including the 'Mon YYYY: ' prefix. Omit key entirely if no confirmed notable event.
 PROMPT;
 }
 
@@ -321,7 +389,7 @@ function ait_fetch_market_from_claude( string $api_key, string $slug, string $ma
         ],
         'body' => wp_json_encode( [
             'model'      => 'claude-haiku-4-5-20251001',
-            'max_tokens' => 2048,
+            'max_tokens' => 8192,
             'messages'   => [
                 [ 'role' => 'user', 'content' => $prompt ],
             ],
@@ -477,6 +545,218 @@ function ait_render_settings_page(): void {
     <?php
 }
 
+// ─── Vendor Profile Refresh ───────────────────────────────────────────────────
+
+/**
+ * PHP equivalent of the TypeScript toVendorSlug() utility.
+ * Strips parentheticals, lowercases, replaces non-alphanumeric chars with hyphens.
+ */
+function ait_vendor_slug( string $name ): string {
+    $name = preg_replace( '/\s*\(.*?\)/u', '', $name );
+    $name = trim( strtolower( $name ) );
+    $name = preg_replace( '/[^a-z0-9]+/', '-', $name );
+    return trim( $name, '-' );
+}
+
+/**
+ * The 50 vendors (10 per category) that have drill-down pages.
+ * Matches the spotlight + towatch lists in the React SPA exactly.
+ */
+function ait_get_profiled_vendors(): array {
+    return [
+        'aiops'    => [
+            // Original 10
+            'Dynatrace', 'Datadog', 'Splunk (Cisco)', 'Elastic', 'Grafana Labs',
+            'Resolve.AI', 'Monte Carlo', 'Incident.io', 'Groundcover', 'Last9',
+            // Tier-3 expansion (+10)
+            'New Relic', 'PagerDuty', 'LogicMonitor', 'Cribl', 'BigPanda',
+            'Rootly', 'Komodor', 'Better Stack', 'SigNoz', 'Dash0',
+        ],
+        'itom'     => [
+            // Original 10
+            'ServiceNow', 'Microsoft (SCSM/Azure)', 'Atlassian Jira SM', 'BMC Helix ITSM', 'Freshservice',
+            'BetterCloud', 'Atomicwork', 'Zluri', 'Axonius', 'Torii',
+            // Tier-3 expansion (+10)
+            'Ivanti', 'ManageEngine SD Plus', 'SolarWinds Service Desk', 'Atera', 'SysAid',
+            'Productiv', 'Zylo', 'Lansweeper', 'Genuity', 'Aisera',
+        ],
+        'rpa'      => [
+            // Original 10
+            'UiPath', 'Microsoft Power Automate', 'Automation Anywhere', 'SS&C Blue Prism', 'Appian',
+            'Lindy.ai', 'Relay.app', 'n8n', 'Pipedream', 'Activepieces',
+            // Tier-3 expansion (+10)
+            'Pega', 'Celonis', 'Kofax', 'Nintex', 'SAP Build Process',
+            'Nango', 'Paragon', 'Merge.dev', 'Retool', 'Superblocks',
+        ],
+        'agentops' => [
+            // Original 10
+            'ServiceNow Now Assist', 'Microsoft Copilot for IT', 'Moveworks', 'Atlassian Intelligence', 'Dynatrace Davis AI',
+            'Torq (Agentic)', 'Tines (IT)', 'Atomicwork', 'Shoreline.io', 'Causely',
+            // Tier-3 expansion (+10)
+            'IBM Watson Orchestrate', 'PagerDuty Copilot', 'Freshservice Freddy AI', 'AWS Bedrock Agents', 'Kore.ai',
+            'Leena AI', 'Espressive Barista', 'Rezolve.ai', 'Gaspar AI', 'Workativ Assistant',
+        ],
+        'secops'   => [
+            // Original 10
+            'CrowdStrike', 'Palo Alto Networks', 'Microsoft Sentinel', 'Splunk SOAR', 'IBM QRadar',
+            'Snyk', 'Tines', 'Torq', 'Radiant Security', 'Stairwell',
+            // Tier-3 expansion (+10)
+            'SentinelOne', 'ServiceNow SecOps', 'Exabeam', 'Securonix', 'Google Chronicle',
+            'Sublime Security', 'Anomali', 'Revelstoke', 'EclecticIQ', 'Feedly AI',
+        ],
+    ];
+}
+
+/**
+ * Build a prompt that asks Claude to return all 10 vendor profiles for one category as JSON.
+ */
+function ait_get_vendor_profile_batch_prompt( string $category_slug, array $vendors ): string {
+    $vendor_list        = implode( ', ', $vendors );
+    $current_month_year = date( 'F Y' );
+    $slug_mapping = [];
+    foreach ( $vendors as $name ) {
+        $slug_mapping[] = '"' . ait_vendor_slug( $name ) . '" (for "' . $name . '")';
+    }
+    $slug_list = implode( ', ', $slug_mapping );
+
+    return <<<PROMPT
+You are a senior enterprise technology analyst specializing in the {$category_slug} market ({$current_month_year}).
+
+Produce an accurate, research-quality vendor profile for each of the following vendors:
+{$vendor_list}
+
+Return ONLY a valid JSON object (no markdown fences, no explanation) structured as:
+{
+  "<vendor-slug>": {
+    "swot": {
+      "strengths":     ["<specific sentence ≤100 chars>", "<≤100 chars>", "<≤100 chars>", "<≤100 chars>"],
+      "weaknesses":    ["<specific sentence ≤100 chars>", "<≤100 chars>", "<≤100 chars>"],
+      "opportunities": ["<specific sentence ≤100 chars>", "<≤100 chars>", "<≤100 chars>"],
+      "threats":       ["<specific sentence ≤100 chars>", "<≤100 chars>", "<≤100 chars>"]
+    },
+    "userLikes":      ["<G2/Gartner Peer Insights theme ≤100 chars>", "<≤100 chars>", "<≤100 chars>", "<≤100 chars>"],
+    "userComplaints": ["<common complaint ≤100 chars>", "<≤100 chars>", "<≤100 chars>"],
+    "customerProfile": {
+      "segments":    ["<specific company tier or industry ≤50 chars>", "<≤50 chars>"],
+      "typicalBuyer": "<title only e.g. VP IT Operations — ≤40 chars>",
+      "topUseCases": ["<use case ≤80 chars>", "<≤80 chars>", "<≤80 chars>"]
+    },
+    "futureAreas": ["<roadmap focus ≤80 chars>", "<≤80 chars>", "<≤80 chars>", "<≤80 chars>"],
+    "competitiveEdge": "<One sharp differentiator sentence ≤120 characters>"
+  }
+}
+
+Vendor slug keys to use: {$slug_list}
+
+Rules:
+- Use the exact slug keys listed above
+- Every string must be a complete, specific sentence — not a vague 2-word phrase
+- userLikes and userComplaints must reflect real G2 / Gartner Peer Insights review themes
+- customerProfile.segments must be specific (e.g. "Fortune 500 financial services", "Mid-market DevOps teams")
+- Do not add any keys not defined in the structure above
+- Ensure JSON is valid and parseable
+- HARD LIMITS (UI renders in tight layouts): swot items ≤100 chars, userLikes/Complaints ≤100 chars, futureAreas ≤80 chars, topUseCases ≤80 chars, competitiveEdge ≤120 chars. Truncate or rephrase — never exceed these limits.
+PROMPT;
+}
+
+/**
+ * Call Claude API to refresh all 50 vendor profiles (one batch API call per category).
+ */
+function ait_refresh_vendor_profiles(): void {
+    $api_key = get_option( 'ait_claude_api_key', '' );
+    if ( empty( $api_key ) ) {
+        return;
+    }
+
+    $vendors_by_category = ait_get_profiled_vendors();
+
+    foreach ( $vendors_by_category as $category_slug => $vendors ) {
+        $prompt = ait_get_vendor_profile_batch_prompt( $category_slug, $vendors );
+
+        $response = wp_remote_post( 'https://api.anthropic.com/v1/messages', [
+            'timeout' => 90,
+            'headers' => [
+                'x-api-key'         => $api_key,
+                'anthropic-version' => '2023-06-01',
+                'content-type'      => 'application/json',
+            ],
+            'body' => wp_json_encode( [
+                'model'      => 'claude-haiku-4-5-20251001',
+                'max_tokens' => 8192,
+                'messages'   => [
+                    [ 'role' => 'user', 'content' => $prompt ],
+                ],
+            ] ),
+        ] );
+
+        if ( is_wp_error( $response ) ) {
+            continue;
+        }
+
+        $code = wp_remote_retrieve_response_code( $response );
+        $body = json_decode( wp_remote_retrieve_body( $response ), true );
+
+        if ( $code !== 200 ) {
+            continue;
+        }
+
+        $text = $body['content'][0]['text'] ?? '';
+        $text = preg_replace( '/^```json\s*/i', '', trim( $text ) );
+        $text = preg_replace( '/\s*```$/', '', $text );
+
+        $profiles = json_decode( $text, true );
+        if ( ! is_array( $profiles ) ) {
+            continue;
+        }
+
+        ait_upsert_vendor_profiles( $category_slug, $profiles );
+    }
+}
+
+/**
+ * Upsert vendor profiles into the DB (insert or update on duplicate key).
+ */
+function ait_upsert_vendor_profiles( string $category_slug, array $profiles ): void {
+    global $wpdb;
+    $table = $wpdb->prefix . 'ait_vendor_profiles';
+    $now   = current_time( 'mysql', true );
+
+    foreach ( $profiles as $vendor_slug => $profile ) {
+        $profile_key = "$category_slug/$vendor_slug";
+        $wpdb->query(
+            $wpdb->prepare(
+                "INSERT INTO $table (profile_key, profile_json, refreshed_at)
+                 VALUES (%s, %s, %s)
+                 ON DUPLICATE KEY UPDATE profile_json = VALUES(profile_json), refreshed_at = VALUES(refreshed_at)",
+                $profile_key,
+                wp_json_encode( $profile ),
+                $now
+            )
+        );
+    }
+}
+
+// ─── DB Migration: create ait_vendor_profiles on existing installs ────────────
+
+add_action( 'plugins_loaded', function() {
+    if ( get_option( 'ait_db_version', '0' ) !== '2.1.0' ) {
+        global $wpdb;
+        $charset_collate = $wpdb->get_charset_collate();
+        $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}ait_vendor_profiles (
+            id           BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+            profile_key  VARCHAR(128)        NOT NULL,
+            profile_json LONGTEXT            NOT NULL,
+            refreshed_at DATETIME            NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
+            UNIQUE KEY profile_key (profile_key),
+            KEY refreshed_at (refreshed_at)
+        ) $charset_collate;";
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        dbDelta( $sql );
+        update_option( 'ait_db_version', '2.1.0' );
+    }
+} );
+
 // ─── Activation / Deactivation ───────────────────────────────────────────────
 
 register_activation_hook( __FILE__, 'ait_activate' );
@@ -496,8 +776,19 @@ function ait_activate() {
         KEY snapshot_at (snapshot_at)
     ) $charset_collate;";
 
+    $sql2 = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}ait_vendor_profiles (
+        id           BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        profile_key  VARCHAR(128)        NOT NULL,
+        profile_json LONGTEXT            NOT NULL,
+        refreshed_at DATETIME            NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        UNIQUE KEY profile_key (profile_key),
+        KEY refreshed_at (refreshed_at)
+    ) $charset_collate;";
+
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
     dbDelta( $sql );
+    dbDelta( $sql2 );
 
     add_option( 'ait_version', AIT_VERSION );
     add_option( 'ait_last_refresh', '' );
