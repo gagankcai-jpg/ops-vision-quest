@@ -28,6 +28,52 @@ add_filter( 'cron_schedules', function( $schedules ) {
     return $schedules;
 } );
 
+// ─── Sitemap XML ─────────────────────────────────────────────────────────────
+// Serves a sitemap at https://aienterpriseit.com/market-intelligence/sitemap.xml
+// covering all SPA routes plus vendor detail pages from the DB.
+
+add_action( 'template_redirect', function() {
+    $path = ltrim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
+    if ( $path !== 'market-intelligence/sitemap.xml' ) return;
+
+    $base  = 'https://aienterpriseit.com/market-intelligence';
+    $slugs = [ 'aiops', 'itom', 'rpa', 'agentops', 'secops' ];
+
+    global $wpdb;
+    $vendor_rows = $wpdb->get_results(
+        "SELECT category, vendor_slug FROM {$wpdb->prefix}ait_vendor_profiles ORDER BY category, vendor_slug"
+    );
+
+    header( 'Content-Type: application/xml; charset=utf-8' );
+    header( 'X-Robots-Tag: noindex' );
+
+    $out  = '<?xml version="1.0" encoding="UTF-8"?>';
+    $out .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    $static_routes = [
+        [ $base . '/',         '1.0', 'weekly'  ],
+        [ $base . '/signals',  '0.8', 'weekly'  ],
+        [ $base . '/compare',  '0.7', 'monthly' ],
+        [ $base . '/pricing',  '0.6', 'monthly' ],
+        [ $base . '/about',    '0.5', 'monthly' ],
+    ];
+    foreach ( $slugs as $slug ) {
+        $static_routes[] = [ $base . '/market/' . $slug, '0.9', 'weekly' ];
+    }
+    foreach ( $static_routes as [ $loc, $pri, $freq ] ) {
+        $out .= "<url><loc>" . esc_url( $loc ) . "</loc><changefreq>{$freq}</changefreq><priority>{$pri}</priority></url>";
+    }
+
+    foreach ( $vendor_rows as $row ) {
+        $loc  = $base . '/vendor/' . rawurlencode( $row->category ) . '/' . rawurlencode( $row->vendor_slug );
+        $out .= "<url><loc>" . esc_url( $loc ) . "</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+    }
+
+    $out .= '</urlset>';
+    echo $out;
+    exit;
+}, 0 );
+
 // ─── SPA Route Handler (BrowserRouter) ───────────────────────────────────────
 // Intercepts React Router paths so direct URLs / refreshes don't 404.
 // The WordPress .htaccess already rewrites unknown paths to index.php;

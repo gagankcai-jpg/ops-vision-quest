@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
+import { PageMeta } from "@/components/seo/PageMeta";
 import { motion, useReducedMotion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -353,8 +354,16 @@ const VendorDetailPage = () => {
     { id: "related",  label: "Related vendors" },
   ];
 
+  const BASE_URL = "https://aienterpriseit.com/market-intelligence";
+  const vendorMeta = {
+    title: `${vendor.name} — ${category.title} Market Position & SWOT 2025`,
+    description: `${vendor.name} profile: market position, SWOT analysis, user sentiment, ICP, and future focus in the ${category.title} market. Updated weekly.`,
+    canonical: `${BASE_URL}/vendor/${categorySlug}/${vendorSlug}`,
+  };
+
   return (
     <PageShell dataDate={LAST_UPDATED} footerLogoId="vendor-footer">
+      <PageMeta {...vendorMeta} />
       {/* Breadcrumb */}
       <div className="border-b border-border/60 bg-card/30">
         <div className="container px-6 py-4">

@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { PageMeta } from "@/components/seo/PageMeta";
 import { motion, useReducedMotion } from "framer-motion";
 import { Radio, BarChart3, Cpu, Bot, Sparkles, ShieldCheck, TrendingUp, Search, X, User } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
@@ -165,6 +166,11 @@ const SignalsPage = () => {
 
   return (
     <PageShell dataDate={LAST_UPDATED} footerLogoId="signals-footer">
+      <PageMeta
+        title="Autonomous IT Market Signals"
+        description="Weekly signals across AIOps, ITOM, RPA, Agentic Operations, and SecOps — acquisitions, funding rounds, product launches, and analyst updates."
+        canonical="https://aienterpriseit.com/market-intelligence/signals"
+      />
       <div>
         {/* ── Hero ───────────────────────────────────────────────────────── */}
         <section className="container px-6 pt-10 pb-8">

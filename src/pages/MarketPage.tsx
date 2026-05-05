@@ -5,8 +5,19 @@ import { useMarketData } from "@/hooks/useMarketData";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import { PageShell } from "@/components/layout/PageShell";
 import CategorySection from "@/components/presentation/CategorySection";
+import { PageMeta } from "@/components/seo/PageMeta";
 
 const SLUG_ORDER = ["aiops", "itom", "rpa", "agentops", "secops"];
+
+const BASE_URL = "https://aienterpriseit.com/market-intelligence";
+
+const MARKET_META: Record<string, { title: string; description: string }> = {
+  aiops:    { title: "AIOps & Observability Market 2025–2030", description: "AIOps market reaches $52.5B by 2030 at 19.1% CAGR. 100+ vendor profiles covering Dynatrace, Datadog, New Relic, Splunk, and more." },
+  itom:     { title: "IT Service & Operations Management Market 2025–2030", description: "ITOM market reaches $54.8B by 2030. Analyst-grade profiles of ServiceNow, BMC, Ivanti, and 97 more vendors." },
+  rpa:      { title: "RPA & Intelligent Automation Market 2025–2030", description: "RPA market reaches $44.7B by 2030 at 20.2% CAGR. UiPath, Automation Anywhere, Blue Prism, and 97 more vendors analyzed." },
+  agentops: { title: "Agentic Operations Market 2025–2030", description: "Agentic IT Operations market reaches $49.8B by 2030 at 44.8% CAGR — the fastest-growing segment in the autonomous IT stack." },
+  secops:   { title: "Security Operations Market 2025–2030", description: "SecOps market reaches $54.1B by 2030. CrowdStrike, Palo Alto Networks, SentinelOne, and 97 more vendors profiled." },
+};
 
 const MarketPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -44,12 +55,21 @@ const MarketPage = () => {
   const prevData = prevSlug ? allCategories.find((c) => c.id === prevSlug) : null;
   const nextData = nextSlug ? allCategories.find((c) => c.id === nextSlug) : null;
 
+  const meta = MARKET_META[slug ?? ""];
+
   return (
     <PageShell
       dataDate={displayDate}
       isLive={status === "live"}
       footerLogoId="market-footer"
     >
+      {meta && (
+        <PageMeta
+          title={meta.title}
+          description={meta.description}
+          canonical={`${BASE_URL}/market/${slug}`}
+        />
+      )}
       {/* Breadcrumb / meta strip */}
       <div className="border-b border-border/60 bg-card/30">
         <div className="container flex items-center justify-between px-6 py-4">

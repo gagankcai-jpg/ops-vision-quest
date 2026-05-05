@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
+import { PageMeta } from "@/components/seo/PageMeta";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -300,6 +301,11 @@ const ComparisonPage = () => {
 
   return (
     <PageShell dataDate={LAST_UPDATED} footerLogoId="compare-footer">
+      <PageMeta
+        title="Vendor Comparison — AIOps, ITOM, RPA & More"
+        description="Side-by-side comparison of enterprise IT vendors across AIOps, ITOM, RPA, Agentic Operations, and SecOps. Compare pricing, SWOT, user sentiment, and market position."
+        canonical="https://aienterpriseit.com/market-intelligence/compare"
+      />
       <div>
         {/* ── Header ─────────────────────────────────────────────────────── */}
         <section className="container px-6 py-8 border-b border-border">

@@ -30,6 +30,7 @@ $app_url    = $plugin_url . 'app/';
   <meta property="og:description" content="Deep-dive analysis across the five pillars of the Autonomous IT stack.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="google-site-verification" content="tBqoSsQyBbdV1TlFHF0bimm64jFvrlSOnyrq3P3LOAI">
   <?php
   // SVG favicon — hexagonal circuit-chip mark, gradient #0EA5E9 → #8B5CF6
   // Encoded inline so it's independent of the WordPress site-icon setting.
@@ -57,6 +58,6 @@ $app_url    = $plugin_url . 'app/';
   <script>window.AIT_REST_URL = '<?php echo esc_js( rest_url( "ait/v1" ) ); ?>';</script>
 
   <!-- React App Bundle -->
-  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-D3n9oQU5.js"></script>
+  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-QVbQUspC.js"></script>
 </body>
 </html>
