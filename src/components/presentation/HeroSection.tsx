@@ -4,6 +4,7 @@ import {
   TrendingUp, BarChart3, Cpu, Bot, Sparkles, ShieldCheck, ArrowRight, Brain,
 } from "lucide-react";
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
+import { ClientOnly } from "vite-react-ssg";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import type { MarketData } from "@/data/marketData";
 import { AmbientBackground } from "@/components/layout/AmbientBackground";
@@ -176,6 +177,8 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
                 </div>
 
                 <div className="-mb-1 h-10 w-full">
+                  <ClientOnly fallback={<div className="h-full w-full" />}>
+                  {() => (
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={traj} margin={{ top: 2, right: 0, left: 0, bottom: 0 }}>
                       <defs>
@@ -195,6 +198,8 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
                       />
                     </AreaChart>
                   </ResponsiveContainer>
+                  )}
+                  </ClientOnly>
                 </div>
 
                 <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors group-hover:text-primary">

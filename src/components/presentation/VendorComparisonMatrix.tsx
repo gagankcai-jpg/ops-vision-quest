@@ -36,6 +36,7 @@ import {
   ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid,
   Tooltip as RTooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList,
 } from "recharts";
+import { ClientOnly } from "vite-react-ssg";
 import { Surface } from "@/components/ui/surface";
 import { Stat } from "@/components/ui/stat";
 import { cn } from "@/lib/utils";
@@ -473,6 +474,8 @@ function MarketMap({
         </div>
       ) : (
         <div className="relative h-[500px] w-full">
+          <ClientOnly fallback={<div className="h-full w-full" />}>
+          {() => (
           <ResponsiveContainer width="100%" height="100%">
             <ScatterChart margin={{ top: 32, right: 36, bottom: 56, left: 56 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={tokens.grid} />
@@ -534,6 +537,8 @@ function MarketMap({
               </Scatter>
             </ScatterChart>
           </ResponsiveContainer>
+          )}
+          </ClientOnly>
 
           {/* Quadrant labels — diagonal corners, larger gap from chart edges */}
           <div className="pointer-events-none absolute right-10 top-1 hidden items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/65 sm:flex">

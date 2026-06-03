@@ -2,6 +2,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, BarChart, Bar, Legend,
 } from "recharts";
+import { ClientOnly } from "vite-react-ssg";
 import { motion, useReducedMotion } from "framer-motion";
 import { Surface } from "@/components/ui/surface";
 
@@ -65,6 +66,8 @@ const MarketChart = ({ data, title, color, gradientId }: MarketChartProps) => {
           </span>
         </div>
         <div className="h-64">
+          <ClientOnly fallback={<div className="h-full w-full" />}>
+          {() => (
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
               <defs>
@@ -107,6 +110,8 @@ const MarketChart = ({ data, title, color, gradientId }: MarketChartProps) => {
               />
             </AreaChart>
           </ResponsiveContainer>
+          )}
+          </ClientOnly>
         </div>
       </Surface>
     </motion.div>
@@ -147,6 +152,8 @@ export const ComparisonChart = ({ data }: ComparisonChartProps) => {
           AIOps · ITOM · RPA · Agentic Ops · Security Ops
         </p>
         <div className="h-80">
+          <ClientOnly fallback={<div className="h-full w-full" />}>
+          {() => (
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data} margin={{ top: 12, right: 16, left: 0, bottom: 4 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={TOKENS.grid} vertical={false} />
@@ -188,6 +195,8 @@ export const ComparisonChart = ({ data }: ComparisonChartProps) => {
               ))}
             </BarChart>
           </ResponsiveContainer>
+          )}
+          </ClientOnly>
         </div>
       </Surface>
     </motion.div>

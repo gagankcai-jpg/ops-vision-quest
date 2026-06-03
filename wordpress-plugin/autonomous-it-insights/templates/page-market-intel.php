@@ -33,6 +33,54 @@ if ( $ait_route_key === '' ) {
 	$ait_route_key = 'overview';
 }
 
+/*
+ * ── Static build-file passthrough ─────────────────────────────────────────────
+ * vite-react-ssg fetches its client-navigation loader-data manifest + per-route data
+ * JSON relative to the ROUTER BASENAME (/market-intelligence/), not the Vite asset base.
+ * Those paths (e.g. /market-intelligence/static-loader-data-manifest-<hash>.json) would
+ * otherwise fall through to the HTML shell below, and the client's res.json() would throw
+ * "Unexpected token '<'", crashing the route on client-side navigation. So if the request
+ * maps to a real file under app/, serve it with the right Content-Type and stop.
+ */
+if (
+	$ait_route_key !== '' &&
+	preg_match( '#^[a-z0-9][a-z0-9/_.\-]*$#', $ait_route_key ) &&
+	strpos( $ait_route_key, '..' ) === false
+) {
+	$ait_static_file = dirname( __DIR__ ) . '/app/' . $ait_route_key;
+	if ( is_file( $ait_static_file ) ) {
+		$ait_ext   = strtolower( pathinfo( $ait_static_file, PATHINFO_EXTENSION ) );
+		$ait_types = array(
+			'json' => 'application/json',
+			'js'   => 'text/javascript',
+			'css'  => 'text/css',
+			'svg'  => 'image/svg+xml',
+			'map'  => 'application/json',
+		);
+		if ( isset( $ait_types[ $ait_ext ] ) ) {
+			header( 'Content-Type: ' . $ait_types[ $ait_ext ] );
+		}
+		readfile( $ait_static_file );
+		exit;
+	}
+}
+
+/*
+ * ── Phase 2 SSR: serve the prerendered (SSG) page if one exists for this route ──
+ * vite-react-ssg emits a fully-rendered app/<route>/index.html per route (real content
+ * baked in + per-route <head> from react-helmet-async + the hydration script). If present,
+ * serve it verbatim — the client then hydrates. Routes without a prerendered file (e.g.
+ * unknown paths) fall through to the Phase 1 shell below (manifest meta + client render).
+ * The route key is validated to a safe charset to prevent path traversal.
+ */
+if ( preg_match( '#^[a-z0-9](?:[a-z0-9/_-]*[a-z0-9])?$#', $ait_route_key ) && strpos( $ait_route_key, '..' ) === false ) {
+	$ait_prerender_file = dirname( __DIR__ ) . '/app/' . $ait_route_key . '/index.html';
+	if ( is_readable( $ait_prerender_file ) ) {
+		readfile( $ait_prerender_file );
+		exit;
+	}
+}
+
 $ait_meta = $ait_default_meta;
 $ait_meta_file = dirname( __DIR__ ) . '/app/route-meta.json';
 if ( is_readable( $ait_meta_file ) ) {
@@ -42,6 +90,25 @@ if ( is_readable( $ait_meta_file ) ) {
 	}
 }
 $ait_og_type = $ait_meta['ogType'] ?? 'article';
+
+// Resolve the current client entry (JS + CSS) from the Vite manifest so the fallback shell
+// (rendered only for routes without a prerendered file) always references the right hashed
+// assets after any rebuild. Falls back to known names if the manifest is unreadable.
+$ait_entry_js  = 'assets/app.js';
+$ait_entry_css = 'assets/app.css';
+$ait_manifest_file = dirname( __DIR__ ) . '/app/.vite/manifest.json';
+if ( is_readable( $ait_manifest_file ) ) {
+	$ait_manifest = json_decode( file_get_contents( $ait_manifest_file ), true );
+	if ( is_array( $ait_manifest ) ) {
+		foreach ( $ait_manifest as $entry ) {
+			if ( ! empty( $entry['isEntry'] ) ) {
+				if ( ! empty( $entry['file'] ) )      $ait_entry_js  = $entry['file'];
+				if ( ! empty( $entry['css'][0] ) )    $ait_entry_css = $entry['css'][0];
+				break;
+			}
+		}
+	}
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -82,7 +149,7 @@ $ait_og_type = $ait_meta['ogType'] ?? 'article';
   <meta name="theme-color" content="#0EA5E9">
 
   <!-- React App Styles -->
-  <link rel="stylesheet" crossorigin href="<?php echo esc_url( $app_url ); ?>assets/index-XhLT7H6m.css">
+  <link rel="stylesheet" crossorigin href="<?php echo esc_url( $app_url . $ait_entry_css ); ?>">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -99,6 +166,6 @@ $ait_og_type = $ait_meta['ogType'] ?? 'article';
   <script>window.AIT_REST_URL = '<?php echo esc_js( rest_url( "ait/v1" ) ); ?>';</script>
 
   <!-- React App Bundle -->
-  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-DBDJvzLT.js"></script>
+  <script type="module" crossorigin src="<?php echo esc_url( $app_url . $ait_entry_js ); ?>"></script>
 </body>
 </html>

@@ -6,8 +6,9 @@ import {
   Sparkles, ShieldCheck, Info, DollarSign, Search, ChevronDown, Radio,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import { generatePPTX } from "@/utils/generatePPTX";
-import { generatePDF } from "@/utils/generatePDF";
+// generatePPTX/generatePDF pull in browser-only libs (pptxgen, jspdf, html2canvas).
+// They are dynamically imported inside the export handler so they are excluded from the
+// SSR/initial bundle and only loaded when the user actually exports.
 import { toast } from "sonner";
 import SearchModal from "@/components/presentation/SearchModal";
 import {
@@ -96,8 +97,13 @@ const Navigation = () => {
   const handleExport = async (kind: "pdf" | "pptx") => {
     setExporting(kind);
     try {
-      if (kind === "pdf") await generatePDF();
-      else await generatePPTX();
+      if (kind === "pdf") {
+        const { generatePDF } = await import("@/utils/generatePDF");
+        await generatePDF();
+      } else {
+        const { generatePPTX } = await import("@/utils/generatePPTX");
+        await generatePPTX();
+      }
       toast.success(`${kind.toUpperCase()} exported successfully`);
     } catch (err) {
       console.error("Export failed:", err);

@@ -1,10 +1,10 @@
-import { createRoot } from "react-dom/client";
-import { HelmetProvider } from "react-helmet-async";
-import App from "./App.tsx";
+import { ViteReactSSG } from "vite-react-ssg";
+import { routes } from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <App />
-  </HelmetProvider>
-);
+// In production the SPA lives under /market-intelligence/ (WordPress page slug); in dev, root.
+const basename = import.meta.env.PROD ? "/market-intelligence" : "/";
+
+// vite-react-ssg builds the router (createBrowserRouter) and wraps the tree with
+// HelmetProvider for head collection. This export is the entry the SSG build + client use.
+export const createRoot = ViteReactSSG({ routes, basename });

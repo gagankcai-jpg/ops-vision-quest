@@ -479,7 +479,7 @@ const PricingPage = () => {
                   className="flex items-center gap-1.5 whitespace-nowrap rounded-md px-3 py-2 text-xs font-medium text-muted-foreground transition-colors data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md"
                 >
                   {categoryIcons[cat.id]}
-                  <span>{cat.id === "agentops" ? "AgentOps" : cat.id === "aiops" ? "AIOps" : cat.id.toUpperCase()}</span>
+                  <span>{cat.id === "agentops" ? "AgentOps" : cat.id === "aiops" ? "AIOps" : cat.id === "secops" ? "SecOps" : cat.id.toUpperCase()}</span>
                   {active && (
                     <span className="ml-0.5 rounded-full bg-primary-foreground/20 px-1.5 py-0 text-[10px] tabular-nums">
                       {tabCounts[cat.id]}

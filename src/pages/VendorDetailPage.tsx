@@ -299,7 +299,9 @@ const VendorDetailPage = () => {
   const staticProfile = vendorProfiles[`${categorySlug}/${vendorSlug}`];
   const pricing = pricingData[`${categorySlug}/${vendorSlug}`] as PricingInfo | undefined;
 
-  const restBase = (window as Record<string, unknown>).AIT_REST_URL as string | undefined;
+  const restBase = typeof window !== "undefined"
+    ? ((window as Record<string, unknown>).AIT_REST_URL as string | undefined)
+    : undefined;
   const { data: apiData } = useQuery<{ profile: VendorProfile; refreshed_at: string }>({
     queryKey: ["vendor-profile", categorySlug, vendorSlug],
     queryFn: async () => {

@@ -294,6 +294,11 @@ const ComparisonPage = () => {
   if (vendors.length === 0) {
     return (
       <PageShell footerLogoId="compare-empty-footer">
+        <PageMeta
+          title="Vendor Comparison — AIOps, ITOM, RPA & More"
+          description="Side-by-side comparison of enterprise IT vendors across AIOps, ITOM, RPA, Agentic Operations, and SecOps. Compare pricing, SWOT, user sentiment, and market position."
+          canonical="https://aienterpriseit.com/market-intelligence/compare"
+        />
         <EmptyComparePicker onSelect={(key) => setSearchParams({ v: key })} />
       </PageShell>
     );

@@ -1,66 +1,62 @@
-import { lazy, Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import type { RouteRecord } from "vite-react-ssg";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import MarketPage from "./pages/MarketPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
-const VendorDetailPage = lazy(() => import("./pages/VendorDetailPage"));
-const PricingPage      = lazy(() => import("./pages/PricingPage"));
-const SignalsPage      = lazy(() => import("./pages/SignalsPage"));
-const ComparisonPage   = lazy(() => import("./pages/ComparisonPage"));
-
 const queryClient = new QueryClient();
 
-// In production the SPA lives under /market-intelligence/ (WordPress page slug).
-// BrowserRouter needs this prefix so its routes match the full URL paths.
-// In dev (localhost) routes are served at root, so no prefix is needed.
-const BASENAME = import.meta.env.PROD ? "/market-intelligence" : "/";
+// Root layout — hosts the app-wide providers and renders the matched route via <Outlet />.
+// (Previously these wrapped <BrowserRouter> in a single App component; with vite-react-ssg
+// the router is created from the `routes` array below, so providers live in a layout route.)
+function RootLayout() {
+  return (
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Outlet />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
+  );
+}
 
-const App = () => (
-  <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter basename={BASENAME}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/overview" element={<Index />} />
-            <Route path="/market/:slug" element={<MarketPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/vendor/:categorySlug/:vendorSlug" element={
-              <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
-                <VendorDetailPage />
-              </Suspense>
-            } />
-            <Route path="/pricing" element={
-              <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
-                <PricingPage />
-              </Suspense>
-            } />
-            <Route path="/signals" element={
-              <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
-                <SignalsPage />
-              </Suspense>
-            } />
-            <Route path="/compare" element={
-              <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
-                <ComparisonPage />
-              </Suspense>
-            } />
-{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ErrorBoundary>
-);
-
-export default App;
+// Route-level lazy() (React Router data-router form) — resolved BEFORE render during SSG,
+// so these pages prerender with real content instead of a Suspense fallback. Still code-split.
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Index /> },
+      { path: "overview", element: <Index /> },
+      { path: "market/:slug", element: <MarketPage /> },
+      { path: "about", element: <AboutPage /> },
+      {
+        path: "vendor/:categorySlug/:vendorSlug",
+        lazy: async () => ({ Component: (await import("./pages/VendorDetailPage")).default }),
+      },
+      {
+        path: "pricing",
+        lazy: async () => ({ Component: (await import("./pages/PricingPage")).default }),
+      },
+      {
+        path: "signals",
+        lazy: async () => ({ Component: (await import("./pages/SignalsPage")).default }),
+      },
+      {
+        path: "compare",
+        lazy: async () => ({ Component: (await import("./pages/ComparisonPage")).default }),
+      },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+];

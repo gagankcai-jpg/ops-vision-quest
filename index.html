@@ -1,30 +1,40 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBKDB465ZK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FBKDB465ZK');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Autonomous IT</title>
-    <meta name="description" content="Autonomous IT Market Intelligence Insights">
-    <meta name="author" content="Lovable" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    
-    
+    <!-- Per-route <title>, description, canonical, OG and Twitter tags are injected by
+         react-helmet-async during static prerender (and re-asserted on hydrate). Only
+         site-wide, route-independent tags live here. -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6527d0df-5d2c-4407-9a46-c0376da8b877/id-preview-1ced72e7--90e59f7d-2731-4515-bfa9-55fce537c8d9.lovable.app-1773046072050.png">
-
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6527d0df-5d2c-4407-9a46-c0376da8b877/id-preview-1ced72e7--90e59f7d-2731-4515-bfa9-55fce537c8d9.lovable.app-1773046072050.png">
-    <meta property="og:title" content="Autonomous IT">
-  <meta name="twitter:title" content="Autonomous IT">
-  <meta property="og:description" content="Autonomous IT Market Intelligence Insights">
-  <meta name="twitter:description" content="Autonomous IT Market Intelligence Insights">
-</head>
+    <meta name="google-site-verification" content="tBqoSsQyBbdV1TlFHF0bimm64jFvrlSOnyrq3P3LOAI" />
+    <meta name="theme-color" content="#0EA5E9" />
 
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSI0MCIgeTI9IjQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBFQTVFOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhCNUNGNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwb2x5Z29uIHBvaW50cz0iMjAsMiAzNSwxMSAzNSwyOSAyMCwzOCA1LDI5IDUsMTEiIGZpbGw9InVybCgjZykiLz48cG9seWdvbiBwb2ludHM9IjIwLDcuNSAzMC41LDEzLjc1IDMwLjUsMjYuMjUgMjAsMzIuNSA5LjUsMjYuMjUgOS41LDEzLjc1IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIiIHI9IjIuMiIgZmlsbD0iIzM4QkRGOCIvPjxjaXJjbGUgY3g9IjM1IiBjeT0iMTEiIHI9IjIuMiIgZmlsbD0iIzY3RThGOSIvPjxjaXJjbGUgY3g9IjM1IiBjeT0iMjkiIHI9IjIuMiIgZmlsbD0iI0E3OEJGQSIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMzgiIHI9IjIuMiIgZmlsbD0iIzhCNUNGNiIvPjxjaXJjbGUgY3g9IjUiIGN5PSIyOSIgcj0iMi4yIiBmaWxsPSIjQTc4QkZBIi8+PGNpcmNsZSBjeD0iNSIgY3k9IjExIiByPSIyLjIiIGZpbGw9IiMzOEJERjgiLz48dGV4dCB4PSIyMCIgeT0iMjUuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZpbGw9IndoaXRlIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5BSTwvdGV4dD48L3N2Zz4=" />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, #root { margin: 0; padding: 0; }
+      /* Pre-paint background matches design-token --background to avoid white flash before hydration */
+      html { background: hsl(222 47% 7%); color-scheme: dark; }
+      body { background: hsl(222 47% 7%); }
+    </style>
+  </head>
   <body>
     <div id="root"></div>
+    <!-- WordPress REST API base for vendor-profile live data (static for this site). -->
+    <script>window.AIT_REST_URL = 'https://aienterpriseit.com/wp-json/ait/v1';</script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
