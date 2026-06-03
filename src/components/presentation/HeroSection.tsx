@@ -26,11 +26,11 @@ interface CategorySpec {
 }
 
 const CATEGORIES: CategorySpec[] = [
-  { slug: "aiops",    short: "AIOps",     title: "AIOps & Observability",   icon: BarChart3,   fallbackTAM: "$52.5B", fallbackTrajectory: [22.0, 26.2, 31.4, 37.1, 44.0, 52.5], accent: "text-executive-cyan",   hex: "hsl(199 89% 60%)" },
-  { slug: "itom",     short: "ITOM",      title: "IT Service & Ops Mgmt",   icon: Cpu,         fallbackTAM: "$54.8B", fallbackTrajectory: [31.8, 35.5, 39.5, 44.1, 49.2, 54.8], accent: "text-executive-purple", hex: "hsl(262 83% 64%)" },
-  { slug: "rpa",      short: "RPA / IA",  title: "RPA & Intelligent Auto.", icon: Bot,         fallbackTAM: "$44.7B", fallbackTrajectory: [17.8, 21.4, 25.6, 30.9, 37.3, 44.7], accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
-  { slug: "agentops", short: "AgentOps",  title: "Agentic Operations",      icon: Sparkles,    fallbackTAM: "$49.8B", fallbackTrajectory: [7.8,  11.3, 16.4, 23.7, 34.3, 49.8], accent: "text-executive-amber",  hex: "hsl(38 95% 58%)" },
-  { slug: "secops",   short: "SecOps",    title: "Security Operations",     icon: ShieldCheck, fallbackTAM: "$54.1B", fallbackTrajectory: [28.2, 32.2, 36.6, 41.7, 47.5, 54.1], accent: "text-executive-rose",   hex: "hsl(350 89% 62%)" },
+  { slug: "aiops",    short: "AIOps",     title: "AIOps & Observability",   icon: BarChart3,   fallbackTAM: "$100B", fallbackTrajectory: [36.0, 43.9, 53.6, 65.3, 79.7, 100.0], accent: "text-executive-cyan",   hex: "hsl(199 89% 60%)" },
+  { slug: "itom",     short: "ITOM",      title: "IT Service & Ops Mgmt",   icon: Cpu,         fallbackTAM: "$94B",  fallbackTrajectory: [52.0, 58.8, 66.4, 75.1, 84.8,  94.0], accent: "text-executive-purple", hex: "hsl(262 83% 64%)" },
+  { slug: "rpa",      short: "RPA / IA",  title: "RPA & Intelligent Auto.", icon: Bot,         fallbackTAM: "$74B",  fallbackTrajectory: [24.0, 30.0, 37.5, 46.9, 58.6,  74.0], accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
+  { slug: "agentops", short: "AgentOps",  title: "Agentic Operations",      icon: Sparkles,    fallbackTAM: "$8B",   fallbackTrajectory: [1.2,  1.7,  2.5,  3.7,  5.3,   8.0], accent: "text-executive-amber",  hex: "hsl(38 95% 58%)" },
+  { slug: "secops",   short: "SecOps",    title: "Security Operations",     icon: ShieldCheck, fallbackTAM: "$54B",  fallbackTrajectory: [21.0, 25.4, 30.7, 37.2, 45.0,  54.0], accent: "text-executive-rose",   hex: "hsl(350 89% 62%)" },
 ];
 
 function formatTAM(raw: string | number | undefined, fallback: string): string {
@@ -128,7 +128,7 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
         >
           <Brain className="h-3 w-3" />
           <span>
-            Refreshed weekly by Claude · Sources: Gartner, IDC, Mordor Intelligence
+            Refreshed weekly by Claude · Sources: Gartner, IDC, Mordor Intelligence, Grand View Research, MarketsandMarkets, Omdia, Precedence Research
           </span>
         </motion.div>
 

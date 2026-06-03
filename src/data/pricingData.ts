@@ -1287,7 +1287,7 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Premium for enterprise process mining — ROI measured in ERP efficiency gains, typically 6–18 month payback.",
   },
 
-  "rpa/kofax": {
+  "rpa/tungsten-automation": {
     pricingModel: "module-based",
     transparency: "contact-sales",
     typicalACV: "$80K–$500K",
@@ -2532,7 +2532,7 @@ export const pricingData: Record<string, PricingInfo> = {
     ],
     bottomLine: "RSA NetWitness is among the most expensive SIEM+NDR platforms with very-high infrastructure and staffing TCO — the forensic-grade packet capture capability is the only justification at this price point.",
   },
-  "secops/at-t-alienvault": {
+  "secops/levelblue": {
     pricingModel: "per-seat",
     transparency: "limited-public",
     startingPrice: "$1,075/month for USM Anywhere Essentials",
@@ -2546,7 +2546,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Log events per second (EPS) tier selected",
       "Add-on modules: vulnerability scanning, compliance reporting",
     ],
-    bottomLine: "AlienVault USM Anywhere is one of the most affordable all-in-one SIEM+IDS+VM platforms for mid-market — the Essentials tier provides strong value at a price point accessible for 100–500 employee organizations.",
+    bottomLine: "LevelBlue USM Anywhere (formerly AT&T AlienVault) is one of the most affordable all-in-one SIEM+IDS+VM platforms for mid-market — the Essentials tier provides strong value at a price point accessible for 100–500 employee organizations.",
   },
   "secops/sumo-logic": {
     pricingModel: "consumption",

@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Building2, Rocket, Mail, Linkedin } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
+import { PageMeta } from "@/components/seo/PageMeta";
 import { AmbientBackground } from "@/components/layout/AmbientBackground";
 import { Surface } from "@/components/ui/surface";
 import { LogoMark } from "@/components/Logo";
@@ -18,7 +19,7 @@ const SERVICES = [
     icon: <Rocket className="h-7 w-7" />,
     title: "AI Startup & Vendor Advisory",
     description:
-      "Product and GTM advisory for AI-native startups and vendors operating in the Autonomous IT space. We provide market intelligence, competitive intel, and positioning strategy to help you win in a fast-moving market.",
+      "Product and GTM advisory for AI-native startups and vendors operating in the Autonomous IT Ops space. We provide market intelligence, competitive intel, and positioning strategy to help you win in a fast-moving market.",
     tags: ["Product Advisory", "GTM Strategy", "Market Intelligence", "Competitive Intel"],
     accent: "text-executive-purple",
   },
@@ -29,6 +30,11 @@ const AboutPage = () => {
 
   return (
     <PageShell footerLogoId="about-footer">
+      <PageMeta
+        title="About AI Enterprise IT"
+        description="AI Enterprise IT provides analyst-grade market intelligence on autonomous IT — AIOps, ITOM, RPA, AgentOps, and SecOps. 500+ vendors profiled, updated weekly."
+        canonical="https://aienterpriseit.com/market-intelligence/about"
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border/60 pt-24 pb-16 sm:pt-28">
         <AmbientBackground variant="hero" />

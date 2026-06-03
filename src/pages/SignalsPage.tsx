@@ -188,7 +188,7 @@ const SignalsPage = () => {
                   Market Signals
                 </h1>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  Recent moves, acquisitions, and funding rounds across the Autonomous IT landscape.
+                  Recent moves, acquisitions, and funding rounds across the Autonomous IT Ops landscape.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-2">

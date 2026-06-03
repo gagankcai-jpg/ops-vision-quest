@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageShell } from "@/components/layout/PageShell";
+import { PageMeta } from "@/components/seo/PageMeta";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import { allCategories } from "@/data/marketData";
 import { toVendorSlug } from "@/data/vendorProfiles";
@@ -362,6 +363,11 @@ const PricingPage = () => {
 
   return (
     <PageShell dataDate={LAST_UPDATED} footerLogoId="pricing-footer">
+      <PageMeta
+        title="Vendor Pricing & TCO Comparison"
+        description="Compare pricing models and total cost of ownership across 200+ AIOps, ITOM, RPA, AgentOps, and SecOps vendors. Free analyst-grade pricing intelligence."
+        canonical="https://aienterpriseit.com/market-intelligence/pricing"
+      />
       <div className="pt-4">
         {/* ── Hero ───────────────────────────────────────────────────────── */}
         <section className="container px-6 pt-10 pb-6">

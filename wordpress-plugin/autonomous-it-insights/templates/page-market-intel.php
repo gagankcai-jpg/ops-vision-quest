@@ -9,6 +9,39 @@
 
 $plugin_url = plugin_dir_url( dirname( __FILE__ ) );
 $app_url    = $plugin_url . 'app/';
+
+/*
+ * ── Server-side SEO meta injection (Phase 1 SSR) ──────────────────────────────
+ * The SPA is client-rendered, so without this every /market-intelligence/* route
+ * would serve identical generic <head> tags to crawlers and social scrapers.
+ * route-meta.json (generated at build from the same TS data the React pages use)
+ * maps each route to its exact title/description/canonical/OpenGraph/JSON-LD.
+ * We resolve the current route here and emit the correct tags below; React +
+ * react-helmet-async re-assert identical tags on hydrate (no conflict).
+ */
+$ait_default_meta = array(
+	'title'       => 'Autonomous IT Market Intelligence | aienterpriseit.com',
+	'description' => 'Executive market intelligence covering AIOps, ITOM, RPA, Agentic Operations, and Security Operations — 2025–2030 analysis.',
+	'canonical'   => 'https://aienterpriseit.com/market-intelligence/',
+	'ogType'      => 'website',
+);
+
+// Derive the route key: path with the /market-intelligence/ prefix and slashes trimmed.
+$ait_raw_path  = parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?: '';
+$ait_route_key = trim( preg_replace( '#^/market-intelligence/?#', '', $ait_raw_path ), '/' );
+if ( $ait_route_key === '' ) {
+	$ait_route_key = 'overview';
+}
+
+$ait_meta = $ait_default_meta;
+$ait_meta_file = dirname( __DIR__ ) . '/app/route-meta.json';
+if ( is_readable( $ait_meta_file ) ) {
+	$ait_routes = json_decode( file_get_contents( $ait_meta_file ), true );
+	if ( is_array( $ait_routes ) && isset( $ait_routes[ $ait_route_key ] ) ) {
+		$ait_meta = array_merge( $ait_default_meta, $ait_routes[ $ait_route_key ] );
+	}
+}
+$ait_og_type = $ait_meta['ogType'] ?? 'article';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -24,12 +57,20 @@ $app_url    = $plugin_url . 'app/';
 
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Autonomous IT Market Intelligence | aienterpriseit.com</title>
-  <meta name="description" content="Executive market intelligence covering AIOps, ITOM, RPA, Agentic Operations, and Security Operations — 2025–2030 analysis.">
-  <meta property="og:title" content="Autonomous IT Market Intelligence">
-  <meta property="og:description" content="Deep-dive analysis across the five pillars of the Autonomous IT stack.">
-  <meta property="og:type" content="website">
+  <title><?php echo esc_html( $ait_meta['title'] ); ?></title>
+  <meta name="description" content="<?php echo esc_attr( $ait_meta['description'] ); ?>">
+  <link rel="canonical" href="<?php echo esc_url( $ait_meta['canonical'] ); ?>">
+  <meta property="og:title" content="<?php echo esc_attr( $ait_meta['title'] ); ?>">
+  <meta property="og:description" content="<?php echo esc_attr( $ait_meta['description'] ); ?>">
+  <meta property="og:url" content="<?php echo esc_url( $ait_meta['canonical'] ); ?>">
+  <meta property="og:type" content="<?php echo esc_attr( $ait_og_type ); ?>">
+  <meta property="og:site_name" content="AI Enterprise IT">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?php echo esc_attr( $ait_meta['title'] ); ?>">
+  <meta name="twitter:description" content="<?php echo esc_attr( $ait_meta['description'] ); ?>">
+  <?php if ( ! empty( $ait_meta['jsonld'] ) ) : ?>
+  <script type="application/ld+json"><?php echo wp_json_encode( $ait_meta['jsonld'] ); ?></script>
+  <?php endif; ?>
   <meta name="google-site-verification" content="tBqoSsQyBbdV1TlFHF0bimm64jFvrlSOnyrq3P3LOAI">
   <?php
   // SVG favicon — hexagonal circuit-chip mark, gradient #0EA5E9 → #8B5CF6
@@ -41,7 +82,7 @@ $app_url    = $plugin_url . 'app/';
   <meta name="theme-color" content="#0EA5E9">
 
   <!-- React App Styles -->
-  <link rel="stylesheet" crossorigin href="<?php echo esc_url( $app_url ); ?>assets/index-CX3evuaH.css">
+  <link rel="stylesheet" crossorigin href="<?php echo esc_url( $app_url ); ?>assets/index-XhLT7H6m.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -58,6 +99,6 @@ $app_url    = $plugin_url . 'app/';
   <script>window.AIT_REST_URL = '<?php echo esc_js( rest_url( "ait/v1" ) ); ?>';</script>
 
   <!-- React App Bundle -->
-  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-QVbQUspC.js"></script>
+  <script type="module" crossorigin src="<?php echo esc_url( $app_url ); ?>assets/index-DBDJvzLT.js"></script>
 </body>
 </html>

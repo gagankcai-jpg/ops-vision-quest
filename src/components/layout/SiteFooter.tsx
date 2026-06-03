@@ -35,12 +35,16 @@ export function SiteFooter({
     >
       <div className="container px-6">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+          <a
+            href={import.meta.env.PROD ? "/market-intelligence/" : "/"}
+            className="flex items-center gap-3 text-sm text-muted-foreground transition-opacity hover:opacity-80"
+            aria-label="Back to home"
+          >
             <LogoMark size={22} id={logoId} />
             <span>
               © {COPYRIGHT_YEAR} AI Enterprise IT · Market Intelligence Portal
             </span>
-          </div>
+          </a>
 
           <div className="flex flex-col items-center gap-3 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
             <span>
@@ -49,7 +53,7 @@ export function SiteFooter({
                 <span className="ml-2 text-success">● Live</span>
               ) : null}
               <span className="mx-2 text-border">·</span>
-              Sources: Gartner, IDC, Mordor Intelligence
+              Sources: Gartner, IDC, Mordor Intelligence, Grand View Research, MarketsandMarkets, Omdia, Precedence Research
             </span>
             <span className="hidden h-3 w-px bg-border sm:inline-block" />
             <span className="inline-flex items-center gap-1.5">

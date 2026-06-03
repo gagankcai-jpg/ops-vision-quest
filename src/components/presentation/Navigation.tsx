@@ -86,7 +86,9 @@ const Navigation = () => {
     if (el) {
       el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     } else {
-      navigate("/", { state: { scrollTo: href.replace("#", "") } });
+      // Navigate to /overview (dedicated SPA route for the dashboard index)
+      // so the browser doesn't hit the SSR landing page at /market-intelligence/
+      navigate("/overview", { state: { scrollTo: href.replace("#", "") } });
     }
     setMobileOpen(false);
   };
@@ -119,13 +121,14 @@ const Navigation = () => {
         )}
       >
         <nav className="container flex h-16 items-center justify-between px-6">
-          <Link
-            to="/"
+          {/* Hard-navigate to the SSR landing page, not client-side to Index.tsx */}
+          <a
+            href={import.meta.env.PROD ? "/market-intelligence/" : "/"}
             className="rounded-md outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label="AI Enterprise IT — Market Intelligence Home"
           >
             <Logo size={32} id="nav" />
-          </Link>
+          </a>
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-1 md:flex">

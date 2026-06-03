@@ -36,6 +36,8 @@ add_action( 'template_redirect', function() {
     $path = ltrim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
     if ( $path !== 'market-intelligence/sitemap.xml' ) return;
 
+    status_header( 200 );
+
     $base  = 'https://aienterpriseit.com/market-intelligence';
     $slugs = [ 'aiops', 'itom', 'rpa', 'agentops', 'secops' ];
 
@@ -64,9 +66,24 @@ add_action( 'template_redirect', function() {
         $out .= "<url><loc>" . esc_url( $loc ) . "</loc><changefreq>{$freq}</changefreq><priority>{$pri}</priority></url>";
     }
 
-    foreach ( $vendor_rows as $row ) {
-        $loc  = $base . '/vendor/' . rawurlencode( $row->category ) . '/' . rawurlencode( $row->vendor_slug );
-        $out .= "<url><loc>" . esc_url( $loc ) . "</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+    if ( ! empty( $vendor_rows ) ) {
+        foreach ( $vendor_rows as $row ) {
+            $loc  = $base . '/vendor/' . rawurlencode( $row->category ) . '/' . rawurlencode( $row->vendor_slug );
+            $out .= "<url><loc>" . esc_url( $loc ) . "</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+        }
+    } else {
+        // DB not yet seeded — fall back to build-generated vendor-slugs.json
+        $json_path = AIT_PLUGIN_DIR . 'app/vendor-slugs.json';
+        if ( file_exists( $json_path ) ) {
+            $slugs_raw = json_decode( file_get_contents( $json_path ), true ) ?? [];
+            foreach ( $slugs_raw as $key ) {
+                $parts = explode( '/', $key, 2 );
+                if ( count( $parts ) !== 2 ) continue;
+                [ $cat, $vslug ] = $parts;
+                $loc  = $base . '/vendor/' . rawurlencode( $cat ) . '/' . rawurlencode( $vslug );
+                $out .= "<url><loc>" . esc_url( $loc ) . "</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+            }
+        }
     }
 
     $out .= '</urlset>';
@@ -74,17 +91,73 @@ add_action( 'template_redirect', function() {
     exit;
 }, 0 );
 
-// ─── SPA Route Handler (BrowserRouter) ───────────────────────────────────────
-// Intercepts React Router paths so direct URLs / refreshes don't 404.
-// The WordPress .htaccess already rewrites unknown paths to index.php;
-// this hook then serves the React SPA template before WP emits a 404.
+// ─── Canonical redirect suppression ──────────────────────────────────────────
+// The Market Intelligence page is set as the WordPress front page (page_on_front).
+// WordPress redirect_canonical would 301 /market-intelligence/ → / (homepage).
+// We suppress that redirect so the SSR theme template renders at its full URL.
+add_filter( 'redirect_canonical', function( $redirect_url, $requested_url ) {
+    $path = parse_url( $requested_url, PHP_URL_PATH );
+    if ( rtrim( $path, '/' ) === '/market-intelligence' ) {
+        return false;
+    }
+    return $redirect_url;
+}, 1, 2 );
+
+// ─── Canonical URL fix for SSR page ──────────────────────────────────────────
+// Because the page is the WordPress front page, get_canonical_url() returns "/"
+// instead of "/market-intelligence/". Fix it so Yoast/WP outputs the correct URL.
+add_filter( 'get_canonical_url', function( $canonical_url, $post ) {
+    if ( $post && (int) $post->ID === 6 ) {
+        return 'https://aienterpriseit.com/market-intelligence/';
+    }
+    return $canonical_url;
+}, 10, 2 );
+
+// Also fix the raw rel_canonical tag output (pre-Yoast fallback).
+add_filter( 'pre_get_shortlink', function( $shortlink ) {
+    if ( is_front_page() ) return false;
+    return $shortlink;
+} );
+
+// ─── SPA Route Handler ───────────────────────────────────────────────────────
+// Intercepts legacy root-level React Router paths so direct URLs don't 404.
+// The app uses HashRouter so /market-intelligence/ itself is served by WordPress.
+// The WordPress .htaccess already rewrites unknown paths to index.php.
 
 add_action( 'template_redirect', function() {
-    // 'market-intelligence' catches BrowserRouter deep-link paths under the WP page slug
-    // (e.g. /market-intelligence/market/aiops, /market-intelligence/vendor/aiops/dynatrace).
-    // The others are kept for any legacy direct-root paths.
-    $spa_prefixes = [ 'market-intelligence', 'market', 'vendor', 'signals', 'compare', 'about', 'pricing' ];
-    $path  = ltrim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
+    // Redirect www → non-www before serving the SPA.
+    // This hook runs at priority 1, before redirect_canonical (priority 10), so we must
+    // handle the www canonicalization ourselves for any path we intercept.
+    if ( isset( $_SERVER['HTTP_HOST'] ) && str_starts_with( $_SERVER['HTTP_HOST'], 'www.' ) ) {
+        $canonical_host = substr( $_SERVER['HTTP_HOST'], 4 );
+        $redirect_url   = 'https://' . $canonical_host . $_SERVER['REQUEST_URI'];
+        wp_redirect( $redirect_url, 301 );
+        exit;
+    }
+
+    // Redirect bare root → market-intelligence landing page.
+    // From there users can enter the interactive SPA via the "Explore" CTA.
+    $raw_path = parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH );
+    if ( $raw_path === '/' || $raw_path === '' ) {
+        wp_redirect( home_url( '/market-intelligence/' ), 301 );
+        exit;
+    }
+
+    // The SPA uses BrowserRouter with basename="/market-intelligence".
+    // All SPA routes are sub-paths: /market-intelligence/market/aiops,
+    // /market-intelligence/signals, /market-intelligence/vendor/..., etc.
+    // Serve the SPA for ANY /market-intelligence/* sub-path, but NOT the bare
+    // /market-intelligence/ — that is the SSR landing page served by WordPress.
+    if ( str_starts_with( $raw_path, '/market-intelligence/' )
+        && rtrim( $raw_path, '/' ) !== '/market-intelligence' ) {
+        status_header( 200 );
+        include AIT_PLUGIN_DIR . 'templates/page-market-intel.php';
+        exit;
+    }
+
+    // Legacy root-level paths kept for direct-link fallback (e.g. /market/aiops).
+    $spa_prefixes = [ 'market', 'vendor', 'signals', 'compare', 'about', 'pricing' ];
+    $path  = ltrim( $raw_path, '/' );
     $first = strtok( $path, '/' );
     if ( $first && in_array( $first, $spa_prefixes, true ) ) {
         status_header( 200 );

@@ -125,7 +125,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
         "Enterprise sales cycle and contract flexibility can frustrate large procurement teams",
       ],
       opportunities: [
-        "LLM Observability (Bits AI / LLM monitoring) as AI workload monitoring becomes critical",
+        "Bits AI Security Agent (GA): expanding into SIEM/XDR as security+observability converge",
         "Security platform consolidation: CSPM + SIEM + ASM into one Datadog contract",
         "FinOps and cloud cost observability as a natural platform extension",
         "Expanding Federal footprint following GovCloud launch and FedRAMP Moderate",
@@ -160,7 +160,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       ],
     },
     futureAreas: [
-      "Bits AI — LLM-native assistant for natural-language query and automated triage",
+      "Bits AI Security Agent GA: AI-native SOC bridging observability and SIEM",
       "AI application monitoring: tracing prompts, model latency, and LLM cost observability",
       "Workflow automation: no-code remediation actions triggered from monitors",
       "Data Streams Monitoring expansion covering Kafka, Kinesis, and Spark pipelines",
@@ -601,7 +601,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
         "44% ITSM market share and dominant installed base across Fortune 500 enterprises",
         "Now Platform provides a single system of record for IT, HR, security, and legal workflows",
         "Now Assist GenAI natively embedded across all modules — no bolt-on AI layer",
-        "Moveworks acquisition ($2.85B) integrated as ServiceNow EmployeeWorks — AI agents now resolve 90% of IT requests autonomously",
+        "Otto unified AI (Knowledge '26) folds Now Assist + Moveworks into single front door for every employee",
         "Armis acquisition ($7.75B, closed Apr 2026) extends platform into SecOps and asset discovery",
         "Extensive partner ecosystem and app marketplace (ServiceNow Store) with thousands of integrations",
       ],
@@ -649,8 +649,8 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     futureAreas: [
       "Autonomous Workforce (GA Q2 2026): Level 1 Service Desk AI Specialist autonomously handling full IT request lifecycle",
       "ESM Foundation: bringing IT, HR, legal, finance, and procurement workflows onto the Now Platform for mid-market",
-      "Workflow Data Fabric: unifying data from third-party tools to power AI decisions across the enterprise",
-      "Industry cloud solutions: pre-built workflow accelerators for FSI, healthcare, and manufacturing",
+      "Action Fabric (May 2026): opens Now Platform workflows to 3rd-party AI agents",
+      "Project Arc (NVIDIA co-build): autonomous workflows fusing Now Platform with AI",
       "AI Control Tower: visibility and governance dashboards for all AI-driven actions on the platform",
     ],
   },
@@ -767,10 +767,10 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       ],
     },
     futureAreas: [
-      "Atlassian Intelligence agents: autonomous ticket triage, classification, and response drafting",
+      "Agents in Jira GA: autonomous triage, classification, and response generation",
       "Rovo AI: knowledge discovery and AI-powered self-service across Confluence and JSM",
-      "Virtual Service Agent: conversational AI replacing basic Tier 1 IT support",
-      "Data Residency expansion: addressing European and regulated-industry cloud compliance requirements",
+      "Rovo Incident Command: AI-coordinated response and automated stakeholder updates",
+      "Teamwork Graph: 150B connections enabling cross-product AI context for agents",
       "ITSM + DevEx integration: connecting engineering platform health to service desk insights",
     ],
   },
@@ -1257,7 +1257,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Salesforce AgentExchange: CX Companion + Maestro Connector bringing agentic automation to Salesforce-driven enterprises",
       "WorkFusion AML/KYC agents: deepening financial crime compliance automation in banking and insurance",
       "GenAI-powered document understanding: replacing brittle OCR and template-based extraction",
-      "Industry clouds: purpose-built automation solutions for FSI, healthcare, and public sector",
+      "On-prem Agentic AI: Automation Suite for public sector and regulated industries",
     ],
   },
 
@@ -2474,7 +2474,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
   },
 
   "secops/palo-alto-networks": {
-    competitiveEdge: "Palo Alto Networks XSOAR is the most deployed SOAR platform globally — with the deepest playbook library, 900+ integrations, Cortex AI native intelligence, the $25B CyberArk acquisition (Feb 2026) adding identity security, and the April 2026 Koi acquisition launching a new Agentic Endpoint Security category to protect AI software supply chains.",
+    competitiveEdge: "PANW's XSOAR is the most-deployed SOAR; May 2026 Idira launch extends identity protection to AI agents now 109:1 vs humans.",
     swot: {
       strengths: [
         "Most widely deployed SOAR platform with the largest playbook library in the industry",
@@ -2526,7 +2526,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     },
     futureAreas: [
       "Koi integration (acquired Apr 2026): Agentic Endpoint Security module in Cortex XDR detecting AI agent compromise and software supply chain risks via Prisma AIRS",
-      "CyberArk full integration: unifying PAM, CIEM, secrets management, and AI identity security across the Cortex platform",
+      "Idira platform (May 2026): identity security for AI agents now 109:1 vs humans",
       "Anthropic Project Glasswing (Apr 2026): access to Claude Mythos for AI cybersecurity enforcement alongside CrowdStrike",
       "Autonomous SOC: Cortex AI agents handling Tier 1–2 analyst functions without human involvement",
       "Precision AI: domain-specific security AI models replacing generic LLMs for security decision-making",
@@ -3147,7 +3147,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
         "PagerDuty AI (AIOps) reduces noise and surfaces actionable signals from millions of events",
       ],
       weaknesses: [
-        "Growth has slowed post-2023 as market matures and competition intensifies from ServiceNow",
+        "ARR flat at $496M in Q1 FY27; new CEO John DiLullo takes over as ServiceNow rivalry intensifies",
         "Per-user pricing adds up quickly for large on-call rotations",
         "Incident.io, FireHydrant targeting lower cost-point for startup and growth-stage teams",
         "AIOps features perceived as add-on rather than core capability by some buyers",
@@ -4292,12 +4292,12 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/kofax": {
-    competitiveEdge: "Kofax (now Tungsten Automation) uniquely combines document capture AI, IDP, and RPA in a single platform — making it the dominant choice for enterprises automating document-heavy processes like invoice processing, claims, and contract extraction.",
+  "rpa/tungsten-automation": {
+    competitiveEdge: "Tungsten Automation (formerly Kofax) uniquely combines document capture AI, IDP, and RPA in a single platform — making it the dominant choice for enterprises automating document-heavy processes like invoice processing, claims, and contract extraction.",
     swot: {
       strengths: [
         "Market leader in intelligent document processing combining OCR, AI extraction, and workflow automation",
-        "Kofax TotalAgility platform handles end-to-end document-centric process automation",
+        "TotalAgility platform handles end-to-end document-centric process automation",
         "Deep financial services expertise: 25,000+ customers in banking, insurance, and mortgage processing",
         "Print and capture heritage providing deep integration with MFP and scanner ecosystems",
         "Strong compliance and audit capabilities for regulated document workflows",
@@ -4317,7 +4317,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       threats: [
         "ABBYY, Hyperscience, and newer IDP players competing with cloud-native document AI",
         "Microsoft Azure Form Recognizer commoditizing basic document extraction capabilities",
-        "UiPath Document Understanding and Automation Anywhere IQ Bot targeting Kofax's core market",
+        "UiPath Document Understanding and Automation Anywhere IQ Bot targeting Tungsten Automation's core market",
         "AWS Textract and Google Document AI enabling developers to build custom extraction without a platform",
       ],
     },
@@ -7819,7 +7819,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       strengths: [
         "Pre-built agents for Sales, Service, Marketing, and IT with zero integration",
         "Data Cloud provides unified customer data grounding for all agent actions",
-        "150,000+ Salesforce customer install base as immediate addressable market",
+        "Agentforce ARR hit $1.2B in Q1 FY27, up 205% YoY across 150,000+ customer install base",
         "Agentforce 2.0: reasoning engine and memory enabling multi-step autonomous workflows",
         "Salesforce Einstein Trust Layer for privacy and data governance of agent actions",
       ],
@@ -8220,7 +8220,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
         "Personalised search ranking based on role, team, and interaction history",
         "Glean Chat: conversational AI grounded in company-specific knowledge",
         "Security model respects existing access controls — no permission escalation",
-        "Strong enterprise customer base including Fortune 100 technology companies",
+        "ARR tripled to $300M in 15 months across a Fortune 100 enterprise base",
       ],
       weaknesses: [
         "Premium pricing makes it inaccessible for mid-market budgets",
@@ -8607,27 +8607,27 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Consolidation story as unified SIEM + NDR + TIP vs. best-of-breed assemblies",
     ],
   },
-  "secops/at-t-alienvault": {
-    competitiveEdge: "AT&T AlienVault USM Anywhere delivers a fully integrated threat detection platform with unified SIEM, vulnerability assessment, intrusion detection, and threat intelligence in a single pane — purpose-built for mid-market organizations that cannot staff or budget for best-of-breed point solutions.",
+  "secops/levelblue": {
+    competitiveEdge: "LevelBlue USM Anywhere (formerly AT&T AlienVault) delivers a fully integrated threat detection platform with unified SIEM, vulnerability assessment, intrusion detection, and threat intelligence in a single pane — purpose-built for mid-market organizations that cannot staff or budget for best-of-breed point solutions.",
     swot: {
       strengths: [
         "All-in-one SIEM + IDS + vulnerability management eliminates multi-tool integration overhead",
         "Open Threat Exchange (OTX) community provides real-time crowdsourced threat intelligence",
         "MSSP-ready with multi-tenant management console for managed security providers",
         "Rapid deployment — SaaS delivery eliminates infrastructure procurement and setup",
-        "AT&T network visibility enhances threat intelligence with telemetry across global carriers",
+        "Independent operations under LevelBlue (AT&T/WillJam JV) provides focused cybersecurity investment",
       ],
       weaknesses: [
         "Feature depth limited vs. enterprise SIEMs — advanced customization constrained",
         "Log ingestion volume limits can constrain high-data environments",
         "Detection quality requires OTX correlation — standalone rule engine less sophisticated",
-        "AT&T parent company priorities may deprioritize cybersecurity investment",
+        "Brand transition from AT&T AlienVault to LevelBlue creates market awareness challenges",
       ],
       opportunities: [
         "Mid-market security consolidation — replacing 3–5 point tools with one platform",
         "MSSP growth as small and mid-size businesses outsource security operations",
         "OTX community expansion deepening collaborative threat intelligence differentiation",
-        "Bundling with AT&T connectivity and managed services for network customers",
+        "New independence from AT&T allows faster product development and partnership flexibility",
       ],
       threats: [
         "Microsoft Sentinel and Defender for Business provide integrated SIEM for M365 shops",
@@ -8645,7 +8645,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     userComplaints: [
       "Log volume limits require careful source prioritization in high-traffic environments",
       "Customization of detection rules is limited compared to enterprise SIEMs",
-      "AT&T support quality and response time inconsistent based on customer tier",
+      "Brand transition to LevelBlue creates support and account continuity questions",
     ],
     customerProfile: {
       segments: ["Mid-Market", "SMB"],
@@ -8658,9 +8658,9 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     },
     futureAreas: [
       "AI-powered alert triage to reduce analyst workload on OTX-driven detections",
-      "Deeper AT&T network telemetry integration for carrier-level threat visibility",
       "Expanded SOAR capabilities to automate response for MSSP managed playbooks",
       "Cloud security posture management integration for cloud workload visibility",
+      "Product investment acceleration now that LevelBlue operates as an independent cybersecurity company",
     ],
   },
   "secops/sumo-logic": {
@@ -10013,62 +10013,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Analytics dashboard modernization providing real-time performance insights without data export",
     ],
   },
-  "itom/jira-service-management": {
-    competitiveEdge: "Jira Service Management is the ITSM platform with the deepest developer-to-operations integration — its native Jira Software connection creates a bidirectional link between incident management and engineering backlogs that no standalone ITSM can replicate, making it the default choice for DevOps-first organizations.",
-    swot: {
-      strengths: [
-        "Native Jira Software integration links incidents directly to engineering stories and epics",
-        "Assets CMDB provides lightweight configuration management without a separate platform",
-        "Atlassian Intelligence AI enables automated ticket classification, summarization, and routing",
-        "Compass developer portal integration provides service health context for on-call responders",
-        "Lower per-agent cost than ServiceNow for pure ITSM use cases at mid-market scale",
-      ],
-      weaknesses: [
-        "ITIL process depth (change, problem, knowledge management) less mature than ServiceNow",
-        "Complex multi-team enterprise ITSM requires extensive project and permission configuration",
-        "UI becomes complex for large deployments with many teams and request types",
-        "Enterprise sales motion less sophisticated than ServiceNow or BMC for Fortune 500 procurement",
-      ],
-      opportunities: [
-        "Rovo AI agents for autonomous service request and incident resolution",
-        "DevSecOps integration linking ITSM incidents to security findings and vulnerability tracking",
-        "Atlassian Teams and Confluence AI enabling knowledge-powered automated resolution",
-        "Enterprise ESM expansion extending ITSM to HR, Legal, and Finance shared services",
-      ],
-      threats: [
-        "ServiceNow aggressively defending enterprise ITSM with Now Assist AI differentiation",
-        "Microsoft Copilot Studio embedding ITSM automation inside M365 for Microsoft-first organizations",
-        "Freshservice and Zendesk competing in the developer-friendly mid-market ITSM segment",
-        "Atlassian platform price increases pushing cost-sensitive customers to evaluate alternatives",
-      ],
-    },
-    userLikes: [
-      "Dev-to-ops linkage is genuinely unique — incident-to-code-change traceability in one click",
-      "Atlassian ecosystem consistency — teams already using Confluence and Jira Software adopt JSM immediately",
-      "Assets CMDB is lightweight and deployable without a 6-month implementation project",
-      "Per-agent pricing is accessible — teams can add ITSM without significant licensing overhead",
-    ],
-    userComplaints: [
-      "Complex enterprise ITSM configuration requires Atlassian administrator expertise that is expensive to hire",
-      "ITIL change management workflows require significant customization vs. ServiceNow's pre-built processes",
-      "Performance can degrade with very large instance sizes — requires Atlassian Cloud Premium or Data Center",
-    ],
-    customerProfile: {
-      segments: ["Mid-Market", "Enterprise"],
-      typicalBuyer: "IT Director or Engineering Manager at a DevOps-first technology company or digital enterprise",
-      topUseCases: [
-        "Incident management linked to engineering workflows for DevOps teams on the Atlassian platform",
-        "IT help desk with AI-powered self-service and automated routing across internal teams",
-        "Change management integrated with Jira Software deployment pipelines for regulated industries",
-      ],
-    },
-    futureAreas: [
-      "Rovo agents for autonomous service request resolution without human escalation",
-      "Atlassian Intelligence expansion embedding AI across incident, change, and problem management",
-      "Security operations integration linking ITSM incidents to Atlassian Guard security findings",
-      "Enterprise ITSM feature parity with ServiceNow for complex ITIL change and problem management",
-    ],
-  },
   "itom/spiceworks": {
     competitiveEdge: "Spiceworks is the world's largest free IT management platform — providing help desk ticketing, network monitoring, and IT inventory at zero license cost, sustained by advertising from technology vendors, making it the de facto starting point for IT professionals at organizations that cannot justify paid ITSM licensing.",
     swot: {
@@ -10295,6 +10239,354 @@ export const vendorProfiles: Record<string, VendorProfile> = {
   },
 
 
+
+  "itom/flexera": {
+    competitiveEdge: "Flexera has executed the most aggressive ITAM/FinOps consolidation of 2024–2026: Snow Software (Feb 2024), Spot by NetApp incl. CloudCheckr (Mar 2025), ProsperOps (Jan 2026), and Chaos Genius (Jan 2026) — making it the only vendor covering the full FinOps Foundation framework: ITAM/SAM, rate optimization (autonomous RI/SP via ProsperOps), workload optimization (Spot Ocean/Kubernetes), and agentic data-cloud FinOps (Chaos Genius for Snowflake/Databricks). No competitor matches this breadth from a single vendor.",
+    swot: {
+      strengths: [
+        "Gartner Magic Quadrant Leader for SAM Tools — multi-year recognition with broadest ITAM/SAM feature depth",
+        "Technopedia catalog: 2M+ normalized IT products enabling accurate license harvesting and reconciliation",
+        "Four-acquisition consolidation (Snow, Spot, ProsperOps, Chaos Genius) creates the only full-stack ITAM + FinOps platform",
+        "ProsperOps (acquired Jan 2026): autonomous RI/SP management covering AWS, Azure, GCP — $6B cloud usage under management, 90%+ growth at acquisition",
+        "Chaos Genius (acquired Jan 2026): agentic AI for Snowflake and Databricks cost optimization — up to 30% reduction for Fortune 500 enterprises",
+      ],
+      weaknesses: [
+        "Four-platform integration complexity (Flexera One, Snow Atlas, Spot, ProsperOps) — significant execution risk for customers mid-contract",
+        "UI and UX lag behind modern SaaS-native tools; Snow Atlas and Flexera One still running as separate products",
+        "Not an ITSM play — lacks ticketing, change management, and CMDB depth vs. ServiceNow or BMC",
+        "Price point effectively excludes SMB and mid-market; enterprise-only addressable base limits growth ceiling",
+      ],
+      opportunities: [
+        "Autonomous FinOps: ProsperOps + Spot together address the full compute cost optimization stack (RI/SP + Kubernetes + workload rightsizing)",
+        "AI/GPU cost management: Chaos Genius extends into inference and training spend on Databricks — the fastest-growing FinOps sub-category per FinOps Foundation 2026",
+        "Cross-sell across 4 acquired customer bases — Snow Atlas mid-market, Spot enterprise cloud, ProsperOps AWS-native into full Flexera One platform",
+        "Regulatory compliance (FedRAMP, GDPR, DORA) and AI governance creating demand for defensible software asset records",
+      ],
+      threats: [
+        "ServiceNow expanding native ITAM/SAM capabilities within existing platform, reducing standalone ITAM budget",
+        "Integration failures: four acquisitions in 24 months risk customer churn if product unification lags expectations",
+        "Pure-play SaaS management tools (Zluri, Zylo, Torii) capturing the fast-growing SaaS sub-market that Flexera moves slowly on",
+        "CloudZero, Vantage, CAST AI remaining independent and iterating faster on specific FinOps use cases vs. Flexera's platform approach",
+      ],
+    },
+    userLikes: [
+      "Technopedia catalog accuracy is unmatched — normalization quality makes license reconciliation defensible in vendor audits",
+      "ProsperOps autonomous RI management delivers real savings with zero analyst time — customers report 20%+ AWS cost reduction on autopilot",
+      "Strong customer success and professional services organization — knows enterprise ITAM/FinOps complexity deeply",
+      "Software audit defense workflow is best-in-class — guided remediation significantly reduces audit settlement risk",
+    ],
+    userComplaints: [
+      "Integration complexity across four acquired platforms — customers report unclear roadmap for when Snow Atlas and Flexera One fully converge",
+      "UI feels dated relative to modern SaaS competitors; navigation is non-intuitive for new users across both products",
+      "Pricing has increased post-acquisitions; ROI case now requires active license harvesting AND cloud optimization discipline to justify",
+      "ProsperOps and Chaos Genius still feel bolted on — not yet fully embedded in Flexera One dashboard (Jan 2026 acquisitions, integration in progress)",
+    ],
+    customerProfile: {
+      segments: ["Enterprise", "Large Enterprise"],
+      typicalBuyer: "IT Asset Manager, VP of IT Operations, or FinOps Lead at a Fortune 500–1000 organization with complex hybrid IT estates, active software audit exposure, and $5M+ annual cloud spend",
+      topUseCases: [
+        "Software license compliance and audit defense — reconciling entitlements vs. deployments across 500+ software titles",
+        "Autonomous cloud cost optimization — ProsperOps RI/SP management + Spot workload rightsizing covering AWS, Azure, GCP, and Kubernetes",
+        "Agentic data-cloud FinOps — Chaos Genius optimizing Snowflake and Databricks spend autonomously for analytics and AI workloads",
+      ],
+    },
+    futureAreas: [
+      "Unified Flexera One platform: merging Snow Atlas, Spot, ProsperOps, and Chaos Genius capabilities into a single pane of glass by 2027",
+      "Agentic FinOps expansion: autonomous optimization beyond RI/SP into SaaS license reclamation, Kubernetes, and GPU/LLM inference costs",
+      "AI-powered ITAM: ML models proactively identifying reclaim opportunities before renewal windows and audit exposure",
+      "Integration depth with ITSM platforms (ServiceNow, BMC) to embed ITAM and FinOps intelligence into change management and CMDB",
+    ],
+  },
+
+  "itom/tanium": {
+    competitiveEdge: "Tanium is the only enterprise endpoint platform that delivers real-time visibility and control across the entire IT estate — hardware inventory, software discovery, vulnerability status, and remediation — in under 15 seconds at any scale. Where conventional ITAM tools rely on scheduled scans and stale data, Tanium's linear-chain architecture delivers ground-truth asset intelligence that feeds CMDB, patch compliance, and audit defense simultaneously.",
+    swot: {
+      strengths: [
+        "Sub-15-second query response across 500,000+ endpoints — orders of magnitude faster than agent-based or agentless alternatives",
+        "Used by 40% of Fortune 100 and major government agencies; proven at scale where other tools degrade",
+        "Converged platform: ITAM, patch management, threat hunting, and compliance in one agent — reduces tool sprawl",
+        "Real-time hardware/software discovery eliminates CMDB drift — continuous sync vs. point-in-time snapshots",
+        "Tanium Automate (2026) adds AI-driven remediation workflows, moving from visibility to autonomous action",
+      ],
+      weaknesses: [
+        "Premium pricing — positions exclusively in large enterprise; effectively out of reach for mid-market buyers",
+        "Complexity of deployment and tuning requires dedicated Tanium expertise; steep learning curve for new admins",
+        "Not an ITSM platform — no ticketing, change management, or service catalog; must integrate with ServiceNow or BMC",
+        "Perceived as security-heavy; ITAM buyers sometimes lose budget battles to security teams who also want the tool",
+      ],
+      opportunities: [
+        "AI-driven endpoint remediation wave: Tanium Automate positions for agentic IT operations as CIOs automate patch and compliance workflows",
+        "ITAM + security convergence: single-agent replacing both ITAM discovery and EDR tools reduces agent sprawl budgets",
+        "Federal and regulated sector expansion: FedRAMP-authorized platform addressing CMMC, FISMA, and DORA requirements",
+        "CMDB enrichment as a service: feeding real-time Tanium data into ServiceNow HAM/SAM Pro and BMC Helix",
+      ],
+      threats: [
+        "Microsoft Intune and Defender expanding native endpoint management, competing on 'good enough' for M365 shops",
+        "Axonius providing ITAM aggregation without deploying an agent — lighter-weight alternative for asset intelligence",
+        "Broadening scope creating strategic confusion — security buyers vs. ITAM buyers evaluating overlapping capabilities",
+        "Possible IPO pressure (post-$9B valuation) may accelerate commercialization at expense of product focus",
+      ],
+    },
+    userLikes: [
+      "Speed is genuinely transformative — real-time fleet-wide queries that take seconds vs. hours in other tools",
+      "Single agent replacing multiple tools reduces endpoint performance overhead and simplifies compliance evidence collection",
+      "Patch compliance reporting is the most accurate in the market — no more stale scan data in audit submissions",
+      "Tanium's customer success organization is deeply embedded — proactive optimization rather than reactive support",
+    ],
+    userComplaints: [
+      "Expensive — licensing model tied to endpoint count makes large-scale deployments a significant budget line",
+      "Initial deployment is complex; most enterprises use a Tanium partner for the first 6–12 months",
+      "Module sprawl — each capability (Comply, Patch, Asset, Protect) sold separately; full platform costs add up fast",
+      "Reporting UI is functional but dated; dashboards require customization to be useful for executive audiences",
+    ],
+    customerProfile: {
+      segments: ["Large Enterprise", "Government & Defense"],
+      typicalBuyer: "CISO, Director of IT Operations, or VP of Infrastructure at Fortune 500 enterprises, federal agencies, or regulated-industry organizations with 10,000+ endpoints requiring real-time compliance and patch posture",
+      topUseCases: [
+        "Real-time hardware and software asset discovery for CMDB enrichment and software license compliance",
+        "Patch management and vulnerability remediation — zero-day response across 100,000+ endpoints in under an hour",
+        "Audit defense and regulatory compliance (CMMC, FISMA, DORA) — continuous attestation of endpoint posture",
+      ],
+    },
+    futureAreas: [
+      "Agentic remediation: Tanium Automate extending AI-driven patch and compliance actions without human approval gates",
+      "AI cost governance for endpoint tooling: consolidating EDR + ITAM + patch management budgets into single-agent economics",
+      "CMDB-as-truth: deeper bi-directional sync with ServiceNow CMDB and HAM Pro for continuous accuracy",
+      "IoT and OT asset management: extending Tanium's real-time discovery to operational technology and connected devices",
+    ],
+  },
+
+  "itom/apptio": {
+    competitiveEdge: "Apptio (IBM) is the de facto standard for IT Financial Management and enterprise FinOps — the only platform that connects technology spend to business outcomes from the data center to the cloud. Where cloud-native FinOps tools stop at AWS/Azure/GCP cost allocation, Apptio's Technology Business Management (TBM) framework maps the full IT cost chain: infrastructure → shared services → applications → business units → products, making it the platform of choice for CIOs managing multi-billion-dollar IT budgets.",
+    swot: {
+      strengths: [
+        "Gartner Leader for IT Financial Management Tools — multi-year recognition; TBM Council standard adopted by 500+ enterprises",
+        "Cloudability: purpose-built cloud cost management with multi-cloud RI/SP optimization and chargeback automation",
+        "Only platform covering full IT cost chain — data center, cloud, SaaS, and application costs in unified model",
+        "IBM backing provides enterprise credibility, compliance posture, and global SI ecosystem (Deloitte, Accenture, KPMG)",
+        "Apptio Targetprocess (product portfolio management) adds investment planning and OKR tracking on top of cost data",
+      ],
+      weaknesses: [
+        "Complex implementation — TBM data model requires 3–9 months and consulting investment to get accurate cost allocation",
+        "UI is functional but not modern; cloud-native FinOps competitors like Vantage and CloudZero offer better UX",
+        "IBM acquisition created product strategy uncertainty; some customers concerned about roadmap independence",
+        "Cloudability's Kubernetes cost allocation lags behind purpose-built tools like CAST AI and Kubecost",
+      ],
+      opportunities: [
+        "AI cost governance: 2026 Cloudability GPU module addresses the #1 new FinOps priority (AI/LLM inference cost management)",
+        "FinOps + ITAM convergence: combining Apptio TBM with Flexera ITAM data creates full IT spend picture CIOs demand",
+        "Regulatory cost transparency: DORA and EU AI Act requiring defensible cost allocation across technology risk domains",
+        "Public sector expansion: FedRAMP-compliant cloud cost management as government cloud adoption accelerates",
+      ],
+      threats: [
+        "AWS Cost Explorer, Azure Cost Management, and GCP Cost Tools improving rapidly — native tools reducing need for overlay",
+        "CloudZero and Vantage capturing cloud-native FinOps buyers with faster implementation and better UX",
+        "CAST AI and Kubecost addressing Kubernetes cost allocation gap that Cloudability hasn't fully closed",
+        "IBM's broad strategic priorities may limit Apptio product investment vs. focused FinOps pure-plays",
+      ],
+    },
+    userLikes: [
+      "TBM framework provides defensible cost allocation model that survives CFO scrutiny and board reporting cycles",
+      "Cloudability's multi-cloud coverage and RI/SP recommendation engine delivers measurable cloud cost savings",
+      "Strong SI ecosystem — Deloitte, Accenture, and IBM Consulting provide deep implementation expertise globally",
+      "Integration with ServiceNow and Jira allows IT cost data to flow into project and portfolio management workflows",
+    ],
+    userComplaints: [
+      "Implementation time and cost is significant — most organizations spend 6+ months and $200K+ before seeing value",
+      "Data model complexity is high; requires dedicated TBM analysts to maintain accuracy as IT changes",
+      "Cloudability UI and reporting feel dated vs. modern FinOps tools; export workflows are clunky",
+      "Support quality is inconsistent post-IBM acquisition — some customers report slower response times",
+    ],
+    customerProfile: {
+      segments: ["Large Enterprise", "Government"],
+      typicalBuyer: "CIO, VP of IT Finance, or Director of FinOps at a Fortune 1000 enterprise managing $100M+ annual IT spend across hybrid cloud and on-prem infrastructure with board-level cost transparency requirements",
+      topUseCases: [
+        "IT cost allocation and showback/chargeback — mapping infrastructure spend to business units and products via TBM model",
+        "Cloud FinOps — multi-cloud RI/SP optimization and commitment management via Cloudability",
+        "IT investment planning — portfolio prioritization and OKR-linked technology investment decisions via Targetprocess",
+      ],
+    },
+    futureAreas: [
+      "AI cost governance: GPU and LLM inference cost allocation as enterprises face exploding AI infrastructure spend",
+      "Agentic FinOps: automated RI/SP purchase recommendations and commitment portfolio rebalancing without manual analysis",
+      "Real-time cost intelligence: moving from monthly cost reviews to continuous spend monitoring with anomaly detection",
+      "FinOps + ITAM integration: combining Cloudability cloud costs with on-prem software license data for total IT cost truth",
+    ],
+  },
+
+  "itom/cloudhealth-by-broadcom": {
+    competitiveEdge: "CloudHealth by Broadcom (formerly VMware CloudHealth) is the largest-installed-base cloud cost management platform in the enterprise — built for organizations managing millions in monthly cloud spend across AWS, Azure, and GCP. While newer FinOps tools offer better UX, CloudHealth's depth of policy automation, chargeback workflows, and multi-account governance has made it the incumbent at thousands of large enterprises that adopted cloud cost management between 2015 and 2022.",
+    swot: {
+      strengths: [
+        "Massive installed base — thousands of enterprise customers acquired during VMware's peak cloud growth years",
+        "Deep multi-cloud governance: policy-based rightsizing, tagging enforcement, and security compliance across all three major clouds",
+        "Chargeback and showback automation maturity — complex allocation rules built over years of enterprise customization",
+        "Strong AWS and Azure marketplace integration; embedded in cloud partner ecosystems of major SIs",
+        "Broadcom enterprise support structure provides SLA-backed contracts for regulated industries",
+      ],
+      weaknesses: [
+        "Broadcom's acquisition of VMware created product investment uncertainty — customers unsure about roadmap commitment",
+        "UI is dated and complex relative to modern FinOps tools; onboarding new users requires significant training",
+        "Kubernetes and container cost allocation is a known gap vs. purpose-built tools like CAST AI and Kubecost",
+        "Innovation pace has slowed post-acquisition; competitors are shipping AI features while CloudHealth maintains status quo",
+      ],
+      opportunities: [
+        "Broadcom enterprise licensing model: bundling CloudHealth into VMware/Broadcom enterprise agreements reduces switching friction",
+        "Churn-prevention play: as newer FinOps tools chase the same customers, CloudHealth's deep customization creates migration stickiness",
+        "ITAM convergence: integrating CloudHealth spend data with Broadcom CA ITAM for full IT asset cost picture",
+        "AI cost governance add-on: adding GPU/AI cost management capabilities to retain customers facing new AI spend challenges",
+      ],
+      threats: [
+        "Vantage, CloudZero, and Finout offer faster time-to-value and better UX — winning net-new deals CloudHealth used to own",
+        "Apptio Cloudability and native cloud cost tools competing directly for the enterprise FinOps budget",
+        "Broadcom's perceived focus on VMware monetization over CloudHealth innovation accelerating customer evaluation of alternatives",
+        "CAST AI and Kubecost capturing the Kubernetes cost segment that CloudHealth hasn't closed",
+      ],
+    },
+    userLikes: [
+      "Depth of policy automation — complex tagging enforcement and rightsizing rules that newer tools can't match",
+      "Chargeback workflows are mature and auditable; finance teams trust the allocation models built over years",
+      "Multi-cloud breadth covers AWS, Azure, and GCP equally; no single-cloud bias like some competitors",
+      "Strong enterprise SLA and support contract terms that regulated industries and procurement teams require",
+    ],
+    userComplaints: [
+      "UI feels like 2018 technology — difficult to navigate for users coming from modern SaaS tools",
+      "Broadcom acquisition has created support quality concerns; some customers report longer resolution times",
+      "Kubernetes and EKS cost allocation requires significant manual configuration and still lags dedicated tools",
+      "Roadmap communication is poor; customers don't know which features will be invested in vs. maintained",
+    ],
+    customerProfile: {
+      segments: ["Large Enterprise", "Enterprise"],
+      typicalBuyer: "Director of Cloud Operations, FinOps Practitioner, or VP of Infrastructure at a large enterprise that adopted cloud between 2016–2022 and has deep CloudHealth customization built into their cost governance workflows",
+      topUseCases: [
+        "Multi-cloud cost governance — tagging enforcement, policy-based rightsizing, and anomaly alerting across AWS, Azure, GCP",
+        "Chargeback and showback — automating cloud cost allocation to business units, teams, and applications",
+        "RI/SP optimization — commitment portfolio management and purchase recommendations for committed-use savings",
+      ],
+    },
+    futureAreas: [
+      "AI cost management: adding GPU and inference workload cost tracking to compete with newer tools targeting the AI FinOps segment",
+      "Broadcom platform integration: embedding CloudHealth intelligence into VMware infrastructure management workflows",
+      "Modern UX refresh: customer pressure for dashboard modernization to reduce churn to Vantage and CloudZero",
+      "Kubernetes cost allocation improvement: addressing the container cost gap that is causing loss of cloud-native accounts",
+    ],
+  },
+
+  "itom/cast-ai": {
+    competitiveEdge: "CAST AI is the only FinOps platform that doesn't just recommend Kubernetes cost optimizations — it automatically implements them in real time. While competitors show charts of wasted cloud spend, CAST AI's ML engine continuously rebalances cluster node pools, spot/on-demand mix, and workload bin-packing, delivering 50–70% Kubernetes cost reductions without engineering involvement. This autonomous action model makes it the fastest-growing tool in the cloud FinOps segment.",
+    swot: {
+      strengths: [
+        "Autonomous optimization: ML engine automatically rightsizes, reschedules, and rebalances Kubernetes workloads 24/7",
+        "Proven ROI: customers report 50–70% average Kubernetes cost reduction — backed by auditable optimization reports",
+        "Multi-cloud support: AWS EKS, Azure AKS, Google GKE, and Karpenter-native environments all covered",
+        "Series B $108M (2024) provides strong runway; $100M+ ARR demonstrates enterprise market validation",
+        "2026 GPU optimization launch extends value proposition to AI/ML workload cost management",
+      ],
+      weaknesses: [
+        "Kubernetes-specific scope limits TAM vs. full-stack FinOps platforms covering EC2, RDS, and SaaS",
+        "Autonomous action model requires organizational trust — some security-conscious enterprises disable automation",
+        "Not a FinOps reporting tool — lacks the cost allocation, showback, and chargeback features broader platforms provide",
+        "Pricing tied to savings delivered; at very large scale the revenue-share model can become expensive",
+      ],
+      opportunities: [
+        "AI workload cost explosion: GPU and inference cost management via CAST AI for AI module launched Feb 2026",
+        "Platform expansion: extending optimization from Kubernetes to EC2 Spot, RDS, and serverless workloads",
+        "FinOps Foundation partnerships: becoming the recommended automation layer for FinOps programs standardizing on FOCUS",
+        "Enterprise CMDB integration: feeding CAST AI cluster inventory into ServiceNow CMDB for unified asset visibility",
+      ],
+      threats: [
+        "Native Karpenter on AWS providing free auto-scaling that overlaps with CAST AI's core rightsizing logic",
+        "CloudZero, Vantage, and Kubecost offering Kubernetes visibility that reduces perceived need for CAST AI automation layer",
+        "AWS, Azure, and GCP improving their own native cost optimization recommendations, squeezing third-party overlay value",
+        "Platform consolidation: customers preferring Apptio Cloudability or CloudHealth as single FinOps pane despite CAST AI's depth",
+      ],
+    },
+    userLikes: [
+      "Results are immediate and measurable — cost reduction shows in the first billing cycle with audit trail",
+      "Set-and-forget automation reduces the engineering time spent on cluster optimization to near zero",
+      "GPU optimization module perfectly timed for teams facing exploding AI/ML infrastructure costs",
+      "Strong Slack and PagerDuty integration keeps engineering teams informed without dashboard monitoring overhead",
+    ],
+    userComplaints: [
+      "Autonomous mode creates anxiety for platform teams that want to review changes before they're applied",
+      "Scope limited to Kubernetes — teams with mixed infrastructure still need a separate FinOps tool for VMs and storage",
+      "Reporting is optimization-focused; doesn't satisfy finance team requirements for cost allocation and chargeback",
+      "Onboarding requires Kubernetes RBAC expertise; initial setup is non-trivial for teams without K8s operational experience",
+    ],
+    customerProfile: {
+      segments: ["Enterprise", "Growth"],
+      typicalBuyer: "Platform Engineering Lead, DevOps Manager, or FinOps Practitioner at a cloud-native company running 50+ Kubernetes workloads on AWS EKS, Azure AKS, or Google GKE with $50K+/month in Kubernetes infrastructure spend",
+      topUseCases: [
+        "Kubernetes cost optimization — autonomous rightsizing and bin-packing reducing cluster compute costs 50–70%",
+        "GPU and AI workload cost management — optimizing inference and training cluster economics for ML engineering teams",
+        "Spot instance automation — dynamically managing spot/on-demand mix with zero-disruption workload migration",
+      ],
+    },
+    futureAreas: [
+      "AI infrastructure FinOps: full lifecycle GPU cost optimization from training clusters to inference endpoints",
+      "Multi-workload expansion: extending autonomous optimization beyond Kubernetes to EC2 Spot and serverless compute",
+      "FinOps platform integration: embedding CAST AI optimization actions into Apptio, Vantage, and CloudZero workflows",
+      "Policy-as-code: GitOps-driven optimization rules that give platform teams control without giving up automation benefits",
+    ],
+  },
+
+  "itom/cloudzero": {
+    competitiveEdge: "CloudZero is the engineering-first cloud cost intelligence platform that maps cloud spend to products, features, and teams — not just tags and accounts. While Apptio and CloudHealth show infrastructure costs, CloudZero shows the unit economics of what it costs to run each product feature, serving each customer, or deploying each build. This cost-per-unit model has made CloudZero the FinOps tool of choice for product-led and engineering-driven organizations building on AWS and multi-cloud.",
+    swot: {
+      strengths: [
+        "Cost Intelligence architecture: maps 100% of cloud spend to products, features, and teams via virtual tagging — no re-tagging required",
+        "$42M ARR (March 2026, +33% YoY) with $14B+ cloud spend under management — strong product-market fit validation",
+        "Agentic FinOps capabilities: AI assistant for automated anomaly detection and cost attribution launched Dec 2025",
+        "FOCUS standard support: ingests costs from any provider (AWS, Azure, GCP, Snowflake, Datadog) into unified model",
+        "Engineering team adoption: cost shown in context of engineering workflows (deployments, incidents, feature flags)",
+      ],
+      weaknesses: [
+        "Primarily a cost intelligence tool — lacks autonomous optimization actions that CAST AI provides for Kubernetes",
+        "RI/SP recommendation and purchase automation is less mature than Apptio Cloudability or Flexera (post-ProsperOps acquisition Jan 2026)",
+        "Premium pricing positions it above simpler tools; SMB and mid-market buyers often choose Vantage instead",
+        "Relatively smaller customer base vs. CloudHealth or Apptio means fewer industry-specific integration templates",
+      ],
+      opportunities: [
+        "AI cost management: CloudZero's unit economics model perfectly suited for tracking LLM inference cost-per-request",
+        "FOCUS adoption: as FinOps Foundation FOCUS standard spreads, CloudZero's multi-provider ingestion becomes a differentiator",
+        "FinOps + engineering convergence: embedding cost intelligence into CI/CD pipelines for cost-aware deployment decisions",
+        "Platform expansion: moving from cost visibility to automated optimization to compete with broader FinOps platforms",
+      ],
+      threats: [
+        "Vantage offering similar visibility with lower price point and faster onboarding — capturing SMB and growth segments",
+        "Native cloud cost tools (AWS Cost Explorer, Azure Cost Management) improving unit cost calculations, narrowing gap",
+        "Apptio Cloudability and CloudHealth retaining large enterprises that already have cost allocation workflows built",
+        "CAST AI capturing Kubernetes cost optimization budget that CloudZero's visibility alone doesn't address",
+      ],
+    },
+    userLikes: [
+      "Unit cost model is transformative — finally seeing what it costs to serve each customer or run each feature",
+      "Virtual tags work without re-tagging infrastructure; engineering teams don't need to change how they deploy",
+      "AI anomaly detection surfaces cost spikes before they show up in the monthly cloud bill",
+      "Engineering-friendly dashboards mean product and platform teams actually use the tool, not just the FinOps team",
+    ],
+    userComplaints: [
+      "Initial data model setup requires significant time investment to map cost to products accurately",
+      "RI/SP optimization features are less automated than dedicated commitment management tools",
+      "Pricing is premium; smaller engineering teams and startups find the cost hard to justify vs. free native tools",
+      "Mobile experience is limited; FinOps practitioners who want on-the-go cost monitoring find the app lacking",
+    ],
+    customerProfile: {
+      segments: ["Enterprise", "Growth"],
+      typicalBuyer: "FinOps Lead, VP of Engineering, or Director of Platform Engineering at a cloud-native SaaS or product company with $500K+/month cloud spend that needs to understand unit economics and allocate costs to engineering teams and product features",
+      topUseCases: [
+        "Product unit economics — calculating cost-per-customer, cost-per-transaction, and cost-per-feature for pricing and margin analysis",
+        "Engineering team cost allocation — showback and chargeback to dev teams without requiring infrastructure re-tagging",
+        "AI infrastructure cost tracking — mapping LLM API, GPU, and inference costs to specific AI products and use cases",
+      ],
+    },
+    futureAreas: [
+      "Agentic FinOps: automated cost remediation actions triggered by AI anomaly detection, moving from insight to action",
+      "AI unit economics: cost-per-inference and cost-per-model-call metrics as AI spend becomes a majority of cloud bills",
+      "CI/CD cost gates: embedding CloudZero cost intelligence into deployment pipelines to prevent cost regressions",
+      "Commitment automation: adding RI/SP purchase recommendations and automated rebalancing to close the gap with specialized tools",
+    ],
+  },
 
   "rpa/abbyy": {
     competitiveEdge: "ABBYY is the IDP (Intelligent Document Processing) leader that every RPA vendor partners with — its OCR, NLP, and document AI engine extracts structured data from any document type with 99%+ accuracy, making it the essential component for automation programs that involve invoices, contracts, forms, or unstructured content.",
@@ -11924,63 +12216,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "GenAI-powered root cause analysis and natural-language incident explanation for NOC analysts",
       "Autonomous remediation workflows closing the loop from detection to resolution without human intervention",
       "Multi-cloud observability coverage extending Dell's AIOps reach into AWS, Azure, and GCP workloads",
-    ],
-  },
-
-  "rpa/ramp": {
-    competitiveEdge: "The only corporate card platform natively combining spend controls, AP automation, and AI-powered expense intelligence — eliminating manual finance workflows end-to-end without requiring a separate RPA tool.",
-    swot: {
-      strengths: [
-        "Integrated corporate card plus software model creates a flywheel: card data powers AI intelligence which drives stickiness",
-        "$7.65B valuation and +100% YoY growth signals exceptional product-market fit in finance automation",
-        "Modern AI-native UX with zero-effort receipt capture, automatic categorization, and real-time spend dashboards",
-        "25,000+ customers across mid-market and enterprise — fastest-growing spend management platform",
-        "Freemium model removes procurement friction and enables bottom-up adoption led by finance teams",
-      ],
-      weaknesses: [
-        "Narrow scope — deep in finance automation but limited general-purpose process automation capabilities",
-        "Not a traditional RPA platform; lacks the breadth of UiPath, Automation Anywhere, or Power Automate for cross-functional automation",
-        "Revenue model dependent on interchange fees — exposed to card network margin pressure",
-        "International coverage and multi-currency ERP integrations still maturing vs. SAP Concur",
-      ],
-      opportunities: [
-        "CFO digital transformation wave accelerating AP/AR automation and procurement intelligence adoption",
-        "Expansion into treasury management, vendor payments, and full procure-to-pay automation",
-        "Enterprise upsell from mid-market core base into Fortune 500 finance operations",
-        "AI spend forecasting and budget intelligence as a premium analytics layer above transaction data",
-      ],
-      threats: [
-        "Brex, Expensify, and Concur (SAP) compete directly with overlapping card-plus-software bundles",
-        "Coupa and Ariba (SAP) own enterprise procurement — difficult to displace at Fortune 500 without ERP depth",
-        "Interchange revenue compression as Visa/Mastercard fee structures evolve",
-        "Banks and card issuers building competing expense management features natively into corporate banking",
-      ],
-    },
-    userLikes: [
-      "Zero-friction receipt capture with automatic line-item categorization saves hours per week per employee",
-      "Real-time spend visibility with policy enforcement prevents out-of-policy spending before it happens",
-      "Fast virtual and physical card issuance with granular per-card spending limits and merchant controls",
-      "Seamless ERP sync with QuickBooks, NetSuite, Xero, and Sage reduces month-end close time significantly",
-    ],
-    userComplaints: [
-      "ERP customization depth lags SAP Concur for complex multi-entity enterprise deployments",
-      "Occasional card acceptance issues at international merchants and non-standard POS systems",
-      "Support and onboarding experience inconsistent for large enterprise rollouts with complex approval hierarchies",
-    ],
-    customerProfile: {
-      segments: ["Mid-Market", "Enterprise"],
-      typicalBuyer: "CFO, VP of Finance, or Controller at a high-growth mid-market or enterprise company seeking to eliminate manual expense and AP workflows",
-      topUseCases: [
-        "Corporate card and expense management replacing spreadsheet-driven reimbursement with real-time AI categorization",
-        "Accounts payable automation with AI-powered invoice processing, approval routing, and vendor payment",
-        "Vendor management and procurement intelligence using spend data to identify savings and policy violations",
-      ],
-    },
-    futureAreas: [
-      "AI-powered spend forecasting and budget variance prediction integrated into CFO planning workflows",
-      "Full procure-to-pay automation connecting vendor discovery, contract management, and payment in one platform",
-      "International expansion with multi-currency cards, global AP, and cross-border payment automation",
-      "Treasury intelligence layer offering cash flow analytics, FX optimization, and working capital insights",
     ],
   },
 

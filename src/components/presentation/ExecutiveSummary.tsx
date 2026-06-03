@@ -29,8 +29,9 @@ function formatBillions(n: number): string {
   return `$${n % 1 === 0 ? n.toFixed(0) : n.toFixed(1)}B`;
 }
 
-// Static fallback totals — 2025 baseline (AIOps $22B + ITOM $31.8B + RPA $17.8B + Agentic $7.8B + SecOps $28.2B)
-const FALLBACK = { tam2025: 107.6, tam2030: 255.9, growth: 138, cagr: 21.9 };
+// Static fallback totals — 2025 baseline (AIOps $36B + ITSM+ITOM $52B + RPA $24B + Agentic $1.2B + SecOps $21B)
+// Matches SSR landing page narrow-scope numbers (platform-only cut, sourced from analyst reports)
+const FALLBACK = { tam2025: 134.2, tam2030: 330, growth: 146, cagr: 25.2 };
 
 const SLUGS = ["aiops", "itom", "rpa", "agentops", "secops"] as const;
 
@@ -56,11 +57,11 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
 
   const comparisonData = ["2025", "2026", "2028", "2030"].map((year) => ({
     name: year,
-    aiops:    hasMaps ? getChartValue(markets!.aiops, year)    : [22.0, 26.2, 37.1, 52.5][["2025","2026","2028","2030"].indexOf(year)],
-    itom:     hasMaps ? getChartValue(markets!.itom, year)     : [31.8, 35.5, 44.1, 54.8][["2025","2026","2028","2030"].indexOf(year)],
-    rpa:      hasMaps ? getChartValue(markets!.rpa, year)      : [17.8, 21.4, 30.9, 44.7][["2025","2026","2028","2030"].indexOf(year)],
-    agentops: hasMaps ? getChartValue(markets!.agentops, year) : [7.8,  11.3, 23.7, 49.8][["2025","2026","2028","2030"].indexOf(year)],
-    secops:   hasMaps ? getChartValue(markets!.secops, year)   : [28.2, 32.2, 41.7, 54.1][["2025","2026","2028","2030"].indexOf(year)],
+    aiops:    hasMaps ? getChartValue(markets!.aiops, year)    : [36.0, 43.9, 65.3, 100.0][["2025","2026","2028","2030"].indexOf(year)],
+    itom:     hasMaps ? getChartValue(markets!.itom, year)     : [52.0, 58.8, 75.1,  94.0][["2025","2026","2028","2030"].indexOf(year)],
+    rpa:      hasMaps ? getChartValue(markets!.rpa, year)      : [24.0, 30.0, 46.9,  74.0][["2025","2026","2028","2030"].indexOf(year)],
+    agentops: hasMaps ? getChartValue(markets!.agentops, year) : [1.2,  1.7,  3.7,   8.0][["2025","2026","2028","2030"].indexOf(year)],
+    secops:   hasMaps ? getChartValue(markets!.secops, year)   : [21.0, 25.4, 37.2,  54.0][["2025","2026","2028","2030"].indexOf(year)],
   }));
 
   const tam2030Str = formatBillions(combined2030);
@@ -80,8 +81,8 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: "Autonomous IT Convergence",
-      description: `AIOps, ITOM, RPA, Agentic Ops, and SecOps are converging into unified self-healing platforms — the ${tam2030Str} Autonomous IT stack by 2030.`,
+      title: "Autonomous IT Ops Convergence",
+      description: `AIOps, ITOM, RPA, Agentic Ops, and SecOps are converging into unified self-healing platforms — the ${tam2030Str} Autonomous IT Ops stack by 2030.`,
       color: "hsl(142 71% 45%)",
     },
     {
@@ -105,7 +106,7 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
         >
           <h2 className="text-4xl font-bold text-foreground mb-4">Executive Summary</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            The Autonomous IT stack is converging — AIOps, ITOM, RPA, Agentic Operations, and Security Ops are merging into unified, self-healing enterprise platforms.
+            The Autonomous IT Ops stack is converging — AIOps, ITOM, RPA, Agentic Operations, and Security Ops are merging into unified, self-healing enterprise platforms.
           </p>
         </motion.div>
 

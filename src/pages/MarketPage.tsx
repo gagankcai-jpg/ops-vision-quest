@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { allCategories } from "@/data/marketData";
 import { useMarketData } from "@/hooks/useMarketData";
 import { LAST_UPDATED } from "@/data/lastUpdated";
@@ -11,12 +12,53 @@ const SLUG_ORDER = ["aiops", "itom", "rpa", "agentops", "secops"];
 
 const BASE_URL = "https://aienterpriseit.com/market-intelligence";
 
+const ORG = { "@type": "Organization", "name": "AI Enterprise IT", "url": "https://aienterpriseit.com" };
+const LICENSE = "https://creativecommons.org/licenses/by/4.0/";
+
+const MARKET_JSONLD: Record<string, object> = {
+  aiops: {
+    "@context": "https://schema.org", "@type": "Dataset",
+    "name": "AIOps & Observability Market 2025–2030",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ AIOps and observability vendors. TAM reaches $100B by 2030 at 22% CAGR.",
+    "url": `${BASE_URL}/market/aiops`,
+    "license": LICENSE, "creator": ORG, "provider": ORG,
+  },
+  itom: {
+    "@context": "https://schema.org", "@type": "Dataset",
+    "name": "IT Service, Operations & Asset Management Market 2025–2030",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ ITSM, ITAM, and Cloud FinOps vendors. TAM reaches $94B by 2030 at 13% CAGR.",
+    "url": `${BASE_URL}/market/itom`,
+    "license": LICENSE, "creator": ORG, "provider": ORG,
+  },
+  rpa: {
+    "@context": "https://schema.org", "@type": "Dataset",
+    "name": "RPA & Intelligent Automation Market 2025–2030",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ RPA and intelligent automation vendors. TAM reaches $74B by 2030 at 25% CAGR.",
+    "url": `${BASE_URL}/market/rpa`,
+    "license": LICENSE, "creator": ORG, "provider": ORG,
+  },
+  agentops: {
+    "@context": "https://schema.org", "@type": "Dataset",
+    "name": "Agentic Operations Market 2025–2030",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ agentic IT operations vendors. TAM reaches $8B by 2030 at 45% CAGR — the fastest-growing autonomous IT segment.",
+    "url": `${BASE_URL}/market/agentops`,
+    "license": LICENSE, "creator": ORG, "provider": ORG,
+  },
+  secops: {
+    "@context": "https://schema.org", "@type": "Dataset",
+    "name": "Security Operations Market 2025–2030",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ SecOps vendors including SIEM, SOAR, XDR, and threat intelligence. TAM reaches $54B by 2030 at 21% CAGR.",
+    "url": `${BASE_URL}/market/secops`,
+    "license": LICENSE, "creator": ORG, "provider": ORG,
+  },
+};
+
 const MARKET_META: Record<string, { title: string; description: string }> = {
-  aiops:    { title: "AIOps & Observability Market 2025–2030", description: "AIOps market reaches $52.5B by 2030 at 19.1% CAGR. 100+ vendor profiles covering Dynatrace, Datadog, New Relic, Splunk, and more." },
-  itom:     { title: "IT Service & Operations Management Market 2025–2030", description: "ITOM market reaches $54.8B by 2030. Analyst-grade profiles of ServiceNow, BMC, Ivanti, and 97 more vendors." },
-  rpa:      { title: "RPA & Intelligent Automation Market 2025–2030", description: "RPA market reaches $44.7B by 2030 at 20.2% CAGR. UiPath, Automation Anywhere, Blue Prism, and 97 more vendors analyzed." },
-  agentops: { title: "Agentic Operations Market 2025–2030", description: "Agentic IT Operations market reaches $49.8B by 2030 at 44.8% CAGR — the fastest-growing segment in the autonomous IT stack." },
-  secops:   { title: "Security Operations Market 2025–2030", description: "SecOps market reaches $54.1B by 2030. CrowdStrike, Palo Alto Networks, SentinelOne, and 97 more vendors profiled." },
+  aiops:    { title: "AIOps & Observability Market 2025–2030", description: "AIOps market reaches $100B by 2030 at 22% CAGR. 100+ vendor profiles covering Dynatrace, Datadog, New Relic, Splunk, and more." },
+  itom:     { title: "IT Service, Operations & Asset Management Market 2025–2030", description: "ITSM, ITAM, and Cloud FinOps market reaches $94B by 2030 at 13% CAGR. 100+ vendor profiles: ServiceNow, BMC, Flexera, Tanium, Apptio, CAST AI, and more." },
+  rpa:      { title: "RPA & Intelligent Automation Market 2025–2030", description: "RPA market reaches $74B by 2030 at 25% CAGR. UiPath, Automation Anywhere, Blue Prism, and 97 more vendors analyzed." },
+  agentops: { title: "Agentic Operations Market 2025–2030", description: "Agentic IT Operations market reaches $8B by 2030 at 45% CAGR — the fastest-growing segment in the autonomous IT stack." },
+  secops:   { title: "Security Operations Market 2025–2030", description: "SecOps market reaches $54B by 2030 at 21% CAGR. CrowdStrike, Palo Alto Networks, SentinelOne, and 97 more vendors profiled." },
 };
 
 const MarketPage = () => {
@@ -40,7 +82,7 @@ const MarketPage = () => {
         <div className="container flex min-h-[60vh] items-center justify-center px-6">
           <div className="text-center">
             <p className="mb-4 text-muted-foreground">Market not found.</p>
-            <Link to="/" className="text-primary hover:underline">
+            <Link to="/overview" className="text-primary hover:underline">
               ← Back to Overview
             </Link>
           </div>
@@ -70,11 +112,16 @@ const MarketPage = () => {
           canonical={`${BASE_URL}/market/${slug}`}
         />
       )}
+      {slug && MARKET_JSONLD[slug] && (
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify(MARKET_JSONLD[slug])}</script>
+        </Helmet>
+      )}
       {/* Breadcrumb / meta strip */}
       <div className="border-b border-border/60 bg-card/30">
         <div className="container flex items-center justify-between px-6 py-4">
           <Link
-            to="/"
+            to="/overview"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ChevronLeft className="h-4 w-4" />

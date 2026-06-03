@@ -263,7 +263,7 @@ function MarketMapTooltip({ active, payload }: { active?: boolean; payload?: { p
         <div>{p.categoryLabel} · <span className="capitalize">{p.type}</span></div>
         <div>Revenue: <span className="text-foreground tabular-nums">{p.revenue ?? "—"}</span></div>
         <div>Growth: <span className="text-foreground tabular-nums">{p.growth ?? "—"}</span></div>
-        <div>Mkt Cap: <span className="text-foreground tabular-nums">{p.marketCap ?? "—"}</span></div>
+        <div>Mkt Cap: <span className="text-foreground tabular-nums">{p.marketCap ?? "—"}{p.marketCapNum === 0 ? " · size est. from revenue" : ""}</span></div>
       </div>
       <p className="mt-2 border-t border-border pt-2 text-[10px] uppercase tracking-wider text-primary">
         Click to open profile
@@ -273,12 +273,15 @@ function MarketMapTooltip({ active, payload }: { active?: boolean; payload?: { p
 }
 
 /* Custom dot renderer — gives leaders a stronger ring; renders clickable circle.
-   Bubble radius capped at 14 so a few mega-cap names don't dominate the plot. */
+   Bubble radius capped at 14 so a few mega-cap names don't dominate the plot.
+   Leaders get a 5.5 px minimum and challengers 4.5 px so important vendors are always visible. */
 const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fill?: string }) => {
   const { cx, cy, payload, fill } = props;
   if (cx == null || cy == null || !payload) return null;
   const isLeader = payload.type === "leader";
-  const r = Math.max(3.5, Math.min(14, Math.sqrt(payload.z) * 2.2));
+  const isChallenger = payload.type === "challenger";
+  const minR = isLeader ? 5.5 : isChallenger ? 4.5 : 3.5;
+  const r = Math.max(minR, Math.min(14, Math.sqrt(payload.z) * 2.2));
   return (
     <g style={{ cursor: "pointer" }}>
       <circle
@@ -322,7 +325,9 @@ function MarketMap({
       ...v,
       x: v.revenueNum,
       y: v.growthNum,
-      z: Math.max(v.marketCapNum, 0.01),
+      // Use actual market cap if parseable; fall back to revenue × 8 as a valuation proxy
+      // (typical SaaS/enterprise multiple) so bubble size is always meaningful.
+      z: Math.max(v.marketCapNum > 0 ? v.marketCapNum : v.revenueNum * 8, 0.01),
     }));
   })();
 
@@ -544,6 +549,7 @@ function MarketMap({
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-muted-foreground">
         <span className="inline-flex flex-wrap items-center gap-3">
           <span className="font-medium uppercase tracking-wider text-muted-foreground/70">Bubble size</span>
+          <span className="text-[10px] text-muted-foreground/60">(mkt cap · est. from revenue if undisclosed)</span>
           <span className="inline-flex items-center gap-1.5">
             <span className="block h-1.5 w-1.5 rounded-full bg-muted-foreground/70" />
             <span className="tabular-nums">$1B</span>
@@ -816,7 +822,7 @@ const VendorComparisonMatrix = () => {
             Vendor Comparison Matrix
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm text-muted-foreground sm:text-base">
-            Interactive analysis of {allVendorRows.length} vendors across all five Autonomous IT markets — visualize the landscape, then drill in.
+            Interactive analysis of {allVendorRows.length} vendors across all five Autonomous IT Ops markets — visualize the landscape, then drill in.
           </p>
         </motion.div>
 

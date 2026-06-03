@@ -1949,7 +1949,7 @@ export const rpaVendors: Vendor[] = [
     description: "Enterprise process and workflow automation platform with deep Microsoft ecosystem integration.",
   },
   {
-    name: "Kofax (Tungsten Automation)",
+    name: "Tungsten Automation",
     type: "challenger",
     marketCap: "Private",
     revenue: "Est. $300M Rev",
@@ -3773,7 +3773,7 @@ export const secopsVendors: Vendor[] = [
     description: "SIEM and UEBA platform integrated with Fortinet's Security Fabric for unified threat detection and response.",
   },
   {
-    name: "AT&T AlienVault (LevelBlue)",
+    name: "LevelBlue (AlienVault USM)",
     type: "challenger",
     marketCap: "Private",
     revenue: "Est. $100M Rev",
