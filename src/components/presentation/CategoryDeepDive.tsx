@@ -69,7 +69,7 @@ const CATEGORIES: DeepDiveCategory[] = [
     title: "IT Service, Operations & Asset Management",
     icon: "🔧",
     narrow25: "$52B", narrow30: "$94B", broad25: "$52B", broad30: "$94B", narrowCagr: "13%",
-    scopeNote: "Covers ITSM (~$15B) + ITOM (~$36B) + ITAM (~$2B) + Cloud FinOps (~$2B) platform software. Excludes APM/observability (AIOps category) and managed services. Stable envelope in both narrow and broad cuts.",
+    scopeNote: "Spans ITSM (~$15B), ITOM operations (~$36B), ITAM (~$2B), and Cloud FinOps (~$15B). These segments overlap within the ITOM umbrella — ITOM already counts cloud management and FinOps overlaps it — so they are not additive; the ~$52B is the de-duplicated envelope, not their sum. Excludes APM/observability (AIOps category) and managed services.",
     description: "The most stable and concentrated category. Mordor Intelligence sizes ITSM at $14.95B in 2026 growing to $32B by 2031 at 16.45% CAGR. ITOM is sized at $36.3B in 2025 forecast to $64.9B by 2030 at 12.30% CAGR. ITAM reaches $3.01B by 2031 at 6.28% CAGR (Mordor 2026). ServiceNow holds roughly 44% ITSM share. FinOps Foundation State of FinOps 2026 (1,192 respondents, $83B+ cloud spend) reports AI cost management at 98% of FinOps teams — up from 63% in 2024 — with 90% now managing SaaS spend, expanding FinOps from cloud to total technology value.",
     keySignals: [
       "ServiceNow Moveworks acquisition and AI Agent Orchestrator redefine the ITSM category",
