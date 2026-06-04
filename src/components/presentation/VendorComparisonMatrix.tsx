@@ -246,6 +246,9 @@ interface MarketMapPoint extends VendorRow {
   x: number;
   y: number;
   z: number;
+  /** true when revenue and/or growth was imputed (not disclosed) → render as an approximate position */
+  approx?: boolean;
+  approxNote?: string;
 }
 
 function MarketMapTooltip({ active, payload }: { active?: boolean; payload?: { payload: MarketMapPoint }[] }) {
@@ -266,6 +269,9 @@ function MarketMapTooltip({ active, payload }: { active?: boolean; payload?: { p
         <div>Growth: <span className="text-foreground tabular-nums">{p.growth ?? "—"}</span></div>
         <div>Mkt Cap: <span className="text-foreground tabular-nums">{p.marketCap ?? "—"}{p.marketCapNum === 0 ? " · size est. from revenue" : ""}</span></div>
       </div>
+      {p.approx && p.approxNote && (
+        <p className="mt-2 text-[10px] italic text-amber-400/80">{p.approxNote}</p>
+      )}
       <p className="mt-2 border-t border-border pt-2 text-[10px] uppercase tracking-wider text-primary">
         Click to open profile
       </p>
@@ -281,6 +287,7 @@ const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fil
   if (cx == null || cy == null || !payload) return null;
   const isLeader = payload.type === "leader";
   const isChallenger = payload.type === "challenger";
+  const approx = !!payload.approx;
   const minR = isLeader ? 5.5 : isChallenger ? 4.5 : 3.5;
   const r = Math.max(minR, Math.min(14, Math.sqrt(payload.z) * 2.2));
   return (
@@ -290,10 +297,11 @@ const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fil
         cy={cy}
         r={r}
         fill={fill}
-        fillOpacity={isLeader ? 0.7 : 0.4}
+        fillOpacity={approx ? 0.12 : isLeader ? 0.7 : 0.4}
         stroke={fill}
         strokeWidth={isLeader ? 1.5 : 0.75}
-        strokeOpacity={isLeader ? 1 : 0.5}
+        strokeOpacity={approx ? 0.7 : isLeader ? 1 : 0.5}
+        strokeDasharray={approx ? "3 2" : undefined}
       />
     </g>
   );
@@ -302,10 +310,11 @@ const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fil
 type ShowMode = "leaders" | "top50" | "all";
 
 function MarketMap({
-  data, totalCount, medians, navigate, onPeek, selectedCategories, onToggleCategory,
+  data, totalCount, notPlotted, medians, navigate, onPeek, selectedCategories, onToggleCategory,
 }: {
   data: VendorRow[];
   totalCount: number;
+  notPlotted: number;
   medians: { x: number; y: number };
   navigate: ReturnType<typeof useNavigate>;
   onPeek: (v: VendorRow) => void;
@@ -320,16 +329,36 @@ function MarketMap({
     if (showMode === "leaders") {
       rows = data.filter((v) => v.type === "leader");
     } else if (showMode === "top50") {
-      rows = [...data].sort((a, b) => b.revenueNum - a.revenueNum).slice(0, 50);
+      // Rank by whatever scale signal exists (revenue, else market-cap proxy) so growth-only
+      // platform leaders aren't all sorted to the bottom and cut from the Top 50.
+      rows = [...data]
+        .sort((a, b) => (b.revenueNum || b.marketCapNum) - (a.revenueNum || a.marketCapNum))
+        .slice(0, 50);
     }
-    return rows.map((v) => ({
-      ...v,
-      x: v.revenueNum,
-      y: v.growthNum,
-      // Use actual market cap if parseable; fall back to revenue × 8 as a valuation proxy
-      // (typical SaaS/enterprise multiple) so bubble size is always meaningful.
-      z: Math.max(v.marketCapNum > 0 ? v.marketCapNum : v.revenueNum * 8, 0.01),
-    }));
+    // Impute a position for vendors missing one axis so they appear (marked "approximate"):
+    //  • no disclosed revenue (platform divisions) → a fixed left "undisclosed" lane
+    //  • no disclosed growth → the visible set's median growth (not slammed to the y=0 floor)
+    const REV_LANE = 0.013; // just inside the left edge ($ ~13M-equivalent x-position)
+    const realGro = rows.map((v) => v.growthNum).filter((g) => g > 0).sort((a, b) => a - b);
+    const medGro = realGro.length ? realGro[Math.floor(realGro.length / 2)] : 20;
+    return rows.map((v) => {
+      const hasRev = v.revenueNum > 0;
+      const hasGro = v.growthNum > 0;
+      const approx = !hasRev || !hasGro;
+      const note = !hasRev && !hasGro ? "Revenue & growth not disclosed — position approximate"
+        : !hasRev ? "Revenue not disclosed — horizontal position approximate"
+        : "Growth not disclosed — vertical position approximate";
+      return {
+        ...v,
+        x: hasRev ? v.revenueNum : REV_LANE,
+        y: hasGro ? v.growthNum : medGro,
+        // Use actual market cap if parseable; fall back to revenue × 8 as a valuation proxy
+        // (typical SaaS/enterprise multiple) so bubble size is always meaningful.
+        z: Math.max(v.marketCapNum > 0 ? v.marketCapNum : v.revenueNum * 8, 0.01),
+        approx,
+        approxNote: approx ? note : undefined,
+      };
+    });
   })();
 
   /* Top-3 labeled vendors — fewer labels, well-spaced. Recompute medians for the visible set. */
@@ -339,9 +368,14 @@ function MarketMap({
 
   const visibleMedians = (() => {
     if (visiblePoints.length === 0) return medians;
-    const xs = visiblePoints.map((v) => v.revenueNum).sort((a, b) => a - b);
-    const ys = visiblePoints.map((v) => v.growthNum).sort((a, b) => a - b);
-    return { x: xs[Math.floor(xs.length / 2)], y: ys[Math.floor(ys.length / 2)] };
+    // Median over DISCLOSED values only (ignore imputed zeros) so the quadrant lines
+    // reflect the real distribution, not the left/baseline imputation lanes.
+    const xs = visiblePoints.map((v) => v.revenueNum).filter((n) => n > 0).sort((a, b) => a - b);
+    const ys = visiblePoints.map((v) => v.growthNum).filter((n) => n > 0).sort((a, b) => a - b);
+    return {
+      x: xs.length ? xs[Math.floor(xs.length / 2)] : medians.x,
+      y: ys.length ? ys[Math.floor(ys.length / 2)] : medians.y,
+    };
   })();
 
   const handleClick = (point: MarketMapPoint) => {
@@ -571,10 +605,22 @@ function MarketMap({
             <span className="block h-2 w-2 rounded-full border border-foreground bg-foreground/40" />
             Leader (brighter ring)
           </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="block h-2.5 w-2.5 rounded-full border border-dashed border-muted-foreground/70 bg-transparent" />
+            Dashed = position estimated (rev/growth not disclosed)
+          </span>
         </span>
         <span>
           <span className="font-semibold tabular-nums text-foreground">{visiblePoints.length}</span> shown ·{" "}
           <span className="tabular-nums">{totalCount}</span> in filter
+          {notPlotted > 0 && (
+            <>
+              {" · "}
+              <span className="tabular-nums text-muted-foreground/70" title="Vendors with no disclosed revenue or growth — not enough data to place on the map">
+                +{notPlotted} not plotted
+              </span>
+            </>
+          )}
         </span>
       </div>
     </Surface>
@@ -734,17 +780,23 @@ const VendorComparisonMatrix = () => {
     [filteredAndSortedVendors]
   );
 
-  /* ── Map data: vendors with both revenue + growth ──────────────────── */
+  /* ── Map data: vendors with at least one of revenue / growth ───────────
+     (the missing axis is imputed + marked "approximate" in MarketMap). Vendors
+     with NEITHER signal can't be placed honestly → counted as not-plotted. */
   const mapData = useMemo(
-    () => filteredAndSortedVendors.filter((v) => v.revenueNum > 0 && v.growthNum > 0),
+    () => filteredAndSortedVendors.filter((v) => v.revenueNum > 0 || v.growthNum > 0),
+    [filteredAndSortedVendors]
+  );
+  const notPlottedCount = useMemo(
+    () => filteredAndSortedVendors.filter((v) => v.revenueNum <= 0 && v.growthNum <= 0).length,
     [filteredAndSortedVendors]
   );
 
-  /* Quadrant medians for the map's reference lines */
+  /* Quadrant medians for the map's reference lines — disclosed values only */
   const mapMedians = useMemo(() => {
-    if (mapData.length === 0) return { x: 0, y: 0 };
-    const xs = mapData.map((v) => v.revenueNum).sort((a, b) => a - b);
-    const ys = mapData.map((v) => v.growthNum).sort((a, b) => a - b);
+    const xs = mapData.map((v) => v.revenueNum).filter((n) => n > 0).sort((a, b) => a - b);
+    const ys = mapData.map((v) => v.growthNum).filter((n) => n > 0).sort((a, b) => a - b);
+    if (!xs.length || !ys.length) return { x: 0, y: 0 };
     return { x: xs[Math.floor(xs.length / 2)], y: ys[Math.floor(ys.length / 2)] };
   }, [mapData]);
 
@@ -1141,6 +1193,7 @@ const VendorComparisonMatrix = () => {
             <MarketMap
               data={mapData}
               totalCount={filteredAndSortedVendors.length}
+              notPlotted={notPlottedCount}
               medians={mapMedians}
               navigate={navigate}
               onPeek={setSelectedVendor}
