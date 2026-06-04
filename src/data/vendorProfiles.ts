@@ -43,6 +43,1778 @@ export function toVendorSlug(name: string): string {
 }
 
 export const vendorProfiles: Record<string, VendorProfile> = {
+  "itom/assetsonar": {
+    "competitiveEdge": "Lightweight barcode/QR-driven IT asset discovery tailored for mid-market teams integrating with ServiceNow and MDM platforms.",
+    "swot": {
+      "strengths": [
+        "Specialized asset tracking with barcode/QR scanning reduces manual discovery overhead",
+        "Direct ServiceNow and MDM platform integrations lower IT deployment friction",
+        "Rapid growth (+40% YoY) signals product-market fit in mid-market segment"
+      ],
+      "weaknesses": [
+        "Early-stage revenue ($10M ARR) limits R&D and feature velocity vs larger competitors",
+        "Narrow positioning on asset tracking lacks adjacent capabilities in full ITSM workflows",
+        "Limited market visibility compared to established ITAM players like Flexera and Lansweeper"
+      ],
+      "opportunities": [
+        "Expand into SaaS license tracking to compete with Zylo, Zluri in spend governance",
+        "Build AI-powered anomaly detection on asset lifecycle to upsell to compliance-driven verticals",
+        "Partner with MSPs to embed asset management in their service delivery stack"
+      ],
+      "threats": [
+        "Larger ITSM incumbents (ServiceNow, Atlassian) adding built-in asset discovery capabilities",
+        "Specialized asset players (Lansweeper, Tanium) moving downmarket into mid-market segment",
+        "Cloud-native IT management platforms (Electric, 1E) bundling lightweight asset tracking"
+      ]
+    },
+    "userLikes": [
+      "Simple barcode scanning interface reduces IT technician time spent on manual inventory",
+      "Jira and ServiceNow integrations fit naturally into existing IT toolchains",
+      "Cost-effective for small-to-mid IT teams without enterprise license complexity"
+    ],
+    "userComplaints": [
+      "Asset discovery limited to manual scan workflows; lacks agentless continuous discovery",
+      "Maintenance scheduling lacks AI-driven predictive capabilities for hardware lifecycle",
+      "Pricing not transparent; unclear tiering for growing teams"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market IT teams (50–500 staff) with 500–5K devices",
+        "Geographically distributed companies needing mobile asset tracking",
+        "ServiceNow-native shops seeking lightweight asset add-on"
+      ],
+      "typicalBuyer": "IT Operations Manager or IT Asset Manager at mid-market enterprise",
+      "topUseCases": [
+        "Hardware asset tracking and lifecycle management with barcode scanning",
+        "Software license discovery and compliance reporting integration",
+        "Maintenance scheduling and warranty/support contract tracking"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered supply chain and procurement integration to optimize IT hardware refresh cycles",
+      "Cross-platform asset visibility into cloud infrastructure (AWS/Azure) and on-premises hardware in single view",
+      "Predictive maintenance and hardware failure forecasting using anomaly detection"
+    ]
+  },
+  "itom/cimpl": {
+    "competitiveEdge": "Unified telecom and IT spend visibility helping enterprises optimize mobile, voice, and cloud expenses under Tangoe's $30B+ managed customer base.",
+    "swot": {
+      "strengths": [
+        "Tangoe's incumbent position managing $30B+ IT spend across 1,000+ enterprises provides credibility",
+        "Covers telecom/mobile/voice — a vertical most ITAM and FinOps players ignore",
+        "Strong growth (+25% YoY) in enterprise expense optimization segment"
+      ],
+      "weaknesses": [
+        "Positioned narrowly on expense management; lacks broader ITSM/ITAM capabilities",
+        "Reliance on Tangoe parent creates integration friction vs standalone SaaS vendors",
+        "Limited visibility into usage patterns within applications (SaaS spend) vs telecom costs"
+      ],
+      "opportunities": [
+        "Expand AI-powered contract negotiation to mobile and cloud carriers as adoption accelerates",
+        "Build agentic cost anomaly detection to auto-identify overspend across telecom bundles",
+        "Integrate cloud FinOps (AWS/Azure telecom-native discounts) with existing voice/mobile spend visibility"
+      ],
+      "threats": [
+        "Cloud FinOps platforms (Flexera, Apptio, Vantage) adding telecom and mobile spend modules",
+        "SaaS procurement tools (Vendr, Tropic) bundling carrier contract management",
+        "Enterprises consolidating on single FinOps vendor vs best-of-breed expense tools"
+      ]
+    },
+    "userLikes": [
+      "Single platform for mobile, voice, and cloud spend eliminates manual spreadsheet reconciliation",
+      "Tangoe's mature customer support and compliance expertise reduces integration risk",
+      "Meaningful cost savings from automated contract renegotiation visible within the first months"
+    ],
+    "userComplaints": [
+      "Limited SaaS and cloud cost visibility outside telecom categories",
+      "API integrations with telecom carriers sometimes lag when carrier billing changes",
+      "Reporting lacks granular chargeback detail for cost center allocation"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises (1,000+ employees) with global mobile and carrier contracts",
+        "Financial services and healthcare with significant telecom and compliance spend",
+        "Technology and telecommunications companies managing internal telecom budgets"
+      ],
+      "typicalBuyer": "IT Finance Manager or Telecom Procurement Lead at large enterprise",
+      "topUseCases": [
+        "Mobile and voice expense optimization across carrier contracts",
+        "Cloud provider spend consolidation (AWS, Azure, GCP) in one platform",
+        "Vendor contract renewal tracking and rate negotiation workflows"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven carrier rate benchmarking to negotiate better terms proactively",
+      "Real-time spend anomaly detection with automated escalation workflows",
+      "Integration with broader FinOps and cost allocation for hybrid telecom/cloud environments"
+    ]
+  },
+  "itom/setyl": {
+    "competitiveEdge": "Combined IT asset management and SaaS license tracking in single lightweight platform targeting early-stage and growing tech companies.",
+    "swot": {
+      "strengths": [
+        "Dual-focus on hardware assets and SaaS licenses addresses two pain points in single product",
+        "UK-based positioning allows GDPR-native compliance and data residency appeal",
+        "Growing market demand for combined asset+SaaS spend visibility"
+      ],
+      "weaknesses": [
+        "Early-stage revenue and limited customer base reduce feature velocity and support depth",
+        "Lacks integrations with leading ITSM platforms (ServiceNow, Atlassian, Freshservice)",
+        "Narrow positioning on asset+SaaS lacks adjacent capabilities in incident or change management"
+      ],
+      "opportunities": [
+        "Integrate with ServiceNow and Jira to become embedded in ITSM workflows for mid-market",
+        "Add predictive spend forecasting using historical license and hardware lifecycle trends",
+        "Partner with managed IT service providers to embed asset+SaaS tracking in service delivery"
+      ],
+      "threats": [
+        "Specialized SaaS management vendors (Zluri, Zylo, Torii) moving into asset tracking",
+        "Larger ITSM players (Freshworks, Zendesk) bundling native asset and SaaS spend visibility",
+        "Mid-market incumbents (Lansweeper, Axonius) adding SaaS license discovery capabilities"
+      ]
+    },
+    "userLikes": [
+      "Single dashboard for hardware and software spend reduces context switching between tools",
+      "Lightweight implementation suitable for smaller IT teams without heavy customization",
+      "Combined asset discovery and SaaS discovery covers two critical IT operations workflows"
+    ],
+    "userComplaints": [
+      "Limited integration depth with major enterprise ITSM platforms",
+      "Reporting capabilities lack granular cost allocation and chargeback features",
+      "Asset discovery relies on agent-based approach vs emerging agentless alternatives"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Early-stage and scale-up technology companies (10–300 employees) with 50–2K devices",
+        "Growing professional services firms managing client billable hardware and software",
+        "UK and EMEA-based enterprises prioritizing data residency and GDPR compliance"
+      ],
+      "typicalBuyer": "IT Operations Manager or Finance Operations Lead at growing tech company",
+      "topUseCases": [
+        "Combined hardware asset and SaaS license discovery and tracking",
+        "Budget forecasting for IT hardware refresh and software renewal cycles",
+        "Compliance and cost allocation reporting for finance teams"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered contract optimization and renewal reminders across hardware warranties and SaaS vendors",
+      "Predictive hardware failure and replacement cost forecasting",
+      "Enterprise-grade ITSM integrations to move upmarket into mid-market segment"
+    ]
+  },
+  "itom/electric": {
+    "competitiveEdge": "Purpose-built IT management platform for 10–500-employee companies combining device management, IT support, and security in one integrated pane of glass.",
+    "swot": {
+      "strengths": [
+        "Rapid growth (+50% YoY) and significant valuation ($150M+) signal strong product-market fit",
+        "Integrated support, device management, and security appeal to under-served mid-market segment",
+        "Modern SaaS-native architecture avoids legacy ITSM complexity for smaller enterprises"
+      ],
+      "weaknesses": [
+        "Positioning limits addressable market to small-to-mid IT teams; upmarket growth constrained",
+        "Lacks advanced ITAM and asset lifecycle capabilities vs specialized vendors",
+        "Limited API and integration depth vs enterprise ITSM platforms"
+      ],
+      "opportunities": [
+        "Expand into SaaS license governance and IT FinOps to capture spend management use case",
+        "Build AI-powered anomaly detection to enable proactive security and device health monitoring",
+        "Partner with cloud providers (AWS, Azure, Google Cloud) for device-to-cloud visibility"
+      ],
+      "threats": [
+        "Larger ITSM vendors (ServiceNow, Atlassian, Freshworks) expanding into small-business segment",
+        "IT management consolidation platforms (1E, Lansweeper, Axonius) moving into Electric's segment",
+        "MSP-focused tools (NinjaRMM, Syncro) gaining traction for internal IT and smaller companies"
+      ]
+    },
+    "userLikes": [
+      "Unified dashboard eliminates need for multiple point solutions (RMM, ITSM, MDM)",
+      "Modern UI and mobile app appeal to non-technical IT managers and executive sponsors",
+      "Quick deployment (days, not months) ideal for growing companies avoiding enterprise implementation"
+    ],
+    "userComplaints": [
+      "Advanced ITAM and asset lifecycle capabilities lag specialized tools",
+      "Reporting and custom workflow automation less flexible than enterprise ITSM platforms",
+      "Limited integrations with legacy enterprise tools enterprises may inherit"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Early-stage and growth-stage technology companies (10–300 employees)",
+        "Professional services and consulting firms with distributed IT teams",
+        "Mid-market companies consolidating redundant RMM and service desk tools"
+      ],
+      "typicalBuyer": "IT Manager or Chief Information Officer at small-to-mid company",
+      "topUseCases": [
+        "Device management and real-time endpoint support for geographically distributed teams",
+        "IT service desk automation and employee self-service portal",
+        "Security posture monitoring and vulnerability remediation workflows"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered employee productivity analytics and device health scoring for DEX insights",
+      "Cloud infrastructure management integration for hybrid IT visibility",
+      "Automated SaaS and software license discovery with spend alerts and optimization"
+    ]
+  },
+  "itom/1e": {
+    "competitiveEdge": "Digital employee experience platform eliminating helpdesk tickets through real-time endpoint monitoring and autonomous remediation at scale.",
+    "swot": {
+      "strengths": [
+        "Substantial revenue ($100M ARR) and steady growth (+20% YoY) demonstrate mature market traction",
+        "Unique positioning on autonomous endpoint remediation reduces IT ticket volume by 40–60%",
+        "Tachyon technology (real-time endpoint monitoring) is technically differentiated vs legacy ITAM tools"
+      ],
+      "weaknesses": [
+        "Growth slower than peer startups, suggesting market saturation or adoption challenges",
+        "Positioning narrowly on DEX lacks adjacent ITSM or asset management capabilities",
+        "Limited visibility in cloud and hybrid IT operations (heavily endpoint-focused)"
+      ],
+      "opportunities": [
+        "Expand into SaaS app performance monitoring to address entire employee digital experience",
+        "Build AI-powered predictive employee IT needs (license renewal, device refresh) based on work patterns",
+        "Partner with endpoint detection and response (EDR) vendors to offer integrated security and experience"
+      ],
+      "threats": [
+        "Larger IT management vendors (ServiceNow, Microsoft, Freshworks) adding DEX capabilities",
+        "Specialized DEX analytics platforms (Lakeside Software) capturing employee experience monitoring niche",
+        "Cloud-native IT management platforms (Electric) bundling lightweight device and app experience monitoring"
+      ]
+    },
+    "userLikes": [
+      "Substantially reduces IT helpdesk tickets through autonomous endpoint remediation and self-healing",
+      "Real-time endpoint visibility prevents IT issues before they impact employee productivity",
+      "Integration with existing ITSM platforms (ServiceNow, Jira) enables workflow automation"
+    ],
+    "userComplaints": [
+      "Narrow focus on endpoint means limited visibility into cloud infrastructure or SaaS app performance",
+      "Pricing not transparent; unclear ROI measurement beyond ticket deflection",
+      "Integration depth with newer ITSM platforms (Freshworks, Zendesk) lags legacy ServiceNow ecosystem"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprises (500+ employees) with significant Windows/Mac endpoint fleets and helpdesk costs",
+        "Global technology and financial services companies managing hybrid workforce endpoints",
+        "Organizations prioritizing employee experience and IT operational efficiency metrics"
+      ],
+      "typicalBuyer": "IT Operations Manager or Chief Information Officer at enterprise",
+      "topUseCases": [
+        "Real-time endpoint monitoring and autonomous remediation to reduce helpdesk workload",
+        "Predictive endpoint health analytics for proactive device retirement and refresh planning",
+        "Employee digital experience scoring and IT friction visibility for IT leadership"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered prediction of employee IT needs (device refresh, license renewal) based on work usage patterns",
+      "Expansion into cloud application performance and SaaS app health monitoring",
+      "Integration with broader IT financial management to map endpoint costs to business units"
+    ]
+  },
+  "itom/lumos": {
+    "competitiveEdge": "Rapid access governance and provisioning automation helping IT teams reduce SaaS and app access complexity at 100%+ YoY growth.",
+    "swot": {
+      "strengths": [
+        "Exceptional growth (+100% YoY) signals strong product-market fit and high customer demand",
+        "Focused positioning on access governance and provisioning automation simplifies complex IAM workflows",
+        "Early-stage revenue ($15M ARR) with venture backing enables aggressive feature and go-to-market investment"
+      ],
+      "weaknesses": [
+        "Narrow positioning on access governance lacks adjacent ITSM, asset, or spend management capabilities",
+        "Limited integrations with emerging SaaS and identity providers (early vendor maturity)",
+        "Unknown competitor traction in crowded app access governance and IDaaS spaces"
+      ],
+      "opportunities": [
+        "Expand into SaaS discovery to combine access governance with spend optimization",
+        "Build AI-powered access policy recommendations based on role, risk profile, and department",
+        "Partner with identity platforms (Okta, Azure AD, Ping) to embed access governance in identity workflows"
+      ],
+      "threats": [
+        "Okta, Microsoft Entra, and other large identity vendors adding built-in access governance features",
+        "SaaS management platforms (Zluri, Zylo, Torii) moving into access governance segment",
+        "Larger ITSM vendors (ServiceNow, Freshworks) bundling native access provisioning capabilities"
+      ]
+    },
+    "userLikes": [
+      "Automated provisioning eliminates manual access request fulfillment bottleneck in IT teams",
+      "Governance controls reduce unauthorized SaaS spend and shadow IT adoption",
+      "Integrations with major SaaS providers (Slack, Google Workspace, Microsoft 365) work out of the box"
+    ],
+    "userComplaints": [
+      "Limited historical access audit trail and compliance reporting for regulatory requirements",
+      "Onboarding to identity platforms (Okta, Azure AD) requires custom integration work",
+      "Lacks visibility into SaaS costs; focuses solely on access governance without spend insights"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise technology companies (100–5K employees) with 50+ SaaS apps",
+        "Fast-growing companies managing rapid onboarding and offboarding at scale",
+        "Organizations prioritizing zero-trust access and least-privilege principles"
+      ],
+      "typicalBuyer": "IT Security Manager or IT Operations Manager at mid-market enterprise",
+      "topUseCases": [
+        "Automated SaaS app provisioning and access provisioning for employee onboarding/offboarding",
+        "Access governance and least-privilege enforcement across SaaS application portfolio",
+        "Compliance audit and access certifications for SOC 2 and regulatory requirements"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered access policy recommendations based on role, department, and peer access patterns",
+      "Integration with broader SaaS cost management for visibility into access costs and optimization",
+      "Identity risk scoring and anomalous access detection to prevent unauthorized account abuse"
+    ]
+  },
+  "itom/zenduty": {
+    "competitiveEdge": "Purpose-built SRE on-call platform with deep engineering-first integrations that outmaneuver general incident management suites.",
+    "swot": {
+      "strengths": [
+        "Engineering-native design lowers adoption friction for DevOps and SRE teams",
+        "Strong YoY growth (+100%) demonstrates product-market fit in modernized IT operations",
+        "Focused positioning creates defensible niche vs. broader incident management platforms"
+      ],
+      "weaknesses": [
+        "Small estimated ARR ($3M) limits R&D and go-to-market reach vs. incumbent competitors",
+        "Limited enterprise feature breadth compared to established incident management suites",
+        "Brand awareness heavily dependent on word-of-mouth within engineering communities"
+      ],
+      "opportunities": [
+        "Expand upmarket into mid-market enterprises with managed services and compliance features",
+        "Build integrated ITSM connectors to cross-sell into IT operations teams alongside DevOps",
+        "Develop AI-assisted on-call analytics to predict escalation and optimize schedules"
+      ],
+      "threats": [
+        "Incumbent platforms (PagerDuty, OpsGenie) commoditizing SRE features and bundling on-call",
+        "Open-source incident management tools eroding startup TAM by offering free alternatives"
+      ]
+    },
+    "userLikes": [
+      "Lightweight UX designed for engineers reduces training friction vs. legacy tooling",
+      "Fast incident triage and team communication loops improve mean-time-to-resolution",
+      "Native integrations with DevOps stacks (Kubernetes, Datadog, GitHub) minimize context switching"
+    ],
+    "userComplaints": [
+      "Limited reporting and analytics depth compared to enterprise incident management tools",
+      "Mobile app functionality lags web experience for on-the-go incident response",
+      "Integration ecosystem remains smaller than category incumbents, requiring custom webhooks"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market software companies with distributed engineering teams",
+        "Cloud-native and Kubernetes-first organizations running modern DevOps stacks"
+      ],
+      "typicalBuyer": "DevOps lead or SRE manager evaluating modern incident alerting replacements",
+      "topUseCases": [
+        "Engineering team on-call scheduling with escalation policies",
+        "Real-time incident routing and notification across multiple channels",
+        "Post-incident runbook automation and team retrospectives"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven predictive alerting and anomaly detection to reduce noise and false positives",
+      "Observability platform integrations for seamless triage workflows across logs, metrics, traces",
+      "Native incident chaos engineering and war-game simulation capabilities"
+    ]
+  },
+  "itom/spike-sh": {
+    "competitiveEdge": "YC-backed, cloud-native incident alerting platform purpose-built for speed, targeting fast-moving IT teams tired of legacy on-call overhead.",
+    "swot": {
+      "strengths": [
+        "Exceptional growth (+120% YoY) and YC backing signal strong market demand and capital runway",
+        "Modern SaaS-first architecture enables faster feature iteration and easier integrations",
+        "Positioned directly against PagerDuty market incumbent, capturing price-sensitive mid-market"
+      ],
+      "weaknesses": [
+        "Minimal revenue base (early stage) limits ability to sustain enterprise support and R&D",
+        "Narrow product scope vs. full incident management platforms constrains upsell potential",
+        "Brand recognition still emerging; customer acquisition heavily reliant on performance marketing"
+      ],
+      "opportunities": [
+        "Expand into observability-incident bridge by partnering with monitoring platforms",
+        "Build governance and compliance features to move upmarket into regulated enterprises",
+        "Develop community-driven Slack/Teams bots and integrations to increase stickiness"
+      ],
+      "threats": [
+        "PagerDuty and competitors rapidly matching feature parity and aggressively discounting growth tiers",
+        "Consolidation of incident management into broader observability and AIOps suites eroding standalone market"
+      ]
+    },
+    "userLikes": [
+      "Simpler onboarding and configuration than PagerDuty reduces time-to-value for small teams",
+      "Transparent pricing without surprise overages appeals to cost-conscious growth-stage companies",
+      "Fast-moving product roadmap and responsive support build strong customer advocacy"
+    ],
+    "userComplaints": [
+      "Feature gaps in advanced escalation policies and team-level permissions vs. PagerDuty",
+      "Limited historical data retention and reporting depth for compliance and audit use cases",
+      "Smaller integration ecosystem requires more custom development for non-standard workflows"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Growth-stage SaaS and software companies seeking lean incident management",
+        "Distributed IT teams and startups building modern cloud-first infrastructure"
+      ],
+      "typicalBuyer": "Head of Engineering or VP Infrastructure looking to reduce tooling costs and complexity",
+      "topUseCases": [
+        "Simple on-call scheduling and alert routing for fast-paced software teams",
+        "Real-time incident notification across chat, SMS, and voice channels",
+        "Team escalation workflows with audit trail for compliance and incident tracking"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered alert correlation and intelligent incident grouping to reduce alert fatigue",
+      "Native platform integrations with cloud monitoring (AWS CloudWatch, Azure Monitor, GCP)",
+      "Incident metrics and trend analysis to guide infrastructure and reliability improvements"
+    ]
+  },
+  "itom/oomnitza": {
+    "competitiveEdge": "Single system of record spanning hardware, software, SaaS, and cloud assets—unifying fragmented IT asset visibility that legacy ITAM tools cannot address.",
+    "swot": {
+      "strengths": [
+        "Broad asset coverage (hardware, software, SaaS, cloud) solves real IT operations pain point",
+        "Moderate growth (+40% YoY) and ARR scale ($30M estimated) indicate market traction and stability",
+        "Unified platform eliminates data silos that plague traditional point-solution IT management"
+      ],
+      "weaknesses": [
+        "Complex data ingestion from heterogeneous asset sources increases implementation burden",
+        "Reliance on third-party integrations for IT service management workflows limits standalone appeal",
+        "Brand positioning less clear vs. specialized competitors in asset discovery or software management"
+      ],
+      "opportunities": [
+        "Build AI-assisted asset mapping and cloud cost optimization directly into platform",
+        "Expand into IT financial management (chargeback, showback) as natural adjacent use case",
+        "Partner with cloud cost management and FinOps platforms to address cloud asset tracking"
+      ],
+      "threats": [
+        "Traditional ITAM incumbents (Flexera, Certify) integrating cloud and SaaS asset visibility",
+        "Best-of-breed SaaS management and cloud-only asset platforms commoditizing specialized niches"
+      ]
+    },
+    "userLikes": [
+      "Single pane of glass across hardware, software, and cloud eliminates context switching between tools",
+      "Automated discovery and reconciliation reduces manual asset inventory cycles and data accuracy",
+      "Visibility into SaaS sprawl helps control software licensing costs and vendor risk"
+    ],
+    "userComplaints": [
+      "Initial implementation and data migration complexity requires significant IT staff effort",
+      "ITSM workflow integration still requires custom connectors or manual data syncs",
+      "User interface can feel complex for smaller IT teams not requiring full asset depth"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise organizations with distributed IT and hybrid cloud footprints",
+        "Mid-market companies struggling with SaaS sprawl and cloud cost management"
+      ],
+      "typicalBuyer": "IT Asset Manager or Chief Technology Officer responsible for infrastructure cost and compliance",
+      "topUseCases": [
+        "Unified hardware and software asset inventory with compliance and license optimization",
+        "Cloud and SaaS application discovery and cost allocation to business units",
+        "IT financial management through asset-level chargeback and cloud FinOps"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered asset recommendations and automated cloud cost optimization actions",
+      "Extended software bill of materials (SBOM) and supply chain security visibility",
+      "Real-time asset-based IT financial reporting and business unit chargeback automation"
+    ]
+  },
+  "itom/ezofficeinventory": {
+    "competitiveEdge": "Barcode-driven asset tracking with lifecycle automation for SMB/mid-market IT teams, eliminating spreadsheet-based inventory management.",
+    "swot": {
+      "strengths": [
+        "Straightforward barcode scanning lowers adoption friction vs. complex IT asset management platforms",
+        "Solid growth (+35% YoY) and ARR scale ($10M estimated) show sustainable product-market fit",
+        "Affordable SMB-focused positioning captures mid-market IT teams priced out of enterprise ITAM"
+      ],
+      "weaknesses": [
+        "Limited to asset tracking and lifecycle; lacks broader IT management and compliance features",
+        "Smaller product scope and brand awareness vs. traditional ITAM players like Flexera",
+        "Vendor ecosystem less mature than category leaders, limiting integration depth"
+      ],
+      "opportunities": [
+        "Expand into mobile-first IT field service integration (technician dispatch, work order closure)",
+        "Build SaaS and cloud cost visibility to capture modern IT asset management workflows",
+        "Integrate IT asset data with ITSM ticketing and inventory systems for IT operations teams"
+      ],
+      "threats": [
+        "Larger IT management suites (ManageEngine, ServiceNow) bundling asset tracking as standard module",
+        "Lower-cost asset discovery and CMDB tools eroding SMB TAM with automated alternatives"
+      ]
+    },
+    "userLikes": [
+      "Barcode scanning and mobile apps make physical asset tracking intuitive and efficient",
+      "Automated lifecycle reminders reduce manual tracking and ensure timely hardware refreshes",
+      "Affordable pricing and quick implementation appeal to resource-constrained IT teams"
+    ],
+    "userComplaints": [
+      "Limited software asset management and SaaS cost visibility compared to broader ITAM platforms",
+      "Reporting and analytics lack depth for IT financial management and chargeback scenarios",
+      "Mobile app user experience lags desktop, making field-based inventory cycles challenging"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Small and mid-market organizations with 100-2000 employee IT operations teams",
+        "Distributed and multi-location companies managing hardware across multiple sites"
+      ],
+      "typicalBuyer": "IT Manager or Facilities Coordinator responsible for office and hardware asset tracking",
+      "topUseCases": [
+        "Barcode-based hardware asset tracking and inventory audits across multiple locations",
+        "Equipment lifecycle management with automated reminders for refresh and decommission",
+        "Mobile asset check-in/check-out for employee equipment and IT field service"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven asset health and usage analytics to predict refresh needs and optimize spending",
+      "Mobile-first field service integration for IT technician dispatch and on-site asset updates",
+      "Integration with procurement and vendor management for end-to-end asset lifecycle automation"
+    ]
+  },
+  "itom/supportlogic": {
+    "competitiveEdge": "AI-powered escalation risk prediction and product insights extraction from IT support tickets—turning unstructured support data into operational intelligence.",
+    "swot": {
+      "strengths": [
+        "AI-driven escalation risk prediction reduces customer churn and improves support team efficiency",
+        "Strong growth (+60% YoY) and ARR scale ($20M estimated) validate market demand for support intelligence",
+        "Unique focus on extracting product insights from support signals creates differentiation vs. generic ticketing"
+      ],
+      "weaknesses": [
+        "Narrow product scope limits standalone value vs. broader customer support or CRM platforms",
+        "Requires existing ticketing system and historical support data to train ML models effectively",
+        "Positioning and target audience not yet well-established vs. incumbent support management vendors"
+      ],
+      "opportunities": [
+        "Expand AI insights to IT operations by predicting infrastructure outages and IT ticket escalations",
+        "Build predictive capability into enterprise IT service management and incident management workflows",
+        "Develop vertical solutions for specific IT domains (cloud operations, database management, security)"
+      ],
+      "threats": [
+        "Large support platforms (Zendesk, ServiceNow) embedding similar AI escalation and sentiment analysis",
+        "Open-source NLP and ML tools enabling in-house escalation prediction without vendor lock-in"
+      ]
+    },
+    "userLikes": [
+      "Escalation risk prediction helps support teams prioritize high-impact issues and prevent churn",
+      "Automated product insight extraction surfaces bugs and feature requests without manual analysis",
+      "Minimal setup required when plugged into existing ticketing systems with historical data"
+    ],
+    "userComplaints": [
+      "Accuracy of escalation predictions varies with support data volume and historical pattern quality",
+      "Limited visibility into which support issues map to specific product areas or engineering teams",
+      "Integration with downstream workflow automation (routing, assignment) still requires manual setup"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market SaaS companies with mature customer support operations and large ticket volumes",
+        "Enterprise IT organizations with centralized service desk ticketing systems"
+      ],
+      "typicalBuyer": "Head of Customer Support or VP of Customer Success focused on churn reduction and product quality",
+      "topUseCases": [
+        "Real-time escalation risk scoring to identify and triage high-impact support tickets",
+        "Automated product insight extraction from support tickets to inform product roadmap",
+        "Support team performance metrics and trend analysis for continuous improvement"
+      ]
+    },
+    "futureAreas": [
+      "Expand AI predictions into IT operations and IT service management ticket escalation workflows",
+      "Integrate with customer feedback management and product analytics for holistic insight loops",
+      "Proactive alerting and intervention automation triggered by escalation risk signals"
+    ]
+  },
+  "itom/lakeside-software": {
+    "competitiveEdge": "SysTrack digital experience analytics provides AI-powered visibility into employee device health and IT friction—unlocking proactive IT remediation at scale.",
+    "swot": {
+      "strengths": [
+        "Largest estimated ARR ($50M) and moderate growth (+25% YoY) indicate market maturity and financial stability",
+        "AI-powered DEX analytics fill real visibility gap in employee experience monitoring and IT friction",
+        "Strong focus on proactive IT remediation creates defensible positioning vs. reactive helpdesk tools"
+      ],
+      "weaknesses": [
+        "Legacy SysTrack brand and positioning may not resonate with cloud-native and modern IT operations teams",
+        "Requires endpoint agent deployment across all devices, creating adoption and management complexity",
+        "Smaller marketing and sales footprint compared to major endpoint management and IT operations platforms"
+      ],
+      "opportunities": [
+        "Expand AI analytics to predict infrastructure failures and optimize IT resource allocation",
+        "Build security and compliance visibility into DEX platform for broader IT governance workflows",
+        "Integrate with IT ticketing and ITSM systems to close remediation loop and measure IT impact"
+      ],
+      "threats": [
+        "Endpoint management platforms (Microsoft Intune, Jamf) integrating native DEX and performance monitoring",
+        "Observability and AIOps platforms embedding AI-driven IT friction analysis at infrastructure level"
+      ]
+    },
+    "userLikes": [
+      "Comprehensive device health and app performance metrics surface IT friction before end-user complaints",
+      "AI-driven recommendations prioritize high-impact remediation, reducing support ticket volume",
+      "Historical trending enables IT to quantify improvements and justify infrastructure investments"
+    ],
+    "userComplaints": [
+      "Agent deployment and endpoint management complexity requires IT deployment and change management",
+      "Reporting UI and data visualization can feel dated compared to modern analytics platforms",
+      "Integration with popular ITSM systems requires custom development or manual data export"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with distributed employee base and complex IT infrastructure",
+        "Organizations heavily invested in Citrix, virtual desktop, or hybrid work environments"
+      ],
+      "typicalBuyer": "VP of IT Operations or Chief Information Officer accountable for employee experience and IT efficiency",
+      "topUseCases": [
+        "Continuous monitoring of device health, app performance, and network quality for remote workers",
+        "Proactive IT remediation prioritization to reduce support tickets and improve user experience",
+        "IT infrastructure investment justification through quantified performance and productivity metrics"
+      ]
+    },
+    "futureAreas": [
+      "Expand AI analytics to cloud infrastructure and SaaS application performance for hybrid IT visibility",
+      "Security and compliance monitoring integration to detect device and software vulnerabilities",
+      "Closed-loop remediation automation triggering IT ticketing and infrastructure changes automatically"
+    ]
+  },
+  "itom/nuvolo": {
+    "competitiveEdge": "Integrated workplace and facilities management purpose-built for ServiceNow ecosystems.",
+    "swot": {
+      "strengths": [
+        "Deep ServiceNow integration reduces IT-ops-to-facilities silos.",
+        "Emerging segment (connected work) with strong YoY growth rate.",
+        "IWMS specialization addresses underserved facilities management workflow."
+      ],
+      "weaknesses": [
+        "Small revenue base ($30M ARR) limits R&D and go-to-market resources.",
+        "ServiceNow dependency creates lock-in risk if customer strategy shifts.",
+        "Limited brand recognition outside ServiceNow user base."
+      ],
+      "opportunities": [
+        "Hybrid work normalization drives facilities and workplace optimization demand.",
+        "Adjacent markets: real estate optimization, space utilization, compliance tracking.",
+        "Platform expansion beyond ServiceNow to other ITSM systems."
+      ],
+      "threats": [
+        "ServiceNow native offerings may absorb similar functionality.",
+        "Larger ITSM incumbents entering connected work and facilities domain.",
+        "Consolidation pressure on small IWMS players."
+      ]
+    },
+    "userLikes": [
+      "Seamless ServiceNow ecosystem fit for existing customers.",
+      "Bridges IT and facilities teams with unified data model.",
+      "Faster deployment than point solutions."
+    ],
+    "userComplaints": [
+      "Limited functionality outside ServiceNow context.",
+      "Scaling implementation costs for large enterprises.",
+      "Small vendor support and feature velocity concerns."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises with ServiceNow investments",
+        "Hybrid-work-forward organizations managing facilities and IT together",
+        "Facility management teams dependent on IT infrastructure"
+      ],
+      "typicalBuyer": "Facilities manager or IT operations director in ServiceNow-centric org.",
+      "topUseCases": [
+        "Connected workplace management integrated with IT ticketing.",
+        "Facilities request workflow automation through ServiceNow.",
+        "Real estate and space optimization for hybrid workforce."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven facilities analytics and predictive maintenance.",
+      "ESG compliance and sustainability tracking via workplace data.",
+      "Multi-cloud and hybrid IT-ops integration beyond ServiceNow."
+    ]
+  },
+  "itom/vendr": {
+    "competitiveEdge": "Benchmark-driven SaaS procurement platform that automates vendor negotiation and cost reduction.",
+    "swot": {
+      "strengths": [
+        "Strong revenue growth (+40% YoY) and $1B+ valuation indicate strong market fit.",
+        "Proprietary benchmark pricing data creates competitive moat.",
+        "Measurable ROI (20-30% cost savings) drives adoption."
+      ],
+      "weaknesses": [
+        "Focused on SaaS procurement only; limited to IT and finance workflows.",
+        "Relatively new entrant; brand recognition lags incumbent procurement platforms.",
+        "Dependency on SaaS ecosystem stability and vendor pricing transparency."
+      ],
+      "opportunities": [
+        "Expand beyond SaaS to hardware and infrastructure procurement.",
+        "Integrate with cloud FinOps platforms for unified cost governance.",
+        "Adjacent markets: contract management, vendor risk assessment."
+      ],
+      "threats": [
+        "Larger procurement platforms (Coupa, Jaggr) adding SaaS procurement features.",
+        "IT procurement consolidation around cloud cost management suites.",
+        "SaaS vendors may bypass aggregation platforms and negotiate directly."
+      ]
+    },
+    "userLikes": [
+      "Quantifiable cost savings vs manual negotiation.",
+      "Benchmarking data gives procurement teams negotiating leverage.",
+      "Fast ROI justifies quick adoption and expansion."
+    ],
+    "userComplaints": [
+      "Limited to SaaS; doesn't address hardware or infrastructure.",
+      "Dependency on vendor pricing transparency and market data freshness.",
+      "Integration friction with legacy ERP and procurement systems."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market to large enterprises with SaaS sprawl (100+ subscriptions)",
+        "Finance and IT teams managing cloud cost optimization",
+        "SaaS-first organizations seeking procurement automation"
+      ],
+      "typicalBuyer": "Procurement manager or IT finance director in SaaS-heavy org.",
+      "topUseCases": [
+        "SaaS subscription renewal negotiation with benchmark-based pricing.",
+        "Vendor consolidation and redundancy elimination.",
+        "Cost-per-user benchmarking and spend governance."
+      ]
+    },
+    "futureAreas": [
+      "Expansion to hardware and cloud infrastructure procurement.",
+      "AI-powered contract intelligence and automated renewal workflows.",
+      "Vendor risk and compliance scoring integrated with procurement decisions."
+    ]
+  },
+  "itom/halo-service-solutions": {
+    "competitiveEdge": "ITIL v4-certified ITSM platform purpose-built for IT service providers and MSPs.",
+    "swot": {
+      "strengths": [
+        "ITIL v4 certification differentiates from non-compliant competitors.",
+        "Strong growth (+30% YoY) indicates strong MSP and service provider demand.",
+        "CRM integration addresses unique MSP customer management needs."
+      ],
+      "weaknesses": [
+        "Small revenue ($10M ARR) limits scale, support, and feature development.",
+        "UK-based vendor; potential challenges entering US enterprise markets.",
+        "Niche focus (service providers) vs broader ITSM market."
+      ],
+      "opportunities": [
+        "ITIL v4 adoption wave among service providers and consultancies.",
+        "Adjacent markets: PSA (professional services automation) integration.",
+        "Global MSP consolidation and scale-up demand."
+      ],
+      "threats": [
+        "Larger ITSM platforms (ServiceNow, Atlassian) expanding MSP features.",
+        "Dedicated PSA platforms (Kimble, Kantata) adding ITSM capabilities.",
+        "Consolidation of small ITSM vendors into larger suites."
+      ]
+    },
+    "userLikes": [
+      "ITIL v4 alignment ensures compliance and industry recognition.",
+      "MSP-focused design addresses service provider unique workflows.",
+      "Integrated CRM reduces tool sprawl for customer-facing IT teams."
+    ],
+    "userComplaints": [
+      "Limited enterprise feature depth vs larger ITSM platforms.",
+      "Small vendor support and feature velocity concerns.",
+      "Scaling challenges for growing MSPs."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Managed Service Providers (MSPs) and IT service providers",
+        "IT consultancies and system integrators",
+        "Mid-market enterprises with managed services model"
+      ],
+      "typicalBuyer": "Service delivery manager or MSP operations director.",
+      "topUseCases": [
+        "ITIL v4-compliant service delivery and ticket management.",
+        "Customer relationship and project tracking for managed services.",
+        "Compliance documentation and audit support."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven ticket classification and routing for service efficiency.",
+      "Integration with remote monitoring and management (RMM) tools.",
+      "Analytics and insights for service provider performance optimization."
+    ]
+  },
+  "itom/happyfox": {
+    "competitiveEdge": "AI-powered omni-channel help desk unifying ticket automation and self-service.",
+    "swot": {
+      "strengths": [
+        "Strong growth (+35% YoY) and omni-channel positioning address modern IT.",
+        "AI ticket automation reduces manual routing and classification.",
+        "Self-service portal reduces support cost and improves user satisfaction."
+      ],
+      "weaknesses": [
+        "Modest revenue ($20M ARR) limits R&D for advanced AI and automation.",
+        "Omni-channel requires integration complexity with email, chat, phone systems.",
+        "Limited advanced ITSM features vs dedicated enterprise platforms."
+      ],
+      "opportunities": [
+        "AI-driven insights and predictive issue resolution.",
+        "Vertical specialization (e.g., healthcare, fintech support workflows).",
+        "Integration with workplace collaboration tools (Teams, Slack)."
+      ],
+      "threats": [
+        "Larger ITSM platforms adding omni-channel capabilities.",
+        "Pure-play customer service platforms (Zendesk) entering IT help desk.",
+        "In-house AI implementations reducing AI platform dependency."
+      ]
+    },
+    "userLikes": [
+      "AI automation reduces ticket volume and improves response time.",
+      "Omni-channel support unifies tickets from multiple communication channels.",
+      "Affordable SMB-friendly pricing vs enterprise ITSM platforms."
+    ],
+    "userComplaints": [
+      "AI automation accuracy and hallucination in ticket classification.",
+      "Limited ITIL and ITSM compliance vs purpose-built platforms.",
+      "Integration complexity with legacy helpdesk systems."
+    ],
+    "customerProfile": {
+      "segments": [
+        "SMB and mid-market IT departments with 20-500 users",
+        "Service desk teams seeking cost-effective automation",
+        "Organizations with distributed IT support (chat, email, phone)"
+      ],
+      "typicalBuyer": "IT service desk manager or help desk lead.",
+      "topUseCases": [
+        "AI-powered ticket routing and first-line automation.",
+        "Omni-channel ticket consolidation (email, chat, phone).",
+        "Self-service knowledge base and portal for user-initiated requests."
+      ]
+    },
+    "futureAreas": [
+      "Generative AI-powered knowledge articles and ticket resolution.",
+      "Sentiment analysis and customer satisfaction prediction.",
+      "Proactive IT incident detection and self-healing automation."
+    ]
+  },
+  "itom/squadcast": {
+    "competitiveEdge": "Specialized on-call and reliability workflows purpose-built for ITOM and incident management.",
+    "swot": {
+      "strengths": [
+        "Exceptional growth (+80% YoY) reflects strong market demand for on-call tools.",
+        "Focused positioning on ITOM and reliability aligns with modern ops stacks.",
+        "On-call automation reduces alert fatigue and improves team coordination."
+      ],
+      "weaknesses": [
+        "Small revenue ($5M ARR) limits feature depth and go-to-market reach.",
+        "Narrow focus (on-call management) vs broader ITOM platforms.",
+        "Dependent on upstream monitoring and alerting platforms."
+      ],
+      "opportunities": [
+        "ITOM consolidation and integration with monitoring and observability stacks.",
+        "Escalation and runbook automation for complex incidents.",
+        "Post-incident analytics and learning management."
+      ],
+      "threats": [
+        "Larger incident management platforms (PagerDuty) expanding scheduling.",
+        "Monitoring platforms (New Relic, Datadog) adding native on-call features.",
+        "Consolidation pressure as customers seek unified observability."
+      ]
+    },
+    "userLikes": [
+      "Focused on reliability workflows simplifies on-call toolchain.",
+      "Automated escalation and scheduling reduces manual burden.",
+      "Integration-ready for monitoring and ITOM stacks."
+    ],
+    "userComplaints": [
+      "Limited feature depth beyond on-call scheduling and escalation.",
+      "Dependency on upstream alerting platforms.",
+      "Small vendor support and feature roadmap uncertainty."
+    ],
+    "customerProfile": {
+      "segments": [
+        "DevOps and SRE teams managing production incident response",
+        "ITOM organizations with complex on-call and escalation needs",
+        "Mid-market cloud-native and infrastructure teams"
+      ],
+      "typicalBuyer": "Reliability engineer or on-call team lead.",
+      "topUseCases": [
+        "On-call scheduling and rotation management.",
+        "Automated alert escalation to on-call engineer.",
+        "Incident communication and team coordination workflows."
+      ]
+    },
+    "futureAreas": [
+      "Intelligent escalation using ML to optimize on-call routing.",
+      "Post-incident analytics and blameless post-mortem automation.",
+      "Integration with chaos engineering and reliability testing platforms."
+    ]
+  },
+  "itom/opslevel": {
+    "competitiveEdge": "Service catalog and ownership platform for internal IT and platform engineering teams.",
+    "swot": {
+      "strengths": [
+        "Exceptional growth (+80% YoY) reflects strong demand for service visibility.",
+        "Service ownership model aligns with DevOps and platform engineering shift.",
+        "Internal IT tool positioning differentiates from customer-facing ITSM."
+      ],
+      "weaknesses": [
+        "Small revenue ($10M ARR) limits feature expansion and market reach.",
+        "Narrow focus (service catalog) vs full ITSM or platform platforms.",
+        "Organizational adoption requires cultural shift to service ownership."
+      ],
+      "opportunities": [
+        "Platform engineering consolidation and internal developer portal adoption.",
+        "Integration with cloud governance and cost management.",
+        "Compliance and audit automation via service catalog."
+      ],
+      "threats": [
+        "Larger platform engineering tools (Backstage, Port) adding service catalog.",
+        "Incumbent ITSM platforms extending to internal service management.",
+        "In-house service catalog development reducing platform tool demand."
+      ]
+    },
+    "userLikes": [
+      "Service ownership model reduces fragmentation across IT teams.",
+      "Centralized service catalog improves discovery and governance.",
+      "Platform engineering alignment ensures internal IT relevance."
+    ],
+    "userComplaints": [
+      "Limited feature depth beyond service discovery and ownership.",
+      "Organizational change management required for service ownership adoption.",
+      "Integration challenges with legacy ITSM and ticketing systems."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Platform engineering teams building internal developer platforms",
+        "IT operations and service delivery organizations modernizing",
+        "Cloud-native enterprises with distributed service architectures"
+      ],
+      "typicalBuyer": "Platform engineering lead or IT service delivery director.",
+      "topUseCases": [
+        "Internal service catalog and discovery for IT services.",
+        "Service ownership and accountability across IT teams.",
+        "Cloud and infrastructure service governance and compliance."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven service dependency mapping and risk analysis.",
+      "Automated compliance checks and audit trails for services.",
+      "Integration with cloud cost allocation and FinOps workflows."
+    ]
+  },
+  "itom/backstage": {
+    "competitiveEdge": "Open-source developer portal from Spotify reduces IT onboarding friction by centralizing service discovery and platform governance without proprietary lock-in.",
+    "swot": {
+      "strengths": [
+        "CNCF-backed open-source model enables community contributions and rapid feature iteration.",
+        "Zero licensing cost and vendor neutrality appeal to organizations resistant to proprietary platforms.",
+        "Strong adoption among software engineering teams creates natural expansion path to IT operations."
+      ],
+      "weaknesses": [
+        "Open-source governance model creates implementation and customization burden versus commercial platforms.",
+        "Limited dedicated IT-specific features compared to purpose-built ITSM or IDP vendors.",
+        "Fragmented commercial support ecosystem; no single vendor guarantees production SLA."
+      ],
+      "opportunities": [
+        "Emerging platform engineering teams standardizing on Backstage create IT governance integration demand.",
+        "Hybrid cloud and multi-cloud environments drive need for unified service discovery across platforms.",
+        "AI-powered plugin ecosystem could automate infrastructure provisioning and cost optimization."
+      ],
+      "threats": [
+        "Commercial IDP vendors (Port, Cortex) offer dedicated support and IT governance features faster.",
+        "Organizations may choose managed Spotify Cloud offering, fragmenting self-hosted community.",
+        "Incumbents like ServiceNow expanding developer portal capabilities erode Backstage differentiation."
+      ]
+    },
+    "userLikes": [
+      "No licensing costs and open-source flexibility enable rapid customization for unique requirements.",
+      "Strong support from platform engineering community improves adoption and knowledge sharing.",
+      "Integrates naturally with cloud-native and infrastructure-as-code workflows."
+    ],
+    "userComplaints": [
+      "Implementation complexity and internal customization burden require significant engineering effort.",
+      "Limited out-of-the-box IT governance and compliance features compared to commercial solutions.",
+      "Production support and SLA guarantees depend on external vendors, not Spotify."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Engineering-driven organizations with mature platform engineering practices.",
+        "Tech companies and startups prioritizing flexibility and cost efficiency over managed support.",
+        "Large enterprises with in-house platform teams capable of implementing and maintaining Backstage."
+      ],
+      "typicalBuyer": "Platform Engineering Lead or Infrastructure Architect tasked with standardizing service discovery across teams.",
+      "topUseCases": [
+        "Centralized service catalog and discovery reducing onboarding friction for developers.",
+        "Self-service infrastructure and platform provisioning workflows powered by Backstage plugins.",
+        "Software bill of materials (SBOM) and architecture governance across polyglot microservices."
+      ]
+    },
+    "futureAreas": [
+      "AI-augmented service recommendations and anomaly detection from plugin ecosystem data.",
+      "Tighter integration with infrastructure observability and cost management platforms.",
+      "Enterprise governance layer (role-based access, audit trails) to support larger organizations."
+    ]
+  },
+  "itom/port": {
+    "competitiveEdge": "Self-service developer portal automating IT governance and access requests at scale without manual bottlenecks.",
+    "swot": {
+      "strengths": [
+        "Rapid revenue growth and venture backing signal strong product-market fit and customer demand.",
+        "Self-service automation reduces IT operations overhead and accelerates developer workflows.",
+        "Deep integrations with cloud platforms and access management tools enable seamless governance."
+      ],
+      "weaknesses": [
+        "Early-stage vendor with limited track record increases adoption risk for risk-averse enterprises.",
+        "Pricing and go-to-market still maturing; unclear long-term positioning within broader IT platforms.",
+        "Specialized focus on developer portal may limit expansion beyond engineering-heavy organizations."
+      ],
+      "opportunities": [
+        "Explosive growth in platform engineering adoption creates expanding TAM for self-service governance.",
+        "Cloud FinOps and cost governance increasingly bundled with developer platform features.",
+        "Potential acquisition by larger ITSM or observability vendors seeking developer-first positioning."
+      ],
+      "threats": [
+        "Well-funded competitors (Cortex, larger incumbents) may outpace feature releases and market share.",
+        "Incumbent ITSM vendors adding developer-friendly self-service modules erode differentiation.",
+        "Consolidation of IT tools favors unified platforms over point solutions in this category."
+      ]
+    },
+    "userLikes": [
+      "Developer self-service eliminates IT bottlenecks; faster access request fulfillment improves velocity.",
+      "Clean, modern UI and friction-free onboarding appeal to engineering teams.",
+      "Automation of repetitive IT governance tasks reduces operational overhead."
+    ],
+    "userComplaints": [
+      "Integration gaps with legacy enterprise tools limit adoption in mature IT ecosystems.",
+      "Pricing scale and enterprise support maturity lag established ITSM vendors.",
+      "Limited reporting and compliance features for highly regulated organizations."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Growth-stage startups and high-growth tech companies with large engineering teams.",
+        "Mid-market organizations prioritizing developer experience and rapid innovation cycles.",
+        "Forward-thinking enterprises modernizing IT service delivery to match developer expectations."
+      ],
+      "typicalBuyer": "VP Engineering or Platform Engineering Lead seeking to reduce IT friction in developer workflows.",
+      "topUseCases": [
+        "Self-service access requests and approvals for cloud resources, APIs, and internal services.",
+        "Infrastructure provisioning automation and self-healing workflows for developer autonomy.",
+        "Governance and compliance tracking for access patterns and infrastructure usage."
+      ]
+    },
+    "futureAreas": [
+      "Expansion beyond access management into broader IT service delivery and incident response.",
+      "AI-powered recommendations for infrastructure policies and cost optimization.",
+      "Deeper integration with platform engineering observability and incident management tools."
+    ]
+  },
+  "itom/cortex": {
+    "competitiveEdge": "Service quality scoring and standards enforcement platform enables IT teams to measure and improve service reliability across fragmented tool ecosystems.",
+    "swot": {
+      "strengths": [
+        "Quantifiable service quality metrics reduce subjectivity in IT operations governance.",
+        "Revenue and growth trajectory demonstrate strong product adoption and customer satisfaction.",
+        "Flexible standards framework enables deployment across diverse IT environments."
+      ],
+      "weaknesses": [
+        "Relatively young vendor with limited customer reference base in regulated industries.",
+        "Specialized positioning around service standards may limit total addressable market.",
+        "Implementation complexity depends on quality of existing observability data infrastructure."
+      ],
+      "opportunities": [
+        "Cloud and hybrid IT adoption drives demand for quantified service level management.",
+        "AI-driven predictive quality scoring could differentiates from static compliance frameworks.",
+        "Potential bundling with broader platform engineering or IT operations platforms."
+      ],
+      "threats": [
+        "Larger observability vendors (DataDog, New Relic) adding service quality modules.",
+        "Incumbents like ServiceNow expanding into service health scoring and automation.",
+        "Economic pressure on IT budgets favors consolidated platforms over specialized tools."
+      ]
+    },
+    "userLikes": [
+      "Objective service quality metrics replace subjective assessments and politics.",
+      "Standards enforcement drives continuous improvement in IT service delivery.",
+      "Integrations with existing observability tools minimize rip-and-replace implementation burden."
+    ],
+    "userComplaints": [
+      "Metrics definition and configuration require substantial upfront effort and subject matter expertise.",
+      "Limited correlation with business impact; IT operations teams struggle to demonstrate ROI.",
+      "Dependency on quality observability data; weak data inputs produce unreliable quality scores."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large tech companies and digital natives with mature observability practices.",
+        "Organizations undertaking IT operations transformation and service quality improvements.",
+        "Cloud-native and DevOps-led enterprises seeking objective SLA and quality metrics."
+      ],
+      "typicalBuyer": "VP IT Operations or Engineering Director accountable for service reliability and team performance.",
+      "topUseCases": [
+        "Service level objective (SLO) definition, tracking, and error budget management.",
+        "Team performance scorecards and standards compliance measurement.",
+        "Incident review and postmortem correlation with service quality trends."
+      ]
+    },
+    "futureAreas": [
+      "Predictive quality modeling using historical data and AI to forecast reliability issues.",
+      "Deeper integration with incident management and postmortem workflows.",
+      "Expansion into cost quality trade-offs (e.g., cost-per-unit-of-reliability optimization)."
+    ]
+  },
+  "itom/vertice": {
+    "competitiveEdge": "Unified SaaS and cloud spend management platform combines automated procurement with contract governance and cost optimization, reducing IT and finance fragmentation.",
+    "swot": {
+      "strengths": [
+        "Strong valuation and growth trajectory validate market demand for consolidated spend visibility.",
+        "End-to-end coverage (procurement to contract renewal to cost optimization) reduces point-solution friction.",
+        "Automated workflows reduce manual procurement burden and contract renewal risk."
+      ],
+      "weaknesses": [
+        "Growing competitive field of well-funded FinOps and procurement startups increases pressure.",
+        "Platform complexity may hinder adoption in smaller organizations or simpler procurement workflows.",
+        "Dependency on integrations with procurement and finance platforms for data accuracy."
+      ],
+      "opportunities": [
+        "Multi-cloud adoption and FinOps maturity drive demand for unified spend governance.",
+        "AI-powered negotiation recommendations and vendor benchmarking could differentiate offerings.",
+        "Horizontal expansion into broader IT cost governance (infrastructure, licenses, subscriptions)."
+      ],
+      "threats": [
+        "Incumbent finance and ERP vendors (SAP, Oracle) expanding procurement and contract management.",
+        "Specialized FinOps platforms (CloudHealth, Kubecost) gaining traction in infrastructure spend.",
+        "Economic downturn may consolidate procurement spending toward fewer, larger vendors."
+      ]
+    },
+    "userLikes": [
+      "Unified visibility into SaaS and cloud spend reduces shadow IT and helps control costs.",
+      "Automated contract renewal and expiration tracking prevents overspend and licensing waste.",
+      "Procurement workflow automation reduces manual overhead and accelerates vendor onboarding."
+    ],
+    "userComplaints": [
+      "Data integration and vendor API quality vary; some platforms require manual data entry.",
+      "Lack of granular cost allocation and showback; difficult to allocate spend to business units.",
+      "Implementation timeline and effort often exceed initial expectations; requires cross-functional coordination."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large organizations with significant SaaS and cloud infrastructure spend.",
+        "Companies seeking cost optimization and better IT finance collaboration.",
+        "Multi-cloud enterprises needing centralized governance across AWS, Azure, GCP."
+      ],
+      "typicalBuyer": "VP IT Finance or Procurement Manager accountable for reducing software and infrastructure spending.",
+      "topUseCases": [
+        "SaaS contract lifecycle management and automated renewal tracking to prevent overspend.",
+        "Cloud cost analysis and optimization recommendations for AWS, Azure, GCP deployments.",
+        "IT vendor evaluation and competitive benchmarking to support procurement negotiations."
+      ]
+    },
+    "futureAreas": [
+      "AI-powered spend forecasting and anomaly detection to catch overspend early.",
+      "Expanded cost allocation and showback to business units for FinOps maturity.",
+      "Integration with broader IT asset management and license optimization platforms."
+    ]
+  },
+  "itom/tropic": {
+    "competitiveEdge": "SaaS procurement intelligence platform reduces vendor evaluation friction and contract renewal waste through automated intelligence and spend governance.",
+    "swot": {
+      "strengths": [
+        "Rapid growth and strong customer traction indicate strong product-market fit.",
+        "Focused positioning on SaaS procurement reduces scope complexity versus broader FinOps platforms.",
+        "Automation of routine procurement evaluation and renewal tracking delivers immediate ROI."
+      ],
+      "weaknesses": [
+        "Specialized focus on SaaS leaves infrastructure and license spend uncovered.",
+        "Early-stage vendor lacks deep reference base and long-term product roadmap visibility.",
+        "Integration dependencies on procurement and finance systems limit standalone value."
+      ],
+      "opportunities": [
+        "Explosive SaaS growth and spend fragmentation create expanding market opportunity.",
+        "AI-powered vendor recommendation engine could enable predictive procurement decisions.",
+        "Consolidation with broader IT asset and cost management platforms."
+      ],
+      "threats": [
+        "Well-funded FinOps and procurement startups (Vertice, others) competing for similar TAM.",
+        "Incumbent financial platforms and procurement systems adding native SaaS spend intelligence.",
+        "Economic pressure drives organizations to rationalize tools; consolidation favors broader platforms."
+      ]
+    },
+    "userLikes": [
+      "Automated vendor evaluation and benchmarking accelerates procurement decisions.",
+      "Contract renewal tracking prevents missed renewal dates and unexpected re-negotiation.",
+      "Spend analytics and optimization recommendations help identify cost reduction opportunities."
+    ],
+    "userComplaints": [
+      "Data quality and vendor intelligence depend on crowdsourced or incomplete market data.",
+      "Limited integration with existing procurement workflows; requires parallel data entry.",
+      "Reporting granularity insufficient for detailed business unit cost allocation and showback."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market technology and fast-growing companies with large SaaS tool portfolios.",
+        "Organizations managing 50+ SaaS subscriptions with complex procurement workflows.",
+        "Finance and IT teams seeking to reduce SaaS spend waste and negotiation friction."
+      ],
+      "typicalBuyer": "IT Procurement Manager or Finance Operations Lead tasked with controlling SaaS spending.",
+      "topUseCases": [
+        "SaaS vendor evaluation and benchmarking to inform procurement decisions.",
+        "Contract renewal tracking and expiration alerts to prevent overspend.",
+        "Spend analytics and usage tracking to justify SaaS tool retention versus cancellation."
+      ]
+    },
+    "futureAreas": [
+      "Predictive SaaS spend modeling and usage forecasting to optimize license allocations.",
+      "Expanded intelligence into infrastructure and licensing spending beyond SaaS.",
+      "Integration with IT asset management systems for comprehensive software cost governance."
+    ]
+  },
+  "itom/rewst": {
+    "competitiveEdge": "Low-code MSP automation platform enables managed service providers to build complex workflows across 150+ integrations without custom development, accelerating service delivery and margins.",
+    "swot": {
+      "strengths": [
+        "Exceptional revenue growth and 200% YoY expansion validate strong product-market fit within MSP segment.",
+        "Broad integration library (150+ tools) reduces engineering effort and time-to-automation.",
+        "Low-code paradigm lowers barrier to entry for non-technical MSP technicians."
+      ],
+      "weaknesses": [
+        "Narrow focus on MSPs limits total addressable market versus broader automation platforms.",
+        "Workflow complexity and vendor integration quality may create support and maintenance overhead.",
+        "Early-stage vendor raises questions about long-term product roadmap and sustainability."
+      ],
+      "opportunities": [
+        "Explosive MSP market growth and increasing pressure for efficiency drives demand.",
+        "Expansion beyond MSPs into managed security service providers (MSSPs) and IT consultancies.",
+        "AI-assisted workflow recommendations and autonomous remediation could reduce manual effort."
+      ],
+      "threats": [
+        "Larger automation vendors (Zapier, Make) commoditizing low-code workflow building.",
+        "IT service provider consolidation may favor larger, integrated platforms.",
+        "Economic downturn pressures MSP margins; cost-cutting may delay automation investments."
+      ]
+    },
+    "userLikes": [
+      "Low-code interface enables MSP technicians to build automations without software engineering skills.",
+      "Broad pre-built connectors accelerate workflow implementation and reduce custom integration burden.",
+      "Rapid workflow deployment improves service delivery velocity and profitability per engagement."
+    ],
+    "userComplaints": [
+      "Learning curve and workflow design complexity can be underestimated during implementation.",
+      "Integration reliability and vendor API changes sometimes require workflow refactoring.",
+      "Support responsiveness and documentation quality lag larger automation platforms."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Managed service providers (MSPs) seeking to increase service delivery automation.",
+        "Managed security service providers (MSSPs) building automated security response workflows.",
+        "IT service firms and consultancies offering managed services to SMB and mid-market."
+      ],
+      "typicalBuyer": "MSP Service Delivery Manager or Automation Engineer tasked with improving operational efficiency.",
+      "topUseCases": [
+        "Client onboarding and device provisioning automation across 150+ endpoint and cloud platforms.",
+        "Incident response and ticket escalation automation to reduce mean time to resolution.",
+        "Reporting and compliance automation across diverse customer environments and tool sets."
+      ]
+    },
+    "futureAreas": [
+      "AI-assisted workflow design and anomaly remediation to further reduce manual MSP effort.",
+      "Expansion into managed security and compliance automation for MSSP offerings.",
+      "Deeper integrations with MSP business management and ticketing platforms for end-to-end automation."
+    ]
+  },
+  "itom/pia": {
+    "competitiveEdge": "AI-powered ticket triage and autonomous resolution specifically designed for MSP service desk workflows.",
+    "swot": {
+      "strengths": [
+        "Targeted at high-friction MSP use case where automation ROI is fastest",
+        "Strong growth trajectory (+100% YoY) indicates product-market fit in niche",
+        "Reduces technician labor cost directly—measurable unit economics"
+      ],
+      "weaknesses": [
+        "Early-stage funding and revenue limit go-to-market reach and brand recognition",
+        "Narrow focus on MSP segment limits addressable market expansion",
+        "Limited proven track record compared to established service desk platforms"
+      ],
+      "opportunities": [
+        "MSP market is fragmented and underserved by AI—significant whitespace remains",
+        "Platform could expand from triage to full incident resolution and change management",
+        "Partner channels with MSP tools (RMM, PSA) could accelerate adoption"
+      ],
+      "threats": [
+        "Larger ITSM incumbents (ServiceNow, Atlassian) could add similar AI features",
+        "Specialized RMM vendors (Pulseway, others) could integrate ticket automation in-house"
+      ]
+    },
+    "userLikes": [
+      "Solves a painful, labor-intensive problem with minimal MSP process change",
+      "Purpose-built for service desk workflows—not a generic AI bolted onto generic tool",
+      "Quick time-to-value on ticket volume reduction"
+    ],
+    "userComplaints": [
+      "Early product maturity means rough edges and gaps in edge-case ticket types",
+      "Integration depth limited to major ticketing platforms—custom systems remain manual",
+      "Upfront configuration and training required to reach full automation potential"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and SMB managed service providers (50–500 end customers)",
+        "In-house IT service desk teams in tech-forward organizations"
+      ],
+      "typicalBuyer": "Service Delivery Manager or VP of Operations at an MSP",
+      "topUseCases": [
+        "Automated triage and initial response to incoming service desk tickets",
+        "Reduction of technician context-switching and low-value repetitive work",
+        "Peak-hour surge handling without hiring seasonal support staff"
+      ]
+    },
+    "futureAreas": [
+      "Multi-language support to expand into EMEA and APAC MSP markets",
+      "Expansion into knowledge base authoring and intelligent self-service portal recommendations",
+      "AI-driven predictive incident prevention based on ticket pattern analysis"
+    ]
+  },
+  "itom/signl4": {
+    "competitiveEdge": "Mobile-first incident alerting deeply integrated with Microsoft Teams and traditional communication channels.",
+    "swot": {
+      "strengths": [
+        "Teams-native positioning aligns with enterprise SOD dominance and reduces friction",
+        "Multi-channel delivery (Teams, SMS, voice) ensures alert reach in any context",
+        "Lightweight, focused product—quick deployment and low training overhead"
+      ],
+      "weaknesses": [
+        "Early-stage revenue and growth visibility limits credibility with large enterprises",
+        "Narrow scope (alerting only) means limited stickiness in ops tech stack",
+        "No disclosed revenue or growth metric—market traction unclear"
+      ],
+      "opportunities": [
+        "Teams ecosystem expansion as M365 consumption grows in IT ops centers",
+        "Integration into broader incident response workflows (runbooks, escalation)",
+        "Vertical-specific alerting solutions (compliance-driven environments, healthcare)"
+      ],
+      "threats": [
+        "Microsoft could add native Teams-based alerting to its own incident management tools",
+        "Larger incident management platforms (PagerDuty, Opsgenie) offer richer alerting with Teams support"
+      ]
+    },
+    "userLikes": [
+      "Seamless Teams integration reduces alert fatigue via native notifications",
+      "Simple, straightforward setup—no complex orchestration or scripting required",
+      "Reliable delivery across mobile, SMS, and voice ensures no alert goes missed"
+    ],
+    "userComplaints": [
+      "Limited intelligence in alerting—no suppression, deduplication, or anomaly filtering",
+      "Narrow feature set means separate tools needed for incident response and remediation",
+      "Vendor provides minimal public case studies or customer references"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market IT operations teams in M365-heavy organizations",
+        "Distributed or remote-first ops teams that rely on mobile-first workflows"
+      ],
+      "typicalBuyer": "IT Operations Manager or On-Call Coordinator",
+      "topUseCases": [
+        "Real-time incident alerting to on-call engineers via Teams and mobile",
+        "Multi-channel fallback delivery for critical infrastructure alerts",
+        "Integration with monitoring and ITSM systems to trigger escalations"
+      ]
+    },
+    "futureAreas": [
+      "Intelligent alert routing and suppression to reduce noise and improve signal",
+      "Native runbook and remediation playbook execution from alert context",
+      "AI-driven escalation policies based on incident severity and on-call patterns"
+    ]
+  },
+  "itom/alertops": {
+    "competitiveEdge": "Purpose-built escalation and on-call management with deep ITSM workflow integration.",
+    "swot": {
+      "strengths": [
+        "ITSM-first positioning addresses real integration gaps in legacy incident workflows",
+        "Clear revenue model and stable growth (+25% YoY) demonstrate sustainable traction",
+        "Solves a specific pain point (escalation complexity) that most ITSM tools neglect"
+      ],
+      "weaknesses": [
+        "Modest growth rate and ~$5M ARR indicate niche market—limited scale potential",
+        "Narrow focus on escalation/on-call means limited upsell and expansion opportunities",
+        "Low brand recognition compared to incident management specialists"
+      ],
+      "opportunities": [
+        "ITSM market consolidation—AlertOps could become an acquisition target or niche leader",
+        "Enterprise digital transformation drives demand for modern on-call practices",
+        "Vertical expansion (healthcare, finance) where escalation compliance is critical"
+      ],
+      "threats": [
+        "Major ITSM platforms (ServiceNow, Atlassian) could build comparable escalation tools",
+        "Dedicated incident management platforms (Rootly, incident.io) address overlapping needs"
+      ]
+    },
+    "userLikes": [
+      "Solves real escalation complexity—fewer missed escalations and clearer on-call handoffs",
+      "Deep ITSM integration reduces context-switching and data silos",
+      "Flexible escalation rules enable compliance with SLA and regulatory requirements"
+    ],
+    "userComplaints": [
+      "Configuration of escalation policies requires domain expertise—steep learning curve",
+      "Limited visibility into incident trends and escalation metrics compared to broader tools",
+      "Vendor integration scope limited—may require custom adapters for non-standard systems"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises with complex multi-team on-call structures",
+        "Regulated industries requiring auditable escalation and approval chains"
+      ],
+      "typicalBuyer": "IT Operations Manager or Service Delivery Manager",
+      "topUseCases": [
+        "Multi-level escalation workflows tied to incident severity and team SLAs",
+        "On-call scheduling and rotation management with compliance audit trails",
+        "Escalation to executive leadership and external vendors for critical incidents"
+      ]
+    },
+    "futureAreas": [
+      "Predictive escalation routing based on historical incident resolution patterns",
+      "AI-assisted on-call scheduling optimization for team health and SLA adherence",
+      "Integration with business impact assessment to auto-escalate high-impact incidents"
+    ]
+  },
+  "itom/rootly": {
+    "competitiveEdge": "Slack-native incident lifecycle management purpose-built for remote, async-first IT teams.",
+    "swot": {
+      "strengths": [
+        "Slack integration eliminates context switching—incident workflows live where ops teams already work",
+        "Strong growth (+100% YoY) and clear revenue signal indicate strong product-market fit",
+        "Purpose-built for modern incident response culture (blameless postmortems, runbooks)"
+      ],
+      "weaknesses": [
+        "Slack dependency creates vendor risk—any Slack outage cascades to incident response",
+        "Narrow scope (incident lifecycle only) means dependency on external tools for root cause analysis",
+        "Limited visibility for non-Slack users or async team members in global orgs"
+      ],
+      "opportunities": [
+        "Enterprise Slack adoption accelerating—large addressable market remains underpenetrated",
+        "AI-driven runbook suggestions and postmortem automation could deepen platform value",
+        "Vertical expansion (dev ops, financial services) where incident velocity is highest"
+      ],
+      "threats": [
+        "Slack itself could build native incident management features for enterprise customers",
+        "Broader incident platforms (incident.io, PagerDuty) adding Slack-first workflows"
+      ]
+    },
+    "userLikes": [
+      "Incident management without leaving Slack—reduces tool fatigue and context switching",
+      "Clean blameless postmortem workflow with automated action item tracking",
+      "Fast incident declaration and team notification—optimized for rapid response culture"
+    ],
+    "userComplaints": [
+      "Visibility limited to Slack—not suitable for non-technical stakeholders or non-Slack teams",
+      "Limited incident analysis features—root cause investigation still requires external tools",
+      "No integration with monitoring or ITSM systems for automated incident creation"
+    ],
+    "customerProfile": {
+      "segments": [
+        "High-velocity software and cloud-native teams (startups, tech companies)",
+        "Remote-first organizations with async-preferred communication culture"
+      ],
+      "typicalBuyer": "Engineering Manager or Site Reliability Engineer",
+      "topUseCases": [
+        "Slack-driven incident declaration, team paging, and real-time communication",
+        "Automated blameless postmortem generation and action item tracking",
+        "Integration with monitoring systems to auto-trigger incident workflows"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered incident timeline reconstruction from Slack conversation history",
+      "Predictive incident impact assessment to auto-page relevant teams",
+      "Integration with change management and deployment systems for correlation analysis"
+    ]
+  },
+  "itom/incident-io": {
+    "competitiveEdge": "Modern, API-first incident management platform purpose-built for cloud-native organizations with high velocity.",
+    "swot": {
+      "strengths": [
+        "Strong funding valuation ($160M) and high growth (+120% YoY) demonstrate market momentum",
+        "Cloud-native positioning aligns with where enterprise IT innovation is accelerating fastest",
+        "API-first architecture enables deep integration and customization without UI friction"
+      ],
+      "weaknesses": [
+        "Early-stage customer base means limited long-term case studies and reference customers",
+        "Positioned upmarket but lacks broader ecosystem maturity compared to incumbents",
+        "Narrow focus on incident management limits cross-functional adoption (ops + dev)"
+      ],
+      "opportunities": [
+        "Consolidation of incident tools (monitoring, alerting, postmortem automation) under one platform",
+        "Expansion into on-call management and escalation to compete with PagerDuty",
+        "International expansion—incident management practices vary significantly by region"
+      ],
+      "threats": [
+        "Larger incident platforms (PagerDuty, Opsgenie, Atlassian) adding cloud-native capabilities",
+        "Slack-native competitors (Rootly) gaining share in specific segments",
+        "Internal monitoring tools (Datadog, New Relic) expanding incident management features"
+      ]
+    },
+    "userLikes": [
+      "Clean, modern UX designed for distributed teams and cloud-first workflows",
+      "Flexible API enables custom integrations without vendor lock-in concerns",
+      "Strong focus on incident communication and stakeholder visibility throughout response"
+    ],
+    "userComplaints": [
+      "Smaller customer base means fewer integrations and community extensions compared to incumbents",
+      "Limited on-call and escalation management compared to specialized tools",
+      "Missing advanced analytics and trend analysis for incident data"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Series-funded SaaS and cloud-native companies with high incident velocity",
+        "Digital-first enterprises undergoing IT modernization"
+      ],
+      "typicalBuyer": "VP of Engineering or Head of Reliability Engineering",
+      "topUseCases": [
+        "Rapid incident declaration and cross-functional team mobilization",
+        "Real-time stakeholder communication and status updates during incidents",
+        "Automated postmortem generation with action item accountability"
+      ]
+    },
+    "futureAreas": [
+      "Consolidated platform covering monitoring, alerting, and on-call management",
+      "AI-driven root cause analysis and predictive incident prevention recommendations",
+      "Vertical solutions for high-compliance industries (healthcare, financial services)"
+    ]
+  },
+  "itom/pulseway": {
+    "competitiveEdge": "Mobile-first RMM platform enabling IT admins and MSPs to manage systems from smartphones without desktop constraint.",
+    "swot": {
+      "strengths": [
+        "Mobile-first architecture addresses real pain point—IT ops increasingly remote and distributed",
+        "Clear MSP positioning and strong revenue (+30% YoY) indicate established market traction",
+        "End-to-end capability (monitoring, control, patching) reduces tool sprawl"
+      ],
+      "weaknesses": [
+        "Mobile interface constraints limit complex configuration and advanced troubleshooting workflows",
+        "Competition from entrenched RMM incumbents (ConnectWise, Kaseya) with larger feature sets",
+        "Limited visibility into competitive positioning relative to mobile-first competitors"
+      ],
+      "opportunities": [
+        "MSP demand for mobile-first management accelerating as distributed teams expand",
+        "AI-powered issue detection and automated remediation could enhance mobile workflows",
+        "Vertical expansion (retail, hospitality) where floor-level IT troubleshooting is critical"
+      ],
+      "threats": [
+        "Larger RMM platforms (ConnectWise, SolarWinds) building mobile apps with feature parity",
+        "Cloud-native, agentless monitoring alternatives reducing RMM relevance",
+        "Consolidation among RMM vendors reducing number of independent platforms"
+      ]
+    },
+    "userLikes": [
+      "True mobile-first design—admins can handle incidents without returning to desktop",
+      "Responsive performance on mobile networks enables productivity from any location",
+      "Comprehensive system control capabilities (reboot, patching, remote access) in mobile form"
+    ],
+    "userComplaints": [
+      "Mobile interface limitations prevent deep system analysis and complex troubleshooting workflows",
+      "Limited integration with broader IT service management and ticketing systems",
+      "Smaller ecosystem means fewer third-party extensions and automation capabilities"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Managed service providers with distributed field and remote support teams",
+        "Decentralized IT operations in enterprises with non-traditional work locations"
+      ],
+      "typicalBuyer": "MSP Service Delivery Manager or IT Field Technician",
+      "topUseCases": [
+        "Remote system monitoring and troubleshooting from mobile devices",
+        "Rapid patch management and system updates across distributed endpoints",
+        "On-the-go ticket handling and customer communication for field-based technicians"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered predictive issue detection and autonomous remediation on endpoints",
+      "Deepening integration with PSA and ticketing systems for unified service delivery workflow",
+      "Expansion into device-specific management (mobile, IoT, edge) beyond traditional endpoints"
+    ]
+  },
+  "itom/superops-ai": {
+    "competitiveEdge": "Unified PSA+RMM purpose-built for MSPs with embedded AI automation, eliminating point-tool sprawl.",
+    "swot": {
+      "strengths": [
+        "AI-native architecture optimized for MSP workflows and high-velocity ticket handling.",
+        "Single unified platform reduces tool switching and integration complexity for service teams.",
+        "Strong growth trajectory (+80% YoY) indicates strong product-market fit with target segment."
+      ],
+      "weaknesses": [
+        "Early-stage startup with limited brand recognition vs. ServiceNow, Jira Service Management incumbents.",
+        "Smaller customer base means less battle-tested integrations with legacy MSP toolchains.",
+        "Limited public case studies or analyst coverage compared to established ITSM platforms."
+      ],
+      "opportunities": [
+        "Expand AI capabilities to include predictive ticket routing and proactive anomaly detection.",
+        "Target mid-market MSPs as they scale beyond entry-level tooling; increase ARR per customer.",
+        "Partner with RMM/PSA incumbents to integrate as an AI layer for existing customers."
+      ],
+      "threats": [
+        "ServiceNow, Atlassian, and other majors adding AI copilots to existing PSA/RMM modules.",
+        "Larger competitors can undercut on price and bundling once AI capabilities become table-stakes."
+      ]
+    },
+    "userLikes": [
+      "Unified workflow reduces friction and improves ticket resolution speed for lean MSP teams.",
+      "AI-powered automation lowers manual toil; teams spend less time on repetitive low-value work.",
+      "Modern interface and fast implementation compared to legacy ITSM/PSA incumbent onboarding."
+    ],
+    "userComplaints": [
+      "Limited customization for MSPs with complex, non-standard service delivery models.",
+      "Integration gaps with niche tools common in MSP stacks (e.g., specific accounting systems).",
+      "Early-stage product lacks depth in some legacy ITSM features MSPs still rely on."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Managed service providers (MSPs) with 50–500 technicians",
+        "In-house IT service teams at mid-market enterprises seeking modern ITSM/PSA"
+      ],
+      "typicalBuyer": "MSP operations manager or IT director evaluating PSA/RMM consolidation.",
+      "topUseCases": [
+        "Ticket routing and auto-deflection via AI to reduce MTTR.",
+        "Unified technician interface for field + remote service delivery.",
+        "Automated SLA enforcement and escalation workflows."
+      ]
+    },
+    "futureAreas": [
+      "Expand AI to include root-cause analysis and predictive capacity planning for customer infrastructure.",
+      "Vertical-specific configurations for telecom, healthcare, and public sector MSPs.",
+      "Cross-customer benchmarking and performance insights to help MSPs identify service improvement areas."
+    ]
+  },
+  "itom/coreview": {
+    "competitiveEdge": "Dedicated M365 governance platform that replaces fragmented admin tools and compliance controls.",
+    "swot": {
+      "strengths": [
+        "Deep M365 native integration; single pane of glass for licensing, security, and operations governance.",
+        "Healthy growth (+40% YoY) and $25M ARR suggest strong product adoption in enterprise segment.",
+        "Reduces license sprawl and compliance risk — direct revenue impact for cost-conscious IT."
+      ],
+      "weaknesses": [
+        "Narrow focus on Microsoft 365 limits addressability vs. multi-cloud or hybrid IT vendors.",
+        "Requires deep M365 knowledge to configure policies; barriers to deployment in smaller IT shops.",
+        "Competes against free or low-cost built-in M365 governance tools from Microsoft itself."
+      ],
+      "opportunities": [
+        "Extend governance framework to Azure and Dynamics 365 as enterprises deepen Microsoft cloud adoption.",
+        "Build compliance automation (e.g., auto-remediation) to reduce manual audit and remediation overhead.",
+        "Target regulated industries (healthcare, finance) with industry-specific M365 governance templates."
+      ],
+      "threats": [
+        "Microsoft adding governance automation natively to Microsoft Entra, Purview, and compliance centers.",
+        "Smaller IT organizations adopt free identity/security tools from Entra, reducing addressable market."
+      ]
+    },
+    "userLikes": [
+      "Simplified M365 license and compliance management; reduces Microsoft's complexity for IT teams.",
+      "Centralized policies across Teams, Exchange, SharePoint, and OneDrive reduce security misconfigurations.",
+      "Measurable savings on over-provisioned M365 licenses and security incident remediation."
+    ],
+    "userComplaints": [
+      "M365-specific scope limits value for organizations with multi-cloud or hybrid strategies.",
+      "Steep learning curve for IT teams unfamiliar with advanced M365 governance and identity concepts.",
+      "Integrations with broader IT service management or ITSM platforms remain limited or manual."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with 1,000+ Microsoft 365 seats and complex licensing models",
+        "Organizations in regulated industries (finance, healthcare) with compliance governance needs"
+      ],
+      "typicalBuyer": "M365 administrator or cloud operations manager reporting to IT director or security lead.",
+      "topUseCases": [
+        "License optimization and cost reduction across M365 user base.",
+        "Governance policy enforcement (data loss prevention, sharing controls, access policies).",
+        "Compliance reporting and audit trail for regulatory requirements."
+      ]
+    },
+    "futureAreas": [
+      "Extend governance to Azure infrastructure and Dynamics 365 for comprehensive Microsoft cloud control.",
+      "AI-driven anomaly detection to flag suspicious M365 activity and insider risk.",
+      "Industry-specific compliance templates and automated remediation for healthcare, finance, government."
+    ]
+  },
+  "itom/augmentt": {
+    "competitiveEdge": "Identifies and governs shadow SaaS in M365 environments—filling blind spot uncovered by traditional CMDB or identity tools.",
+    "swot": {
+      "strengths": [
+        "First-mover advantage in SaaS discovery and governance; strong growth (+80% YoY) validates demand.",
+        "Solves a critical blind spot: shadow IT costs enterprises billions; Augmentt offers quantified ROI.",
+        "Native M365 integration enables rapid discovery without heavyweight agent deployment."
+      ],
+      "weaknesses": [
+        "Early-stage startup with minimal brand awareness vs. Okta, CrowdStrike, or traditional SaaS management.",
+        "Governance enforcement relies on policy integration; limited ability to block or control SaaS natively.",
+        "Narrow use case (M365 SaaS discovery) limits cross-platform or multi-cloud applicability."
+      ],
+      "opportunities": [
+        "Expand discovery to Google Workspace, AWS, and other enterprise clouds; become platform-agnostic.",
+        "Build AI-powered cost optimization recommendations to drive deeper customer engagement and upsell.",
+        "Integrate with vulnerability management or CASB platforms to combine discovery + security controls."
+      ],
+      "threats": [
+        "Okta, Microsoft, and other identity vendors adding SaaS discovery and governance natively.",
+        "Market consolidation: larger CASB, ITSM, or cloud security vendors acquiring SaaS discovery tools."
+      ]
+    },
+    "userLikes": [
+      "Reveals 'shadow IT' hidden from IT and finance teams; often uncovers significant unsanctioned spend.",
+      "Fast deployment in M365 environments without agents or heavy infrastructure changes.",
+      "Clear cost visibility and governance policies reduce security gaps and compliance violations."
+    ],
+    "userComplaints": [
+      "Governance enforcement limited to recommendations; cannot natively block or uninstall unauthorized apps.",
+      "Focused on M365; less useful for organizations with multi-cloud or non-Microsoft primary infrastructure.",
+      "Integration with broader IT security or ITSM platforms requires manual policy sync or workarounds."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with sprawling M365 deployments and decentralized purchasing.",
+        "Organizations in regulated industries seeking SaaS compliance and spend controls."
+      ],
+      "typicalBuyer": "IT security manager or cloud operations lead responsible for SaaS and cloud spend governance.",
+      "topUseCases": [
+        "Discover and categorize unsanctioned SaaS apps in M365 tenant.",
+        "Enforce access controls and data governance policies on approved SaaS.",
+        "Cost optimization: identify overlapping or redundant SaaS subscriptions."
+      ]
+    },
+    "futureAreas": [
+      "Expand discovery beyond M365 to Google Workspace, AWS, and other major enterprise clouds.",
+      "AI-powered cost optimization and spend forecasting to drive vendor consolidation.",
+      "Security integrations (DLP, CASB) to enforce data classification and prevent sensitive data exfiltration."
+    ]
+  },
+  "itom/deskhero": {
+    "competitiveEdge": "AI-native help desk that learns continuously from resolved tickets and documentation, delivering instant auto-resolution at scale.",
+    "swot": {
+      "strengths": [
+        "Exceptional growth (+100% YoY) and AI-first architecture position it as emerging leader in AI help desk.",
+        "Continuous learning from resolved tickets and docs reduces manual updates to knowledge base.",
+        "High ticket deflection potential directly reduces IT cost per ticket and improves SLA compliance."
+      ],
+      "weaknesses": [
+        "Early-stage startup; limited customer base and use-case diversity vs. Jira Service Management, ServiceNow.",
+        "AI accuracy depends on ticket resolution quality and documentation; poor knowledge base = poor deflection.",
+        "Lacks broader ITSM capabilities (asset management, change control, incident management) for full IT operations."
+      ],
+      "opportunities": [
+        "Expand AI to root-cause analysis and remediation recommendations for complex, multi-step issues.",
+        "Add sentiment analysis and agent coaching to improve first-contact resolution and customer satisfaction.",
+        "Integrate with workforce management, scheduling, and resource planning to optimize IT team allocation."
+      ],
+      "threats": [
+        "ServiceNow, Microsoft, Atlassian adding AI copilots to existing help desk products.",
+        "Custom RAG implementations (using enterprise LLMs) may reduce addressable market for specialized vendors."
+      ]
+    },
+    "userLikes": [
+      "Intelligent ticket deflection reduces volume and handler burnout; teams see immediate workload relief.",
+      "Self-learning capability minimizes manual knowledge base maintenance and keeps answers fresh.",
+      "Fast, accurate responses improve user satisfaction and reduce IT friction across organization."
+    ],
+    "userComplaints": [
+      "Limited scope: help desk only; lacks broader ITSM capabilities (change, incident, asset management).",
+      "AI quality depends on historical ticket data; migrating from poor legacy systems can yield low initial accuracy.",
+      "Integration with broader ticketing or ITSM platforms remains limited; works best as standalone tool."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises with dedicated IT help desks handling high ticket volume.",
+        "Managed service providers (MSPs) managing help desk for multiple customers."
+      ],
+      "typicalBuyer": "IT help desk manager or IT operations leader responsible for ticket volume and SLA compliance.",
+      "topUseCases": [
+        "Auto-deflect repetitive password resets, software license, and connectivity issues.",
+        "Instant knowledge lookup for technicians handling novel or complex requests.",
+        "Continuous learning from resolved tickets to improve knowledge base and response quality."
+      ]
+    },
+    "futureAreas": [
+      "Expand AI to predictive incident detection and proactive remediation (e.g., disk space, certificate expiry).",
+      "Multi-language support and regional localization for global IT operations centers.",
+      "Integration with asset management and CMDB to enable context-aware resolution recommendations."
+    ]
+  },
   "itom/pipefy": {
     "competitiveEdge": "No-code automation platform enabling mid-market IT teams to design and optimize workflows without custom development, competing against low-code incumbents on ease-of-use and speed-to-value.",
     "swot": {
