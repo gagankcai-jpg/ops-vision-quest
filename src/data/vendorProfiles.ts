@@ -43,6 +43,3021 @@ export function toVendorSlug(name: string): string {
 }
 
 export const vendorProfiles: Record<string, VendorProfile> = {
+  "secops/trellix": {
+    "competitiveEdge": "XDR platform combining incident response, endpoint protection, and email security from merger of two established brands.",
+    "swot": {
+      "strengths": [
+        "Broad XDR surface from FireEye+McAfee heritage; established endpoint and email capabilities",
+        "Challenger positioning vs. incumbent SIEM players; migration pathway for existing customers",
+        "Strong brand recognition in enterprise incident response and threat intelligence"
+      ],
+      "weaknesses": [
+        "Post-merger integration complexity; fragmented product messaging to market",
+        "Competes with larger platforms (CrowdStrike, Microsoft, Palo Alto); lower growth than pure-plays",
+        "Transition from point-solutions to unified XDR platform still in progress"
+      ],
+      "opportunities": [
+        "Consolidate product lines and deliver seamless XDR experience across endpoints and network",
+        "Expand cloud-native and SaaS coverage to compete with modern attack surface",
+        "Cross-sell combined forensics/response capabilities to mid-market and strategic accounts"
+      ],
+      "threats": [
+        "Larger cloud-native XDR vendors (Crowdstrike, Microsoft Defender) with deeper integrations",
+        "Customer hesitation about merged entity stability and roadmap clarity",
+        "Rapid shift to managed/cloud-first security reducing on-prem appliance sales"
+      ]
+    },
+    "userLikes": [
+      "Comprehensive incident response and forensics capabilities inherited from FireEye",
+      "Established threat intelligence feeds and malware research reputation",
+      "Enterprise-grade email and endpoint protection with longstanding customer base"
+    ],
+    "userComplaints": [
+      "Confusion around product roadmap and which capabilities will unify at platform level",
+      "Integration overhead and inconsistent UX across merged product lines",
+      "Pricing complexity and unclear TCO vs. unified cloud-first competitors"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with existing FireEye or McAfee Enterprise deployments",
+        "Financial services and regulated industries needing forensics and threat intel",
+        "Organizations with hybrid/on-prem infrastructure favoring established brands"
+      ],
+      "typicalBuyer": "CISO or Security Operations Director at mid-to-large enterprise",
+      "topUseCases": [
+        "Incident investigation and forensics with threat intelligence correlation",
+        "Unified endpoint protection and email security consolidation",
+        "Advanced threat hunting and breach detection across network and endpoints"
+      ]
+    },
+    "futureAreas": [
+      "Cloud-native XDR expansion to compete with SaaS-first incumbents",
+      "AI-driven automated response workflows to reduce SOC toil",
+      "Unified API layer across endpoint, email, and network for third-party integration"
+    ]
+  },
+  "secops/esentire": {
+    "competitiveEdge": "True MDR with 24/7 human-led SOC coverage, differentiating from platform-only or on-demand response models.",
+    "swot": {
+      "strengths": [
+        "Managed service model with dedicated 24/7 SOC team; removes operational burden from customers",
+        "Strong growth trajectory (+a significant share YoY); well-positioned in mid-market MDR segment",
+        "Integrated threat intelligence and proactive hunting built into service delivery"
+      ],
+      "weaknesses": [
+        "Private company with limited brand recognition vs. leading incumbents like Crowdstrike",
+        "Scaling 24/7 SOC coverage is labor-intensive; margins may face pressure as volume grows",
+        "Less suitable for in-house security teams wanting tool autonomy; depends on eSentire expertise"
+      ],
+      "opportunities": [
+        "Expand international SOC capacity to serve global enterprises and APAC growth markets",
+        "Layer AI/automation into SOC workflows to improve response speed without losing human oversight",
+        "Build vertical-specific MDR packages (healthcare, financial services, critical infrastructure)"
+      ],
+      "threats": [
+        "Larger MDR platforms (Crowdstrike, Palo Alto Managed Services) with brand scale and M&A reach",
+        "Customers migrating to self-managed cloud-native EDR/XDR tools reducing MDR TAM",
+        "Talent competition for SOC analysts in expensive cybersecurity labor market"
+      ]
+    },
+    "userLikes": [
+      "Dedicated expert SOC team managing detection and response 24/7 eliminates hiring burden",
+      "Proactive threat hunting and behavioral analysis reduce mean time to detect (MTTD)",
+      "Transparent communication and real-time reporting during incidents builds trust"
+    ],
+    "userComplaints": [
+      "Dependency on eSentire's team quality and expertise; less control over investigation process",
+      "Integration with existing SIEM/tools requires ongoing coordination and customization",
+      "Pricing scales with scope; can become expensive for large, complex environments"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises (1000–10,000 employees) with security ops gaps",
+        "Organizations lacking in-house SOC expertise or unable to hire analysts",
+        "Regulated industries (healthcare, finance) needing continuous compliance monitoring"
+      ],
+      "typicalBuyer": "Security Operations Manager or Head of Security at mid-market company",
+      "topUseCases": [
+        "Managed detection and response with 24/7 expert-led threat hunting",
+        "Endpoint and network monitoring with human-centric incident response",
+        "Compliance reporting and forensics for regulated environments"
+      ]
+    },
+    "futureAreas": [
+      "Expand cloud workload and SaaS application monitoring alongside endpoint MDR",
+      "Develop AI-augmented SOC capabilities to improve analyst efficiency and response time",
+      "International expansion and vertical-specific MDR offerings for healthcare, finance, manufacturing"
+    ]
+  },
+  "secops/trustwave": {
+    "competitiveEdge": "Integrated MSSP and MDR platform combining managed services delivery with threat intelligence and compliance services.",
+    "swot": {
+      "strengths": [
+        "Long-established MSSP footprint with global delivery centers and strong customer relationships",
+        "Diversified service portfolio (MSSP+MDR+threat intel) creates customer lock-in and cross-sell",
+        "Threat intelligence team provides customer-specific insights and context"
+      ],
+      "weaknesses": [
+        "Traditional MSSP model faces margin pressure from cloud-native, higher-velocity MDR competitors",
+        "Lower growth (+a significant share YoY) suggests mature business facing market consolidation pressure",
+        "Legacy on-prem SIEM dependencies slow adoption of modern cloud-first architectures"
+      ],
+      "opportunities": [
+        "Modernize SIEM stack and cloud workload security to compete with cloud-native incumbents",
+        "Develop vertical solutions (fintech, healthcare) leveraging threat intelligence advantage",
+        "Consolidate mid-market MSSP customers into upgraded MDR offering with automation"
+      ],
+      "threats": [
+        "Cloud-native MDR (Crowdstrike, Sentinel One) reducing MSSP TAM and margin compression",
+        "Large consulting firms (Accenture, Deloitte) bundling MSSP+IR+advisory; pricing power eroded",
+        "Customer shift from managed services to self-service SaaS tools and cloud-native architectures"
+      ]
+    },
+    "userLikes": [
+      "Established MSSP delivery with proven operational processes and global coverage",
+      "Integrated threat intelligence team provides industry context and targeted alerts",
+      "Compliance reporting and audit support reduce customer governance overhead"
+    ],
+    "userComplaints": [
+      "Slower innovation cycle vs. cloud-native MDR platforms; legacy SIEM integration challenges",
+      "Service delivery scalability can lag during major incidents; queue times during high demand",
+      "Pricing lacks transparency; difficult to predict costs as attack surface expands"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises with existing Trustwave MSSP relationships seeking MDR uplift",
+        "Global companies needing multi-region SOC coverage and regional compliance expertise",
+        "Organizations with legacy on-prem infrastructure seeking managed modernization pathway"
+      ],
+      "typicalBuyer": "IT Security Manager or Managed Services Director at mid-size enterprise",
+      "topUseCases": [
+        "Managed security services for critical infrastructure and distributed sites",
+        "Threat intelligence integration and incident response coordination across regions",
+        "Compliance monitoring and audit-ready reporting for regulated industries"
+      ]
+    },
+    "futureAreas": [
+      "Modernize platform stack to cloud-native architecture with reduced on-prem dependencies",
+      "Expand threat intelligence monetization through API-driven feeds and custom analytics",
+      "Develop AI-driven automation to improve analyst productivity and reduce service delivery costs"
+    ]
+  },
+  "secops/netsurion": {
+    "competitiveEdge": "Purpose-built SMB-focused MDR and SIEM combining affordability, simplicity, and expert-led response optimized for resource-constrained organizations.",
+    "swot": {
+      "strengths": [
+        "Tight focus on SMB/mid-market segment; pricing and UX optimized for lean security teams",
+        "Strong growth (+a significant share YoY) in underpenetrated SMB security services market",
+        "Bundled SIEM+MDR reduces tool sprawl and simplifies deployment for smaller orgs"
+      ],
+      "weaknesses": [
+        "Limited brand recognition vs. enterprise incumbents; smaller addressable market limits scale",
+        "May lack advanced features (AI/ML, advanced hunting) needed by larger enterprises",
+        "Scaling operations while maintaining SMB-friendly pricing margins is challenging"
+      ],
+      "opportunities": [
+        "Develop industry-specific SMB packages (healthcare practices, law firms, MSP resellers)",
+        "Expand cloud workload and SaaS application monitoring to SMB cloud-first deployments",
+        "Build MSP partnership program to distribute SMB MDR through managed service providers"
+      ],
+      "threats": [
+        "Larger MDR vendors (Crowdstrike, Sentinel One) moving downmarket with aggressive SMB pricing",
+        "Cloud-native EDR/XDR offerings (Microsoft Defender, Google Chronicle) disrupting SMB economics",
+        "Consolidation pressure; strategic acquisition target for larger MDR/SIEM players"
+      ]
+    },
+    "userLikes": [
+      "Affordable, no-frills MDR and SIEM designed for lean IT/security teams",
+      "Simplified onboarding and management; less operational overhead than enterprise platforms",
+      "Responsive support and expert threat hunting accessible to smaller organizations"
+    ],
+    "userComplaints": [
+      "Limited customization and integration capabilities vs. enterprise platforms",
+      "Features lag advanced use cases like custom threat hunting or complex playbook automation",
+      "Scaling support quality as customer base grows; potential service degradation"
+    ],
+    "customerProfile": {
+      "segments": [
+        "SMBs (100–1000 employees) with limited security budget and in-house expertise",
+        "Regional/mid-market enterprises moving from DIY SIEM to managed offerings",
+        "Managed service providers seeking white-labeled MDR for customer delivery"
+      ],
+      "typicalBuyer": "IT Security Manager or Operations Director at resource-constrained SMB",
+      "topUseCases": [
+        "Affordable managed detection and response with expert-led incident response",
+        "Simplified SIEM deployment and log analysis for compliance and threat detection",
+        "Proactive threat hunting and alert triage reducing false positives and alert fatigue"
+      ]
+    },
+    "futureAreas": [
+      "Develop MSP and partner channel for rapid SMB market penetration",
+      "Add cloud workload and SaaS application security to core SMB offering",
+      "Build AI-driven triage and automation to improve analyst efficiency without raising costs"
+    ]
+  },
+  "secops/d3-security": {
+    "competitiveEdge": "Codeless SOAR with intelligent case management and autonomous automation, lowering SOC skill barriers and reducing manual response overhead.",
+    "swot": {
+      "strengths": [
+        "Codeless automation platform significantly lowers deployment and customization barriers",
+        "High growth (+a significant share YoY) reflects market demand for simplified SOAR with intelligent workflows",
+        "Case management and triage automation reduce alert fatigue and analyst burnout"
+      ],
+      "weaknesses": [
+        "SOAR market faces consolidation; larger XDR/SIEM platforms bundling automation capabilities",
+        "Limited integrations vs. legacy SOAR players (Palo Alto Unit42, Splunk); integration lag slows adoption",
+        "Smaller install base limits network effects and community playbook ecosystem"
+      ],
+      "opportunities": [
+        "Partner with XDR/MDR platforms to embed codeless automation in their workflows",
+        "Expand case management to other security functions (vulnerability management, threat intel)",
+        "Build pre-built industry playbooks (healthcare, finance, critical infrastructure) to accelerate ROI"
+      ],
+      "threats": [
+        "Splunk, Palo Alto, Crowdstrike bundling SOAR capabilities into larger platform suites",
+        "Custom automation and AI-driven response increasingly table-stakes in XDR/MDR offerings",
+        "Open-source workflow tools and low-code platforms eroding SOAR TAM"
+      ]
+    },
+    "userLikes": [
+      "Codeless automation enables non-developers to build and modify incident response workflows",
+      "Intelligent case management reduces alert noise and helps analysts prioritize effectively",
+      "Quick time to value; faster deployment than traditional SOAR platforms"
+    ],
+    "userComplaints": [
+      "Limited pre-built playbooks for niche use cases; customization still requires skilled resources",
+      "Integration with enterprise tools (SIEM, threat intel, ticketing) requires ongoing maintenance",
+      "Smaller community and ecosystem means fewer shared playbooks and best practices"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises seeking SOAR without heavy development investment",
+        "Organizations with limited SOAR expertise looking for ease-of-use and faster value",
+        "Security teams facing alert fatigue wanting intelligent triage and automation"
+      ],
+      "typicalBuyer": "Security Operations Manager or SOC Lead at mid-market organization",
+      "topUseCases": [
+        "Codeless automation of routine incident response workflows and playbooks",
+        "Intelligent alert triage and case management to reduce analyst toil and false positives",
+        "Cross-platform orchestration and response coordination across SIEM, endpoint, and cloud tools"
+      ]
+    },
+    "futureAreas": [
+      "Expand beyond incident response to vulnerability management, threat intelligence, and compliance automation",
+      "Develop AI-driven playbook recommendations based on organization's threat landscape",
+      "Build marketplace for pre-built industry and function-specific automation packages"
+    ]
+  },
+  "secops/intezer": {
+    "competitiveEdge": "AI-powered malware analysis and autonomous triage platform, dramatically accelerating SOC investigation speed and reducing analyst expertise barriers.",
+    "swot": {
+      "strengths": [
+        "AI-driven malware analysis is differentiated; provides SOC with instant triage and attribution",
+        "Exceptionally high growth (+a significant share YoY) reflects strong product-market fit in malware analysis space",
+        "Reduces analyst expertise required for malware investigation; improves SOC efficiency dramatically"
+      ],
+      "weaknesses": [
+        "Narrow point-solution focus on malware analysis; limited to part of security operations workflow",
+        "Competes with larger threat intel and sandbox vendors (Crowdstrike Falcon Intelligence, Splunk)",
+        "Requires integration with other tools (SIEM, endpoint, ticketing) to deliver full value"
+      ],
+      "opportunities": [
+        "Expand autonomous triage capabilities to other file/code analysis scenarios (scripts, configs)",
+        "Develop API-first architecture enabling embedding in enterprise XDR, SIEM, and email gateways",
+        "Build vertical-specific malware detection (ransomware, supply-chain, OT-focused variants)"
+      ],
+      "threats": [
+        "Large sandbox vendors (Falcon Intelligence, Detonation Center) adding AI-driven analysis",
+        "XDR platforms bundling malware analysis to reduce point-solution sprawl",
+        "Open-source malware analysis tools and machine learning commoditizing analysis capabilities"
+      ]
+    },
+    "userLikes": [
+      "AI-driven malware analysis provides instant answers; dramatically reduces investigation time",
+      "Autonomous triage and attribution reduce dependency on expert malware analysts",
+      "Lightweight integration with existing security tools; fits into existing workflows smoothly"
+    ],
+    "userComplaints": [
+      "Point-solution approach requires integration with SIEM, endpoint, and email platforms",
+      "Requires ongoing tuning to reduce false positives in specific industry/threat contexts",
+      "Smaller vendor means less ecosystem integration and slower feature releases than incumbents"
+    ],
+    "customerProfile": {
+      "segments": [
+        "SOC teams in enterprises with high malware volume and limited malware analysis expertise",
+        "Security operations needing faster triage of suspicious files and scripts",
+        "Organizations prioritizing automation to reduce expert analyst dependency"
+      ],
+      "typicalBuyer": "SOC Lead or Threat Analysis Manager at mid-to-large enterprise",
+      "topUseCases": [
+        "Autonomous malware analysis and rapid attribution for incident triage",
+        "Behavioral analysis and sandbox-less detonation of suspicious files",
+        "Integration with email, endpoint, and SIEM for automated file analysis at scale"
+      ]
+    },
+    "futureAreas": [
+      "Expand AI-driven autonomous triage beyond malware to scripts, configs, and container images",
+      "Develop API-first architecture enabling seamless embedding in SIEM, XDR, and email platforms",
+      "Build industry-specific malware detection and attribution capabilities (ransomware, supply-chain, OT)"
+    ]
+  },
+  "secops/cado-security": {
+    "competitiveEdge": "Cloud-native forensics automation enables rapid incident response in containerized environments without agent dependencies.",
+    "swot": {
+      "strengths": [
+        "Purpose-built for cloud incident response—addresses forensics gap in cloud-native operations",
+        "Rapid deployment with minimal infrastructure footprint—no persistent agent requirements",
+        "Emerging vendor with strong growth momentum in growing cloud security segment"
+      ],
+      "weaknesses": [
+        "Early-stage startup with limited enterprise customer base and proof points",
+        "Narrow positioning may limit cross-selling into adjacent security functions",
+        "Smaller team and R&D budget compared to established incident response platforms"
+      ],
+      "opportunities": [
+        "Cloud adoption acceleration drives demand for cloud-native forensics and remediation",
+        "SOAR and response orchestration integration could extend market reach",
+        "API integrations with cloud security and SIEM tools to become orchestration hub"
+      ],
+      "threats": [
+        "AWS, Azure, Google Cloud adding native forensics capabilities reducing need for third-party",
+        "Larger SOAR and XDR players embedding cloud forensics into platforms"
+      ]
+    },
+    "userLikes": [
+      "Fast, frictionless evidence collection from cloud workloads and containers",
+      "Minimal overhead—no persistent agents affecting production performance",
+      "Simplified chain-of-custody for regulatory compliance in cloud investigations"
+    ],
+    "userComplaints": [
+      "Limited integration breadth with existing SIEM and ticketing systems",
+      "Small vendor—concerns about long-term viability and support roadmap",
+      "Documentation and community resources lag larger security platforms"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-first enterprises with Kubernetes and containerized workloads",
+        "Managed security service providers managing multi-cloud environments",
+        "Incident response teams in regulated industries requiring forensic audit trails"
+      ],
+      "typicalBuyer": "Cloud operations or security engineering lead needing rapid forensics capability",
+      "topUseCases": [
+        "Automated evidence collection and timeline reconstruction from cloud instances",
+        "Container and Kubernetes incident investigation without deployment complexity",
+        "Compliance-ready forensic data collection for breach investigations"
+      ]
+    },
+    "futureAreas": [
+      "Integration with threat intelligence and response orchestration for automated incident response",
+      "Serverless and edge-native security posture assessment and remediation",
+      "API-driven forensics for multi-cloud and hybrid infrastructure scenarios"
+    ]
+  },
+  "secops/lumu-technologies": {
+    "competitiveEdge": "Passive network metadata and DNS analysis reveals compromise signals without agent deployment or traffic mirroring.",
+    "swot": {
+      "strengths": [
+        "Unique passive intelligence approach—identifies threats from existing network telemetry",
+        "Agentless architecture enables rapid deployment across heterogeneous environments",
+        "Addresses detection gap where traditional tools miss low-and-slow threats"
+      ],
+      "weaknesses": [
+        "Limited to detection layer—does not include response, containment, or remediation",
+        "Positioning as specialized compromise radar narrows market appeal",
+        "Dependency on DNS and network metadata quality—effectiveness varies by infrastructure"
+      ],
+      "opportunities": [
+        "XDR market growth drives demand for threat detection beyond endpoint-centric solutions",
+        "API integration with SOAR platforms to drive automated response workflows",
+        "Expansion into OT/IoT networks where endpoint tools are less viable"
+      ],
+      "threats": [
+        "Major SIEM and XDR platforms integrating DNS analytics and network detection",
+        "HTTPS/encrypted DNS adoption reduces visibility into DNS-based threat indicators",
+        "Competitors offering end-to-end detection and response reducing single-point-tool adoption"
+      ]
+    },
+    "userLikes": [
+      "Detects compromise signals missed by endpoint and firewall tools",
+      "Works in restricted environments where agent deployment is not feasible",
+      "Low operational overhead—uses existing network metadata, minimal tuning required"
+    ],
+    "userComplaints": [
+      "Detection-only model requires integration with separate response and remediation tools",
+      "DNS encryption and traffic obfuscation reducing visibility into threat indicators",
+      "High false-positive rates in DNS analytics without proper tuning and threat intel"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprises with heterogeneous networks and restricted agent deployment policies",
+        "Managed service providers seeking lightweight detection layer",
+        "Organizations with OT and IoT environments where endpoint tools are impractical"
+      ],
+      "typicalBuyer": "SOC director or threat intelligence lead building detection coverage",
+      "topUseCases": [
+        "Passive compromise detection using network metadata and DNS analytics",
+        "Threat hunting across internal networks for indicators of compromise",
+        "Continuous network monitoring for low-and-slow advanced threats"
+      ]
+    },
+    "futureAreas": [
+      "Integration with threat intelligence automation and SOAR response orchestration",
+      "Encrypted traffic analytics to maintain visibility as DNS/TLS adoption increases",
+      "OT and industrial control system threat detection using network-based methods"
+    ]
+  },
+  "secops/cyware": {
+    "competitiveEdge": "Threat intelligence automation and SOAR combined enable collaborative, real-time threat response across enterprise and external partners.",
+    "swot": {
+      "strengths": [
+        "Integrated threat intelligence and SOAR addresses fragmented point-tool landscape",
+        "Collaborative intelligence sharing enables external threat data enrichment",
+        "Established in mid-market with strong customer base and operational references"
+      ],
+      "weaknesses": [
+        "Smaller platform scale compared to Splunk, CrowdStrike, and Palo Alto Networks",
+        "Integration breadth with enterprise ecosystems may lag larger platform vendors",
+        "Limited standalone threat intelligence capabilities compared to specialized TIP vendors"
+      ],
+      "opportunities": [
+        "Growing demand for threat intelligence-driven SOAR and playbook automation",
+        "API-first architecture enables OEM and channel partnerships with larger platforms",
+        "Expansion into government and critical infrastructure sectors requiring intelligence sharing"
+      ],
+      "threats": [
+        "Major SIEM and XDR platforms building integrated threat intelligence and orchestration",
+        "Standalone SOAR vendors like Palo Alto Cortex XSOAR adding intelligence features",
+        "Regulatory shifts favoring consolidated platforms over point solutions"
+      ]
+    },
+    "userLikes": [
+      "Automated threat intelligence enrichment streamlines incident response workflows",
+      "Collaborative intelligence sharing improves detection and response across organizations",
+      "Tight integration between threat intel and SOAR playbooks reduces tool switching"
+    ],
+    "userComplaints": [
+      "Implementation complexity and customization effort required for enterprise deployments",
+      "Smaller community and ecosystem compared to Splunk and Palo Alto platforms",
+      "Limited advanced analytics and machine learning capabilities in threat intelligence layer"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises seeking integrated threat intelligence and SOAR",
+        "Financial services and critical infrastructure with intelligence sharing requirements",
+        "Managed service providers automating threat response across customer base"
+      ],
+      "typicalBuyer": "SOC manager or intelligence analyst leading threat response automation",
+      "topUseCases": [
+        "Automated threat intelligence enrichment and contextualization in incident response",
+        "Collaborative threat intelligence sharing and IOC distribution across organizations",
+        "Playbook automation using threat intelligence to drive incident response workflows"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven threat intelligence analysis and anomaly detection in security data",
+      "Ecosystem expansion for OEM partnerships with larger security platforms",
+      "Government and critical infrastructure vertical expansion with compliance-specific features"
+    ]
+  },
+  "secops/mandiant": {
+    "competitiveEdge": "Google-backed threat intelligence and incident response brand carries industry-leading credibility with elite first-line IR teams.",
+    "swot": {
+      "strengths": [
+        "Unmatched credibility—recognized as gold standard for threat intelligence and IR",
+        "Google backing provides unlimited R&D and infrastructure investment",
+        "Integration into Google Cloud Security platform strengthens cloud incident response"
+      ],
+      "weaknesses": [
+        "Primarily premium-tier positioning limits addressable market to enterprises",
+        "IR services business model creates tension with self-service product adoption",
+        "Limited public product roadmap—integration into Google Cloud still evolving"
+      ],
+      "opportunities": [
+        "Expansion of threat intelligence products into Google Cloud native services",
+        "XDR and detection-response integration leveraging Mandiant IR expertise",
+        "Vertical expansion into financial services, government, and critical infrastructure"
+      ],
+      "threats": [
+        "Other major cloud providers developing equivalent IR and threat intelligence services",
+        "Open-source threat intelligence tools reducing premium positioning advantage",
+        "Competition from Palo Alto Cortex, Microsoft Defender, and Alibaba security services"
+      ]
+    },
+    "userLikes": [
+      "Unparalleled threat intelligence quality from incident response frontline insights",
+      "Deep expertise in advanced threat investigation and compromise recovery",
+      "Direct access to elite incident response teams for highest-stakes investigations"
+    ],
+    "userComplaints": [
+      "Premium positioning and engagement model puts IR services out of reach for mid-market",
+      "Self-service threat intelligence products and tools still maturing relative to Mandiant services",
+      "Limited transparency on product-specific incident response automation roadmap"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with sophisticated APT and nation-state threat exposure",
+        "Financial services and critical infrastructure with premium IR requirements",
+        "Government agencies with high-confidence threat intelligence requirements"
+      ],
+      "typicalBuyer": "CISO or VP of Security at enterprise with significant threat exposure",
+      "topUseCases": [
+        "Advanced threat investigation and compromise recovery from elite threat actors",
+        "High-confidence threat intelligence for threat hunting and risk prioritization",
+        "Crisis response and forensic investigation for major security incidents"
+      ]
+    },
+    "futureAreas": [
+      "Cloud-native incident response and forensics integrated into Google Cloud platform",
+      "Threat intelligence-driven XDR and detection-response product expansion",
+      "Managed threat hunting and intelligence services for mid-market expansion"
+    ]
+  },
+  "secops/secureworks": {
+    "competitiveEdge": "Taegis XDR platform combines managed detection and response with extended detection across endpoints, networks, and cloud.",
+    "swot": {
+      "strengths": [
+        "Established MDR and XDR player with proven enterprise customer base and operations",
+        "Taegis platform integrates detection, investigation, and response in single console",
+        "Strong professional services and managed services capability for enterprise deployment"
+      ],
+      "weaknesses": [
+        "Moderate growth relative to larger XDR and MDR vendors like CrowdStrike and Microsoft",
+        "Pricing and complexity may favor larger enterprises over mid-market segment",
+        "Platform consolidation efforts still integrating detection sources and response capabilities"
+      ],
+      "opportunities": [
+        "Cloud and hybrid security expansion as enterprises adopt multi-cloud architectures",
+        "API-first platform enables third-party integrations and ecosystem expansion",
+        "Vertical expansion into government and critical infrastructure with specialized security"
+      ],
+      "threats": [
+        "Larger XDR platforms like Microsoft Defender, Palo Alto Cortex, and CrowdStrike",
+        "Cloud-native MDR and detection services from hyperscalers",
+        "Competitive pressure on pricing from endpoint-first vendors adding detection and response"
+      ]
+    },
+    "userLikes": [
+      "Unified XDR platform reduces tool sprawl and detection gaps across endpoints and networks",
+      "Managed services provide relief from SOC staffing and alert fatigue challenges",
+      "Expert investigation teams available for escalated and complex incidents"
+    ],
+    "userComplaints": [
+      "Complexity of platform and integration effort exceeds expectations for mid-market",
+      "Alert tuning and false-positive reduction requires significant SOC investment",
+      "Pricing can exceed point-tool alternatives for organizations with mature SOC operations"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with complex multi-environment security requirements",
+        "Managed service providers offering MDR and XDR services to customer base",
+        "Organizations seeking unified detection and response to consolidate security stack"
+      ],
+      "typicalBuyer": "Security operations director or managed security services provider",
+      "topUseCases": [
+        "Managed detection and response for endpoints, networks, and cloud workloads",
+        "XDR investigation and threat correlation across multiple detection sources",
+        "Security operations augmentation and SOC staffing via managed services"
+      ]
+    },
+    "futureAreas": [
+      "Cloud-native XDR and detection expansion for containerized workloads",
+      "AI-driven threat correlation and investigation automation in Taegis platform",
+      "Vertical and geographic expansion in EMEA and government markets"
+    ]
+  },
+  "secops/nozomi-networks": {
+    "competitiveEdge": "OT and IoT network monitoring and threat detection purpose-built for critical infrastructure where traditional IT security fails.",
+    "swot": {
+      "strengths": [
+        "Unique focus on OT/IoT—addressable market without mature incumbent solutions",
+        "Deep expertise in industrial protocols and control system security",
+        "Growing customer base in critical infrastructure with regulatory compliance requirements"
+      ],
+      "weaknesses": [
+        "Niche positioning limits market size and cross-selling into IT security operations",
+        "Industrial expertise required for implementation and tuning narrows integrator base",
+        "Limited integration with mainstream IT security platforms and SOC workflows"
+      ],
+      "opportunities": [
+        "Critical infrastructure digitalization and connectivity driving OT security spending",
+        "Regulatory mandates and compliance frameworks increasing OT security visibility requirements",
+        "Integration with enterprise security platforms to bring OT visibility to SOC"
+      ],
+      "threats": [
+        "Major IT security vendors adding OT security capabilities and modules",
+        "Hyperscalers expanding cloud-based OT monitoring and threat detection",
+        "Open-source and low-cost alternatives emerging in specialized OT security"
+      ]
+    },
+    "userLikes": [
+      "Deep understanding of OT protocols and industrial systems where IT tools fail",
+      "Non-disruptive monitoring without requiring changes to critical operational systems",
+      "Compliance and regulatory guidance specific to industrial control systems"
+    ],
+    "userComplaints": [
+      "Limited integration with enterprise SOC tools and SIEM platforms",
+      "Implementation and tuning requires scarce OT security expertise",
+      "Small vendor ecosystem and limited third-party integration partners"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Critical infrastructure operators in energy, utilities, manufacturing, and water",
+        "Industrial automation and control system integrators and service providers",
+        "Government agencies with OT security and critical infrastructure protection mandates"
+      ],
+      "typicalBuyer": "OT security manager or industrial control systems engineer",
+      "topUseCases": [
+        "Network monitoring and anomaly detection for operational technology environments",
+        "Threat detection and investigation for industrial control systems",
+        "Regulatory compliance and visibility for critical infrastructure security audits"
+      ]
+    },
+    "futureAreas": [
+      "Integration with enterprise SOC platforms to unify IT and OT security operations",
+      "AI-driven anomaly detection for OT network behavior baselines and threat hunting",
+      "Expansion into sustainability and resilience monitoring for critical infrastructure"
+    ]
+  },
+  "secops/claroty": {
+    "competitiveEdge": "Specialized cyber-physical systems protection for operational technology environments where general SIEM/XDR solutions fall short.",
+    "swot": {
+      "strengths": [
+        "Deep expertise in OT/ICS security with specialized threat detection tailored to industrial environments",
+        "Strong growth trajectory (+a significant share YoY) indicates market demand for OT-specific solutions",
+        "Private valuation of $1.8B reflects investor confidence in differentiated market positioning"
+      ],
+      "weaknesses": [
+        "Niche positioning limits addressable market compared to broader security platforms",
+        "Smaller scale than established SIEM/XDR leaders may constrain R&D and product breadth",
+        "Estimated $150M ARR suggests limited enterprise penetration outside OT-focused verticals"
+      ],
+      "opportunities": [
+        "Growing convergence of OT and IT security driving demand for integrated platforms",
+        "Increased regulatory focus on industrial infrastructure security (grid, utilities, manufacturing)",
+        "Potential integration with broader enterprise security stacks as OT security matures"
+      ],
+      "threats": [
+        "Larger security vendors expanding OT capabilities could commoditize specialized offerings",
+        "Economic downturn in industrial/energy sectors could reduce OT security budgets",
+        "Consolidation pressure as larger players acquire niche OT security vendors"
+      ]
+    },
+    "userLikes": [
+      "Purpose-built for OT/ICS environments rather than adapted from IT security",
+      "Deep understanding of industrial protocols and operational constraints",
+      "Strong technical support for specialized infrastructure protection"
+    ],
+    "userComplaints": [
+      "Limited integration with broader enterprise security tooling outside OT",
+      "Higher barrier to entry for organizations unfamiliar with OT security terminology",
+      "Smaller ecosystem of third-party integrations compared to major platforms"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Utilities and energy companies with critical OT infrastructure",
+        "Manufacturing and industrial operations with ICS environments",
+        "Water/wastewater and transportation operators managing operational technology"
+      ],
+      "typicalBuyer": "Industrial security engineer or OT security manager",
+      "topUseCases": [
+        "Real-time visibility and threat detection across OT/ICS networks",
+        "Operational continuity monitoring with minimal impact to production systems",
+        "Compliance and incident response for industrial control environments"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven anomaly detection for operational patterns in industrial systems",
+      "Automated remediation and containment for OT threats with safety guardrails",
+      "Extended visibility into converged OT/IT environments and IoT edge devices"
+    ]
+  },
+  "secops/dragos": {
+    "competitiveEdge": "Industrial cybersecurity platform combining OT-specific threat detection with proprietary ICS threat intelligence.",
+    "swot": {
+      "strengths": [
+        "Strong growth (+a significant share YoY) and high market demand for ICS-focused threat intelligence",
+        "Purpose-built for industrial environments with deep understanding of operational technology",
+        "Established as key player in critical infrastructure security market segment"
+      ],
+      "weaknesses": [
+        "Narrow focus on ICS/OT limits relevance for organizations without operational technology",
+        "Estimated $100M ARR indicates smaller scale relative to enterprise security leaders",
+        "Niche specialization may limit ability to offer comprehensive security portfolio"
+      ],
+      "opportunities": [
+        "Increasing government mandates for industrial infrastructure security (CISA, NERC, etc.)",
+        "Expansion beyond threat intelligence into managed detection and response for ICS",
+        "Strategic partnerships with large IT security vendors to embed OT capabilities"
+      ],
+      "threats": [
+        "Major security platforms adding OT/ICS modules could commoditize intelligence",
+        "Economic cyclicality in critical infrastructure spending affects revenue predictability",
+        "Competitive pressure from emerging regional ICS security specialists"
+      ]
+    },
+    "userLikes": [
+      "ICS threat intelligence grounded in deep industrial cybersecurity research",
+      "Operational focus that minimizes disruption to critical infrastructure",
+      "Strong relationships within industrial security and critical infrastructure communities"
+    ],
+    "userComplaints": [
+      "Limited scope makes it primarily a threat intelligence and consulting tool rather than a full platform",
+      "Integration with broader enterprise security stacks remains challenging",
+      "Smaller user community compared to general-purpose security platforms"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Critical infrastructure operators (utilities, power, water, transportation)",
+        "Industrial organizations with safety-critical OT environments",
+        "Government and defense contractors managing classified OT networks"
+      ],
+      "typicalBuyer": "Industrial control systems security architect or OT risk manager",
+      "topUseCases": [
+        "ICS threat intelligence and industrial vulnerability assessment",
+        "Operational risk monitoring for critical infrastructure protection",
+        "Incident response and forensics in safety-critical environments"
+      ]
+    },
+    "futureAreas": [
+      "Managed detection and response (MDR) for industrial control systems",
+      "AI-enhanced threat hunting for OT-specific attack patterns",
+      "Supply chain risk assessment for industrial components and firmware"
+    ]
+  },
+  "secops/axonius": {
+    "competitiveEdge": "Unified asset and device management providing complete inventory and visibility for cybersecurity asset management.",
+    "swot": {
+      "strengths": [
+        "Highest growth rate (+a significant share YoY) indicates strong market demand for asset visibility",
+        "Highest valuation ($2.6B) suggests strong investor confidence and market positioning",
+        "Estimated $100M ARR growing rapidly reflects broad enterprise adoption"
+      ],
+      "weaknesses": [
+        "Asset management is foundational layer, not primary security control",
+        "Market timing challenges as enterprises rationalize tool sprawl",
+        "Limited threat detection and response capabilities relative to SIEM/XDR platforms"
+      ],
+      "opportunities": [
+        "Integration point for broader security stack as enterprises seek unified visibility",
+        "Expansion into asset-centric threat hunting and vulnerability correlation",
+        "Consolidation with endpoint or identity platforms to expand addressable market"
+      ],
+      "threats": [
+        "Larger security vendors bundling asset management into broader platforms",
+        "IT/OT convergence complexity may require deeper industry-specific solutions",
+        "Competitive pressure from cloud-native asset discovery tools"
+      ]
+    },
+    "userLikes": [
+      "Complete device and user visibility across hybrid environments (cloud, on-prem, remote)",
+      "Rapid discovery and inventory without requiring agent deployment",
+      "Clear asset context for security decisions and compliance reporting"
+    ],
+    "userComplaints": [
+      "Requires integration with other tools for actual threat detection and response",
+      "Data accuracy challenges in highly dynamic cloud and remote work environments",
+      "Asset correlation and context can be complex for large heterogeneous environments"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with complex multi-cloud and hybrid IT environments",
+        "Organizations undergoing digital transformation with shadow IT challenges",
+        "Regulated industries needing comprehensive asset and compliance visibility"
+      ],
+      "typicalBuyer": "Security architect or IT asset management director",
+      "topUseCases": [
+        "Complete discovery and inventory of all devices, software, and users",
+        "Vulnerability and compliance correlation with asset ownership and business context",
+        "Incident response context and lateral movement risk assessment"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven risk scoring based on asset context and exposure metrics",
+      "Automated remediation workflows triggered by asset vulnerability correlations",
+      "Real-time supply chain risk assessment based on software asset inventory"
+    ]
+  },
+  "secops/noname-security": {
+    "competitiveEdge": "Specialized API security posture management acquired by major CDN provider, now integrated into broader application security.",
+    "swot": {
+      "strengths": [
+        "Backing by Akamai provides enterprise distribution and credibility",
+        "API security focus addresses high-growth attack surface with limited market coverage",
+        "Integration with Akamai's platform provides broader application security context"
+      ],
+      "weaknesses": [
+        "Post-acquisition integration may dilute standalone positioning and product vision",
+        "Limited transparency on financials and roadmap as division of larger company",
+        "Smaller installed base compared to established API security specialists"
+      ],
+      "opportunities": [
+        "Akamai integration enables broader security platform positioning",
+        "Growing API attack surface and regulatory focus on API security",
+        "Expansion into runtime API threat detection and response"
+      ],
+      "threats": [
+        "Specialized API security vendors gaining market share with focused solutions",
+        "Risk of deprioritization within larger corporate structure",
+        "Major cloud platforms adding native API protection capabilities"
+      ]
+    },
+    "userLikes": [
+      "Dedicated API security posture assessment tailored to application architectures",
+      "Integration with Akamai platform provides broader WAF and DDoS context",
+      "Support for modern API technologies (REST, GraphQL, gRPC)"
+    ],
+    "userComplaints": [
+      "Less clear product direction and roadmap post-acquisition",
+      "Smaller community and ecosystem compared to independent platforms",
+      "Integration may feel bolted-on rather than native to Akamai platform"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Organizations with significant API-driven application architectures",
+        "Akamai customers seeking integrated application security",
+        "Enterprises managing complex microservices and API ecosystems"
+      ],
+      "typicalBuyer": "Application security engineer or API platform owner",
+      "topUseCases": [
+        "API security posture discovery and compliance assessment",
+        "API threat detection and anomalous behavior identification",
+        "API access control and authentication enforcement"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered API threat hunting for zero-day and exploitation attempts",
+      "Automated API security testing integrated with CI/CD pipelines",
+      "Supply chain risk visibility for third-party API dependencies"
+    ]
+  },
+  "secops/salt-security": {
+    "competitiveEdge": "AI-powered API security platform combining runtime detection and prevention for modern application threats.",
+    "swot": {
+      "strengths": [
+        "Strong growth (+a significant share YoY) indicates solid market traction for API security",
+        "AI-powered detection addresses complexity of modern API attack patterns",
+        "Solid valuation ($1.4B) reflects investor confidence in API security market"
+      ],
+      "weaknesses": [
+        "Estimated $60M ARR suggests niche market positioning with limited enterprise reach",
+        "API security is tactical layer, not primary security control",
+        "Requires integration with broader security infrastructure for full value"
+      ],
+      "opportunities": [
+        "Expanding regulations (OWASP Top 10, API security standards) drive adoption",
+        "Shift-left integration with CI/CD for early API vulnerability detection",
+        "Consolidation opportunities as enterprises seek unified API security"
+      ],
+      "threats": [
+        "Larger security vendors adding API detection to broader platforms",
+        "Specialized API security startups competing on focus and innovation",
+        "Cloud platform native API security capabilities may reduce standalone demand"
+      ]
+    },
+    "userLikes": [
+      "AI-driven detection that adapts to new and evolving API attack patterns",
+      "Minimal performance overhead with inline API security enforcement",
+      "Clear visibility into API usage and anomalous behavior"
+    ],
+    "userComplaints": [
+      "API-only focus limits scope of broader security strategy integration",
+      "Requires understanding of API architecture and modern application patterns",
+      "Integration complexity with legacy security infrastructure"
+    ],
+    "customerProfile": {
+      "segments": [
+        "High-growth technology companies with extensive API ecosystems",
+        "Financial services and fintech organizations managing payment APIs",
+        "SaaS platforms with complex multi-tenant API architectures"
+      ],
+      "typicalBuyer": "API platform security engineer or application security lead",
+      "topUseCases": [
+        "Runtime API threat detection and prevention with minimal latency",
+        "API abuse and credential stuffing attack prevention",
+        "API usage anomaly detection for insider threat and account takeover"
+      ]
+    },
+    "futureAreas": [
+      "Shift-left integration for API security testing in CI/CD pipelines",
+      "AI-driven API contract and specification enforcement",
+      "Automated API security response and remediation workflows"
+    ]
+  },
+  "secops/devo-technology": {
+    "competitiveEdge": "Hyperscale cloud-native SIEM designed for enterprise volume and real-time analytics at massive scale.",
+    "swot": {
+      "strengths": [
+        "Strong growth (+a significant share YoY) in competitive SIEM market indicates differentiation",
+        "Cloud-native architecture addresses scalability limitations of legacy SIEM",
+        "Estimated $100M ARR reflects strong adoption among large enterprises"
+      ],
+      "weaknesses": [
+        "Smaller installed base relative to Splunk, Elastic, and IBM incumbents",
+        "Cloud-first model may require significant migration from on-premises SIEM",
+        "Limited market presence in mid-market and smaller organizations"
+      ],
+      "opportunities": [
+        "Migration from legacy on-premises SIEM to cloud-native platforms",
+        "Integration with broader security orchestration and automation (SOAR)",
+        "Expansion into threat detection and response capabilities"
+      ],
+      "threats": [
+        "Major SIEM incumbents rapidly enhancing cloud capabilities",
+        "Elastic and Splunk aggressive pricing and bundling strategies",
+        "Generalist cloud platforms (AWS, Azure) adding SIEM-like capabilities"
+      ]
+    },
+    "userLikes": [
+      "Significantly lower latency and higher throughput than traditional SIEM solutions",
+      "Cloud-native scalability without massive on-premises infrastructure costs",
+      "Simplified log management with faster threat detection and investigation"
+    ],
+    "userComplaints": [
+      "Smaller ecosystem and fewer third-party integrations than legacy SIEM leaders",
+      "Migration complexity from existing SIEM deployments and workflows",
+      "Less mature incident response and threat hunting features versus incumbents"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises and service providers with massive security event volumes",
+        "Cloud-first organizations minimizing on-premises infrastructure",
+        "Organizations seeking to modernize aging on-premises SIEM"
+      ],
+      "typicalBuyer": "CISO or security operations director seeking cloud-native SIEM",
+      "topUseCases": [
+        "High-volume security event collection, indexing, and real-time analysis",
+        "Rapid threat detection and investigation at massive scale",
+        "Compliance and forensic log retention with cloud cost optimization"
+      ]
+    },
+    "futureAreas": [
+      "AI-powered threat detection and behavioral analytics for large-scale environments",
+      "Integrated threat hunting and investigation workflows with machine learning",
+      "Serverless and consumption-based pricing models for dynamic workload scaling"
+    ]
+  },
+  "secops/panther-labs": {
+    "competitiveEdge": "Code-as-detection language (Python) lowers SIEM skill gaps and accelerates threat rule development for cloud-native engineering teams.",
+    "swot": {
+      "strengths": [
+        "Developer-first UX with familiar Python syntax reduces detection engineering friction",
+        "Cloud-native SIEM architecture optimized for ephemeral infrastructure and rapid scaling",
+        "Horizontal growth into fintech, SaaS, and mid-market horizontals seeking developer appeal"
+      ],
+      "weaknesses": [
+        "Smaller incumbent market share vs. Splunk, Datadog, Elastic incumbents",
+        "Limited legacy/on-premises integrations vs. mature SIEM players",
+        "Early-stage Python detection ecosystem lacks breadth of pre-built rules vs. industry standards"
+      ],
+      "opportunities": [
+        "DevSecOps pipeline integration as CI/CD adoption accelerates in regulated industries",
+        "Horizontal expansion into cost-conscious mid-market tired of SIEM licensing models",
+        "API-driven detection marketplace for third-party Python rule vendors"
+      ],
+      "threats": [
+        "Datadog, Splunk entering developer-friendly detection tiers erodes positioning",
+        "Cloud provider native SIEM (AWS, GCP) raises build-vs.-buy calculus"
+      ]
+    },
+    "userLikes": [
+      "Python-based detection rules match developer workflows and reduce learning curve",
+      "Transparent, consumption-based pricing vs. traditional SIEM complexity",
+      "Rapid iteration and community-driven rule libraries align with DevOps culture"
+    ],
+    "userComplaints": [
+      "Limited pre-built playbooks and response orchestration vs. mature SOAR vendors",
+      "Smaller analyst ecosystem and fewer managed detection services partners",
+      "Onboarding complexity for teams without Python/engineering backgrounds"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native SaaS and fintech companies with strong engineering cultures",
+        "Mid-market enterprises automating legacy SIEM migrations to cloud",
+        "Startups and scale-ups prioritizing developer velocity over compliance breadth"
+      ],
+      "typicalBuyer": "Security engineer or DevSecOps lead with software development background",
+      "topUseCases": [
+        "Real-time cloud infrastructure security monitoring and anomaly detection",
+        "Custom threat detection rule development at velocity without vendor lock-in",
+        "Log normalization and cost-effective data ingestion for high-volume cloud workloads"
+      ]
+    },
+    "futureAreas": [
+      "Native AI/ML-assisted detection rule generation from threat feeds and incident data",
+      "Horizontal expansion into SOAR and response orchestration to compete with incumbents",
+      "Marketplace and ecosystem plays to monetize community detection rules and plugins"
+    ]
+  },
+  "secops/halcyon": {
+    "competitiveEdge": "AI-native ransomware platform with autonomous behavioral prevention stops encryption in real-time vs. detection-only legacy approaches.",
+    "swot": {
+      "strengths": [
+        "Singular focus on ransomware attack chain yields domain expertise and product depth",
+        "Autonomous response and behavioral prevention detect novel ransomware before encryption spreads",
+        "Private $1B valuation and strong ARR growth signal market validation and momentum"
+      ],
+      "weaknesses": [
+        "Single-threat specialization limits TAM vs. platform SIEM/XDR consolidation trend",
+        "Brand recognition and market presence lag MSFT Defender, CrowdStrike, Palo Alto XDR",
+        "Integration gaps with existing SOC tooling and incident response workflows"
+      ],
+      "opportunities": [
+        "Ransomware recovery automation and forensics as incident response specialization",
+        "Horizontal expansion into adjacent threats (supply-chain, BEC, data exfiltration)",
+        "Enterprise consolidation play acquiring ransomware-focused startups to build platform"
+      ],
+      "threats": [
+        "XDR incumbents add ransomware-focused modules eroding pure-play positioning",
+        "Lower-cost ransomware prevention tools commoditize market and compress margins"
+      ]
+    },
+    "userLikes": [
+      "Autonomous response stops attacks without analyst overhead in ransomware scenarios",
+      "Purpose-built depth yields faster time-to-value vs. generic XDR platforms",
+      "Recovery capabilities go beyond detection to actual data restoration and business continuity"
+    ],
+    "userComplaints": [
+      "Narrow focus means limited coverage for non-ransomware threats in consolidated SOC",
+      "Requires tight integration with backup/recovery and file systems for full effectiveness",
+      "Emerging vendor with smaller customer reference base vs. established incumbents"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise organizations with high ransomware exposure (finance, healthcare, manufacturing)",
+        "Organizations with legacy backup strategies seeking modern autonomous recovery",
+        "Regulated industries (healthcare, financial services) where ransomware impact is existential"
+      ],
+      "typicalBuyer": "CISO or infrastructure security leader responsible for ransomware resilience",
+      "topUseCases": [
+        "Real-time ransomware behavioral detection and autonomous encryption prevention",
+        "Incident recovery automation and expedited data restoration workflows",
+        "Compliance-driven ransomware resilience and business continuity assurance"
+      ]
+    },
+    "futureAreas": [
+      "Broader APT/threat actor targeting expansion beyond ransomware specialization",
+      "Recovery-as-a-service managed offering positioning Halcyon as incident response partner",
+      "AI-powered threat hunting and forensics on encrypted attack artifacts"
+    ]
+  },
+  "secops/armorblox": {
+    "competitiveEdge": "NLU-powered email security acquired by Cisco enables semantic threat detection across language variations and social engineering vectors.",
+    "swot": {
+      "strengths": [
+        "Cisco backing provides enterprise distribution, Go-to-Market resources, and technical validation",
+        "NLU/semantic approach detects sophisticated email-borne social engineering vs. rule-based incumbents",
+        "Integration with broader Cisco security portfolio creates platform stickiness"
+      ],
+      "weaknesses": [
+        "Email security market is crowded with specialized vendors (Proofpoint, Mimecast, Abnormal)",
+        "Cisco acquisition narrative may obscure independent innovation velocity to customers",
+        "Limited public visibility on post-acquisition roadmap and feature velocity"
+      ],
+      "opportunities": [
+        "Cisco Secure Email consolidation play bundling Armorblox with core email gateway products",
+        "Supply chain email threat intelligence expansion (vendor impersonation, BEC, QR code threats)",
+        "Platform extension into Slack, Teams, and other collaboration surface areas"
+      ],
+      "threats": [
+        "Email security commoditization as Microsoft Teams and other platforms absorb security",
+        "Specialized email vendors intensify NLU/AI positioning eroding pure differentiation"
+      ]
+    },
+    "userLikes": [
+      "NLU semantic detection catches sophisticated social engineering and phishing variants",
+      "Cisco integration simplifies deployment and reduces tooling sprawl for Cisco customers",
+      "Minimal end-user friction and transparent filtering improves adoption vs. high false-positive solutions"
+    ],
+    "userComplaints": [
+      "Limited visibility into post-acquisition roadmap creates uncertainty on future investment",
+      "Integration with non-Cisco stacks can be challenging vs. purpose-built email security platforms",
+      "Advanced features may require additional Cisco product purchases or bundling"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cisco-centric enterprise customers seeking integrated email security and threat defense",
+        "Organizations with high email-borne attack surface (finance, government, professional services)",
+        "Mid-market companies adopting semantic/AI email security for better threat accuracy"
+      ],
+      "typicalBuyer": "Email security architect or messaging platform owner within IT security",
+      "topUseCases": [
+        "Advanced phishing and business email compromise (BEC) detection via semantic analysis",
+        "Email gateway integration with automated threat isolation and user training workflows",
+        "Supply chain and vendor impersonation threat intelligence and prevention"
+      ]
+    },
+    "futureAreas": [
+      "Collaboration platform security expansion (Slack, Teams, MS 365 integrated defense)",
+      "Threat intelligence sharing with Cisco Security Analytics platform for customer insights",
+      "Generative AI-powered email threat simulation and security awareness training"
+    ]
+  },
+  "secops/mindflow": {
+    "competitiveEdge": "No-code orchestration platform with GenAI-assisted playbook creation enables SecOps teams to automate response without development overhead.",
+    "swot": {
+      "strengths": [
+        "No-code/low-code UX democratizes SOAR automation for non-developer security analysts",
+        "GenAI playbook generation accelerates automation development and reduces time-to-value",
+        "European origin with data residency and privacy-first positioning appeals to GDPR-conscious buyers"
+      ],
+      "weaknesses": [
+        "Emerging vendor with limited market visibility vs. Splunk Phantom, Palo Alto Cortex XSOAR",
+        "Small team and early-stage revenue constrain ecosystem partnerships and integration breadth",
+        "Limited track record and customer reference base for enterprise-scale automation"
+      ],
+      "opportunities": [
+        "GenAI-native SOAR positioning as threat landscape shifts toward agentic automation",
+        "Horizontal expansion into IT operations orchestration beyond pure security playbooks",
+        "Regional consolidation play for European enterprises seeking non-US vendor alternatives"
+      ],
+      "threats": [
+        "Large SIEM/XDR platforms (Splunk, Palo Alto) bundle native orchestration eroding standalone SOAR",
+        "Generative AI commoditization reduces pure GenAI differentiation as competitors add features"
+      ]
+    },
+    "userLikes": [
+      "No-code interface enables security analysts to build automation without engineering teams",
+      "GenAI-assisted playbook generation accelerates time-to-value and reduces discovery friction",
+      "Lightweight orchestration model integrates with existing heterogeneous tool stacks"
+    ],
+    "userComplaints": [
+      "Limited pre-built playbooks and vendor integrations vs. mature SOAR incumbents",
+      "Emerging vendor stability and future roadmap visibility create procurement hesitation",
+      "GenAI playbooks may require significant customization for industry-specific workflows"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market European enterprises with GDPR/privacy constraints and data residency requirements",
+        "Organizations seeking lightweight SOAR alternative to heavyweight incumbent platforms",
+        "Security teams with limited development resources but high automation demand"
+      ],
+      "typicalBuyer": "SOC manager or automation engineer responsible for incident response efficiency",
+      "topUseCases": [
+        "Alert triage and incident enrichment automation without custom integrations",
+        "Playbook-driven response orchestration across heterogeneous security tools",
+        "Repetitive SOC task automation to reduce analyst toil and improve MTTR"
+      ]
+    },
+    "futureAreas": [
+      "Agentic orchestration capabilities enabling fully autonomous multi-step incident response",
+      "Horizontal IT operations orchestration expansion beyond pure security playbooks",
+      "Marketplace and ecosystem expansion for third-party pre-built playbooks and integrations"
+    ]
+  },
+  "secops/shuffle-automation": {
+    "competitiveEdge": "Open-source SOAR with drag-and-drop workflows offers vendor-agnostic, cost-free automation foundation for organizations avoiding proprietary lock-in.",
+    "swot": {
+      "strengths": [
+        "Open-source model eliminates vendor lock-in and licensing costs for security teams",
+        "Drag-and-drop workflow builder lowers barriers for non-developers to build automation",
+        "Community-driven development and extensibility appeal to self-service organizations"
+      ],
+      "weaknesses": [
+        "No commercial support or SLA backing limits enterprise adoption vs. vendor-backed competitors",
+        "Limited integration breadth and pre-built playbooks vs. mature commercial SOAR platforms",
+        "Ongoing maintenance and security patching burden falls on customer organizations"
+      ],
+      "opportunities": [
+        "Managed SOAR service wrapping Shuffle with commercial SLAs for enterprise customers",
+        "Vertical industry playbooks (healthcare, finance) built on Shuffle foundation",
+        "Acquisition by larger security vendor seeking low-cost SOAR entry point"
+      ],
+      "threats": [
+        "Commercial SOAR vendors (Palo Alto, Splunk) add free/freemium tiers eroding OSS appeal",
+        "Security vulnerabilities in Shuffle codebase could undermine trust in OSS SOAR"
+      ]
+    },
+    "userLikes": [
+      "Open-source model and drag-and-drop interface attract security-conscious and resource-constrained teams",
+      "No licensing or vendor dependencies enable rapid experimentation with automation workflows",
+      "Community contributions and transparent development build trust in extensibility"
+    ],
+    "userComplaints": [
+      "Lack of commercial support and SLAs create hesitation for mission-critical deployments",
+      "Limited pre-built integrations and playbooks require custom development to add value",
+      "Security patch velocity and vulnerability disclosure lags commercial platforms"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Security-conscious organizations prioritizing vendor independence and cost avoidance",
+        "Security teams with development resources to maintain and extend OSS SOAR",
+        "Research institutions and academic security labs using SOAR for education and R&D"
+      ],
+      "typicalBuyer": "Security engineer or automation architect with development background and tooling autonomy",
+      "topUseCases": [
+        "Low-cost incident response workflow automation for resource-constrained SOCs",
+        "Custom integration development for proprietary or legacy security tools",
+        "Proof-of-concept and rapid prototyping of orchestration concepts"
+      ]
+    },
+    "futureAreas": [
+      "Managed service or enterprise support tier positioned as competitive SOAR alternative",
+      "Vertical playbook libraries (healthcare, finance, energy) enabling rapid industry deployments",
+      "Integration with open-source threat intelligence and vulnerability management platforms"
+    ]
+  },
+  "secops/flare-systems": {
+    "competitiveEdge": "Dark web and external threat exposure monitoring surfaces hidden attack surface and emerging threats invisible to internal tools.",
+    "swot": {
+      "strengths": [
+        "Dark web intelligence and monitoring fill critical blind spot in external threat awareness",
+        "Specialized focus yields domain expertise in illicit infrastructure and threat actor activity",
+        "Growing $10M+ ARR and +a significant share growth validate market demand for external threat intel"
+      ],
+      "weaknesses": [
+        "Narrow threat domain limits TAM vs. broad threat intelligence or SIEM platforms",
+        "Emerging vendor with limited brand recognition vs. CrowdStrike, Mandiant, Anomali",
+        "Requires integration and interpretation work to operationalize dark web alerts in SOC"
+      ],
+      "opportunities": [
+        "Horizontal expansion into surface/deep web exposure and third-party data breach monitoring",
+        "API-driven threat intelligence platform serving enterprises and MSPs at scale",
+        "Acquisition by larger threat intelligence or OSINT vendor seeking dark web capabilities"
+      ],
+      "threats": [
+        "Larger threat intelligence vendors (Mandiant, Anomali, Cyber Menace) add dark web coverage",
+        "Commoditization of dark web monitoring APIs and datasets reduces pure-play differentiation"
+      ]
+    },
+    "userLikes": [
+      "Dark web monitoring surfaces brand impersonation and credential theft threats before exploitation",
+      "External attack surface monitoring fills critical blind spot undetectable by internal tools",
+      "Threat intelligence automation enables proactive defense against emerging threat actors"
+    ],
+    "userComplaints": [
+      "Alerts require significant analyst expertise and context to operationalize in incident response",
+      "Limited integration with existing SIEM/SOAR workflows means separate alert management",
+      "Privacy and legal implications of dark web monitoring create internal governance challenges"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Regulated enterprises (finance, healthcare, government) with high brand/credential compromise risk",
+        "Organizations with significant digital footprint and external threat exposure",
+        "Enterprises with dedicated threat intelligence teams capable of operationalizing external threats"
+      ],
+      "typicalBuyer": "Threat intelligence analyst or external threat lead responsible for brand/data breach monitoring",
+      "topUseCases": [
+        "Dark web monitoring for stolen credentials, corporate data, and brand impersonation threats",
+        "External attack surface reconnaissance and emerging threat actor activity tracking",
+        "Supply chain and third-party risk visibility via external data breach and incident monitoring"
+      ]
+    },
+    "futureAreas": [
+      "Horizontal expansion into surface/deep web exposure, leaked credentials, and data breach monitoring",
+      "Automated threat intelligence enrichment and integration with incident response platforms",
+      "Managed threat intelligence service offering proactive dark web investigations and takedowns"
+    ]
+  },
+  "secops/socradar": {
+    "competitiveEdge": "Extended threat intelligence spanning surface, deep, and dark web with digital risk protection discovery.",
+    "swot": {
+      "strengths": [
+        "Unique extended TI platform integrating multiple intelligence sources for complete digital risk visibility.",
+        "Strong growth trajectory (+a significant share YoY) validates market demand for proactive threat intelligence.",
+        "Cost-effective at estimated $20M ARR positioning versus legacy TI incumbents."
+      ],
+      "weaknesses": [
+        "Early-stage startup with limited brand recognition versus established TI providers.",
+        "Private, undercapitalized compared to venture-backed competitors like Pentera.",
+        "Limited integration with SIEM/SOAR platforms that most enterprises standardize on."
+      ],
+      "opportunities": [
+        "Geographic expansion into APAC and EMEA where dark web TI adoption is accelerating.",
+        "Integration partnerships with major SIEM vendors (Splunk, IBM, Elastic) for automated threat correlation.",
+        "Vertical expansion into financial services, healthcare, and critical infrastructure sectors."
+      ],
+      "threats": [
+        "Legacy TI players (Recorded Future, CrowdStrike) adding dark web capabilities at scale.",
+        "Consolidation pressure; larger SOAR/MDR vendors acquiring TI capabilities directly.",
+        "Geopolitical restrictions on threat intelligence data collection and export."
+      ]
+    },
+    "userLikes": [
+      "Comprehensive dark web and underground forum monitoring for emerging threats.",
+      "Proactive risk discovery without requiring deployment of agents or appliances.",
+      "Actionable intelligence prioritized by relevance to organization's specific digital footprint."
+    ],
+    "userComplaints": [
+      "Alert fatigue from raw intelligence data; requires manual triage and filtering.",
+      "Limited SIEM/SOAR native connectors; requires custom integrations for automated response.",
+      "Pricing opacity and scaling challenges as data volume grows with customer footprint."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises (500–5K employees) with centralized security operations.",
+        "Organizations in regulated industries needing proactive threat exposure monitoring.",
+        "High-profile companies concerned about targeted dark web reconnaissance."
+      ],
+      "typicalBuyer": "Chief Information Security Officer or Threat Intelligence Lead",
+      "topUseCases": [
+        "Continuous monitoring of dark web forums, paste sites, and underground markets for credential leaks and organizational mentions.",
+        "Early warning system for emerging threats and zero-day vulnerabilities targeting industry verticals.",
+        "Digital risk assessment to identify exposed assets, brand abuse, and supply-chain vulnerabilities."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven threat scoring and automated incident lead assignment to SOC tiers based on risk.",
+      "Integration with identity and access management platforms to correlate leaked credentials with active directory threats.",
+      "Autonomous response playbooks triggered by high-confidence dark web intelligence signals."
+    ]
+  },
+  "secops/cybersixgill": {
+    "competitiveEdge": "Specialized deep and dark web threat intelligence enabling proactive threat hunting before incidents occur.",
+    "swot": {
+      "strengths": [
+        "Pioneer in dark web/deep web intelligence collection; recognized expertise in underground ecosystems.",
+        "Strong growth (+a significant share YoY) at $30M ARR reflects market validation for proactive threat intel.",
+        "Language and cultural expertise in non-English underground forums and communities."
+      ],
+      "weaknesses": [
+        "Narrow focus on TI; lacks broader incident response or forensics capabilities.",
+        "Dependency on dark web data sources; geopolitical shifts could disrupt intelligence feeds.",
+        "Limited visibility into enterprise networks; requires integration with SOC platforms."
+      ],
+      "opportunities": [
+        "Expansion into supply-chain threat intelligence as enterprises map critical vendor exposures.",
+        "Partnerships with MDR/MSSP providers to embed TI into managed security services.",
+        "Vertical solutions for financial services, healthcare, and government targeting sector-specific threats."
+      ],
+      "threats": [
+        "Larger security vendors (CrowdStrike, Mandiant, Recorded Future) expanding dark web TI in-house.",
+        "AI/LLM-based TI aggregators commoditizing dark web monitoring at lower cost.",
+        "Law enforcement takedowns of dark web marketplaces reducing primary intelligence sources."
+      ]
+    },
+    "userLikes": [
+      "Specialized focus on deep and dark web intelligence unavailable in mainstream TI platforms.",
+      "Early detection of credential sales, malware leaks, and insider threats in underground markets.",
+      "Contextual intelligence on threat actor groups, campaigns, and motivations."
+    ],
+    "userComplaints": [
+      "Raw intelligence requires significant analyst time to operationalize within SOC workflows.",
+      "Limited coverage of surface web and technical vulnerability intelligence needed for full posture.",
+      "Pricing model not transparent; scaling costs for large teams consuming high-volume feeds."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with mature SOCs and dedicated threat intelligence teams.",
+        "Financial institutions and government agencies operating in high-threat environments.",
+        "Organizations with significant brand value exposed to cybercriminal marketplaces."
+      ],
+      "typicalBuyer": "Threat Intelligence Manager or SOC Manager",
+      "topUseCases": [
+        "Monitoring dark web forums and marketplaces for sale of organizational credentials, intellectual property, and internal documents.",
+        "Tracking threat actor communications and campaign planning before attacks materialize.",
+        "Supplier and partner risk monitoring across dark web forums targeting critical vendors."
+      ]
+    },
+    "futureAreas": [
+      "Machine learning-based automated threat actor profiling and attribution.",
+      "Real-time dark web signal integration into incident response playbooks and alert orchestration.",
+      "Geopolitical risk correlation linking dark web intelligence to state-sponsored threat activities."
+    ]
+  },
+  "secops/horizon3-ai": {
+    "competitiveEdge": "Autonomous penetration testing continuously validating security controls by discovering and exploiting real attack paths without manual pentesters.",
+    "swot": {
+      "strengths": [
+        "NodeZero platform uniquely automates exploitation; validates controls against real attack chains vs. theoretical scans.",
+        "Exceptional growth (+a significant share YoY) and high valuation ($340M) indicate strong market traction.",
+        "Reduces dependency on expensive external pentest firms; continuous validation at lower cost."
+      ],
+      "weaknesses": [
+        "Execution scope limited to pre-approved CIDR blocks; cannot test full supply-chain or geographically dispersed environments.",
+        "Generates significant noise for SOCs unprepared for automated exploitation; requires strong change management.",
+        "Limited to infrastructure/network penetration; weak coverage of application-layer or cloud-native security."
+      ],
+      "opportunities": [
+        "Cloud-native and containerized infrastructure testing (Kubernetes, Lambda, microservices).",
+        "Supply-chain attack simulation by deploying NodeZero across partner environments.",
+        "Enterprise Agreement selling bundled with breach and attack simulation for continuous validation cycles."
+      ],
+      "threats": [
+        "Offensive security tools (Metasploit, Burp, Nessus) adding autonomous exploitation features.",
+        "Larger AppSec vendors (Veracode, Synopsys) acquiring BAS/pentesting capabilities.",
+        "Regulatory backlash if autonomous exploitation triggers outages or causes unintended lateral movement."
+      ]
+    },
+    "userLikes": [
+      "Continuous autonomous pentesting eliminates annual cycles and pentest bottlenecks.",
+      "Real exploitation validation of controls; confirms that preventive measures actually prevent.",
+      "Detailed attack chain reporting enabling precise remediation prioritization."
+    ],
+    "userComplaints": [
+      "Exploitation triggers in test environments; requires careful network segmentation and change windows.",
+      "Limited visibility into why attacks succeed; root-cause analysis requires security analyst investigation.",
+      "High operational overhead managing autonomous testing scope expansion and tuning false positives."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise organizations (5K+ employees) with mature AppSec and infrastructure security teams.",
+        "Financial services and healthcare providers under compliance requirements (PCI-DSS, HIPAA, SOX).",
+        "Technology and SaaS vendors with continuous deployment requiring rapid security validation."
+      ],
+      "typicalBuyer": "Chief Security Officer or Application Security Director",
+      "topUseCases": [
+        "Continuous autonomous penetration testing validating that firewall rules, network segmentation, and endpoint detection block common attack paths.",
+        "Pre-deployment security validation ensuring new infrastructure and cloud migrations don't introduce exploitable weaknesses.",
+        "Compliance evidence generation for audits and certifications by demonstrating continuous vulnerability remediation."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven root-cause analysis of why exploits succeed, linking back to configuration and patching failures.",
+      "Hybrid cloud and multi-cloud orchestration testing Kubernetes, cloud WAF, and serverless security.",
+      "Behavioral threat correlation linking autonomous pentesting results to actual SOC detections and incidents."
+    ]
+  },
+  "secops/validato": {
+    "competitiveEdge": "Continuous security validation and breach attack simulation enabling real-time detection of control gaps.",
+    "swot": {
+      "strengths": [
+        "Early-stage startup with +a significant share YoY growth indicates strong demand for continuous validation.",
+        "Focus on continuous validation over annual pentests aligns with modern DevSecOps practices.",
+        "Likely lower cost than traditional pentesting firms and established BAS platforms."
+      ],
+      "weaknesses": [
+        "Very early stage with minimal market presence; brand and customer reference base limited.",
+        "Limited public information on platform breadth or integration capabilities.",
+        "Undercapitalized relative to competitors like AttackIQ and Pentera with larger funding rounds."
+      ],
+      "opportunities": [
+        "Vertical specialization in DevSecOps-heavy industries (SaaS, fintech, cloud infrastructure).",
+        "Integration with CI/CD pipelines for pre-production security validation.",
+        "Partnerships with cloud providers (AWS, Azure, GCP) for native platform simulation."
+      ],
+      "threats": [
+        "Established BAS platforms (AttackIQ, Pentera) with larger market share and customer bases.",
+        "Cloud vendors (AWS, Azure) launching native breach simulation services.",
+        "M&A consolidation into larger SOAR/SIEM vendors reducing BAS market independence."
+      ]
+    },
+    "userLikes": [
+      "Continuous breach simulation aligned with modern security validation and DevSecOps practices.",
+      "Lightweight deployment suitable for cloud-native and containerized environments.",
+      "Cost-effective alternative to traditional pentesting and established BAS platforms."
+    ],
+    "userComplaints": [
+      "Minimal analyst resources documenting platform capabilities, deployment procedures, and remediation guidance.",
+      "Limited customer references and case studies to validate effectiveness across verticals.",
+      "Unclear integration with existing SIEM, SOAR, and incident response platforms."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-first enterprises and SaaS vendors requiring continuous pre-production security validation.",
+        "Mid-market organizations seeking cost-effective continuous security validation alternatives.",
+        "Development and security teams co-owning infrastructure in DevSecOps environments."
+      ],
+      "typicalBuyer": "Director of Security Engineering or Cloud Security Lead",
+      "topUseCases": [
+        "Continuous pre-production security validation in CI/CD pipelines before deployment.",
+        "Breach attack simulation of cloud infrastructure, containers, and serverless architectures.",
+        "Security control effectiveness validation tied to infrastructure-as-code deployments and configuration changes."
+      ]
+    },
+    "futureAreas": [
+      "Native CI/CD platform integrations enabling automated pre-deployment security gates.",
+      "AI-driven remediation recommendations linking simulation findings to infrastructure-as-code fixes.",
+      "Multi-cloud orchestration testing security controls across AWS, Azure, and GCP simultaneously."
+    ]
+  },
+  "secops/attackiq": {
+    "competitiveEdge": "Breach and attack simulation for continuous security posture validation enabling measurable control effectiveness.",
+    "swot": {
+      "strengths": [
+        "Established BAS vendor with proven market adoption and customer base.",
+        "Continuous simulation model validated against regulatory frameworks (NIST, MITRE ATT&CK).",
+        "Growth trajectory (+a significant share YoY) reflects strong demand for breach simulation as security metric."
+      ],
+      "weaknesses": [
+        "Maturing market with entrenched competitors; growth rate lower than early-stage competitors.",
+        "Requires ongoing tuning and customization to simulate organization-specific threats.",
+        "Limited autonomous exploitation; relies more on parameterized scenarios than real attack path discovery."
+      ],
+      "opportunities": [
+        "Enterprise Framework consolidation bundling BAS with SOAR, SIEM, and MDR services.",
+        "Vertical solutions for healthcare, finance, and critical infrastructure with domain-specific threat scenarios.",
+        "AI-powered threat scenario generation based on threat intelligence feeds and industry vulnerabilities."
+      ],
+      "threats": [
+        "Larger SOAR vendors (Palo Alto, Microsoft) integrating BAS natively into platforms.",
+        "Autonomous pentesting platforms (Horizon3.ai, Pentera) offering deeper exploitation validation.",
+        "Cloud-native BAS entrants offering lower-cost SaaS alternatives to traditional platforms."
+      ]
+    },
+    "userLikes": [
+      "Validated breach scenarios tied to MITRE ATT&CK framework for consistent threat modeling.",
+      "Measurable security posture metrics enabling objective control effectiveness reporting to executives.",
+      "Flexible simulation scenarios supporting compliance validation for regulated industries."
+    ],
+    "userComplaints": [
+      "Scenario library requires updates to reflect emerging threats; outdated simulations provide false confidence.",
+      "Detection engineering required to properly instrument security tools for simulation-based analytics.",
+      "Limited root-cause analysis of why simulations bypass controls; requires manual forensic investigation."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise organizations (2K+ employees) with mature security teams and compliance requirements.",
+        "Regulated industries (finance, healthcare, government) requiring continuous control validation evidence.",
+        "Organizations with Security Center of Excellence or Chief Security Officer oversight."
+      ],
+      "typicalBuyer": "Security Operations Manager or Compliance Manager",
+      "topUseCases": [
+        "Continuous breach simulation validating SIEM, EDR, and network detection capabilities against real attack chains.",
+        "Compliance evidence generation demonstrating control effectiveness for SOC 2, ISO 27001, and industry-specific audits.",
+        "Security training and tabletop exercises using realistic breach simulations to validate incident response procedures."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven threat scenario generation based on threat intelligence and industry-specific attack patterns.",
+      "Automated remediation orchestration; linking BAS findings directly to SOAR playbooks.",
+      "Continuous control effectiveness scoring and benchmarking against industry peers."
+    ]
+  },
+  "secops/pentera": {
+    "competitiveEdge": "Autonomous penetration testing with $1B valuation and $100M ARR validating security controls continuously at scale.",
+    "swot": {
+      "strengths": [
+        "Highest valuation and revenue in cohort ($1B/$100M ARR) reflects significant market leadership and traction.",
+        "Exceptional growth (+a significant share YoY) and profitability indicate strong product-market fit and enterprise adoption.",
+        "Autonomous exploitation model reduces reliance on expensive external pentesting and accelerates validation cycles."
+      ],
+      "weaknesses": [
+        "Platform designed for on-prem/data-center environments; cloud-native security coverage may lag.",
+        "Autonomous exploitation scope limited to pre-configured network segments; struggles with geographically distributed infrastructure.",
+        "Organizational change management required for continuous exploitation; triggers friction with risk/compliance teams."
+      ],
+      "opportunities": [
+        "Cloud-native security expansion including Kubernetes, serverless, and API security testing.",
+        "International expansion into EMEA and APAC where compliance-driven pentesting demand is accelerating.",
+        "Strategic acquisition target for larger SOAR/SIEM vendors seeking premium BAS/penetration testing capabilities."
+      ],
+      "threats": [
+        "Larger security vendors (Palo Alto, Microsoft, Fortinet) integrating autonomous pentesting natively.",
+        "Open-source and commercial competitive platforms commoditizing autonomous exploitation.",
+        "Regulatory constraints on autonomous exploitation in certain regions or compliance frameworks."
+      ]
+    },
+    "userLikes": [
+      "Continuous autonomous pentesting eliminates annual pentesting cycles and validation bottlenecks.",
+      "Real attack path exploitation validates that prevention and detection controls actually work.",
+      "Detailed exploitation chains and remediation guidance enable focused security investment prioritization."
+    ],
+    "userComplaints": [
+      "Aggressive exploitation can trigger system instability; requires careful environment segmentation and change windows.",
+      "Complex tuning and scoping required to avoid false positives and unintended system impacts.",
+      "High operational overhead managing continuous testing scope, escalation procedures, and remediation tracking."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Global enterprises (5K+ employees) with distributed infrastructure and mature AppSec programs.",
+        "Financial services and government agencies under strict compliance requirements and audit scrutiny.",
+        "Technology vendors and SaaS providers with continuous deployment and security validation needs."
+      ],
+      "typicalBuyer": "Chief Security Officer or Enterprise Security Architecture Lead",
+      "topUseCases": [
+        "Continuous autonomous penetration testing validating security controls across on-premises data centers and cloud infrastructure.",
+        "Compliance control validation generating continuous evidence of security control effectiveness for audit and certification programs.",
+        "Vulnerability remediation prioritization by exploitability; focuses remediation on real attack paths vs. theoretical CVEs."
+      ]
+    },
+    "futureAreas": [
+      "Cloud-native security testing including container orchestration, serverless, and API gateway security.",
+      "AI-driven attack chain correlation linking autonomous penetration test results to SOC detections and threat intelligence.",
+      "Integrated incident response; automatic escalation of high-risk findings to SOAR platforms and incident response teams."
+    ]
+  },
+  "secops/safebreach": {
+    "competitiveEdge": "Operationalizes real hacker playbooks into repeatable breach and attack simulation, bridging gap between offensive research and defense.",
+    "swot": {
+      "strengths": [
+        "Authentic hacker-centric playbook library reduces simulation blind spots.",
+        "Clear market positioning in continuous validation narrative.",
+        "Established revenue base signals product-market fit."
+      ],
+      "weaknesses": [
+        "Smaller scale limits investment in adjacent platforms or integrations.",
+        "Startup status lacks enterprise-class support and compliance maturity.",
+        "Plays in crowded BAS market with larger well-funded competitors."
+      ],
+      "opportunities": [
+        "Expand into automated remediation workflow triggers from attack simulations.",
+        "Build managed services layer atop simulation platform.",
+        "Package playbooks for specific industries (healthcare, finance, critical infrastructure)."
+      ],
+      "threats": [
+        "Incumbents (CrowdStrike, Qualys) bundling BAS into suites.",
+        "Open-source projects commoditizing simulation—lower willingness to pay."
+      ]
+    },
+    "userLikes": [
+      "Realistic attack scenarios based on actual threat actor behavior",
+      "Minimal false positives vs. generic attack simulation",
+      "Quick validation of controls without massive lab setup"
+    ],
+    "userComplaints": [
+      "Limited depth in coverage for emerging attack techniques",
+      "Integration gaps with major SIEM/SOAR platforms",
+      "Setup complexity for first campaign launch"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market financial services and healthcare firms",
+        "Enterprise security operations teams seeking continuous validation",
+        "Regulated industries needing periodic attack simulation proof"
+      ],
+      "typicalBuyer": "Security Operations or Vulnerability Management leader reporting to CISO",
+      "topUseCases": [
+        "Continuous breach and attack simulation across enterprise environment",
+        "Validation of security control effectiveness post-deployment",
+        "Compliance evidence generation for auditors and regulators"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven playbook generation from live threat intelligence feeds",
+      "Autonomous remediation recommendations based on attack results",
+      "Industry-specific and vertical-aligned playbook marketplaces"
+    ]
+  },
+  "secops/cronus-cyber": {
+    "competitiveEdge": "Continuous BAS with always-on validation removes deployment friction and automates ongoing security testing as code.",
+    "swot": {
+      "strengths": [
+        "Continuous BAS model aligns with DevSecOps and always-on mentality.",
+        "Early-stage positioning allows agile feature velocity.",
+        "Hebrew tech background taps emerging innovation center talent."
+      ],
+      "weaknesses": [
+        "Early-stage revenue suggests limited production scale or proven reliability.",
+        "Minimal brand recognition versus established BAS incumbents.",
+        "Likely narrow use-case focus limits cross-functional utility."
+      ],
+      "opportunities": [
+        "Build CI/CD and infrastructure-as-code integrations for developer workflows.",
+        "Partner with regional cloud providers on jointly branded offerings.",
+        "Expand to cloud-native and containerized environment validation."
+      ],
+      "threats": [
+        "Larger players (Rapid7, Qualys, Cymulate) bundling continuous validation.",
+        "Friction around cost and operational overhead of always-on testing."
+      ]
+    },
+    "userLikes": [
+      "Low-friction continuous simulation without manual campaign setup",
+      "Native DevOps integration and infrastructure-as-code compatibility",
+      "Rapid feedback loop for security teams and developers"
+    ],
+    "userComplaints": [
+      "Unclear remediation workflow from continuous attack findings",
+      "Limited visibility into test coverage across hybrid/multi-cloud",
+      "Steep learning curve for teams unfamiliar with security-as-code concepts"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native and DevOps-heavy organizations",
+        "Mid-market tech companies with agile deployment cadence",
+        "Enterprise teams adopting continuous security validation"
+      ],
+      "typicalBuyer": "DevSecOps or Platform Security Engineer",
+      "topUseCases": [
+        "Continuous breach simulation integrated into CI/CD pipeline",
+        "Automated validation of infrastructure-as-code changes pre-deployment",
+        "On-demand attack simulation for compliance and control audits"
+      ]
+    },
+    "futureAreas": [
+      "Machine learning-driven playbook refinement from real attack trends",
+      "Multi-cloud and Kubernetes-native simulation and validation",
+      "Automated policy enforcement tied to simulation results"
+    ]
+  },
+  "secops/specter-ops": {
+    "competitiveEdge": "Maps identity attack paths through Active Directory and cloud identity, exposing lateral movement risks invisible to traditional network monitoring.",
+    "swot": {
+      "strengths": [
+        "BloodHound foundation has strong community adoption and mindshare.",
+        "Identity-centric view addresses critical and often-overlooked attack vectors.",
+        "Clear technical differentiation in attack path visualization."
+      ],
+      "weaknesses": [
+        "Narrow focus on identity domain limits horizontal market expansion.",
+        "Startup scale means fewer integrations and smaller support footprint.",
+        "Competes against identity giants (Microsoft, Okta) with native tools."
+      ],
+      "opportunities": [
+        "Expand from AD/identity to cloud workload and container identity mapping.",
+        "Build automated remediation runbooks from discovered attack paths.",
+        "Sell managed attack path hunting services."
+      ],
+      "threats": [
+        "Microsoft bundling identity attack path analysis into Defender.",
+        "Okta, Ping, Duo adding native lateral movement mapping to platforms."
+      ]
+    },
+    "userLikes": [
+      "Visual identity attack path mapping reveals blind spots in AD topology",
+      "Actionable remediation guidance tied to specific attack chains",
+      "Strong open-source heritage builds trust with security teams"
+    ],
+    "userComplaints": [
+      "Requires deep Active Directory knowledge to maximize value",
+      "Limited visibility into cloud-first identities and workload access",
+      "Integration gaps with major EDR and SIEM platforms"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise with hybrid AD and cloud identity infrastructure",
+        "Organizations with high identity security maturity",
+        "Financial services and regulated industries with strict access controls"
+      ],
+      "typicalBuyer": "Identity and Access Management (IAM) or AD security architect",
+      "topUseCases": [
+        "Continuous mapping of identity attack paths across AD environment",
+        "Validation of privilege access management (PAM) effectiveness",
+        "Lateral movement risk discovery and remediation prioritization"
+      ]
+    },
+    "futureAreas": [
+      "Expansion to cloud identity platforms and workload identity modeling",
+      "Automated access policy enforcement tied to discovered attack paths",
+      "AI-driven behavioral risk scoring across identity infrastructure"
+    ]
+  },
+  "secops/semgrep": {
+    "competitiveEdge": "Developer-first static analysis embedded in CI/CD pipelines with supply-chain risk visibility, shifting left without sacrificing speed.",
+    "swot": {
+      "strengths": [
+        "Strong developer adoption and open-source community foundation.",
+        "Supply chain security positioning aligns with enterprise risk priorities.",
+        "High growth and unicorn valuation signal strong market demand."
+      ],
+      "weaknesses": [
+        "Static analysis alone misses runtime and logical vulnerabilities.",
+        "Developer-focused pitch may limit buy-in from traditional security buyers.",
+        "Open-source model can commoditize core offering."
+      ],
+      "opportunities": [
+        "Expand into secret detection and credential scanning workflows.",
+        "Build managed SCA and policy-as-code platform for enterprises.",
+        "Partner with cloud platforms on default SAST enforcement."
+      ],
+      "threats": [
+        "GitHub Advanced Security, GitLab, JetBrains bundling SAST natively.",
+        "Snyk, Veracode, Checkmarx entrenched in enterprise pipelines."
+      ]
+    },
+    "userLikes": [
+      "Low false-positive rate reduces developer friction and alert fatigue",
+      "Fast analysis and instant feedback in pull request workflows",
+      "Supply chain risk detection catches transitive dependency issues"
+    ],
+    "userComplaints": [
+      "Limited scope beyond static analysis—misses runtime and behavioral risks",
+      "Steep configuration curve for teams with complex codebases",
+      "Dependency on maintaining rule packs for emerging vulnerability classes"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Developer-driven enterprises with mature DevSecOps practices",
+        "SaaS and fintech companies with rapid release cadences",
+        "Supply-chain-risk-conscious organizations with third-party code dependency"
+      ],
+      "typicalBuyer": "Platform security or DevSecOps engineer",
+      "topUseCases": [
+        "Shift-left scanning of pull requests and commits before merge",
+        "Supply chain risk detection and transitive dependency tracking",
+        "Enterprise policy-as-code enforcement across development teams"
+      ]
+    },
+    "futureAreas": [
+      "Runtime application security and behavioral vulnerability detection",
+      "AI-driven policy generation from organizational security standards",
+      "Managed source code and supply chain risk intelligence platform"
+    ]
+  },
+  "secops/socket-security": {
+    "competitiveEdge": "Real-time detection of malicious and risky open-source packages blocks supply-chain attacks at the source—preventing compromise before install.",
+    "swot": {
+      "strengths": [
+        "Supply chain security is hot and captures C-suite risk appetite.",
+        "Novel approach to open-source package vetting fills genuine gap.",
+        "High growth trajectory signals strong product-market alignment."
+      ],
+      "weaknesses": [
+        "Early-stage revenue and unicorn-adjacent valuation pose sustainability risk.",
+        "Requires adoption by thousands of open-source consumers—cold-start problem.",
+        "Limited ecosystem partnerships to drive adoption at scale."
+      ],
+      "opportunities": [
+        "Partner with npm, PyPI, Maven Central for native integration.",
+        "Build enterprise policy layer for approved-package registries.",
+        "Sell intelligence to security teams and government procurement offices."
+      ],
+      "threats": [
+        "npm, Python Software Foundation adding native malware detection.",
+        "Supply-chain security incumbents (Sonatype, JFrog) bundling package vetting."
+      ]
+    },
+    "userLikes": [
+      "Lightweight detection prevents installation of known malicious packages",
+      "Minimal configuration and no code changes required",
+      "Visibility into risky open-source behavior and patterns"
+    ],
+    "userComplaints": [
+      "Dependent on package registry uptake for meaningful protection",
+      "Limited visibility into zero-day or previously unknown malicious packages",
+      "Unclear remediation path when vulnerable dependency is discovered mid-project"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Developer teams with strict open-source security policies",
+        "Organizations with high third-party code scrutiny requirements",
+        "Financial services and critical infrastructure with supply-chain risk focus"
+      ],
+      "typicalBuyer": "Software supply chain security engineer or dependency manager",
+      "topUseCases": [
+        "Real-time detection and blocking of malicious package installs",
+        "Dependency scanning and risk scoring across open-source libraries",
+        "Policy enforcement for approved and vetted package registries"
+      ]
+    },
+    "futureAreas": [
+      "Enterprise package registry and approved-list governance platform",
+      "Supply chain risk intelligence and threat actor behavior insights",
+      "Automated remediation and safe alternative package recommendations"
+    ]
+  },
+  "secops/endor-labs": {
+    "competitiveEdge": "Reachability analysis and dependency lifecycle management reduce noise from vulnerability noise by identifying which OSS flaws actually reachable in code.",
+    "swot": {
+      "strengths": [
+        "Reachability analysis solves critical SCA problem—only patch what matters.",
+        "Exceptional growth trajectory and seed funding validate market demand.",
+        "OSS dependency landscape is sprawling—large addressable market."
+      ],
+      "weaknesses": [
+        "Early-stage product likely limited in breadth and ecosystem coverage.",
+        "Small team compared to established SCA and vulnerability incumbents.",
+        "Requires developer workflow adoption—cold start in traditional enterprises."
+      ],
+      "opportunities": [
+        "Expand reachability analysis to runtime and containerized environments.",
+        "Build automated patch prioritization tied to business criticality.",
+        "Partner with CI/CD platforms for native workflow integration."
+      ],
+      "threats": [
+        "GitHub, GitLab adding native dependency reachability analysis.",
+        "Snyk, JFrog, Sonatype incorporating reachability into platforms."
+      ]
+    },
+    "userLikes": [
+      "Reachability filtering eliminates false-positive vulnerability noise",
+      "Prioritized patch guidance based on actual code usage",
+      "Dependency lifecycle visibility improves planning and maintenance"
+    ],
+    "userComplaints": [
+      "Limited language and ecosystem coverage beyond initial scope",
+      "Integration complexity with existing dependency management workflows",
+      "Unclear remediation and patching recommendations for transitive vulnerabilities"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Technology companies managing large open-source dependency graphs",
+        "DevSecOps teams with mature vulnerability management processes",
+        "Enterprise with high patch velocity and release cadence"
+      ],
+      "typicalBuyer": "Software supply chain or platform security engineer",
+      "topUseCases": [
+        "Reachability analysis to filter actionable vs. theoretical vulnerabilities",
+        "Dependency lifecycle and update prioritization across codebases",
+        "OSS risk and compliance tracking with multi-team visibility"
+      ]
+    },
+    "futureAreas": [
+      "Runtime reachability and actual exploitation risk scoring",
+      "Automated patch orchestration and zero-downtime deployment workflows",
+      "Dependency behavior analytics and anomaly detection for supply-chain threats"
+    ]
+  },
+  "secops/ox-security": {
+    "competitiveEdge": "Dedicated pipeline integrity security purpose-built for supply chain risk—a narrower but deeper niche than general ASPM platforms.",
+    "swot": {
+      "strengths": [
+        "Laser focus on a critical pain point: software supply chain integrity and gating attacks at the pipeline",
+        "Early-stage market positioning in pipeline security before incumbents hardened their focus",
+        "Rapid YoY growth suggests strong product-market fit in a specific vertical niche"
+      ],
+      "weaknesses": [
+        "Early-stage revenue and market presence limits brand recognition vs. established DevSecOps vendors",
+        "Narrow positioning (pipeline-only) may limit cross-functional security platform expansion opportunities",
+        "Private capital funding with no disclosed exit or growth trajectory raises sustainability questions"
+      ],
+      "opportunities": [
+        "Expansion into adjacent supply chain security domains (container registry, artifact signing, SBOM management)",
+        "Partnership with CI/CD and DevOps incumbents to embed pipeline security natively",
+        "Rise of SLSA framework and regulatory focus on software provenance driving mainstream adoption"
+      ],
+      "threats": [
+        "Larger security platforms (Snyk, GitHub, GitLab) adding native pipeline security capabilities",
+        "Consolidation of DevSecOps tools reduces standalone pipeline security vendor viability"
+      ]
+    },
+    "userLikes": [
+      "Focused, developer-centric security that integrates natively into CI/CD workflows",
+      "Clear visibility and control gates over supply chain artifacts and dependencies",
+      "Automation of security guardrails without adding friction to deployment pipelines"
+    ],
+    "userComplaints": [
+      "Limited integration breadth outside major CI/CD platforms and container registries",
+      "Lack of cross-functional visibility (few security team workflows beyond development)",
+      "Insufficient scale for enterprises managing multiple pipeline tools and legacy CI/CD systems"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native software vendors with rapid CI/CD cycles",
+        "Enterprise DevSecOps teams prioritizing supply chain risk"
+      ],
+      "typicalBuyer": "VP of Engineering or Security Engineering lead",
+      "topUseCases": [
+        "Automated security gates and artifact validation in CI/CD pipelines",
+        "Supply chain provenance tracking and dependency risk scoring",
+        "Compliance attestation (SLSA, NIST) without manual overhead"
+      ]
+    },
+    "futureAreas": [
+      "Expansion into artifact and container image provenance and signing",
+      "Integration with SBOM and software transparency standards (VEX, CycloneDX)",
+      "Cross-cloud and cross-registry pipeline security orchestration"
+    ]
+  },
+  "secops/apiiro": {
+    "competitiveEdge": "Application security posture management from code risk lens—positioning deeper developer visibility than traditional AST/SAST.",
+    "swot": {
+      "strengths": [
+        "Strong ARR growth and $1B valuation signals market validation for ASPM category",
+        "Focus on code risk and posture appeals to modern DevSecOps and engineering organizations",
+        "Unicorn status attracts enterprise sales capacity and brand credibility"
+      ],
+      "weaknesses": [
+        "Crowded ASPM market with well-funded competitors (Snyk, Wiz, Lacework) and incumbent expansion",
+        "Growth rate (+a significant share YoY) slower than smaller peers suggests market saturation or execution challenges",
+        "Limited differentiation in runtime/behavior detection vs. static/policy-driven approaches"
+      ],
+      "opportunities": [
+        "Expansion into supply chain and API-level risk beyond traditional code scanning",
+        "Deeper integrations with CI/CD orchestration and governance platforms",
+        "Enterprise demand for centralized application security posture reporting"
+      ],
+      "threats": [
+        "GitHub, GitLab, and incumbent SIEM/SOAR platforms adding native code scanning",
+        "Price compression as ASPM becomes table-stakes in DevSecOps tooling"
+      ]
+    },
+    "userLikes": [
+      "Developer-friendly code analysis that surfaces actionable risk without false positives",
+      "Centralized visibility across code repositories and application portfolios",
+      "Integration with CI/CD and ticketing workflows reduces friction for remediation"
+    ],
+    "userComplaints": [
+      "Frequent tuning required to reduce scan noise and false positives at scale",
+      "Limited runtime visibility—relies on static analysis without behavioral correlation",
+      "Steep learning curve for security teams to operationalize across legacy and modern codebases"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise software development organizations",
+        "Cloud-native and SaaS companies with continuous deployment cycles"
+      ],
+      "typicalBuyer": "Application Security or DevSecOps Lead",
+      "topUseCases": [
+        "Continuous code risk scanning and posture tracking across repositories",
+        "Integration of security gates into CI/CD pipelines and release workflows",
+        "Application inventory and risk reporting for audit and compliance"
+      ]
+    },
+    "futureAreas": [
+      "Behavioral and runtime analytics to complement static code analysis",
+      "Supply chain and third-party library risk correlation beyond traditional SCA",
+      "API-level security posture management and risk quantification"
+    ]
+  },
+  "secops/cycode": {
+    "competitiveEdge": "Full SDLC coverage across design, code, build, and runtime—most comprehensive ASPM scope vs. single-phase competitors.",
+    "swot": {
+      "strengths": [
+        "Broadest ASPM scope (full SDLC) differentiates from point-solution competitors",
+        "Strong growth (+a significant share YoY) and $1B+ valuation suggest strong execution and market traction",
+        "SDLC integration appeals to enterprises seeking consolidated application security posture"
+      ],
+      "weaknesses": [
+        "Broad positioning may dilute focus and introduce complexity in implementation",
+        "SDLC-wide approach requires more engineering integration than targeted SAST/SCA tools",
+        "Competitive threat from cheaper, single-phase solutions (Snyk, Semgrep) winning based on simplicity"
+      ],
+      "opportunities": [
+        "Expansion into policy enforcement and automated remediation across the SDLC",
+        "Integration with enterprise GRC and risk reporting frameworks",
+        "Demand for unified application risk and compliance posture across hybrid/multi-cloud environments"
+      ],
+      "threats": [
+        "GitHub Advanced Security and GitLab platform suites offer native SDLC security coverage",
+        "Incumbents (Microsoft, Atlassian) embedding security throughout development toolchains"
+      ]
+    },
+    "userLikes": [
+      "Unified visibility across the entire application development lifecycle",
+      "Reduced context-switching between point tools for code, build, and deployment risk",
+      "Comprehensive risk quantification and posture trends across development teams"
+    ],
+    "userComplaints": [
+      "Configuration and tuning complexity across multiple SDLC phases adds overhead",
+      "Integration requirements with legacy development environments create deployment friction",
+      "Reporting and dashboards can be overwhelming for teams with limited security expertise"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise software development organizations with mature DevSecOps practices",
+        "Regulated industries (financial services, healthcare) requiring comprehensive audit trails"
+      ],
+      "typicalBuyer": "Chief Security Officer or VP of Application Security",
+      "topUseCases": [
+        "End-to-end SDLC security posture management and risk quantification",
+        "Centralized application risk reporting for board and audit compliance",
+        "Automated security policy enforcement across design, code, build, and deployment"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven remediation and automated code fix suggestions across SDLC phases",
+      "Third-party application and supply chain risk correlation within SDLC context",
+      "Behavioral analytics and anomaly detection in application development workflows"
+    ]
+  },
+  "secops/simbian": {
+    "competitiveEdge": "Fully autonomous AI SecOps without human analysts—first-to-market hyperscale AI agent triage/response across SIEM/SOAR/EDR.",
+    "swot": {
+      "strengths": [
+        "Autonomous AI agents performing analyst work (triage, investigation, response) address critical SOC staffing shortage",
+        "Exceptional growth (+a significant share YoY) demonstrates strong demand for autonomous SecOps AI",
+        "Integration across SIEM, SOAR, and EDR provides multi-stack automation vs. single-tool agents"
+      ],
+      "weaknesses": [
+        "Fully autonomous response carries operational risk if AI models hallucinate or misbehave",
+        "Early-stage platform (raised $35M) unproven at scale in complex, heterogeneous SOC environments",
+        "Dependency on third-party SIEM/SOAR/EDR quality—garbage-in-garbage-out on alert feed"
+      ],
+      "opportunities": [
+        "Expansion into attack-response workflows and incident escalation logic",
+        "Integration with threat intelligence and attacker behavioral data for smarter decisions",
+        "Operator-in-the-loop variants (human review gates) for risk-averse enterprises"
+      ],
+      "threats": [
+        "Established SIEM/SOAR incumbents (Splunk, Ibm QRadar, Palo Alto XSOAR) adding AI-native agents",
+        "Regulatory and compliance concerns over autonomous security decisions without human oversight"
+      ]
+    },
+    "userLikes": [
+      "Dramatic reduction in manual analyst toil via autonomous triage and ticket routing",
+      "Consistent 24/7 threat detection and response without shift fatigue",
+      "Cross-platform investigation and response without context-switching between tools"
+    ],
+    "userComplaints": [
+      "Risk of autonomous response causing false-positive escalations or over-reaction to benign activity",
+      "Lack of transparency in AI decision-making and chain-of-thought reasoning",
+      "Difficulty integrating with legacy SIEM environments or non-standard alert schemas"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mature SOCs with chronic analyst staffing shortages and high alert volumes",
+        "Cloud-native and SaaS companies prioritizing speed of response over manual control"
+      ],
+      "typicalBuyer": "SOC Manager or Chief Information Security Officer",
+      "topUseCases": [
+        "Autonomous alert triage and enrichment across SIEM, SOAR, and EDR",
+        "AI-driven incident investigation and containment response workflows",
+        "Continuous threat detection and response 24/7 without analyst overhead"
+      ]
+    },
+    "futureAreas": [
+      "Operator-in-the-loop and human review gates for high-stakes response decisions",
+      "Integration with threat intelligence and attacker behavior data for smarter triage",
+      "Cross-organization threat hunting and proactive investigation automation"
+    ]
+  },
+  "secops/aqua-security": {
+    "competitiveEdge": "Cloud-native container and serverless security purpose-built for modern application architectures—not retrofitted from VM-era security.",
+    "swot": {
+      "strengths": [
+        "Cloud-native focus and $1B valuation signal strong market validation in high-growth segment",
+        "Container and serverless coverage spans modern deployment models (Kubernetes, Fargate, Lambda)",
+        "Consistent growth (+a significant share YoY) and $100M ARR show established customer base and retention"
+      ],
+      "weaknesses": [
+        "Specialized cloud-native positioning limits addressable market vs. broader infrastructure security",
+        "Lower growth rate than earlier-stage competitors suggests market maturity or saturation",
+        "Competitive pressure from cloud providers (AWS, Azure, GCP) adding native container security"
+      ],
+      "opportunities": [
+        "Expansion into application runtime protection and workload-level threat detection",
+        "Integration with cloud compliance and policy orchestration frameworks",
+        "Cross-cloud container and serverless visibility for multi-cloud enterprises"
+      ],
+      "threats": [
+        "Hyperscalers embedding container and serverless security natively into platforms",
+        "Open-source container security tools (Falco, Cilium) eroding proprietary positioning",
+        "Consolidation in cloud security reducing standalone container vendor viability"
+      ]
+    },
+    "userLikes": [
+      "Seamless integration with Kubernetes and container registries without additional agents",
+      "Deep vulnerability management and runtime threat detection native to containerized workloads",
+      "Compliance and policy enforcement tailored to cloud-native deployment models"
+    ],
+    "userComplaints": [
+      "Limited visibility into non-containerized workloads in hybrid environments",
+      "Steep learning curve for teams transitioning from VM/host-based security mental models",
+      "Requires tight integration with container orchestration platforms, limiting portability"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native SaaS and platform companies running containerized architectures",
+        "Enterprise DevOps teams adopting Kubernetes and serverless across hybrid environments"
+      ],
+      "typicalBuyer": "Cloud Security Architect or Container Platform Lead",
+      "topUseCases": [
+        "Container image scanning and vulnerability management in registries and CI/CD",
+        "Kubernetes and serverless workload runtime protection and threat detection",
+        "Cloud-native compliance and policy enforcement across deployment pipelines"
+      ]
+    },
+    "futureAreas": [
+      "Cross-cloud visibility and compliance orchestration for multi-cloud container environments",
+      "AI-driven anomaly detection and behavioral threat modeling for containerized workloads",
+      "Supply chain and artifact integrity for container images and serverless functions"
+    ]
+  },
+  "secops/corelight": {
+    "competitiveEdge": "Open NDR built on proven Zeek and Suricata foundation—delivers deep packet analysis and behavioral detection without vendor lock-in.",
+    "swot": {
+      "strengths": [
+        "Open-source (Zeek/Suricata) foundation provides transparency, extensibility, and avoids vendor lock-in",
+        "Deep packet analysis and behavioral threat detection differentiate from siloed EDR/XDR tools",
+        "Strong growth (+a significant share YoY) and $60M ARR show solid market traction in NDR segment"
+      ],
+      "weaknesses": [
+        "Open-source positioning attracts security teams but complicates commercial support and monetization",
+        "Deep packet inspection requires network tap/mirror infrastructure, limiting deployment in some architectures",
+        "Smaller scale ($350M+ valuation) vs. well-funded XDR/EDR incumbents"
+      ],
+      "opportunities": [
+        "Expansion into behavioral threat hunting and AI-driven anomaly detection on network telemetry",
+        "Integration with SIEM/SOAR for correlated detection across network and endpoint",
+        "OT/ICS network monitoring for critical infrastructure security"
+      ],
+      "threats": [
+        "Cloud network environments (AWS, Azure, GCP) reduce traditional packet-capture feasibility",
+        "XDR and EDR incumbents adding behavioral network detection without separate deployment",
+        "Encrypted traffic expansion reduces signature-based and behavioral detection efficacy"
+      ]
+    },
+    "userLikes": [
+      "Transparent, open-source detection signatures reduce black-box threat detection concerns",
+      "Deep packet analysis and behavioral analytics catch threats EDR and firewalls miss",
+      "Extensibility and integration with custom threat hunting and detection workflows"
+    ],
+    "userComplaints": [
+      "Deployment complexity and infrastructure requirements (network taps, mirrors) limit adoption",
+      "Encrypted traffic (TLS, VPN) reduces effectiveness of signature and behavioral detection",
+      "Skill gap: deep packet analysis expertise rare in modern SOCs familiar only with endpoint/cloud tools"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise and critical infrastructure SOCs with mature network monitoring practices",
+        "Organizations with strong network visibility and advanced threat hunting capabilities"
+      ],
+      "typicalBuyer": "Network Security or Threat Detection Lead",
+      "topUseCases": [
+        "Deep packet inspection and behavioral threat detection for internal/east-west traffic",
+        "Network anomaly detection and lateral movement hunting across segmented networks",
+        "Critical infrastructure and OT/ICS network monitoring for threat detection"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven behavioral anomaly detection and threat modeling on network telemetry",
+      "Integration with cloud network monitoring and encrypted traffic analytics",
+      "Supply chain and third-party threat detection via network traffic correlation"
+    ]
+  },
+  "secops/island": {
+    "competitiveEdge": "Eliminates VPN and endpoint agents entirely via an enterprise browser delivering native zero trust, DLP, and activity governance for SaaS access.",
+    "swot": {
+      "strengths": [
+        "Native zero trust architecture eliminates VPN infrastructure dependency",
+        "DLP and activity governance built-in, reducing separate tools needed",
+        "Rapid growth (+a significant share YoY) signals strong market fit in browser-based security"
+      ],
+      "weaknesses": [
+        "Enterprise browser adoption requires organizational change management at scale",
+        "Limited to SaaS workflows; less applicable for on-prem or legacy app access",
+        "Early-stage startup—fewer Fortune 500 reference customers than established vendors"
+      ],
+      "opportunities": [
+        "Expand beyond SaaS to cover hybrid on-prem and cloud workloads",
+        "Licensing partnerships with endpoint management platforms (Intune, JumpCloud)",
+        "M&A acquisition by larger security or endpoint vendor seeking browser-based posture"
+      ],
+      "threats": [
+        "Incumbent browsers (Chrome, Edge) may integrate competing zero trust features",
+        "VPN vendors and endpoint suites bundling browser security natively in response"
+      ]
+    },
+    "userLikes": [
+      "Eliminates need for multiple VPN and DLP tools, simplifying security stack",
+      "Near-native user experience reduces friction vs. traditional proxy/gateway solutions",
+      "Built-in activity logging and governance improves compliance audit trail"
+    ],
+    "userComplaints": [
+      "Requires wholesale browser adoption org-wide; phased rollout creates operational complexity",
+      "Limited integration breadth with legacy security tools and workflows",
+      "Pricing model less transparent than per-user endpoint suites at large scale"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with >1000 SaaS users and strong zero trust mandates",
+        "Financial services and healthcare organizations with stringent DLP requirements"
+      ],
+      "typicalBuyer": "CISO or VP of Security Engineering seeking to eliminate VPN infrastructure",
+      "topUseCases": [
+        "Zero trust remote and hybrid work access to SaaS applications (M365, Salesforce, etc.)",
+        "Activity-based audit and compliance reporting for financial/healthcare regulations",
+        "Data exfiltration prevention and insider risk monitoring across SaaS tenants"
+      ]
+    },
+    "futureAreas": [
+      "Extend coverage to containerized and API-first workloads beyond traditional SaaS",
+      "AI-driven anomaly detection in user behavior and data access patterns"
+    ]
+  },
+  "secops/cyera": {
+    "competitiveEdge": "AI-powered data security posture management that auto-discovers, classifies, and protects sensitive data across cloud environments without manual workflows.",
+    "swot": {
+      "strengths": [
+        "AI classification engine reduces manual tagging and discovery overhead vs. competitors",
+        "Multi-cloud coverage (AWS, Azure, GCP) from inception, avoiding vendor lock-in",
+        "Extremely high growth (+a significant share YoY) and strong ARR velocity for data security category"
+      ],
+      "weaknesses": [
+        "Narrow focus on data security; less applicable for network/endpoint/identity threats",
+        "Early-stage—integration ecosystem with SIEM/SOAR platforms still maturing",
+        "AI classification confidence and false positive rates not independently validated"
+      ],
+      "opportunities": [
+        "Expand to data governance, lineage, and PII/regulatory compliance automation",
+        "Integrate with incident response workflows to auto-remediate exposures",
+        "Acquisition target for larger CSPM, DLP, or data platform vendors"
+      ],
+      "threats": [
+        "Hyperscalers (AWS, Azure, GCP) integrating competing data discovery natively",
+        "Incumbent DLP and CSPM vendors adding AI-driven classification in response"
+      ]
+    },
+    "userLikes": [
+      "Automated discovery and classification eliminates manual data inventory burden",
+      "Multi-cloud visibility without separate tools per cloud reduces management overhead",
+      "AI improves accuracy of sensitive data tagging vs. rule-based legacy systems"
+    ],
+    "userComplaints": [
+      "Requires cloud API permissions that may raise internal governance concerns",
+      "Integration with downstream data masking/DLP tools sometimes requires manual mapping",
+      "Learning curve for tuning classification models and reducing false positives"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises (5000+ employees) with multi-cloud data estates and PII exposure risk",
+        "Financial services, healthcare, and regulated industries with compliance mandates"
+      ],
+      "typicalBuyer": "Chief Data Officer or VP of Data Governance seeking compliance automation",
+      "topUseCases": [
+        "Automatic discovery and classification of PII, financial data, and regulated content in cloud",
+        "Continuous monitoring of data exposure and misconfigurations across cloud storage",
+        "Compliance reporting (GDPR, HIPAA, PCI-DSS) via unified data security dashboard"
+      ]
+    },
+    "futureAreas": [
+      "Real-time auto-remediation of exposed data and misconfigurations without manual approval",
+      "Integration with identity and access management for data-level privilege enforcement"
+    ]
+  },
+  "secops/obsidian-security": {
+    "competitiveEdge": "Detects threats and misconfigurations across 50+ enterprise SaaS applications (Okta, Salesforce, M365), eliminating blind spots in shadow and managed SaaS.",
+    "swot": {
+      "strengths": [
+        "Purpose-built for SaaS threat detection; more granular than generic SIEM approach",
+        "Pre-built integrations with top 50+ SaaS platforms reduce deployment friction",
+        "Captures SaaS-native attack surface (OAuth, misconfigured permissions, insider threats)"
+      ],
+      "weaknesses": [
+        "Narrow scope—SaaS-specific; limited visibility into network, endpoint, or on-prem threats",
+        "Smaller vendor—less established incident response playbook library vs. incumbents",
+        "SaaS API rate limits and authentication complexity can delay threat visibility"
+      ],
+      "opportunities": [
+        "Expand to security posture management and compliance automation across SaaS",
+        "Integrate with SOAR platforms to auto-remediate misconfigurations and accounts",
+        "M&A by cloud security or identity platform vendors seeking SaaS threat depth"
+      ],
+      "threats": [
+        "Okta, Salesforce, Microsoft adding native threat detection and logging features",
+        "Incumbent SIEM and XDR vendors launching SaaS threat modules in response"
+      ]
+    },
+    "userLikes": [
+      "Detects SaaS-native threats (OAuth abuse, permission escalation) that SIEMs miss",
+      "Pre-built SaaS connectors reduce engineering overhead vs. custom SIEM rules",
+      "Consolidates multiple point SaaS tools into single visibility pane"
+    ],
+    "userComplaints": [
+      "Limited ability to correlate SaaS threats with network/endpoint/identity context",
+      "Requires high API rate limits and careful credential management per SaaS tenant",
+      "Alert tuning for SaaS environments steeper than traditional endpoint-centric SIEM"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with 100+ deployed SaaS applications and security-conscious culture",
+        "Managed security service providers (MSSPs) serving SaaS-first customers"
+      ],
+      "typicalBuyer": "Security Operations Center (SOC) Manager or CISO's cloud security lead",
+      "topUseCases": [
+        "Real-time detection of compromised user accounts and unauthorized data access across SaaS",
+        "Configuration auditing and drift detection (exposed sharing, weak authentication policies)",
+        "Insider risk and anomalous user behavior detection within SaaS platforms"
+      ]
+    },
+    "futureAreas": [
+      "Cross-layer threat correlation: SaaS + identity + network for holistic breach detection",
+      "Native SOAR automation for SaaS remediation (revoke tokens, reset passwords, block IPs)"
+    ]
+  },
+  "secops/grip-security": {
+    "competitiveEdge": "Discovers all employee-adopted SaaS applications (managed and unmanaged shadow IT) and enforces consistent identity governance across the entire SaaS estate.",
+    "swot": {
+      "strengths": [
+        "Uniquely targets shadow SaaS where other tools go blind; captures governance risk",
+        "Agentless discovery reduces deployment friction and endpoint overhead vs. agent-based",
+        "Fast growth (+a significant share YoY) and strong product-market fit in SaaS identity governance"
+      ],
+      "weaknesses": [
+        "Focused on SaaS discovery/governance; limited endpoint, network, or cloud workload coverage",
+        "Early-stage vendor—fewer deployment patterns and playbooks for enterprise-wide rollout",
+        "Shadow SaaS discovery completeness depends on network access and auth integration"
+      ],
+      "opportunities": [
+        "Expand to SaaS entitlement management and access reviews for continuous compliance",
+        "Integrate with SSO/identity providers to enforce real-time access policies",
+        "M&A by identity platform (Okta, Azure AD) or CIAM vendor seeking SaaS governance"
+      ],
+      "threats": [
+        "IdP vendors (Okta, Azure AD) bundling competing shadow SaaS discovery natively",
+        "Larger identity and access management vendors launching SaaS governance modules"
+      ]
+    },
+    "userLikes": [
+      "Discovers shadow SaaS apps that bypass IT—fills critical visibility gap in audit/compliance",
+      "Agentless approach simplifies rollout vs. requiring endpoint or network agents",
+      "Enforces consistent identity policies across managed and unmanaged SaaS ecosystem"
+    ],
+    "userComplaints": [
+      "Requires broad network proxy or log access to achieve complete SaaS app discovery",
+      "Remediation (disable access, enforce MFA) sometimes manual vs. fully automated",
+      "Integration with existing IdP and SaaS platforms can be complex and require custom configs"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises (2000+ employees) with decentralized SaaS adoption and governance risk",
+        "Healthcare, financial services, and regulated industries needing SaaS compliance visibility"
+      ],
+      "typicalBuyer": "Identity and Access Management (IAM) lead or Chief Information Security Officer",
+      "topUseCases": [
+        "Discovery and enumeration of all SaaS apps used by employees (managed and shadow)",
+        "Enforcement of consistent MFA, SSO, and identity policies across entire SaaS portfolio",
+        "SaaS access reviews, offboarding automation, and privileged account governance"
+      ]
+    },
+    "futureAreas": [
+      "Real-time enforcement: block or require auth step-up for risky SaaS app access",
+      "AI-driven entitlement optimization to reduce excessive and orphaned SaaS access"
+    ]
+  },
+  "secops/illumio": {
+    "competitiveEdge": "Zero trust segmentation that stops ransomware and breach lateral movement by default-denying traffic between workloads and enforcing microsegmentation at scale.",
+    "swot": {
+      "strengths": [
+        "Proven zero trust segmentation stops lateral movement without perimeter firewalls",
+        "Significant ARR and market traction prove enterprise adoption and feature maturity",
+        "Workload-agnostic (VMs, containers, cloud, on-prem) future-proofs investment"
+      ],
+      "weaknesses": [
+        "High implementation complexity—requires extensive network policy discovery and validation",
+        "Segmentation policies can be overly broad or brittle without continuous tuning",
+        "Perception as 'niche' player vs. larger firewall and SIEM vendors with segmentation modules"
+      ],
+      "opportunities": [
+        "Deepen SIEM/XDR integration for threat-driven policy automation and response",
+        "Expand application and container security to cover full workload lifecycle",
+        "M&A acquisition by larger security or network vendor seeking segmentation depth"
+      ],
+      "threats": [
+        "Incumbent firewalls (Palo Alto, Fortinet, Cisco) bundling native microsegmentation",
+        "Cloud providers (AWS, Azure, GCP) adding competing segmentation at the IaaS layer"
+      ]
+    },
+    "userLikes": [
+      "Stops breach lateral movement by default-denying inter-workload traffic unless explicitly allowed",
+      "Reduces reliance on perimeter firewalls and enables secure remote access without VPN",
+      "Works across hybrid cloud environments (on-prem, AWS, Azure, GCP) without vendor lock-in"
+    ],
+    "userComplaints": [
+      "Deployment requires extensive discovery and mapping of application traffic dependencies",
+      "Policy enforcement can be rigid or cause false negatives if rules are too permissive",
+      "Requires deep network and application knowledge to validate and maintain over time"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises (5000+ employees) with complex hybrid cloud and on-prem workloads",
+        "Financial services, energy, and critical infrastructure organizations with zero trust mandates"
+      ],
+      "typicalBuyer": "Chief Information Security Officer (CISO) or VP of Infrastructure Security",
+      "topUseCases": [
+        "Ransomware containment: block lateral movement between servers and workloads",
+        "Zero trust network access for cloud and hybrid workloads without traditional firewalls",
+        "Continuous compliance and segmentation policy enforcement across dynamic infrastructure"
+      ]
+    },
+    "futureAreas": [
+      "Automated policy generation via ML/AI analysis of threat and behavioral data",
+      "Tighter SIEM/XDR integration for real-time threat-driven policy adaptation"
+    ]
+  },
+  "secops/silverfort": {
+    "competitiveEdge": "Agentless identity threat protection and zero trust authentication for all auth traffic across hybrid and cloud environments without agent deployment overhead.",
+    "swot": {
+      "strengths": [
+        "Agentless approach eliminates endpoint and on-prem infrastructure complexity vs. agent models",
+        "Covers all auth traffic (VPN, RDP, SSH, cloud APIs, SaaS) in single visibility/control plane",
+        "Strong growth (+a significant share YoY) and billion-dollar+ valuation signal enterprise product maturity"
+      ],
+      "weaknesses": [
+        "Requires network proxy or TAP access to inspect auth traffic—may not capture all flows",
+        "Policy enforcement can be disruptive if auth rules too restrictive or poorly tuned",
+        "Less integrated with endpoint-centric identity products (Windows AD, Okta) vs. purpose-built"
+      ],
+      "opportunities": [
+        "Expand to cover post-auth behavior and privilege escalation detection across environments",
+        "Deep integration with SIEM/SOAR for threat-driven identity policy enforcement",
+        "M&A acquisition by larger identity platform (Okta, Ping) or PAM vendor"
+      ],
+      "threats": [
+        "Incumbent identity and PAM vendors (BeyondTrust, CyberArk) bundling agentless auth features",
+        "Cloud IdP vendors (Azure AD, Okta) adding competing threat protection natively"
+      ]
+    },
+    "userLikes": [
+      "Agentless deployment simplifies rollout across hybrid and legacy environments",
+      "Detects identity threats (anomalous auth, privilege escalation) that traditional MFA misses",
+      "Single control point for all authentication—reduces fragmentation across VPN, cloud, on-prem"
+    ],
+    "userComplaints": [
+      "Network placement and inline auth interception can introduce latency or visibility gaps",
+      "Policy configuration and threat response tuning requires deep identity and network expertise",
+      "Integration with legacy auth systems (Active Directory, Kerberos) sometimes incomplete"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises (5000+ employees) with hybrid infrastructure and legacy auth systems",
+        "Financial services and government organizations with stringent zero trust and identity mandates"
+      ],
+      "typicalBuyer": "Chief Information Security Officer (CISO) or VP of Identity and Access Management",
+      "topUseCases": [
+        "Zero trust authentication enforcement and anomaly detection across all auth vectors (VPN, RDP, APIs)",
+        "Identity threat detection and response (credential abuse, privilege escalation, lateral movement)",
+        "Compliance and audit logging for all authentication attempts across hybrid infrastructure"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven behavioral analysis for post-auth risk assessment and adaptive step-up challenges",
+      "Native incident response orchestration for identity-driven threats across SIEM/SOAR platforms"
+    ]
+  },
+  "secops/oort": {
+    "competitiveEdge": "Dedicated identity threat detection and response backed by Cisco's security infrastructure and GTM reach.",
+    "swot": {
+      "strengths": [
+        "Cisco backing provides credibility, resources, and integration pathways with enterprise security stacks",
+        "Focused ITDR positioning fills a specialized gap between IAM and threat detection",
+        "Acquired talent and methodology embedded into larger security ecosystem"
+      ],
+      "weaknesses": [
+        "As a standalone product within Cisco, differentiation from other Cisco security modules unclear to buyers",
+        "Limited public visibility compared to integrated identity platforms or pure-play EDR vendors",
+        "Potential overhead of integrating ITDR signals into broader Cisco security orchestration"
+      ],
+      "opportunities": [
+        "Identity compromise increasingly recognized as primary attack vector; enterprises seeking specialized ITDR",
+        "Expand beyond Cisco ecosystem to multi-vendor identity security stories across healthcare, finance, tech",
+        "Package ITDR with Cisco incident response and Zero Trust capabilities for bundled positioning"
+      ],
+      "threats": [
+        "Large IAM vendors (Okta, Azure AD) adding threat detection natively, eroding specialized ITDR demand",
+        "Pure-play EDR/XDR vendors expanding into identity, commoditizing ITDR as table-stakes feature"
+      ]
+    },
+    "userLikes": [
+      "Tight integration with Cisco security products and existing infrastructure",
+      "Fast, focused detection of suspicious identity activities without false positives",
+      "Expert threat research directly backed by Cisco's incident response teams"
+    ],
+    "userComplaints": [
+      "Documentation and onboarding process assumes deep Cisco security knowledge",
+      "Limited ability to work standalone or in non-Cisco-heavy environments",
+      "Pricing often bundled into Cisco packages, making per-module ROI difficult to isolate"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with Cisco security investments",
+        "Organizations with mature IAM deployments seeking identity threat layer"
+      ],
+      "typicalBuyer": "Chief Information Security Officer or Head of Identity Security",
+      "topUseCases": [
+        "Detect compromised identity credentials and lateral movement via identity abuse",
+        "Monitor and alert on anomalous user behavior indicating account takeover or insider threat",
+        "Enforce adaptive risk-based access controls based on identity threat signals"
+      ]
+    },
+    "futureAreas": [
+      "Expansion to cover non-human identity threats (service accounts, API keys, certificates)",
+      "Deeper behavioral analytics to predict identity-based threats before exploitation"
+    ]
+  },
+  "secops/authomize": {
+    "competitiveEdge": "Continuous IAM posture assessment and misconfiguration detection without requiring identity data export or privileged credentials.",
+    "swot": {
+      "strengths": [
+        "Addresses critical blind spot: overprivileged accounts and role creep in cloud and on-premises IAM",
+        "Non-invasive detection model avoids friction and privacy concerns vs. credential-based approaches",
+        "Early market positioning in IAM security posture niche, ahead of mainstream security vendors"
+      ],
+      "weaknesses": [
+        "Early-stage company with limited customer reference base or proven long-term retention data",
+        "Competes indirectly against identity platforms (Okta, Azure AD) that add compliance/audit features",
+        "Dependency on connector models or API access means setup complexity in multi-cloud/hybrid environments"
+      ],
+      "opportunities": [
+        "Regulatory push (SOX, PCI, HIPAA, Zero Trust mandates) drives demand for IAM audit and remediation",
+        "Expand from detection to automated remediation workflows and access review orchestration",
+        "Integrate with identity governance (IGA) leaders as continuous compliance layer"
+      ],
+      "threats": [
+        "Large cloud providers (AWS IAM Access Analyzer, Azure AD risk detections) adding overlapping capabilities",
+        "Identity governance incumbents (SailPoint, Okta) building posture assessment natively into platforms"
+      ]
+    },
+    "userLikes": [
+      "Discovers overprivileged accounts and misconfigurations missed by native IAM audit logs",
+      "Fast deployment without requiring identity system export or credential sharing",
+      "Clear risk scoring helps teams prioritize access review and remediation efforts"
+    ],
+    "userComplaints": [
+      "Alerts can be noisy in complex multi-cloud environments without sufficient context filtering",
+      "Limited integration with identity governance workflows, requiring manual remediation handoffs",
+      "Struggles with non-standard IAM systems or legacy directory services outside major cloud providers"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with multi-cloud identity footprints",
+        "Organizations undergoing Zero Trust or IAM consolidation initiatives"
+      ],
+      "typicalBuyer": "Identity Security Architect or IAM Governance Lead",
+      "topUseCases": [
+        "Continuous detection of over-privileged service accounts and stale access in cloud platforms",
+        "Identify and remediate IAM role misconfigurations before they enable lateral movement",
+        "Demonstrate IAM hygiene and access review compliance to auditors and regulators"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous remediation and access review orchestration workflows",
+      "Extension to non-human identities (workloads, containers, CI/CD pipelines)"
+    ]
+  },
+  "secops/zafran": {
+    "competitiveEdge": "Vulnerability prioritization powered by real-time threat intelligence and compensating controls, eliminating noise from context-agnostic CVSS scores.",
+    "swot": {
+      "strengths": [
+        "Directly addresses vulnerability fatigue: helps teams fix what actually matters in their environment",
+        "Combines threat intelligence with inventory and control mapping for enterprise-specific risk context",
+        "High growth rate and significant funding suggest strong product-market fit and investor confidence"
+      ],
+      "weaknesses": [
+        "Requires integration with threat feeds, asset inventory, and control systems; deployment complexity",
+        "Younger market presence; enterprises may prefer established vulnerability management leaders (Qualys, Rapid7)",
+        "Dependency on threat intelligence quality and freshness; misses or delays impact prioritization accuracy"
+      ],
+      "opportunities": [
+        "Supply chain and third-party risk management integration; extend to vendor vulnerability assessments",
+        "Integration with ticketing and incident response workflows to drive faster mean-time-to-remediation",
+        "Expand from vulnerability to policy, configuration, and supply-chain risk prioritization"
+      ],
+      "threats": [
+        "Established vulnerability platforms (Qualys, Tenable) adding ML-based prioritization and threat context",
+        "Cloud providers embedding native vulnerability management with threat intelligence into platforms"
+      ]
+    },
+    "userLikes": [
+      "Cuts through vulnerability noise by highlighting what is actually exploitable in their environment",
+      "Incorporates compensating controls and internal risk context that CVSS scores ignore",
+      "Reduces time wasted on low-risk CVEs and directs teams to high-impact patching"
+    ],
+    "userComplaints": [
+      "Requires multiple data integrations (threat feeds, asset inventory, controls) to function effectively",
+      "Threat intelligence quality and lag can lead to missed emerging exploits or false negatives",
+      "Remediation workflows still manual; lacks ticketing automation or patch deployment orchestration"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with high-volume vulnerability backlogs and mature security programs",
+        "Organizations managing critical infrastructure or large distributed asset bases"
+      ],
+      "typicalBuyer": "Vulnerability Manager or Risk and Compliance Manager",
+      "topUseCases": [
+        "Prioritize patching by likelihood of real-world exploitation in their specific threat landscape",
+        "Identify vulnerabilities mitigated by compensating controls, deferring patch cycles",
+        "Allocate limited remediation resources to high-impact CVEs and zero-day threats"
+      ]
+    },
+    "futureAreas": [
+      "Extend to supply-chain and third-party risk prioritization",
+      "Automation of patch deployment and testing workflows triggered by prioritization signals"
+    ]
+  },
+  "secops/nudge-security": {
+    "competitiveEdge": "SaaS discovery and compliance without blocking; identifies shadow IT and nudges secure configuration at user scale without friction.",
+    "swot": {
+      "strengths": [
+        "Non-blocking, nudge-based approach achieves user adoption where security controls typically fail",
+        "Rapid SaaS app discovery captures true employee adoption patterns vs. IT's approved app lists",
+        "Addresses growing attack surface of unsanctioned SaaS in remote and hybrid work environments"
+      ],
+      "weaknesses": [
+        "Early-stage company; long-term product roadmap and customer retention data limited",
+        "Relies on user behavior change; enterprises with strict app-blocking policies may see limited ROI",
+        "Nudge-based model may not satisfy high-security environments requiring hard controls and blocking"
+      ],
+      "opportunities": [
+        "Enterprises seeking Zero Trust SaaS governance without user friction or IT backlash",
+        "Expansion to data exfiltration detection and DLP orchestration within SaaS apps",
+        "Integration with identity governance and privileged access workflows for SaaS"
+      ],
+      "threats": [
+        "Cloud access security brokers (Netskope, Zscaler) adding native SaaS discovery and nudge workflows",
+        "Larger security vendors bundling SaaS governance into platform offerings"
+      ]
+    },
+    "userLikes": [
+      "Actually discovers employee-adopted SaaS apps vs. relying on outdated IT approval lists",
+      "Non-blocking nudge model reduces user backlash and improves adoption over hard security controls",
+      "Clear visibility into SaaS usage patterns informs cloud spend optimization and license management"
+    ],
+    "userComplaints": [
+      "Relies on user behavioral change; does not prevent determined users from bypassing controls",
+      "Limited ability to enforce hard controls or block high-risk apps in strict compliance environments",
+      "Data integration and visibility gaps for SaaS apps without standard SSO or API access"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with distributed, tech-forward workforces (tech, finance, media)",
+        "Organizations seeking Shadow IT and SaaS governance without user friction"
+      ],
+      "typicalBuyer": "Chief Information Security Officer or Cloud Security Officer",
+      "topUseCases": [
+        "Discover and monitor all employee-adopted SaaS applications and shadow IT",
+        "Nudge users toward secure authentication, data classification, and configuration best practices",
+        "Quantify SaaS application risk and usage patterns to inform security and spend governance"
+      ]
+    },
+    "futureAreas": [
+      "Integration with CASB and DLP platforms for deeper SaaS data and app control",
+      "Threat and vulnerability detection within monitored SaaS applications"
+    ]
+  },
+  "secops/layerx-security": {
+    "competitiveEdge": "Browser-level enforcement of data loss prevention and phishing prevention without endpoint replacement, deployed instantly via extension.",
+    "swot": {
+      "strengths": [
+        "Browser-agnostic deployment model avoids endpoint replacement friction and IT overhead",
+        "Enforces security controls at the last mile where user risk is highest (clipboard, screenshots, form submission)",
+        "Emerging focus on GenAI data leakage prevention aligns with timely enterprise concern"
+      ],
+      "weaknesses": [
+        "Limited to browser context; cannot enforce controls for native applications or network-level threats",
+        "Depends on user adoption of extension; non-enforced in incognito/private windows and competing browsers",
+        "Younger market; limited customer references and long-term retention track record"
+      ],
+      "opportunities": [
+        "GenAI explosion increases urgency of user-level data leakage controls in workplace AI tools",
+        "Expand to context-aware enforcement for different application, location, and risk levels",
+        "Integration with zero-trust and adaptive access platforms for dynamic policy enforcement"
+      ],
+      "threats": [
+        "Endpoint DLP and MDR vendors adding browser-level controls natively without extension friction",
+        "Cloud providers (Google, Microsoft) embedding browser security features directly into managed browsers"
+      ]
+    },
+    "userLikes": [
+      "Stops data leakage via clipboard, screenshots, and form submission without blocking legitimate work",
+      "Deploys instantly via browser extension without endpoint replacement, IT overhead, or performance impact",
+      "Catches phishing and GenAI misuse at the user action level where endpoint tools are blind"
+    ],
+    "userComplaints": [
+      "Limited ability to enforce controls across non-browser applications and native workflows",
+      "Users can disable or bypass extension in incognito windows or unsupported browsers",
+      "Troubleshooting false positives and exceptions requires business unit coordination across IT and Security"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprises with significant intellectual property or regulated data at user risk (tech, finance, healthcare)",
+        "Organizations with distributed workforces and limited endpoint replacement cycles"
+      ],
+      "typicalBuyer": "Chief Information Security Officer or Data Protection Officer",
+      "topUseCases": [
+        "Prevent user data loss via clipboard, screenshots, and copy-paste to cloud applications",
+        "Detect and block phishing attacks at the user interaction point before credential compromise",
+        "Control data exfiltration to generative AI tools and unvetted SaaS applications"
+      ]
+    },
+    "futureAreas": [
+      "Expansion to multi-browser and OS coverage (mobile, macOS, Linux)",
+      "Integration with behavioral analytics to detect and block coordinated data exfiltration"
+    ]
+  },
+  "secops/saviynt": {
+    "competitiveEdge": "Cloud-native identity governance and privileged access for large enterprises, bridging IGA and PAM in a single platform.",
+    "swot": {
+      "strengths": [
+        "Mature platform with established customer base, significant ARR, and proven cloud-native architecture",
+        "Unified identity governance and privileged access reduces complexity and vendor fragmentation",
+        "Strong positioning in enterprise cloud transformation and multi-cloud identity consolidation initiatives"
+      ],
+      "weaknesses": [
+        "Competes directly against SailPoint (larger, more entrenched) and Okta (broader IAM ecosystem)",
+        "Slower growth rate relative to pure-play startups suggests mature/saturated market positioning",
+        "Platform complexity may deter mid-market buyers preferring lighter-weight identity solutions"
+      ],
+      "opportunities": [
+        "Regulatory pressure (SOX, PCI, Zero Trust mandates) drives enterprise demand for identity governance",
+        "Expand to API and service account governance as non-human identity governance accelerates",
+        "Integrate with security orchestration (SOAR) and incident response to automate access revocation workflows"
+      ],
+      "threats": [
+        "SailPoint and Okta continue to dominate IGA and IAM, commoditizing PAM features",
+        "Specialized PAM vendors (CyberArk, Delinea) maintain strong incumbency in privilege management"
+      ]
+    },
+    "userLikes": [
+      "Single platform for identity governance and privileged access reduces tool sprawl and complexity",
+      "Native cloud architecture and multi-cloud support align with modern enterprise infrastructure",
+      "Robust audit and reporting capabilities simplify regulatory compliance and access review processes"
+    ],
+    "userComplaints": [
+      "Implementation and customization can be lengthy and expensive for complex enterprise deployments",
+      "Interface and user experience less intuitive than newer identity governance competitors",
+      "Limited out-of-the-box connectors for legacy and non-standard identity systems"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with multi-cloud infrastructure and complex privileged access requirements",
+        "Organizations consolidating IAM and PAM tools to reduce vendor footprint and costs"
+      ],
+      "typicalBuyer": "Director of Identity and Access Management or Privileged Access Manager",
+      "topUseCases": [
+        "Govern access to cloud platforms, databases, and critical infrastructure with unified workflows",
+        "Automate privileged access requests, approvals, and time-bound credential provisioning",
+        "Demonstrate identity governance and PAM compliance to auditors and regulators across cloud and on-premises"
+      ]
+    },
+    "futureAreas": [
+      "Expansion to non-human identity governance (service accounts, API keys, workloads, containers)",
+      "Deeper integration with incident response and threat detection platforms for automated access remediation"
+    ]
+  },
+  "secops/runzero": {
+    "competitiveEdge": "Agentless, credentialless network discovery at speed — discovers all devices and OT/cloud assets in a single inventory without pre-existing infrastructure.",
+    "swot": {
+      "strengths": [
+        "Fast, agent-free discovery across legacy on-prem and cloud without requiring pre-installed credentials",
+        "Strong differentiation in OT/ICS visibility where traditional CMDB tools struggle or require manual updates",
+        "Rapid growth momentum (+a significant share YoY) and recent funding demonstrates market validation and runway"
+      ],
+      "weaknesses": [
+        "Limited to asset discovery and CAASM — no threat detection, response, or SOC automation capabilities",
+        "Smaller annual revenue base means fewer resources for customer success and product expansion vs. incumbents",
+        "New market for CAASM means customer education burden and longer sales cycles for unfamiliar use case"
+      ],
+      "opportunities": [
+        "Expand into OT/ICS security operations given first-mover advantage in factory and critical infra discovery",
+        "Integrate threat intelligence and vulnerability feeds to become the inventory backbone for SecOps platforms",
+        "Partner with SOAR and SIEM vendors as the canonical asset source for more accurate alert correlation and playbooks"
+      ],
+      "threats": [
+        "Large SIEM and SOAR vendors (Palo Alto, Splunk, ServiceNow) adding lightweight discovery modules to reduce point-tool reliance",
+        "Cloud-native alternatives like Wiz and Orca gaining asset discovery as a bundled capability in their CSPM platforms",
+        "Potential market consolidation risk if a larger vendor acquires RunZero to own the discovery layer"
+      ]
+    },
+    "userLikes": [
+      "Zero agent/credential overhead and instant visibility into all devices — critical for enterprises with legacy infrastructure and OT environments",
+      "Clean, intuitive asset inventory that integrates naturally into existing SecOps workflows without ripping-and-replacing CMDB tools",
+      "Reliable discovery across hybrid cloud, on-prem, and OT networks where other tools require manual updates or agent sprawl"
+    ],
+    "userComplaints": [
+      "Limited to discovery only — cannot respond to findings; must hand off to separate SIEM or SOAR, creating tool sprawl",
+      "Pricing scales with number of assets, which can become expensive at scale in large enterprises with many unmanaged devices",
+      "API documentation and out-of-box integrations with major platforms (Splunk, ServiceNow) still maturing compared to established players"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise OT/critical infrastructure operators requiring certified asset discovery with audit trails",
+        "Cloud-first mid-market companies managing hybrid infrastructure with high cloud-to-on-prem sprawl",
+        "MSPs and MSSPs needing agentless discovery to quickly inventory customer environments at onboarding"
+      ],
+      "typicalBuyer": "CISO or SecOps director tasked with building accurate asset inventory for compliance or M&A integration",
+      "topUseCases": [
+        "Baseline asset inventory and change detection for SOC 2 Type II audits and regulatory compliance",
+        "OT/ICS network discovery for manufacturing, utilities, and critical infrastructure without disrupting operational systems",
+        "Post-acquisition integration — rapidly discovering all assets in acquired company's network to identify security gaps"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous vulnerability prioritization leveraging asset metadata and real-time threat intelligence to reduce security team noise",
+      "OT/ICS-specific threat intelligence and incident response playbooks built on RunZero inventory foundation",
+      "Supply chain asset visibility extending to third-party and vendor infrastructure exposure management"
+    ]
+  },
+  "secops/vanta": {
+    "competitiveEdge": "Continuous compliance automation — transforms manual audit evidence collection into a real-time, auditable compliance engine.",
+    "swot": {
+      "strengths": [
+        "Fast-growing compliance automation motion (+a significant share YoY) addresses genuine pain of SOC 2 and ISO 27001 audit preparation",
+        "Strong market validation evident in valuation ($2.45B) and ARR growth — trusted by thousands of startups and mid-market tech companies",
+        "Integrates naturally into security teams' existing tooling stacks (AWS, GitHub, Okta) to centralize evidence collection"
+      ],
+      "weaknesses": [
+        "Primarily a compliance tool, not a threat detection or incident response platform — cannot replace SIEM or SOAR",
+        "Limited threat hunting or security operation visibility compared to full SecOps platforms; focuses on evidence, not anomaly detection",
+        "Heavy reliance on third-party integrations means gaps if a customer uses non-standard or emerging tools outside Vanta's connector library"
+      ],
+      "opportunities": [
+        "Expand into emerging compliance standards (ISO 42001 for AI governance, NIST Cybersecurity Framework 2.0 amendments)",
+        "Integrate vulnerability and asset management data to enable risk-based compliance prioritization and evidence automation",
+        "Develop incident readiness playbooks that test an organization's ability to respond to breaches in compliance-relevant ways"
+      ],
+      "threats": [
+        "Larger vendors like ServiceNow and Splunk adding compliance modules to their platforms, creating bundle risk",
+        "Custom internal audit tools and spreadsheet-based compliance processes among large enterprises with mature security teams",
+        "Potential price pressure as venture-backed security tools consolidate around single-pane-of-glass platforms"
+      ]
+    },
+    "userLikes": [
+      "Dramatically reduces time-to-audit-ready by automating evidence collection — moves compliance from reactive to continuous",
+      "Integrates seamlessly with existing security tools (AWS, GitHub, Okta) without requiring new infrastructure or agent installation",
+      "Transparent, audit-friendly interface that non-technical stakeholders (finance, legal) can understand to support compliance narratives"
+    ],
+    "userComplaints": [
+      "Limited to compliance frameworks — does not detect threats or respond to incidents, creating need for separate SecOps tools",
+      "Connector library for custom or legacy tools is incomplete; some organizations must manually input evidence or build custom connectors",
+      "Pricing scales with headcount and infrastructure volume, making it expensive for large enterprises with many systems and users"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Venture-backed and growth-stage tech companies needing SOC 2 Type II certification for enterprise sales",
+        "Regulated mid-market enterprises (healthcare, finance) managing multiple compliance standards simultaneously",
+        "Companies undergoing M&A integration requiring rapid compliance audit consolidation across acquired entities"
+      ],
+      "typicalBuyer": "Security compliance manager or GRC lead responsible for audit preparation and regulatory reporting",
+      "topUseCases": [
+        "Automated SOC 2 Type II and Type I evidence collection to accelerate audit timelines from months to weeks",
+        "Continuous ISO 27001 and HIPAA compliance monitoring with real-time policy enforcement and audit trails",
+        "Multi-standard compliance reporting for customers and regulators (combining SOC 2, ISO 27001, GDPR data processing) in single platform"
+      ]
+    },
+    "futureAreas": [
+      "AI-assisted compliance mapping to emerging standards like ISO 42001 and NIST CSF 2.0 without full auditor involvement",
+      "Integrated incident simulation and tabletop exercises tied to compliance readiness to test response capability",
+      "Risk-based compliance automation that prioritizes controls based on threat model and asset criticality rather than checkbox approach"
+    ]
+  },
+  "secops/sentra": {
+    "competitiveEdge": "AI-powered continuous data classification and exposure detection across multi-cloud, enabling precise insider-risk and compliance automation.",
+    "swot": {
+      "strengths": [
+        "Exceptional growth rate (+a significant share YoY) and AI-native positioning align with market demand for autonomous data security",
+        "Continuous discovery and classification of sensitive data eliminates manual tagging bottlenecks that plague traditional DSPM tools",
+        "Multi-cloud coverage (AWS, Azure, GCP) and agentless approach reduces operational complexity vs. legacy data loss prevention (DLP) systems"
+      ],
+      "weaknesses": [
+        "Early-stage revenue profile limits customer success resources and product breadth compared to established data security leaders",
+        "Classification accuracy is critical to platform credibility; false positives in data labeling can cause alert fatigue and override trust",
+        "Limited incident response integration — discovers and classifies sensitive data but relies on separate tools to enforce access controls or block exfiltration"
+      ],
+      "opportunities": [
+        "Expand into insider-risk correlation by integrating user behavior analytics to flag risky data access patterns at scale",
+        "Develop remediation workflows that automatically enforce least-privilege access based on data classification and user risk score",
+        "Integrate with identity platforms (Okta, Azure AD) to enable identity-first data governance and progressive access controls"
+      ],
+      "threats": [
+        "Established cloud security vendors (Orca, Lacework, Wiz) adding data discovery modules to their CSPM platforms as bundle",
+        "Traditional DLP vendors (Forcepoint, Symantec) re-architecting for cloud-native deployment and AI classification",
+        "Privacy-by-design regulations (GDPR, CCPA, DPDP) shifting compliance burden away from detection to consent and minimization"
+      ]
+    },
+    "userLikes": [
+      "Automated discovery and classification of sensitive data across cloud removes manual tagging burden and catches unclassified data",
+      "Real-time insider-risk detection based on access patterns — identifies risky behavior like bulk downloads or access anomalies",
+      "Multi-cloud coverage without agents simplifies deployment in hybrid environments where data spreads across AWS, Azure, and GCP"
+    ],
+    "userComplaints": [
+      "Requires careful tuning to reduce false positives in data classification; over-tagging sensitive data can overwhelm security teams",
+      "Does not enforce access controls or block exfiltration by itself — must integrate with separate IAM and DLP tools to act on findings",
+      "Pricing model based on data volume scanned can become expensive in large enterprises with terabytes of unstructured data"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Data-intensive enterprises (healthcare, financial services, SaaS) managing multi-cloud data sprawl and insider-risk compliance",
+        "Regulated companies subject to GDPR, HIPAA, or CCPA requiring continuous data mapping and access controls",
+        "Cloud-first mid-market companies without legacy on-prem data governance infrastructure"
+      ],
+      "typicalBuyer": "Chief Data Officer, Data Security Officer, or Senior Security Engineer responsible for data governance and insider-risk remediation",
+      "topUseCases": [
+        "Continuous discovery and classification of sensitive PII, PHI, and financial data across S3 buckets, databases, and SaaS applications",
+        "Insider-risk detection by flagging unusual access patterns to sensitive data (e.g., bulk downloads, after-hours access, lateral movement)",
+        "GDPR and HIPAA compliance automation by maintaining a living inventory of sensitive data locations and access patterns"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous access control policy generation and enforcement based on data sensitivity and user role to enable zero-trust data governance",
+      "AI-powered data minimization recommendations to help organizations retain only the minimum personally identifiable information required for business operations",
+      "Integration with security incident response to automatically contain data exfiltration in real time by revoking access or quarantining suspicious users"
+    ]
+  },
+  "secops/push-security": {
+    "competitiveEdge": "Real-time identity attack surface visibility — detects credential exposures and phishing-susceptible accounts across cloud identities before exploitation.",
+    "swot": {
+      "strengths": [
+        "Rapid growth (+a significant share YoY) in identity attack surface management reflects strong market demand for proactive credential/phishing defense",
+        "Unique focus on identity exposure detection (credentials on GitHub, etc.) fills a gap left by traditional identity security vendors",
+        "Cloud-native positioning and agentless approach integrates naturally into modern cloud identity stacks (Okta, Azure AD, AWS IAM)"
+      ],
+      "weaknesses": [
+        "Early-stage revenue limits product breadth and customer support capacity compared to established identity security platforms",
+        "Highly dependent on public data sources (GitHub, Pastebin, dark web) for credential detection; coverage gaps exist if exposures occur on private platforms",
+        "Limited insider-threat correlation — detects exposed credentials but lacks behavioral analytics to assess compromised-account severity or active exploitation"
+      ],
+      "opportunities": [
+        "Expand into identity-centric incident response by integrating with SOAR platforms to automate credential rotation and phishing user remediation",
+        "Develop identity risk scoring that combines credential exposure, phishing susceptibility, and privileged access patterns into single decisioning model",
+        "Partner with SSO and identity platforms to embed exposure detection into signup and provisioning flows to prevent high-risk identity creation"
+      ],
+      "threats": [
+        "Major identity vendors (Okta, Microsoft Entra, CyberArk) adding exposure detection and phishing simulation into their platforms",
+        "Email security and phishing defense vendors (Abnormal, Proofpoint) expanding into identity exposure and account takeover prevention",
+        "Consolidation risk if larger identity or SecOps vendor acquires Push Security to own identity attack surface layer"
+      ]
+    },
+    "userLikes": [
+      "Continuous monitoring for exposed credentials on public sources catches identity risks before attackers can leverage them",
+      "Simple identity attack surface dashboard makes phishing and credential exposure risks visible to non-technical stakeholders",
+      "Real-time alerts on new credential exposures enable rapid password reset and multi-factor authentication enforcement"
+    ],
+    "userComplaints": [
+      "Limited to detection of exposed credentials and phishing-susceptible accounts — does not orchestrate remediation like password rotation or MFA enforcement",
+      "Relies on public data sources for credential detection; misses exposures on private platforms, dark web, or internal code repositories",
+      "Lacks behavioral analytics to distinguish between truly compromised accounts and false-positive exposures flagged by overly broad credential scanning rules"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native and DevOps-heavy enterprises where developers accidentally commit credentials to GitHub and other public repositories",
+        "Mid-market companies managing large distributed workforce (SaaS, remote-first) facing elevated phishing and account takeover risk",
+        "Regulated companies (financial, healthcare) requiring continuous identity risk monitoring and rapid remediation playbooks"
+      ],
+      "typicalBuyer": "Identity Security Officer, Cloud Security Lead, or SecOps Director responsible for identity incident prevention and employee security awareness",
+      "topUseCases": [
+        "Continuous scanning of public repositories (GitHub, GitLab) for leaked credentials to prevent account takeover and lateral movement",
+        "Phishing-risk assessment of cloud identities by scoring password reuse, weak multi-factor adoption, and social-engineering susceptibility",
+        "Shadow identity discovery to detect unauthorized cloud accounts (provisioned outside Okta/Azure) and assess their privilege level and exposure"
+      ]
+    },
+    "futureAreas": [
+      "Identity-centric SOAR playbooks that automatically rotate exposed credentials, enforce multi-factor authentication, and revoke compromised sessions",
+      "AI-powered credential exposure prediction using commit history and developer behavior to identify high-risk credential patterns before they're exposed",
+      "Integration with zero-trust architecture frameworks to enable step-up authentication and conditional access policy changes based on real-time identity risk scores"
+    ]
+  },
   "aiops/broadcom-dx-aiops": {
     "competitiveEdge": "Deep integration with legacy enterprise mainframe and distributed systems, serving buyers locked into Broadcom infrastructure.",
     "swot": {
