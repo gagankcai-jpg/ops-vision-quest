@@ -43,6 +43,559 @@ export function toVendorSlug(name: string): string {
 }
 
 export const vendorProfiles: Record<string, VendorProfile> = {
+  "itom/omnissa": {
+    "competitiveEdge": "Omnissa is a leading independent UEM vendor recognized by Gartner, managing 100M+ endpoints across Windows, macOS, iOS, and Android from a single platform rebuilt post-VMware.",
+    "swot": {
+      "strengths": [
+        "Recognized Gartner Leader in Unified Endpoint Management, with strong scores across core UEM use cases.",
+        "Cross-platform parity — manages Windows, macOS, iOS, Android and (limited GA) servers from one console.",
+        "Massive installed base of 100M+ endpoints provides deep telemetry and switching inertia.",
+        "Open ecosystem design; coexists with Microsoft Intune/ConfigMgr, reducing rip-and-replace risk for enterprise buyers."
+      ],
+      "weaknesses": [
+        "Post-Broadcom spinout created account team churn and uncertainty, eroding customer confidence in long-term roadmap.",
+        "Pricing perceived as premium relative to Microsoft Intune, which is bundled in many E3/E5 licenses.",
+        "Complex configuration and customization curve; less-skilled admins struggle without professional services.",
+        "Search and app-catalogue UX lag behind modern peers such as Jamf or Intune's updated admin center."
+      ],
+      "opportunities": [
+        "Autonomous Workspace vision (self-configure, self-heal, self-secure endpoints) opens a high-margin AI-driven upsell path.",
+        "Server management expansion (limited availability) broadens TAM beyond traditional EUC into ITOM adjacency.",
+        "Regulated industries (healthcare, finance, government) need multi-OS unified compliance that Intune alone cannot deliver."
+      ],
+      "threats": [
+        "Microsoft Intune bundled in M365 E3/E5 creates a near-zero marginal-cost competitor for Windows-centric enterprises.",
+        "Jamf's macOS/iOS dominance and NinjaOne's fast growth pressure Omnissa from specialist angles.",
+        "Continued KKR ownership uncertainty may dampen large multiyear enterprise commitments."
+      ]
+    },
+    "userLikes": [
+      "Unified cross-platform management — a single pane of glass for Windows, Mac, and mobile reduces tool sprawl for large enterprise IT teams.",
+      "Robust conditional access and zero-trust integrations that satisfy security and compliance requirements in regulated industries.",
+      "Responsive enterprise support and a mature, stable platform with deep policy controls inherited from the VMware era."
+    ],
+    "userComplaints": [
+      "Account team instability since the Broadcom-to-KKR transition has led to inconsistent guidance and concerns about long-term vendor commitment.",
+      "App catalogue search is unintuitive and the admin console feels dated compared to cloud-native rivals, increasing onboarding friction.",
+      "Licensing is expensive and complex, especially when Microsoft Intune covers similar Windows use cases at no incremental cost in M365 bundles."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises (5,000+ seats) in regulated industries — healthcare, financial services, government",
+        "Organizations running heterogeneous device fleets (Windows + macOS + mobile) that require a single compliance and policy layer"
+      ],
+      "typicalBuyer": "VP or Director of End-User Computing / IT Operations in a Fortune 1000 or public-sector organization",
+      "topUseCases": [
+        "Unified endpoint management and policy enforcement across Windows, macOS, iOS, and Android",
+        "Digital Employee Experience (DEX) monitoring — proactive detection and remediation of endpoint performance issues",
+        "Zero-trust conditional access — integrating device posture into network and application access decisions"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous Workspace — AI-driven self-healing and self-configuring endpoints that reduce tier-1 helpdesk volume without human intervention.",
+      "Server management general availability, extending Workspace ONE's UEM model upstack into ITOM and hybrid infrastructure management.",
+      "Deeper FinOps/asset intelligence integration to give IT leaders real-time cost attribution per device type and business unit."
+    ]
+  },
+  "itom/xurrent": {
+    "competitiveEdge": "Sera AI + native virtual agent embedded by default; fastest ITSM deployment (5-week launch) for regulated enterprises.",
+    "swot": {
+      "strengths": [
+        "AI-first architecture: Sera AI classifies, routes, drafts, and generates knowledge natively.",
+        "Fast deployment: 5-week launch with prebuilt ITIL workflows; low-code tailoring.",
+        "Unified platform: ITSM + ESM + ITOM on single secure SaaS tenant.",
+        "Compliance-ready: Built for regulated sectors with audit-trail and security controls."
+      ],
+      "weaknesses": [
+        "Smaller player (~$30M ARR) competing against ServiceNow, IBM, and Atlassian at vastly larger scale and R&D budgets.",
+        "Limited CMDB depth; integration ecosystem still maturing relative to incumbents.",
+        "Geographic concentration: Netherlands-based; APAC/EMEA focus; limited US brand awareness.",
+        "Mid-market entry: Lacks enterprise-scale case studies of global 10K+ employee deployments."
+      ],
+      "opportunities": [
+        "AI-driven automation: Sera AI + virtual agent adoption accelerating; expand to service desk automation.",
+        "ESM expansion: Extend ITSM playbook into Finance Ops, HR Ops, facilities — broader IT-adjacent markets.",
+        "Partner ecosystem: Build integrations (Datadog, Splunk, PagerDuty) to embed into DevOps/SecOps workflows.",
+        "Compliance-first GTM: Vertical play in Finance, Healthcare, Public Sector — high-regulation, high-margin segments."
+      ],
+      "threats": [
+        "ServiceNow dominance: its scale and Now Assist AI roadmap outpace smaller vendors on resources and reach.",
+        "Microsoft Copilot + Dynamics 365: Windows AI integration + Office bundling erode standalone ITSM value.",
+        "Consolidation risk: Atlassian (Jira Service Management), BMC (Helix), IBM (Turbonomic) expanding in ITOM; margin pressure.",
+        "Switching costs drop: Cloud ITSM commoditizes; customers price-hunt; SaaS churn accelerates in downturns."
+      ]
+    },
+    "userLikes": [
+      "Fast deployment and low-code workflow builder — 4-6 week go-live vs. ServiceNow 6-12 months.",
+      "Sera AI out-of-box: ticket classification, draft replies, self-service recommendations improve analyst efficiency 20-30%.",
+      "Compliance-ready: audit logs, access controls, encryption meet HIPAA/GDPR/SOX without custom build."
+    ],
+    "userComplaints": [
+      "Limited CMDB depth vs. BMC or ServiceNow; still building inventory management feature parity.",
+      "Small vendor risk: less frequent releases, smaller partner ecosystem, and slower feature velocity vs. ServiceNow.",
+      "Reporting and analytics: Executive dashboards solid (Q4 2025 updates), but custom BI requires add-ons or export workarounds."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market regulated enterprises (Finance, Healthcare, Public Sector; $500M–$5B revenue)",
+        "Cloud-native ops teams (DevOps, SecOps; shifting from ServiceNow for speed and AI)",
+        "ITSM-first organizations (not ERP-centric; compliance matters more than end-to-end integration)"
+      ],
+      "typicalBuyer": "VP of IT Operations or Chief IT Officer at a mid-market regulated company; compliance/audit background; values speed-to-value over feature breadth.",
+      "topUseCases": [
+        "Incident & change management for regulated industries (fast triage, audit trail, SLA tracking)",
+        "AI-driven ticket deflection via Sera + virtual agent (reduce tier-1 volume 25-40%)",
+        "Multi-department service delivery (ESM): IT, HR, Finance, Facilities on single platform"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous AI agents: Full end-to-end incident resolution (escalation → closure) without analyst review — moving beyond classification.",
+      "FinOps/CloudOps vertical: Cloud cost governance, RI optimization, chargeback — major margin opportunity as cloud ops matures.",
+      "Enterprise-scale proof points: Target 10K+ employee deployments, especially in Global 2000 to compete with ServiceNow's flagship segment."
+    ]
+  },
+  "itom/hornbill": {
+    "competitiveEdge": "Purpose-built collaborative ITSM with real-time team chat and shared workspaces embedded in workflows, not bolted on.",
+    "swot": {
+      "strengths": [
+        "Embedded real-time collaboration and chat workflows; teams communicate within tools, not parallel channels.",
+        "20+ years ITSM depth; full ITIL-aligned incident, problem, change, asset management suite.",
+        "Codeless process automation and drag-drop workflow design reduce implementation time to ~30 days.",
+        "Broad multilingual support appeals to distributed, global IT teams and enterprises."
+      ],
+      "weaknesses": [
+        "Smaller market presence vs. ServiceNow, Atlassian, BMC; less brand recognition in US mid-market.",
+        "Limited ecosystem maturity; fewer third-party integrations and app marketplace compared to incumbents.",
+        "Niche positioning (collaboration-first) may not resonate with buyers seeking traditional ITSM-only tools.",
+        "UK-based vendor; potential latency, data residency, and support time-zone friction for US-centric orgs."
+      ],
+      "opportunities": [
+        "Hybrid/remote work trends favoring unified collab ITSM; growing demand for embedded team chat in enterprise tools.",
+        "ITAM and FinOps expansion as cloud and asset complexity grow; Hornbill's automation can scale to these.",
+        "Vertical expansion (healthcare, finance, education) where collab + compliance are co-mandates."
+      ],
+      "threats": [
+        "ServiceNow, Atlassian Jira Service Management, and BMC dominance; pricing pressure from scale players.",
+        "Microsoft Teams + Power Automate bundling into Microsoft 365 erodes standalone collab ITSM case.",
+        "Emerging AI-native ITSM tools may leapfrog Hornbill's human-collab advantage with predictive automation."
+      ]
+    },
+    "userLikes": [
+      "Built-in collaboration cuts Slack/email noise; teams stay in Hornbill for conversations, decisions, and ticket history.",
+      "Fast deployment (30 days) and low config burden; no-code automation reduces dev dependency and time-to-value.",
+      "Responsive, iterative product updates show vendor commitment; new features don't require downtime."
+    ],
+    "userComplaints": [
+      "Smaller vendor: fewer integrations, less third-party app ecosystem, and support can be slower outside UK hours.",
+      "Collab focus feels niche; orgs wanting pure ITSM ticketing without chat overhead may see it as over-engineered.",
+      "Limited AI/predictive capabilities vs. ServiceNow or Atlassian; automation is rules-based, not intelligent."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises (500–5k employees) with global, distributed IT teams valuing real-time collab.",
+        "Organizations running lean IT ops seeking fast deployment and minimal process re-engineering.",
+        "Tech-forward orgs (SaaS, fintech, media) that treat IT as a service business needing customer-facing collab."
+      ],
+      "typicalBuyer": "IT Director or Service Delivery Manager at a 1k–3k-person company, focused on team productivity and implementation speed over enterprise scale.",
+      "topUseCases": [
+        "Incident & problem management with embedded team chat to resolve issues faster.",
+        "Change management with stakeholder approval workflows and real-time cross-team coordination.",
+        "Asset tracking and discovery (ITAM) with automated workflows to enforce compliance and cost control."
+      ]
+    },
+    "futureAreas": [
+      "Generative AI integration for predictive root-cause analysis and intelligent ticket routing/triage.",
+      "Deeper FinOps automation—cloud spend allocation, chargeback, and reservation optimization.",
+      "Vertical SaaS expansion: healthcare-specific or finance-specific ITSM + GRC bundles."
+    ]
+  },
+  "itom/alemba-vfire": {
+    "competitiveEdge": "Regional ITSM lock-in through deep Australian government contracts and localized service delivery; strongest in APAC SMB and public sector IT compliance.",
+    "swot": {
+      "strengths": [
+        "Established APAC footprint with strong government sector entrenched base; high switching costs.",
+        "Integrated suite covering ITSM, ITAM, asset tracking—reduces vendor sprawl for mid-market.",
+        "Localized compliance (AU Privacy Act, state procurement rules) trusted by public sector buyers.",
+        "Lean product team enables faster local feature parity than global competitors."
+      ],
+      "weaknesses": [
+        "Minimal mindshare outside APAC; brand recognition near zero in North America/EMEA markets.",
+        "No AI-driven analytics or automation—falling behind BMC, ServiceNow on predictive capabilities.",
+        "Limited API ecosystem and third-party integrations compared to enterprise-grade ITSM leaders.",
+        "Small revenue base ($20M) constrains R&D; slow to adopt cloud-native architecture trends."
+      ],
+      "opportunities": [
+        "Asia-Pacific digital transformation wave; APAC government digital resilience budgets 2026–2028.",
+        "Upsell into finops/cost optimization as enterprises tighten cloud spend post-2024 pullback.",
+        "Partner reseller expansion into India/Southeast Asia via local IT services firms."
+      ],
+      "threats": [
+        "ServiceNow, BMC expanding APAC presence and undercutting via aggressive bundle pricing.",
+        "Gartner/Forrester visibility favors global players; limits enterprise traction in APAC metros.",
+        "Cloud-native ITSM startups (Atlassian, Jira Service Management) eating upmarket SMB share."
+      ]
+    },
+    "userLikes": [
+      "Deep ITSM domain expertise; government-grade security and audit logs out of the box.",
+      "Responsive regional support with predictable SLAs; no call-center queues or language barriers.",
+      "Cost-effective for mid-market teams; no surprise enterprise licensing bloat."
+    ],
+    "userComplaints": [
+      "UI/UX feels dated vs. modern SaaS competitors; mobile experience is slow and clunky.",
+      "Limited built-in analytics; reporting requires manual exports or custom queries—no self-service dashboards.",
+      "Sparse integration marketplace; manual data sync with HR, asset, and financial systems adds headcount."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Australian and NZ government agencies (defense, health, financial services, utilities)",
+        "Mid-market private enterprises in APAC (100–2000 IT staff) with compliance-first mandates",
+        "Managed service providers / resellers in APAC serving SMB government contractors"
+      ],
+      "typicalBuyer": "IT Service Delivery Manager or IT Operations Director in AU/NZ public agency with 18–36 month procurement cycle",
+      "topUseCases": [
+        "ITSM/ITIL incident, change, and asset lifecycle management for government IT operations",
+        "Regulatory compliance reporting (AU Privacy Act, state procurement audits, ISMS certification)",
+        "Cost attribution and chargeback across government departments using integrated ITAM module"
+      ]
+    },
+    "futureAreas": [
+      "AI-assisted incident resolution and RPA-based workflow automation to compete on operational efficiency.",
+      "SaaS migration to cloud-native Kubernetes architecture for scalability and elastic APAC data residency.",
+      "Ecosystem play—acquire or integrate third-party finops tools to capture cloud cost optimization demand."
+    ]
+  },
+  "itom/device42": {
+    "competitiveEdge": "Auto-discovery + dependency mapping bridges CMDB-to-ops execution within unified ITSM/ITAM/ITOM stack.",
+    "swot": {
+      "strengths": [
+        "Agentless discovery across hybrid infrastructure (physical, cloud, container) feeds continuously accurate CMDB.",
+        "Native dependency mapping reveals service-to-infrastructure relationships critical for incident response.",
+        "Integrated with Freshworks ITSM/Freshservice; eliminates manual CI maintenance via continuous sync.",
+        "Strong customer support and active product development under Freshworks investment."
+      ],
+      "weaknesses": [
+        "Performance degradation at scale with high-volume asset or large multi-tenant deployments reported.",
+        "Complex initial discovery setup and tuning requires IT ops expertise; steep onboarding.",
+        "Physical infrastructure visualization limited; connectivity diagrams need richer topology views.",
+        "Lack of AI-driven anomaly detection or predictive maintenance vs. modern AIOps competitors."
+      ],
+      "opportunities": [
+        "Expand automated remediation workflows triggered by discovery findings and dependency analysis.",
+        "Integrate with Freshworks Copilot (AI) for autonomous incident triage via real-time asset context.",
+        "Cloud FinOps bundling: tag discovered cloud resources and surface usage/cost trends."
+      ],
+      "threats": [
+        "Pure-play CMDB vendors (ServiceNow, Atlassian) deepening discovery integrations; ITSM suites bundling CMDB.",
+        "Open-source and lightweight discovery tools (Nautobot, netbox, CloudMapper) eroding DCIM + asset niches.",
+        "Agentless discovery arms race; competitors commoditizing auto-discovery; pressure on pricing."
+      ]
+    },
+    "userLikes": [
+      "Automatic discovery + dependency mapping eliminates manual CMDB maintenance and keeps data fresh.",
+      "Seamless ITSM integration; CI context surfaces in Freshservice tickets, speeds troubleshooting.",
+      "Multi-cloud + hybrid visibility; scales from small data centers to complex hybrid environments."
+    ],
+    "userComplaints": [
+      "Slow query performance under large-scale asset loads; reporting times unacceptable in 10k+ device estates.",
+      "Complex initial setup; agentless discovery rules and credential management steep learning curve.",
+      "Physical wiring/rack topology views too basic; real data center ops teams need richer visualization."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprise ITSM teams (500–5k devices) using Freshservice for ticketing + operations.",
+        "Hybrid cloud / multi-data-center ops teams requiring unified asset visibility across on-prem + cloud.",
+        "Service-delivery organizations bridging IT operations and business service management."
+      ],
+      "typicalBuyer": "IT Operations Manager or ITSM Lead accountable for CMDB accuracy and incident resolution speed.",
+      "topUseCases": [
+        "Auto-discovery + dependency mapping for faster MTTR in incident management.",
+        "Unified CI tracking across multi-cloud and hybrid infrastructure to feed ITSM workflows.",
+        "ITAM + DCIM consolidation (assets + datacenter capacity) on single platform."
+      ]
+    },
+    "futureAreas": [
+      "AI-powered anomaly detection on asset patterns and dependency changes to flag risky configurations.",
+      "Cloud cost attribution via discovered resource tagging and usage correlation.",
+      "Autonomous remediation playbooks triggered by discovery findings."
+    ]
+  },
+  "itom/opsramp": {
+    "competitiveEdge": "Hybrid cloud ITOM with AIOps copilot and network observability natively integrated into HPE GreenLake—eliminating multi-tool sprawl for edge-to-cloud environments.",
+    "swot": {
+      "strengths": [
+        "Deep HPE GreenLake integration reduces vendor sprawl for hybrid cloud IT operations—single pane across on-prem, edge, multicloud.",
+        "Native AIOps with event correlation and automated workflows cuts incident response time; recognized by analysts in hybrid observability.",
+        "Operations copilot (natural language queries for dashboards and insights) differentiates labor-intensive ITOM and reduces team cognitive load.",
+        "Unified ITOM + Network Observability + ITSM consolidation—fewer point tools, lower TCO, simplified onboarding."
+      ],
+      "weaknesses": [
+        "Market position: still emerging as standalone brand post-HPE acquisition (2024); customer awareness lags Datadog, New Relic, ServiceNow.",
+        "Network observability suite is recent; proven track record vs. dedicated vendors (Cisco Crosswork, Juniper Mist) not yet established.",
+        "Limited installed base outside HPE ecosystem; migration lock-in risk deters multi-cloud-first enterprises seeking vendor-neutral platforms.",
+        "Pricing opaque post-acquisition; GreenLake consumption model may alienate enterprises used to perpetual/subscription alternatives."
+      ],
+      "opportunities": [
+        "Hybrid cloud ITOM TAM growing at double-digit CAGR; HPE GreenLake expansion into Fortune 500 creates greenfield demand.",
+        "AI/copilot features in ITOM nascent; OpsRamp can establish thought leadership with advanced AIOps as FinOps + sustainability monitoring emerge.",
+        "Network observability bundling untaps enterprises managing multi-vendor networks (Cisco, Juniper, Arista); native topology + AI remediation unique."
+      ],
+      "threats": [
+        "Datadog, New Relic, Splunk dominate observability narrative; consumer-grade awareness heavily favors incumbents with billion-dollar marketing.",
+        "ServiceNow consolidating ITOM + ITSM; tight Salesforce/AWS/Azure integrations erode OpsRamp's multi-cloud pitch if GreenLake fails to scale.",
+        "Private equity and strategic acquirers (Broadcom, Cisco, IBM) may disrupt market with aggressive bundling; OpsRamp constrained by HPE's slower innovation cadence."
+      ]
+    },
+    "userLikes": [
+      "Unified hybrid cloud visibility—single dashboard for on-prem, edge, AWS, Azure eliminates tool-switching overhead.",
+      "AIOps event correlation and auto-remediation workflows significantly cut mean-time-to-resolution for critical incidents.",
+      "Native network observability + ITOM in one platform reduces operational silos between infrastructure and network teams."
+    ],
+    "userComplaints": [
+      "Post-acquisition roadmap unclear; feature parity with pre-HPE OpsRamp unclear, causing some customer churn and feature gaps.",
+      "GreenLake consumption pricing model confusing and requires capacity planning; total cost of ownership can exceed point-solution alternatives.",
+      "Onboarding and change management complexity steep; AIOps tuning demands skilled engineers, creating internal adoption friction despite platform promise."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises (1000+ employees) with hybrid cloud infrastructure (on-prem + multicloud) and complex IT operations.",
+        "Organizations already committed to HPE GreenLake or considering it; IT-centric buyers in insurance, finance, manufacturing, telecom.",
+        "Enterprises seeking consolidated ITOM+observability+networking to reduce operational complexity and headcount."
+      ],
+      "typicalBuyer": "VP/Director of IT Operations or Infrastructure; sometimes Chief Infrastructure Officer (CIO staff) in large enterprises.",
+      "topUseCases": [
+        "Hybrid cloud incident detection and response—correlating events across on-prem, edge, and multicloud to pinpoint root cause in <10 min.",
+        "Network operations integration—topology mapping, configuration drift detection, synthetic monitoring combined with IT automation.",
+        "AI-driven capacity planning and FinOps—cost anomaly detection, resource optimization recommendations via copilot interface."
+      ]
+    },
+    "futureAreas": [
+      "Sustainability and carbon monitoring for IT operations—tracking energy use across hybrid cloud estate alongside cost and performance.",
+      "Autonomous IT operations (agents): moving beyond copilot to fully autonomous remediation for predictable incident classes.",
+      "AI-native ITSM—intelligent ticket routing, auto-categorization, and incident correlation spanning ITOM + ITSM + change management."
+    ]
+  },
+  "itom/footprints": {
+    "competitiveEdge": "Legacy BMC ITSM with configurable workflows and integrated asset management—targets budget-conscious SMBs on fixed pricing.",
+    "swot": {
+      "strengths": [
+        "Integrated asset/CMDB management without separate licensing—rare in legacy ITSM.",
+        "Highly configurable workflows reduce vendor lock-in compared to modern low-code platforms.",
+        "Established customer base with long-term support; low churn for critical infrastructure.",
+        "Transparent fixed pricing model appeals to mid-market IT budgets."
+      ],
+      "weaknesses": [
+        "Legacy architecture limits feature velocity; no AI/copilot parity with ServiceNow or Freshservice.",
+        "Mobile app does not support asset management—major gap vs modern rivals.",
+        "Customizable reporting weak; teams build workarounds via APIs.",
+        "UI/UX not competitive with 2020s cloud-native platforms; requires significant training."
+      ],
+      "opportunities": [
+        "Adoption by compliance-heavy verticals (healthcare, financial services) needing asset auditability.",
+        "Standalone CMDB play for customers managing ServiceNow + legacy asset systems in parallel.",
+        "Integration marketplace expansion via REST APIs to modernize without platform rewrite."
+      ],
+      "threats": [
+        "Freshservice, Zendesk ITSM, and Atlassian Jira SM eroding SMB/mid-market share with modern UX.",
+        "ServiceNow consolidating enterprise and lower-mid-market via price cuts and bundle licensing.",
+        "Cloud-native startups (Atomicwork, Port IDP) making legacy ITSM obsolete for digital-native buyers."
+      ]
+    },
+    "userLikes": [
+      "Asset management built-in—no separate tool or expensive add-on licensing required.",
+      "Flexible workflow builder reduces painful vendor customization engagements vs rigid ITSM suites.",
+      "Predictable total cost of ownership; fixed pricing prevents surprise overage bills."
+    ],
+    "userComplaints": [
+      "Mobile app missing asset management makes field technicians unable to check hardware on-the-go.",
+      "Custom reporting requires SQL or API scripting; lacks modern drag-and-drop analytics.",
+      "Slow feature releases compared to modern competitors; customers feel stuck on old versions."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market IT teams (500–5,000 employees) with on-premise or hybrid infrastructure",
+        "Compliance-driven verticals (healthcare, legal, financial services) needing asset auditability",
+        "Cost-sensitive SMBs prioritizing integrated asset + ITSM over separate point solutions"
+      ],
+      "typicalBuyer": "IT Operations Manager or IT Service Desk Manager at mid-market organizations.",
+      "topUseCases": [
+        "ITIL-aligned service desk ticketing with incident, problem, and change workflows",
+        "Hardware and software asset lifecycle tracking, license compliance, and SAM reporting",
+        "CMDB enrichment and IT infrastructure dependency mapping for change impact analysis"
+      ]
+    },
+    "futureAreas": [
+      "Modernized UI refresh to compete with cloud-native UX standards and reduce training friction.",
+      "Agentic AI assistant for Tier-1 ticket triage and asset query resolution via natural language.",
+      "API-first integration ecosystem enabling asset synchronization with modern cloud IT platforms."
+    ]
+  },
+  "itom/virima": {
+    "competitiveEdge": "Unified discovery-sourced CMDB + ITAM engine that auto-maps infrastructure dependencies and syncs with enterprise ITSM/cloud platforms, eliminating manual asset reconciliation.",
+    "swot": {
+      "strengths": [
+        "Agentless/agent-flexible discovery captures hybrid IT assets (on-prem, cloud, SaaS) in single scan; CMDB stays current without manual CI entry",
+        "Deep integrations with ServiceNow, Ivanti/Cherwell, JSM, AWS, Azure reduce friction for ITSM/cloud-first orgs",
+        "Strong compliance/audit posture (SOC2 Type II, healthcare/finserv focus) resonates in regulated industries",
+        "Positioned as an AI-ready CMDB foundation aligned with the agentic IT automation trend"
+      ],
+      "weaknesses": [
+        "Small company ($20M ARR) vs. sprawling vendors (Atlassian, ServiceNow, IBM); limited R&D depth relative to ITOM giants",
+        "CMDB-first positioning crowds Virima into niche vs. horizontal ITSM players with broader incident/change/asset bundling",
+        "Lacks embedded cost optimization/FinOps visibility; cloud-focused buyers drift to Densify, Prosper, or CloudHealth",
+        "SMB/mid-market GTM; enterprise deals require partner channels (Atlassian reseller ecosystem fragmented)"
+      ],
+      "opportunities": [
+        "AI-driven runbook automation + CMDB event correlation; position as control-plane for agentic IT operations",
+        "Cloud FinOps integration—sync discovered AWS/Azure spend to asset lifecycle; extend compliance audits to cost attribution",
+        "Vertical plays in healthcare IT resilience and financial-services shadow-IT visibility (high-TAM adjacencies)"
+      ],
+      "threats": [
+        "Atlassian/ServiceNow bundling ITAM into core products; native integrations erode standalone CMDB moat",
+        "Emerging observability/AIOps platforms (New Relic, Datadog) capture dependency mapping without separate ITAM tooling",
+        "Consolidation pressure: small niche vendors acquired by larger ITOM suites or private equity roll-ups"
+      ]
+    },
+    "userLikes": [
+      "Fast automated discovery and CMDB population (no manual CI wrestling); dependency maps work out-of-the-box",
+      "Tight integrations with ServiceNow and Ivanti; plugs seamlessly into existing ITSM workflows without middleware",
+      "Clear compliance narratives and audit trails—healthcare/finance teams appreciate SOC2 and asset-to-control alignment"
+    ],
+    "userComplaints": [
+      "Limited customization of discovery rules and CMDB model; one-size-fits-all schema doesn't adapt to complex orgs",
+      "Pricing scales aggressively with device count; smaller deployments hit cost friction at 5K+ CI threshold",
+      "Sparse cloud FinOps and cost optimization reporting; competitors (Densify, Apptio) offer clearer spend visibility"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market financial services and healthcare orgs (200–5K employees) with compliance audits and hybrid infrastructure",
+        "Enterprise IT operations teams standardized on ServiceNow or Ivanti seeking standalone CMDB authority layer",
+        "Cloud-native orgs with sprawling AWS/Azure footprints needing asset-to-cost reconciliation"
+      ],
+      "typicalBuyer": "ITAM manager or IT Operations director at 500–5K-person org; reports to VP Ops or CIO; owns compliance audits, asset licensing, and change/incident support",
+      "topUseCases": [
+        "Automated discovery of hybrid IT estate and real-time CMDB population (on-prem + cloud + SaaS)",
+        "Compliance audits and asset-to-control traceability for healthcare, financial services, and regulated industries",
+        "Dependency mapping for incident triage and change impact analysis (infrastructure-as-graph)"
+      ]
+    },
+    "futureAreas": [
+      "AI agents consuming CMDB as runtime truth for automated remediation and policy enforcement",
+      "Cloud FinOps spine: sync asset discovery to billing engines (AWS Cost Explorer, Azure Cost Management) for chargeback and optimization",
+      "Vertical automation stacks for healthcare (HIPAA asset mapping) and financial-services (shadow-IT and control correlation)"
+    ]
+  },
+  "itom/alloy-navigator": {
+    "competitiveEdge": "Deep ITSM/ITAM integration with mobile field-tech capabilities for distributed SME/mid-market teams managing multi-site endpoints.",
+    "swot": {
+      "strengths": [
+        "Unified ITSM + ITAM in single platform; eliminates tool sprawl for mid-market IT ops.",
+        "Mobile-first technician experience; real-time asset & ticket access in field, not just office.",
+        "Strong fit for regulated verticals (healthcare, energy, public sector) requiring compliance automation.",
+        "Flexible cloud/on-premises deployment; appeals to hybrid environments."
+      ],
+      "weaknesses": [
+        "Limited enterprise scale; sized for 2-25 technicians / 100-5K endpoints; weak against ServiceNow, Jira.",
+        "Niche positioning leaves it vulnerable to both pure-asset tools (Lansweeper) and pure-ITSM tools.",
+        "Estimated $10M revenue suggests limited investment in AI, analytics, or advanced automation.",
+        "Low brand visibility outside regulated verticals; discovery lag vs. well-funded competitors."
+      ],
+      "opportunities": [
+        "Expand into mid-market FinOps; tie asset management to cloud spend forecasting (emerging pain point).",
+        "AI-driven ticket triage & anomaly detection in asset inventories; differentiator vs. legacy ITSM.",
+        "Vertical SaaS focus: build domain-specific ITSM templates (healthcare compliance, energy grid, etc.)."
+      ],
+      "threats": [
+        "ServiceNow Field Service Lightning + Asset Management roadmap directly targets SME/mid-market distribution.",
+        "Open-source ITSM + free Lansweeper competing on price for asset-first buyers.",
+        "M&A risk: larger vendors (Atlassian, Ivanti, BMC) rolling up niche ITAM players."
+      ]
+    },
+    "userLikes": [
+      "Seamless mobile experience for technicians; real-time asset lookup in the field eliminates call-back trips.",
+      "Single pane of glass for ITSM + ITAM; reduces training and tool context-switching vs. multi-vendor stack.",
+      "Strong out-of-box ITIL compliance automation; audit-ready without heavy customization."
+    ],
+    "userComplaints": [
+      "Limited reporting & dashboards; difficult to surface executive-level metrics (cost recovery, asset ROI, SLA health).",
+      "Scaling struggles; performance degrades noticeably beyond 3K-5K endpoints; not enterprise-ready.",
+      "Mobile app lacks advanced features (AR asset identification, predictive maintenance) that modern field apps offer."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market IT organizations (50-300 staff, 500-5K endpoints) in regulated verticals.",
+        "Distributed / multi-site enterprises requiring field-tech + asset visibility without heavy licensing costs.",
+        "Public sector, healthcare, energy, manufacturing with ITIL/compliance-first procurement."
+      ],
+      "typicalBuyer": "IT Operations Manager or IT Director responsible for technician enablement, asset compliance, and ITSM process maturity.",
+      "topUseCases": [
+        "IT asset lifecycle tracking (procurement → disposal) with audit trail for compliance.",
+        "Incident & change management with integrated asset context (what's broken, what's dependent on it).",
+        "Mobile field technician dispatch with real-time asset, ticket, and approval access."
+      ]
+    },
+    "futureAreas": [
+      "Cloud FinOps integration: link discovered assets to cloud service billing for chargeback & optimization.",
+      "Generative AI co-pilot for ticket resolution, asset risk scoring, and anomaly detection.",
+      "Vertical-specific prebuilt workflows: healthcare compliance packs, energy grid management, etc."
+    ]
+  },
+  "itom/infraon": {
+    "competitiveEdge": "Single pane of glass unifying ITSM, network monitoring, and AIOps in a converged operations platform—rare integration depth at niche scale.",
+    "swot": {
+      "strengths": [
+        "Converged ops consolidation: merges ITSM, network, and AIOps—reducing tool sprawl vs. point-solution stacks",
+        "Fast growth: +50% YoY indicates strong market fit and land-and-expand traction in mid-market IT ops",
+        "Lean cost structure: private, ~$10M ARR suggests low CAC and efficient operations relative to leaders",
+        "Cloud-native positioning: aligns with modern ops shift toward cloud infrastructure and agile monitoring"
+      ],
+      "weaknesses": [
+        "Limited brand recognition: niche player vs. Gartner Magic Quadrant incumbents (ServiceNow, BMC, Splunk) in ITSM/ITOM",
+        "Smaller customer base and community: fewer reference wins and user advocates vs. leaders, higher switching risk",
+        "Integration debt: converged platform adds complexity; breadth may sacrifice depth in any single domain",
+        "Enterprise sales gaps: $10M ARR suggests weak presence in Fortune 500; slower enterprise AE playbook maturity"
+      ],
+      "opportunities": [
+        "FinOps + cloud cost integration: extend platform into cloud billing/chargeback for cloud-first enterprises",
+        "AI-driven insights: deepen AIOps anomaly detection, predictive remediation—high demand in 2025+ market",
+        "Partner ecosystem growth: leverage converged position to embed in MSP/managed services channels",
+        "Vertical expansion: tailor for industries (financial services, healthcare) with strict ops governance"
+      ],
+      "threats": [
+        "Consolidation by mega-vendors: ServiceNow, Splunk, Datadog all acquiring smaller converged-ops startups—acquisition risk or competitive margin pressure",
+        "Open-source alternatives: Prometheus + Grafana + CMDB ecosystems commoditize ITOM; harder to differentiate on monitoring alone",
+        "Hyperscaler native offerings: AWS Systems Manager, Azure Monitor bundling ops tooling reduces TAM for independent vendors",
+        "Economic downturn + IT budget cuts: $10M ARR + private status makes growth vulnerable if cloud ops spending decelerates"
+      ]
+    },
+    "userLikes": [
+      "Unified dashboard eliminates tool-switching fatigue across ITSM, network, and monitoring workflows",
+      "Quick implementation and time-to-value vs. multi-product integrations (lower complexity + fewer APIs to wire)",
+      "Growth-stage responsiveness: smaller vendor == faster feature iteration and customer-driven roadmap"
+    ],
+    "userComplaints": [
+      "Nascent ecosystem: fewer integrations and pre-built connectors vs. ServiceNow; custom development burden on customer",
+      "Reporting/analytics maturity gap: lacks depth in BI and compliance dashboards that Enterprise+ buyers expect",
+      "Scaling uncertainty: concerns about long-term viability and roadmap commitment given private, bootstrap-scale funding"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market IT operations teams (200–2,000 employees) wanting single converged platform to reduce vendor bloat",
+        "Cloud-native and DevOps-forward organizations building greenfield ops stacks without legacy ITSM debt",
+        "Managed service providers and resellers seeking margin-accretive converged offering to bundle with services"
+      ],
+      "typicalBuyer": "VP or Director of IT Operations / Cloud Operations, evaluating tool consolidation and cloud cost management",
+      "topUseCases": [
+        "Unified IT incident management and network troubleshooting from one console",
+        "Cloud infrastructure cost visibility and optimization (FinOps aligned with ops metrics)",
+        "AIOps-driven anomaly detection and auto-remediation for cloud workloads and hybrid IT environments"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous IT operations: deeper ML/AI for end-to-end incident triage, root-cause analysis, and remediation automation",
+      "Cloud FinOps integration: embed chargeback, budgeting, and reserved-instance optimization tied to ops metrics and cost attribution",
+      "Industry-specific compliance modules: vertical packs for regulated sectors (financial, healthcare) bundling ops + compliance-audit workflows"
+    ]
+  },
 
   /* ══════════════════════════════════════════════════════════════════════════
      AIOps — Top 5 Spotlight (Established Vendors)
