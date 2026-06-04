@@ -82,7 +82,7 @@ const MarketPage = () => {
         <div className="container flex min-h-[60vh] items-center justify-center px-6">
           <div className="text-center">
             <p className="mb-4 text-muted-foreground">Market not found.</p>
-            <Link to="/overview" className="text-primary hover:underline">
+            <Link to="/" className="text-primary hover:underline">
               ← Back to Overview
             </Link>
           </div>
@@ -121,7 +121,7 @@ const MarketPage = () => {
       <div className="border-b border-border/60 bg-card/30">
         <div className="container flex items-center justify-between px-6 py-4">
           <Link
-            to="/overview"
+            to="/"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ChevronLeft className="h-4 w-4" />

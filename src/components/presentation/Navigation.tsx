@@ -87,9 +87,9 @@ const Navigation = () => {
     if (el) {
       el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     } else {
-      // Navigate to /overview (dedicated SPA route for the dashboard index)
-      // so the browser doesn't hit the SSR landing page at /market-intelligence/
-      navigate("/overview", { state: { scrollTo: href.replace("#", "") } });
+      // Navigate to the homepage (the React dashboard index, now the canonical
+      // landing) and scroll to the requested section after it mounts.
+      navigate("/", { state: { scrollTo: href.replace("#", "") } });
     }
     setMobileOpen(false);
   };

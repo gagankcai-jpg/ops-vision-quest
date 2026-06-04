@@ -143,13 +143,23 @@ add_action( 'template_redirect', function() {
         exit;
     }
 
+    // Canonicalize the legacy /overview alias onto the bare homepage. The React
+    // index route and /overview render the same <Index /> component; the bare
+    // /market-intelligence/ is now the canonical homepage, so 301 /overview → it
+    // to avoid duplicate-content. (Client-side nav stays in-app; this only fires
+    // on direct hits and crawlers.)
+    if ( rtrim( $raw_path, '/' ) === '/market-intelligence/overview' ) {
+        wp_redirect( home_url( '/market-intelligence/' ), 301 );
+        exit;
+    }
+
     // The SPA uses BrowserRouter with basename="/market-intelligence".
-    // All SPA routes are sub-paths: /market-intelligence/market/aiops,
-    // /market-intelligence/signals, /market-intelligence/vendor/..., etc.
-    // Serve the SPA for ANY /market-intelligence/* sub-path, but NOT the bare
-    // /market-intelligence/ — that is the SSR landing page served by WordPress.
-    if ( str_starts_with( $raw_path, '/market-intelligence/' )
-        && rtrim( $raw_path, '/' ) !== '/market-intelligence' ) {
+    // Serve the SPA for ANY /market-intelligence/* sub-path AND the bare
+    // /market-intelligence/ — the bare route now serves the prerendered React
+    // overview (the interactive dashboard) as the homepage. page-market-intel.php
+    // maps the empty route key to the prerendered app/overview/index.html.
+    if ( rtrim( $raw_path, '/' ) === '/market-intelligence'
+        || str_starts_with( $raw_path, '/market-intelligence/' ) ) {
         status_header( 200 );
         include AIT_PLUGIN_DIR . 'templates/page-market-intel.php';
         exit;

@@ -9,6 +9,7 @@ import { useMarketData } from "@/hooks/useMarketData";
 
 const ExecutiveSummary = lazy(() => import("@/components/presentation/ExecutiveSummary"));
 const VendorComparisonMatrix = lazy(() => import("@/components/presentation/VendorComparisonMatrix"));
+const CategoryDeepDive = lazy(() => import("@/components/presentation/CategoryDeepDive"));
 
 const Index = () => {
   const location = useLocation();
@@ -105,6 +106,7 @@ const Index = () => {
         <div id="comparison">
           <VendorComparisonMatrix />
         </div>
+        <CategoryDeepDive />
       </Suspense>
     </PageShell>
   );
