@@ -43,6 +43,797 @@ export function toVendorSlug(name: string): string {
 }
 
 export const vendorProfiles: Record<string, VendorProfile> = {
+  "itom/pipefy": {
+    "competitiveEdge": "No-code automation platform enabling mid-market IT teams to design and optimize workflows without custom development, competing against low-code incumbents on ease-of-use and speed-to-value.",
+    "swot": {
+      "strengths": [
+        "Low barrier to entry and rapid workflow deployment without technical coding expertise required",
+        "Lightweight alternative to heavyweight ITSM platforms; flexible for process innovation beyond ticketing",
+        "Strong positioning for organizations seeking agile BPM without vendor lock-in or lengthy implementations"
+      ],
+      "weaknesses": [
+        "Limited native IT-specific modules compared to dedicated ITSM suites; requires customization for IT complexity",
+        "Smaller scale and brand recognition versus established players limits enterprise trust and partner ecosystem",
+        "Pricing and total cost of ownership transparency varies; scaling complexity may increase as workflows grow"
+      ],
+      "opportunities": [
+        "Growing demand for process automation in IT operations as organizations digitally transform legacy workflows",
+        "Cloud FinOps and cost optimization workflows represent new adjacent market within existing customer base",
+        "API-first and integration marketplace expansion to position as orchestration hub for dispersed IT tools"
+      ],
+      "threats": [
+        "Larger ITSM and BPM vendors expanding no-code capabilities, reducing differentiation in ease-of-use",
+        "Startups and specialized low-code platforms competing on faster time-to-value and niche IT automation",
+        "Economic pressure on IT budgets; customers may rationalize tools, favoring consolidated platforms over point solutions"
+      ]
+    },
+    "userLikes": [
+      "Fast setup and deployment; teams can build and iterate on workflows without IT backlogs",
+      "Intuitive visual interface lowers skills barrier; domain expertise in IT processes matters more than coding",
+      "Flexible enough to handle non-standard or emerging workflows that rigid ITSM templates cannot accommodate"
+    ],
+    "userComplaints": [
+      "Lacks depth in certain IT-specific features (e.g., asset management, configuration management integration) compared to purpose-built ITSM platforms",
+      "Scaling and performance concerns as workflow complexity and data volume increase; support responsiveness uneven",
+      "Limited out-of-the-box integrations with enterprise tools; custom connectors often required, adding time and cost"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market organizations (500–5,000 employees) modernizing legacy IT operations without full ITSM replacement",
+        "Departments and business units seeking rapid process automation for non-standard workflows outside core ticketing",
+        "Organizations prioritizing speed-to-value and agility over comprehensive feature depth in a single platform"
+      ],
+      "typicalBuyer": "IT Operations Manager or Process Improvement Lead tasked with automating workflows quickly and demonstrating ROI without enterprise software overhead",
+      "topUseCases": [
+        "IT request fulfillment and workflow automation (provisioning, access requests, change coordination)",
+        "Operational process optimization and business continuity workflows across IT and adjacent departments",
+        "Custom incident response, troubleshooting, and escalation workflows not well-served by standard ITSM ticketing"
+      ]
+    },
+    "futureAreas": [
+      "AI-assisted workflow design and intelligent process mining to help organizations identify automation opportunities",
+      "Deeper integrations with cloud infrastructure and observability tools to support FinOps and cost governance workflows",
+      "Enterprise-grade governance, audit, and compliance features to enable platform scaling into larger organizations"
+    ]
+  },
+  "itom/deepser": {
+    "competitiveEdge": "GDPR-compliant ITSM platform purpose-built for European enterprises prioritizing data sovereignty and regulatory compliance.",
+    "swot": {
+      "strengths": [
+        "GDPR and data sovereignty compliance by design—native advantage in EU-regulated markets.",
+        "Strong regional traction in southern Europe with established customer base and local support.",
+        "Lean cost structure compared to large multinational ITSM incumbents enables competitive pricing."
+      ],
+      "weaknesses": [
+        "Limited global brand recognition outside Europe constrains expansion into North America and Asia-Pacific.",
+        "Smaller engineering team likely limits feature velocity and integration breadth versus market leaders.",
+        "Estimated $10M revenue indicates constrained R&D budget for emerging AI/automation capabilities."
+      ],
+      "opportunities": [
+        "EU Digital Sovereignty mandate driving IT procurement away from US-based vendors; regional advantage.",
+        "ITAM and FinOps expansion as enterprises modernize cloud cost governance and license compliance.",
+        "API-first integrations with observability and cloud platforms to extend platform relevance."
+      ],
+      "threats": [
+        "Large ITSM vendors (ServiceNow, Atlassian) improving GDPR compliance and adding regional support.",
+        "Open-source ITSM alternatives gaining traction in price-sensitive segments.",
+        "Cloud consolidation favors unified platforms; narrow ITSM-only positioning risks commoditization."
+      ]
+    },
+    "userLikes": [
+      "GDPR compliance and data residency—data stays in EU without external transfer.",
+      "Approachable pricing and lower total cost of ownership versus multinational incumbents.",
+      "Responsive regional support and product understanding of European regulatory requirements."
+    ],
+    "userComplaints": [
+      "Limited integration ecosystem and API maturity compared to larger platform competitors.",
+      "Smaller user community results in fewer templates, plugins, and third-party extensions.",
+      "Slower feature releases and limited AI/advanced automation capabilities relative to market trends."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises (200–2000 employees) in EU seeking GDPR-compliant ITSM.",
+        "Public sector and financial services in southern Europe under strict data residency rules.",
+        "Organizations rejecting US-based vendors on sovereignty or compliance grounds."
+      ],
+      "typicalBuyer": "IT Service Manager or IT Director at European mid-market firm prioritizing regulatory compliance.",
+      "topUseCases": [
+        "Incident management, change control, and service request fulfillment under GDPR.",
+        "IT asset lifecycle management (ITAM) for license and compliance tracking in regulated orgs.",
+        "Cloud cost governance (FinOps) for multi-cloud deployments with cost attribution and chargeback."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven incident response and predictive alerts to compete with automation-forward market trends.",
+      "Expansion of FinOps and cloud cost governance capabilities as enterprises mature cloud adoption.",
+      "API-led integration layer connecting ITSM, ITAM, and observability platforms for unified visibility."
+    ]
+  },
+  "itom/marval-msm": {
+    "competitiveEdge": "Deep ITIL accreditation and compliance expertise appeals to regulated orgs seeking expert-led ITSM governance rather than feature breadth.",
+    "swot": {
+      "strengths": [
+        "ITIL-accredited positioning with strong process compliance and governance capabilities.",
+        "Focused niche strategy allows deep product expertise and responsive customer support.",
+        "UK-based with established reputation in heavily regulated European markets."
+      ],
+      "weaknesses": [
+        "Limited scale vs. tier-1 ITSM incumbents reduces geographic reach and brand awareness.",
+        "Smaller revenue base constrains R&D budget for AI/automation integration.",
+        "Regional focus may limit multi-geography enterprise deployments."
+      ],
+      "opportunities": [
+        "Rising demand for compliance-driven ITSM in financial services and healthcare sectors.",
+        "Market consolidation creates acquisition interest from larger ITSM platforms.",
+        "Cloud migration drives demand for cloud-native ITSM governance tools."
+      ],
+      "threats": [
+        "Tier-1 vendors (ServiceNow, IBM, BMC) increasingly emphasize ITIL compliance modules.",
+        "Low-code/no-code platforms commoditize basic ITSM workflows.",
+        "Shift toward unified AIOps platforms may bypass standalone ITSM specialists."
+      ]
+    },
+    "userLikes": [
+      "Strong ITIL alignment and process governance — reduces compliance audit friction.",
+      "Responsive, expert-driven support team with hands-on methodology guidance.",
+      "Cost-effective alternative to massive tier-1 platforms for mid-sized regulated orgs."
+    ],
+    "userComplaints": [
+      "Limited mobile and modern UI — interfaces feel dated vs. contemporary platforms.",
+      "Smaller integration ecosystem — fewer pre-built connectors to enterprise tools.",
+      "Slower pace of innovation in AI/ML and advanced analytics vs. larger competitors."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market regulated enterprises (finance, healthcare, telecom) in UK/EU.",
+        "Organizations with mature ITIL processes seeking accredited governance platform.",
+        "IT shops prioritizing compliance and audit readiness over modern user experience."
+      ],
+      "typicalBuyer": "IT Director or ITSM Program Manager at compliance-heavy organization.",
+      "topUseCases": [
+        "Change management and release governance for regulated service delivery.",
+        "Incident and problem management aligned to ITIL best practices.",
+        "Service asset and configuration management (SACM) for audit trails."
+      ]
+    },
+    "futureAreas": [
+      "Cloud-native SaaS migration to compete with modern deployment expectations.",
+      "AI-assisted incident routing and ticket correlation for operational efficiency.",
+      "Deeper integration with broader IT operations ecosystems (monitoring, automation)."
+    ]
+  },
+  "itom/c2-itsm": {
+    "competitiveEdge": "Purpose-built ITSM platform for Canadian public sector with native data residency compliance and localized support.",
+    "swot": {
+      "strengths": [
+        "Data residency guarantee eliminates regulatory friction for Canadian government deployments.",
+        "Focused positioning as Canadian alternative addresses sovereignty and localization requirements.",
+        "Lean cost structure enables competitive pricing versus global ITSM incumbents."
+      ],
+      "weaknesses": [
+        "Limited brand recognition outside Canadian market constrains expansion opportunities.",
+        "Smaller vendor reduces R&D investment capacity relative to established ITSM platforms.",
+        "Geographic concentration creates revenue dependency on single regional market."
+      ],
+      "opportunities": [
+        "Growing public sector digital transformation spending in Canada and allied jurisdictions.",
+        "Expand to other regulated sectors (healthcare, financial services) requiring data residency.",
+        "Partner with systems integrators and channel partners to reach enterprise accounts."
+      ],
+      "threats": [
+        "Global ITSM leaders adding data residency options diminishes exclusive positioning.",
+        "Public sector procurement favors established vendors with proven global support.",
+        "Consolidation pressure in ITSM market favors larger, well-capitalized competitors."
+      ]
+    },
+    "userLikes": [
+      "Sovereign data storage meets regulatory requirements without workarounds.",
+      "Responsive local support team understands Canadian public sector workflows.",
+      "Simpler alternative to complex enterprise ITSM platforms with lower licensing costs."
+    ],
+    "userComplaints": [
+      "Limited ecosystem and third-party integrations compared to larger ITSM vendors.",
+      "Smaller vendor raises concerns about long-term product roadmap and investment.",
+      "Mobile and self-service portal capabilities lag category leaders."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Canadian federal and provincial government agencies",
+        "Public sector institutions (education, healthcare)",
+        "Regulated private sector with data residency mandates"
+      ],
+      "typicalBuyer": "IT Service Manager or IT Operations Director at mid-market government or regulated organization",
+      "topUseCases": [
+        "Incident and change management for government IT operations",
+        "Service portfolio management with compliance audit trails",
+        "Canadian data residency compliance for public sector deployments"
+      ]
+    },
+    "futureAreas": [
+      "Expand mobile and self-service capabilities to modernize employee experience.",
+      "Develop industry-specific ITSM templates for healthcare, education, and public utilities.",
+      "Build deeper API and integration ecosystem to compete with larger platforms."
+    ]
+  },
+  "itom/serviceaide": {
+    "competitiveEdge": "AI-powered virtual agent embedded in ITSM workflows reduces ticket volume and resolution time without replacing ITSM platform investment.",
+    "swot": {
+      "strengths": [
+        "AI helpdesk automation lowers support costs and improves ticket resolution velocity for enterprise ITSM teams.",
+        "Works as an overlay on existing ITSM platforms—no rip-and-replace required, easing adoption.",
+        "Focused niche positioning in ITSM automation appeals to enterprises seeking AI-first IT service delivery."
+      ],
+      "weaknesses": [
+        "Limited scale relative to entrenched ITSM incumbents (ServiceNow, Atlassian, IBM) with larger install bases.",
+        "Private funding limits visibility and go-to-market reach compared to publicly traded competitors.",
+        "AI helpdesk is a narrower value proposition than full platform alternatives; requires integration mindset."
+      ],
+      "opportunities": [
+        "Enterprise shift to AI-augmented IT operations creates demand for intelligent virtual agent overlays.",
+        "Cloud FinOps and ITAM cost optimization trends open expansion into multi-domain IT automation.",
+        "Channel partnerships with ITSM implementers and consulting firms could accelerate market penetration."
+      ],
+      "threats": [
+        "Major ITSM platforms (ServiceNow, Jira Service Management) increasingly embed native AI agents, commoditizing the capability.",
+        "Emerging specialized AI OPS vendors compete for the same automation-first IT operations buyer segment."
+      ]
+    },
+    "userLikes": [
+      "Reduces first-level support workload and ticket queue depth measurably.",
+      "Improves ticket resolution time without requiring platform migration.",
+      "Learns from enterprise knowledge bases and improves over time."
+    ],
+    "userComplaints": [
+      "Integration complexity with legacy ITSM platforms can delay time-to-value.",
+      "AI agent accuracy and hallucination issues require careful tuning and human oversight.",
+      "Limited visibility into vendor roadmap and long-term platform direction."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-to-large enterprises with mature ITSM platforms seeking cost-reduction and automation gains.",
+        "IT service delivery centers and shared services organizations prioritizing ticket volume and throughput."
+      ],
+      "typicalBuyer": "ITSM Operations Manager or IT Service Delivery Director evaluating automation investments.",
+      "topUseCases": [
+        "Automated ticket triage, categorization, and first-level response to reduce analyst workload.",
+        "Intelligent virtual agent for employee self-service, reducing helpdesk volume and wait times.",
+        "Knowledge capture and routing to improve resolution quality and escalation accuracy."
+      ]
+    },
+    "futureAreas": [
+      "Deeper integration with observability and incident management tooling to expand from helpdesk to platform operations.",
+      "Multi-domain IT automation beyond ITSM into asset management and cost optimization.",
+      "Cross-platform AI orchestration as ITSM ecosystems mature and demand AI-native workflows."
+    ]
+  },
+  "itom/syncro": {
+    "competitiveEdge": "Unified PSA/RMM/remote-support stack purpose-built for MSP efficiency, reducing tool sprawl and operational complexity.",
+    "swot": {
+      "strengths": [
+        "Integrated PSA+RMM+support eliminates point-tool friction for small MSPs.",
+        "Rapid 40% YoY growth signals strong product-market fit in target segment.",
+        "Lower total cost of ownership vs. standalone licenses for lean teams."
+      ],
+      "weaknesses": [
+        "Niche positioning limits brand recognition and enterprise sales reach.",
+        "All-in-one approach may lack depth competitors offer in specialized domains.",
+        "Smaller revenue base constrains R&D investment vs. incumbent vendors."
+      ],
+      "opportunities": [
+        "Expanding upmarket to mid-market MSPs seeking unified platforms without enterprise complexity.",
+        "Vertical specialization in high-growth MSP segments (cloud, security, managed services).",
+        "API-first architecture could enable third-party integrations and ecosystem partnerships."
+      ],
+      "threats": [
+        "Larger ITSM/PSA incumbents acquiring or bundling competing RMM/support layers.",
+        "Point-tool vendors improving interoperability via native integrations, reducing consolidation pressure.",
+        "Commoditization of RMM/PSA forcing race-to-bottom pricing in SMB market."
+      ]
+    },
+    "userLikes": [
+      "Simplified admin overhead: single platform vs. juggling three vendors.",
+      "Faster deployment and onboarding compared to legacy enterprise tools.",
+      "Affordable pricing model scales naturally with small MSP growth."
+    ],
+    "userComplaints": [
+      "Feature parity gaps in specialized domains (e.g., advanced reporting vs. dedicated tools).",
+      "Limited integrations with third-party ticketing, billing, or compliance systems.",
+      "Smaller vendor means slower feature iteration and support responsiveness."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Small MSPs (10–50 technicians) seeking operational efficiency",
+        "Managed services resellers with limited IT staff",
+        "Regional IT service providers managing client fleets"
+      ],
+      "typicalBuyer": "MSP owner or operations manager balancing cost, feature breadth, and ease of use.",
+      "topUseCases": [
+        "Unified ticketing, device monitoring, and remote access for client support workflows",
+        "Billing and PSA time tracking integrated with RMM alerts",
+        "Multi-tenant client management for small to mid-sized service portfolios"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven predictive monitoring and automated remediation for proactive client support.",
+      "Ecosystem expansion via vendor partnerships and pre-built integrations for accounting and ITAM tools.",
+      "Mobile-first field support and field-technician-optimized interfaces for distributed teams."
+    ]
+  },
+  "itom/n-able-n-central": {
+    "competitiveEdge": "Purpose-built RMM for MSPs at scale—monitoring, management, and automation integrated for distributed IT teams managing hundreds of customer endpoints.",
+    "swot": {
+      "strengths": [
+        "Established MSP ecosystem with global distribution and long vendor relationships",
+        "Unified RMM/ITSM platform eliminates tool sprawl for managed service providers",
+        "Lower total cost of ownership compared to enterprise ITSM suites for MSP workflows"
+      ],
+      "weaknesses": [
+        "Competes against larger cloud-native ITSM incumbents with greater R&D budgets",
+        "Smaller ecosystem compared to tier-1 platforms limits third-party integrations",
+        "Limited appeal outside MSP segment versus broad enterprise ITOM/ITSM players"
+      ],
+      "opportunities": [
+        "AI-driven automation and anomaly detection for MSP-scale proactive management",
+        "Vertical expansion into managed security operations (SecOps) for MSPs",
+        "Cloud FinOps and cost optimization tools for customer cloud inventory visibility"
+      ],
+      "threats": [
+        "Cloud-native startups fragmenting the RMM market with specialized, cheaper point solutions",
+        "Large incumbents (ServiceNow, Atlassian) expanding downmarket to capture MSP segment",
+        "Customer shift toward consumerized self-service dashboards reducing platform lock-in"
+      ]
+    },
+    "userLikes": [
+      "Straightforward, non-bloated interface designed specifically for MSP operational workflows",
+      "Flexible alerting and automation rules that scale across heterogeneous customer environments",
+      "Reliable remote access and script execution with minimal latency for global MSPs"
+    ],
+    "userComplaints": [
+      "Limited mobile experience for on-call technicians during out-of-hours incident response",
+      "Reporting and BI capabilities lag competitors—custom analytics require manual workarounds",
+      "API rate limits and documentation gaps hinder deep integration with downstream ticketing systems"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Managed Service Providers (small to mid-tier, 50–500 customers each)",
+        "Distributed IT teams in small/mid-market enterprises managing global infrastructure"
+      ],
+      "typicalBuyer": "Operations director or VP of IT at MSP firm with budget ownership for monitoring and automation tooling",
+      "topUseCases": [
+        "Proactive endpoint monitoring and patch management across customer fleet",
+        "Automated incident response and ticket creation into PSA/ticketing systems",
+        "Multi-tenant visibility and SLA reporting for managed customer environments"
+      ]
+    },
+    "futureAreas": [
+      "Integration of predictive analytics and machine learning for capacity planning and anomaly detection",
+      "Expanded cloud infrastructure monitoring (AWS, Azure, GCP) beyond on-premise asset management",
+      "Developer-friendly API and SDK ecosystem to support custom automation and partner integrations"
+    ]
+  },
+  "itom/datto": {
+    "competitiveEdge": "Purpose-built backup and RMM convergence for MSPs—tight integration where larger ITSM incumbents offer separate modules.",
+    "swot": {
+      "strengths": [
+        "Deep backup expertise with native RMM integration reduces tool sprawl for MSP operational stacks.",
+        "MSP-centric design and pricing built for distributed multi-tenant management at scale.",
+        "Established market presence with broad customer base reduces switching risk for MSP buyers."
+      ],
+      "weaknesses": [
+        "Limited ITSM workflow capability compared to pure-play ITSM platforms; backup+ops, not ticketing.",
+        "Niche positioning constrains TAM; primarily MSP-focused with limited enterprise direct-sales footprint.",
+        "Post-acquisition Kaseya integration adds organizational complexity and potential roadmap dilution."
+      ],
+      "opportunities": [
+        "Cloud FinOps and cost optimization for MSPs managing multi-cloud estates and backup costs.",
+        "Vertical SaaS expansion for healthcare, finance, and government MSPs with compliance needs.",
+        "API-first ecosystem enabling third-party integrations to compete with larger ITSM suites."
+      ],
+      "threats": [
+        "Larger ITSM platforms bundling backup and RMM using scale and brand advantage.",
+        "Cloud-native startups targeting MSPs with simpler, API-first architectures and lower friction.",
+        "Pure-play backup vendors adding RMM features reducing Datto's product differentiation edge."
+      ]
+    },
+    "userLikes": [
+      "Unified backup+RMM dashboard reduces operational overhead for smaller IT teams.",
+      "Transparent per-customer billing model aligns incentives with MSP customer success.",
+      "Ransomware recovery and business continuity positioning resonates with risk-averse SMB buyers."
+    ],
+    "userComplaints": [
+      "Integration with Kaseya ecosystem creates confusion about product roadmap and feature prioritization.",
+      "Limited ITSM ticketing and workflow capabilities force MSPs to integrate third-party systems.",
+      "Mobile app and remote access features lag behind specialized RMM competitors."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Small-to-mid-market MSPs (50-500 seats)",
+        "Regional IT service providers managing SMB customer bases",
+        "Vertical MSPs in healthcare, legal, and finance sectors"
+      ],
+      "typicalBuyer": "MSP operations manager or solutions architect evaluating backup and RMM bundling.",
+      "topUseCases": [
+        "Multi-customer backup and disaster recovery orchestration",
+        "Remote device management and patch automation across distributed networks",
+        "Business continuity planning and ransomware recovery posture"
+      ]
+    },
+    "futureAreas": [
+      "Cloud-native backup and failover for hybrid and multi-cloud MSP customer estates.",
+      "Conversational AI and automation for incident response and backup validation workflows.",
+      "Vertical compliance packs with pre-configured policies for regulated industries."
+    ]
+  },
+  "itom/goto-resolve": {
+    "competitiveEdge": "Unified remote support and IT management in a single platform, competing directly against larger ITSM incumbents by combining remote connectivity with service desk and asset management capabilities.",
+    "swot": {
+      "strengths": [
+        "Integrated remote support + ITSM reduces tool fragmentation and licensing sprawl.",
+        "Strong brand heritage from LogMeIn ensures established customer trust and integration ecosystem.",
+        "Purpose-built for frontline IT teams, not enterprise transformation complexity."
+      ],
+      "weaknesses": [
+        "Private and undisclosed revenue limits credibility in large enterprise buying decisions.",
+        "Smaller vendor scale versus ServiceNow/Atlassian/Freshservice in feature depth and roadmap velocity.",
+        "Limited visibility in vendor comparisons; niche positioning narrows addressable market."
+      ],
+      "opportunities": [
+        "Remote-first and hybrid work models expand demand for unified support platforms.",
+        "Cloud migration and modern IT stack preferences favor simpler, integrated alternatives to legacy ITSM.",
+        "Vertical expansion into managed IT services and MSP channels to reach smaller businesses."
+      ],
+      "threats": [
+        "ServiceNow and other incumbents bundling remote support to undercut point-solution pricing.",
+        "Newer challenger vendors (Atlassian, Freshworks) gaining traction with superior UX and modern features.",
+        "Consolidation pressure as larger platforms absorb remote support capabilities natively."
+      ]
+    },
+    "userLikes": [
+      "Simple, intuitive interface reduces training overhead compared to enterprise ITSM suites.",
+      "Unified remote support and ticketing in one platform eliminates context-switching across tools.",
+      "Competitive pricing and lower total cost of ownership for mid-market IT teams."
+    ],
+    "userComplaints": [
+      "Limited advanced automation and workflow customization compared to tier-1 platforms.",
+      "Smaller community and fewer third-party integrations restrict extensibility options.",
+      "Lack of public customer case studies and transparent roadmap reduces confidence in vendor direction."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market organizations (100–5,000 employees) with distributed IT teams.",
+        "Managed IT service providers and smaller IT consulting firms.",
+        "Companies prioritizing simplicity and speed to value over feature completeness."
+      ],
+      "typicalBuyer": "IT Service Manager or Help Desk Director responsible for selecting and managing frontline support and asset management tools.",
+      "topUseCases": [
+        "Remote employee support and troubleshooting across hybrid and distributed workforces.",
+        "Service desk ticketing and incident management for small to mid-market teams.",
+        "IT asset inventory and basic lifecycle management for cost control and compliance."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven incident detection and predictive analytics to reduce mean time to resolution.",
+      "Deeper mobile-first capabilities and native app support for frontline and field IT teams.",
+      "Ecosystem partnerships with cloud and hybrid infrastructure platforms to expand integration reach."
+    ]
+  },
+  "itom/jotform-workflows": {
+    "competitiveEdge": "Lightweight form-driven workflow automation reduces IT service request friction without requiring large-scale ITSM platform licensing or implementation overhead.",
+    "swot": {
+      "strengths": [
+        "Low barrier to entry—forms-first approach requires minimal IT process redesign compared to enterprise ITSM suites.",
+        "Cost-effective for organizations with simpler workflows—avoids expensive ServiceNow, Atlassian, or BMC deployments.",
+        "Rapid iteration on service request templates—non-technical stakeholders can modify workflows without engineering involvement."
+      ],
+      "weaknesses": [
+        "Limited enterprise integrations—fewer out-of-box connectors to asset management, CMDB, and monitoring tools than ITSM incumbents.",
+        "Scaling challenges—form-based architecture may struggle with complex multi-step workflows or high-volume concurrent requests.",
+        "Vendor lock-in perception—lacking open standards or native IT ops APIs that larger platforms expose."
+      ],
+      "opportunities": [
+        "Mid-market ITSM adoption—organizations outgrowing homegrown ticketing but not ready for ServiceNow or Jira Service Management.",
+        "Vertical expansion into managed service providers—MSPs seeking lightweight, white-label request intake for multiple customers.",
+        "AI-driven workflow optimization—intelligent form field suggestions and automated routing based on content analysis.",
+        "Native ITAM/Cloud FinOps connectors—deep integrations with asset lifecycle and cloud cost governance platforms."
+      ],
+      "threats": [
+        "Incumbent consolidation—ServiceNow, Atlassian, and Microsoft expanding low-code/no-code offerings into form automation.",
+        "Open-source alternatives—self-hosted, community-driven workflow engines reducing demand for proprietary SaaS.",
+        "Customer churn to hyperscaler platforms—customers integrating AWS Service Catalog, Azure Automation, or GCP Cloud Tasks natively."
+      ]
+    },
+    "userLikes": [
+      "Simple, intuitive form builder—non-technical teams adopt quickly without vendor training.",
+      "Fast deployment relative to traditional ITSM—weeks, not months, to initial service request automation.",
+      "Transparent, predictable pricing—no per-user licensing surprises compared to enterprise ITSM vendors."
+    ],
+    "userComplaints": [
+      "Limited visibility into downstream fulfillment—forms capture requests but lack deep integration with actual resolution systems.",
+      "Insufficient customization for complex incident routing—rule-based logic insufficient for multi-team escalation or SLA-aware assignment.",
+      "Poor audit and compliance reporting—forms alone don't satisfy change management or compliance frameworks like ITIL or SOX."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market organizations (500–5000 employees) with distributed IT teams seeking lightweight intake automation.",
+        "Departments and business units avoiding enterprise ITSM licensing—line-of-business IT governance use cases.",
+        "Managed service providers and IT outsourcers needing simple, customer-facing request channels."
+      ],
+      "typicalBuyer": "IT Operations Manager or Service Delivery Lead responsible for reducing request handling overhead and improving intake consistency.",
+      "topUseCases": [
+        "Self-service IT request submission—password resets, access requests, hardware provisioning intake.",
+        "Vendor and contract renewal tracking—data gathering and approval workflows for software and cloud subscriptions.",
+        "Compliance and audit form collection—structured intake for change approvals, risk assessments, and incident reporting."
+      ]
+    },
+    "futureAreas": [
+      "Intelligent request classification and auto-routing—ML-based field parsing to route forms to appropriate fulfillment teams without manual triage.",
+      "Deeper IT ecosystem integrations—native connectors to leading CMDB, monitoring, and cost governance platforms.",
+      "Embedded analytics and optimization—visibility into request patterns, bottlenecks, and process improvement recommendations."
+    ]
+  },
+  "itom/freshdesk": {
+    "competitiveEdge": "Unified omnichannel support platform combining customer and IT service management, enabling organizations to manage IT and customer issues through a single, integrated interface rather than separate siloed tools.",
+    "swot": {
+      "strengths": [
+        "Strong omnichannel integration across customer support, IT service desk, and help desk functions in one platform.",
+        "Designed for mid-market and growing enterprises seeking cost-effective alternative to incumbent ITSM suites.",
+        "Cloud-native architecture enables rapid deployment with minimal IT overhead compared to on-premises ITSM tools."
+      ],
+      "weaknesses": [
+        "Limited enterprise-grade customization and advanced workflow capabilities versus established ITSM incumbents.",
+        "Smaller partner and ecosystem maturity relative to market leaders, limiting integrations and professional services.",
+        "Positioned as niche player; less brand recognition and enterprise adoption than ServiceNow or other major platforms."
+      ],
+      "opportunities": [
+        "Growing demand for unified support platforms as organizations seek to reduce tool sprawl and operational complexity.",
+        "Mid-market ITSM modernization cycles where cloud-first, integrated platforms compete against aging on-premises deployments.",
+        "Expansion into IT asset management and cloud FinOps as enterprises mature IT operations tooling."
+      ],
+      "threats": [
+        "Established ITSM incumbents expanding omnichannel and integrated capabilities, leveraging existing enterprise relationships.",
+        "Specialized competitors in ITAM and cloud FinOps consolidating those functions, fragmenting Freshworks' positioning.",
+        "Continued price compression in mid-market ITSM as cloud-native tooling commoditizes service desk functionality."
+      ]
+    },
+    "userLikes": [
+      "Unified interface that combines IT and customer support, reducing context switching and improving operational efficiency.",
+      "Cloud-based deployment with low implementation overhead, enabling faster time-to-value for growing organizations.",
+      "User-friendly design and mobile accessibility that resonates with modern IT teams and end-users."
+    ],
+    "userComplaints": [
+      "Limited advanced reporting and analytics capabilities compared to enterprise ITSM platforms, hindering complex IT governance needs.",
+      "Workflow customization feels restrictive for large enterprises with complex, non-standard IT processes.",
+      "Integration gaps with legacy systems and niche IT tools, requiring manual workarounds or custom development."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market enterprises (500–5000 employees) seeking unified IT and customer support consolidation.",
+        "High-growth SaaS and tech companies prioritizing simplicity and rapid ITSM adoption over extensive customization."
+      ],
+      "typicalBuyer": "IT Operations Manager or Service Delivery Lead at a growing enterprise seeking to unify fragmented support tooling.",
+      "topUseCases": [
+        "IT service desk and ticket management with omnichannel routing across email, chat, and knowledge base.",
+        "Integrated customer and employee support to reduce tool sprawl and licensing complexity.",
+        "Cloud-first IT operations with minimal on-premises infrastructure and dependency."
+      ]
+    },
+    "futureAreas": [
+      "AI-driven ticket automation and intelligent routing to reduce manual triage and improve MTTR.",
+      "Deeper integration with cloud infrastructure monitoring and observability tools to bridge ITSM and cloud operations.",
+      "Enhanced IT asset and financial management capabilities to compete in cloud FinOps and ITAM segments."
+    ]
+  },
+  "itom/vantage": {
+    "competitiveEdge": "Virtual tagging and per-unit cost tracking delivers true cost visibility where legacy cloud FinOps tools require manual configuration.",
+    "swot": {
+      "strengths": [
+        "User-friendly interface reduces cloud cost analysis friction vs. enterprise incumbents.",
+        "Multi-cloud (AWS, GCP, Azure) and Kubernetes ingestion handles hybrid deployments natively.",
+        "FOCUS-compatible data model positions for standardized cloud cost reporting and portability."
+      ],
+      "weaknesses": [
+        "Early-stage startup; limited brand recognition and analyst coverage vs. established ITSM players.",
+        "Smaller customer base may limit integrations, customization depth, and support maturity.",
+        "Cost visibility alone does not span full ITAM/ITSM scope; gaps in asset lifecycle and ticketing."
+      ],
+      "opportunities": [
+        "Extend reporting into automated cost optimization actions and chargeback automation.",
+        "Deepen Kubernetes/container visibility as cloud-native and multi-cluster adoption accelerates.",
+        "Integrate with major ITSM platforms to embed cost context into incident and change workflows."
+      ],
+      "threats": [
+        "Incumbent ITSM vendors (ServiceNow, BMC, others) are rapidly bundling cloud FinOps modules.",
+        "Public cloud providers (AWS, GCP, Azure) release native cost tools and competitive analytics.",
+        "Market consolidation favors broad platforms; specialized FinOps-only tools face acquisition or margin pressure."
+      ]
+    },
+    "userLikes": [
+      "Ease-of-use compared to legacy tools eliminates steep learning curves and onboarding friction.",
+      "Virtual tagging and per-unit cost breakdown provides immediate clarity on cloud spending drivers.",
+      "Multi-cloud support works seamlessly without vendor lock-in; fits hybrid and multi-provider strategies."
+    ],
+    "userComplaints": [
+      "Limited native integrations with popular ticketing and ITSM platforms reduce workflow automation.",
+      "Reporting lacks predictive cost forecasting and automated remediation recommendations.",
+      "Smaller vendor means fewer resources for custom dashboards and enterprise SLA guarantees."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market to enterprise organizations managing multi-cloud infrastructure (AWS + GCP + Azure).",
+        "Cloud-native teams running Kubernetes clusters seeking per-container cost attribution.",
+        "Finance and FinOps teams frustrated with manual spreadsheet-based cloud cost tracking."
+      ],
+      "typicalBuyer": "FinOps lead, cloud architect, or engineering manager accountable for cloud spend optimization.",
+      "topUseCases": [
+        "Real-time cloud cost visibility and multi-cloud bill consolidation.",
+        "Kubernetes container cost chargeback and per-unit resource cost allocation.",
+        "Spend trend analysis and cost anomaly detection across cloud providers."
+      ]
+    },
+    "futureAreas": [
+      "Native ML-driven cost optimization recommendations and automated cost-saving actions.",
+      "Integration with FinOps platforms and ERP systems to tie cloud costs into broader financial planning.",
+      "Advanced observability: linking unit costs to application performance metrics for true cost-to-value analysis."
+    ]
+  },
+  "itom/zesty": {
+    "competitiveEdge": "Only autonomous vendor to dynamically optimize Reserved Instances and EBS in real-time without manual commitment decisions, filling the gap left by ProsperOps' acquisition by Flexera.",
+    "swot": {
+      "strengths": [
+        "Fills autonomous RI/SP optimization niche vacated by competitor acquisition; market consolidation strengthens differentiation.",
+        "Impressive 60% YoY growth and 40-60% cost reduction claims indicate strong product-market fit in emerging FinOps segment.",
+        "Low implementation friction — autonomous operation eliminates training and internal change management typical of traditional FinOps tools."
+      ],
+      "weaknesses": [
+        "Limited to AWS EC2 and EBS scope; competitors like CAST AI and CloudZero cover Kubernetes and multi-cloud FinOps more broadly.",
+        "Relatively young startup competing against established FinOps incumbents (Flexera, Apptio) with larger teams and integrations.",
+        "Minimal documented integration ecosystem or native connectors to major ITSM/ITAM platforms where procurement decisions originate."
+      ],
+      "opportunities": [
+        "Kubernetes and workload optimization expansion as enterprises shift beyond EC2; FinOps Foundation reports AI cost mgmt at 98% of teams.",
+        "Upmarket enterprise plays targeting Fortune 500 with >$100M annual AWS spend sensitive to autonomous cost attribution and governance.",
+        "Strategic partnerships with ITSM platforms (ServiceNow, Freshservice) to embed cost optimization into IT service desk workflows and chargebacks."
+      ],
+      "threats": [
+        "AWS native offerings (AWS Compute Optimizer, Savings Plans) commoditizing core value; AWS may bundle autonomous RI management into native services.",
+        "Flexera (post-ProsperOps) and Apptio expanding autonomous optimization portfolios with greater brand recognition and installed base.",
+        "Economic slowdown reducing enterprise cloud spend growth and narrowing FinOps tool budgets; buyer consolidation shifts to all-in-one platforms."
+      ]
+    },
+    "userLikes": [
+      "Truly autonomous operation with zero manual RI/SP decisions; hands-off cost reduction appeals to under-resourced IT teams.",
+      "Real-time dynamic adjustment of compute allocations prevents overprovisioning and stale commitment strategies.",
+      "Transparent ROI: 40-60% documented savings measurable month-over-month without hidden licensing or commitment lock-in."
+    ],
+    "userComplaints": [
+      "Single-cloud (AWS-only) positioning misses enterprises with Azure or GCP multi-cloud strategies; requires separate FinOps tooling.",
+      "Limited visibility into saved cost attribution by business unit or application; harder to use in chargeback and showback workflows.",
+      "Lack of compliance reporting or audit trails for cloud spend decisions may slow adoption in regulated industries requiring cost justification."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise cloud-native companies spending $10M-$100M+ annually on AWS with under-resourced FinOps teams.",
+        "Kubernetes and containerized workload-heavy DevOps organizations seeking automated cost control without dedicated headcount.",
+        "Horizontally-scaled SaaS and hyper-growth startups (Series B-D) optimizing burn rate and cloud unit economics before profitability."
+      ],
+      "typicalBuyer": "VP of Infrastructure, Principal Finance Engineer, or FinOps Lead — technically-minded finance stakeholder seeking automation without procurement complexity.",
+      "topUseCases": [
+        "Autonomous Reserved Instance and Savings Plan optimization — continuous right-sizing to track instance-type and region-specific price changes without manual intervention.",
+        "EBS volume right-sizing — automated remediation of under-utilized storage allocations to reduce block storage spend.",
+        "Emergency cost control — automated guardrails to prevent runaway compute spend during traffic spikes or misconfigured autoscaling."
+      ]
+    },
+    "futureAreas": [
+      "Kubernetes and container-native compute optimization as enterprises migrate workloads off EC2; agentic cost governance for CKA-managed clusters.",
+      "Multi-cloud RI/SP parity (Azure Reserved Instances, Google Cloud Commitments) to address enterprises using AWS + Azure or AWS + GCP hybrid strategies.",
+      "Autonomous sustainability reporting and carbon-aware workload scheduling — linking compute cost optimization to emissions reduction and ESG corporate goals."
+    ]
+  },
+  "itom/finout": {
+    "competitiveEdge": "Unified cloud cost visibility across AWS, GCP, Azure, Snowflake, and Kubernetes without requiring infrastructure re-tagging — reducing adoption friction against tagging-dependent competitors.",
+    "swot": {
+      "strengths": [
+        "Multi-cloud & SaaS cost intelligence in single pane of glass vs fragmented point solutions.",
+        "Virtual tagging layer eliminates costly infrastructure changes and resource naming convention dependencies.",
+        "Strong growth trajectory (100% YoY) signals product-market fit in rapidly expanding FinOps category."
+      ],
+      "weaknesses": [
+        "Limited brand awareness and sales footprint compared to established cloud providers' native cost tools.",
+        "Early-stage company (startup classification) with smaller support and customer success organization.",
+        "Estimated $15M ARR suggests constrained R&D and product velocity vs well-funded incumbents."
+      ],
+      "opportunities": [
+        "Kubernetes and containerized infrastructure cost governance remains immature—strong expansion vector.",
+        "FinOps discipline adoption accelerating; smaller enterprises increasingly require cost visibility tooling.",
+        "SaaS cost management (Snowflake, Data Stack) underdeveloped—white space for specialized vendors."
+      ],
+      "threats": [
+        "Cloud hyperscalers (AWS, Azure, GCP) integrating native cost intelligence—built-in advantage.",
+        "Well-funded specialized FinOps platforms scaling marketing and sales faster than startup can match.",
+        "Customer adoption still concentrated in cloud-native / engineering-heavy orgs; limited ITSM/ITAM crossover yet."
+      ]
+    },
+    "userLikes": [
+      "Virtual tagging eliminates expensive infrastructure refactoring for cost allocation.",
+      "Single dashboard spans AWS, GCP, Azure, Snowflake—reduces tool sprawl and context switching.",
+      "Detects orphaned resources and spending anomalies without manual infrastructure changes."
+    ],
+    "userComplaints": [
+      "Early-stage product lacks depth in certain integrations compared to mature FinOps platforms.",
+      "Support and onboarding resources smaller than established competitors; ramp-up steeper for large orgs.",
+      "Pricing model may be opaque or less predictable at scale for large multi-cloud environments."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native engineering teams managing multi-cloud infrastructure (AWS, GCP, Azure)",
+        "Data-heavy organizations running Snowflake, Databricks, or data warehouse platforms",
+        "Mid-market SaaS and tech companies with distributed cloud spend and cost accountability gaps"
+      ],
+      "typicalBuyer": "Senior engineer, cloud architect, or FinOps specialist reporting to VP of Infrastructure or Finance.",
+      "topUseCases": [
+        "Cross-cloud cost allocation and chargeback to business units without re-tagging infrastructure.",
+        "Orphaned resource discovery and spending anomaly detection across multi-cloud environments.",
+        "SaaS and data platform cost visibility (Snowflake, BigQuery, Databricks) unified with IaaS."
+      ]
+    },
+    "futureAreas": [
+      "Deeper ITSM/ITAM integration—bridging FinOps into broader IT cost governance and budget forecasting.",
+      "Multi-dimensional cost attribution and showback across teams, projects, and cost centers via AI-driven inference.",
+      "Native governance and spend controls (automated cost guardrails) vs. alerting and visibility alone."
+    ]
+  },
+  "itom/ternary": {
+    "competitiveEdge": "Deep BigQuery native cost intelligence for GCP enterprises — attackable at the point of data truth rather than surface APIs.",
+    "swot": {
+      "strengths": [
+        "Embedded BigQuery analysis eliminates data export and latency; direct cost attribution at query/project level.",
+        "GCP-first positioning captures enterprises in Google cloud-dominant environments with minimal competitive friction.",
+        "High growth rate (+80% YoY) and early startup trajectory enable rapid iteration on customer-specific cost allocation models."
+      ],
+      "weaknesses": [
+        "Single-cloud focus (GCP) limits addressability versus multi-cloud FinOps platforms covering AWS/Azure.",
+        "Early-stage revenue ($10M ARR) signals limited scale and support depth compared to established ITAM incumbents.",
+        "Lacks breadth of enterprise integrations (ticketing, provisioning, governance) that mature FinOps suites offer."
+      ],
+      "opportunities": [
+        "Expansion to AWS/Azure cost intelligence without abandoning BigQuery expertise—phased multi-cloud adoption.",
+        "Enterprise commitment to FinOps governance (chargeback, budgeting, forecasting automation) as cloud costs accelerate.",
+        "Embed cost intelligence into GCP partner ecosystem (Marketplace, consulting partners, system integrators)."
+      ],
+      "threats": [
+        "Google native cost tools and analytics (GCP console, Cost Insights API) improve continuously at zero friction.",
+        "Established multi-cloud FinOps platforms (Cloudability, Apptio, Flexera) acquire GCP specialization or build it.",
+        "Economic slowdown reduces enterprise FinOps investment and extends cloud cost optimization cycles."
+      ]
+    },
+    "userLikes": [
+      "Native BigQuery cost attribution without data movement or manual reconciliation workflows.",
+      "GCP-native approach feels integrated rather than bolted-on; aligns with enterprise Google Cloud commitments.",
+      "Rapid feature velocity and startup agility in responding to customer-specific cost allocation models."
+    ],
+    "userComplaints": [
+      "GCP-only positioning blocks multi-cloud enterprises from consolidating FinOps under one vendor.",
+      "Limited integrations with broader IT governance, asset management, and provisioning workflows.",
+      "Smaller team and resource footprint raise long-term viability and support SLA concerns for enterprise buyers."
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with GCP as primary or sole cloud provider (financial services, retail, tech-native orgs).",
+        "Mid-market companies ramping GCP spend rapidly and seeking cost controls without multi-cloud complexity."
+      ],
+      "typicalBuyer": "Cloud Finance Manager or FinOps Lead reporting to CFO or VP Infrastructure.",
+      "topUseCases": [
+        "Real-time cloud cost visibility and chargeback allocation by business unit, project, or cost center.",
+        "Quarterly forecast and budget trending for GCP spend; anomaly detection and budget alerts.",
+        "Cost optimization recommendations based on usage patterns (commitment discounts, resource rightsizing)."
+      ]
+    },
+    "futureAreas": [
+      "Multi-cloud cost intelligence—phased support for AWS/Azure while preserving BigQuery-native advantage.",
+      "AI-driven spend optimization and forecasting (predictive budgeting, anomaly prediction).",
+      "Deeper integration with GCP governance layers (Identity-Aware Proxy, organization policy, custom roles)."
+    ]
+  },
   "itom/omnissa": {
     "competitiveEdge": "Omnissa is a leading independent UEM vendor recognized by Gartner, managing 100M+ endpoints across Windows, macOS, iOS, and Android from a single platform rebuilt post-VMware.",
     "swot": {
