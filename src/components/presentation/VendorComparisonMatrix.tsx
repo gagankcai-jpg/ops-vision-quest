@@ -338,9 +338,11 @@ function MarketMap({
     // Impute a position for vendors missing one axis so they appear (marked "approximate"):
     //  • no disclosed revenue (platform divisions) → a fixed left "undisclosed" lane
     //  • no disclosed growth → the visible set's median growth (not slammed to the y=0 floor)
-    const REV_LANE = 0.013; // just inside the left edge ($ ~13M-equivalent x-position)
+    const REV_LANE = 0.013; // ~$13M-equivalent — the "undisclosed revenue" lane near the left edge
     const realGro = rows.map((v) => v.growthNum).filter((g) => g > 0).sort((a, b) => a - b);
     const medGro = realGro.length ? realGro[Math.floor(realGro.length / 2)] : 20;
+    // x is stored as log10(revenue $B): the axis is LINEAR over log units (recharts ignores the
+    // `ticks` prop on a scale="log" axis, so we log-transform here and label decade ticks ourselves).
     return rows.map((v) => {
       const hasRev = v.revenueNum > 0;
       const hasGro = v.growthNum > 0;
@@ -350,7 +352,7 @@ function MarketMap({
         : "Growth not disclosed — vertical position approximate";
       return {
         ...v,
-        x: hasRev ? v.revenueNum : REV_LANE,
+        x: Math.log10(hasRev ? v.revenueNum : REV_LANE),
         y: hasGro ? v.growthNum : medGro,
         // Use actual market cap if parseable; fall back to revenue × 8 as a valuation proxy
         // (typical SaaS/enterprise multiple) so bubble size is always meaningful.
@@ -372,8 +374,9 @@ function MarketMap({
     // reflect the real distribution, not the left/baseline imputation lanes.
     const xs = visiblePoints.map((v) => v.revenueNum).filter((n) => n > 0).sort((a, b) => a - b);
     const ys = visiblePoints.map((v) => v.growthNum).filter((n) => n > 0).sort((a, b) => a - b);
+    // x median is expressed in the same log10 units as the plotted points.
     return {
-      x: xs.length ? xs[Math.floor(xs.length / 2)] : medians.x,
+      x: xs.length ? Math.log10(xs[Math.floor(xs.length / 2)]) : (medians.x > 0 ? Math.log10(medians.x) : 0),
       y: ys.length ? ys[Math.floor(ys.length / 2)] : medians.y,
     };
   })();
@@ -517,10 +520,13 @@ function MarketMap({
                 type="number"
                 dataKey="x"
                 name="Revenue"
-                scale="log"
-                domain={[0.01, "dataMax"]}
-                allowDataOverflow
-                tickFormatter={formatBubbleRevenue}
+                /* x is pre-log10'd onto a LINEAR axis. Mirror the Y-axis exactly: a numeric min
+                   with the "dataMax" KEYWORD max (not a fully-numeric domain) is what lets recharts
+                   run its nice-tick generator instead of emitting one tick per scatter point. On
+                   this log-unit range the nice ticks land on the decades −2/−1/0/1 →
+                   $10M · $100M · $1B · $10B. No tickCount/ticks/interval — same as the Y-axis. */
+                domain={[-2.7, "dataMax"]}
+                tickFormatter={(v: number) => formatBubbleRevenue(Math.pow(10, v))}
                 stroke={tokens.axis}
                 tick={{ fontSize: 11 }}
                 axisLine={{ stroke: tokens.tick }}
