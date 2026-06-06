@@ -1,0 +1,15 @@
+{
+  "_comment": "Pinned regression baseline for the coverage+ranking watchdog (Step 2 monitor). Source of truth for scripts/check-data-invariants.js (build-time, over src/data/*.ts). The runtime guard in wordpress-plugin/autonomous-it-insights/autonomous-it-insights.php (ait_snapshot_baseline()) MIRRORS these values and must be kept in sync. Pinned to ACTUAL current data (2026-06): secops intentionally carries 54 established vendors, not 50. Mins are floors that catch a collapse without false-flagging benign rebalancing; anchors are normalized lowercase substrings that must remain present AND tier leader|challenger.",
+  "startupsMin": 50,
+  "types": {
+    "established": ["leader", "challenger", "niche"],
+    "startups": ["startup", "emerging"]
+  },
+  "markets": {
+    "aiops":    { "establishedMin": 50, "leaderMin": 4, "challengerMin": 5, "nicheMin": 1, "anchors": ["dynatrace", "datadog", "splunk", "new relic"] },
+    "itom":     { "establishedMin": 50, "leaderMin": 3, "challengerMin": 4, "nicheMin": 1, "anchors": ["servicenow", "bmc", "atlassian", "microsoft"] },
+    "rpa":      { "establishedMin": 50, "leaderMin": 3, "challengerMin": 7, "nicheMin": 1, "anchors": ["uipath", "automation anywhere", "power automate", "celonis"] },
+    "agentops": { "establishedMin": 50, "leaderMin": 4, "challengerMin": 8, "nicheMin": 1, "anchors": ["servicenow", "copilot", "agentforce", "glean"] },
+    "secops":   { "establishedMin": 54, "leaderMin": 5, "challengerMin": 10, "nicheMin": 1, "anchors": ["crowdstrike", "palo alto", "sentinel", "splunk"] }
+  }
+}

@@ -346,6 +346,143 @@ function ait_api_trigger_refresh() {
 
 // ─── Claude API Refresh Logic ─────────────────────────────────────────────────
 
+/**
+ * Step 2 monitor — pinned coverage + ranking baseline.
+ *
+ * MIRRORS scripts/data-baseline.json (the build-time source of truth) — keep the two in
+ * sync. Pinned to ACTUAL current data (2026-06): secops intentionally carries 54 established
+ * vendors, not 50. `*_min` values are floors that catch a collapse without false-flagging
+ * benign rebalancing; `anchors` are normalized lowercase substrings that must remain present
+ * AND tier leader|challenger.
+ */
+function ait_snapshot_baseline(): array {
+    return [
+        'startups_min' => 50,
+        'markets'      => [
+            'aiops'    => [ 'established_min' => 50, 'leader_min' => 4, 'challenger_min' => 5,  'niche_min' => 1, 'anchors' => [ 'dynatrace', 'datadog', 'splunk', 'new relic' ] ],
+            'itom'     => [ 'established_min' => 50, 'leader_min' => 3, 'challenger_min' => 4,  'niche_min' => 1, 'anchors' => [ 'servicenow', 'bmc', 'atlassian', 'microsoft' ] ],
+            'rpa'      => [ 'established_min' => 50, 'leader_min' => 3, 'challenger_min' => 7,  'niche_min' => 1, 'anchors' => [ 'uipath', 'automation anywhere', 'power automate', 'celonis' ] ],
+            'agentops' => [ 'established_min' => 50, 'leader_min' => 4, 'challenger_min' => 8,  'niche_min' => 1, 'anchors' => [ 'servicenow', 'copilot', 'agentforce', 'glean' ] ],
+            'secops'   => [ 'established_min' => 54, 'leader_min' => 5, 'challenger_min' => 10, 'niche_min' => 1, 'anchors' => [ 'crowdstrike', 'palo alto', 'sentinel', 'splunk' ] ],
+        ],
+    ];
+}
+
+/**
+ * Validate one market snapshot (as returned by Claude) against the pinned baseline.
+ * Returns [ 'ok' => bool, 'errors' => string[] ]. Deterministic, no network/tokens.
+ */
+function ait_validate_snapshot( string $slug, array $data ): array {
+    $baseline = ait_snapshot_baseline();
+    $rule     = $baseline['markets'][ $slug ] ?? null;
+    $errors   = [];
+
+    if ( $rule === null ) {
+        // Unknown market — accept (nothing to compare against) rather than block.
+        return [ 'ok' => true, 'errors' => [] ];
+    }
+
+    $vendors  = isset( $data['vendors'] ) && is_array( $data['vendors'] ) ? $data['vendors'] : null;
+    $startups = isset( $data['startups'] ) && is_array( $data['startups'] ) ? $data['startups'] : null;
+
+    if ( $vendors === null ) {
+        $errors[] = 'vendors[] missing or not an array';
+    }
+    if ( $startups === null ) {
+        $errors[] = 'startups[] missing or not an array';
+    }
+    if ( $errors ) {
+        return [ 'ok' => false, 'errors' => $errors ];
+    }
+
+    // Coverage
+    if ( count( $vendors ) < $rule['established_min'] ) {
+        $errors[] = sprintf( 'established %d < min %d', count( $vendors ), $rule['established_min'] );
+    }
+    if ( count( $startups ) < $baseline['startups_min'] ) {
+        $errors[] = sprintf( 'startups %d < min %d', count( $startups ), $baseline['startups_min'] );
+    }
+
+    // Enum integrity + tier floors over established vendors
+    $est_types = [ 'leader', 'challenger', 'niche' ];
+    $counts    = [ 'leader' => 0, 'challenger' => 0, 'niche' => 0 ];
+    foreach ( $vendors as $v ) {
+        $t = $v['type'] ?? '';
+        if ( ! in_array( $t, $est_types, true ) ) {
+            $errors[] = sprintf( 'established "%s" has invalid type "%s"', $v['name'] ?? '?', $t );
+        } else {
+            $counts[ $t ]++;
+        }
+    }
+    foreach ( $startups as $s ) {
+        $t = $s['type'] ?? '';
+        if ( ! in_array( $t, [ 'startup', 'emerging' ], true ) ) {
+            $errors[] = sprintf( 'startup "%s" has invalid type "%s"', $s['name'] ?? '?', $t );
+        }
+    }
+    if ( $counts['leader'] < $rule['leader_min'] ) {
+        $errors[] = sprintf( 'leader %d < min %d', $counts['leader'], $rule['leader_min'] );
+    }
+    if ( $counts['challenger'] < $rule['challenger_min'] ) {
+        $errors[] = sprintf( 'challenger %d < min %d', $counts['challenger'], $rule['challenger_min'] );
+    }
+    if ( $counts['niche'] < $rule['niche_min'] ) {
+        $errors[] = sprintf( 'niche %d < min %d', $counts['niche'], $rule['niche_min'] );
+    }
+
+    // Ranking anchors: present AND tier leader|challenger (never dropped or demoted to niche)
+    foreach ( $rule['anchors'] as $anchor ) {
+        $hit = null;
+        foreach ( $vendors as $v ) {
+            if ( strpos( strtolower( $v['name'] ?? '' ), $anchor ) !== false ) {
+                $hit = $v;
+                break;
+            }
+        }
+        if ( $hit === null ) {
+            $errors[] = sprintf( 'anchor "%s" missing from established vendors', $anchor );
+        } elseif ( ( $hit['type'] ?? '' ) === 'niche' ) {
+            $errors[] = sprintf( 'anchor "%s" demoted to niche (was leader/challenger)', $anchor );
+        }
+    }
+
+    return [ 'ok' => empty( $errors ), 'errors' => $errors ];
+}
+
+/**
+ * Record rejected snapshots: append to a capped audit option and email the site admin.
+ * No DB schema change (avoids a migration); the option holds the 50 most recent rejections.
+ */
+function ait_record_refresh_rejection( array $rejected ): void {
+    $log = get_option( 'ait_refresh_audit', [] );
+    if ( ! is_array( $log ) ) {
+        $log = [];
+    }
+    $entry = [
+        'at'       => gmdate( 'Y-m-d H:i:s' ),
+        'rejected' => $rejected, // [ slug => [ error strings ] ]
+    ];
+    array_unshift( $log, $entry );
+    $log = array_slice( $log, 0, 50 );
+    update_option( 'ait_refresh_audit', $log, false );
+
+    $lines = [];
+    foreach ( $rejected as $slug => $errs ) {
+        $lines[] = strtoupper( $slug ) . ':';
+        foreach ( $errs as $e ) {
+            $lines[] = '  - ' . $e;
+        }
+    }
+    $body = "The weekly market-data refresh produced snapshot(s) that FAILED the coverage/ranking guard "
+        . "and were REJECTED. The previous good snapshot keeps serving for these markets.\n\n"
+        . implode( "\n", $lines )
+        . "\n\nReview: wp-admin → Autonomous IT. Re-run the refresh once the upstream data looks right.";
+    $admin = get_option( 'admin_email' );
+    if ( $admin ) {
+        wp_mail( $admin, '[AI Enterprise IT] Market refresh rejected by regression guard', $body );
+    }
+}
+
 function ait_run_refresh() {
     $api_key = get_option( 'ait_claude_api_key', '' );
     if ( empty( $api_key ) ) {
@@ -360,13 +497,27 @@ function ait_run_refresh() {
         'secops'   => 'Security Operations (SecOps/SOAR)',
     ];
 
-    $saved = [];
+    $saved    = [];
+    $rejected = [];
     foreach ( $markets as $slug => $market_name ) {
         $data = ait_fetch_market_from_claude( $api_key, $slug, $market_name );
-        if ( ! is_wp_error( $data ) ) {
+        if ( is_wp_error( $data ) ) {
+            continue;
+        }
+        // Step 2 monitor: gate each snapshot on coverage + ranking invariants BEFORE it
+        // becomes the served LATEST. Fail-closed — a regressed snapshot is rejected and the
+        // prior good snapshot keeps serving. Zero extra API calls / tokens.
+        $verdict = ait_validate_snapshot( $slug, $data );
+        if ( $verdict['ok'] ) {
             ait_save_snapshot( $slug, $data );
             $saved[ $slug ] = $data;
+        } else {
+            $rejected[ $slug ] = $verdict['errors'];
         }
+    }
+
+    if ( ! empty( $rejected ) ) {
+        ait_record_refresh_rejection( $rejected );
     }
 
     if ( ! empty( $saved ) ) {
