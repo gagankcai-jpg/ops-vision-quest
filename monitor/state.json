@@ -1,0 +1,4 @@
+{
+  "lastRun": "2026-06-06",
+  "note": "ISO date the monitor last scanned through. The monthly run searches for signals/M&A AFTER this date, then advances it. Edit if you need to re-scan a wider window."
+}
