@@ -324,7 +324,7 @@ function MarketMap({
   const [showMode, setShowMode] = useState<ShowMode>("top50");
 
   /* Apply show-mode declutter on top of upstream filters */
-  const visiblePoints: MarketMapPoint[] = (() => {
+  const { visiblePoints, xDomainMin, xMax } = (() => {
     let rows = data;
     if (showMode === "leaders") {
       rows = data.filter((v) => v.type === "leader");
@@ -335,25 +335,62 @@ function MarketMap({
         .sort((a, b) => (b.revenueNum || b.marketCapNum) - (a.revenueNum || a.marketCapNum))
         .slice(0, 50);
     }
-    // Impute a position for vendors missing one axis so they appear (marked "approximate"):
-    //  • no disclosed revenue (platform divisions) → a fixed left "undisclosed" lane
-    //  • no disclosed growth → the visible set's median growth (not slammed to the y=0 floor)
-    const REV_LANE = 0.013; // ~$13M-equivalent — the "undisclosed revenue" lane near the left edge
     const realGro = rows.map((v) => v.growthNum).filter((g) => g > 0).sort((a, b) => a - b);
     const medGro = realGro.length ? realGro[Math.floor(realGro.length / 2)] : 20;
-    // x is stored as log10(revenue $B): the axis is LINEAR over log units (recharts ignores the
-    // `ticks` prop on a scale="log" axis, so we log-transform here and label decade ticks ourselves).
-    return rows.map((v) => {
+
+    // x placement (axis is LINEAR over log10 units — recharts ignores `ticks` on scale="log"):
+    //  • disclosed revenue → log10(revenue)
+    //  • undisclosed revenue but known market cap / valuation → log10(cap ÷ 8), the inverse of
+    //    the z = revenue × 8 valuation proxy, so those vendors land at a plausible scale
+    //    instead of piling into one fixed lane
+    //  • neither metric → a compact "undisclosed" band just left of the real data, jittered by
+    //    index (deterministic — SSG-safe) so entries never stack into a single pole
+    const CAP_TO_REV = 1 / 8;
+    const revLogs = rows.filter((v) => v.revenueNum > 0).map((v) => Math.log10(v.revenueNum));
+    const revHi = revLogs.length ? Math.max(...revLogs) : 1;
+    // Clamp the proxy to just past the largest DISCLOSED revenue — a $3T parent cap would
+    // otherwise place its division decades beyond every real data point and stretch the axis.
+    // Clamped entries (trillion-cap platform divisions) get a small index jitter spreading
+    // LEFT into the chart so they don't restack into a pole at the right edge.
+    const proxyX = (cap: number, i: number) => {
+      const raw = Math.log10(cap * CAP_TO_REV);
+      return raw <= revHi + 0.08 ? raw : revHi + 0.08 - (i % 4) * 0.07;
+    };
+    const realXs = rows
+      .filter((v) => v.revenueNum > 0 || v.marketCapNum > 0)
+      .map((v, i) => (v.revenueNum > 0 ? Math.log10(v.revenueNum) : proxyX(v.marketCapNum, i)));
+    const xLo = realXs.length ? Math.min(...realXs) : -2;
+    const xHi = realXs.length ? Math.max(...realXs) : 1;
+    const gutterX = xLo - 0.45;
+
+    // Growth strings are coarse (+60/+80/+100%), so identical values stack into horizontal
+    // bands. Spread repeats deterministically by occurrence count, capped at ±2.4% — the
+    // tooltip always shows the true disclosed string.
+    const seenGrowth = new Map<number, number>();
+
+    const pts: MarketMapPoint[] = rows.map((v, i) => {
       const hasRev = v.revenueNum > 0;
+      const hasCap = v.marketCapNum > 0;
       const hasGro = v.growthNum > 0;
       const approx = !hasRev || !hasGro;
-      const note = !hasRev && !hasGro ? "Revenue & growth not disclosed — position approximate"
-        : !hasRev ? "Revenue not disclosed — horizontal position approximate"
+      const note = !hasRev
+        ? (hasCap
+          ? "Revenue not disclosed — position estimated from market cap / valuation"
+          : "Revenue not disclosed — shown in the left undisclosed band")
         : "Growth not disclosed — vertical position approximate";
+      const x = hasRev
+        ? Math.log10(v.revenueNum)
+        : hasCap
+          ? proxyX(v.marketCapNum, i)
+          : gutterX + ((i % 5) - 2) * 0.07;
+      const gy = hasGro ? v.growthNum : medGro;
+      const seen = seenGrowth.get(gy) ?? 0;
+      seenGrowth.set(gy, seen + 1);
+      const wiggle = seen === 0 ? 0 : (seen % 2 === 1 ? 1 : -1) * Math.min(Math.ceil(seen / 2) * 0.8, 2.4);
       return {
         ...v,
-        x: Math.log10(hasRev ? v.revenueNum : REV_LANE),
-        y: hasGro ? v.growthNum : medGro,
+        x,
+        y: Math.max(0.5, gy + wiggle),
         // Use actual market cap if parseable; fall back to revenue × 8 as a valuation proxy
         // (typical SaaS/enterprise multiple) so bubble size is always meaningful.
         z: Math.max(v.marketCapNum > 0 ? v.marketCapNum : v.revenueNum * 8, 0.01),
@@ -361,12 +398,12 @@ function MarketMap({
         approxNote: approx ? note : undefined,
       };
     });
+    return {
+      visiblePoints: pts,
+      xDomainMin: gutterX - 0.25,
+      xMax: Math.max(xHi, gutterX + 0.5),
+    };
   })();
-
-  /* Top-3 labeled vendors — fewer labels, well-spaced. Recompute medians for the visible set. */
-  const labeledTop = [...visiblePoints]
-    .sort((a, b) => b.revenueNum - a.revenueNum)
-    .slice(0, 3);
 
   const visibleMedians = (() => {
     if (visiblePoints.length === 0) return medians;
@@ -379,6 +416,25 @@ function MarketMap({
       x: xs.length ? Math.log10(xs[Math.floor(xs.length / 2)]) : (medians.x > 0 ? Math.log10(medians.x) : 0),
       y: ys.length ? ys[Math.floor(ys.length / 2)] : medians.y,
     };
+  })();
+
+  /* Labels: the largest (by bubble size) DISCLOSED vendor in each occupied quadrant —
+     spatially spread by construction — then a greedy data-space pass drops any pair
+     still close enough to collide near the median lines. */
+  const labeledTop = (() => {
+    const pool = visiblePoints.filter((p) => !p.approx);
+    const source = pool.length >= 2 ? pool : visiblePoints;
+    const byQuadrant = new Map<string, MarketMapPoint>();
+    for (const p of [...source].sort((a, b) => b.z - a.z)) {
+      const k = `${p.x >= visibleMedians.x ? "R" : "L"}${p.y >= visibleMedians.y ? "T" : "B"}`;
+      if (!byQuadrant.has(k)) byQuadrant.set(k, p);
+    }
+    const xSpan = Math.max(xMax - xDomainMin, 0.001);
+    const kept: MarketMapPoint[] = [];
+    for (const p of [...byQuadrant.values()].sort((a, b) => b.z - a.z)) {
+      if (kept.every((q) => Math.abs(q.x - p.x) / xSpan > 0.18 || Math.abs(q.y - p.y) > 9)) kept.push(p);
+    }
+    return kept;
   })();
 
   const handleClick = (point: MarketMapPoint) => {
@@ -398,24 +454,29 @@ function MarketMap({
   };
 
   /* Custom label renderer — adds a dark halo behind text + offsets to avoid bubble overlap.
-     Used via LabelList content prop. recharts passes (x, y, value, index, ...) per element. */
+     Used via LabelList content prop. recharts passes (x, y, value, index, ...) per element.
+     `index` maps into `labeledTop`, so the data-space position drives edge-aware anchoring:
+     points in the right 40% of the domain anchor "end" (text extends left, never clips the
+     right edge); points near the top of the plot drop the label BELOW the bubble. */
   const renderTopLabel = (labelProps: { x?: number | string; y?: number | string; value?: string | number; index?: number }) => {
     const { x: rawX, y: rawY, value, index = 0 } = labelProps;
     const x = typeof rawX === "number" ? rawX : parseFloat(rawX ?? "");
     const y = typeof rawY === "number" ? rawY : parseFloat(rawY ?? "");
     if (!isFinite(x) || !isFinite(y) || !value) return <g key={`empty-${index}`} />;
-    // Alternate label position to avoid stacking when bubbles cluster
-    const offsetY = index % 2 === 0 ? -24 : -42;
-    const offsetX = index % 2 === 0 ? -8 : 8;
-    const anchor = index % 2 === 0 ? "end" : "start";
+    const point = labeledTop[index];
+    const frac = point ? (point.x - xDomainMin) / Math.max(xMax - xDomainMin, 0.001) : 0.5;
+    const anchor: "start" | "end" = frac > 0.6 ? "end" : "start";
+    const offsetX = anchor === "end" ? -12 : 12;
+    const nearTop = y < 48;
+    const offsetY = nearTop ? 28 : index % 2 === 0 ? -24 : -38;
     return (
       <g pointerEvents="none" key={`label-${index}`}>
         {/* connector line */}
         <line
           x1={x}
-          y1={y - 6}
+          y1={nearTop ? y + 6 : y - 6}
           x2={x + offsetX}
-          y2={y + offsetY + 4}
+          y2={y + offsetY + (nearTop ? -10 : 4)}
           stroke={tokens.label}
           strokeOpacity={0.5}
           strokeDasharray="2 2"
@@ -520,12 +581,12 @@ function MarketMap({
                 type="number"
                 dataKey="x"
                 name="Revenue"
-                /* x is pre-log10'd onto a LINEAR axis. Mirror the Y-axis exactly: a numeric min
-                   with the "dataMax" KEYWORD max (not a fully-numeric domain) is what lets recharts
-                   run its nice-tick generator instead of emitting one tick per scatter point. On
-                   this log-unit range the nice ticks land on the decades −2/−1/0/1 →
-                   $10M · $100M · $1B · $10B. No tickCount/ticks/interval — same as the Y-axis. */
-                domain={[-2.7, "dataMax"]}
+                /* x is pre-log10'd onto a LINEAR axis. A numeric min with the "dataMax" KEYWORD
+                   max (not a fully-numeric domain) is what lets recharts run its nice-tick
+                   generator instead of emitting one tick per scatter point. No tickCount/ticks/
+                   interval — same as the Y-axis. The min derives from the visible data (gutter
+                   edge) so e.g. Leaders mode fills the canvas instead of wasting the left half. */
+                domain={[xDomainMin, "dataMax"]}
                 tickFormatter={(v: number) => formatBubbleRevenue(Math.pow(10, v))}
                 stroke={tokens.axis}
                 tick={{ fontSize: 11 }}
@@ -567,7 +628,7 @@ function MarketMap({
                 ))}
               </Scatter>
 
-              {/* Top-3 labeled vendors with custom halo + connector to bubble */}
+              {/* Per-quadrant labeled vendors with custom halo + connector to bubble */}
               <Scatter
                 data={labeledTop}
                 shape={() => <g />}
@@ -580,11 +641,12 @@ function MarketMap({
           )}
           </ClientOnly>
 
-          {/* Quadrant labels — diagonal corners, larger gap from chart edges */}
+          {/* Quadrant labels — diagonal corners, positioned inside the plot area clear of
+              the axis tick rows (bottom-left previously collided with the first x tick) */}
           <div className="pointer-events-none absolute right-10 top-1 hidden items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/65 sm:flex">
             High growth · Large scale ↗
           </div>
-          <div className="pointer-events-none absolute bottom-16 left-16 hidden items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/55 sm:flex">
+          <div className="pointer-events-none absolute bottom-24 left-32 hidden items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/55 sm:flex">
             ↙ Slowing · Smaller
           </div>
         </div>
