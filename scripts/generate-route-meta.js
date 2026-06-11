@@ -140,7 +140,7 @@ for (const key of profileKeys) {
   const name = nameBySlug[key];
   if (!name) { orphans.push(key); continue; }
   routes[`vendor/${catId}/${slug}`] = {
-    title: `${name} — ${catTitle} Market Position & SWOT 2025 | ${SITE_NAME}`,
+    title: `${name} — ${catTitle} Market Position & SWOT 2026 | ${SITE_NAME}`,
     description: `${name} profile: market position, SWOT analysis, user sentiment, ICP, and future focus in the ${catTitle} market. Updated weekly.`,
     canonical: `${BASE_URL}/vendor/${catId}/${slug}`,
   };

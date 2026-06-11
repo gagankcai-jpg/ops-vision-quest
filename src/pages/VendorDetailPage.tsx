@@ -358,7 +358,7 @@ const VendorDetailPage = () => {
 
   const BASE_URL = "https://aienterpriseit.com/market-intelligence";
   const vendorMeta = {
-    title: `${vendor.name} — ${category.title} Market Position & SWOT 2025`,
+    title: `${vendor.name} — ${category.title} Market Position & SWOT 2026`,
     description: `${vendor.name} profile: market position, SWOT analysis, user sentiment, ICP, and future focus in the ${category.title} market. Updated weekly.`,
     canonical: `${BASE_URL}/vendor/${categorySlug}/${vendorSlug}`,
   };
