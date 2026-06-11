@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Filter,
@@ -280,16 +281,17 @@ function MarketMapTooltip({ active, payload }: { active?: boolean; payload?: { p
 }
 
 /* Custom dot renderer — gives leaders a stronger ring; renders clickable circle.
-   Bubble radius capped at 14 so a few mega-cap names don't dominate the plot.
-   Leaders get a 5.5 px minimum and challengers 4.5 px so important vendors are always visible. */
-const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fill?: string }) => {
-  const { cx, cy, payload, fill } = props;
+   Bubble radius capped at 14 (9 on mobile via `compact`) so a few mega-cap names don't
+   dominate the plot — on a ~390px canvas the desktop sizes overlap into a single blob.
+   Leaders keep the largest minimum so important vendors are always visible. */
+const MapDot = (props: { cx?: number; cy?: number; payload?: MarketMapPoint; fill?: string; compact?: boolean }) => {
+  const { cx, cy, payload, fill, compact } = props;
   if (cx == null || cy == null || !payload) return null;
   const isLeader = payload.type === "leader";
   const isChallenger = payload.type === "challenger";
   const approx = !!payload.approx;
-  const minR = isLeader ? 5.5 : isChallenger ? 4.5 : 3.5;
-  const r = Math.max(minR, Math.min(14, Math.sqrt(payload.z) * 2.2));
+  const minR = (isLeader ? 5.5 : isChallenger ? 4.5 : 3.5) * (compact ? 0.75 : 1);
+  const r = Math.max(minR, Math.min(compact ? 9 : 14, Math.sqrt(payload.z) * (compact ? 1.5 : 2.2)));
   return (
     <g style={{ cursor: "pointer" }}>
       <circle
@@ -322,6 +324,7 @@ function MarketMap({
   onToggleCategory: (cat: string) => void;
 }) {
   const [showMode, setShowMode] = useState<ShowMode>("top50");
+  const isMobile = useIsMobile();
 
   /* Apply show-mode declutter on top of upstream filters */
   const { visiblePoints, xDomainMin, xMax } = (() => {
@@ -620,7 +623,12 @@ function MarketMap({
 
               <Scatter
                 data={visiblePoints}
-                shape={MapDot as unknown as React.ComponentType<unknown>}
+                /* compact dots below the md breakpoint; animation off — recharts animating
+                   350+ SVG nodes on every mode/filter switch is the main interaction jank */
+                shape={((props: Record<string, unknown>) => (
+                  <MapDot {...(props as object)} compact={isMobile} />
+                )) as unknown as React.ComponentType<unknown>}
+                isAnimationActive={false}
                 onClick={(p) => handleClick(p as unknown as MarketMapPoint)}
               >
                 {visiblePoints.map((p, i) => (
