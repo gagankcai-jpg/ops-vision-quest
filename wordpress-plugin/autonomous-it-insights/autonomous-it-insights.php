@@ -510,6 +510,9 @@ function ait_run_refresh() {
     foreach ( $markets as $slug => $market_name ) {
         $data = ait_fetch_market_from_claude( $api_key, $slug, $market_name );
         if ( is_wp_error( $data ) ) {
+            // Don't fail silently — record fetch failures so a frozen snapshot is diagnosable.
+            error_log( "[ait] refresh fetch failed for {$slug}: {$data->get_error_code()} — {$data->get_error_message()}" );
+            $rejected[ $slug ] = [ 'fetch: ' . $data->get_error_message() ];
             continue;
         }
         // Step 2 monitor: gate each snapshot on coverage + ranking invariants BEFORE it
@@ -669,7 +672,11 @@ function ait_fetch_market_from_claude( string $api_key, string $slug, string $ma
     $prompt = ait_get_market_prompt( $slug );
 
     $response = wp_remote_post( 'https://api.anthropic.com/v1/messages', [
-        'timeout' => 60,
+        // A full 50+50 market is a large JSON payload — generation runs ~2 min and needs
+        // ample output tokens. The old 60s / 8192-token caps truncated every response
+        // mid-JSON, so json_decode failed and every market was silently skipped (the live
+        // snapshot froze for weeks). Give it room.
+        'timeout' => 180,
         'headers' => [
             'x-api-key'         => $api_key,
             'anthropic-version' => '2023-06-01',
@@ -677,7 +684,7 @@ function ait_fetch_market_from_claude( string $api_key, string $slug, string $ma
         ],
         'body' => wp_json_encode( [
             'model'      => 'claude-haiku-4-5-20251001',
-            'max_tokens' => 8192,
+            'max_tokens' => 32000,
             'messages'   => [
                 [ 'role' => 'user', 'content' => $prompt ],
             ],
@@ -694,6 +701,10 @@ function ait_fetch_market_from_claude( string $api_key, string $slug, string $ma
     if ( $code !== 200 ) {
         $msg = $body['error']['message'] ?? "Claude API returned HTTP $code";
         return new WP_Error( 'claude_error', $msg, [ 'status' => 500 ] );
+    }
+
+    if ( ( $body['stop_reason'] ?? '' ) === 'max_tokens' ) {
+        return new WP_Error( 'truncated', "Claude response for $slug hit max_tokens (raise max_tokens)", [ 'status' => 500 ] );
     }
 
     $text = $body['content'][0]['text'] ?? '';
