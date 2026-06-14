@@ -1,6 +1,6 @@
 # Autonomous IT Market Intelligence
 
-**Analyst-grade, continuously-refreshed market intelligence for the autonomous enterprise IT stack** — five markets, 500+ profiled vendors, statically prerendered for SEO and shipped as a WordPress plugin.
+**Analyst-grade market intelligence for the autonomous enterprise IT stack** — five markets, 504 profiled vendors, $330B combined 2030 TAM, statically prerendered for SEO and shipped as a WordPress plugin.
 
 [![Live](https://img.shields.io/badge/Live-aienterpriseit.com-22c55e)](https://aienterpriseit.com/market-intelligence/)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
@@ -18,9 +18,9 @@
 
 ## What this is
 
-An interactive market-intelligence portal covering the five pillars of the autonomous enterprise IT stack. Each market ships TAM/CAGR sizing, sortable vendor tables, a cross-market positioning chart, and per-vendor deep-dive profiles (SWOT, sentiment, ICP, future focus). The dataset is refreshed weekly by an automated Claude pipeline and guarded against regressions on every run.
+An interactive market-intelligence portal covering the five pillars of the autonomous enterprise IT stack — sized from **$134.2B (2025) to $330B (2030), +146% growth**. Each market ships TAM/CAGR sizing, sortable vendor tables, a cross-market positioning chart, and per-vendor deep-dive profiles (SWOT, sentiment, ICP, future focus). The hand-curated TypeScript catalog is the canonical source of truth, augmented by a weekly-scheduled Claude refresh pipeline and guarded against regressions on every run. Sizing draws on Gartner, IDC, Mordor Intelligence, Grand View Research, MarketsandMarkets, Omdia, and Precedence Research.
 
-Built as a React 18 + TypeScript SPA, **statically prerendered** to ~500 HTML routes for SEO and instant first paint, and deployed as a self-contained WordPress plugin.
+Built as a React 18 + TypeScript SPA, **statically prerendered** to ~515 HTML routes for SEO and instant first paint, and deployed as a self-contained WordPress plugin.
 
 ## The five markets
 
@@ -29,8 +29,8 @@ Built as a React 18 + TypeScript SPA, **statically prerendered** to ~500 HTML ro
 | **AIOps & Observability** | APM, ML event correlation, observability suites | **$100B** | 22% |
 | **IT Service, Ops & Asset Mgmt** | ITSM, ITAM, Cloud FinOps, IT automation | **$94B** | 13% |
 | **RPA & Intelligent Automation** | Attended/unattended bots, IDP, process mining | **$74B** | 25% |
-| **Security Operations (SecOps)** | SIEM, SOAR, XDR, threat intelligence | **$54B** | 21% |
 | **Agentic Operations** | LLM-native copilots, self-healing infra, agent orchestration | **$8B** | **45%** |
+| **Security Operations (SecOps)** | SIEM, SOAR, XDR, threat intelligence | **$54B** | 21% |
 
 Each market profiles **50 established vendors + 50 startups** (SecOps carries 54 established) — **504 vendor profiles** in total.
 
@@ -44,6 +44,7 @@ A log-scale revenue × YoY-growth bubble chart (bubble size = market cap) that p
 
 - **Per-market pages** (`/market/:slug`) — overview, vendor + startup tables, use cases, trends, growth charts
 - **Cross-market Market Map** — sortable/filterable positioning chart across all five markets
+- **Global vendor search** — ⌘K command-palette fuzzy search across all 504 profiles
 - **Vendor drill-down profiles** — SWOT, user sentiment, ICP, future focus, recent signals (M&A / funding / launches), with a "refreshed X days ago" freshness badge
 - **Signals & pricing** — funding/M&A/launch leaderboard and pricing/TCO coverage
 - **PDF / PPTX export** — fully styled, dark-themed report and deck
@@ -52,7 +53,7 @@ A log-scale revenue × YoY-growth bubble chart (bubble size = market cap) that p
 ## Architecture
 
 ```
-React 18 SPA  ──build──►  vite-react-ssg  ──►  ~500 prerendered HTML routes
+React 18 SPA  ──build──►  vite-react-ssg  ──►  ~515 prerendered HTML routes
    │                                              │
    │ BrowserRouter (basename /market-intelligence)│  each route: real content + per-route <head>
    ▼                                              ▼
@@ -68,7 +69,7 @@ WordPress plugin  ◄── serves prerendered HTML per route, hydrates on the c
 
 ## Autonomous data pipeline
 
-A weekly WP-Cron job calls the Claude API to refresh market sizing and all vendor profiles. Two systems keep that autonomy safe:
+A weekly-scheduled WP-Cron job calls the Claude API to refresh the live snapshot of market sizing and vendor profiles (best-effort; the static TS catalog remains the source of truth). Two systems keep that autonomy safe:
 
 - **Regression guard** *(coverage + rankings)* — a deterministic, **zero-token** invariant check that runs both at **build time** ([`scripts/check-data-invariants.js`](scripts/check-data-invariants.js)) and at **runtime** inside the refresh. It **fails closed**: a snapshot that drops vendors, collapses a tier, or demotes an anchor leader is rejected, and the last good snapshot keeps serving.
 - **Signal + M&A monitor** *(content freshness)* — a monthly scheduled agent that does snippet-only research for new funding / acquisitions / launches and writes a **human-reviewed proposal** (never auto-deploys). See [`monitor/`](monitor/).
