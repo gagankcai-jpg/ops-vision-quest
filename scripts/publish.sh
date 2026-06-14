@@ -5,14 +5,23 @@
 # monitor proposal (or any data edit). Nothing here is automatic.
 set -euo pipefail
 
-KEY="$HOME/.ssh/hostinger_deploy"
-REMOTE="u552630707@82.29.199.42"
-PORT=65002
-APP="/home/u552630707/domains/aienterpriseit.com/public_html/wp-content/plugins/autonomous-it-insights/app/"
-WP="/home/u552630707/domains/aienterpriseit.com/public_html"
-SSH="ssh -i $KEY -p $PORT -o StrictHostKeyChecking=no"
-
 cd "$(dirname "$0")/.."
+
+# Server coordinates live in an untracked deploy.env (copy deploy.env.example → deploy.env).
+# Keeps prod host/user/paths out of this public repo.
+if [ -f deploy.env ]; then
+  set -a; . ./deploy.env; set +a
+else
+  echo "✗ deploy.env not found. Copy deploy.env.example → deploy.env and fill in your server coordinates." >&2
+  exit 1
+fi
+
+KEY="${DEPLOY_SSH_KEY:-$HOME/.ssh/hostinger_deploy}"
+PORT="${DEPLOY_PORT:-22}"
+REMOTE="${DEPLOY_USER:?set DEPLOY_USER in deploy.env}@${DEPLOY_HOST:?set DEPLOY_HOST in deploy.env}"
+WP="${DEPLOY_WP_PATH:?set DEPLOY_WP_PATH in deploy.env}"
+APP="$WP/wp-content/plugins/autonomous-it-insights/app/"
+SSH="ssh -i $KEY -p $PORT -o StrictHostKeyChecking=no"
 
 echo "▶ Building (runs check-data-invariants.js first)…"
 npm run build

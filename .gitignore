@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Deploy artifact — built by `npm run build` into dist/, rsynced to the server app/.
+# Never commit build output to source.
+wordpress-plugin/autonomous-it-insights/app/
+
+# Untracked deploy target (server coordinates) — see deploy.env.example
+deploy.env

@@ -20,7 +20,14 @@ npx tsc --noEmit     # type-check only (no build)
 
 ## Deploy to Production (Hostinger)
 
-SSH key is at `~/.ssh/hostinger_deploy` (ed25519, added to hPanel). Use rsync — not scp.
+**Server coordinates (host, SSH user, port, key path, WP path) live in an untracked `deploy.env`**
+(copy `deploy.env.example` → `deploy.env` and fill it in). They are kept out of this public repo.
+The commands below reference them as `$DEPLOY_USER`, `$DEPLOY_HOST`, `$DEPLOY_PORT`, `$DEPLOY_SSH_KEY`,
+`$DEPLOY_WP_PATH`; run `set -a; . ./deploy.env; set +a` first to load them. Use rsync — not scp.
+
+**Canonical path: `./scripts/publish.sh`** — it loads `deploy.env`, builds (with the data-invariant
+guard), gates on route count, rsyncs the whole `dist/`, and purges cache. Prefer it over the raw
+commands below.
 
 **The site is statically prerendered (SSG via vite-react-ssg).** `npm run build` produces a full
 `dist/` tree: one prerendered `dist/<route>/index.html` per route (real content + per-route `<head>`),
@@ -33,24 +40,24 @@ the hashed `dist/assets/`, and `dist/.vite/manifest.json` + `dist/route-meta.jso
 2. Rsync the entire `dist/` tree to `app/` (prerendered HTML + assets + manifests). No `--delete` keeps
    old hashed assets so in-flight clients don't break:
 ```bash
-rsync -avz -e "ssh -i ~/.ssh/hostinger_deploy -p 65002 -o StrictHostKeyChecking=no" \
+rsync -avz -e "ssh -i $DEPLOY_SSH_KEY -p $DEPLOY_PORT -o StrictHostKeyChecking=no" \
   dist/ \
-  u552630707@82.29.199.42:/home/u552630707/domains/aienterpriseit.com/public_html/wp-content/plugins/autonomous-it-insights/app/
+  "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_WP_PATH/wp-content/plugins/autonomous-it-insights/app/"
 ```
 
 3. No manual asset-hash edit needed. `page-market-intel.php` serves the prerendered file for each route
    if present (`app/<route>/index.html`), and for any non-prerendered route falls back to a shell whose
    JS/CSS hashes it reads at runtime from `app/.vite/manifest.json`. Only rsync the template if you changed it:
 ```bash
-rsync -avz -e "ssh -i ~/.ssh/hostinger_deploy -p 65002 -o StrictHostKeyChecking=no" \
+rsync -avz -e "ssh -i $DEPLOY_SSH_KEY -p $DEPLOY_PORT -o StrictHostKeyChecking=no" \
   wordpress-plugin/autonomous-it-insights/templates/page-market-intel.php \
-  u552630707@82.29.199.42:/home/u552630707/domains/aienterpriseit.com/public_html/wp-content/plugins/autonomous-it-insights/templates/
+  "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_WP_PATH/wp-content/plugins/autonomous-it-insights/templates/"
 ```
 
 4. Purge LiteSpeed cache — required after every deploy or changes won't appear:
 ```bash
-ssh -i ~/.ssh/hostinger_deploy -p 65002 u552630707@82.29.199.42 \
-  "wp --path=/home/u552630707/domains/aienterpriseit.com/public_html litespeed-purge all"
+ssh -i "$DEPLOY_SSH_KEY" -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+  "wp --path=$DEPLOY_WP_PATH litespeed-purge all"
 ```
 
 **Rollback:** the prior SPA-only behavior is one revert away — restore the previous `page-market-intel.php`
