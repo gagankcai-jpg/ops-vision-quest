@@ -484,6 +484,14 @@ function ait_record_refresh_rejection( array $rejected ): void {
 }
 
 function ait_run_refresh() {
+    // The refresh makes up to 5 sequential Claude calls (60s timeout each). When WP-Cron
+    // fires inside a web request, the default PHP/php-fpm execution limit kills the job
+    // before it finishes — which froze the live snapshot for weeks. Lift the limit and keep
+    // running if the spawning request disconnects. (A system cron running wp-cli is the more
+    // robust trigger; this is defense-in-depth so even a web-triggered fire can complete.)
+    @set_time_limit( 0 );
+    @ignore_user_abort( true );
+
     $api_key = get_option( 'ait_claude_api_key', '' );
     if ( empty( $api_key ) ) {
         return new WP_Error( 'no_api_key', 'Claude API key not configured. Set it in Settings → Autonomous IT.', [ 'status' => 500 ] );
