@@ -8,6 +8,7 @@
     "build": "node scripts/check-data-invariants.js && node scripts/generate-vendor-slugs.js && node scripts/generate-route-meta.js && vite-react-ssg build",
     "build:spa": "node scripts/check-data-invariants.js && node scripts/generate-vendor-slugs.js && node scripts/generate-route-meta.js && vite build",
     "check:data": "node scripts/check-data-invariants.js",
+    "check:drift": "node scripts/check-data-drift.js",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
