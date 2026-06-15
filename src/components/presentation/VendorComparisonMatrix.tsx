@@ -218,6 +218,12 @@ const allVendorRows: VendorRow[] = allCategories.flatMap((cat) => {
 const ALL_CATEGORIES = ["AIOps", "ITOM", "RPA", "AgentOps", "SecOps"];
 const ALL_TYPES = ["leader", "challenger", "niche", "startup", "emerging"];
 
+// Growth-filter bounds derived from the data — must span negatives (e.g. OpenText -10%)
+// and hypergrowth startups (>100%, up to +500%). A fixed [0,100] range excluded ~59 vendors
+// AND made them unreachable (the slider couldn't reach below 0 or above 100).
+const GROWTH_MIN = Math.min(0, ...allVendorRows.map((v) => v.growthNum));
+const GROWTH_MAX = Math.max(100, ...allVendorRows.map((v) => v.growthNum));
+
 type SortField = "name" | "marketCap" | "revenue" | "growthRate";
 type SortDirection = "asc" | "desc";
 
@@ -777,7 +783,7 @@ const VendorComparisonMatrix = () => {
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [marketCapRange, setMarketCapRange] = useState([0, 100]);
   const [revenueRange, setRevenueRange] = useState([0, 100]);
-  const [growthRateRange, setGrowthRateRange] = useState([0, 100]);
+  const [growthRateRange, setGrowthRateRange] = useState([GROWTH_MIN, GROWTH_MAX]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedVendor, setSelectedVendor] = useState<VendorRow | null>(null);
   const [viewMode, setViewMode] = useState<"map" | "table">("map");
@@ -891,7 +897,7 @@ const VendorComparisonMatrix = () => {
     setSelectedTypes(ALL_TYPES);
     setMarketCapRange([0, 100]);
     setRevenueRange([0, 100]);
-    setGrowthRateRange([0, 100]);
+    setGrowthRateRange([GROWTH_MIN, GROWTH_MAX]);
   };
 
   const activeFiltersCount =
@@ -899,7 +905,7 @@ const VendorComparisonMatrix = () => {
     (selectedTypes.length < ALL_TYPES.length ? 1 : 0) +
     (marketCapRange[0] > 0 || marketCapRange[1] < 100 ? 1 : 0) +
     (revenueRange[0] > 0 || revenueRange[1] < 100 ? 1 : 0) +
-    (growthRateRange[0] > 0 || growthRateRange[1] < 100 ? 1 : 0);
+    (growthRateRange[0] > GROWTH_MIN || growthRateRange[1] < GROWTH_MAX ? 1 : 0);
 
   const SortIcon = ({ field }: { field: SortField }) => {
     if (sortField !== field) return <SortAsc className="w-4 h-4 opacity-30" />;
@@ -1156,7 +1162,7 @@ const VendorComparisonMatrix = () => {
                       {growthRateRange[0]}% – {growthRateRange[1]}%
                     </span>
                   </div>
-                  <Slider value={growthRateRange} onValueChange={setGrowthRateRange} min={0} max={100} step={1} className="w-full" />
+                  <Slider value={growthRateRange} onValueChange={setGrowthRateRange} min={GROWTH_MIN} max={GROWTH_MAX} step={1} className="w-full" />
                 </div>
               </div>
             </motion.div>
