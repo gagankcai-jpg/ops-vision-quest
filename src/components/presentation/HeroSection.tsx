@@ -129,7 +129,7 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
         >
           <Brain className="h-3 w-3" />
           <span>
-            Compiled by Claude from public analyst research & company filings · Gartner, Forrester, Grand View Research, Mordor Intelligence, MarketsandMarkets, BCC Research, FinOps Foundation
+            Compiled by Claude from public analyst research & company filings · Gartner, Forrester, Grand View Research, Mordor Intelligence, MarketsandMarkets & other industry analysts
           </span>
         </motion.div>
 
