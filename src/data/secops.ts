@@ -36,7 +36,7 @@ export const secopsData = {
     { year: "2030", value: 54.1 },
   ],
   vendors: [
-    { name: "CrowdStrike", type: "leader" as const, marketCap: "$82B", revenue: "$5.25B ARR", growth: "+24% YoY", highlight: "Falcon Platform", description: "Unified AI-native cybersecurity from endpoint to SIEM and SOAR", recentEvent: "Apr 2026: Selected for Anthropic Project Glasswing; acquired SGNL ($740M)" },
+    { name: "CrowdStrike", type: "leader" as const, marketCap: "$82B", revenue: "$5.25B ARR", growth: "+24% YoY", highlight: "Falcon Platform", description: "Unified AI-native cybersecurity from endpoint to SIEM and SOAR", recentEvent: "Jun 2026: Q1 FY27 record net-new ARR $256M (+32%); 4-for-1 stock split" },
     { name: "Palo Alto Networks (XSOAR)", type: "leader" as const, marketCap: "$110B", revenue: "$8B Rev", growth: "+16% YoY", highlight: "SOAR + XDR Leader", description: "Most deployed SOAR platform with XDR and AI-native SOC capabilities", recentEvent: "May 2026: Launched Idira identity platform — agents now outnumber humans 109:1" },
     { name: "Microsoft Sentinel", type: "leader" as const, marketCap: "Div. of $3.1T", revenue: "—", growth: "+52% YoY", highlight: "Fastest Cloud SIEM", description: "Cloud-native SIEM with Copilot for Security and deep M365 integration", recentEvent: "Apr 2026: Launched Security Copilot agents for autonomous threat triage" },
     { name: "Splunk SOAR (Cisco)", type: "leader" as const, marketCap: "Div. of Cisco", revenue: "—", growth: "+18% YoY", highlight: "Playbook Leader", description: "Market-leading SOAR playbook automation with 300+ integrations" },
