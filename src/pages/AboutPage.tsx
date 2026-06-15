@@ -11,15 +11,15 @@ const SERVICES = [
     icon: <Building2 className="h-7 w-7" />,
     title: "Enterprise IT Transformation",
     description:
-      "Helping companies leverage AI to move toward Autonomous Enterprise IT. We deliver phased transformation planning, strategic advisory, and hands-on enablement — from initial AI readiness assessment through full autonomous operations.",
-    tags: ["Transformation Planning", "Advisory", "Enablement"],
+      "Advising enterprises on the path to Autonomous Enterprise IT. We provide independent strategic guidance — AI-readiness assessment, phased transformation roadmaps, and vendor-selection advice — from first pilots through autonomous operations. Advisory, not implementation.",
+    tags: ["Transformation Strategy", "AI Readiness", "Advisory"],
     accent: "text-executive-cyan",
   },
   {
     icon: <Rocket className="h-7 w-7" />,
     title: "AI Startup & Vendor Advisory",
     description:
-      "Product and GTM advisory for AI-native startups and vendors operating in the Autonomous IT Ops space. We provide market intelligence, competitive intel, and positioning strategy to help you win in a fast-moving market.",
+      "Independent product and GTM advisory for AI-native startups and vendors in the Autonomous IT Ops space — market intelligence, competitive analysis, and positioning strategy to sharpen how you go to market. Advisory, not execution.",
     tags: ["Product Advisory", "GTM Strategy", "Market Intelligence", "Competitive Intel"],
     accent: "text-executive-purple",
   },
