@@ -53,7 +53,7 @@ export function SiteFooter({
                 <span className="ml-2 text-success">● Live</span>
               ) : null}
               <span className="mx-2 text-border">·</span>
-              Sources: Gartner, IDC, Mordor Intelligence, Grand View Research, MarketsandMarkets, Omdia, Precedence Research
+              Sources: Gartner, Forrester, Grand View Research, Mordor Intelligence, MarketsandMarkets, BCC Research, FinOps Foundation · company filings
             </span>
             <span className="hidden h-3 w-px bg-border sm:inline-block" />
             <span className="inline-flex items-center gap-1.5">

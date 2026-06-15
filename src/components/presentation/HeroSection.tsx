@@ -129,7 +129,7 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
         >
           <Brain className="h-3 w-3" />
           <span>
-            Refreshed weekly by Claude · Sources: Gartner, IDC, Mordor Intelligence, Grand View Research, MarketsandMarkets, Omdia, Precedence Research
+            Compiled by Claude from public analyst research & company filings · Gartner, Forrester, Grand View Research, Mordor Intelligence, MarketsandMarkets, BCC Research, FinOps Foundation
           </span>
         </motion.div>
 
