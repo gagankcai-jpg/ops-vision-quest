@@ -224,6 +224,13 @@ const ALL_TYPES = ["leader", "challenger", "niche", "startup", "emerging"];
 const GROWTH_MIN = Math.min(0, ...allVendorRows.map((v) => v.growthNum));
 const GROWTH_MAX = Math.max(100, ...allVendorRows.map((v) => v.growthNum));
 
+// Growth (y) axis: log-compress like the revenue (x) axis. Plotted on a linear axis as
+// log10(growth+1) so a few hypergrowth (+200–500%) outliers don't pancake the 0–60% bulk
+// against the baseline; the densest low-growth band gets the most vertical room. The tick
+// formatter inverts it back to "+N%". (g≤0 floors to 0 → bottom of the axis.)
+const gToY = (g: number) => Math.log10(Math.max(0, g) + 1);
+const GROWTH_TICKS = [0, 25, 50, 100, 200, 500];
+
 type SortField = "name" | "marketCap" | "revenue" | "growthRate";
 type SortDirection = "asc" | "desc";
 
@@ -399,7 +406,7 @@ function MarketMap({
       return {
         ...v,
         x,
-        y: Math.max(0.5, gy + wiggle),
+        y: gToY(Math.max(0.5, gy + wiggle)),
         // Use actual market cap if parseable; fall back to revenue × 8 as a valuation proxy
         // (typical SaaS/enterprise multiple) so bubble size is always meaningful.
         z: Math.max(v.marketCapNum > 0 ? v.marketCapNum : v.revenueNum * 8, 0.01),
@@ -423,7 +430,7 @@ function MarketMap({
     // x median is expressed in the same log10 units as the plotted points.
     return {
       x: xs.length ? Math.log10(xs[Math.floor(xs.length / 2)]) : (medians.x > 0 ? Math.log10(medians.x) : 0),
-      y: ys.length ? ys[Math.floor(ys.length / 2)] : medians.y,
+      y: gToY(ys.length ? ys[Math.floor(ys.length / 2)] : medians.y),
     };
   })();
 
@@ -441,7 +448,7 @@ function MarketMap({
     const xSpan = Math.max(xMax - xDomainMin, 0.001);
     const kept: MarketMapPoint[] = [];
     for (const p of [...byQuadrant.values()].sort((a, b) => b.z - a.z)) {
-      if (kept.every((q) => Math.abs(q.x - p.x) / xSpan > 0.18 || Math.abs(q.y - p.y) > 9)) kept.push(p);
+      if (kept.every((q) => Math.abs(q.x - p.x) / xSpan > 0.18 || Math.abs(q.y - p.y) > 0.3)) kept.push(p);
     }
     return kept;
   })();
@@ -608,7 +615,8 @@ function MarketMap({
                 dataKey="y"
                 name="Growth"
                 domain={[0, "dataMax"]}
-                tickFormatter={(v: number) => `+${v}%`}
+                ticks={GROWTH_TICKS.map(gToY)}
+                tickFormatter={(v: number) => `+${Math.round(Math.pow(10, v) - 1)}%`}
                 stroke={tokens.axis}
                 tick={{ fontSize: 11 }}
                 axisLine={false}
