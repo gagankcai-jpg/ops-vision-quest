@@ -27,12 +27,12 @@ export const agentopsData = {
     "Gartner Emerging Technology & Trends (2025–2026)",
   ],
   chartData: [
-    { year: "2025", value: 7.8 },
-    { year: "2026", value: 11.3 },
-    { year: "2027", value: 16.4 },
-    { year: "2028", value: 23.7 },
-    { year: "2029", value: 34.4 },
-    { year: "2030", value: 49.8 },
+    { year: "2025", value: 1.2 },
+    { year: "2026", value: 1.8 },
+    { year: "2027", value: 2.6 },
+    { year: "2028", value: 3.7 },
+    { year: "2029", value: 5.5 },
+    { year: "2030", value: 8.0 },
   ],
   vendors: [
     { name: "ServiceNow Now Assist", type: "leader" as const, marketCap: "Div. of $180B", revenue: "—", growth: "+22% YoY", highlight: "Enterprise #1", description: "Generative AI agents embedded across the entire Now Platform", recentEvent: "Feb 2026: Launched Autonomous Workforce; AI agents now resolve 90% of IT requests" },

@@ -28,12 +28,12 @@ export const secopsData = {
     "Gartner Worldwide Infosec Spending Forecast (2025)",
   ],
   chartData: [
-    { year: "2025", value: 28.2 },
-    { year: "2026", value: 32.2 },
-    { year: "2027", value: 36.6 },
-    { year: "2028", value: 41.7 },
-    { year: "2029", value: 47.5 },
-    { year: "2030", value: 54.1 },
+    { year: "2025", value: 21.0 },
+    { year: "2026", value: 25.4 },
+    { year: "2027", value: 30.6 },
+    { year: "2028", value: 37.0 },
+    { year: "2029", value: 44.7 },
+    { year: "2030", value: 54.0 },
   ],
   vendors: [
     { name: "CrowdStrike", type: "leader" as const, marketCap: "$82B", revenue: "$5.25B ARR", growth: "+24% YoY", highlight: "Falcon Platform", description: "Unified AI-native cybersecurity from endpoint to SIEM and SOAR", recentEvent: "Jun 2026: Q1 FY27 record net-new ARR $256M (+32%); 4-for-1 stock split" },

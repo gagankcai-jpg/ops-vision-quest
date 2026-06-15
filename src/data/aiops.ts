@@ -29,12 +29,12 @@ export const aiopsData = {
     "MarketsandMarkets — AIOps Platform Market (2024)",
   ],
   chartData: [
-    { year: "2025", value: 22.0 },
-    { year: "2026", value: 26.2 },
-    { year: "2027", value: 31.2 },
-    { year: "2028", value: 37.1 },
-    { year: "2029", value: 44.2 },
-    { year: "2030", value: 52.5 },
+    { year: "2025", value: 36.0 },
+    { year: "2026", value: 44.2 },
+    { year: "2027", value: 54.2 },
+    { year: "2028", value: 66.5 },
+    { year: "2029", value: 81.5 },
+    { year: "2030", value: 100.0 },
   ],
   vendors: [
     { name: "Dynatrace", type: "leader" as const, marketCap: "$11.8B", revenue: "$1.9B ARR", growth: "+17% YoY", highlight: "Gartner MQ Leader", description: "Full-stack observability with AI-powered root cause analysis", recentEvent: "May 2026: Q4 rev $532M +19%; FY26 ARR >$2B +16%; 126 Q4 new logos" },

@@ -35,12 +35,12 @@ export const itomData = {
     "FinOps Foundation — State of FinOps 2026 Report",
   ],
   chartData: [
-    { year: "2025", value: 31.8 },
-    { year: "2026", value: 35.5 },
-    { year: "2027", value: 39.5 },
-    { year: "2028", value: 44.1 },
-    { year: "2029", value: 49.1 },
-    { year: "2030", value: 54.8 },
+    { year: "2025", value: 52.0 },
+    { year: "2026", value: 58.5 },
+    { year: "2027", value: 65.9 },
+    { year: "2028", value: 74.2 },
+    { year: "2029", value: 83.5 },
+    { year: "2030", value: 94.0 },
   ],
   vendors: [
     { name: "ServiceNow", type: "leader" as const, marketCap: "$130B", revenue: "$14.9B Rev", growth: "+21% YoY", highlight: "44% Market Share", description: "Dominant ITSM/ITOM platform with AI-embedded workflows; acquired Moveworks for $2.85B (Mar 2025)", recentEvent: "May 2026: Knowledge '26 — Otto AI; Action Fabric for 3rd-party agents; Autonomous CRM" },

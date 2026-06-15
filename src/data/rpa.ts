@@ -25,12 +25,12 @@ export const rpaData = {
     "MarketsandMarkets — Intelligent Automation Market (2025)",
   ],
   chartData: [
-    { year: "2025", value: 17.8 },
-    { year: "2026", value: 21.4 },
-    { year: "2027", value: 25.7 },
-    { year: "2028", value: 30.9 },
-    { year: "2029", value: 37.1 },
-    { year: "2030", value: 44.7 },
+    { year: "2025", value: 24.0 },
+    { year: "2026", value: 30.1 },
+    { year: "2027", value: 37.7 },
+    { year: "2028", value: 47.2 },
+    { year: "2029", value: 59.1 },
+    { year: "2030", value: 74.0 },
   ],
   vendors: [
     { name: "UiPath", type: "leader" as const, marketCap: "$8.5B", revenue: "$1.9B ARR", growth: "+12% YoY", highlight: "6x Gartner Leader", description: "Enterprise RPA platform with AI-powered automation and process mining", recentEvent: "May 2026: Q1 FY27 — ARR $1.9B, first-ever GAAP profitable quarter" },
