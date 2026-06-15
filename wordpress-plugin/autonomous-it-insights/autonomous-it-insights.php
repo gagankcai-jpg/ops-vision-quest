@@ -1093,7 +1093,11 @@ function ait_activate() {
     add_option( 'ait_last_refresh', '' );
     add_option( 'ait_claude_api_key', '' );
 
-    ait_schedule_cron();
+    // The weekly WP-Cron REST refresh has been retired — the static TS catalog (refreshed
+    // by the ait-weekly-market-refresh routine + redeploy) is the single source of truth.
+    // The cron regenerated a parallel snapshot that diverged from the catalog. Do NOT
+    // reschedule on activation. Call ait_unschedule_cron() to clear any existing event.
+    ait_unschedule_cron();
 }
 
 function ait_deactivate() {
