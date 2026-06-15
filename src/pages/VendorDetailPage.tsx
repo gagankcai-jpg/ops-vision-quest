@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
 import { PageMeta } from "@/components/seo/PageMeta";
 import { motion, useReducedMotion } from "framer-motion";
-import { useQuery } from "@tanstack/react-query";
 import {
   ChevronLeft, TrendingUp, DollarSign, BarChart2,
   ThumbsUp, AlertCircle, Users, Target, Zap, Quote,
-  ShieldCheck, AlertTriangle, Lightbulb, TrendingDown, RefreshCw,
+  ShieldCheck, AlertTriangle, Lightbulb, TrendingDown,
   CreditCard, Cloud, Server, Layers, CheckCircle2, XCircle, ChevronRight,
   GitCompare,
 } from "lucide-react";
@@ -28,14 +27,6 @@ import {
 import { cn } from "@/lib/utils";
 
 /* ─── Helpers ─────────────────────────────────────────────────────────────── */
-
-function daysAgo(dateStr: string): string {
-  const diff = Date.now() - new Date(dateStr).getTime();
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  if (days === 0) return "today";
-  if (days === 1) return "1 day ago";
-  return `${days} days ago`;
-}
 
 function GrowthValue({ value }: { value?: string }) {
   if (!value || value === "—") return <span className="text-muted-foreground">—</span>;
@@ -299,22 +290,10 @@ const VendorDetailPage = () => {
   const staticProfile = vendorProfiles[`${categorySlug}/${vendorSlug}`];
   const pricing = pricingData[`${categorySlug}/${vendorSlug}`] as PricingInfo | undefined;
 
-  const restBase = typeof window !== "undefined"
-    ? ((window as Record<string, unknown>).AIT_REST_URL as string | undefined)
-    : undefined;
-  const { data: apiData } = useQuery<{ profile: VendorProfile; refreshed_at: string }>({
-    queryKey: ["vendor-profile", categorySlug, vendorSlug],
-    queryFn: async () => {
-      const res = await fetch(`${restBase}/vendor-profile/${categorySlug}/${vendorSlug}`);
-      if (!res.ok) throw new Error("not_found");
-      return res.json();
-    },
-    enabled: !!restBase && !!categorySlug && !!vendorSlug,
-    staleTime: 1000 * 60 * 60,
-    retry: false,
-  });
-
-  const profile: VendorProfile | undefined = apiData?.profile ?? staticProfile;
+  // Single source of truth: profiles come from the static catalog (vendorProfiles.ts),
+  // refreshed weekly by the ait-weekly-market-refresh routine. The WP-Cron REST profile
+  // layer was retired to eliminate drift from a parallel, stale snapshot.
+  const profile: VendorProfile | undefined = staticProfile;
 
   /* 404 state */
   if (!category || !vendor || !staticProfile) {
@@ -459,14 +438,6 @@ const VendorDetailPage = () => {
                   <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-warning/25 bg-warning/10 px-3 py-2">
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-warning" />
                     <span className="text-xs font-medium text-warning">{vendor.recentEvent}</span>
-                  </div>
-                )}
-
-                {/* Live refresh badge */}
-                {apiData?.refreshed_at && (
-                  <div className="mt-3 flex items-center gap-1.5 text-[11px] text-muted-foreground">
-                    <RefreshCw className="h-3 w-3" />
-                    <span>Profile refreshed {daysAgo(apiData.refreshed_at)}</span>
                   </div>
                 )}
 
