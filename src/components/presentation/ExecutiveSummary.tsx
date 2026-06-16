@@ -70,7 +70,7 @@ const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
     {
       icon: <Zap className="w-6 h-6" />,
       title: "AI-First Transformation",
-      description: "GenAI is now standard across all five markets. Agentic AI is the fastest-growing segment at 44.8% CAGR — Gartner forecasts 70% of enterprises deploying agentic IT ops by 2029.",
+      description: "GenAI is now standard across all five markets. Agentic AI is the fastest-growing segment at 45.0% CAGR — Gartner forecasts 70% of enterprises deploying agentic IT ops by 2029.",
       color: "hsl(199 89% 48%)",
     },
     {
