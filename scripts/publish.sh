@@ -26,6 +26,11 @@ SSH="ssh -i $KEY -p $PORT -o StrictHostKeyChecking=no"
 echo "▶ Building (runs check-data-invariants.js first)…"
 npm run build
 
+# Prune Finder/sync duplicate cruft (e.g. "app-XXXX 2.js"). Vite never emits spaces in
+# filenames, so any space-named file in dist/ is a sync artifact — don't deploy it.
+CRUFT=$(find dist -name '* *' -type f -print -delete 2>/dev/null | wc -l | tr -d ' ')
+if [ "$CRUFT" -gt 0 ]; then echo "▶ Pruned $CRUFT duplicate cruft file(s) from dist/"; fi
+
 # Sanity gate: a healthy build prerenders a few hundred route HTML files.
 ROUTES=$(find dist -name index.html | wc -l | tr -d ' ')
 echo "▶ Prerendered route HTML files: $ROUTES"
@@ -37,7 +42,26 @@ fi
 echo "▶ Rsyncing dist/ → app/ (no --delete; keeps old hashed assets for in-flight clients)…"
 rsync -avz -e "$SSH" dist/ "$REMOTE:$APP"
 
+# rsync has no --delete, so previously-uploaded space-named cruft lingers server-side.
+# Vite never emits spaces in filenames, so removing them can't break a referenced asset.
+$SSH "$REMOTE" "find ${APP}assets -name '* *' -type f -delete 2>/dev/null" || true
+
 echo "▶ Purging LiteSpeed cache…"
 $SSH "$REMOTE" "wp --path=$WP litespeed-purge all"
+
+# Pre-warm the cache so the first real visitor after the purge doesn't eat a cold-render
+# 504/timeout. Warm the high-traffic shell routes sequentially (vendor detail pages warm
+# on demand). DEPLOY_SITE_URL overrides the public base if it ever changes.
+echo "▶ Warming cache (key routes)…"
+WARM_BASE="${DEPLOY_SITE_URL:-https://aienterpriseit.com/market-intelligence}"
+for r in "" /market/aiops /market/itom /market/rpa /market/agentops /market/secops /about /pricing /signals /compare; do
+  code="ERR"
+  for attempt in 1 2; do
+    code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 90 "$WARM_BASE$r" 2>/dev/null || echo ERR)
+    [ "$code" = "200" ] && break
+    sleep 1
+  done
+  printf "   %s %s\n" "$code" "${r:-/}"
+done
 
 echo "✓ Published."
