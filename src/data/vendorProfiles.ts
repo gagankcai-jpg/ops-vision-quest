@@ -43,58 +43,6 @@ export function toVendorSlug(name: string): string {
 }
 
 export const vendorProfiles: Record<string, VendorProfile> = {
-  "agentops/elastic-workplace-search": {
-    "competitiveEdge": "Search-first architecture surfaces institutional knowledge faster than traditional knowledge bases, reducing ticket resolution time.",
-    "swot": {
-      "strengths": [
-        "Integrated with Elastic ecosystem; enterprise search maturity",
-        "Fast indexing and relevance tuning for large documentation sets",
-        "Lower barrier to deployment vs. full agentic platforms"
-      ],
-      "weaknesses": [
-        "Passive search tool; requires human to interpret results and act",
-        "No autonomous task execution or workflow integration",
-        "Limited LLM-native reasoning or conversational capabilities"
-      ],
-      "opportunities": [
-        "Wrap search layer in agentic AI for semi-autonomous IT resolution",
-        "Expand to voice-based IT knowledge discovery via Elastic partnership",
-        "Embed in ServiceNow/Jira as knowledge accelerant for agent assist"
-      ],
-      "threats": [
-        "Platform copilots (ServiceNow Now Assist, Microsoft Copilot) subsume search with agents",
-        "Specialized RAG vendors (Glean, Relevance AI) offer more intelligent retrieval",
-        "Elasticsearch's own LLM push commoditizes search-only positioning"
-      ]
-    },
-    "userLikes": [
-      "Fast, relevant search results across fragmented IT documentation",
-      "Minimal configuration overhead; works with existing Elasticsearch clusters",
-      "Integrates seamlessly with major enterprise knowledge repositories"
-    ],
-    "userComplaints": [
-      "Requires manual interpretation; doesn't automate next steps",
-      "Search relevance degrades with unstructured or legacy KB content",
-      "Lacks conversational interface; staff still need to parse raw results"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market enterprises with mature Elasticsearch infrastructure",
-        "Organizations prioritizing searchability over automation"
-      ],
-      "typicalBuyer": "Enterprise search/IT knowledge manager",
-      "topUseCases": [
-        "Accelerate IT analyst resolution by surfacing relevant KB articles",
-        "Reduce ticket volume by enabling employee self-service via searchable IT docs",
-        "Enable cross-functional knowledge discovery (IT + HR + ops)"
-      ]
-    },
-    "futureAreas": [
-      "LLM-powered synthesis of fragmented search results into actionable recommendations",
-      "Agent assist layer that recommends and executes resolutions based on search insights",
-      "Multi-language enterprise knowledge unification for global IT teams"
-    ]
-  },
   "agentops/notion-ai": {
     "competitiveEdge": "Native AI within Notion's collaborative workspace eliminates context-switching; IT knowledge stays where teams already work.",
     "swot": {
@@ -145,266 +93,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Native integration with incident management and ITSM ticketing systems",
       "Multi-model RAG combining docs, metrics, and logs for richer knowledge context",
       "Autonomous runbook execution triggered by knowledge graph queries"
-    ]
-  },
-  "agentops/liveperson": {
-    "competitiveEdge": "Omnichannel agent deployment across voice, chat, and messaging lets IT support reach employees wherever they are.",
-    "swot": {
-      "strengths": [
-        "Mature omnichannel routing and conversation management across multiple channels",
-        "Established enterprise deployment model with strong customer success",
-        "Agent assist and escalation workflows reduce complexity for IT support teams"
-      ],
-      "weaknesses": [
-        "Growth rate (a significant share YoY) trails pure-agentic competitors by several times",
-        "Positioned as conversational AI, not autonomous resolution or self-healing",
-        "Requires significant configuration for IT-specific workflows vs. customer-facing default"
-      ],
-      "opportunities": [
-        "Deepen autonomous agent capabilities to deflect a significant share IT requests without escalation",
-        "Build intent-driven workflow automation to auto-route and resolve common IT issues",
-        "Embed knowledge graph and RAG for intelligent context during escalations"
-      ],
-      "threats": [
-        "Purpose-built ITSM agents (Moveworks, Aisera) narrowly focus on employee IT support",
-        "Native Copilots (Microsoft, ServiceNow) bundle conversation + task automation",
-        "Messaging-native startups (Gaspar AI, Rezolve.ai) compete on Teams/Slack velocity"
-      ]
-    },
-    "userLikes": [
-      "Multi-channel conversations feel natural to modern IT teams and remote workers",
-      "Robust escalation logic ensures complex issues reach skilled humans without delay",
-      "Integration with major ITSM platforms (ServiceNow, Zendesk) via APIs"
-    ],
-    "userComplaints": [
-      "Manual configuration required for IT use cases; not pre-tuned for employee support",
-      "Limited autonomous resolution; primarily handles triage and conversation routing",
-      "Conversation quality degrades without careful intent classification setup"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-to-large enterprises with omnichannel customer or employee support needs",
-        "Organizations running contact centers that want IT service integration"
-      ],
-      "typicalBuyer": "Enterprise contact center director or IT service operations manager",
-      "topUseCases": [
-        "Route employee IT requests from voice, chat, and messaging to appropriate support tier",
-        "Provide conversational handoff context so escalated agents resolve faster",
-        "Enable after-hours automated troubleshooting for password resets and common issues"
-      ]
-    },
-    "futureAreas": [
-      "Autonomous intent-driven remediation to reduce escalations from conversation",
-      "Proactive issue detection and outreach via monitoring integration",
-      "Industry-specific playbooks for financial services, healthcare, and retail IT operations"
-    ]
-  },
-  "agentops/cresta": {
-    "competitiveEdge": "Real-time coaching during calls elevates agent performance immediately; captures and scales tacit knowledge without post-call delays.",
-    "swot": {
-      "strengths": [
-        "Proven in-call coaching architecture with high adoption among support teams",
-        "Continuous performance feedback and knowledge capture during interactions",
-        "Integrates call data to improve quality assurance processes"
-      ],
-      "weaknesses": [
-        "Designed for agent coaching, not autonomous IT resolution",
-        "Does not deflect tickets or reduce human FTE required for support",
-        "Requires call recording and transcription infrastructure to function"
-      ],
-      "opportunities": [
-        "Extend coaching insights into automated response suggestions for unanswered call patterns",
-        "Apply real-time guidance data to build pre-trained agentic models for IT support",
-        "Offer IT-specific coaching playbooks (incident response, password resets, VPN troubleshooting)"
-      ],
-      "threats": [
-        "Autonomous agents reduce call volume, limiting coaching use case relevance",
-        "Younger competitors (Observe.AI, ASAPP) focus on agent assist, not coaching",
-        "Platform vendors embed native QA and coaching (Freshservice, Zendesk)"
-      ]
-    },
-    "userLikes": [
-      "Real-time suggestions improve first-call resolution rates and customer satisfaction",
-      "Coaching feedback is actionable and delivered during high-stress moments",
-      "Historical coaching patterns provide data for training and onboarding"
-    ],
-    "userComplaints": [
-      "Requires live calls to provide value; cannot help with self-service or chat-only teams",
-      "High implementation complexity for IT environments with mixed support channels",
-      "Does not reduce ticket volume or headcount; primarily improves per-agent metrics"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Enterprise IT service desk centers with high call volume and agent turnover",
-        "Support organizations prioritizing quality metrics over deflection"
-      ],
-      "typicalBuyer": "Service desk manager or quality assurance director",
-      "topUseCases": [
-        "Reduce IT support ticket resolution time by coaching agents on complex troubleshooting",
-        "Improve first-call resolution for password resets, VPN issues, and software licensing",
-        "Train new IT support hires faster by capturing expertise from senior analysts"
-      ]
-    },
-    "futureAreas": [
-      "Convert coaching data into training datasets for autonomous IT agents",
-      "Extend real-time guidance to non-voice channels (chat, email) for broader applicability",
-      "Predictive coaching to flag high-risk interactions before they escalate"
-    ]
-  },
-  "agentops/observe-ai": {
-    "competitiveEdge": "AI-driven QA and coaching for IT service desk teams scales quality without proportional headcount growth.",
-    "swot": {
-      "strengths": [
-        "Proven AI quality assurance engines with high adoption in enterprise support",
-        "Coaching and feedback mechanisms drive measurable performance improvements",
-        "Emerging IT-specific positioning (from broad contact center roots)"
-      ],
-      "weaknesses": [
-        "Positioned as QA and coaching, not autonomous resolution or ticket deflection",
-        "Does not reduce support FTE or ticket backlogs; improves per-agent efficiency only",
-        "Competes directly with Cresta in mature coaching market with less differentiation"
-      ],
-      "opportunities": [
-        "Build agent-assist capabilities to suggest resolution actions during interactions",
-        "Extend QA algorithms to detect and auto-escalate common IT issues missed by agents",
-        "Develop IT service desk playbooks and coaching frameworks for vertical specialization"
-      ],
-      "threats": [
-        "Autonomous IT agents (Moveworks, Aisera, Leena) eliminate coaching use cases by handling tickets",
-        "Platform QA tools (Zendesk, Freshservice) commoditize built-in quality monitoring",
-        "Coaching-focused competitors offer better real-time guidance (Cresta)"
-      ]
-    },
-    "userLikes": [
-      "Quality metrics become transparent and data-driven vs. subjective supervisor reviews",
-      "Coaching insights are specific and actionable, improving resolution confidence",
-      "Integration with common ITSM platforms reduces setup friction"
-    ],
-    "userComplaints": [
-      "AI QA generates false positives on context-dependent IT troubleshooting decisions",
-      "Coaching feedback can feel punitive if not calibrated for IT complexity",
-      "Does not directly address ticket volume or reduce agent headcount"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-to-large enterprises with large IT service desk teams (50+ agents)",
-        "Organizations with high agent turnover or quality management priorities"
-      ],
-      "typicalBuyer": "Service desk quality manager or IT operations director",
-      "topUseCases": [
-        "Monitor and score IT support interactions for compliance and SLA adherence",
-        "Identify common troubleshooting mistakes and deliver targeted coaching to agents",
-        "Measure and report on IT support performance to executives for budget justification"
-      ]
-    },
-    "futureAreas": [
-      "Agent-assist layer suggesting actions based on QA pattern analysis",
-      "Predictive QA to flag at-risk interactions in real-time during calls",
-      "Autonomous response generation for common low-complexity IT issues within QA framework"
-    ]
-  },
-  "agentops/asapp": {
-    "competitiveEdge": "AI-native agent assist that integrates with existing IT workflows immediately improves human agent performance without rearchitecting support operations.",
-    "swot": {
-      "strengths": [
-        "Purpose-built for agent assist; deeply integrated real-time response suggestions",
-        "LLM-native architecture captures nuance in IT support conversations",
-        "Works alongside humans, not replacing them; reduces change management friction"
-      ],
-      "weaknesses": [
-        "Does not handle autonomous resolution; amplifies agent efficiency but not ticket deflection",
-        "Requires agent adoption and behavioral change for full value realization",
-        "Less established in pure IT support vs. customer service pedigree"
-      ],
-      "opportunities": [
-        "Expand from agent-assist to autonomous ticket resolution for high-confidence workflows",
-        "Build IT-specific knowledge integration for faster, more accurate response suggestions",
-        "Embed predictive escalation logic to route complex cases before agent exhaustion"
-      ],
-      "threats": [
-        "Autonomous agents (Forethought, Cresta, Observe.AI) position assist as interim step",
-        "Platform copilots (ServiceNow Now Assist, Microsoft Copilot) bundle assist + automation",
-        "Younger competitors (Sierra AI, Artisan AI) pursue full autonomy from the start"
-      ]
-    },
-    "userLikes": [
-      "Real-time suggestions reduce research time and improve first-contact resolution",
-      "Integration with existing ITSM tools is seamless; minimal workflow disruption",
-      "AI suggestions improve consistency across a distributed IT support team"
-    ],
-    "userComplaints": [
-      "Agents may ignore suggestions if confidence is low, reducing ROI",
-      "Requires high-quality training data and knowledge base; garbage in = garbage out",
-      "Does not solve underlying ticket volume or capacity problems"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market enterprises with established IT service desks wanting immediate AI improvement",
-        "Organizations hesitant about full automation but open to agent augmentation"
-      ],
-      "typicalBuyer": "IT service desk director or operations manager",
-      "topUseCases": [
-        "Suggest troubleshooting steps and resolution actions in real-time during IT support chats",
-        "Reduce average IT ticket handling time by a significant share through smarter assist suggestions",
-        "Improve first-contact resolution rate for common IT requests (password, VPN, software licensing)"
-      ]
-    },
-    "futureAreas": [
-      "Autonomous mode: direct resolution of high-confidence IT requests without agent",
-      "Predictive escalation to route tickets proactively to specialists before they stall",
-      "Cross-functional assist covering IT, HR, finance for omnichannel employee support"
-    ]
-  },
-  "agentops/ultimate-ai": {
-    "competitiveEdge": "Integrated AI automation embedded natively within Zendesk's support and IT service ecosystem.",
-    "swot": {
-      "strengths": [
-        "Direct integration with Zendesk's established install base",
-        "Cross-support AI for both customer and IT service streams",
-        "Built-in workflow automation with existing Zendesk APIs"
-      ],
-      "weaknesses": [
-        "Limited standalone product visibility outside Zendesk ecosystem",
-        "Constrained by parent platform's feature scope",
-        "No independent go-to-market or brand differentiation"
-      ],
-      "opportunities": [
-        "Expand autonomous request resolution across new Zendesk verticals",
-        "Cross-sell to existing Zendesk platform customers",
-        "Build agent orchestration capabilities across support silos"
-      ],
-      "threats": [
-        "Competition from platform copilots (ServiceNow, Atlassian)",
-        "Shifting demand away from standalone IT automation vendors",
-        "Zendesk's focus on customer support may deemphasize IT innovation"
-      ]
-    },
-    "userLikes": [
-      "Tight integration with familiar Zendesk interface",
-      "Simplified deployment for existing Zendesk customers",
-      "Unified AI layer across customer and IT channels"
-    ],
-    "userComplaints": [
-      "Limited autonomy outside Zendesk platform constraints",
-      "Slower innovation cycle tied to parent platform roadmap",
-      "Minimal flexibility for custom agentic workflows"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market companies already standardized on Zendesk",
-        "Support teams seeking unified AI across customer and IT"
-      ],
-      "typicalBuyer": "Zendesk platform administrator / support operations leader",
-      "topUseCases": [
-        "Automated IT ticket triage and deflection for employee requests",
-        "Cross-channel knowledge agent for employee self-service",
-        "Intelligent routing and SLA management for hybrid support queues"
-      ]
-    },
-    "futureAreas": [
-      "Multi-language support agents for distributed IT teams",
-      "AI-driven change management and approval automation",
-      "Sentiment and satisfaction tracking across support channels"
     ]
   },
   "agentops/mayday": {
@@ -511,110 +199,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Cross-system knowledge aggregation from docs, wikis, and tickets"
     ]
   },
-  "agentops/loris-ai": {
-    "competitiveEdge": "Dual focus on sentiment analysis and real-time coaching creates accountability layer for agent interactions.",
-    "swot": {
-      "strengths": [
-        "Unique positioning at intersection of QA, coaching, and automation",
-        "Real-time feedback loop improves agent performance measurably",
-        "Strong product-market fit with +a significant share YoY growth"
-      ],
-      "weaknesses": [
-        "Niche positioning limits total addressable market",
-        "Requires agent adoption and coaching acceptance for ROI",
-        "AI coaching efficacy depends on conversation pattern variance"
-      ],
-      "opportunities": [
-        "Expand automated coaching into IT operations incident response",
-        "Build sentiment-driven escalation and triage automation",
-        "Integrate with workforce management systems for skill development"
-      ],
-      "threats": [
-        "Integration by larger QA/coaching vendors (Observe.ai, Cresta)",
-        "Shift toward fully autonomous agents reducing agent-assist need",
-        "Privacy concerns around conversation sentiment analysis"
-      ]
-    },
-    "userLikes": [
-      "Real-time coaching improves individual agent performance",
-      "Sentiment signals surface customer dissatisfaction early",
-      "Measurable coaching impact on first-contact resolution"
-    ],
-    "userComplaints": [
-      "Requires significant change management for adoption",
-      "Sentiment analysis can misinterpret domain-specific language",
-      "Limited scope for complex technical automation"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Enterprise IT service organizations focused on quality metrics",
-        "Regulated industries requiring audit trails for interactions"
-      ],
-      "typicalBuyer": "IT service desk quality manager or coaching lead",
-      "topUseCases": [
-        "Real-time coaching on customer interaction quality and tone",
-        "Sentiment-driven escalation for frustrated employee requests",
-        "Automated performance analytics and training recommendations"
-      ]
-    },
-    "futureAreas": [
-      "Predictive quality scoring before agent interaction completes",
-      "AI-driven skill gap analysis and personalized training workflows",
-      "Sentiment-powered demand forecasting for IT staffing"
-    ]
-  },
-  "agentops/hyro": {
-    "competitiveEdge": "Adaptive conversational AI learns from every interaction to improve context-understanding and resolution accuracy.",
-    "swot": {
-      "strengths": [
-        "Adaptive learning architecture evolves agent accuracy over time",
-        "Industry-specific tuning for IT and healthcare domains",
-        "Strong +a significant share growth and $15M ARR demonstrates market demand"
-      ],
-      "weaknesses": [
-        "Narrow dual-industry focus limits horizontal expansion",
-        "Adaptive learning requires sufficient conversation volume",
-        "Competition from larger general-purpose conversational AI platforms"
-      ],
-      "opportunities": [
-        "Extend adaptive AI into financial services and telecommunications",
-        "Build autonomous resolution layer on top of conversation engine",
-        "Enterprise voice AI for phone-based IT support channels"
-      ],
-      "threats": [
-        "Consolidation by ITSM or contact center platforms",
-        "Open-source conversational models reducing proprietary moat",
-        "Commoditization of conversational AI capabilities"
-      ]
-    },
-    "userLikes": [
-      "Conversational experience feels natural and context-aware",
-      "Adaptive system improves with deployed customer conversations",
-      "Multi-channel support (voice and chat) from single engine"
-    ],
-    "userComplaints": [
-      "Requires sufficient conversation volume to adapt effectively",
-      "Limited orchestration with downstream IT systems",
-      "Adaptation may memorize customer-specific patterns vs. generalizing"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Healthcare and IT-centric enterprises with voice-heavy workflows",
-        "Organizations seeking HIPAA-compliant conversational AI"
-      ],
-      "typicalBuyer": "Contact center operations manager or IT support director",
-      "topUseCases": [
-        "Conversational AI for phone-based employee IT support",
-        "Adaptive voice agents that improve accuracy per customer segment",
-        "Multi-lingual IT support routing based on intent detection"
-      ]
-    },
-    "futureAreas": [
-      "Autonomous resolution agents built atop adaptive conversation layer",
-      "Predictive intent modeling for proactive IT support",
-      "Real-time language adaptation for domain-specific terminology"
-    ]
-  },
   "agentops/tanium": {
     "competitiveEdge": "Real-time endpoint visibility at scale with autonomous discovery and remediation across 100K+ devices in seconds.",
     "swot": {
@@ -666,58 +250,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Autonomous compliance auditing and remediation across endpoint estate",
       "AI-driven change impact assessment for global patch campaigns",
       "Cross-platform IT operations orchestration beyond endpoints"
-    ]
-  },
-  "agentops/inflection-ai": {
-    "competitiveEdge": "Microsoft-backed enterprise LLM capabilities now embedded directly into the Copilot ecosystem, bringing sophisticated language understanding to IT automation without third-party inference costs.",
-    "swot": {
-      "strengths": [
-        "Microsoft acquisition validates enterprise AI credibility and integrates with Copilot ecosystem",
-        "Enterprise-grade LLM foundation for knowledge-intensive IT tasks",
-        "Compliance and data residency built for regulated IT operations"
-      ],
-      "weaknesses": [
-        "No standalone product visibility — positioning unclear outside Microsoft integration roadmap",
-        "Limited public information on IT-specific automation capabilities or differentiators",
-        "Must compete with existing Microsoft Copilot and Azure OpenAI offerings"
-      ],
-      "opportunities": [
-        "Integration into Copilot for IT as the reasoning engine for multi-step IT workflows",
-        "Enterprise knowledge base search and IT knowledge assistant capabilities",
-        "Private LLM deployment for organizations requiring on-prem or EU data residency"
-      ],
-      "threats": [
-        "Overshadowed by Microsoft Copilot and Azure AI Services in enterprise IT adoption",
-        "OpenAI and other foundation model providers commoditizing enterprise LLM access",
-        "Lost brand autonomy post-acquisition; rebranding or sunsetting risk"
-      ]
-    },
-    "userLikes": [
-      "Strong reasoning capabilities for complex IT problem-solving tasks",
-      "Enterprise data privacy assurances aligned with Microsoft compliance standards",
-      "Potential seamless integration into existing Microsoft infrastructure"
-    ],
-    "userComplaints": [
-      "Lack of transparent product roadmap and IT-specific feature visibility",
-      "Uncertainty about pricing and licensing within Microsoft ecosystem",
-      "Limited standalone references or customer success stories"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large Microsoft-first enterprises upgrading Copilot capabilities",
-        "Regulated organizations requiring enterprise LLM with data residency"
-      ],
-      "typicalBuyer": "CIO or Enterprise AI Governance Officer",
-      "topUseCases": [
-        "Enterprise knowledge search and retrieval-augmented generation for IT",
-        "Multi-step IT automation reasoning beyond simple rule-based logic",
-        "Secure on-prem or sovereign LLM for compliance-heavy IT operations"
-      ]
-    },
-    "futureAreas": [
-      "Public positioning as Copilot for IT's core reasoning engine",
-      "On-premises and sovereign cloud deployment for regulated industries",
-      "Fine-tuning capabilities for enterprise IT knowledge bases"
     ]
   },
   "agentops/vane-ai": {
@@ -874,58 +406,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Autonomous first-response drafting and knowledge base generation from ticket history",
       "Integration with CMDB and asset management for context-aware automation",
       "Proactive issue detection and employee notification before IT tickets are filed"
-    ]
-  },
-  "agentops/gradient-labs": {
-    "competitiveEdge": "Agentic AI purpose-built for end-to-end enterprise IT ticket resolution, automating multi-step investigations and remediation without human intervention.",
-    "swot": {
-      "strengths": [
-        "Sole-focus on end-to-end autonomous resolution addresses most difficult service desk problem",
-        "Agentic approach enables multi-step reasoning and cross-system investigation",
-        "Early mover in autonomous IT resolution space"
-      ],
-      "weaknesses": [
-        "Very early stage with limited public traction and customer references",
-        "High technical complexity and integration effort required for autonomous IT automation",
-        "Unproven business model; unclear how pricing scales with autonomous adoption"
-      ],
-      "opportunities": [
-        "Rapid adoption among enterprises desperate for service desk staffing solutions",
-        "Integration with enterprise observability and CMDB for context-aware remediation",
-        "Potential acquisition by ServiceNow, Microsoft, or cloud infrastructure companies"
-      ],
-      "threats": [
-        "ServiceNow Autonomous Workforce and Microsoft Copilot agents entering autonomous IT space",
-        "Established ITSM vendors can add similar capabilities with larger R&D budgets",
-        "Regulatory and liability concerns around autonomous IT changes may slow enterprise adoption"
-      ]
-    },
-    "userLikes": [
-      "Vision of truly autonomous IT ticket resolution resonates with IT leaders facing staffing challenges",
-      "Multi-step investigation and remediation capabilities go beyond simple deflection",
-      "Purpose-built for IT operations versus generic agentic frameworks"
-    ],
-    "userComplaints": [
-      "Very early product stage; limited feature breadth and integration coverage",
-      "Risk aversion toward autonomous IT changes without mature governance frameworks",
-      "Unclear technology maturity for reliable enterprise production IT automation"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Forward-thinking enterprises exploring autonomous IT operations",
-        "Service desk-heavy organizations struggling with staffing and SLA pressures"
-      ],
-      "typicalBuyer": "CIO or VP IT Service Delivery open to exploring AI automation",
-      "topUseCases": [
-        "End-to-end autonomous resolution of repetitive IT issues and self-healing",
-        "Multi-step investigation across monitoring, logs, and ticketing systems",
-        "Autonomous routine maintenance and system health remediation"
-      ]
-    },
-    "futureAreas": [
-      "Intelligent risk assessment and governance framework for autonomous IT changes",
-      "Integration with full enterprise IT stack: monitoring, observability, CMDB, and security",
-      "Autonomous root cause analysis and predictive issue prevention"
     ]
   },
   "agentops/superagi": {
@@ -1235,161 +715,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Autonomous workflow generation from historical execution data and security/IT documentation"
     ]
   },
-  "agentops/sweep": {
-    "competitiveEdge": "Natural language interface bridges business users and IT ops — reduces automation expertise required.",
-    "swot": {
-      "strengths": [
-        "Exceptional growth trajectory and Salesforce ecosystem positioning; early traction proves demand",
-        "Natural language interface lowers barrier for non-technical users to author IT and CRM automation",
-        "Dual focus on Salesforce + IT ops addresses large TAM with strong CRM adoption footprint"
-      ],
-      "weaknesses": [
-        "Dual-market positioning may dilute focus; unclear if IT ops or Salesforce is strategic priority",
-        "Natural language automation reliability risks; potential issues with ambiguous or complex intent",
-        "Early-stage company; unproven ability to scale support and integrations across diverse customer bases"
-      ],
-      "opportunities": [
-        "Horizontal expansion to other enterprise platforms (Slack, Teams, ServiceNow, Microsoft Dynamics)",
-        "Deeper GenAI training on customer workflows to improve natural language accuracy and specificity",
-        "Strategic acquisition target for Salesforce or Microsoft seeking to expand automation reach"
-      ],
-      "threats": [
-        "Salesforce Einstein and Microsoft Copilot natively embedding automation into core platforms",
-        "Specialized IT automation platforms outpacing on IT ops domain depth and integrations"
-      ]
-    },
-    "userLikes": [
-      "Natural language interface dramatically simplifies automation authoring versus code or visual design",
-      "Bi-directional integration with Salesforce and IT ops reduces tool switching and data silos",
-      "Rapid prototyping and iteration; users can quickly test and refine workflows via conversational interface"
-    ],
-    "userComplaints": [
-      "Natural language reliability concerns; complex workflows may misinterpret user intent or produce unexpected results",
-      "Limited integrations outside Salesforce and core IT systems; gaps with niche enterprise tools",
-      "Early product maturity; feature parity with established no-code platforms unclear"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Salesforce-heavy organizations with IT teams seeking to reduce operational toil and ticket volume",
-        "Business users and operations teams in enterprises lacking dedicated IT automation engineering"
-      ],
-      "typicalBuyer": "IT operations leader or Salesforce administrator responsible for automation and integration",
-      "topUseCases": [
-        "Salesforce record-triggered IT tasks (user provisioning, account creation, change notifications)",
-        "Natural language ticket and incident automation without code or complex workflows",
-        "Cross-platform data synchronization and task execution (Salesforce ↔ IT service management)"
-      ]
-    },
-    "futureAreas": [
-      "Horizontal platform expansion beyond Salesforce and IT — finance, HR, procurement automation",
-      "Improved natural language reliability through fine-tuning on customer workflow data and execution feedback",
-      "Embedded automation assistance in existing enterprise tools (Salesforce, ServiceNow, Slack) via API partners"
-    ]
-  },
-  "agentops/mendable": {
-    "competitiveEdge": "AI-powered knowledge assistant acquired by Mintlify to power enterprise IT documentation search.",
-    "swot": {
-      "strengths": [
-        "Integrated with Mintlify ecosystem; deep expertise in developer documentation search indexing",
-        "Lightweight AI documentation search reduces support ticket volume by surfacing answers faster",
-        "Early mover in specialized knowledge assistant space; brand recognition in IT communities"
-      ],
-      "weaknesses": [
-        "Limited to documentation and knowledge search; no autonomous workflow execution or ticket handling",
-        "Smaller company-wide footprint compared to platform vendors like ServiceNow or Microsoft",
-        "Knowledge base quality dependent on enterprise data governance; poor data = poor search results"
-      ],
-      "opportunities": [
-        "Expand from documentation into real-time IT incident runbook lookup during outages",
-        "Cross-sell into enterprise IT departments beyond developer communities",
-        "Build autonomous agent layer on top of knowledge indexing for ticket deflection"
-      ],
-      "threats": [
-        "Major platforms (Slack, Microsoft Teams) embedding native AI search reduces standalone product demand",
-        "Competition from larger knowledge platforms (Glean, Guru) with broader enterprise reach",
-        "Acquisition by Mintlify may limit independence and strategic roadmap freedom"
-      ]
-    },
-    "userLikes": [
-      "Lightweight integration; minimal impact on existing IT knowledge systems and processes",
-      "Fast, accurate search results over enterprise IT documentation and runbooks",
-      "Low setup cost and quick time-to-value for knowledge discovery use cases"
-    ],
-    "userComplaints": [
-      "Search quality degrades when documentation is incomplete, outdated, or poorly structured",
-      "Cannot automate remediation; stops at finding answers, requires human action",
-      "Limited integration breadth; works better in Mintlify-adjacent ecosystems"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market IT departments with established documentation and runbook libraries",
-        "Developer-first organizations needing AI search over technical documentation"
-      ],
-      "typicalBuyer": "IT Knowledge Manager or Service Desk Lead seeking to reduce tier-1 resolution time",
-      "topUseCases": [
-        "Accelerate tier-1 IT support by surfacing KB articles and runbooks in real-time",
-        "Empower IT teams to find and share institutional knowledge across distributed organizations",
-        "Reduce support ticket volume through intelligent knowledge discovery"
-      ]
-    },
-    "futureAreas": [
-      "Autonomous agent layer that not only finds knowledge but executes remediation workflows",
-      "Integration with ITSM platforms (Jira, ServiceNow) to auto-tag and update stale documentation",
-      "Multimodal search (voice, code, text, screenshots) for IT troubleshooting"
-    ]
-  },
-  "agentops/danswer": {
-    "competitiveEdge": "Open-source enterprise search engine built specifically for internal IT documentation and knowledge discovery.",
-    "swot": {
-      "strengths": [
-        "Open-source model enables self-hosted deployments; no SaaS vendor lock-in risk",
-        "Strong growth rate (+a significant share YoY) indicates market demand for OSS alternative to Glean/Guru",
-        "Community-driven development lowers cost of ownership for enterprises with internal engineering"
-      ],
-      "weaknesses": [
-        "Limited commercial support and SLA guarantees; enterprises may balk at operational complexity",
-        "Smaller product team vs. venture-backed competitors; slower feature velocity",
-        "Self-hosting requires IT/engineering resources; not suitable for service desk-only organizations"
-      ],
-      "opportunities": [
-        "Monetize open-source base with managed SaaS offering to compete with Glean",
-        "Build proprietary connectors to common ITSM platforms (ServiceNow, Jira) as differentiation",
-        "Partner with enterprise Linux and Kubernetes vendors for co-distribution"
-      ],
-      "threats": [
-        "Glean and Guru capturing enterprise market with superior UI and enterprise sales teams",
-        "Public cloud platforms (AWS, Google) releasing competitive search products",
-        "Developer/engineering focus may limit adoption in less technical IT departments"
-      ]
-    },
-    "userLikes": [
-      "Complete data ownership and control; no cloud vendor data residency concerns",
-      "Low total cost of ownership for enterprises with internal DevOps/SRE teams",
-      "Transparent, community-driven roadmap with no hidden feature paywalls"
-    ],
-    "userComplaints": [
-      "Operational overhead; requires dedicated infrastructure and ongoing maintenance investment",
-      "Fewer pre-built integrations and connectors than commercial competitors",
-      "Search quality depends on custom fine-tuning and data preparation by internal teams"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Enterprise IT departments with strong internal engineering and DevOps practices",
-        "Organizations with strict data sovereignty or regulatory requirements (EU, financial services)"
-      ],
-      "typicalBuyer": "IT Infrastructure or Platform Engineering Lead with engineering budget and appetite",
-      "topUseCases": [
-        "Self-hosted enterprise knowledge search over internal IT documentation and runbooks",
-        "Hybrid search combining structured data (Jira tickets) and unstructured docs (wikis, runbooks)",
-        "Reduce support overhead by enabling employees to self-serve IT knowledge discovery"
-      ]
-    },
-    "futureAreas": [
-      "Managed SaaS offering to compete with commercial search platforms without abandoning open-source",
-      "Agentic layer that autonomously surfaces knowledge during IT incidents based on error signals",
-      "Native integration with major ITSM platforms for out-of-the-box knowledge discovery"
-    ]
-  },
   "agentops/ragie-ai": {
     "competitiveEdge": "Purpose-built RAG platform for enterprise IT knowledge that grounds AI agent responses in verified documentation.",
     "swot": {
@@ -1492,58 +817,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vertical-specific agents for regulated industries requiring compliance, audit trails, and data governance",
       "Predictive agent that proactively resolves anticipated IT/HR/Finance needs before employees ask",
       "Voice-based universal agent accessible across enterprise devices and communication platforms"
-    ]
-  },
-  "agentops/11x-ai": {
-    "competitiveEdge": "AI workers autonomously executing repetitive IT and back-office tasks at scale without human intervention.",
-    "swot": {
-      "strengths": [
-        "Remarkable growth (+a significant share YoY) indicates exponential market adoption and strong product-market fit",
-        "Focus on repetitive tasks (ideal for AI) captures high-volume, low-complexity work",
-        "Autonomous execution model reduces headcount pressure on IT organizations"
-      ],
-      "weaknesses": [
-        "Early-stage revenue status means limited enterprise case studies or long-term customer data",
-        "Narrow focus on 'repetitive tasks' may miss more valuable, complex IT operations automation",
-        "Unclear technology differentiation; market crowded with AI workers (Artisan, Sierra, Cognition)"
-      ],
-      "opportunities": [
-        "Expand from back-office into high-value IT operations (patch management, change coordination)",
-        "Build industry-specific AI workers for IT (healthcare IT, financial services IT) with compliance built-in",
-        "Partner with RPA vendors (UiPath, Automation Anywhere) to embed AI workers into existing automation"
-      ],
-      "threats": [
-        "Specialized competitors (Artisan, Sierra) focusing deeper on specific IT domains",
-        "Microsoft and Salesforce integrating autonomous workers into platform offerings",
-        "Regulatory and compliance concerns around autonomous execution without audit trails"
-      ]
-    },
-    "userLikes": [
-      "Autonomous execution dramatically reduces manual IT work; 24/7 availability without shift coverage",
-      "Exceptional growth rate shows strong product-market fit and momentum",
-      "Simple value proposition: automate repetitive IT tasks, free IT staff for strategic work"
-    ],
-    "userComplaints": [
-      "Early-stage technology raises trust concerns about autonomous execution without guardrails",
-      "Limited visibility into what tasks AI workers actually perform and audit trails",
-      "Positioning as 'repetitive tasks' may underserve complex IT operations (incident response, runbooks)"
-    ],
-    "customerProfile": {
-      "segments": [
-        "High-volume IT departments with significant repetitive task burden (user provisioning, device setup)",
-        "Mid-market organizations lacking mature IT automation platforms"
-      ],
-      "typicalBuyer": "IT Operations Manager or Service Desk Lead seeking to reduce manual workload",
-      "topUseCases": [
-        "Autonomous user provisioning and offboarding across IT systems without manual hand-offs",
-        "Automate routine back-office and IT tasks (password resets, account creations, data entry)",
-        "24/7 autonomous task execution freeing IT staff for high-value incident response and strategy"
-      ]
-    },
-    "futureAreas": [
-      "Autonomous IT workers handling complex incident response and multi-step runbooks, not just repetitive tasks",
-      "Industry-specific AI workers pre-trained on IT compliance and audit requirements (SOC 2, ISO 27001)",
-      "Fleet orchestration allowing multiple AI workers to collaborate on cross-team workflows"
     ]
   },
   "agentops/multion": {
@@ -1959,106 +1232,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     "futureAreas": [
       "Multi-step IT incident response and runbook automation without manual handoffs",
       "Cross-domain process mining and optimization across IT and business operations"
-    ]
-  },
-  "agentops/sierra-ai": {
-    "competitiveEdge": "Domain-specific AI agents backed by established enterprise leadership (Bret Taylor), deployed across IT, HR, and customer experience with built-in enterprise rigor.",
-    "swot": {
-      "strengths": [
-        "Credible founder pedigree (Bret Taylor) attracts enterprise customers and partnerships",
-        "Multi-domain platform (IT, HR, CX) reduces per-category engineering effort",
-        "Strong revenue traction (Est. $100M ARR, +a significant share YoY) validates product-market fit"
-      ],
-      "weaknesses": [
-        "Competing with entrenched platform vendors (ServiceNow, Salesforce) in overlapping domains",
-        "Multi-domain complexity may dilute focus on any single IT operations vertical",
-        "High growth expectations may pressure margin sustainability"
-      ],
-      "opportunities": [
-        "Extend agent-assist capabilities into IT compliance and security automation",
-        "Partnerships with enterprise cloud providers (AWS, Azure, GCP) for embedding",
-        "Expand into vertical-specific IT operations (healthcare IT, financial IT)"
-      ],
-      "threats": [
-        "Incumbent platform vendors rapidly adding conversational AI and agent capabilities",
-        "Customer consolidation pressure (prefer one integrated platform over point solutions)"
-      ]
-    },
-    "userLikes": [
-      "Conversational interface reduces training and adoption friction",
-      "Multi-domain licensing simplifies IT-plus-HR procurement",
-      "Enterprise-grade governance and audit built in from day one"
-    ],
-    "userComplaints": [
-      "Integration costs and customization complexity for domain-specific use cases",
-      "Limited transparent insight into agent decision-making and reasoning",
-      "Pricing and commercial terms less flexible than smaller, emerging competitors"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large enterprises (10,000+ employees) operating across IT and HR functions",
-        "Global organizations requiring multi-language and multi-region agent deployment"
-      ],
-      "typicalBuyer": "Chief Information Officer or VP of IT Operations",
-      "topUseCases": [
-        "Conversational AI agents for employee IT service requests and ticket deflection",
-        "HR service automation (benefits, onboarding) integrated with IT identity management",
-        "Customer-facing AI agents for IT product support and technical troubleshooting"
-      ]
-    },
-    "futureAreas": [
-      "Cross-functional process automation bridging IT, HR, and finance operations",
-      "Industry-specific agent templates and pre-built domain knowledge packs"
-    ]
-  },
-  "agentops/artisan-ai": {
-    "competitiveEdge": "AI digital employees (Artisans) autonomously execute end-to-end business processes without human handoff—replacing manual effort rather than just assisting.",
-    "swot": {
-      "strengths": [
-        "True end-to-end autonomous execution differentiates from agent-assist incumbents",
-        "Exceptional growth (+a significant share YoY) signals strong market pull for autonomous approach",
-        "Operations-first positioning enables rapid deployment across IT and business workflows"
-      ],
-      "weaknesses": [
-        "Early-stage revenue and limited customer reference base create buyer confidence risk",
-        "Full autonomy raises governance, liability, and audit concerns in regulated industries",
-        "Competing against established IT service automation vendors with larger feature sets"
-      ],
-      "opportunities": [
-        "Expansion into compliance-critical domains (financial operations, healthcare IT) with proper governance",
-        "Integration with enterprise process mining tools to identify high-value automation candidates",
-        "Licensing to enterprise software vendors seeking to embed autonomous agents"
-      ],
-      "threats": [
-        "Regulatory and policy backlash against unsupervised autonomous agents in mission-critical systems",
-        "Incumbent platforms accelerating autonomous execution capabilities (ServiceNow, Automation Anywhere)"
-      ]
-    },
-    "userLikes": [
-      "True automation with minimal human oversight reduces labor costs significantly",
-      "Fast time-to-value for straightforward operational tasks (onboarding, provisioning)",
-      "Natural language configuration lowers barrier to automation deployment"
-    ],
-    "userComplaints": [
-      "Insufficient governance, explainability, and audit controls for regulated environments",
-      "Agent failures and edge cases require human intervention; handling varies",
-      "Limited transparency into why agents make specific decisions in complex scenarios"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Operations-heavy enterprises (finance, HR, IT) seeking labor cost reduction",
-        "High-volume IT operations (helpdesk, provisioning, access management)"
-      ],
-      "typicalBuyer": "VP of Operations or IT Operations Director",
-      "topUseCases": [
-        "Autonomous employee onboarding and IT provisioning (accounts, access, endpoints)",
-        "End-to-end IT ticket resolution and resolution without human deflection",
-        "Repetitive business process automation (approvals, data entry, routing)"
-      ]
-    },
-    "futureAreas": [
-      "Regulated industry-specific deployments with embedded compliance and audit controls",
-      "Multi-agent orchestration for complex cross-functional business processes"
     ]
   },
   "agentops/ushur": {
@@ -2622,57 +1795,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Proactive IT support: analyze logs and alerts to surface issues before employees report them, embedded in chat."
     ]
   },
-  "agentops/fixie-ai": {
-    "competitiveEdge": "LLM agent platform purpose-built for IT automation, enabling teams to build and deploy custom agentic workflows without code.",
-    "swot": {
-      "strengths": [
-        "Flexible, composable agent framework supports custom IT automation workflows not addressable by packaged tools.",
-        "Early-stage product likely has lower feature bloat and faster iteration than enterprise platforms.",
-        "Agent-first architecture positions well for autonomous IT operations automation trend."
-      ],
-      "weaknesses": [
-        "Early-stage revenue and market presence; unproven at scale with large enterprise deployments.",
-        "Requires technical expertise to build and maintain custom agents—limits adoption to DevOps and SRE teams.",
-        "No native integrations with enterprise ITSM, monitoring, or cloud platforms—customers must build connectors."
-      ],
-      "opportunities": [
-        "Agent marketplace: pre-built agents for common IT workflows (incident response, cloud cost optimization, security patching).",
-        "Governance and observability layer: enterprises deploying autonomous agents need auditability, cost controls, and safety rails.",
-        "Expansion into non-IT domains (finance automation, procurement, supply chain) with same agent platform."
-      ],
-      "threats": [
-        "Established agent platforms (Salesforce Agentforce, SAP Automation, AWS Bedrock) adding IT domain-specific blueprints.",
-        "Open-source agent frameworks (LangChain, LlamaIndex) lowering barriers for in-house development."
-      ]
-    },
-    "userLikes": [
-      "Flexible platform enables building domain-specific agents tailored to unique IT workflows and integrations.",
-      "Low-code agent builder reduces time-to-value vs. building agents from scratch on generic LLM APIs.",
-      "Community and documentation support for agentic patterns help teams adopt autonomous IT operations."
-    ],
-    "userComplaints": [
-      "Steep learning curve: requires understanding of LLM behavior, prompt engineering, and agent design patterns.",
-      "Limited pre-built integrations; most IT tools require custom code to connect agents to incident systems, monitoring stacks.",
-      "Cost and reliability unclear; autonomous agents can fail unpredictably, and error handling/fallback logic requires expertise."
-    ],
-    "customerProfile": {
-      "segments": [
-        "DevOps and SRE teams at scale-ups and mid-market tech companies seeking to automate runbooks and incident triage.",
-        "Enterprises with complex, heterogeneous IT environments (multi-cloud, legacy + modern) needing custom agentic glue."
-      ],
-      "typicalBuyer": "Principal SRE, Platform Engineer, or Engineering Manager responsible for incident response and operational efficiency.",
-      "topUseCases": [
-        "Autonomous incident triage: LLM agent receives alert, queries monitoring/CMDB, and escalates or auto-remediates.",
-        "Runbook automation: agents execute multi-step troubleshooting workflows (logs → diagnostics → remediation) without human intervention.",
-        "Infrastructure cost optimization: autonomous agents analyze cloud usage, identify waste, and recommend or execute rightsizing."
-      ]
-    },
-    "futureAreas": [
-      "Agent safety and governance: frameworks for cost controls, approval workflows, and rollback for autonomous IT agents.",
-      "Multi-agent orchestration: teams of specialized agents (incident response, capacity planning, security) collaborating on complex operations.",
-      "Observability and explainability: tools to understand why agents make decisions, essential for enterprise adoption in regulated environments."
-    ]
-  },
   "agentops/dust-tt": {
     "competitiveEdge": "Team AI assistants designed for engineering and IT operations, embedding agents directly into development and incident workflows.",
     "swot": {
@@ -2878,108 +2000,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Multi-region/multi-jurisdiction compliance orchestration (EU GDPR, UK DPA, etc.).",
       "Embedded compliance agents in enterprise ITSM platforms.",
       "Real-time audit trail and forensic playback for regulatory investigators."
-    ]
-  },
-  "agentops/cognition-ai": {
-    "competitiveEdge": "AI engineering agent (Devin) with proven code generation capability now expanding into IT operations automation.",
-    "swot": {
-      "strengths": [
-        "Devin brand recognition and demonstrated code generation capabilities reduce adoption friction.",
-        "Large private funding ($2B valuation) enables sustained R&D and enterprise sales infrastructure.",
-        "Software engineering + IT operations convergence (GitOps, infrastructure-as-code) is natural extension."
-      ],
-      "weaknesses": [
-        "IT operations domain requires different training/models than pure software engineering.",
-        "Competes directly with GitHub Copilot, Amazon CodeWhisperer, and ServiceNow workflow bots.",
-        "Enterprise IT security teams wary of AI agents writing production infrastructure code."
-      ],
-      "opportunities": [
-        "Autonomous incident remediation and post-incident automation (PagerDuty, Splunk integration).",
-        "Infrastructure-as-code generation and continuous deployment orchestration.",
-        "DevOps and platform engineering teams seeking AI-assisted runbook automation."
-      ],
-      "threats": [
-        "Established platform vendors (Azure Automation, AWS Systems Manager) building competing agents.",
-        "Regulatory risk if agent-generated infrastructure changes cause outages or data loss."
-      ]
-    },
-    "userLikes": [
-      "Proven code generation AI reduces time spent on boilerplate infrastructure scripts and playbooks.",
-      "Devin agent can autonomously debug and fix IT operations code without manual iteration.",
-      "Low context switching—same agent for software engineering and operational tasks."
-    ],
-    "userComplaints": [
-      "Agent-generated infrastructure code requires extensive review and approval; trust deficit high.",
-      "Unclear how Devin specializes for IT operations vs. general software engineering workflows.",
-      "Limited IT operations domain expertise compared to dedicated ITSM copilots."
-    ],
-    "customerProfile": {
-      "segments": [
-        "High-maturity DevOps and platform engineering teams (companies with strong GitOps practices).",
-        "Cloud-native enterprises (AWS, GCP, Azure) with infrastructure-as-code-heavy workflows."
-      ],
-      "typicalBuyer": "DevOps engineer or platform engineer at high-growth SaaS or fintech companies.",
-      "topUseCases": [
-        "Autonomous generation and debugging of infrastructure-as-code (Terraform, CloudFormation, etc.).",
-        "Incident remediation and post-incident automation playbook generation.",
-        "Continuous deployment and rollback decision support."
-      ]
-    },
-    "futureAreas": [
-      "Cross-cloud infrastructure orchestration (multi-cloud automation and migration workflows).",
-      "Real-time incident response agent tightly integrated with observability platforms.",
-      "AI-assisted security patching and vulnerability remediation automation."
-    ]
-  },
-  "agentops/aomni": {
-    "competitiveEdge": "Autonomous multi-step research and task execution across IT and business domains without predefined workflow templates.",
-    "swot": {
-      "strengths": [
-        "General-purpose agentic architecture applies across IT ops, security, and business intelligence.",
-        "Proactive intelligence gathering differentiates from reactive/incident-driven automation tools.",
-        "Early mover in autonomous research agent space with strong product-market narrative."
-      ],
-      "weaknesses": [
-        "Broad positioning dilutes focus; unclear which IT operations workflows Aomni excels at.",
-        "Early stage with limited proven ITSM integrations or certified partner ecosystem.",
-        "Competes with specialized vendors (Norm AI for compliance, Cognition for code)."
-      ],
-      "opportunities": [
-        "Enterprise threat intelligence and security event investigation automation.",
-        "Cross-functional workflows (IT + finance, IT + HR) for holistic operational intelligence.",
-        "Integration with knowledge management and enterprise search platforms."
-      ],
-      "threats": [
-        "Microsoft Copilot Pro and GPT-4 agents providing similar multi-step automation at scale.",
-        "Established market research and BI vendors (Palantir, Looker) building agentic features."
-      ]
-    },
-    "userLikes": [
-      "Autonomous research capability reduces manual intelligence gathering and incident context discovery.",
-      "Multi-step task execution across unstructured and structured data sources.",
-      "Proactive insights surface operational risks before incidents occur."
-    ],
-    "userComplaints": [
-      "Positioning is too broad—unclear how it applies to specific IT operations pain points.",
-      "Agent autonomy creates governance and audit concerns without strong guardrails.",
-      "Limited ITSM platform integrations reduce relevance for ticket-driven operations."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Enterprise IT and security operations teams managing heterogeneous infrastructure.",
-        "Intelligence-driven organizations (fintech, media, consulting) seeking operational insights."
-      ],
-      "typicalBuyer": "IT operations manager or security operations center (SOC) director.",
-      "topUseCases": [
-        "Autonomous threat intelligence gathering and incident context enrichment.",
-        "Cross-functional operational intelligence (linking IT events to business impact).",
-        "Multi-source investigation and root cause analysis support."
-      ]
-    },
-    "futureAreas": [
-      "Supply chain risk and vendor intelligence monitoring for IT procurement.",
-      "Cross-organizational intelligence sharing (federated research across business units).",
-      "Embedded research agents in enterprise data platforms (Snowflake, BigQuery)."
     ]
   },
   "agentops/arcee-ai": {
@@ -4595,59 +3615,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vertical solutions for Indian e-commerce and logistics automation to compete with global platforms",
       "AI-powered process automation templates pre-built for common SMB workflows to reduce setup time",
       "International expansion to Southeast Asia and South Asia with localized onboarding and support"
-    ]
-  },
-  "rpa/suretriggers": {
-    "competitiveEdge": "WordPress and SaaS ecosystem-native automation eliminating context-switching for millions of web builders.",
-    "swot": {
-      "strengths": [
-        "WordPress integration positions product at point-of-use for SMBs building sites and automating workflows simultaneously",
-        "Large addressable market (WordPress powers a significant share of web) with minimal automation tool adoption",
-        "Low churn potential from sticky WordPress ecosystem vs generic automation platforms targeting all SMBs"
-      ],
-      "weaknesses": [
-        "Early-stage revenue maturity limits feature depth for complex enterprise workflows beyond WordPress sphere",
-        "Fragmented WordPress plugin ecosystem creates support burden and integration maintenance costs",
-        "Narrow positioning limits expansion revenue per customer vs broad automation platforms"
-      ],
-      "opportunities": [
-        "White-label offering for WordPress agencies and consultants to bundle automation as managed service",
-        "Vertical specialization in WordPress-native use cases (lead gen, form-to-CRM, email campaigns) competitors ignore",
-        "Ecosystem partnerships (Elementor, WooCommerce) to become default automation layer for WordPress builders"
-      ],
-      "threats": [
-        "Zapier and Make native WordPress plugins eroding SureTriggers' ecosystem advantage",
-        "Larger SaaS platforms (HubSpot, Mailchimp) building native WordPress automation reducing standalone tool value",
-        "WordPress.com adoption shifts trend toward hosted solutions with embedded automation, sidelining plugins"
-      ]
-    },
-    "userLikes": [
-      "Workflow automation directly accessible from WordPress dashboard without leaving familiar interface",
-      "Low price point and minimal setup appeal to solo WordPress consultants and small agencies",
-      "Native support for WordPress-specific triggers (form submissions, user signups) other tools require connectors for"
-    ],
-    "userComplaints": [
-      "Feature parity gaps with Zapier/Make for non-WordPress SaaS workflows and integrations",
-      "Customer support responsiveness sometimes slow due to early-stage scaling challenges",
-      "WordPress plugin ecosystem instability and compatibility issues during WordPress major version updates"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Freelance web designers and developers automating client WordPress sites",
-        "SMB marketers using WordPress as CMS and automating lead capture and nurturing",
-        "WordPress agencies bundling automation services for clients without separate tool overhead"
-      ],
-      "typicalBuyer": "Web designer or WordPress consultant building automation for client business processes",
-      "topUseCases": [
-        "Lead capture from WordPress forms into email sequences and CRM pipelines",
-        "E-commerce order notifications and fulfillment triggers for WooCommerce stores",
-        "Content publication automation linking WordPress posts to social media and email marketing platforms"
-      ]
-    },
-    "futureAreas": [
-      "Agency-focused features (multi-site management, white-labeling) competing with Zapier for WordPress consultants",
-      "Vertical solutions for WordPress-native use cases (landing page optimization, lead nurturing) to increase customer LTV",
-      "Native AI features (prompt templates, AI-powered triggers) to compete with GenAI-enabled automation platforms"
     ]
   },
   "rpa/albato": {
@@ -10709,57 +9676,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Expansion into AI resilience and model robustness testing"
     ]
   },
-  "aiops/steadybit": {
-    "competitiveEdge": "European-based chaos engineering platform emphasizing accessibility and integration with cloud-native DevOps workflows for reliability experimentation at scale.",
-    "swot": {
-      "strengths": [
-        "User-friendly platform that lowers barrier to entry for chaos engineering",
-        "Strong focus on integration with Kubernetes and container ecosystems",
-        "Agile development approach responsive to European customer needs"
-      ],
-      "weaknesses": [
-        "Limited market presence outside EMEA region",
-        "Smaller funding and team compared to Gremlin or observability incumbents",
-        "Emerging vendor status limits enterprise trust and reference-ability"
-      ],
-      "opportunities": [
-        "Growing EMEA market demand for GDPR-compliant resilience tools",
-        "Expansion into multicloud resilience validation",
-        "Partnership with cloud-native infrastructure vendors (cloud providers, K8s platforms)"
-      ],
-      "threats": [
-        "Well-funded competitors with larger sales and marketing resources",
-        "Incumbent observability platforms launching chaos engineering features"
-      ]
-    },
-    "userLikes": [
-      "Intuitive interface makes chaos engineering accessible without deep expertise",
-      "Strong Kubernetes integration aligns with modern DevOps toolchains",
-      "Community-driven approach encourages user contribution and feedback"
-    ],
-    "userComplaints": [
-      "Limited integrations with non-Kubernetes infrastructure and legacy systems",
-      "Smaller ecosystem compared to larger chaos engineering competitors",
-      "Early-stage documentation and support can lag during rapid feature development"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Cloud-native SaaS companies in EMEA",
-        "Mid-market Kubernetes-first organizations"
-      ],
-      "typicalBuyer": "DevOps or SRE engineer at growth-stage tech companies",
-      "topUseCases": [
-        "Chaos experimentation within Kubernetes clusters",
-        "Continuous validation of cloud-native resilience practices",
-        "Team training and capability building in chaos engineering"
-      ]
-    },
-    "futureAreas": [
-      "Expansion into broader multicloud failure scenarios",
-      "Integration with CI/CD pipelines for continuous resilience validation",
-      "Enhanced analytics and insights from resilience experiments"
-    ]
-  },
   "aiops/botkube": {
     "competitiveEdge": "ChatOps-native Kubernetes monitoring and troubleshooting that brings incident response into chat platforms, eliminating context switching during Kubernetes events.",
     "swot": {
@@ -11019,59 +9935,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Causal inference applied to cost optimization, identifying infrastructure and service dependencies driving spend"
     ]
   },
-  "aiops/metaplane": {
-    "competitiveEdge": "Acquired by Datadog in April 2025; brings dedicated data observability and lineage capabilities to expand Datadog's reach into data team operations.",
-    "swot": {
-      "strengths": [
-        "Datadog acquisition provides massive distribution, engineering resources, and platform integration opportunity",
-        "Data observability niche remains underserved; strong tailwind from data quality and reliability focus",
-        "Lineage and dependency mapping capabilities complement Datadog's infrastructure observability"
-      ],
-      "weaknesses": [
-        "Acquisition integration risk; uncertainty around product roadmap and standalone viability",
-        "Data observability market still maturing; many enterprises lack data quality ownership structure",
-        "Must compete with pure-play data quality vendors and integrate into Datadog's complex platform"
-      ],
-      "opportunities": [
-        "Integrate data observability signals into Datadog's APM and infrastructure dashboards for full-stack visibility",
-        "Expand data lineage to cost attribution across data pipelines and cloud data warehouses",
-        "Enable Datadog customers to bundle data and infrastructure observability in unified SLO framework"
-      ],
-      "threats": [
-        "Specialized data quality vendors (Sifflet, Validio, Great Expectations) retaining momentum with focused positioning",
-        "Data warehouse vendors (Snowflake, BigQuery) embedding native data quality and lineage capabilities",
-        "Data engineering platforms (Airflow, Dagster) bundling observability as table stakes"
-      ]
-    },
-    "userLikes": [
-      "Lineage visualization clarifies data flow dependencies, accelerating debugging of pipeline failures",
-      "Anomaly detection on data freshness and row counts catches quality issues before downstream impact",
-      "Integration roadmap into Datadog ecosystem reduces tool sprawl for observability-first organizations"
-    ],
-    "userComplaints": [
-      "Post-acquisition direction unclear; existing customers uncertain about feature priorities and standalone product viability",
-      "Integration with Datadog platform still nascent; today feels like separate tool within larger platform",
-      "Pricing model post-acquisition unknown; concerns about cost consolidation when moving to Datadog ecosystem"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Data-driven enterprises with 50+ data engineers managing complex ETL and analytics pipelines",
-        "Financial services, retail, and tech companies with SLA-driven data reliability requirements",
-        "Existing Datadog customers seeking to expand observability coverage to data team operations"
-      ],
-      "typicalBuyer": "Data Engineering Manager or VP of Analytics / Data Science",
-      "topUseCases": [
-        "End-to-end data lineage tracking and impact analysis for pipeline changes",
-        "Automated data freshness and quality monitoring with alerting to data team",
-        "Root cause analysis for failed pipelines by identifying upstream data quality issues"
-      ]
-    },
-    "futureAreas": [
-      "Unified observability dashboard combining infrastructure, applications, and data pipelines in single SLO framework",
-      "AI-powered data quality scoring and remediation recommendations across multiple data sources",
-      "Cost attribution for data pipelines, identifying expensive transformations and data duplication"
-    ]
-  },
   "aiops/sifflet": {
     "competitiveEdge": "End-to-end data observability with visual lineage mapping enables data teams to manage quality and reliability at enterprise scale.",
     "swot": {
@@ -11231,110 +10094,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Impact correlation, linking data quality events to downstream business outcomes and revenue impact"
     ]
   },
-  "aiops/helios": {
-    "competitiveEdge": "Specialized distributed tracing with visual flow mapping designed for microservices troubleshooting.",
-    "swot": {
-      "strengths": [
-        "Focused niche: distributed tracing authority in microservices-native stacks",
-        "Lower complexity entry vs. full observability suites; narrower scope attracts engineering-first buyers",
-        "Positioning complements (not cannibalizes) log/metrics vendors — natural coexistence"
-      ],
-      "weaknesses": [
-        "Highly fragmented market with 50+ observability competitors and tracing consolidation into larger platforms",
-        "Limited TAM: tracing-only play struggles as Datadog/Dynatrace integrate distributed tracing into full stacks",
-        "Early revenue stage ($3M ARR) limits sales/marketing investment vs. funded observability leaders"
-      ],
-      "opportunities": [
-        "Kubernetes and service mesh adoption driving demand for microservices-native debugging tools",
-        "Acquisition target for larger platforms seeking tracing specialization (similar to Chronosphere/Palo Alto model)",
-        "OpenTelemetry standardization enables agnostic tracing platform positioning"
-      ],
-      "threats": [
-        "Datadog/Dynatrace/Elastic ship native distributed tracing; adoption defaults to existing platform",
-        "Open-source tracing frameworks (Jaeger, Zipkin) commoditize core capability; hard to differentiate",
-        "Economic slowdown reduces buy-vs-build budgets for point solutions"
-      ]
-    },
-    "userLikes": [
-      "Clean, intuitive visualization of request flows through distributed systems",
-      "Lightweight integration with minimal instrumentation overhead vs. full APM stacks",
-      "Focused product that doesn't force learning full observability suite"
-    ],
-    "userComplaints": [
-      "Limited correlation with metrics or logs; requires separate tools for root cause completion",
-      "Vendor lock-in concerns: proprietary tracing format not compatible with OpenTelemetry standards",
-      "Sparse documentation and community compared to mature observability platforms"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Startups and scale-ups running Kubernetes with microservices architectures",
-        "Engineering-driven teams with existing observability stack (logs/metrics) seeking specialized tracing"
-      ],
-      "typicalBuyer": "Staff or principal engineer evaluating developer tools and operational visibility",
-      "topUseCases": [
-        "Tracing API and service interactions in containerized microservices",
-        "Identifying latency bottlenecks in request call chains across services",
-        "Understanding service dependencies and communication patterns for refactoring"
-      ]
-    },
-    "futureAreas": [
-      "Horizontal integration: adding metrics/logs context to trace views for unified troubleshooting",
-      "AI-assisted anomaly highlighting and predictive latency warnings within trace flows",
-      "Managed platform positioning: moving upstream to compete as light observability alternative"
-    ]
-  },
-  "aiops/fiberplane": {
-    "competitiveEdge": "Collaborative incident notebooks purpose-built for shared investigation and cross-team knowledge capture during outages.",
-    "swot": {
-      "strengths": [
-        "Unique collaboration angle: notebooks normalize incident investigation as documented processes",
-        "Lower friction vs. traditional wiki/document tools; designed for real-time incident context sharing",
-        "Runbook standardization appeals to enterprises scaling reliability practices across teams"
-      ],
-      "weaknesses": [
-        "Early stage with minimal revenue; unproven unit economics for SaaS expansion",
-        "Narrow TAM: incident investigation is one phase; most teams already use Slack/Jira/Confluence for context",
-        "Positioned as supplementary tool, not core platform; adoption requires change in incident workflow"
-      ],
-      "opportunities": [
-        "Enterprise SRE/reliability maturity trend drives demand for incident documentation and learning",
-        "Acquisition target for PagerDuty, Incident.io, or observability vendors seeking investigation workflow",
-        "Runbook-as-code marketplace positioning could extend into automation and knowledge management"
-      ],
-      "threats": [
-        "PagerDuty, Incident.io, and ServiceNow bundling incident investigation into core products eroding standalone need",
-        "Low switching costs if teams stick with Slack threads + external wiki for incident memory",
-        "AI-generated runbooks could commoditize manual notebook creation"
-      ]
-    },
-    "userLikes": [
-      "Simple, intuitive notebooks eliminate wiki friction during urgent incident investigations",
-      "Built-in context linking to logs, metrics, alerts makes debugging faster than context-switching",
-      "Team knowledge preservation: incidents become reusable learning artifacts instead of Slack ephemera"
-    ],
-    "userComplaints": [
-      "Requires intentional adoption during incidents; not automatic integration with existing alerting/ticketing",
-      "Lacks predictive or AI-assisted analysis features compared to observability platforms",
-      "Limited automation: still requires manual documentation rather than auto-captured investigation data"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market SaaS companies with mature SRE practices and cross-functional incident teams",
-        "High-reliability engineering orgs valuing post-incident learning and runbook standardization"
-      ],
-      "typicalBuyer": "Site reliability engineer or incident commander seeking better incident documentation",
-      "topUseCases": [
-        "Documenting incident timeline, symptoms, and resolution steps for post-mortems",
-        "Building standardized runbooks from past incidents for faster future resolution",
-        "Cross-team knowledge sharing during active incident investigation"
-      ]
-    },
-    "futureAreas": [
-      "Automation: auto-linking detected anomalies to relevant runbooks and historical incidents",
-      "Knowledge graph: AI-powered incident pattern recognition to surface similar past events",
-      "Platform integration: deeper webhooks into PagerDuty, Slack, and observability vendors"
-    ]
-  },
   "aiops/firehydrant": {
     "competitiveEdge": "End-to-end incident management suite with Freshworks integration enabling service desk-to-SRE incident workflow unification.",
     "swot": {
@@ -11385,58 +10144,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI-assisted incident severity classification and automatic escalation routing within Freshworks suite",
       "Proactive change intelligence: identifying risky deployments or configuration changes before incidents occur",
       "Platform partnership expansion: deeper integrations with observability and on-call scheduling ecosystems"
-    ]
-  },
-  "aiops/glasnostic": {
-    "competitiveEdge": "Network-layer traffic control and visibility for distributed systems, enabling fine-grained traffic engineering without application rewrites.",
-    "swot": {
-      "strengths": [
-        "Differentiated: network/traffic control angle is underserved vs. observability-centric competitors",
-        "Appeals to large infrastructure teams managing complex service meshes and network policies",
-        "Complementary to observability: addresses traffic engineering, not just monitoring"
-      ],
-      "weaknesses": [
-        "Early stage with minimal revenue; competitive moat unclear vs. Envoy, Istio, and service mesh incumbents",
-        "Infrastructure-heavy positioning requires deep platform engineering expertise for adoption",
-        "Overlapping service mesh ecosystem (Istio, Linkerd, Consul) commoditizes traffic control capabilities"
-      ],
-      "opportunities": [
-        "eBPF and kernel-native observability trend: potential to embed traffic control at kernel level",
-        "Multi-cluster and multi-cloud traffic engineering: complexity driver for adoption",
-        "Acquisition target for Gremlin, NETSCOUT, or container/K8s orchestration vendors"
-      ],
-      "threats": [
-        "Service mesh consolidation: Istio, Linkerd, and cloud provider meshes include traffic control native",
-        "APIv3/v4 maturity: increasing commodity behavior in ingress controllers reduces specialization need",
-        "Kubernetes adoption plateau may reduce infrastructure-heavy tool experimentation budgets"
-      ]
-    },
-    "userLikes": [
-      "Granular traffic control without modifying application code or service mesh config",
-      "Real-time visibility into distributed system traffic patterns and dependencies",
-      "Enables traffic-based experiments and rollout strategies for large-scale distributed systems"
-    ],
-    "userComplaints": [
-      "Steep learning curve: network-layer tooling unfamiliar to most application engineering teams",
-      "Integration overhead: requires coordination with service mesh or load balancer teams",
-      "Limited ecosystem: fewer integrations with observability, CICD, or automation tools vs. larger platforms"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large-scale infrastructure teams managing complex microservices and Kubernetes deployments",
-        "Organizations running custom service mesh or heavy traffic engineering workflows"
-      ],
-      "typicalBuyer": "Principal or distinguished engineer leading infrastructure or platform engineering",
-      "topUseCases": [
-        "Managing traffic flows and load balancing policies across distributed service architectures",
-        "Implementing advanced deployment strategies (canary, blue-green) with traffic-based controls",
-        "Diagnosing and optimizing network communication patterns in microservices ecosystems"
-      ]
-    },
-    "futureAreas": [
-      "eBPF-native implementation: moving from sidecar/proxy model to kernel observability and control",
-      "Intent-based networking: high-level policy language abstracting network topology complexity",
-      "Multi-cloud traffic orchestration: unified control plane for traffic across cloud providers"
     ]
   },
   "aiops/parca": {
@@ -16183,65 +14890,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "itom/atomicwork": {
-    competitiveEdge: "Atomicwork is an AI-first ITSM platform built from scratch for the agent era — instead of adding AI to a legacy ticketing system, the entire product is designed around AI agents autonomously handling employee IT requests from day one.",
-    swot: {
-      strengths: [
-        "AI-native architecture: every interaction routed through AI before reaching a human technician",
-        "Modern UI that engineers and employees genuinely enjoy using — high adoption rates",
-        "Fast deployment: weeks to launch versus months for ServiceNow or BMC",
-        "Strong positioning in the intersection of ITSM + AI Ops + Employee Experience",
-        "Appears in both ITOM and AgentOps categories — validates platform versatility",
-      ],
-      weaknesses: [
-        "Early-stage revenue and limited enterprise reference customers versus incumbents",
-        "CMDB, change management, and complex ITIL processes still maturing",
-        "Limited integrations compared to the hundreds available in ServiceNow or Jira SM",
-        "Brand awareness low outside early-adopter engineering and IT communities",
-      ],
-      opportunities: [
-        "Greenfield enterprise ITSM refreshes: companies replacing legacy BMC or ServiceNow at renewal",
-        "SME and mid-market: a simpler, AI-native alternative to Freshservice and Jira SM",
-        "Enterprise self-service automation: eliminating the IT helpdesk Tier 1 role entirely with AI agents",
-        "Expanding from ITSM into ESM: HR, finance, and legal service management on the same platform",
-      ],
-      threats: [
-        "ServiceNow Now Assist and Atlassian Intelligence adding equivalent AI-first experiences to mature platforms",
-        "Freshservice with Freddy AI offering similar value at competitive pricing",
-        "Well-funded AI-native ITSM competitors (Moveworks, Aisera) with larger customer bases",
-        "Commoditization risk: every ITSM vendor will claim AI-native within 24 months",
-      ],
-    },
-    userLikes: [
-      "Feels like a modern product — employees use it without needing training",
-      "AI triage and response drafts reduce technician workload significantly from day one",
-      "Deployment is fast — teams go live in weeks, not quarters",
-      "Founders are deeply engaged with customers and ship requested features quickly",
-      "Works well as a Teams/Slack-native self-service experience",
-    ],
-    userComplaints: [
-      "Missing enterprise ITSM features: complex SLA management, multi-tier support routing, advanced CMDB",
-      "Integrations library is limited — custom API work needed for many enterprise systems",
-      "Reporting dashboard is basic — lacks the executive-level analytics larger teams need",
-      "Still finding product-market fit in enterprise vs. mid-market — some rough edges at scale",
-    ],
-    customerProfile: {
-      segments: ["Mid-Market Tech Companies (200–2,000 employees)", "SaaS-First Organizations Modernizing ITSM", "Teams Frustrated with ServiceNow or Jira SM Complexity"],
-      typicalBuyer: "IT Manager, Head of IT, or VP Engineering",
-      topUseCases: [
-        "AI-powered employee self-service reducing Tier 1 IT ticket volume by 60–80%",
-        "Modern ITSM replacing legacy BMC Remedy or ServiceNow at cost-conscious mid-market firms",
-        "Slack/Teams-native IT support with conversational AI handling common requests",
-      ],
-    },
-    futureAreas: [
-      "Full autonomous ITSM: AI agents that resolve incidents, fulfill requests, and close tickets without humans",
-      "Enterprise CMDB and asset management competitive with ServiceNow's depth",
-      "ESM expansion: HR, finance, and facilities service management on the Atomicwork platform",
-      "Predictive analytics: surfacing potential IT issues before they generate tickets",
-      "Deep integrations with ERP (SAP, Oracle) and identity providers for enterprise readiness",
-    ],
-  },
 
   "itom/zluri": {
     competitiveEdge: "Zluri's AI-powered SaaS discovery engine finds shadow IT and unused licenses that other tools miss — delivering an average 30% reduction in SaaS spend within the first 90 days of deployment.",
@@ -17515,125 +16163,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "agentops/shoreline-io": {
-    competitiveEdge: "Shoreline.io is the only platform purpose-built for cloud operations automation — allowing SREs to codify runbooks as executable automations that run autonomously at the moment of a production incident, not after a human reads the alert.",
-    swot: {
-      strengths: [
-        "Runbook automation as code: SREs write once, operations run automatically without human trigger",
-        "Native Kubernetes and cloud-native architecture targeting the modern SRE toolchain",
-        "Self-healing infrastructure: automated remediation executes at incident time, not after escalation",
-        "Strong fit for SRE teams practicing 'toil elimination' as a formal engineering practice",
-        "Op (operation) objects provide standardized, versioned, and auditable remediation actions",
-      ],
-      weaknesses: [
-        "Early revenue stage ($5M ARR) — limited enterprise reference customers at scale",
-        "Requires strong runbook documentation as input — teams without runbooks can't leverage self-healing",
-        "Limited ITSM integration depth for creating tickets, coordinating approvals, or escalation",
-        "Niche positioning may limit TAM relative to broader AIOps or ITSM platforms",
-      ],
-      opportunities: [
-        "Growing SRE adoption: more companies formalizing SRE roles create demand for SRE automation tools",
-        "AI-generated runbooks: LLM creating and validating Op objects from incident history",
-        "Platform integration: embedding Shoreline as the remediation layer within observability tools",
-        "Kubernetes operator model: deploying Shoreline as an autonomous ops component in every cluster",
-      ],
-      threats: [
-        "PagerDuty runbook automation and Datadog workflow automation covering similar use cases",
-        "AWS Systems Manager and Azure Automation providing cloud-native remediation at no extra cost",
-        "Resolve.AI and other AI incident response platforms including auto-remediation capabilities",
-        "Small team size creates execution risk as larger, better-funded competitors move into self-healing ops",
-      ],
-    },
-    userLikes: [
-      "Runbook-as-code means remediation actions are versioned, tested, and audited like software",
-      "Self-healing triggers eliminate the on-call alert-to-action delay that causes extended incidents",
-      "Op objects are reusable across different infrastructure components and incident types",
-      "Strong developer experience — SREs who write code feel at home with Shoreline's model",
-      "Integration with PagerDuty and Datadog means Shoreline fits into existing alert routing",
-    ],
-    userComplaints: [
-      "Value requires well-documented runbooks — organizations without them need to invest before benefiting",
-      "Kubernetes-focused — limited support for legacy VM or bare-metal environments",
-      "UI and onboarding experience needs improvement for less technical operations staff",
-      "Pricing model is still evolving — TCO comparison to alternatives is difficult",
-    ],
-    customerProfile: {
-      segments: ["SRE-Mature Engineering Teams at Tech Companies", "Kubernetes-Native Cloud Operations Teams", "Organizations Practicing Formal Toil Elimination"],
-      typicalBuyer: "Head of SRE, Staff Site Reliability Engineer, or VP Platform Engineering",
-      topUseCases: [
-        "Automated production remediation: self-healing actions triggered by monitoring alerts",
-        "Runbook digitization: converting manual SRE procedures into executable Op objects",
-        "Toil reduction: automating repetitive operational tasks that drain SRE capacity",
-      ],
-    },
-    futureAreas: [
-      "AI runbook generation: LLMs writing and validating Op objects from incident postmortem analysis",
-      "Multi-cloud self-healing: expanding beyond AWS/GCP/Azure to edge and hybrid environments",
-      "Autonomous incident commander: AI agent orchestrating multiple Ops in sequence during complex incidents",
-      "FinOps automation: automated right-sizing and resource reclamation Ops for cloud cost optimization",
-      "Integration as a remediation layer embedded within observability platforms (Datadog, Dynatrace)",
-    ],
-  },
 
-  "agentops/causely": {
-    competitiveEdge: "Causely applies causal AI reasoning — not just correlation — to cloud operations, automatically identifying why incidents happen and triggering self-healing actions based on causal understanding rather than reactive alert matching.",
-    swot: {
-      strengths: [
-        "Causal AI engine understands cause-and-effect relationships, not just statistical correlations",
-        "Automatic root cause identification without requiring manual alert rule configuration",
-        "Self-healing actions triggered by causal understanding reduce mean-time-to-recovery",
-        "OpenTelemetry-native: integrates with any observability platform without vendor lock-in",
-        "Purpose-built for Kubernetes and cloud-native microservices environments",
-      ],
-      weaknesses: [
-        "Early-stage revenue and very limited enterprise references",
-        "Causal AI approach requires time to build a causal model of the environment — value delayed",
-        "Limited integrations and remediation action library at current maturity level",
-        "Small team creates execution risk and support limitations for enterprise customers",
-      ],
-      opportunities: [
-        "Causal AI differentiation: as ML-based AIOps tools generate false positives, causal precision stands out",
-        "SRE automation: automating the 'understanding why' step that human SREs currently spend most time on",
-        "Platform integration: Causely reasoning engine embedded within observability platform products",
-        "Enterprise AI operations: selling into the growing enterprise AI ops budget category",
-      ],
-      threats: [
-        "Dynatrace Davis AI providing deterministic root cause at enterprise scale already",
-        "Resolve.AI and Shoreline.io competing for the autonomous cloud operations budget",
-        "Datadog and Grafana improving AI correlation capabilities that approach causal reasoning quality",
-        "Funding risk: early-stage startups in this space face intense competition for limited enterprise budgets",
-      ],
-    },
-    userLikes: [
-      "Root cause identified automatically — no alert noise to manually correlate",
-      "Causal model builds over time and gets more accurate as it learns the environment",
-      "OpenTelemetry compatibility means no new instrumentation required",
-      "Compact team provides highly responsive and personalized customer support",
-      "Self-healing actions triggered by causal reasoning feel more trustworthy than rule-based automation",
-    ],
-    userComplaints: [
-      "Causal model requires a learning period before delivering full value",
-      "Limited remediation action library — custom automations require engineering work",
-      "Very early stage: limited documentation and community resources",
-      "Enterprise features (RBAC, audit trails, compliance) still being developed",
-    ],
-    customerProfile: {
-      segments: ["Early-Adopter SRE Teams at Tech Companies", "Cloud-Native Startups and Scale-ups", "Organizations Evaluating Autonomous Operations Platforms"],
-      typicalBuyer: "Head of SRE, VP Platform Engineering, or forward-thinking IT Director",
-      topUseCases: [
-        "Automatic root cause analysis for Kubernetes and microservices incidents",
-        "Self-healing cloud operations triggered by causal understanding of failures",
-        "Reducing SRE toil by automating the investigation phase of incident response",
-      ],
-    },
-    futureAreas: [
-      "Expanding causal AI coverage to non-Kubernetes environments (serverless, VMs, edge)",
-      "Proactive causal analysis: predicting failures before they occur based on leading causal indicators",
-      "Remediation action library: pre-built self-healing actions for common cloud failure patterns",
-      "Causal AI for FinOps: understanding which system changes cause unexpected cloud cost increases",
-      "Enterprise compliance features: audit logs, RBAC, and security controls for governed deployments",
-    ],
-  },
 
   /* ══════════════════════════════════════════════════════════════════════════
      SecOps — Top 5 Spotlight (Established Vendors)
@@ -20556,62 +19086,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "itom/aisera": {
-    competitiveEdge: "Aisera's Generative AI service desk resolves 90%+ of employee IT and HR requests autonomously — backed by the largest pre-trained IT knowledge graph in the industry, delivering meaningful deflection from day one without months of training.",
-    swot: {
-      strengths: [
-        "Industry-leading autonomous resolution rate: 90%+ ticket deflection validated by enterprise customers",
-        "Pre-trained on 1B+ IT and HR service interactions for immediate out-of-box performance",
-        "Conversational AI covers IT, HR, finance, and facilities on a single platform",
-        "Integration breadth with 400+ enterprise systems for automated request fulfillment",
-        "Acquired by Automation Anywhere, adding RPA execution layer to AI resolution capabilities",
-      ],
-      weaknesses: [
-        "Post-acquisition integration with Automation Anywhere creates roadmap uncertainty",
-        "Premium pricing reflects enterprise capabilities — less accessible for mid-market organizations",
-        "Deployment complexity for large enterprises with custom identity and directory configurations",
-        "Direct competition with ServiceNow Now Assist makes competitive displacement increasingly difficult",
-      ],
-      opportunities: [
-        "Combined AI + RPA: Automation Anywhere integration enables end-to-end automated resolution beyond knowledge responses",
-        "Employee experience transformation: move from ticket deflection to proactive employee assistance",
-        "Expanding from ITSM into HR and facilities self-service for full ESM coverage",
-        "International enterprise expansion in EMEA and APAC where AI ITSM is earlier in adoption",
-      ],
-      threats: [
-        "ServiceNow Now Assist and Moveworks (acquired by ServiceNow) dominating enterprise AI helpdesk",
-        "Microsoft Copilot for IT increasingly integrated into M365 tickets reducing Aisera's differentiation",
-        "Atlassian Intelligence embedded in Jira Service Management for DevOps-centric buyers",
-        "Automation Anywhere acquisition may shift strategic focus away from pure ITSM use cases",
-      ],
-    },
-    userLikes: [
-      "90%+ autonomous resolution rate is measurable from week one with minimal tuning required",
-      "Pre-trained knowledge graph means no 6-month training period like competitor solutions",
-      "Multi-domain support: employees get IT, HR, and facilities help from one conversational interface",
-      "Integration depth with ServiceNow, Workday, and SAP enables automated fulfillment, not just answers",
-    ],
-    userComplaints: [
-      "Enterprise pricing requires significant budget commitment before ROI is fully demonstrated",
-      "Customizing AI responses for highly specific internal processes requires professional services",
-      "Post-Automation Anywhere acquisition roadmap clarity still developing for standalone ITSM customers",
-    ],
-    customerProfile: {
-      segments: ["Fortune 500 Enterprise", "Mid-Large Enterprise IT and HR", "Technology and Financial Services"],
-      typicalBuyer: "CIO, VP IT, or Chief People Officer",
-      topUseCases: [
-        "Autonomous IT help desk resolving password resets, access requests, and software issues",
-        "HR service delivery: answering benefits, payroll, and policy questions without HR agent involvement",
-        "Unified enterprise service management covering IT, HR, and facilities on one AI platform",
-      ],
-    },
-    futureAreas: [
-      "Combined AI + RPA workflows: Aisera AI generating intent triggering Automation Anywhere RPA bots",
-      "Proactive employee experience: AI identifying potential issues and resolving them before ticket creation",
-      "Predictive knowledge management: AI detecting knowledge gaps and generating self-service articles",
-      "Agentic operations: multi-step autonomous workflows spanning IT, HR, and facilities systems",
-    ],
-  },
 
   // ── SecOps Established ───────────────────────────────────────────────────
 
@@ -23381,62 +21855,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "agentops/intercom-fin-ai": {
-    competitiveEdge: "Fin AI is the only enterprise customer support agent built on a proprietary base model fine-tuned exclusively on support conversations — achieving 50%+ autonomous resolution rates out of the box without custom training that other AI agents require.",
-    swot: {
-      strengths: [
-        "Fin AI resolves 50%+ of inbound support tickets autonomously from day one",
-        "Pre-trained on support conversation patterns for high-relevance responses",
-        "Intercom Messenger integration: same AI available in product, email, and chat",
-        "Proactive support: Fin detects in-app behaviour patterns and offers help preemptively",
-        "Strong product-led growth with transparent pricing and self-service deployment",
-      ],
-      weaknesses: [
-        "Primarily B2B SaaS and technology product support — less proven in other verticals",
-        "IT operations and ITSM use cases are secondary to customer-facing support",
-        "Less suitable for complex multi-step back-office workflows beyond support resolution",
-        "Escalation quality and live agent handoff less mature than enterprise-grade CX platforms",
-      ],
-      opportunities: [
-        "Employee self-service: Fin AI for internal IT and HR helpdesk in addition to customer support",
-        "Voice AI: Fin answering phone support calls autonomously",
-        "SMB support automation where dedicated contact centre platforms are too expensive",
-        "AI Copilot for sales: Fin knowledge base assistance for deal support teams",
-      ],
-      threats: [
-        "Zendesk AI and Freshdesk Freddy competing with integrated helpdesk AI",
-        "Intercom pricing increases pushing customers to Zendesk or Freshdesk",
-        "OpenAI GPT-4 API integrations enabling companies to build custom support AI",
-        "Salesforce Service Cloud Einstein competing for enterprise customer service AI",
-      ],
-    },
-    userLikes: [
-      "High out-of-the-box resolution rate genuinely reduces human support volume",
-      "Fast deployment — Fin learns from existing help centre content without custom training",
-      "Proactive messaging reduces support ticket creation by answering questions before they're asked",
-      "Clean integration with Intercom Messenger that users already interact with in-product",
-    ],
-    userComplaints: [
-      "Pricing model can make costs unpredictable at high conversation volumes",
-      "Complex or technical product support hits limits of autonomous resolution",
-      "Limited customisation for highly regulated or compliance-sensitive support scenarios",
-    ],
-    customerProfile: {
-      segments: ["B2B SaaS Companies", "Technology Product Companies", "Mid-Market Enterprise"],
-      typicalBuyer: "Head of Customer Support / VP CX / Chief Customer Officer",
-      topUseCases: [
-        "Autonomous tier-1 customer support resolution from help centre content",
-        "Proactive in-app support reducing inbound contact volume",
-        "Support agent Copilot: AI suggestions to human agents during escalated conversations",
-      ],
-    },
-    futureAreas: [
-      "Voice AI: Fin handling inbound phone support calls autonomously",
-      "Employee Fin: deploying Fin AI for internal IT and HR helpdesk",
-      "Predictive support: identifying users likely to churn and proactively resolving issues",
-      "Fin for sales: AI supporting deal cycles with product knowledge and competitive intelligence",
-    ],
-  },
 
   "agentops/glean": {
     competitiveEdge: "Glean is the only enterprise AI search platform trained on a company's complete internal knowledge graph — connecting documents, conversations, tickets, and people so employees find accurate information across all workplace tools from a single query.",
@@ -26377,62 +24795,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Writer for IT expanding knowledge management automation into ITSM and service operations",
     ],
   },
-  "agentops/forethought": {
-    competitiveEdge: "Forethought is the AI platform purpose-built for customer and employee support automation — its SupportGPT model, trained specifically on support interactions, delivers out-of-the-box ticket deflection and agent assist that specialized support operations teams can deploy in days, not months, with measurable deflection rate improvements from day one.",
-    swot: {
-      strengths: [
-        "SupportGPT trained on support-domain data outperforms general-purpose LLMs for ticket resolution",
-        "Solve (autonomous resolution), Triage (intelligent routing), and Assist (agent copilot) cover the full support workflow",
-        "Pre-built integrations with Zendesk, Salesforce, Freshdesk, and Jira Service Management",
-        "Deflection rate reporting with direct cost savings calculation for ROI justification",
-        "Fast deployment — production-grade AI support automation operational within 2 weeks",
-      ],
-      weaknesses: [
-        "Support-domain specialization limits applicability beyond service desk and customer support",
-        "Brand recognition limited vs. Intercom Fin AI and Zendesk AI in ITSM evaluations",
-        "Depends on quality of historical ticket data — poor training data limits AI effectiveness",
-        "Enterprise customization for complex routing rules requires professional services",
-      ],
-      opportunities: [
-        "IT service desk AI expansion as enterprise organizations automate tier-1 IT ticket resolution",
-        "HR service management automation for employee self-service beyond IT support",
-        "International expansion as enterprise support AI adoption accelerates in EMEA and APAC",
-        "Platform expansion into proactive support — predicting and preventing issues before tickets",
-      ],
-      threats: [
-        "Zendesk AI and Freshservice Freddy AI competing with native AI built into existing ITSM platforms",
-        "Intercom Fin AI and Salesforce Agentforce targeting same autonomous resolution market",
-        "Microsoft Copilot Studio embedding AI support automation in M365",
-        "Platform consolidation pressure — buyers prefer AI built into their existing ITSM vs. standalone",
-      ],
-    },
-    userLikes: [
-      "Deflection rates are genuine — SupportGPT resolves 40–60% of tickets without human escalation",
-      "Deployment speed is a real differentiator — 2-week time-to-value vs. multi-month enterprise AI projects",
-      "Deflection cost savings reporting makes ROI visible to IT leadership immediately",
-      "Integration with Zendesk and Freshdesk is seamless — no ITSM replacement required",
-    ],
-    userComplaints: [
-      "Training data quality sensitivity — organizations with poor historical ticket data see limited initial accuracy",
-      "Standalone platform requires separate vendor relationship vs. AI built into existing ITSM",
-      "Complex routing logic and escalation hierarchies require customization beyond out-of-the-box setup",
-    ],
-    customerProfile: {
-      segments: ["Mid-Market", "Enterprise"],
-      typicalBuyer: "VP of Customer Support or IT Service Desk Manager seeking rapid AI deflection ROI",
-      topUseCases: [
-        "Tier-1 IT ticket deflection with autonomous AI resolution of password resets, access requests, and FAQs",
-        "Agent assist surfacing relevant knowledge base articles and suggested responses in real time",
-        "Intelligent ticket routing directing issues to the right team without manual classification",
-      ],
-    },
-    futureAreas: [
-      "Proactive support AI predicting and resolving issues before employees submit tickets",
-      "Multi-channel automation expansion beyond email and chat to voice and Slack",
-      "IT asset and access management automation integrating with ITSM backends",
-      "Enterprise platform expansion into HR, Finance, and Legal shared service desks",
-    ],
-  },
   "agentops/assembled": {
     competitiveEdge: "Assembled is the workforce management platform purpose-built for support teams — its forecasting, scheduling, and real-time management capabilities help support operations leaders staff the right number of agents for demand, reducing overstaffing costs while maintaining SLA compliance across digital-first omnichannel environments.",
     swot: {
@@ -26767,62 +25129,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Expanded integration library covering 200+ enterprise systems without custom development",
       "AI agent performance analytics enabling business users to optimize agent behavior independently",
       "Relevance AI Marketplace for sharing pre-built agent templates across the community",
-    ],
-  },
-  "agentops/polyai": {
-    competitiveEdge: "PolyAI delivers the most natural, enterprise-grade voice AI for customer service — its voice-first conversational AI achieves human-like conversation quality at scale, enabling enterprises to automate high-volume phone interactions with satisfaction rates that match or exceed live agent performance.",
-    swot: {
-      strengths: [
-        "Voice-first AI architecture delivers natural conversation quality that text-first platforms cannot replicate",
-        "Enterprise-grade accuracy on complex, multi-turn voice conversations in noisy environments",
-        "Proven in high-volume deployments at Fortune 500 retail, hospitality, and financial services firms",
-        "Human-like voice quality reduces call abandonment vs. traditional IVR systems",
-        "Multi-language support with natural accent and dialect handling across 50+ languages",
-      ],
-      weaknesses: [
-        "Voice-only focus limits platform value for text-based support automation use cases",
-        "Premium pricing reflects voice AI complexity vs. text-based conversational AI platforms",
-        "Deployment requires deep contact center integration with PBX and telephony infrastructure",
-        "Brand recognition limited outside contact center and customer service audiences",
-      ],
-      opportunities: [
-        "Contact center modernization replacing legacy IVR with AI voice that customers prefer",
-        "Outbound voice automation for appointment reminders, collections, and proactive customer outreach",
-        "IT helpdesk voice automation for enterprises with phone-heavy internal support operations",
-        "International expansion as human-quality AI voice becomes table stakes for global contact centers",
-      ],
-      threats: [
-        "Google CCAI and Amazon Connect AI competing in cloud-native voice automation",
-        "Cognigy, Kore.ai, and NICE expanding voice AI within broader conversational platforms",
-        "Eleven Labs and Cartesia enabling custom voice AI at lower development cost",
-        "Hyperscale cloud providers commoditizing voice AI through AWS Transcribe and Google Speech",
-      ],
-    },
-    userLikes: [
-      "Voice naturalness is genuinely indistinguishable from human agents in customer satisfaction surveys",
-      "Call deflection rates from IVR to AI resolution are significantly higher than competitor platforms",
-      "Multi-language quality across accents and dialects enables true global deployment",
-      "Enterprise reliability at scale — proven at millions of calls per month without degradation",
-    ],
-    userComplaints: [
-      "Voice-only focus requires separate text/chat AI platform for omnichannel support strategies",
-      "Telephony integration complexity for legacy PBX systems requires significant implementation work",
-      "Premium pricing requires careful ROI modeling against live agent cost savings",
-    ],
-    customerProfile: {
-      segments: ["Enterprise", "Fortune 500"],
-      typicalBuyer: "VP of Customer Experience or Contact Center Director at a large consumer-facing enterprise",
-      topUseCases: [
-        "Inbound voice automation handling order status, reservations, and account inquiries autonomously",
-        "Contact center AI reducing handle time and agent escalation for high-volume call categories",
-        "24/7 voice self-service enabling customer resolution outside of staffed contact center hours",
-      ],
-    },
-    futureAreas: [
-      "Outbound proactive voice AI for appointment reminders, collections, and customer engagement",
-      "Emotion detection and voice sentiment analytics for call quality and customer experience measurement",
-      "Multi-modal AI combining voice with screen-sharing for complex customer support interactions",
-      "IT operations voice automation for internal helpdesk phone channels",
     ],
   },
   "agentops/guru": {
@@ -27503,4 +25809,1094 @@ export const vendorProfiles: Record<string, VendorProfile> = {
   },
 
 
+  "aiops/edge-delta": {
+    competitiveEdge: "Edge-side telemetry pipelines that shape and reduce data before storage, now free at any throughput.",
+    swot: {
+      strengths: [
+        "Distributed-edge processing cuts observability data volume and cost before ingest",
+        "Free unlimited-throughput pipelines remove per-GB licensing as a buying objection",
+        "Point-and-click visual pipeline builder avoids hand-edited config files",
+        "Vendor-agnostic: routes data to any backend across 50+ integrations",
+        "AI anomaly detection flags issues without manual threshold tuning",
+      ],
+      weaknesses: [
+        "Edge-agent deployment and tuning adds operational overhead at scale",
+        "Newer storage/analytics layer is less mature than incumbent platforms",
+        "Billing shifts to storage plus AI-token credits, complicating cost forecasting",
+        "Smaller ecosystem and brand recognition versus Datadog or Splunk",
+      ],
+      opportunities: [
+        "Capture cost-conscious teams fleeing per-GB observability pricing",
+        "Telemetry-pipeline category projected to handle 40% of log data by 2026",
+        "Expand from data plane into full observability and security analytics",
+        "Land-and-expand from free pipelines into paid storage and AI",
+      ],
+      threats: [
+        "Datadog, Splunk and Cribl adding native pipeline/edge features",
+        "OpenTelemetry collectors commoditizing telemetry shaping",
+        "Free-tier strategy may pressure margins and revenue conversion",
+        "Hyperscaler-native pipeline tooling bundled into cloud platforms",
+      ],
+    },
+    userLikes: [
+      "Dramatic reduction in log volume and downstream observability spend",
+      "Visual pipeline UI is approachable for non-experts",
+      "Flexibility to route the same data to multiple destinations",
+      "Responsive support and fast onboarding",
+    ],
+    userComplaints: [
+      "Learning curve around edge-agent concepts and pipeline design",
+      "Documentation and advanced features still maturing",
+      "Cost model around storage and AI credits can be hard to predict",
+    ],
+    customerProfile: {
+      segments: ["Mid-market", "Enterprise", "Cloud-native SaaS"],
+      typicalBuyer: "Observability lead / Platform engineering manager",
+      topUseCases: [
+        "Reducing log and metric volume before ingest",
+        "Routing telemetry to multiple backends",
+        "Real-time anomaly detection at the edge",
+      ],
+    },
+    futureAreas: [
+      "Deeper AI-driven root-cause on pipeline data",
+      "Unified observability and security data plane",
+      "Expanded managed storage tier",
+      "Agentic investigation on shaped telemetry",
+    ],
+  },
+  "aiops/neubird": {
+    competitiveEdge: "Agentic AI SRE (Hawkeye + Falcon) that autonomously triages, root-causes, and resolves production incidents.",
+    swot: {
+      strengths: [
+        "Hawkeye autonomously triages, root-causes and runs playbooks without human input",
+        "Reported MTTR reduction of up to 90% on complex incidents",
+        "Founders' track record (Portworx exit) lends enterprise credibility",
+        "Multi-cloud focus spanning AWS, Azure and hybrid production estates",
+        "Well-capitalized: ~$64M raised from Mayfield, M12, Xora and others",
+      ],
+      weaknesses: [
+        "Young product with limited public reference customers at scale",
+        "Autonomous remediation requires deep trust and governance to adopt",
+        "Crowded AI-SRE field makes differentiation harder to communicate",
+        "Heavy integration work to ingest each enterprise's tooling and context",
+      ],
+      opportunities: [
+        "Expand beyond incident response into broader production operations",
+        "Enterprises shifting from reactive patching to autonomous resolution",
+        "Land in DevOps, SRE and ITOps teams stretched thin on headcount",
+        "Channel and cloud-marketplace distribution via M12/Microsoft ties",
+      ],
+      threats: [
+        "Traversal, Cleric, Resolve.ai and Parity competing for same buyers",
+        "Incumbent observability vendors bundling agentic SRE features",
+        "Enterprise caution around letting agents act on production",
+        "Foundation-model providers moving up into ops automation",
+      ],
+    },
+    userLikes: [
+      "Hands-off triage and root-cause that saves on-call toil",
+      "Fast time-to-insight during noisy multi-cloud incidents",
+      "Playbook execution that mirrors existing runbooks",
+      "Enterprise-grade security and governance posture",
+    ],
+    userComplaints: [
+      "Trust and approval gates needed before allowing autonomous action",
+      "Onboarding requires significant context and integration setup",
+      "Maturity and breadth still proving out across edge cases",
+    ],
+    customerProfile: {
+      segments: ["Enterprise", "Multi-cloud operations", "Regulated industries"],
+      typicalBuyer: "VP of SRE / Head of Production Operations",
+      topUseCases: [
+        "Autonomous incident triage and resolution",
+        "Multi-cloud root-cause analysis",
+        "Reducing MTTR and on-call burden",
+      ],
+    },
+    futureAreas: [
+      "Proactive prevention before incidents fire",
+      "Broader autonomous production-ops coverage",
+      "Deeper change and deployment correlation",
+      "Governance controls for trusted autonomy",
+    ],
+  },
+  "aiops/traversal": {
+    competitiveEdge: "AI SRE pairing frontier agents with causal ML to trace incidents to true root cause via a production world model.",
+    swot: {
+      strengths: [
+        "Causal ML plus LLMs pinpoints true root cause, not just correlations",
+        "Production World Model unifies telemetry and code for AI reasoning",
+        "Founding team are published causal-inference researchers",
+        "82% RCA accuracy and ~32% MTTR reduction reported at American Express",
+        "Backed by Sequoia and Kleiner Perkins with $48M+ raised",
+      ],
+      weaknesses: [
+        "Causal-ML approach is complex to explain to mainstream buyers",
+        "Few named references beyond flagship financial-services design partner",
+        "Building the world model demands deep data and code access",
+        "Early-stage scale and support footprint versus incumbents",
+      ],
+      opportunities: [
+        "Win regulated enterprises needing explainable, accurate RCA",
+        "Amex Ventures investment opens financial-services channel",
+        "Differentiate on causality as rivals lean on pattern-matching",
+        "Expand from RCA into autonomous remediation and prevention",
+      ],
+      threats: [
+        "NeuBird, Cleric, Resolve.ai competing on agentic SRE",
+        "Observability incumbents adding AI root-cause natively",
+        "Enterprise data-access and security barriers to adoption",
+        "Generalist LLM agents narrowing the accuracy gap",
+      ],
+    },
+    userLikes: [
+      "High root-cause accuracy on genuinely complex incidents",
+      "Reasoning grounded in causality rather than guesswork",
+      "Autonomous, directed investigations across large datasets",
+      "Meaningful MTTR reduction in production trials",
+    ],
+    userComplaints: [
+      "Requires broad access to telemetry and source code to work well",
+      "Concept and value can be hard to grasp for non-experts",
+      "Early product with limited public deployment track record",
+    ],
+    customerProfile: {
+      segments: ["Enterprise", "Financial services", "Complex distributed systems"],
+      typicalBuyer: "Director of SRE / Site Reliability leadership",
+      topUseCases: [
+        "Causal root-cause analysis at scale",
+        "Autonomous incident investigation",
+        "Preventing recurring production incidents",
+      ],
+    },
+    futureAreas: [
+      "Autonomous remediation on top of RCA",
+      "Predictive incident prevention",
+      "Broader industry world-model templates",
+      "Tighter code-to-telemetry correlation",
+    ],
+  },
+  "aiops/parity": {
+    competitiveEdge: "AI SRE first-responder for Kubernetes that triages, root-causes, and suggests remediation before engineers log on.",
+    swot: {
+      strengths: [
+        "Purpose-built for Kubernetes on-call incident response",
+        "Investigates and proposes remediation before an engineer opens a laptop",
+        "Read-only VPC access and existing-alert integration ease security review",
+        "Executes established runbooks for consistent recurring-incident handling",
+        "Conversational interface for ad-hoc cluster status and config queries",
+      ],
+      weaknesses: [
+        "Kubernetes focus narrows fit for non-containerized estates",
+        "Early-stage YC company with limited enterprise track record",
+        "Smaller funding and team versus better-capitalized AI-SRE rivals",
+        "Suggested-remediation model still keeps humans in the loop",
+      ],
+      opportunities: [
+        "Ride continued Kubernetes adoption and on-call pain",
+        "Expand from suggestions toward trusted autonomous remediation",
+        "Land bottom-up with on-call engineers, then expand",
+        "General Catalyst and YC networks for distribution",
+      ],
+      threats: [
+        "NeuBird, Cleric, Traversal and incumbents targeting same teams",
+        "Cloud and observability vendors adding K8s AI triage",
+        "Buyer caution toward agents touching production clusters",
+        "Commoditization as foundation models improve at ops reasoning",
+      ],
+    },
+    userLikes: [
+      "Fast triage and root-cause before humans engage",
+      "Read-only access lowers the security adoption barrier",
+      "Conversational cluster Q&A speeds investigation",
+      "Runbook automation for repetitive incidents",
+    ],
+    userComplaints: [
+      "Scope centered on Kubernetes limits broader infra coverage",
+      "Maturity and depth still developing as an early product",
+      "Remediation stays advisory, requiring engineer follow-through",
+    ],
+    customerProfile: {
+      segments: ["Startups", "Cloud-native scale-ups", "Kubernetes-heavy teams"],
+      typicalBuyer: "On-call engineer / DevOps or platform lead",
+      topUseCases: [
+        "Kubernetes alert triage and root-cause",
+        "On-call first-response automation",
+        "Conversational cluster troubleshooting",
+      ],
+    },
+    futureAreas: [
+      "Trusted autonomous remediation",
+      "Coverage beyond Kubernetes workloads",
+      "Deeper runbook and workflow automation",
+      "Proactive cluster reliability checks",
+    ],
+  },
+  "aiops/cleric": {
+    competitiveEdge: "Self-learning AI SRE that tests hypotheses in parallel and compounds tribal knowledge from every incident.",
+    swot: {
+      strengths: [
+        "Reasons from first principles, testing multiple hypotheses in parallel",
+        "Learns each environment's failure modes and signals over time",
+        "Builds a knowledge graph capturing tribal incident knowledge",
+        "Delivers findings with linked evidence directly in Slack",
+        "2025 Gartner Cool Vendor in AI for SRE and Observability",
+      ],
+      weaknesses: [
+        "Value compounds over time, so early results may underwhelm",
+        "Diagnostic focus leaves remediation largely to engineers",
+        "Smaller scale and brand than observability incumbents",
+        "Effectiveness depends on quality of connected data sources",
+      ],
+      opportunities: [
+        "Teams reclaiming 20-30% capacity by offloading diagnostics",
+        "Position the learning knowledge graph as a durable moat",
+        "Expand from investigation into guided remediation",
+        "Gartner recognition aids enterprise credibility and pipeline",
+      ],
+      threats: [
+        "Traversal, NeuBird, Resolve.ai and Parity in direct contention",
+        "Incumbents embedding AI investigation into existing tools",
+        "Enterprise data-access and trust hurdles",
+        "Rapid foundation-model gains narrowing differentiation",
+      ],
+    },
+    userLikes: [
+      "Investigations get faster and smarter as it learns the stack",
+      "Findings arrive in Slack with evidence links",
+      "Captures institutional knowledge that usually walks out the door",
+      "Tangible reclaimed engineering capacity from less diagnostic toil",
+    ],
+    userComplaints: [
+      "Best results require a ramp-up learning period",
+      "Output is diagnostic; humans still execute the fix",
+      "Quality tied to breadth of connected observability data",
+    ],
+    customerProfile: {
+      segments: ["Mid-market", "Enterprise", "Engineering-heavy SaaS"],
+      typicalBuyer: "Engineering manager / SRE lead",
+      topUseCases: [
+        "Autonomous incident investigation",
+        "Capturing and reusing tribal knowledge",
+        "Reducing diagnostic toil for on-call",
+      ],
+    },
+    futureAreas: [
+      "Guided and autonomous remediation",
+      "Cross-team shared operational memory",
+      "Predictive failure detection",
+      "Broader tool and data-source coverage",
+    ],
+  },
+  "rpa/ottokit": {
+    competitiveEdge: "No-code automation built natively for WordPress, now MCP-native with AI agents at a fraction of Zapier's price.",
+    swot: {
+      strengths: [
+        "Only automation platform built ground-up for deep WordPress integration",
+        "1,300+ app integrations with drag-and-drop visual workflow builder",
+        "MCP-native: connects AI agents like Claude and ChatGPT to workflows",
+        "AI Agents handle multi-step tasks and exceptions autonomously",
+        "Aggressive pricing and lifetime deals undercut Zapier-class rivals",
+      ],
+      weaknesses: [
+        "WordPress-centric roots limit appeal to non-WP enterprises",
+        "Younger brand than Zapier, Make or enterprise iPaaS",
+        "SMB-leaning positioning caps large-enterprise credibility",
+        "Recent rebrand from SureTriggers may dilute name recognition",
+      ],
+      opportunities: [
+        "Capture price-sensitive SMBs and agencies leaving Zapier",
+        "Ride MCP and agentic-automation momentum as a native platform",
+        "Expand WooCommerce and LearnDash automation depth",
+        "Grow beyond WordPress into general SaaS automation",
+      ],
+      threats: [
+        "Zapier, Make and n8n adding AI agents and lower tiers",
+        "Native AI-agent platforms bypassing workflow middleware",
+        "Commoditization of connectors and triggers",
+        "Reliance on WordPress ecosystem health",
+      ],
+    },
+    userLikes: [
+      "Zapier-level automation at a far lower price point",
+      "Native WordPress, WooCommerce and LearnDash triggers",
+      "Easy drag-and-drop builder for non-developers",
+      "Generous lifetime-deal value",
+    ],
+    userComplaints: [
+      "Some advanced integrations and edge cases still maturing",
+      "Strongest fit is WordPress-centric rather than general SaaS",
+      "Rebrand and rapid feature changes can cause confusion",
+    ],
+    customerProfile: {
+      segments: ["SMB", "Agencies", "WordPress and WooCommerce businesses"],
+      typicalBuyer: "WordPress site owner / agency operator",
+      topUseCases: [
+        "WordPress and WooCommerce workflow automation",
+        "Connecting SaaS apps without code",
+        "AI-agent-driven multi-step tasks",
+      ],
+    },
+    futureAreas: [
+      "Deeper agentic and MCP-native automation",
+      "Expansion beyond the WordPress ecosystem",
+      "More native enterprise-app connectors",
+      "Autonomous exception handling",
+    ],
+  },
+  "agentops/onyx": {
+    competitiveEdge: "Open-source AI search and assistant that unifies internal knowledge with self-hosting and LLM choice.",
+    swot: {
+      strengths: [
+        "Open-source: self-host, choose any LLM, full data residency control",
+        "Connects Slack, Drive, Confluence, GitHub, Salesforce and more",
+        "Granular access controls suit security-conscious buyers",
+        "Builds custom agents and runs deep research over company data",
+        "Strong references including Netflix and Thales Group",
+      ],
+      weaknesses: [
+        "Self-hosting adds deployment and maintenance burden",
+        "Open-core monetization must convert free users to paid",
+        "Small seed-stage team versus large enterprise-search incumbents",
+        "Search quality depends on connector coverage and data hygiene",
+      ],
+      opportunities: [
+        "Win enterprises wary of closed SaaS search on sensitive data",
+        "Ride agentic-RAG and internal-knowledge-assistant demand",
+        "Expand connector catalog and managed-cloud offering",
+        "Leverage open-source community for adoption and contributions",
+      ],
+      threats: [
+        "Glean, Microsoft Copilot and Google bundling enterprise search",
+        "Foundation-model vendors adding native enterprise connectors",
+        "Open-source forks pressuring commercial differentiation",
+        "Buyer fatigue across crowded internal-search market",
+      ],
+    },
+    userLikes: [
+      "Open-source flexibility with self-hosting and LLM choice",
+      "Broad connector set unifying scattered knowledge",
+      "Granular permissions that respect source access controls",
+      "Custom agents and deep research over internal data",
+    ],
+    userComplaints: [
+      "Self-hosted setup and upkeep require engineering effort",
+      "Answer quality varies with connector and data quality",
+      "Smaller vendor support footprint than incumbents",
+    ],
+    customerProfile: {
+      segments: ["Enterprise", "Security-conscious orgs", "Engineering teams"],
+      typicalBuyer: "Head of IT / Platform or knowledge-management lead",
+      topUseCases: [
+        "Natural-language search over internal docs",
+        "Custom internal AI assistants and agents",
+        "Deep research across company knowledge",
+      ],
+    },
+    futureAreas: [
+      "Deeper agentic workflows and actions",
+      "Managed-cloud and enterprise tiers",
+      "Expanded connector ecosystem",
+      "Stronger permission-aware retrieval",
+    ],
+  },
+  "agentops/serval": {
+    competitiveEdge: "AI agent workforce that autonomously resolves 50%+ of IT tickets and becomes the system of record.",
+    swot: {
+      strengths: ["AI-native architecture resolves help desk tickets end-to-end", "Customers report 50-80% ticket automation rates", "Unifies help desk, access mgmt, and automation", "Sequoia-backed $1B valuation signals strong momentum", "Expanding beyond IT into HR, legal, and finance"],
+      weaknesses: ["Young product with limited long-term track record", "Enterprise feature depth still maturing vs incumbents", "Small partner and integration ecosystem", "Pricing and ROI less proven at large scale"],
+      opportunities: ["Replace legacy ITSM as primary system of record", "Cross-department expansion into HR/finance/legal", "Ride enterprise agentic automation wave", "Land-and-expand from IT into the full org"],
+      threats: ["ServiceNow and incumbents adding native AI agents", "Crowded agentic ITSM field with funded rivals", "Enterprise trust barriers for autonomous actions", "Macro pressure on new-vendor IT budgets"],
+    },
+    userLikes: ["High autonomous ticket-resolution rates out of the box", "Fast time-to-value, automating tickets within days", "Consolidates multiple IT tools into one platform", "Modern AI-native experience vs legacy ITSM"],
+    userComplaints: ["Newer platform with evolving feature set", "Trusting autonomous agents takes change management", "Less proven in highly regulated environments"],
+    customerProfile: {
+      segments: ["Mid-market", "Enterprise", "High-growth tech"],
+      typicalBuyer: "Head of IT / VP of IT Operations",
+      topUseCases: ["Autonomous IT ticket resolution", "Access provisioning and onboarding/offboarding", "Compliance and reporting workflows"],
+    },
+    futureAreas: ["Deeper cross-department agentic workflows", "Expanded enterprise governance and audit", "Broader app and identity integrations", "Agent orchestration across business systems"],
+  },
+  "agentops/invgate": {
+    competitiveEdge: "Mature, easy-to-use ITSM+ITAM suite adding an AI virtual agent that deflects requests in Teams and chat.",
+    swot: {
+      strengths: ["Unified ITSM and ITAM in one platform", "Strong G2/Gartner ratings (~4.7) for usability", "AI virtual agent deflects requests in Teams/WhatsApp", "No-code drag-and-drop workflow builder", "Fast implementation and time to value"],
+      weaknesses: ["AI agent newer than incumbents' offerings", "Customization options seen as limited by some", "Less brand recognition in North America", "Reporting depth trails enterprise leaders"],
+      opportunities: ["Upsell AI virtual agent into existing base", "Win mid-market replacing costly legacy ITSM", "Expand AI deflection across service workflows", "Grow ITAM attach alongside service desk"],
+      threats: ["ServiceNow, Atlassian, Freshworks AI competition", "AI-native entrants like Serval", "Buyers consolidating on single large suites", "Commoditization of basic ticket deflection"],
+    },
+    userLikes: ["Intuitive interface and easy to learn", "Quick to implement and configure", "Streamlines ticket and request management", "Good value across ITSM and ITAM bundle"],
+    userComplaints: ["Customization could be more robust", "Advanced reporting feels limited", "Some AI capabilities still maturing"],
+    customerProfile: {
+      segments: ["Mid-market", "Enterprise IT teams"],
+      typicalBuyer: "IT Service Desk Manager / IT Director",
+      topUseCases: ["Service desk and ticket management", "IT asset and license tracking", "AI request deflection in Teams"],
+    },
+    futureAreas: ["Expanded AI virtual agent autonomy", "Deeper analytics and reporting", "More no-code automation templates", "Broader ITAM and SaaS discovery"],
+  },
+  "agentops/siit": {
+    competitiveEdge: "Slack/Teams-native AI service desk that resolves IT and HR requests across the tool stack where employees work.",
+    swot: {
+      strengths: ["Native Slack and Teams employee experience", "AI routes and resolves across IdP, HRIS, MDM", "50+ integrations across identity and device tools", "Setup in hours, not months", "G2 High Performer for usability and satisfaction"],
+      weaknesses: ["Early-stage company with small seed funding", "Limited enterprise scale and references", "Ticket deflection rates modest vs bold claims", "Thin track record in regulated industries"],
+      opportunities: ["Capture chat-first, modern IT organizations", "Expand AI agents into full workflow execution", "Broaden into HR and ops service desks", "Land SMB/mid-market underserved by legacy ITSM"],
+      threats: ["Larger ITSM vendors adding chat-native AI", "Well-funded agentic ITSM rivals like Serval", "Slack/Teams platform dependency risk", "Crowded internal help-desk category"],
+    },
+    userLikes: ["Lives natively in Slack/Teams where staff work", "Fast, low-effort implementation", "Automates requests across connected systems", "Improves internal support efficiency and cost"],
+    userComplaints: ["Younger product with maturing depth", "Deflection gains require good knowledge base", "Smaller vendor with limited enterprise proof"],
+    customerProfile: {
+      segments: ["SMB", "Mid-market", "Modern/remote-first teams"],
+      typicalBuyer: "IT Manager / People Operations Lead",
+      topUseCases: ["Employee IT support in Slack/Teams", "Access and provisioning requests", "Cross-team onboarding/offboarding"],
+    },
+    futureAreas: ["More autonomous multi-step agent workflows", "Expanded HR and ops use cases", "Deeper analytics on deflection and SLAs", "Wider integration catalog"],
+  },
+  "agentops/credal": {
+    competitiveEdge: "Permission-aware control plane that lets enterprise AI agents act across systems while enforcing user-level access.",
+    swot: {
+      strengths: ["Mirrors source-system permissions automatically", "In production at MongoDB, Comcast, US government", "Strong governance, audit logging, policy enforcement", "Multi-agent collaboration across enterprise systems", "Security-first design for regulated buyers"],
+      weaknesses: ["Early-stage, seed-funded company", "Narrow control-plane category education needed", "Smaller team and ecosystem than platform giants", "Heavy reliance on broader agent adoption curve"],
+      opportunities: ["Become standard governance layer for agents", "Centralized MCP and agent registry demand", "Expand in regulated and government sectors", "Partner with model and platform providers"],
+      threats: ["Hyperscalers building native agent governance", "Identity and security vendors moving adjacent", "Standards shifting under MCP/agent protocols", "Long enterprise sales cycles for security tooling"],
+    },
+    userLikes: ["Enforces end-user permissions out of the box", "Strong audit and compliance controls", "Enables safe agent access to sensitive data", "Trusted by demanding enterprise customers"],
+    userComplaints: ["Emerging category requires internal buy-in", "Setup depth scales with system complexity", "Smaller vendor with shorter track record"],
+    customerProfile: {
+      segments: ["Enterprise", "Regulated industries", "Public sector"],
+      typicalBuyer: "CISO / Head of AI Platform / Security Eng Lead",
+      topUseCases: ["Permission-aware agent data access", "Multi-agent enterprise workflows", "Governed RAG and enterprise search"],
+    },
+    futureAreas: ["Centralized MCP and agent registry", "Agent gateway and policy expansion", "Deeper GRC and compliance reporting", "Cross-system multi-agent orchestration"],
+  },
+  "itom/josys": {
+    competitiveEdge: "Unifies SaaS, device, and identity governance so IT and MSPs see and control who has access to what.",
+    swot: {
+      strengths: ["Unified SaaS, device, and license visibility", "AI-backed identity governance for IT and MSPs", "Solid G2 rating (~4.4) across 100+ reviews", "Automates access reviews and lifecycle tasks", "SOC 2 Type 2 certified platform"],
+      weaknesses: ["Brand awareness still building in some regions", "Depth trails dedicated SaaS-management leaders", "Integration coverage gaps for niche apps", "Reporting flexibility cited as improvable"],
+      opportunities: ["Ride SaaS sprawl and shadow-IT governance demand", "Expand MSP channel and multi-tenant features", "Grow identity governance (IGA) positioning", "Attach device management to SaaS management"],
+      threats: ["SaaS management and SSPM vendors converging", "Identity/IGA incumbents moving down-market", "Bundled suites from larger IT platforms", "Price competition in SaaS-management tooling"],
+    },
+    userLikes: ["Central visibility into accounts and licenses", "Intuitive UI usable by IT and non-IT staff", "Reduces manual access and lifecycle work", "Strong for tracking SaaS and device inventory"],
+    userComplaints: ["Reporting could be more flexible", "Some integrations less mature than others", "Advanced workflows have a learning curve"],
+    customerProfile: {
+      segments: ["Mid-market", "MSPs", "IT operations teams"],
+      typicalBuyer: "IT Operations Manager / MSP Practice Lead",
+      topUseCases: ["SaaS and license governance", "Device and asset inventory", "Access reviews and lifecycle automation"],
+    },
+    futureAreas: ["Deeper AI-driven identity governance", "Expanded SaaS security insights", "Stronger MSP multi-tenant tooling", "Broader integration catalog"],
+  },
+  "itom/electric-ai": {
+    competitiveEdge: "Outsourced AI-powered IT management for SMBs, blending its Gigawatt assistant with managed support and device control.",
+    swot: {
+      strengths: ["Purpose-built for SMB IT management", "AI assistant (Gigawatt) for real-time support", "Bundles support, device, and app management", "Serves ~1000 businesses and ~50k users", "Reduces need for in-house IT staff"],
+      weaknesses: ["Inconsistent help desk quality and response times", "Onboarding errors (licenses, group memberships)", "Service disruptions tied to staffing changes", "Limited depth for complex/regulated environments"],
+      opportunities: ["Deepen AI automation to cut support variance", "Expand security and compliance offerings", "Grow upmarket into larger SMBs", "Improve self-service to reduce ticket load"],
+      threats: ["MSPs and managed IT providers competing hard", "AI-native ITSM tools reducing outsourcing need", "Customer churn from service-quality concerns", "Margin pressure in managed IT services"],
+    },
+    userLikes: ["Offloads day-to-day IT for lean teams", "Quick device-issue resolution when responsive", "Proactive engagement and feedback intake", "Saves on full-time IT staffing costs"],
+    userComplaints: ["Inconsistent support response and expertise", "Onboarding mistakes and missed configs", "Could not resolve some critical outages"],
+    customerProfile: {
+      segments: ["SMB", "Startups", "Lean IT teams"],
+      typicalBuyer: "Office Manager / Founder / Head of Ops",
+      topUseCases: ["Outsourced help desk and IT support", "Device and app provisioning", "Onboarding and offboarding employees"],
+    },
+    futureAreas: ["Stronger AI-driven self-service support", "More consistent service delivery automation", "Expanded security and compliance features", "Deeper device and SaaS management"],
+  },
+  "agentops/langchain": {
+    competitiveEdge: "De facto open-source standard for agent engineering; LangGraph orchestration + LangSmith observability span the full lifecycle",
+    swot: {
+      strengths: ["Massive OSS adoption and developer mindshare across the agent ecosystem", "LangGraph enables single, multi-agent, and hierarchical control flows in one framework", "LangSmith adds tracing, evaluation, and deployment for production agents", "Model- and tool-agnostic; avoids lock-in to any single LLM provider", "Used by a large share of Fortune 500 teams; strong community and integrations"],
+      weaknesses: ["Framework breadth brings complexity and a real learning curve", "Frequent API churn has frustrated teams across versions", "Abstractions can feel heavy for simple use cases", "Build-it-yourself model needs more in-house engineering than packaged suites"],
+      opportunities: ["Convert OSS users to paid LangSmith/Platform seats as agents go to production", "No-code agent builder broadens reach beyond core developers", "Standardize enterprise agent observability and evaluation", "Position as neutral layer above ERP-vendor agent silos"],
+      threats: ["ERP and cloud vendors bundling agent tooling into existing suites", "Competing frameworks (CrewAI, AutoGen, vendor SDKs) fragment mindshare", "OSS-to-revenue conversion risk at a $1.25B valuation", "Foundation-model vendors shipping native agent orchestration"],
+    },
+    userLikes: ["Flexibility to compose any model, tool, or data source", "LangSmith tracing makes opaque agent behavior debuggable", "Huge ecosystem of integrations and examples", "Active community and rapid feature velocity"],
+    userComplaints: ["Breaking changes and unstable APIs across releases", "Documentation lags fast-moving features", "Overhead and indirection for straightforward tasks"],
+    customerProfile: {
+      segments: ["AI/platform engineering teams", "Digital-native and tech enterprises", "Fortune 500 innovation groups"],
+      typicalBuyer: "Head of AI/ML or platform engineering lead building custom agents",
+      topUseCases: ["Custom multi-agent workflow orchestration", "Agent observability, eval, and monitoring", "RAG and tool-using assistant development"],
+    },
+    futureAreas: ["No-code/low-code agent building", "Production deployment and durable execution", "Agent evaluation and reliability tooling", "Enterprise governance and access controls"],
+  },
+  "agentops/sap-joule-agents": {
+    competitiveEdge: "Collaborative AI agents embedded natively across SAP apps with built-in business context and process data most rivals lack",
+    swot: {
+      strengths: ["Deep embedding in SAP ERP gives agents authoritative business context", "Collaborative agents execute end-to-end cross-module processes", "Large and growing library of specialized agents and Joule Skills", "Joule Studio adds low-code/no-code custom agent building (GA)", "Leverages SAP's massive installed base as a built-in distribution channel"],
+      weaknesses: ["Value concentrated within the SAP estate; limited outside it", "Tied to S/4HANA and modern SAP stack adoption", "Agent maturity varies across the broad portfolio", "Licensing and add-on costs can be opaque to buyers"],
+      opportunities: ["Convert huge S/4HANA migration base to agentic workflows", "Deep Research and role-based assistants deepen daily usage", "Extend agents to on-premise customers", "Industry-specific agent scenarios across verticals"],
+      threats: ["Oracle, Microsoft, and Workday competing for the same ERP-agent budget", "Customers preferring neutral orchestration layers over vendor lock-in", "Slow S/4HANA migrations delaying agent adoption", "Best-of-breed agent startups undercutting embedded agents"],
+    },
+    userLikes: ["Agents act directly on live SAP data and processes", "Cross-module automation without custom integration", "Conversational access to complex ERP workflows", "Pre-built agents reduce time to value"],
+    userComplaints: ["Best value requires modern SAP/S4HANA footprint", "Capability and quality uneven across agents", "Pricing and licensing complexity"],
+    customerProfile: {
+      segments: ["Large SAP ERP enterprises", "Finance, HR, and supply-chain orgs", "Regulated and industrial verticals"],
+      typicalBuyer: "SAP CoE lead or business-process owner in finance/supply chain",
+      topUseCases: ["End-to-end finance and procurement automation", "HR and service process agents", "Cross-domain ERP data Q&A and research"],
+    },
+    futureAreas: ["Multi-agent orchestration across modules", "On-premise agent extension", "Custom agent building via Joule Studio", "Industry-specific agent packs"],
+  },
+  "agentops/oracle-ai-agent-studio": {
+    competitiveEdge: "No-code agent builder plus 600+ embedded agents and a vetted partner marketplace, all inside Fusion's security model",
+    swot: {
+      strengths: ["Hundreds of embedded agents across Fusion and industry apps", "No-code Studio to build, test, and deploy custom agents", "Marketplace of Oracle-validated, partner-built agents", "Trust framework enforces Fusion security, policies, and access controls", "Multi-LLM support (Anthropic, OpenAI, Google, Cohere, Meta, xAI)"],
+      weaknesses: ["Primary value sits inside the Oracle Fusion ecosystem", "Requires Fusion Cloud Apps adoption to realize benefits", "Newer platform with evolving real-world track record", "Depth varies across the large embedded-agent catalog"],
+      opportunities: ["Monetize marketplace via SI and ISV partner agents", "Agentic Applications Builder and workflow orchestration expansion", "ROI-measurement tooling to prove agent value", "Cross-sell agents into the large Fusion customer base"],
+      threats: ["SAP, Workday, and Microsoft in direct ERP-agent contention", "Neutral orchestration frameworks bypassing app-vendor agents", "Customer caution on autonomy in finance/HR workflows", "Migration pace to Fusion Cloud limiting reach"],
+    },
+    userLikes: ["No-code building lowers the bar for agent creation", "Agents inherit Fusion security and access controls", "Marketplace accelerates deployment with vetted templates", "Choice of underlying foundation models"],
+    userComplaints: ["Benefits largely confined to Fusion Apps users", "Limited independent validation of outcomes at scale", "Variation in maturity across embedded agents"],
+    customerProfile: {
+      segments: ["Oracle Fusion Cloud customers", "Finance, HR, and SCM teams", "Enterprises with SI partner relationships"],
+      typicalBuyer: "Fusion Apps owner or finance/ERP transformation lead",
+      topUseCases: ["Agentic finance and back-office automation", "Custom agent building on Fusion data", "Deploying partner agents from the marketplace"],
+    },
+    futureAreas: ["Agentic applications builder", "Workflow orchestration and contextual memory", "Partner-agent marketplace growth", "Agent ROI measurement"],
+  },
+  "agentops/workday-illuminate": {
+    competitiveEdge: "Role-based agents on the largest clean HR/finance dataset, plus an Agent System of Record to govern any vendor's agents",
+    swot: {
+      strengths: ["Built on Workday's vast, clean HR and financial transaction dataset", "Role-based agents with configurable skills exceed simple task bots", "Agent System of Record governs Workday and third-party agents centrally", "Native fit for HCM and finance core processes", "Strong enterprise trust, compliance, and governance posture"],
+      weaknesses: ["Value concentrated in HR and finance domains", "Requires Workday platform adoption to benefit", "Several agents still early-adopter or roadmap stage", "Less suited to broad IT/ops automation outside its core"],
+      opportunities: ["Agent System of Record as a neutral fleet-governance standard", "Sana acquisition adds search, agent builder, and learning", "Expand role-based agents across more functions and industries", "Cost, budget, and ROI tracking for digital workforces"],
+      threats: ["SAP and Oracle competing in the same HR/finance agent space", "Specialized HR-tech and orchestration startups", "Customers preferring independent governance layers", "Autonomy hesitancy in sensitive people and finance data"],
+    },
+    userLikes: ["Agents grounded in trusted, governed enterprise data", "Central place to onboard, govern, and track agents", "Role-based autonomy beyond rigid task scripts", "Strong compliance and security fit"],
+    userComplaints: ["Scope limited to HR and finance use cases", "Several agents not yet generally available", "Realizing value depends on deep Workday adoption"],
+    customerProfile: {
+      segments: ["Workday HCM and Financials customers", "Large HR and finance organizations", "Regulated enterprises"],
+      typicalBuyer: "CHRO, CFO, or HRIS/finance-systems leader",
+      topUseCases: ["HR and finance task automation", "Governing a fleet of AI agents", "Contract intelligence and document-driven accounting"],
+    },
+    futureAreas: ["Agent System of Record governance", "Sana-powered search and agent building", "Cost and ROI tracking for agents", "Industry-specific role-based agents"],
+  },
+  "agentops/sana-ai": {
+    competitiveEdge: "AI-native front door for work — search, no-code agent builder, and learning across enterprise systems; now a Workday platform",
+    swot: {
+      strengths: ["Unified AI search and agents across many enterprise systems", "No-code agent builder accessible to non-developers", "Self-Service Agent ships with 300+ HR and finance skills", "Sana Learn adds AI-native learning and content generation", "Workday backing brings scale, distribution, and enterprise trust"],
+      weaknesses: ["Identity now folded into Workday's broader strategy", "Cross-system value depends on breadth of connectors", "Roadmap and positioning still settling post-acquisition", "Less proven outside knowledge and HR/finance workflows"],
+      opportunities: ["Become the employee 'front door' across the Workday base", "Orchestrate non-Workday enterprise systems via Sana Enterprise", "Expand no-code agents to more business functions", "Bundle learning and knowledge into one AI suite"],
+      threats: ["Microsoft Copilot and Glean in enterprise search/assistant space", "Integration execution risk during Workday absorption", "Other ERP vendors' embedded agent strategies", "Buyer fatigue with overlapping AI assistant offerings"],
+    },
+    userLikes: ["Single conversational entry point across systems", "Easy no-code agent and workflow creation", "Combined knowledge search and learning", "Clean, modern user experience"],
+    userComplaints: ["Post-acquisition direction still clarifying", "Value scales with number of connected systems", "Overlap with other enterprise assistants"],
+    customerProfile: {
+      segments: ["Enterprises (esp. Workday customers)", "HR, finance, and knowledge teams", "L&D and enablement orgs"],
+      typicalBuyer: "Head of digital workplace, HR, or knowledge/L&D",
+      topUseCases: ["Enterprise knowledge search and Q&A", "No-code agent and workflow automation", "AI-native learning and onboarding"],
+    },
+    futureAreas: ["Cross-system orchestration", "No-code agent expansion", "AI-native learning", "Workday platform integration"],
+  },
+  "agentops/ai21-maestro": {
+    competitiveEdge: "Planning-and-validation layer (AIPOS) that wraps any LLM to deliver auditable, reliable agents for high-stakes workflows",
+    swot: {
+      strengths: ["Plan-execute-validate architecture targets agent reliability directly", "Reported large gains in instruction-following accuracy over raw LLMs", "Model-agnostic; orchestrates multiple LLMs, tools, and data sources", "Built-in budgeting and step-level result checking", "VPC/Bedrock deployment suits security-conscious enterprises"],
+      weaknesses: ["Smaller vendor versus hyperscaler and ERP incumbents", "Newer GA with a limited public deployment track record", "Reliability gains depend on use case and configuration", "Less embedded in existing enterprise app workflows"],
+      opportunities: ["Win enterprises burned by unreliable agent pilots", "Neutral orchestration layer above app-vendor agent silos", "Data-intensive, compliance-heavy workflow automation", "Deeper AWS/Bedrock co-sell motion"],
+      threats: ["Foundation-model vendors adding native planning/validation", "LangChain and other frameworks adding reliability tooling", "ERP vendors bundling agents customers already own", "Scaling and mindshare versus far larger competitors"],
+    },
+    userLikes: ["Focus on accuracy, auditability, and trust", "Works with the customer's chosen LLMs", "Cost controls via automatic compute budgeting", "Private VPC deployment for sensitive data"],
+    userComplaints: ["Smaller vendor raises longevity and support questions", "Limited independent benchmarks beyond vendor claims", "Newer product with maturing ecosystem"],
+    customerProfile: {
+      segments: ["Regulated and data-intensive enterprises", "Financial services and research-heavy teams", "AWS/Bedrock-aligned organizations"],
+      typicalBuyer: "Enterprise AI architect or head of automation needing reliability",
+      topUseCases: ["Reliable mission-critical workflow automation", "Multi-source analysis and research", "Auditable autonomous decision support"],
+    },
+    futureAreas: ["Reliability and validation tooling", "Multi-LLM orchestration", "Cost and compute governance", "Private/VPC enterprise deployment"],
+  },
+  "agentops/composio": {
+    competitiveEdge: "Deepest developer-grade execution layer: managed per-user OAuth + JIT tool loading across 3,000+ apps, framework-agnostic",
+    swot: {
+      strengths: [
+        "Fully managed OAuth with auto token refresh/rotation removes connector auth toil",
+        "Breadth: 1,000+ toolkits / 3,000+ apps with native SDKs for major frameworks",
+        "Just-in-time tool loading curbs context-window bloat for many-tool agents",
+        "MCP-native distribution via Rube universal server lowers setup friction",
+        "Production primitives: sandboxed execution, parallel calls, retries, SOC2 + ISO 27001",
+      ],
+      weaknesses: [
+        "Pre-built connectors are closed/opaque — hard to inspect when a tool misbehaves",
+        "Thin observability and debugging; limited logging for production triage",
+        "Recurring reports of intermittent tool-execution failures in workflows",
+        "Tool-calls-only scope — no data sync, unified read APIs, or batch operations",
+      ],
+      opportunities: [
+        "Become the default MCP gateway and auth layer as enterprises consolidate servers",
+        "Move up-market with per-tenant governance, RBAC, audit, and observability",
+        "Ship the experience-driven 'skills' learning layer beyond a static catalog",
+        "Position as neutral execution layer beneath major agent stacks",
+      ],
+      threats: [
+        "Native MCP and first-party connectors from model vendors erode the wedge",
+        "Zapier owns breadth plus non-developer buyers and an MCP server",
+        "Focused auth rivals and unified-API players attack the flanks",
+        "Cost economics rise sharply at large-scale implementation",
+      ],
+    },
+    userLikes: [
+      "OAuth and auth 'just works' end-to-end",
+      "Fast time-to-value and a generous free tier",
+      "Easy integrations with strong framework support and developer experience",
+      "Reasonable pricing tiers at small-to-mid scale",
+    ],
+    userComplaints: [
+      "Intermittent tool-execution failures and perceived instability",
+      "Insufficient docs for advanced features; steep learning curve",
+      "Inconsistent support responsiveness",
+    ],
+    customerProfile: {
+      segments: ["AI-first startups", "Mid-market dev teams", "Emerging enterprise"],
+      typicalBuyer: "Founding or staff engineer / AI platform lead building tool-calling agents",
+      topUseCases: [
+        "Multi-tool agents acting across Gmail, Slack, GitHub, Salesforce",
+        "Per-user delegated-auth agents in SaaS products",
+        "MCP clients reaching hundreds of apps via Rube",
+      ],
+    },
+    futureAreas: [
+      "Rube / universal MCP gateway as primary distribution",
+      "Skills and experience-driven 'learning layer'",
+      "Enterprise observability and governance (audit, OTel)",
+      "Deeper execution runtime for long-running workflows",
+    ],
+  },
+  "agentops/sema4-ai": {
+    competitiveEdge: "Agent-first platform pairing LLM reasoning with deterministic Python Actions, run natively inside the customer's Snowflake estate",
+    swot: {
+      strengths: [
+        "Data-native: runs inside Snowflake / customer cloud, so data stays governed",
+        "Audit-grade governance — decision logs, before/after diffs, SOX-ready evidence",
+        "LLM reasoning plus deterministic Python Actions, more robust than UI-scraping RPA",
+        "Robocorp heritage gives mature Python/RPA execution infra and developer credibility",
+        "Snowflake Ventures backing plus Marketplace distribution opens an enterprise channel",
+      ],
+      weaknesses: [
+        "Very early market presence; near-zero independent reviews of the agent platform",
+        "Robocorp legacy skews code-required, at odds with the no-code business-user pitch",
+        "Legacy complaints of high memory/resource consumption and setup cost",
+        "Narrow scale and brand reach vs UiPath, Automation Anywhere, and Microsoft",
+      ],
+      opportunities: [
+        "Cross-departmental multi-agent orchestration and human-AI collaboration",
+        "Decision-intelligence frameworks beyond task automation",
+        "Multi-cloud reach broadens TAM beyond Snowflake shops",
+        "Riding the governed agentic-AI wave in regulated finance",
+      ],
+      threats: [
+        "Incumbent RPA giants adding agentic capabilities at scale",
+        "Hyperscaler agents bundling governance plus reach",
+        "Heavy dependence on the Snowflake relationship is channel concentration risk",
+        "Crowded, fast-commoditizing enterprise-agent category",
+      ],
+    },
+    userLikes: [
+      "Python integration and flexibility (legacy Robocorp strength)",
+      "Faster, easier automation than alternatives; speed and stability",
+      "Low cost relative to traditional RPA suites",
+      "Strong docs, VS Code integration, and community support",
+    ],
+    userComplaints: [
+      "Coding skills required — harder for non-developers than drag-and-drop tools",
+      "High memory/resource usage and setup cost",
+      "Narrower feature breadth than mature RPA suites",
+    ],
+    customerProfile: {
+      segments: ["Enterprise finance / CFO office", "Manufacturing & supply chain", "Snowflake-mature orgs"],
+      typicalBuyer: "Finance-ops or shared-services leader with CDO/Snowflake owner as co-buyer",
+      topUseCases: [
+        "Invoice processing, reconciliation, and AP automation",
+        "AP and finance inquiry response at volume",
+        "Procurement and supply-chain back-office execution",
+      ],
+    },
+    futureAreas: [
+      "Cross-departmental multi-agent orchestration",
+      "Persistent agent memory / organizational knowledge",
+      "Business ontology and semantic context layer",
+      "Broader MCP connector ecosystem and decision intelligence",
+    ],
+  },
+  "agentops/lyzr": {
+    competitiveEdge: "Low-code full-stack agent platform with Responsible AI governance baked into the runtime, plus on-prem and an Accenture channel",
+    swot: {
+      strengths: [
+        "Native governance: bias detection, PII redaction, hallucination manager, human-in-the-loop",
+        "On-prem and private-VPC deployment with full data residency — top regulated-buyer draw",
+        "Big-4 channel: Accenture (lead investor), Deloitte, and KPMG build client agents on it",
+        "Low-code speed with pre-built agents for SDR, marketing, HR, support, and analytics",
+        "Model-agnostic across OpenAI, Anthropic, Gemini, and custom fine-tuned models",
+      ],
+      weaknesses: [
+        "Documentation gaps; learning curve steeper than a 'low-code' tool implies",
+        "Limited integration breadth and no white-label front-end option",
+        "Runtime cost scales unpredictably — cheap to try, expensive at production scale",
+        "Not plug-and-play; meaningful upfront workflow and data setup before value",
+      ],
+      opportunities: [
+        "Geographic expansion into Middle East, UK, and Australia from the new round",
+        "Turn Accenture/Deloitte/KPMG into a repeatable regulated-industry distribution engine",
+        "Verticalized compliance agents: KYC/AML, claims, underwriting, regulatory reporting",
+        "Capitalize on the governance and auditability wave as agents reach production",
+      ],
+      threats: [
+        "Hyperscaler platforms (Vertex, Bedrock AgentCore, Azure) bundling governed tooling",
+        "Open-source frameworks with larger communities commoditize the build layer",
+        "Enterprise-agent specialists and SI-built in-house stacks chase the same logos",
+        "SI dependency on partners who are also investors is concentration risk",
+      ],
+    },
+    userLikes: [
+      "Ease of use and clean UI (dominant review theme)",
+      "Developer velocity and effective abstraction over GenAI complexity",
+      "LLM flexibility — freedom to pick and switch models",
+      "Enterprise security: on-prem / private-cloud deployment and data residency",
+    ],
+    userComplaints: [
+      "Poor or insufficient documentation and steeper-than-advertised learning curve",
+      "Lack of integration breadth and no white-label front-end",
+      "Unpredictable runtime and LLM costs at production scale",
+    ],
+    customerProfile: {
+      segments: ["Regulated financial services", "Healthcare / gov / energy", "System integrators"],
+      typicalBuyer: "Enterprise CIO/CTO or Head of AI in a regulated firm (or SI delivery lead)",
+      topUseCases: [
+        "FS back-office and compliance: KYC/AML, origination, fraud, reporting",
+        "Insurance ops: claims, document extraction, underwriting support",
+        "Cross-functional ops agents: sales, support, HR, procurement",
+      ],
+    },
+    futureAreas: [
+      "Deeper agent observability, auditing, and explainability tooling",
+      "Broader integration marketplace and white-label front-ends",
+      "Vertical agent packs for banking, insurance, and healthcare",
+      "Multi-agent orchestration with accuracy-comparison mechanisms",
+    ],
+  },
+  "agentops/vellum": {
+    competitiveEdge: "Fuses visual workflow orchestration with rigorous evals and production observability for engineer + domain-expert collaboration",
+    swot: {
+      strengths: [
+        "Orchestration, evals, and observability combined in one platform, reducing tool sprawl",
+        "Visual builder lets engineers and non-technical domain experts collaborate on prompts",
+        "Model- and framework-agnostic, with Python/TS code running natively in the graph",
+        "Strong eval discipline tied to versioned, CI-safe deployments and production feedback",
+        "Proven enterprise traction in regulated verticals; claims ~10x faster time-to-market",
+      ],
+      weaknesses: [
+        "Opaque, sales-led pricing with no public page makes TCO modeling hard",
+        "No native CI/CD eval gating (e.g., PR-blocking) versus some rivals",
+        "UI/UX occasionally clunky; eval UI, annotation queue, and dataset UX need work",
+        "Steep learning curve for advanced flows; agent features are recent",
+      ],
+      opportunities: [
+        "Ride the agent wave with the no-code builder aimed at ops teams",
+        "Land-and-expand in enterprises lacking AI strategy and mature data",
+        "Geographic and vertical expansion into more regulated industries",
+        "Differentiate on governance and data isolation for compliance buyers",
+      ],
+      threats: [
+        "Eval-native rivals and LangSmith inside LangChain compete on price and CI",
+        "Foundation-model vendors and frameworks absorbing orchestration and evals natively",
+        "Crowded field (Humanloop, PromptLayer, Langfuse, Arize) compresses differentiation",
+        "No-code agent builders face a fragmenting, hype-exposed category",
+      ],
+    },
+    userLikes: [
+      "Intuitive low-code workflow builder — weeks of work in minutes",
+      "Non-technical team members can iterate on prompts independently",
+      "Side-by-side prompt and model comparison with automated evals",
+      "Function calling plus workflows build complex interactions without custom code",
+    ],
+    userComplaints: [
+      "UI can be clunky or buggy",
+      "Eval UI, annotation queue, and dataset UX want improvement",
+      "Learning curve for advanced features and lack of published pricing",
+    ],
+    customerProfile: {
+      segments: ["Mid-market & enterprise eng", "Cross-functional product teams", "Ops teams (emerging)"],
+      typicalBuyer: "VP/Director of Engineering or Head of AI needing production rigor",
+      topUseCases: [
+        "Conversational agents at scale, evaluated across thousands of cases",
+        "Regulated/compliance AI automation with data isolation",
+        "Healthcare workflow and document AI with regression testing",
+      ],
+    },
+    futureAreas: [
+      "Maturing the no-code agent builder and MCP Agent Node",
+      "Foundational AI-stack layer with more deployed use cases",
+      "Stronger CI/CD eval gating",
+      "Enterprise governance and data-isolation features",
+    ],
+  },
+  "agentops/maisa-ai": {
+    competitiveEdge: "Turns any LLM into a deterministic, fully auditable executor via its KPU and Chain-of-Work, selling regulator-ready accountability",
+    swot: {
+      strengths: [
+        "Auditability as a first-class primitive — Chain-of-Work log gives full traceability",
+        "Deterministic KPU execution layer materially reduces hallucination risk",
+        "No-code natural-language authoring lets business users build workers",
+        "Production traction in hard verticals: banking, auto manufacturing, energy",
+        "Strong investor signaling: Creandum, Forgepoint, and Santander backing",
+      ],
+      weaknesses: [
+        "Limited memory persistence — weak cross-run knowledge accumulation",
+        "Execution-engine scope, not a full operational OS; less breadth than incumbents",
+        "Only partial integration with UiPath / Automation Anywhere estates",
+        "Early-stage: tiny team, waitlist-gated GA, and no public pricing",
+      ],
+      opportunities: [
+        "Regulated-industry land grab where auditable automation is mandatory",
+        "Ride the 'most enterprise AI pilots fail' narrative with reliability as the wedge",
+        "Marketplace and 450+ API connectors shorten enterprise procurement",
+        "EU sovereignty and AI Act tailwind as a moat for European enterprises",
+      ],
+      threats: [
+        "UiPath and Automation Anywhere offer native agent layers into installed bases",
+        "Foundation models adding native reasoning/tracing narrow the determinism edge",
+        "Crowded field: CrewAI, Lyzr, Tonkean compete for the same buyers",
+        "Seed-stage scale risk servicing global-bank-grade deployments",
+      ],
+    },
+    userLikes: [
+      "Plain-language setup needs little technical skill or IT involvement",
+      "Transparency into how data was interpreted and why a decision was reached",
+      "Review-mode feedback loop before going live builds confidence",
+      "Handles messy, exception-rich tasks previously un-automatable",
+    ],
+    userComplaints: [
+      "Memory and state not persisted across runs",
+      "Doesn't slot cleanly into existing UiPath / Automation Anywhere estates",
+      "Opaque pricing and waitlist gating slow evaluation",
+    ],
+    customerProfile: {
+      segments: ["Regulated financial services", "Heavy industry & energy", "Large enterprises"],
+      typicalBuyer: "Operations / process-automation leader in a regulated firm",
+      topUseCases: [
+        "Trade-finance document validation with audit-ready summaries",
+        "Auto-loan and multi-document verification against business rules",
+        "Power-of-attorney and legal-authority verification",
+      ],
+    },
+    futureAreas: [
+      "Persistent memory and institutional-knowledge layer",
+      "Deeper RPA interoperability to reduce rip-and-replace friction",
+      "Pre-built vertical digital-worker library",
+      "Stronger governance, AI Act metadata, and EU hosting",
+    ],
+  },
+  "agentops/vertesia": {
+    competitiveEdge: "Document-native, model-agnostic low-code platform from ex-ECM operators, pairing agentic RAG with production-grade agents",
+    swot: {
+      strengths: [
+        "Document depth from ECM/DAM lineage: semantic prep, long-form and rich-media, agentic RAG",
+        "Model-agnostic 'LLM virtualization' across model families and any public cloud",
+        "Enterprise controls: SOC2 Type II, HIPAA, GDPR, governance, guardrails, observability",
+        "Production workflow engine on Temporal for long-running, parallel multi-agent processes",
+        "Low-code plus API-first with MCP connectors to Microsoft, Google, GitHub, Atlassian",
+      ],
+      weaknesses: [
+        "Tiny, seed-stage team with limited brand awareness and reference base",
+        "Thin market validation — almost no public reviews or named marquee customers",
+        "Squeezed by IDP incumbents, hyperscaler doc-AI, and agent frameworks",
+        "Rebrand from prompt engineering to full agent platform; positioning still maturing",
+      ],
+      opportunities: [
+        "Ride the shift from legacy OCR/template IDP to agentic document processing",
+        "Land-and-expand in regulated, document-heavy finance, insurance, and legal verticals",
+        "Use MCP and interoperability to be the orchestration layer atop enterprise stacks",
+        "Convert founders' ECM network into design partners",
+      ],
+      threats: [
+        "Hyperscalers bundling good-enough doc-AI and agents into cloud contracts",
+        "RPA/IDP incumbents (UiPath, ABBYY, Hyperscience) adding agentic layers",
+        "Open-source RAG/agent tooling pushing down willingness to pay",
+        "Light seed funding against well-funded rivals raises runway risk",
+      ],
+    },
+    userLikes: [
+      "Fast time-to-value with low-code build",
+      "Strong prompt versioning, approval, and governance tooling",
+      "Flexibility to pick the best model per task with no lock-in",
+      "Handles complex long documents and rich media well",
+    ],
+    userComplaints: [
+      "Immature ecosystem with limited docs, integrations, and community",
+      "Newer agent features still rough at the edges",
+      "Small-vendor risk on support depth and roadmap certainty",
+    ],
+    customerProfile: {
+      segments: ["Financial services & insurance", "Healthcare", "Retail / CPG & creative ops"],
+      typicalBuyer: "Enterprise Head of AI or VP Engineering in a document-intensive org",
+      topUseCases: [
+        "Intelligent document processing into downstream action",
+        "Autonomous multi-step workflow agents with parallel sub-agents",
+        "Agentic RAG over enterprise knowledge for grounded Q&A",
+      ],
+    },
+    futureAreas: [
+      "Vertical solution accelerators for insurance, healthcare, finance",
+      "Expanded MCP connectors and tighter ECM/DAM integration",
+      "Stronger agent governance, observability, and eval",
+      "GTM scale-up and hyperscaler marketplace motion",
+    ],
+  },
+  "agentops/lindy-ai": {
+    competitiveEdge: "Replaces rigid if-then automation with plain-English LLM-reasoning agents that handle messy inputs and drive a cloud browser",
+    swot: {
+      strengths: [
+        "AI reasoning over rule logic — interprets tone, context, and intent for judgment tasks",
+        "Genuinely low-friction natural-language builder; ease of use is its top-cited strength",
+        "Autopilot cloud computer-use bypasses the API-integration ceiling that limits Zapier/Make",
+        "Multi-channel AI employee surface: email, calendar, meeting notes, phone, SMS, CRM",
+        "Strong unstructured-data handling for messy files and unpredictable inputs",
+      ],
+      weaknesses: [
+        "Opaque, fast-burning credit system — 'expensive' is the top complaint; no real free tier",
+        "Reliability degrades on complex multi-step chaining and advanced retrieval",
+        "Google-ecosystem bias; Microsoft, Airtable, and external CRMs are weaker",
+        "Narrower deterministic integration breadth than Zapier; not for high-volume plumbing",
+      ],
+      opportunities: [
+        "Expand Microsoft 365 and CRM integration depth to escape the SMB-Google niche",
+        "Package vertical AI employees: SDR, support agent, recops",
+        "Grow the voice/phone agent adjacency for outbound and follow-ups",
+        "Move to mid-market via Team Accounts, governance, and predictable pricing",
+      ],
+      threats: [
+        "Zapier, Make, and n8n adding native AI agents atop far larger integration moats",
+        "Pricing backlash driving churn to cheaper or self-hosted options",
+        "Computer-use and model agentic capability becoming commoditized table stakes",
+        "No self-hosting leaves a gap for GDPR/HIPAA-sensitive buyers",
+      ],
+    },
+    userLikes: [
+      "Easy, intuitive no-code agent building (dominant theme)",
+      "Automation quality beyond simple routing — handles nuanced tasks",
+      "100+ templates and fast onboarding",
+      "Meeting notes and Google-stack automation that just works",
+    ],
+    userComplaints: [
+      "Expensive and unpredictable credit consumption",
+      "Inconsistent reliability on sophisticated workflows",
+      "Weak outside Google; heavy upfront permission requests",
+    ],
+    customerProfile: {
+      segments: ["SMBs under ~50 staff", "Startup ops / sales / support", "Individual founders"],
+      typicalBuyer: "Non-technical founder or ops/revenue lead at a Google-Workspace SMB",
+      topUseCases: [
+        "Sales / SDR: lead research, outreach, call coaching, CRM updates",
+        "Meeting lifecycle: record, transcribe, notes, follow-ups",
+        "Customer support email and ticket deflection",
+      ],
+    },
+    futureAreas: [
+      "Deeper autonomous computer-use beyond the browser",
+      "Voice and phone agent buildout",
+      "Team/enterprise governance and clearer pricing",
+      "Broader non-Google integration parity",
+    ],
+  },
+  "agentops/kognitos": {
+    competitiveEdge: "Neuro-symbolic 'English as code' delivers deterministic, hallucination-free automation with full governance",
+    swot: {
+      strengths: ["Neuro-symbolic architecture follows processes precisely, avoiding LLM hallucination", "English-as-code lowers barrier — business users automate without traditional dev skills", "Built-in governance and auditability appeal to regulated enterprise buyers", "Patented Process Refinement Engine documents tribal knowledge as it automates", "Strong backers (Khosla, Prosperity7, Wipro) plus SI partnerships"],
+      weaknesses: ["Series B scale — small versus entrenched RPA and hyperscaler platforms", "Neuro-symbolic approach is novel and requires market education to land", "Limited brand recognition outside early-adopter and partner channels", "Breadth of pre-built connectors and integrations still maturing"],
+      opportunities: ["Displace brittle legacy RPA bots with self-documenting agentic automation", "Ride enterprise demand for governed, non-hallucinating AI in regulated sectors", "Expand via SI and reseller partners into mid-market and global accounts", "Position determinism as the trust differentiator as agent adoption scales"],
+      threats: ["RPA incumbents (UiPath, Automation Anywhere) bolting on agentic AI", "Hyperscalers and foundation-model vendors bundling agent platforms", "Buyer skepticism slowing budget for unproven automation categories", "Rapid LLM reliability gains could narrow the determinism advantage"],
+    },
+    userLikes: ["Automations expressed in plain English are easy to read and maintain", "Deterministic execution builds trust for business-critical processes", "Fast time-to-value with pre-configured workflows and community edition", "Governance and audit trail reduce compliance friction"],
+    userComplaints: ["Smaller ecosystem means fewer ready connectors than mature RPA suites", "Learning the neuro-symbolic paradigm takes adjustment for RPA teams", "Maturity gaps surface in complex edge-case scenarios"],
+    customerProfile: {
+      segments: ["Mid-market", "Enterprise", "Regulated industries"],
+      typicalBuyer: "Head of automation / operations or IT transformation leader",
+      topUseCases: ["Finance and back-office operations automation", "Document- and rules-heavy business process automation", "Replacing brittle legacy RPA workflows"],
+    },
+    futureAreas: ["Deeper connector and integration ecosystem", "Vertical accelerators for finance and supply chain", "Expanded agent orchestration across processes", "Self-service tuning of refinement engine"],
+  },
+  "agentops/emergence-ai": {
+    competitiveEdge: "Vendor-agnostic meta-agent orchestrator where agents autonomously build and coordinate other agents",
+    swot: {
+      strengths: ["Meta-agent 'agents that build agents' approach automates agent creation itself", "Orchestrates across modern and legacy systems, not a single stack", "Vendor-neutral design interoperates with rival agents and frameworks", "Founding team from IBM Research, Google Brain, AI2, Amazon, Meta", "Well-funded (~$97M Series C) for enterprise platform buildout"],
+      weaknesses: ["Young company (founded 2024) with short enterprise track record", "Orchestration category is crowded and rapidly commoditizing", "Conceptual 'meta-agent' value can be hard for buyers to evaluate", "Limited public proof points on production-scale deployments"],
+      opportunities: ["Become neutral orchestration layer as enterprises run multi-vendor agents", "Data-pipeline automation (CRAFT) expands beyond pure orchestration", "Partner with framework and model providers needing coordination", "Capture enterprises wary of single-vendor agent lock-in"],
+      threats: ["Hyperscalers and OpenAI/Anthropic shipping native orchestration", "Open-source agent frameworks (LangGraph, CrewAI) eroding differentiation", "Standardization (MCP, A2A) could commoditize the orchestration layer", "Enterprises consolidating on incumbent platform vendors"],
+    },
+    userLikes: ["Coordinates heterogeneous agents without forcing one ecosystem", "Reduces manual effort of designing and wiring individual agents", "Handles workflows spanning legacy and modern software", "Strong research pedigree inspires technical confidence"],
+    userComplaints: ["Early-stage platform with evolving features and docs", "Abstract meta-agent model needs hands-on time to grasp", "Production maturity and reference customers still limited"],
+    customerProfile: {
+      segments: ["Enterprise", "Data and platform teams"],
+      typicalBuyer: "Head of AI / platform engineering or automation architect",
+      topUseCases: ["Orchestrating multi-agent enterprise workflows", "Automating end-to-end data pipelines", "Bridging legacy and modern systems with agents"],
+    },
+    futureAreas: ["Standards-based interop (A2A, MCP)", "Governance and observability for agent fleets", "Vertical orchestration templates", "Self-improving agent generation"],
+  },
+  "agentops/stack-ai": {
+    competitiveEdge: "No-code agent builder now backing Asana's AI Studio, adding cross-system execution for human-agent teams",
+    swot: {
+      strengths: ["No-code builder lets non-developers design, test and deploy agents", "Connects to core systems like Salesforce, Slack and Google Workspace", "Governance and testing features suit business-critical workflows", "Asana acquisition gives distribution, resources and enterprise reach", "YC pedigree and strong investor base"],
+      weaknesses: ["Acquired (~$75M) — independent roadmap now folded into Asana", "Pre-acquisition funding was modest (under $20M raised)", "Faced fierce competition from Zapier and foundation-model labs", "Standalone brand likely subsumed under Asana AI Studio"],
+      opportunities: ["Scale through Asana's large installed enterprise customer base", "Become the agent-execution layer for human-agent team workflows", "Cross-sell into work-management accounts seeking automation", "Leverage Asana's compliance and security for enterprise deals"],
+      threats: ["Integration risk and talent attrition post-acquisition", "Zapier, Make and native model-vendor builders competing hard", "Work-management rivals (monday, ClickUp) shipping own agents", "Commoditization of no-code agent building lowering differentiation"],
+    },
+    userLikes: ["Visual no-code interface speeds agent creation", "Connects readily to common SaaS data sources", "Test and deploy governed agents without heavy engineering", "Now backed by Asana's enterprise platform"],
+    userComplaints: ["Future direction uncertain after Asana acquisition", "Standalone product continuity unclear for existing users", "Advanced logic can hit no-code ceiling for complex flows"],
+    customerProfile: {
+      segments: ["SMB", "Mid-market", "Asana enterprise base"],
+      typicalBuyer: "Operations or business-systems lead, or Asana platform owner",
+      topUseCases: ["Building custom no-code business agents", "Automating cross-system workflows", "Embedding agents in work-management processes"],
+    },
+    futureAreas: ["Native Asana AI Studio integration", "Cross-system agent execution", "Enterprise governance and audit", "Prebuilt agent templates by function"],
+  },
+  "agentops/ultravox": {
+    competitiveEdge: "Speech-native open-weight SLM skips speech-to-text for ~150ms latency, real-time voice agents",
+    swot: {
+      strengths: ["Direct audio-to-LLM design removes ASR stage for low latency", "Open-weight SLM on Hugging Face builds developer trust and adoption", "Managed Realtime platform offers build-and-deploy path for agents", "Speech-native handling enables more natural, fluid conversation", "Backed by Redpoint, Madrona, Zetta and SignalFire"],
+      weaknesses: ["Modest $17M funding versus well-capitalized voice-AI rivals", "Narrow voice focus limits cross-sell beyond conversational use", "Smaller team and ecosystem than incumbent CX platforms", "Open-weight model can aid competitors as well as customers"],
+      opportunities: ["Surging demand for real-time voice agents in support and ops", "Win developers wanting open, self-hostable voice infrastructure", "Embed as the voice layer inside broader agent platforms", "Differentiate on latency as voice UX expectations rise"],
+      threats: ["OpenAI, Google and ElevenLabs pushing realtime voice APIs", "Foundation-model vendors bundling native speech capabilities", "Commoditizing voice stack compressing pricing", "Larger players matching latency with deeper resources"],
+    },
+    userLikes: ["Genuinely real-time, low-latency conversational responsiveness", "Open weights allow self-hosting and customization", "Bypassing transcription yields more natural dialogue", "Developer-friendly model plus managed platform options"],
+    userComplaints: ["Smaller ecosystem and tooling than incumbent voice platforms", "Self-hosting open weights demands real ML infrastructure effort", "Enterprise features still maturing relative to scale"],
+    customerProfile: {
+      segments: ["Developers", "Startups", "Voice-AI builders"],
+      typicalBuyer: "Engineering lead or founder building voice products",
+      topUseCases: ["Real-time voice agents and assistants", "Speech-native conversational interfaces", "Self-hosted low-latency voice apps"],
+    },
+    futureAreas: ["Multilingual speech support", "Enterprise telephony and contact-center integrations", "Improved model size and accuracy", "Tooling for agent orchestration around voice"],
+  },
+  "agentops/hebbia": {
+    competitiveEdge: "Matrix agent platform reasons over huge document sets via ISD, returning cited, multi-step answers",
+    swot: {
+      strengths: ["Iterative source decomposition reasons over full docs without chunking", "Spreadsheet-like Matrix grid fits analyst workflows naturally", "Cited, auditable answers build trust in regulated, high-stakes work", "Deployed at top asset managers, law firms, banks and Fortune 100", "Profitable revenue and strong backers (a16z, GV, Index, Thiel)"],
+      weaknesses: ["Premium positioning limits reach to high-value verticals", "Heavy focus on document reasoning narrows broader agent use cases", "Pricing reportedly high relative to general AI tools", "Concentration in finance and legal exposes it to those cycles"],
+      opportunities: ["Expand from finance and legal into other research-heavy industries", "Grow agent capabilities for end-to-end knowledge-work tasks", "Capitalize on demand for citation-grade, auditable AI answers", "Land-and-expand within large existing enterprise accounts"],
+      threats: ["Foundation-model vendors improving long-context document reasoning", "Enterprise RAG and search tools encroaching at lower price points", "In-house builds by sophisticated finance and legal customers", "Commoditization of document Q&A compressing differentiation"],
+    },
+    userLikes: ["Handles massive document volumes without losing context", "Citations make answers verifiable and audit-ready", "Familiar grid interface speeds complex multi-step analysis", "Proven at scale in demanding finance and legal settings"],
+    userComplaints: ["Premium pricing is a barrier for smaller teams", "Power of the platform implies a real learning curve", "Best value concentrated in document-heavy workflows"],
+    customerProfile: {
+      segments: ["Enterprise", "Financial services", "Legal and professional services"],
+      typicalBuyer: "Investment, research or knowledge-management leader",
+      topUseCases: ["Due diligence over large document sets", "Legal and contract research with citations", "Financial and market research analysis"],
+    },
+    futureAreas: ["End-to-end agentic task automation", "Broader vertical expansion beyond finance and legal", "Deeper enterprise system integrations", "Collaboration and workflow features"],
+  },
+  "agentops/dev-agents": {
+    competitiveEdge: "Cloud OS for trusted AI agents across devices, with shared context, adaptive UI and privacy by design",
+    swot: {
+      strengths: ["Android-pedigree founders building an agent OS", "Cross-device OS vision shares context across consumer and enterprise", "Adaptive generative UI and privacy models address agent trust gaps", "Exceptional backing — Index, CapitalG, and prominent AI angels", "$56M seed at $500M valuation funds ambitious platform build"],
+      weaknesses: ["Pre-product, seed-stage — vision far ahead of shipped reality", "OS-scale ambition is capital- and time-intensive to realize", "Adoption requires developers and devices to build on the platform", "No public traction or reference deployments yet"],
+      opportunities: ["Define a category as the OS layer for cross-device agents", "Set trust, privacy and UI standards before incumbents do", "Attract developer ecosystem to a purpose-built agent platform", "Bridge consumer and enterprise agent experiences"],
+      threats: ["Apple, Google and Microsoft owning the device OS layer natively", "Foundation-model vendors extending into agent runtimes", "Platform-shift bets historically face steep adoption odds", "Standards bodies commoditizing cross-agent interoperability"],
+    },
+    userLikes: ["Bold cross-device vision for how agents should run", "Privacy-first design addresses real enterprise trust concerns", "Elite founding team and investor signal", "Adaptive UI promises personalized agent experiences"],
+    userComplaints: ["Still pre-product with little concrete to evaluate", "Unproven whether a new agent OS gains real adoption", "Timeline to usable platform remains unclear"],
+    customerProfile: {
+      segments: ["Developers", "Early-adopter enterprises", "Consumer platforms"],
+      typicalBuyer: "Platform/AI engineering leader or developer building agents",
+      topUseCases: ["Running trusted agents across devices", "Cross-agent context sharing", "Privacy-preserving agent experiences"],
+    },
+    futureAreas: ["Developer SDK and agent app ecosystem", "Cross-device runtime and sync", "Privacy and permission frameworks", "Generative adaptive UI"],
+  },
 };
