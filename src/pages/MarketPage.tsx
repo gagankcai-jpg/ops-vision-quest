@@ -40,7 +40,7 @@ const MARKET_JSONLD: Record<string, object> = {
   agentops: {
     "@context": "https://schema.org", "@type": "Dataset",
     "name": "Agentic Operations Market 2025–2030",
-    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ agentic IT operations vendors. TAM reaches $8B by 2030 at 45% CAGR — the fastest-growing autonomous IT segment.",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ agentic IT vendors — AI service agents, ops orchestration, and enterprise agent platforms. TAM reaches $8B by 2030 at 45% CAGR — the fastest-growing autonomous IT segment.",
     "url": `${BASE_URL}/market/agentops`,
     "license": LICENSE, "creator": ORG, "provider": ORG,
   },
@@ -57,7 +57,7 @@ const MARKET_META: Record<string, { title: string; description: string }> = {
   aiops:    { title: "AIOps & Observability Market 2025–2030", description: "AIOps market reaches $100B by 2030 at 22% CAGR. 100+ vendor profiles covering Dynatrace, Datadog, New Relic, Splunk, and more." },
   itom:     { title: "IT Service, Operations & Asset Management Market 2025–2030", description: "ITSM, ITAM, and Cloud FinOps market reaches $94B by 2030 at 13% CAGR. 100+ vendor profiles: ServiceNow, BMC, Flexera, Tanium, Apptio, CAST AI, and more." },
   rpa:      { title: "RPA & Intelligent Automation Market 2025–2030", description: "RPA market reaches $74B by 2030 at 25% CAGR. UiPath, Automation Anywhere, Blue Prism, and 97 more vendors analyzed." },
-  agentops: { title: "Agentic Operations Market 2025–2030", description: "Agentic IT Operations market reaches $8B by 2030 at 45% CAGR — the fastest-growing segment in the autonomous IT stack." },
+  agentops: { title: "Agentic IT Operations Market 2025–2030", description: "Agentic IT — AI service agents, ops orchestration & enterprise agent platforms — reaches $8B by 2030 at 45% CAGR, the fastest-growing autonomous IT segment." },
   secops:   { title: "Security Operations Market 2025–2030", description: "SecOps market reaches $54B by 2030 at 21% CAGR. CrowdStrike, Palo Alto Networks, SentinelOne, and 97 more vendors profiled." },
 };
 

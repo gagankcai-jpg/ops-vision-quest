@@ -96,11 +96,11 @@ export const itomData = {
   ],
   startups: [
     { name: "BetterCloud", type: "startup" as const, marketCap: "Private", revenue: "Est. $60M ARR", growth: "+30% YoY", highlight: "SaaS Mgmt", description: "SaaS management and IT operations for Google Workspace and M365", recentEvent: "Dec 2025: Added zero-trust SaaS security to existing ITOM automation" },
-    { name: "Atomicwork", type: "startup" as const, marketCap: "Private", revenue: "Early Stage", growth: "—", highlight: "AI-First ITSM", description: "AI-first ITSM replacing legacy service desks with conversational agents" },
+    { name: "Josys", type: "emerging" as const, marketCap: "Private", revenue: "—", growth: "+80% YoY", highlight: "SaaS + Device ITAM", description: "SaaS and device management unifying IT asset and license governance" },
     { name: "Zluri", type: "startup" as const, marketCap: "Private", revenue: "Est. $20M ARR", growth: "+80% YoY", highlight: "SaaS Discovery", description: "SaaS management and license optimization with automated workflows" },
     { name: "Axonius", type: "startup" as const, marketCap: "Private $2.6B", revenue: "Est. $100M ARR", growth: "+70% YoY", highlight: "Asset Intel", description: "Cybersecurity asset management with continuous discovery" },
     { name: "Torii", type: "startup" as const, marketCap: "Private", revenue: "Est. $20M ARR", growth: "+60% YoY", highlight: "SaaS Ops", description: "Automated SaaS management, discovery, and cost optimization" },
-    { name: "Aisera", type: "startup" as const, marketCap: "Acq. (Automation Anywhere)", revenue: "Est. $60M ARR", growth: "+80% YoY", highlight: "Generative AI", description: "Generative AI for employee and customer service experiences — acquired by Automation Anywhere", recentEvent: "Nov 2025: Acquired by Automation Anywhere" },
+    { name: "Electric AI", type: "emerging" as const, marketCap: "Private", revenue: "Est. $50M ARR", growth: "+30% YoY", highlight: "AI IT for SMB", description: "AI-powered IT management and support platform for small and mid-size businesses" },
     { name: "Productiv", type: "startup" as const, marketCap: "Private $250M", revenue: "Est. $30M ARR", growth: "+50% YoY", highlight: "SaaS Intelligence", description: "SaaS intelligence platform for IT and procurement teams" },
     { name: "Zylo", type: "startup" as const, marketCap: "Private", revenue: "Est. $25M ARR", growth: "+40% YoY", highlight: "SaaS Benchmark", description: "SaaS management with benchmarking and negotiation intelligence" },
     { name: "Genuity", type: "startup" as const, marketCap: "Private", revenue: "Est. $10M ARR", growth: "+50% YoY", highlight: "IT FinOps", description: "IT FinOps platform for SaaS spend management and vendor negotiation" },
