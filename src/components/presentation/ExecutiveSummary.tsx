@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ComparisonChart } from "./MarketChart";
 import { Lightbulb, Globe, Zap, Shield } from "lucide-react";
+import { allCategories } from "@/data/marketData";
 import type { MarketData } from "@/data/marketData";
 
 interface ExecutiveSummaryProps {
@@ -29,39 +30,33 @@ function formatBillions(n: number): string {
   return `$${n % 1 === 0 ? n.toFixed(0) : n.toFixed(1)}B`;
 }
 
-// Static fallback totals — 2025 baseline (AIOps $36B + ITSM+ITOM $52B + RPA $24B + Agentic $1.2B + SecOps $21B)
-// Matches SSR landing page narrow-scope numbers (platform-only cut, sourced from analyst reports)
-const FALLBACK = { tam2025: 134.2, tam2030: 330, growth: 146, cagr: 25.2 };
+// Static data is the fallback when no live `markets` prop is supplied — same
+// source of truth as the live path, so the two can never drift apart.
+const STATIC_MARKETS: Record<string, MarketData> = Object.fromEntries(
+  allCategories.map((c) => [c.id, c])
+);
 
 const SLUGS = ["aiops", "itom", "rpa", "agentops", "secops"] as const;
 
 const ExecutiveSummary = ({ markets }: ExecutiveSummaryProps) => {
-  // Compute combined stats from live data if available
-  const hasMaps = markets && Object.keys(markets).length > 0;
+  const source: Record<string, MarketData> =
+    markets && Object.keys(markets).length > 0 ? markets : STATIC_MARKETS;
 
-  const combined2025 = hasMaps
-    ? SLUGS.reduce((sum, s) => sum + parseTAM(markets![s]?.tam2025 as string), 0)
-    : FALLBACK.tam2025;
-
-  const combined2030 = hasMaps
-    ? SLUGS.reduce((sum, s) => sum + parseTAM(markets![s]?.tam2030), 0)
-    : FALLBACK.tam2030;
-
-  const avgCAGR = hasMaps
-    ? SLUGS.reduce((sum, s) => sum + parseCAGR(markets![s]?.cagr), 0) / SLUGS.length
-    : FALLBACK.cagr;
+  const combined2025 = SLUGS.reduce((sum, s) => sum + parseTAM(source[s]?.tam2025 as string), 0);
+  const combined2030 = SLUGS.reduce((sum, s) => sum + parseTAM(source[s]?.tam2030), 0);
+  const avgCAGR = SLUGS.reduce((sum, s) => sum + parseCAGR(source[s]?.cagr), 0) / SLUGS.length;
 
   const growthPct = combined2025 > 0
     ? Math.round(((combined2030 - combined2025) / combined2025) * 100)
-    : FALLBACK.growth;
+    : 0;
 
   const comparisonData = ["2025", "2026", "2028", "2030"].map((year) => ({
     name: year,
-    aiops:    hasMaps ? getChartValue(markets!.aiops, year)    : [36.0, 43.9, 65.3, 100.0][["2025","2026","2028","2030"].indexOf(year)],
-    itom:     hasMaps ? getChartValue(markets!.itom, year)     : [52.0, 58.8, 75.1,  94.0][["2025","2026","2028","2030"].indexOf(year)],
-    rpa:      hasMaps ? getChartValue(markets!.rpa, year)      : [24.0, 30.0, 46.9,  74.0][["2025","2026","2028","2030"].indexOf(year)],
-    agentops: hasMaps ? getChartValue(markets!.agentops, year) : [1.2,  1.7,  3.7,   8.0][["2025","2026","2028","2030"].indexOf(year)],
-    secops:   hasMaps ? getChartValue(markets!.secops, year)   : [21.0, 25.4, 37.2,  54.0][["2025","2026","2028","2030"].indexOf(year)],
+    aiops:    getChartValue(source.aiops, year),
+    itom:     getChartValue(source.itom, year),
+    rpa:      getChartValue(source.rpa, year),
+    agentops: getChartValue(source.agentops, year),
+    secops:   getChartValue(source.secops, year),
   }));
 
   const tam2030Str = formatBillions(combined2030);

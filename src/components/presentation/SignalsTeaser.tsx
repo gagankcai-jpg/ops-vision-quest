@@ -2,35 +2,9 @@ import { useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Radio, BarChart3, Cpu, Bot, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
 import { allCategories } from "@/data/marketData";
-import { vendorProfiles, toVendorSlug } from "@/data/vendorProfiles";
-import type { VendorEntry } from "@/components/presentation/CategorySection";
 import { Surface } from "@/components/ui/surface";
 import { cn } from "@/lib/utils";
-
-/* ─── Types & helpers (local — teaser only needs a subset) ───────────────── */
-
-type SignalType = "acquisition" | "funding" | "launch" | "ipo" | "partnership" | "update";
-
-const MONTHS: Record<string, number> = {
-  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
-  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
-};
-
-function parseEventDate(event: string): number {
-  const m = event.match(/(\w{3})\s+(\d{4})/);
-  if (!m || !(m[1] in MONTHS)) return 0;
-  return new Date(+m[2], MONTHS[m[1]], 1).getTime();
-}
-
-function inferSignalType(event: string): SignalType {
-  const lower = event.toLowerCase();
-  if (lower.includes("ipo") || lower.includes("nasdaq") || lower.includes("nyse")) return "ipo";
-  if (lower.includes("acq.") || lower.includes("acquired") || lower.includes("acquisition") || lower.includes("merger")) return "acquisition";
-  if (/series [a-f]/i.test(event) || lower.includes("raised") || lower.includes("funding") || /\$\d+m\b/i.test(event)) return "funding";
-  if (lower.includes("partner") || lower.includes("alliance") || lower.includes("integration")) return "partnership";
-  if (lower.includes("launch") || lower.includes("released") || lower.includes("announced") || lower.includes("unveiled")) return "launch";
-  return "update";
-}
+import { buildSignals, type SignalType } from "@/lib/signals";
 
 const SIGNAL_TYPE_CONFIG: Record<SignalType, { label: string; className: string }> = {
   acquisition: { label: "M&A",        className: "bg-orange-500/15 text-orange-400 border-orange-500/30" },
@@ -57,35 +31,7 @@ const SignalsTeaser = () => {
   const navigate = useNavigate();
 
   const { signals, total } = useMemo(() => {
-    const seen = new Set<string>();
-    const all = allCategories.flatMap((cat) => {
-      const color = (cat as { color?: string }).color ?? "#0EA5E9";
-      const entries: VendorEntry[] = [
-        ...((cat.vendors as VendorEntry[] | undefined) ?? []),
-        ...((cat.startups as VendorEntry[] | undefined) ?? []),
-      ];
-      return entries
-        .filter((v) => !!v.recentEvent)
-        .map((v) => {
-          const slug = toVendorSlug(v.name);
-          const key = `${cat.id}/${slug}`;
-          if (seen.has(key)) return null;
-          seen.add(key);
-          return {
-            vendorName: v.name,
-            vendorSlug: slug,
-            categoryId: cat.id,
-            categoryTitle: cat.title,
-            categoryColor: color,
-            event: v.recentEvent!,
-            parsedDate: parseEventDate(v.recentEvent!),
-            hasProfile: !!vendorProfiles[`${cat.id}/${slug}`],
-            signalType: inferSignalType(v.recentEvent!),
-          };
-        })
-        .filter((x): x is NonNullable<typeof x> => x !== null);
-    }).sort((a, b) => b.parsedDate - a.parsedDate || a.vendorName.localeCompare(b.vendorName));
-
+    const all = buildSignals(allCategories);
     return { signals: all.slice(0, PREVIEW_COUNT), total: all.length };
   }, []);
 

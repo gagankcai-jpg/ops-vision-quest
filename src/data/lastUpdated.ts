@@ -1,4 +1,4 @@
-export const LAST_UPDATED = "June 2026";
+export const LAST_UPDATED = "July 2026";
 export const REPORT_PERIOD = "2025–2030";
 export const COPYRIGHT_YEAR = "2026";
 // Canonical, accurate source list — matches the per-market sources[] arrays and the

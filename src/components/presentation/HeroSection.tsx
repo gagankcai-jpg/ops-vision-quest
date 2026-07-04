@@ -6,6 +6,7 @@ import {
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
 import { ClientOnly } from "vite-react-ssg";
 import { LAST_UPDATED } from "@/data/lastUpdated";
+import { allCategories } from "@/data/marketData";
 import type { MarketData } from "@/data/marketData";
 import { AmbientBackground } from "@/components/layout/AmbientBackground";
 import { cn } from "@/lib/utils";
@@ -20,30 +21,34 @@ interface CategorySpec {
   short: string;
   title: string;
   icon: React.ComponentType<{ className?: string }>;
-  fallbackTAM: string;
-  fallbackTrajectory: number[];
   accent: string; // tailwind text token
   hex: string; // for chart fill
 }
 
 const CATEGORIES: CategorySpec[] = [
-  { slug: "aiops",    short: "AIOps",     title: "AIOps & Observability",   icon: BarChart3,   fallbackTAM: "$100B", fallbackTrajectory: [36.0, 43.9, 53.6, 65.3, 79.7, 100.0], accent: "text-executive-cyan",   hex: "hsl(199 89% 60%)" },
-  { slug: "itom",     short: "ITOM",      title: "IT Service & Ops Mgmt",   icon: Cpu,         fallbackTAM: "$94B",  fallbackTrajectory: [52.0, 58.8, 66.4, 75.1, 84.8,  94.0], accent: "text-executive-purple", hex: "hsl(262 83% 64%)" },
-  { slug: "rpa",      short: "RPA / IA",  title: "RPA & Intelligent Auto.", icon: Bot,         fallbackTAM: "$74B",  fallbackTrajectory: [24.0, 30.0, 37.5, 46.9, 58.6,  74.0], accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
-  { slug: "agentops", short: "AgentOps",  title: "Agentic Operations",      icon: Sparkles,    fallbackTAM: "$8B",   fallbackTrajectory: [1.2,  1.7,  2.5,  3.7,  5.3,   8.0], accent: "text-executive-amber",  hex: "hsl(38 95% 58%)" },
-  { slug: "secops",   short: "SecOps",    title: "Security Operations",     icon: ShieldCheck, fallbackTAM: "$54B",  fallbackTrajectory: [21.0, 25.4, 30.7, 37.2, 45.0,  54.0], accent: "text-executive-rose",   hex: "hsl(350 89% 62%)" },
+  { slug: "aiops",    short: "AIOps",     title: "AIOps & Observability",   icon: BarChart3,   accent: "text-executive-cyan",   hex: "hsl(199 89% 60%)" },
+  { slug: "itom",     short: "ITOM",      title: "IT Service & Ops Mgmt",   icon: Cpu,         accent: "text-executive-purple", hex: "hsl(262 83% 64%)" },
+  { slug: "rpa",      short: "RPA / IA",  title: "RPA & Intelligent Auto.", icon: Bot,         accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
+  { slug: "agentops", short: "AgentOps",  title: "Agentic Operations",      icon: Sparkles,    accent: "text-executive-amber",  hex: "hsl(38 95% 58%)" },
+  { slug: "secops",   short: "SecOps",    title: "Security Operations",     icon: ShieldCheck, accent: "text-executive-rose",   hex: "hsl(350 89% 62%)" },
 ];
 
-function formatTAM(raw: string | number | undefined, fallback: string): string {
-  if (raw == null) return fallback;
+// Static data is the fallback when no live `markets` prop is supplied — same
+// source of truth as the live path, so the two can never drift apart.
+const STATIC_MARKETS: Record<string, MarketData> = Object.fromEntries(
+  allCategories.map((c) => [c.id, c])
+);
+
+function formatTAM(raw: string | number | undefined): string {
+  if (raw == null) return "—";
   if (typeof raw === "number") return `$${raw}B`;
   return raw.startsWith("$") ? raw : `$${raw}`;
 }
 
-function trajectoryFor(market: MarketData | undefined, fallback: number[]): { v: number }[] {
+function trajectoryFor(market: MarketData | undefined): { v: number }[] {
   const chart = market?.chartData;
   if (chart && chart.length >= 2) return chart.map((c) => ({ v: c.value }));
-  return fallback.map((v) => ({ v }));
+  return [];
 }
 
 const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
@@ -141,14 +146,15 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
           className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
         >
           {CATEGORIES.map((cat) => {
-            const live = markets?.[cat.slug];
-            const tam2030 = formatTAM(live?.tam2030, cat.fallbackTAM);
+            const live = markets?.[cat.slug] ?? STATIC_MARKETS[cat.slug];
+            const tam2030 = formatTAM(live?.tam2030);
             const cagr = live?.cagr ?? null;
-            const traj = trajectoryFor(live, cat.fallbackTrajectory);
+            const traj = trajectoryFor(live);
             return (
               <Link
                 key={cat.slug}
                 to={`/market/${cat.slug}`}
+                aria-label={`${live?.title ?? cat.title} — ${tam2030} 2030 TAM, explore market`}
                 className={cn(
                   "group relative flex flex-col gap-3 overflow-hidden rounded-xl border border-border bg-card/60 p-5 backdrop-blur",
                   "transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-card hover:shadow-lg",
@@ -176,7 +182,7 @@ const HeroSection = ({ markets, dataDate }: HeroSectionProps) => {
                   </p>
                 </div>
 
-                <div className="-mb-1 h-10 w-full">
+                <div className="-mb-1 h-10 w-full" aria-hidden="true">
                   <ClientOnly fallback={<div className="h-full w-full" />}>
                   {() => (
                   <ResponsiveContainer width="100%" height="100%">

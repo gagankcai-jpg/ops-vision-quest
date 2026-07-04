@@ -7,57 +7,10 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Surface } from "@/components/ui/surface";
 import { Stat } from "@/components/ui/stat";
 import { useMarketData } from "@/hooks/useMarketData";
-import { vendorProfiles, toVendorSlug } from "@/data/vendorProfiles";
-import type { VendorEntry } from "@/components/presentation/CategorySection";
 import { TYPE_BADGE, TYPE_LABEL } from "@/lib/pricingHelpers";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import { cn } from "@/lib/utils";
-
-/* ─── Types ──────────────────────────────────────────────────────────────── */
-
-type SignalType = "acquisition" | "funding" | "launch" | "ipo" | "partnership" | "update";
-
-interface SignalEntry {
-  vendorName: string;
-  vendorSlug: string;
-  categoryId: string;
-  categoryTitle: string;
-  categoryColor: string;
-  type: string;
-  event: string;
-  parsedDate: number;
-  hasProfile: boolean;
-  signalType: SignalType;
-}
-
-/* ─── Helpers ─────────────────────────────────────────────────────────────── */
-
-const MONTHS: Record<string, number> = {
-  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
-  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
-};
-
-function parseEventDate(event: string): number {
-  const m = event.match(/(\w{3})\s+(\d{4})/);
-  if (!m || !(m[1] in MONTHS)) return 0;
-  return new Date(+m[2], MONTHS[m[1]], 1).getTime();
-}
-
-function formatMonthYear(ts: number): string {
-  if (ts === 0) return "Undated";
-  const d = new Date(ts);
-  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
-}
-
-function inferSignalType(event: string): SignalType {
-  const lower = event.toLowerCase();
-  if (lower.includes("ipo") || lower.includes("went public") || lower.includes("nasdaq") || lower.includes("nyse")) return "ipo";
-  if (lower.includes("acq.") || lower.includes("acquired") || lower.includes("acquisition") || lower.includes("acqui-hire") || lower.includes("merger")) return "acquisition";
-  if (/series [a-f]/i.test(event) || lower.includes("raise") || lower.includes("raised") || lower.includes("funding") || /\$\d+m\b/i.test(event)) return "funding";
-  if (lower.includes("partner") || lower.includes("partnership") || lower.includes("alliance") || lower.includes("integration")) return "partnership";
-  if (lower.includes("launch") || lower.includes("launched") || lower.includes("released") || lower.includes("introduced") || lower.includes("announced") || lower.includes("unveil")) return "launch";
-  return "update";
-}
+import { buildSignals, formatSignalGroup, type SignalEntry, type SignalType } from "@/lib/signals";
 
 const SIGNAL_TYPE_CONFIG: Record<SignalType, { label: string; className: string }> = {
   acquisition: { label: "M&A",         className: "bg-orange-500/15 text-orange-400 border-orange-500/30" },
@@ -85,42 +38,6 @@ const FILTER_ITEMS = [
   { id: "secops",   label: "SecOps" },
 ];
 
-/* ─── Signal builder (runs from live data when available) ─────────────────── */
-
-function buildSignals(categories: ReturnType<typeof useMarketData>["data"]): SignalEntry[] {
-  const seen = new Set<string>();
-  return Object.values(categories)
-    .flatMap((cat) => {
-      const color = (cat as { color?: string }).color ?? "#0EA5E9";
-      const entries: VendorEntry[] = [
-        ...((cat.vendors as VendorEntry[] | undefined) ?? []),
-        ...((cat.startups as VendorEntry[] | undefined) ?? []),
-      ];
-      return entries
-        .filter((v) => !!v.recentEvent)
-        .map((v) => {
-          const slug = toVendorSlug(v.name);
-          const key = `${cat.id}/${slug}`;
-          if (seen.has(key)) return null;
-          seen.add(key);
-          return {
-            vendorName: v.name,
-            vendorSlug: slug,
-            categoryId: cat.id,
-            categoryTitle: cat.title,
-            categoryColor: color,
-            type: v.type,
-            event: v.recentEvent!,
-            parsedDate: parseEventDate(v.recentEvent!),
-            hasProfile: !!vendorProfiles[`${cat.id}/${slug}`],
-            signalType: inferSignalType(v.recentEvent!),
-          };
-        })
-        .filter((x): x is SignalEntry => x !== null);
-    })
-    .sort((a, b) => b.parsedDate - a.parsedDate || a.vendorName.localeCompare(b.vendorName));
-}
-
 /* ─── Main component ─────────────────────────────────────────────────────── */
 
 const SignalsPage = () => {
@@ -129,7 +46,7 @@ const SignalsPage = () => {
   const { data: liveData }                = useMarketData();
   const navigate                          = useNavigate();
 
-  const allSignals = useMemo(() => buildSignals(liveData), [liveData]);
+  const allSignals = useMemo(() => buildSignals(Object.values(liveData)), [liveData]);
 
   const filtered = useMemo(() => {
     let results = activeFilter === "all"
@@ -149,7 +66,7 @@ const SignalsPage = () => {
   const grouped = useMemo(() => {
     const groups = new Map<string, { ts: number; items: SignalEntry[] }>();
     for (const s of filtered) {
-      const key = formatMonthYear(s.parsedDate);
+      const key = formatSignalGroup(s);
       if (!groups.has(key)) groups.set(key, { ts: s.parsedDate, items: [] });
       groups.get(key)!.items.push(s);
     }

@@ -386,7 +386,7 @@ const PricingPage = () => {
               Pricing & TCO Intelligence
             </h1>
             <p className="text-muted-foreground max-w-2xl leading-relaxed mb-4">
-              Understand how 50 leading vendors charge — pricing models, TCO signals, and market
+              Understand how 200+ leading vendors charge — pricing models, TCO signals, and market
               segment fit across AIOps, ITOM, RPA, AgentOps, and SecOps.
             </p>
             {/* Disclaimer */}

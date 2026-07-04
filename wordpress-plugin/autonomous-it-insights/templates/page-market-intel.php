@@ -82,12 +82,26 @@ if ( preg_match( '#^[a-z0-9](?:[a-z0-9/_-]*[a-z0-9])?$#', $ait_route_key ) && st
 }
 
 $ait_meta = $ait_default_meta;
+$ait_route_known = false;
+$ait_routes      = null;
 $ait_meta_file = dirname( __DIR__ ) . '/app/route-meta.json';
 if ( is_readable( $ait_meta_file ) ) {
 	$ait_routes = json_decode( file_get_contents( $ait_meta_file ), true );
 	if ( is_array( $ait_routes ) && isset( $ait_routes[ $ait_route_key ] ) ) {
 		$ait_meta = array_merge( $ait_default_meta, $ait_routes[ $ait_route_key ] );
+		$ait_route_known = true;
 	}
+}
+
+/*
+ * Every valid route is listed in route-meta.json (generated from the same TS route
+ * data as the SSG build). A route absent from it is a genuine unknown path, so send
+ * a real 404 status instead of a soft-404 — the shell still renders and the client
+ * router shows the NotFound page. Skipped if route-meta.json is unreadable (can't tell).
+ */
+if ( ! $ait_route_known && is_array( $ait_routes ) ) {
+	http_response_code( 404 );
+	header( 'X-Robots-Tag: noindex' );
 }
 $ait_og_type = $ait_meta['ogType'] ?? 'article';
 

@@ -328,21 +328,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Per-user SaaS management — clear ROI for M365 and Workspace-heavy orgs.",
   },
 
-  "itom/atomicwork": {
-    pricingModel: "per-seat",
-    transparency: "contact-sales",
-    typicalACV: "$30K–$100K",
-    marketSegment: ["mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Employee headcount or helpdesk agent count",
-      "AI resolution volume and knowledge base integrations",
-      "Enterprise SSO and advanced workflow features",
-    ],
-    bottomLine: "Competitive pricing to displace expensive legacy ITSM platforms.",
-  },
 
   "itom/zluri": {
     pricingModel: "per-seat",
@@ -708,37 +693,7 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Disruptive AI-first pricing to displace expensive legacy ITSM platforms.",
   },
 
-  "agentops/shoreline-io": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$30K–$150K",
-    marketSegment: ["mid-market", "enterprise"],
-    deploymentModel: ["saas", "hybrid"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Number of monitored nodes and hosts",
-      "Runbook execution count per month",
-      "Integrations with cloud providers and alerting systems",
-    ],
-    bottomLine: "Cloud ops automation — competitive pricing vs. traditional runbook tools.",
-  },
 
-  "agentops/causely": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$40K–$200K",
-    marketSegment: ["enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "medium",
-    keyPricingDrivers: [
-      "Number of monitored services and microservices",
-      "Root cause analysis volume and frequency",
-      "Integration breadth with observability data sources",
-    ],
-    bottomLine: "Causal AI for self-healing ops — pricing still maturing for early enterprise deals.",
-  },
 
   /* ══════════════════════════════════════════════════════════════════════════
      SecOps — Top 5 Leaders
@@ -1237,21 +1192,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Radically transparent flat pricing removes per-seat anxiety — best value for cost-conscious IT teams under 500 seats.",
   },
 
-  "itom/aisera": {
-    pricingModel: "enterprise-license",
-    transparency: "contact-sales",
-    typicalACV: "$150K–$800K",
-    marketSegment: ["enterprise", "fortune500"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: false,
-    tcoBadge: "high",
-    keyPricingDrivers: [
-      "Number of employees receiving AI service desk capabilities",
-      "Domains deployed: IT, HR, finance, facilities",
-      "Integration depth with ServiceNow, Workday, SAP for fulfillment automation",
-    ],
-    bottomLine: "Enterprise-grade AI service desk with premium TCO justified by measurable ticket deflection above 80%.",
-  },
 
   // ── RPA Established ──────────────────────────────────────────────────────
 
@@ -2405,22 +2345,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "High but proven ROI for large contact centres — automation rate improvements justify cost within 6-12 months for 1M+ interaction environments.",
   },
 
-  "agentops/intercom-fin-ai": {
-    pricingModel: "consumption",
-    transparency: "public-list",
-    startingPrice: "$0.99/resolution (Fin AI)",
-    typicalACV: "$10K–$150K",
-    marketSegment: ["smb", "mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "medium",
-    keyPricingDrivers: [
-      "Per-resolution pricing for Fin AI autonomous handling",
-      "Intercom base platform subscription required alongside Fin add-on",
-      "Conversation volume peaks in seasonal businesses can spike cost",
-    ],
-    bottomLine: "Transparent per-resolution model makes ROI calculation straightforward — typically cheaper than human agent cost when resolution rate exceeds 40%.",
-  },
 
   "agentops/glean": {
     pricingModel: "per-seat",
@@ -2918,22 +2842,6 @@ export const pricingData: Record<string, PricingInfo> = {
     ],
     bottomLine: "TeamDynamix pricing is competitive for higher education and public sector where the vertical-specific templates and no-code administration reduce implementation costs vs. ServiceNow-level alternatives.",
   },
-  "itom/jira-service-management": {
-    pricingModel: "per-seat",
-    transparency: "public-list",
-    startingPrice: "$21/agent/month for Standard tier",
-    typicalACV: "$15K–$200K",
-    marketSegment: ["mid-market", "enterprise"],
-    deploymentModel: ["saas", "on-prem"],
-    freeTrialOrTier: true,
-    tcoBadge: "medium",
-    keyPricingDrivers: [
-      "Agent seat count at Standard, Premium, or Enterprise tier",
-      "Atlassian Intelligence AI usage included in Premium and above",
-      "Data Center self-hosted licensing for regulated industries requiring on-premises deployment",
-    ],
-    bottomLine: "Jira Service Management's per-agent pricing is among the most competitive in the enterprise ITSM category — the Premium tier's AI features and unlimited storage deliver strong value for Atlassian-native organizations.",
-  },
   "itom/spiceworks": {
     pricingModel: "freemium",
     transparency: "public-list",
@@ -3156,21 +3064,6 @@ export const pricingData: Record<string, PricingInfo> = {
     ],
     bottomLine: "Writer's platform pricing is justified for organizations where brand consistency and compliance accuracy have direct business value — particularly regulated industries where AI hallucination costs exceed Writer licensing by orders of magnitude.",
   },
-  "agentops/forethought": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$50K–$300K",
-    marketSegment: ["mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: false,
-    tcoBadge: "medium",
-    keyPricingDrivers: [
-      "Conversation volume processed per month across all AI modules",
-      "Module selection: Solve (autonomous), Triage (routing), Assist (copilot) packages",
-      "Deflection rate SLA commitment and performance guarantee tier",
-    ],
-    bottomLine: "Forethought ROI is directly calculable from deflection rate × average handle time × agent cost — buyers can model payback in a spreadsheet before signing, making the investment decision straightforward.",
-  },
   "agentops/assembled": {
     pricingModel: "per-seat",
     transparency: "contact-sales",
@@ -3265,21 +3158,6 @@ export const pricingData: Record<string, PricingInfo> = {
       "Storage and knowledge base size for agent grounding",
     ],
     bottomLine: "Relevance AI's consumption pricing is accessible for mid-market teams — the free trial and Starter tier enable genuine evaluation before commitment, with cost scaling predictably with agent usage volume.",
-  },
-  "agentops/polyai": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$200K–$2M",
-    marketSegment: ["enterprise", "fortune500"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: false,
-    tcoBadge: "high",
-    keyPricingDrivers: [
-      "Conversation minutes processed per month across all deployed voice agents",
-      "Language and dialect count for multi-market deployments",
-      "Custom voice and persona development professional services",
-    ],
-    bottomLine: "PolyAI's high ACV reflects voice AI complexity — ROI is justified by deflecting 50–70% of inbound calls that would otherwise require live agents, with documented cost savings in the $500K–$5M range for large contact centers.",
   },
   "agentops/guru": {
     pricingModel: "per-seat",
@@ -3451,22 +3329,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Enterprise-tier pricing bundled into Dell APEX Observability; best value for existing Dell infrastructure customers who can leverage bundle pricing against standalone AIOps spend.",
   },
 
-  "rpa/ramp": {
-    pricingModel: "freemium",
-    transparency: "public-list",
-    startingPrice: "Free (core card + expense)",
-    typicalACV: "$20K–$150K",
-    marketSegment: ["smb", "mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Employee count and card volume — premium tiers priced per user for advanced AP and analytics features",
-      "AP automation module adoption — invoice processing and vendor payments are premium add-ons",
-      "Interchange revenue model — Ramp earns from card transactions, subsidizing software pricing",
-    ],
-    bottomLine: "Ramp's freemium corporate card eliminates upfront software cost — core expense management is free with revenue from interchange fees, making it the lowest TCO option in the finance automation category.",
-  },
 
   "secops/abnormal-security": {
     pricingModel: "per-seat",
@@ -3485,4 +3347,219 @@ export const pricingData: Record<string, PricingInfo> = {
   },
 
 
+  /* ══════════════════════════════════════════════════════════════════════════
+     AgentOps — 2026 re-curated established vendors (added Jul 2026)
+  ══════════════════════════════════════════════════════════════════════════ */
+
+  "agentops/langchain": {
+    pricingModel: "open-source-plus",
+    transparency: "public-list",
+    startingPrice: "$39/seat/month (LangSmith Plus); free Developer tier",
+    typicalACV: "$5K–$150K — self-serve seats+traces; six figures for enterprise self-hosted LangSmith",
+    marketSegment: ["smb", "mid-market", "enterprise"],
+    deploymentModel: ["saas", "hybrid"],
+    freeTrialOrTier: true,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Seats + trace volume (overage ~$2.50/1K traces)",
+      "Enterprise tier for SSO, custom retention, self-hosting",
+      "LLM API costs billed separately",
+    ],
+    bottomLine: "OSS core is free; $39/seat is cheap entry — trace volume drives the real production bill.",
+  },
+
+  "agentops/sap-joule-agents": {
+    pricingModel: "consumption",
+    transparency: "limited-public",
+    typicalACV: "$100K–$1M+ in annual AI-unit commitments atop an existing SAP estate",
+    marketSegment: ["enterprise", "fortune500"],
+    deploymentModel: ["saas"],
+    freeTrialOrTier: false,
+    tcoBadge: "high",
+    keyPricingDrivers: [
+      "Agent tier × steps: 0.005–0.025 AI units/step (basic→advanced)",
+      "Prepurchased AI units expire after 12 months",
+      "Agentic runs burn 3–8x more units than copilot chat",
+    ],
+    bottomLine: "Agents burn AI units 3–8x faster than copilot chat — model consumption before committing units.",
+  },
+
+  "agentops/serval": {
+    pricingModel: "platform-license",
+    transparency: "contact-sales",
+    typicalACV: "Est. $30K–$150K for mid-market IT orgs (analyst est.; demo-gated quotes)",
+    marketSegment: ["mid-market", "enterprise"],
+    deploymentModel: ["saas"],
+    freeTrialOrTier: false,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Employee/end-user count served by the help desk",
+      "Scope: help desk + access management + automation modules",
+    ],
+    bottomLine: "Demo-gated quotes only; the all-in ITSM-replacement pitch means migration effort dwarfs license.",
+  },
+
+  "agentops/sana-ai": {
+    pricingModel: "per-seat",
+    transparency: "limited-public",
+    startingPrice: "$30/user/month (legacy Sana Team tier; free tier capped at 5 members)",
+    typicalACV: "$50K–$300K for enterprise knowledge + agent deployments",
+    marketSegment: ["mid-market", "enterprise"],
+    deploymentModel: ["saas"],
+    freeTrialOrTier: true,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Seat count on legacy Sana tiers",
+      "Workday Flex Credit commitments post-acquisition ($1.1B, closed Nov 2025)",
+      "Enterprise knowledge/agent scope",
+    ],
+    bottomLine: "Sana's $30/seat era is closing — Workday buyers now fund agents via Flex Credit commitments.",
+  },
+
+  "agentops/oracle-ai-agent-studio": {
+    pricingModel: "module-based",
+    transparency: "limited-public",
+    startingPrice: "$0 — included with Oracle Fusion Cloud Apps subscription",
+    typicalACV: "$0 incremental for base studio; AI-unit spend scales with premium-LLM agent usage (26C+)",
+    marketSegment: ["enterprise", "fortune500"],
+    deploymentModel: ["saas"],
+    freeTrialOrTier: true,
+    tcoBadge: "low",
+    keyPricingDrivers: [
+      "Requires existing Fusion Apps subscription",
+      "Premium LLM choice triggers AI-unit billing from Release 26C",
+      "Custom AI agent subscriptions for advanced builds",
+    ],
+    bottomLine: "Free studio deepens Fusion lock-in; premium-LLM agent usage starts metering in 26C.",
+  },
+
+  "agentops/workday-illuminate": {
+    pricingModel: "consumption",
+    transparency: "contact-sales",
+    typicalACV: "$50K–$500K in Flex Credit commitments atop the Workday subscription",
+    marketSegment: ["enterprise", "fortune500"],
+    deploymentModel: ["saas"],
+    freeTrialOrTier: false,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Flex Credit allotment bundled in base subscription (renews annually)",
+      "Agent count and run volume across Illuminate agents",
+      "Top-up credit purchases as adoption grows",
+    ],
+    bottomLine: "Credits come 'free' in your subscription — until agent adoption forces annual top-ups.",
+  },
+
+  "agentops/kognitos": {
+    pricingModel: "consumption",
+    transparency: "limited-public",
+    startingPrice: "$3.00/worker-deployment unit (AWS Marketplace PAYG)",
+    typicalACV: "Est. $50K–$250K for mid-market automation programs",
+    marketSegment: ["mid-market", "enterprise"],
+    deploymentModel: ["saas"],
+    freeTrialOrTier: false,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Automation/process run volume",
+      "Document-processing complexity",
+      "Direct contract vs AWS Marketplace PAYG",
+    ],
+    bottomLine: "PAYG entry via AWS Marketplace undercuts RPA maintenance; direct enterprise deals are quote-only.",
+  },
+
+  "agentops/emergence-ai": {
+    pricingModel: "enterprise-license",
+    transparency: "contact-sales",
+    typicalACV: "Est. $75K–$400K value-based enterprise engagements (pricing still forming)",
+    marketSegment: ["enterprise", "fortune500"],
+    deploymentModel: ["saas", "on-prem", "hybrid"],
+    freeTrialOrTier: false,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Value/ROI-based deal structures under test",
+      "Deployment mode: cloud, VPC, or on-prem",
+      "Agent/data-pipeline scale (CRAFT)",
+    ],
+    bottomLine: "Private-preview pricing still forming — expect value-based deals; pilot before committing.",
+  },
+
+  "agentops/composio": {
+    pricingModel: "consumption",
+    transparency: "public-list",
+    startingPrice: "$29/month (200K tool calls); free tier 20K calls/month",
+    typicalACV: "$348–$100K — mostly self-serve; enterprise VPC/SLA deals reach six figures",
+    marketSegment: ["smb", "mid-market", "enterprise"],
+    deploymentModel: ["saas", "hybrid"],
+    freeTrialOrTier: true,
+    tcoBadge: "low",
+    keyPricingDrivers: [
+      "Tool-call volume (overage $0.249–$0.299 per 1K)",
+      "Enterprise: VPC/on-prem deployment, SLA, SOC 2",
+    ],
+    bottomLine: "Rare public pricing in agent infra: $29/mo covers 200K tool calls — enterprise adds VPC and SLA.",
+  },
+
+  "agentops/sema4-ai": {
+    pricingModel: "open-source-plus",
+    transparency: "contact-sales",
+    typicalACV: "Est. $100K–$400K for back-office agent deployments",
+    marketSegment: ["enterprise", "fortune500"],
+    deploymentModel: ["saas", "hybrid"],
+    freeTrialOrTier: true,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Agent count and workflow/document volume",
+      "Enterprise controls vs free open-source Robocorp stack",
+    ],
+    bottomLine: "Open-source Robocorp base is free; the enterprise agent platform is a quote-driven sale.",
+  },
+
+  "agentops/lyzr": {
+    pricingModel: "consumption",
+    transparency: "public-list",
+    startingPrice: "$0.08/agent run (cloud); $0.03/run self-hosted VPC",
+    typicalACV: "$10K–$150K depending on agent-run volume",
+    marketSegment: ["smb", "mid-market", "enterprise"],
+    deploymentModel: ["saas", "on-prem"],
+    freeTrialOrTier: true,
+    tcoBadge: "low",
+    keyPricingDrivers: [
+      "Agent-run volume ($0.03 VPC vs $0.08 cloud)",
+      "LLM and compute costs billed separately",
+      "Enterprise support and compliance add-ons",
+    ],
+    bottomLine: "Transparent per-run pricing, but LLMs bill separately — model total per-workflow economics.",
+  },
+
+  "agentops/invgate": {
+    pricingModel: "per-seat",
+    transparency: "public-list",
+    startingPrice: "$1,499/year (Starter, 5 agents); Pro $500/agent/year",
+    typicalACV: "$10K–$75K for typical 20–100 technician orgs; Enterprise from $12K/year",
+    marketSegment: ["smb", "mid-market"],
+    deploymentModel: ["saas", "on-prem"],
+    freeTrialOrTier: true,
+    tcoBadge: "low",
+    keyPricingDrivers: [
+      "Technician (agent) seat count",
+      "Tier: Starter / Pro / Enterprise ($12K+/yr floor)",
+      "AI Hub + Virtual Service Agent bundled, no AI surcharge",
+    ],
+    bottomLine: "Honest per-agent pricing with AI included — among the cheapest agentic ITSM entry points.",
+  },
+
+  "agentops/ai21-maestro": {
+    pricingModel: "consumption",
+    transparency: "contact-sales",
+    typicalACV: "Est. $50K–$300K usage-based enterprise deals",
+    marketSegment: ["enterprise", "fortune500"],
+    deploymentModel: ["saas", "hybrid"],
+    freeTrialOrTier: true,
+    tcoBadge: "medium",
+    keyPricingDrivers: [
+      "Workflow-run and model/token usage",
+      "Deployment: SaaS vs Amazon VPC",
+      "Enterprise support terms",
+    ],
+    bottomLine: "Usage-based and quote-only; the pitch is cost recovery via routing — demand baseline benchmarks.",
+  },
 };
