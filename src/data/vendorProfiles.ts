@@ -32,15 +32,8 @@ export interface VendorProfile {
   competitiveEdge: string;
 }
 
-/** Convert a vendor display name to a URL-safe slug */
-export function toVendorSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s*\(.*?\)/g, "")   // strip parentheticals
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
+/* toVendorSlug moved to src/lib/vendorSlug.ts — import it from there. Keeping a
+   re-export here would drag this ~1.5MB data chunk into every slug consumer. */
 
 export const vendorProfiles: Record<string, VendorProfile> = {
   "agentops/notion-ai": {

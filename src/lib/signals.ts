@@ -1,4 +1,5 @@
-import { vendorProfiles, toVendorSlug } from "@/data/vendorProfiles";
+import { toVendorSlug } from "@/lib/vendorSlug";
+import { profiledVendorKeys } from "@/data/profileKeys";
 import type { VendorEntry } from "@/components/presentation/CategorySection";
 
 /* Shared signal-feed builder used by SignalsPage and SignalsTeaser. */
@@ -91,7 +92,7 @@ export function buildSignals(categories: readonly SignalSourceCategory[]): Signa
             event: v.recentEvent!,
             parsedDate: ts,
             datePrecision: precision,
-            hasProfile: !!vendorProfiles[key],
+            hasProfile: profiledVendorKeys.has(key),
             signalType: inferSignalType(v.recentEvent!),
           };
         })

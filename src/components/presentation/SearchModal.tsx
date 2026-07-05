@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ArrowUpRight, BarChart3, Cpu, Bot, Sparkles, ShieldCheck } from "lucide-react";
 import { allCategories } from "@/data/marketData";
-import { toVendorSlug, vendorProfiles } from "@/data/vendorProfiles";
+import { toVendorSlug } from "@/lib/vendorSlug";
+import { profiledVendorKeys } from "@/data/profileKeys";
 import type { VendorEntry } from "@/components/presentation/CategorySection";
 
 /* ─── Types ──────────────────────────────────────────────────────────────── */
@@ -57,7 +58,7 @@ const ALL_VENDORS: SearchResult[] = allCategories.flatMap((cat) => {
       categoryTitle: cat.title,
       type: v.type,
       description: v.description,
-      hasProfile: !!vendorProfiles[`${cat.id}/${slug}`],
+      hasProfile: profiledVendorKeys.has(`${cat.id}/${slug}`),
     };
   });
 });

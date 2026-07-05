@@ -5,7 +5,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { PageMeta } from "@/components/seo/PageMeta";
 import { LAST_UPDATED } from "@/data/lastUpdated";
 import { allCategories } from "@/data/marketData";
-import { toVendorSlug } from "@/data/vendorProfiles";
+import { toVendorSlug } from "@/lib/vendorSlug";
 import {
   pricingData,
   type PricingInfo,

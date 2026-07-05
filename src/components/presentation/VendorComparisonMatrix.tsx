@@ -32,7 +32,8 @@ import {
   Crown,
   Activity,
 } from "lucide-react";
-import { vendorProfiles, toVendorSlug } from "@/data/vendorProfiles";
+import { toVendorSlug } from "@/lib/vendorSlug";
+import { profiledVendorKeys } from "@/data/profileKeys";
 import {
   ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid,
   Tooltip as RTooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList,
@@ -455,7 +456,7 @@ function MarketMap({
 
   const handleClick = (point: MarketMapPoint) => {
     const slug = toVendorSlug(point.name);
-    const hasProfile = !!vendorProfiles[`${point.categoryId}/${slug}`];
+    const hasProfile = profiledVendorKeys.has(`${point.categoryId}/${slug}`);
     if (hasProfile) navigate(`/vendor/${point.categoryId}/${slug}`);
     else onPeek(point);
   };
@@ -744,7 +745,7 @@ function LeaderboardCard({
         <ol className="space-y-0.5">
           {visible.map((v, i) => {
             const slug = toVendorSlug(v.name);
-            const hasProfile = !!vendorProfiles[`${v.categoryId}/${slug}`];
+            const hasProfile = profiledVendorKeys.has(`${v.categoryId}/${slug}`);
             const subtitle = subtitleFor?.(v);
             return (
               <li key={`${v.categoryId}/${v.name}`}>
@@ -1360,7 +1361,7 @@ const VendorComparisonMatrix = () => {
                   const rowKey = `${vendor.categoryId}-${vendor.name}`;
                   const slug = toVendorSlug(vendor.name);
                   const profileKey = `${vendor.categoryId}/${slug}`;
-                  const hasProfile = !!vendorProfiles[profileKey];
+                  const hasProfile = profiledVendorKeys.has(profileKey);
                   const profilePath = `/vendor/${vendor.categoryId}/${slug}`;
                   return (
                     <motion.tr
@@ -1649,7 +1650,7 @@ const VendorComparisonMatrix = () => {
           {selectedVendor && (() => {
             const slug = toVendorSlug(selectedVendor.name);
             const profileKey = `${selectedVendor.categoryId}/${slug}`;
-            const hasProfile = !!vendorProfiles[profileKey];
+            const hasProfile = profiledVendorKeys.has(profileKey);
             return (
               <div className="mt-6 flex flex-col gap-2 border-t border-border pt-4 sm:flex-row sm:justify-end">
                 <button

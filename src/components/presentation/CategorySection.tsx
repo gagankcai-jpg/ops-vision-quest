@@ -7,7 +7,8 @@ import {
   Lightbulb, Compass,
 } from "lucide-react";
 import MarketChart from "./MarketChart";
-import { toVendorSlug, vendorProfiles } from "@/data/vendorProfiles";
+import { toVendorSlug } from "@/lib/vendorSlug";
+import { profiledVendorKeys } from "@/data/profileKeys";
 import { Surface } from "@/components/ui/surface";
 import { Stat } from "@/components/ui/stat";
 import { SectionHeader } from "@/components/layout/SectionHeader";
@@ -95,7 +96,7 @@ function SpotlightCard({
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
   const slug = toVendorSlug(vendor.name);
-  const hasProfile = !!vendorProfiles[`${categoryId}/${slug}`];
+  const hasProfile = profiledVendorKeys.has(`${categoryId}/${slug}`);
 
   return (
     <motion.div
@@ -201,7 +202,7 @@ function VendorTable({
           <tbody>
             {visible.map((v, i) => {
               const slug = toVendorSlug(v.name);
-              const hasProfile = !!vendorProfiles[`${categoryId}/${slug}`];
+              const hasProfile = profiledVendorKeys.has(`${categoryId}/${slug}`);
               return (
                 <tr key={v.name} className="border-b border-border/40 align-top transition-colors last:border-b-0 hover:bg-secondary/25">
                   <td className="px-4 py-3 font-mono text-xs text-muted-foreground tabular-nums">{i + 1}</td>

@@ -53,6 +53,11 @@ export default defineConfig(({ mode }) => ({
         // doesn't error with "react cannot be included in manualChunks". We only assign
         // chunks for libs we match; react/react-dom are left to rollup's default handling.
         manualChunks(id: string) {
+          // Heavy data modules: only lazy routes (vendor detail, compare, pricing)
+          // import these, so naming them keeps them out of the main app chunk and
+          // makes their size visible in build output.
+          if (id.includes("src/data/vendorProfiles")) return "data-profiles";
+          if (id.includes("src/data/pricingData")) return "data-pricing";
           if (!id.includes("node_modules")) return;
           if (id.includes("recharts")) return "vendor-charts";
           if (id.includes("framer-motion")) return "vendor-motion";
