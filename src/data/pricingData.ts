@@ -1273,7 +1273,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Bundling with existing SAP S/4HANA, SuccessFactors, or Ariba licenses",
       "Number of workflow and RPA bot executions",
     ],
-    bottomLine: "Compelling for SAP-heavy enterprises — licensing bundled into BTP credits but credit consumption requires careful monitoring.",
+    bottomLine: "Compelling for SAP-heavy enterprises — licensing bundled into BTP credits, but consumption needs careful monitoring.",
   },
 
   // ── RPA Startups ─────────────────────────────────────────────────────────
@@ -1561,7 +1561,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Security Operations module: Vulnerability Response, Threat Intelligence, SecOps",
       "Number of security users and IT operations users",
     ],
-    bottomLine: "Add-on cost on top of ServiceNow ITSM — ROI strongest for organizations with mature CMDB and existing platform investment.",
+    bottomLine: "Add-on cost atop ServiceNow ITSM — ROI strongest with a mature CMDB and existing platform investment.",
   },
 
   "secops/exabeam": {
@@ -1610,7 +1610,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Threat Intelligence add-on: VirusTotal and Mandiant intelligence feeds",
       "Committed use discounts available for multi-year Google Cloud agreements",
     ],
-    bottomLine: "Unlimited ingest per-user pricing transforms SIEM economics — TCO competitive versus Splunk for high-volume organizations.",
+    bottomLine: "Unlimited-ingest per-user pricing transforms SIEM economics — TCO beats Splunk for high-volume organizations.",
   },
 
   // ── SecOps Startups ──────────────────────────────────────────────────────
@@ -1715,7 +1715,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Event Management and Discovery are separate modules with separate licensing",
       "Professional services engagement nearly always required for initial CMDB population",
     ],
-    bottomLine: "Justified only for organisations already on ServiceNow ITSM; standalone AIOps cost far exceeds best-of-breed alternatives.",
+    bottomLine: "Justified only for organisations already on ServiceNow ITSM — standalone AIOps cost far exceeds best-of-breed rivals.",
   },
 
   "aiops/ibm-instana": {
@@ -1748,7 +1748,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Business iQ and analytics features are separately licensed premium add-ons",
       "Cisco enterprise agreement bundles can obscure true AppDynamics-specific cost",
     ],
-    bottomLine: "Premium-priced legacy APM; best value when bundled into a Cisco enterprise agreement and justified by Business iQ revenue correlation.",
+    bottomLine: "Premium-priced legacy APM — best value bundled into a Cisco EA and justified by Business iQ revenue correlation.",
   },
 
   "aiops/bmc-truesight": {
@@ -1764,7 +1764,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Significant professional services required for implementation and tuning",
       "Annual maintenance and support fees on top of license cost",
     ],
-    bottomLine: "Highest TCO in the AIOps market — justified only for hybrid mainframe + distributed enterprises with no viable cloud-native alternative.",
+    bottomLine: "Highest TCO in AIOps — justified only for hybrid mainframe + distributed shops with no viable cloud-native option.",
   },
 
   "aiops/solarwinds": {
@@ -1781,7 +1781,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Node/element licensing; costs increase as monitored device count grows",
       "Professional services and training fees add 15-30% to first-year cost",
     ],
-    bottomLine: "Most cost-effective enterprise infrastructure monitoring available — mid-market IT teams get Gartner-recognised capability at a fraction of Datadog pricing.",
+    bottomLine: "Most cost-effective enterprise infrastructure monitoring — Gartner-recognised, at a fraction of Datadog cost.",
   },
 
   "aiops/sumo-logic": {
@@ -1798,7 +1798,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Log retention beyond 30 days requires additional credits — compliance use cases add cost",
       "Spike protection helps but unexpected log volume surges can exhaust credits",
     ],
-    bottomLine: "Flexible credits model makes cost predictable for stable workloads; compliance-driven log retention is the primary cost driver at enterprise scale.",
+    bottomLine: "Flexible credits keep cost predictable for stable workloads — compliance log retention drives enterprise cost.",
   },
 
   "aiops/sysdig": {
@@ -1815,7 +1815,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Node count in Kubernetes environments can grow rapidly — autoscaling affects cost",
       "Forensics and capture features are premium tier only",
     ],
-    bottomLine: "High but justifiable for teams that need both Kubernetes observability and runtime security in one agent — eliminates cost of separate CNAPP tool.",
+    bottomLine: "High but justifiable for teams needing Kubernetes observability plus runtime security in one agent — no extra CNAPP.",
   },
 
   "aiops/coralogix": {
@@ -1832,7 +1832,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "In-stream processing reduces indexed volume — actual cost depends on data type",
       "Archive restore queries incur additional cost for cold-tier data",
     ],
-    bottomLine: "Best cost-per-GB in the market for log-heavy workloads — teams migrating from Splunk or Datadog typically see 50-70% cost reduction.",
+    bottomLine: "Best cost-per-GB for log-heavy workloads — Splunk or Datadog migrations typically see 50-70% cost reduction.",
   },
 
   "aiops/sentry": {
@@ -1849,7 +1849,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Performance monitoring units (transactions) billed separately from errors",
       "Session Replay adds additional storage and processing cost per session captured",
     ],
-    bottomLine: "Most affordable entry point for developer-centric error monitoring — free tier covers small apps and paid tiers scale linearly with product usage.",
+    bottomLine: "Most affordable entry to developer-centric error monitoring — free tier covers small apps; paid tiers scale with use.",
   },
 
 
@@ -1887,7 +1887,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Advantage subscription bundle required for current pricing — no module-level purchase",
       "Support tier changes mean reduced access to Broadcom engineers without premium tier",
     ],
-    bottomLine: "Post-Broadcom acquisition pricing has made CA Service Desk uncompetitive for new evaluations — primarily retained by existing customers locked into multi-year agreements.",
+    bottomLine: "Post-Broadcom pricing makes CA Service Desk uncompetitive for new deals — mostly retained by locked-in customers.",
   },
 
   "itom/cherwell": {
@@ -1903,7 +1903,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Modules (ITAM, project management, ESM) priced separately",
       "Ivanti consolidation may change pricing model — check current terms",
     ],
-    bottomLine: "Strong mid-market value proposition with lower implementation cost than ServiceNow — but Ivanti acquisition creates pricing uncertainty for new buyers.",
+    bottomLine: "Strong mid-market value with lower implementation cost than ServiceNow — Ivanti deal clouds pricing for new buyers.",
   },
 
   "itom/topdesk": {
@@ -1919,7 +1919,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "ESM modules (HR, facilities) priced as add-ons per module",
       "Fixed-price implementation removes professional services overage risk",
     ],
-    bottomLine: "Best total-cost predictability in ITSM for European mid-market — fixed implementation fees and transparent per-seat pricing eliminate typical ServiceNow budget surprises.",
+    bottomLine: "Best total-cost predictability in European mid-market ITSM — fixed implementation fees, transparent per-seat pricing.",
   },
 
   "itom/easyvista": {
@@ -1935,7 +1935,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Self Help digital adoption module priced separately",
       "Multi-instance pricing for organisations needing geographic data residency",
     ],
-    bottomLine: "Competitive mid-market ITSM pricing with fast deployment — typically 40-60% lower total 3-year cost vs ServiceNow for comparable organisations.",
+    bottomLine: "Competitive mid-market ITSM with fast deployment — typically 40-60% lower 3-year cost vs ServiceNow for similar orgs.",
   },
 
   "itom/axios-assyst": {
@@ -1951,7 +1951,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Business Impact Analysis and financial management included in base platform",
       "Professional services required for CMDB population and discovery configuration",
     ],
-    bottomLine: "Integrated ITSM + ITAM at mid-market pricing — eliminates separate asset management tool cost and delivers unique business impact analysis capability.",
+    bottomLine: "Integrated ITSM + ITAM at mid-market pricing — cuts separate asset tool cost and adds unique business impact analysis.",
   },
 
 
@@ -1973,7 +1973,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Document Intelligence and AI capabilities require separate module licensing",
       "Value tied to ServiceNow investment — limited standalone ROI",
     ],
-    bottomLine: "Cost-effective for existing ServiceNow enterprise customers — effectively free if unused bot capacity is already licensed; poor value as a standalone purchase.",
+    bottomLine: "Cost-effective for existing ServiceNow customers — near-free with licensed bot capacity; poor value standalone.",
   },
 
   "rpa/ibm-rpa": {
@@ -1989,7 +1989,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "watsonx AI capabilities require additional IBM Cloud consumption pricing",
       "Enterprise support tier required for production SLA guarantees",
     ],
-    bottomLine: "Premium pricing justified primarily by watsonx AI integration and mainframe automation — expensive for general-purpose RPA compared to UiPath or Microsoft.",
+    bottomLine: "Premium justified mainly by watsonx AI and mainframe automation — expensive for general RPA vs UiPath or Microsoft.",
   },
 
   "rpa/workfusion": {
@@ -2005,7 +2005,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Human-in-the-loop review volumes affect per-task pricing",
       "UiPath acquisition may change pricing model — verify current terms",
     ],
-    bottomLine: "Premium pricing for pre-trained financial compliance AI — cost justified only for organisations with high-volume AML/KYC document workflows.",
+    bottomLine: "Premium pricing for pre-trained financial compliance AI — justified only for high-volume AML/KYC document workflows.",
   },
 
   "rpa/opentext": {
@@ -2021,7 +2021,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Capture and OCR processing volumes affect variable cost",
       "Professional services required for integration and deployment",
     ],
-    bottomLine: "High but justified for content-intensive enterprises needing ECM + RPA in one governed platform — eliminates separate document management tool cost.",
+    bottomLine: "High but justified for content-heavy enterprises wanting ECM + RPA in one governed platform — cuts separate ECM cost.",
   },
 
   "rpa/laserfiche": {
@@ -2037,7 +2037,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Repository storage priced separately above base licence volume",
       "Professional services for records management configuration required",
     ],
-    bottomLine: "Best value in government records management + workflow automation — mid-range pricing with compliance capabilities that eliminate separate GovRecords tool cost.",
+    bottomLine: "Best value in government records plus workflow automation — mid-range price that removes separate GovRecords cost.",
   },
 
   "rpa/hyland": {
@@ -2053,7 +2053,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Epic and EHR integration connectors priced as premium add-ons",
       "Annual maintenance fees on perpetual licenses are a significant ongoing cost",
     ],
-    bottomLine: "High TCO justified for healthcare — eliminates separate records management system and delivers Epic integration that most RPA vendors cannot match.",
+    bottomLine: "High TCO justified for healthcare — replaces separate records management and adds Epic integration most RPA lacks.",
   },
 
   "rpa/nice-rpa": {
@@ -2069,7 +2069,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "CXone platform subscription prerequisite adds to total acquisition cost",
       "Real-Time Guidance premium feature priced above base attended automation",
     ],
-    bottomLine: "High cost but measurably reduces agent handle time — ROI proven in contact centres; poor value for back-office-only automation without CXone.",
+    bottomLine: "High cost but measurably cuts agent handle time — ROI proven in contact centres; poor back-office value sans CXone.",
   },
 
   "rpa/redwood-software": {
@@ -2085,7 +2085,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "RunMyJobs workload automation licensed per workflow job count",
       "SAP Endorsed certification commands premium pricing in SAP-specific deals",
     ],
-    bottomLine: "Premium cost justified only for SAP-heavy finance automation — dramatically accelerates period close automation where general-purpose RPA requires months of custom development.",
+    bottomLine: "Premium justified only for SAP-heavy finance automation — far faster period-close than custom general-purpose RPA.",
   },
 
 
@@ -2107,7 +2107,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Module add-ons for file transfer and ERP connectors",
       "Annual maintenance included in subscription pricing",
     ],
-    bottomLine: "Best value for IT operations batch scheduling and legacy system automation — 60-70% lower than enterprise RPA for comparable simple automation use cases.",
+    bottomLine: "Best value for IT batch scheduling and legacy automation — 60-70% below enterprise RPA for comparable simple work.",
   },
 
   "rpa/kryon": {
@@ -2123,7 +2123,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "NICE CXone subscription prerequisite for attended contact centre use cases",
       "Premium tier required for full analytics and process optimisation features",
     ],
-    bottomLine: "Premium cost justified for NICE CXone customers automating contact centre workflows — poor value as standalone RPA without CXone context.",
+    bottomLine: "Premium justified for NICE CXone customers automating contact centre work — poor value as standalone RPA.",
   },
 
   "rpa/workato": {
@@ -2140,7 +2140,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Workato Team and Business plans include connection and recipe limits",
       "Premium connectors for ERPs and specialist tools priced as add-ons",
     ],
-    bottomLine: "Best value enterprise iPaaS for business-owned automation — higher than Zapier but significantly lower TCO than MuleSoft for comparable non-developer use cases.",
+    bottomLine: "Best-value enterprise iPaaS for business-owned automation — above Zapier but far lower TCO than MuleSoft.",
   },
 
   "rpa/boomi": {
@@ -2157,7 +2157,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Atom Cloud (Boomi-hosted runtime) vs customer-hosted Atom has different pricing",
       "EDI and B2B trading partner features in higher tiers",
     ],
-    bottomLine: "Mid-range iPaaS pricing with strong EDI and legacy system value — 40-50% lower TCO than MuleSoft for organisations not needing Anypoint Platform depth.",
+    bottomLine: "Mid-range iPaaS pricing with strong EDI and legacy value — 40-50% lower TCO than MuleSoft absent Anypoint needs.",
   },
 
   "rpa/mulesoft": {
@@ -2173,7 +2173,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Anypoint Platform subscription plus CloudHub runtime plus premium connectors",
       "Professional services for complex implementations regularly exceed licence cost",
     ],
-    bottomLine: "Highest TCO in iPaaS — justified only for global enterprises requiring API governance, reusable asset catalogues, and Salesforce ecosystem depth.",
+    bottomLine: "Highest TCO in iPaaS — justified only for global enterprises needing API governance and Salesforce ecosystem depth.",
   },
 
   "rpa/tray-ai": {
@@ -2189,7 +2189,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "AI model call steps billed separately from standard workflow operations",
       "Premium connectors for enterprise ERP systems priced as add-ons",
     ],
-    bottomLine: "Competitive mid-market pricing with AI-native differentiation — best value for organisations adopting agentic automation patterns from the ground up.",
+    bottomLine: "Competitive mid-market pricing with AI-native edge — best value for teams adopting agentic automation from day one.",
   },
 
   "rpa/make": {
@@ -2206,7 +2206,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data transfer volume billed separately above free tier allowance",
       "Enterprise SSO and advanced permissions require top Business tier",
     ],
-    bottomLine: "Most cost-effective automation for complex no-code workflows — 3-5x cheaper than Workato for comparable operations with better logic capabilities than Zapier.",
+    bottomLine: "Most cost-effective for complex no-code workflows — 3-5x cheaper than Workato with better logic than Zapier.",
   },
 
   "rpa/zapier": {
@@ -2223,7 +2223,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Premium app connectors limited to paid tiers",
       "Team and Company plans required for multi-user governance and sharing",
     ],
-    bottomLine: "Most accessible automation entry point — free tier provides real value; costs escalate at scale making Workato or Make better value for high-volume enterprise use.",
+    bottomLine: "Most accessible automation entry point — free tier has real value; at scale Workato or Make become better value.",
   },
 
 
@@ -2245,7 +2245,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Change volume and incident volume affect AI processing consumption",
       "Professional services required for AI model tuning and knowledge base preparation",
     ],
-    bottomLine: "Justified only for BMC Helix customers — adds AI change risk intelligence without new tooling; poor value as a standalone AI purchase.",
+    bottomLine: "Justified only for BMC Helix customers — AI change risk intelligence without new tooling; poor standalone AI value.",
   },
 
   "agentops/salesforce-agentforce": {
@@ -2262,7 +2262,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data Cloud subscription required for memory and context grounding",
       "Einstein platform add-on on top of existing Salesforce contracts",
     ],
-    bottomLine: "Premium per-conversation model adds up quickly — justified for Salesforce-centric organisations where agent actions directly reduce human service cost.",
+    bottomLine: "Premium per-conversation model adds up fast — justified for Salesforce-centric orgs where agents cut service cost.",
   },
 
   "agentops/google-vertex-ai-agents": {
@@ -2278,7 +2278,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Vertex AI infrastructure runtime costs separate from model API calls",
       "Agent Builder orchestration and storage add to baseline model cost",
     ],
-    bottomLine: "Cost-competitive entry for GCP-native organisations — total cost grows significantly with Google Search grounding queries at scale.",
+    bottomLine: "Cost-competitive entry for GCP-native orgs — total cost grows sharply with Google Search grounding queries at scale.",
   },
 
   "agentops/aisera": {
@@ -2294,7 +2294,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Multi-domain licensing (IT + HR + finance) priced separately per domain",
       "Knowledge graph population and integration setup requires professional services",
     ],
-    bottomLine: "Premium pricing for pre-trained domain AI — justified by higher out-of-the-box resolution rates reducing human agent costs faster than general-purpose LLM alternatives.",
+    bottomLine: "Premium pricing for pre-trained domain AI — higher out-of-box resolution cuts agent costs faster than general LLMs.",
   },
 
   "agentops/amelia": {
@@ -2310,7 +2310,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Significant professional services required for implementation and tuning",
       "Voice channel activation requires additional licensing",
     ],
-    bottomLine: "High TCO justified only for regulated enterprises needing compliance-aware AI — general-purpose conversational needs better served by Aisera or Moveworks at lower cost.",
+    bottomLine: "High TCO justified only for regulated buyers needing compliance-aware AI — Aisera or Moveworks cost less otherwise.",
   },
 
   "agentops/uniphore": {
@@ -2326,7 +2326,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Meeting intelligence platform priced separately from contact centre AI",
       "Real-time features require lower latency cloud infrastructure at premium tier",
     ],
-    bottomLine: "Premium pricing for multimodal CX AI — strong ROI proof when measured against after-call work reduction and compliance monitoring cost savings.",
+    bottomLine: "Premium pricing for multimodal CX AI — strong ROI when measured on after-call work reduction and compliance savings.",
   },
 
   "agentops/cognigy": {
@@ -2342,7 +2342,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Voice AI channel licensing priced separately from digital chat",
       "Agent Copilot seats for human-assisted interactions add to base platform cost",
     ],
-    bottomLine: "High but proven ROI for large contact centres — automation rate improvements justify cost within 6-12 months for 1M+ interaction environments.",
+    bottomLine: "High but proven ROI for large contact centres — automation gains pay back within 6-12 months at 1M+ interactions.",
   },
 
 
@@ -2359,7 +2359,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Connector count and knowledge graph size affect platform tier",
       "Premium enterprise features (advanced analytics, custom models) in top tier",
     ],
-    bottomLine: "Highest per-seat pricing in enterprise search — justified at large scale where knowledge worker productivity gains and ITSM deflection offset significant licence cost.",
+    bottomLine: "Highest per-seat pricing in enterprise search — justified at scale where productivity and ITSM deflection offset cost.",
   },
 
 
@@ -2378,7 +2378,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Retention duration for searchable vs. archived data tiers",
       "Elastic Cloud managed vs. self-managed infrastructure cost",
     ],
-    bottomLine: "Elastic's consumption model is cost-competitive for cloud-native deployments but infrastructure management costs in self-hosted environments can rival legacy SIEM TCO.",
+    bottomLine: "Consumption model is cost-competitive cloud-native, but self-hosted infrastructure costs can rival legacy SIEM TCO.",
   },
   "secops/wiz": {
     pricingModel: "consumption",
@@ -2393,7 +2393,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Cloud spend or workload volume across AWS, Azure, GCP",
       "Module add-ons: DSPM, Code Security, CIEM above base CSPM",
     ],
-    bottomLine: "Wiz commands a significant premium vs. point-solution CSPMs, justified by consolidated CNAPP coverage — but cost can be shocking for large cloud footprints.",
+    bottomLine: "Significant premium over point CSPMs, justified by consolidated CNAPP — cost can shock on large cloud footprints.",
   },
   "secops/rapid7-insightidr": {
     pricingModel: "per-seat",
@@ -2409,7 +2409,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "InsightVM (vulnerability management) add-on licensing",
       "MDR managed services overlay pricing per asset",
     ],
-    bottomLine: "Rapid7's per-asset pricing is predictable and mid-market friendly — the combined InsightIDR + MDR bundle delivers strong value vs. assembling separate SIEM, UEBA, and managed service contracts.",
+    bottomLine: "Predictable, mid-market-friendly per-asset pricing — InsightIDR + MDR bundle beats separate SIEM, UEBA, MDR deals.",
   },
   "secops/fortinet-fortisiem": {
     pricingModel: "enterprise-license",
@@ -2424,7 +2424,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Number of managed devices in the CMDB",
       "Multi-tenant node count for MSSP deployments",
     ],
-    bottomLine: "FortiSIEM offers 40–60% lower licensing cost than Splunk or IBM QRadar for comparable event volumes, making it attractive in Fortinet-centric environments but requiring careful TCO analysis in multi-vendor stacks.",
+    bottomLine: "40-60% cheaper than Splunk or QRadar at comparable volumes — attractive in Fortinet shops; check multi-vendor TCO.",
   },
   "secops/arcsight": {
     pricingModel: "enterprise-license",
@@ -2439,7 +2439,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "ArcSight Intelligence (UEBA) add-on licensing per user",
       "Support and professional services as percentage of license",
     ],
-    bottomLine: "ArcSight carries very-high TCO driven by legacy on-premises infrastructure, professional services, and analyst talent requirements — justified only by compliance depth and existing deployment inertia.",
+    bottomLine: "Very-high TCO from legacy on-prem infrastructure and services — justified only by compliance depth and inertia.",
   },
   "secops/rsa-netwitness": {
     pricingModel: "enterprise-license",
@@ -2454,7 +2454,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Events per second (EPS) ingestion tier",
       "Professional services for deployment and integration engineering",
     ],
-    bottomLine: "RSA NetWitness is among the most expensive SIEM+NDR platforms with very-high infrastructure and staffing TCO — the forensic-grade packet capture capability is the only justification at this price point.",
+    bottomLine: "Among the priciest SIEM+NDR platforms with very-high TCO — forensic-grade packet capture is the only justification.",
   },
   "secops/levelblue": {
     pricingModel: "per-seat",
@@ -2470,7 +2470,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Log events per second (EPS) tier selected",
       "Add-on modules: vulnerability scanning, compliance reporting",
     ],
-    bottomLine: "LevelBlue USM Anywhere (formerly AT&T AlienVault) is one of the most affordable all-in-one SIEM+IDS+VM platforms for mid-market — the Essentials tier provides strong value at a price point accessible for 100–500 employee organizations.",
+    bottomLine: "One of the cheapest all-in-one SIEM+IDS+VM platforms for mid-market — Essentials tier suits 100-500 employee orgs.",
   },
   "secops/sumo-logic": {
     pricingModel: "consumption",
@@ -2486,7 +2486,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Cloud SOAR automation playbook execution volume",
       "Tiered retention: hot vs. infrequent vs. archive data pricing",
     ],
-    bottomLine: "Sumo Logic's transparent consumption model is cost-predictable at moderate log volumes but can escalate significantly for high-throughput environments — value is highest when SIEM and SOAR modules are used together.",
+    bottomLine: "Transparent consumption pricing is predictable at moderate volumes but escalates fast in high-throughput settings.",
   },
   "secops/swimlane": {
     pricingModel: "platform-license",
@@ -2501,7 +2501,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "User seats for analyst access to case management",
       "Turbine compute tier for high-volume event processing",
     ],
-    bottomLine: "Swimlane's platform license is higher than bundled SIEM-embedded SOAR but significantly lower TCO than Splunk SOAR or Palo Alto XSOAR for organizations needing vendor-agnostic orchestration.",
+    bottomLine: "Pricier than bundled SIEM-embedded SOAR but far lower TCO than Splunk SOAR or XSOAR for vendor-agnostic needs.",
   },
   "secops/cybereason": {
     pricingModel: "per-seat",
@@ -2516,7 +2516,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "XDR module add-ons beyond endpoint protection",
       "MDR service overlay pricing per endpoint",
     ],
-    bottomLine: "Cybereason's per-endpoint pricing is competitive with mid-tier XDR vendors, but financial uncertainty has prompted buyers to negotiate harder at renewal — creating atypical pricing variability.",
+    bottomLine: "Per-endpoint pricing competitive with mid-tier XDR, but financial uncertainty drives harder renewal negotiation.",
   },
   "secops/arctic-wolf": {
     pricingModel: "platform-license",
@@ -2531,7 +2531,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Service tier: MDR vs. MDR + Managed Risk vs. full platform",
       "Security Operations Warranty coverage level",
     ],
-    bottomLine: "Arctic Wolf's all-inclusive MDR pricing is higher than self-managed SIEM but eliminates analyst headcount cost — making TCO favorable for organizations that would otherwise need 2–4 new security hires.",
+    bottomLine: "All-inclusive MDR costs more than self-managed SIEM but replaces 2-4 analyst hires — favorable TCO for lean teams.",
   },
   "secops/expel": {
     pricingModel: "platform-license",
@@ -2546,7 +2546,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Service tier: MDR vs. MDR + Phishing vs. full platform",
       "Integration complexity and number of technology connectors",
     ],
-    bottomLine: "Expel's premium MDR pricing is justified by its transparency model and automation depth — buyers who value operational visibility and want to build internal capability over time get strong long-term ROI.",
+    bottomLine: "Premium MDR justified by transparency and automation depth — strong long-term ROI for teams building internal skill.",
   },
   "secops/deepwatch": {
     pricingModel: "platform-license",
@@ -2561,7 +2561,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Squad service tier: essential vs. advanced vs. elite",
       "Add-on: Managed Vulnerability Management module pricing",
     ],
-    bottomLine: "Deepwatch bundles Splunk licensing and management into MDR pricing — creating high ACV but strong TCO for organizations that would otherwise pay separate Splunk enterprise license plus managed service fees.",
+    bottomLine: "Bundles Splunk licensing and management into MDR — high ACV but strong TCO vs separate Splunk plus managed fees.",
   },
   "secops/hunters-ai": {
     pricingModel: "consumption",
@@ -2576,7 +2576,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Query compute credits for hot-tier analytics",
       "Snowflake compute costs if using Hunters-on-Snowflake architecture",
     ],
-    bottomLine: "Hunters.ai's consumption model eliminates per-EPS tax of legacy SIEM — cost scales predictably with data volume and the unlimited ingestion model avoids the log source prioritization trade-offs.",
+    bottomLine: "Consumption model kills the per-EPS tax of legacy SIEM — unlimited ingestion avoids log source prioritization.",
   },
   "secops/anvilogic": {
     pricingModel: "platform-license",
@@ -2591,7 +2591,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Detection library tier: standard vs. advanced Armory access",
       "User seats for SOC analyst access",
     ],
-    bottomLine: "Anvilogic's platform license is additive to existing SIEM cost but justifiable as migration insurance — enabling SIEM modernization without rewriting detections, which avoids multi-million dollar migration risk.",
+    bottomLine: "Additive to existing SIEM cost but works as migration insurance — modernize SIEM without rewriting detections.",
   },
   "secops/stellar-cyber": {
     pricingModel: "platform-license",
@@ -2606,7 +2606,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data ingestion volume across all connected security tools",
       "MSSP multi-tenant node count for managed service providers",
     ],
-    bottomLine: "Stellar Cyber's converged Open XDR pricing replaces 4–6 separate point solution licenses — total platform cost is higher than any single tool but significantly lower than the combined licensing of SIEM + NDR + UEBA + SOAR.",
+    bottomLine: "Converged Open XDR replaces 4-6 point licenses — costs more than any one tool, far less than SIEM+NDR+UEBA+SOAR.",
   },
 
 
@@ -2625,7 +2625,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data retention duration — 60-day vs. 90-day vs. 1-year tiers",
       "Team seat count for collaborative investigation access",
     ],
-    bottomLine: "Honeycomb's event-volume pricing is transparent and scales predictably — cost is significantly lower than Datadog for equivalent engineering productivity when teams instrument thoughtfully.",
+    bottomLine: "Event-volume pricing is transparent and predictable — far cheaper than Datadog when teams instrument thoughtfully.",
   },
   "aiops/nexthink": {
     pricingModel: "per-seat",
@@ -2640,7 +2640,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Module add-ons: Adopt, Engage, Act beyond base Experience module",
       "Professional services for initial DEX program rollout and baselining",
     ],
-    bottomLine: "Nexthink commands a significant per-endpoint premium vs. basic monitoring tools — justified by documented help desk ticket reduction and DEX productivity improvement at large enterprise scale.",
+    bottomLine: "Significant per-endpoint premium vs basic monitoring — justified by ticket reduction and DEX gains at large scale.",
   },
   "aiops/sciencelogic": {
     pricingModel: "per-seat",
@@ -2655,7 +2655,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data collector node count for distributed enterprise and MSP deployments",
       "Professional services for topology discovery and initial AIOps configuration",
     ],
-    bottomLine: "ScienceLogic's per-device pricing is competitive for large hybrid infrastructure estates — value is highest for organizations with complex topology where event correlation delivers measurable NOC cost reduction.",
+    bottomLine: "Per-device pricing competitive for large hybrid estates — best value where event correlation cuts NOC cost measurably.",
   },
   "aiops/chronosphere": {
     pricingModel: "consumption",
@@ -2670,7 +2670,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Trace and log volume ingested through the control plane",
       "Data retention duration across hot, warm, and cold tiers",
     ],
-    bottomLine: "Chronosphere's consumption model is additive to existing observability spend but pays back within months for large-scale Datadog customers through measurable 30–60% telemetry cost reduction.",
+    bottomLine: "Additive to observability spend but pays back in months for large Datadog customers via 30-60% telemetry savings.",
   },
   "aiops/kentik": {
     pricingModel: "consumption",
@@ -2685,7 +2685,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Synthetic test frequency and number of vantage point locations",
       "BGP monitoring node count for routing intelligence features",
     ],
-    bottomLine: "Kentik commands a premium for its internet-scale network analytics — cost is high but justified for ISPs, large enterprise network teams, and organizations where network performance directly impacts revenue.",
+    bottomLine: "Premium for internet-scale network analytics — justified for ISPs and firms where network performance drives revenue.",
   },
   "aiops/observe-inc": {
     pricingModel: "consumption",
@@ -2700,7 +2700,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Telemetry data volume stored in Snowflake under the Observe data model",
       "OPAL pipeline complexity and processing compute usage",
     ],
-    bottomLine: "Observe's cost is additive to existing Snowflake contracts — the Snowflake economics make long-term retention significantly cheaper than dedicated observability stores, delivering strong ROI for high-retention use cases.",
+    bottomLine: "Additive to existing Snowflake contracts — Snowflake economics make long retention far cheaper than dedicated stores.",
   },
   "aiops/opsramp": {
     pricingModel: "per-seat",
@@ -2715,7 +2715,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Module add-ons: CMDB, service mapping, automation beyond base monitoring",
       "Multi-tenant node count for MSP deployments",
     ],
-    bottomLine: "OpsRamp's per-resource pricing is competitive for HPE-heavy environments where hardware telemetry integration delivers monitoring ROI not available from cloud-native competitors.",
+    bottomLine: "Per-resource pricing competitive for HPE-heavy environments — hardware telemetry ROI cloud-native rivals cannot match.",
   },
   "aiops/turbonomic": {
     pricingModel: "consumption",
@@ -2730,7 +2730,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Cloud spend volume under management for FinOps optimization",
       "IBM Cloud Pak for Watson AIOps integration licensing",
     ],
-    bottomLine: "Turbonomic's high ACV is directly offset by documented cloud cost savings — customer ROI cases consistently show 3–6x return on investment through workload right-sizing and automation within 12 months.",
+    bottomLine: "High ACV directly offset by documented cloud savings — customers show 3-6x ROI from right-sizing within 12 months.",
   },
   "aiops/catchpoint": {
     pricingModel: "consumption",
@@ -2745,7 +2745,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "BGP monitoring node count for routing intelligence",
       "API transaction volume for third-party API performance monitoring",
     ],
-    bottomLine: "Catchpoint's consumption model scales with monitoring coverage — higher test frequency and broader vantage point selection drives cost, but the internet performance visibility justifies premium for revenue-critical digital businesses.",
+    bottomLine: "Cost scales with test frequency and vantage points — internet visibility justifies premium for revenue-critical firms.",
   },
   "aiops/netscout": {
     pricingModel: "enterprise-license",
@@ -2760,7 +2760,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Traffic volume (Gbps) instrumented across network segments",
       "DDoS protection (Arbor) add-on licensing tier",
     ],
-    bottomLine: "NETSCOUT commands very-high TCO driven by hardware probe infrastructure and professional services — justified only for large enterprise and service provider environments where packet-level visibility is operationally essential.",
+    bottomLine: "Very-high TCO from hardware probes and services — justified only where packet-level visibility is essential.",
   },
 
 
@@ -2779,7 +2779,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "AI Agents automation add-on for autonomous resolution capabilities",
       "Advanced AI package for predictive analytics and intelligent triage",
     ],
-    bottomLine: "Zendesk's per-agent pricing is straightforward but AI add-ons can double the effective cost — strong value at mid-market scale where the polished UX reduces training overhead and improves agent efficiency.",
+    bottomLine: "Per-agent pricing is simple but AI add-ons can double effective cost — strong mid-market value from the polished UX.",
   },
   "itom/connectwise": {
     pricingModel: "per-seat",
@@ -2794,7 +2794,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Managed endpoint count for ConnectWise Automate RMM licensing",
       "Security module add-ons: EDR, MDR, Fortify beyond base PSA+RMM",
     ],
-    bottomLine: "ConnectWise total platform cost is significant but delivers strong MSP economics when PSA + RMM + security modules replace separate vendor contracts — professional services implementation cost must be factored into total investment.",
+    bottomLine: "Significant cost but strong MSP economics when PSA + RMM + security replace separate vendors — budget for services.",
   },
   "itom/ninjarmm": {
     pricingModel: "per-seat",
@@ -2810,7 +2810,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data backup storage volume for NinjaOne Data Protection add-on",
       "Remote access session volume beyond included limits",
     ],
-    bottomLine: "NinjaRMM delivers excellent per-device economics — among the most cost-effective modern RMM platforms with transparent pricing that scales predictably with managed endpoint growth.",
+    bottomLine: "Excellent per-device economics — among the most cost-effective modern RMMs with transparent, predictable scaling.",
   },
   "itom/kaseya-vsa": {
     pricingModel: "per-seat",
@@ -2825,7 +2825,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Kaseya 365 bundle tier covering RMM, BDR, EDR, and PSA modules",
       "Additional Kaseya IT Complete product add-ons beyond base RMM",
     ],
-    bottomLine: "Kaseya VSA's cost-per-endpoint is competitive but the Kaseya 365 bundle model can create pricing complexity — best evaluated as a complete IT Complete stack investment rather than standalone RMM comparison.",
+    bottomLine: "Competitive cost-per-endpoint but Kaseya 365 bundling adds complexity — evaluate as a full IT Complete stack buy.",
   },
   "itom/teamdynamix": {
     pricingModel: "per-seat",
@@ -2840,7 +2840,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "PPM project management module add-on for portfolio management capabilities",
       "Number of departments in ESM expansion beyond IT service desk",
     ],
-    bottomLine: "TeamDynamix pricing is competitive for higher education and public sector where the vertical-specific templates and no-code administration reduce implementation costs vs. ServiceNow-level alternatives.",
+    bottomLine: "Competitive for higher ed and public sector — vertical templates and no-code admin cut cost vs ServiceNow-level tools.",
   },
   "itom/spiceworks": {
     pricingModel: "freemium",
@@ -2855,7 +2855,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "No licensing cost — unlimited agents, tickets, and devices in the free tier",
       "Optional Spiceworks Cloud-hosted version vs. self-hosted desktop deployment",
     ],
-    bottomLine: "Spiceworks is free in exchange for advertising exposure and aggregate IT data insights — the lowest possible TCO for basic ITSM, but the advertising model and feature ceiling create a natural upgrade trigger as organizations grow.",
+    bottomLine: "Free in exchange for ads and IT data — lowest possible TCO, but the feature ceiling forces upgrades as orgs grow.",
   },
   "itom/haloitsm": {
     pricingModel: "platform-license",
@@ -2871,7 +2871,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "HaloITSM vs. HaloPSA module selection",
       "On-premises vs. cloud deployment model",
     ],
-    bottomLine: "HaloITSM's unlimited agent model is the most compelling pricing in the enterprise ITSM market — organizations replacing per-seat ServiceNow or Freshservice see 50–70% license cost reduction for equivalent ITIL functionality.",
+    bottomLine: "Unlimited agent model — replacing per-seat ServiceNow or Freshservice cuts licence cost 50-70% for equal ITIL depth.",
   },
   "itom/invgate-service-desk": {
     pricingModel: "per-seat",
@@ -2886,7 +2886,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "InvGate Assets add-on for asset management and CMDB capabilities",
       "On-premises vs. cloud hosting model",
     ],
-    bottomLine: "InvGate positions as premium-capable ITSM at mid-market pricing — strong value for LATAM and EMEA organizations seeking enterprise ITIL depth without ServiceNow cost and complexity.",
+    bottomLine: "Premium-capable ITSM at mid-market pricing — strong for LATAM and EMEA orgs wanting ITIL depth minus ServiceNow cost.",
   },
   "itom/zoho-desk": {
     pricingModel: "per-seat",
@@ -2902,7 +2902,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Zoho One bundle pricing for organizations using multiple Zoho applications",
       "Zia AI feature tier access at Professional and above",
     ],
-    bottomLine: "Zoho Desk delivers the strongest price-to-feature ratio in the category — best value for Zoho One customers who get deep suite integration, and compelling standalone for cost-conscious SMB and mid-market IT teams.",
+    bottomLine: "Strongest price-to-feature ratio in the category — best for Zoho One users and cost-conscious SMB/mid-market teams.",
   },
 
 
@@ -2920,7 +2920,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Document skill complexity and custom model training",
       "Deployment model: cloud vs. on-premises server licensing",
     ],
-    bottomLine: "ABBYY's premium pricing is justified for mission-critical document workflows where accuracy directly impacts financial or regulatory outcomes — hard to justify for simple document types where commodity OCR is sufficient.",
+    bottomLine: "Premium justified for mission-critical documents with financial or regulatory stakes — overkill where OCR suffices.",
   },
   "rpa/hyperscience": {
     pricingModel: "consumption",
@@ -2935,7 +2935,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Automation rate threshold SLA commitment",
       "Professional services for initial model training and deployment",
     ],
-    bottomLine: "Hyperscience commands an enterprise premium justified by its continuous learning model and proven high-volume accuracy — best evaluated as a total automation program investment rather than per-page unit cost comparison.",
+    bottomLine: "Enterprise premium justified by continuous learning and high-volume accuracy — judge as a program, not per-page cost.",
   },
   "rpa/nanonets": {
     pricingModel: "consumption",
@@ -2951,7 +2951,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Number of custom document models created",
       "API call volume for real-time extraction integrations",
     ],
-    bottomLine: "Nanonets' transparent per-page pricing makes IDP accessible for mid-market organizations — the free trial and quick model training reduce evaluation risk vs. enterprise IDP platforms with multi-month POC requirements.",
+    bottomLine: "Transparent per-page pricing opens IDP to mid-market — free trial and fast training cut evaluation risk vs POCs.",
   },
   "rpa/instabase": {
     pricingModel: "enterprise-license",
@@ -2966,7 +2966,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "AI Hub application development seats for builders",
       "Professional services for financial services-specific model configuration",
     ],
-    bottomLine: "Instabase targets large financial services deals where the accuracy and compliance requirements justify premium pricing — ROI is measured in regulatory risk reduction and manual review headcount savings.",
+    bottomLine: "Targets large financial services deals where accuracy and compliance justify premium — ROI in risk and headcount.",
   },
   "rpa/rossum": {
     pricingModel: "consumption",
@@ -2982,7 +2982,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Number of document queues and workflow configurations",
       "ERP integration complexity for AP and procurement system connections",
     ],
-    bottomLine: "Rossum's consumption pricing is competitive for AP automation with transparent per-document economics — strong ROI for organizations processing 1,000+ invoices per month where manual processing cost clearly exceeds platform investment.",
+    bottomLine: "Competitive consumption pricing for AP automation — strong ROI above 1,000 invoices per month vs manual processing.",
   },
   "rpa/signavio": {
     pricingModel: "enterprise-license",
@@ -2997,7 +2997,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Collaboration user seats for process modeling access",
       "Module selection: process mining vs. journey management vs. workflow",
     ],
-    bottomLine: "SAP Signavio pricing reflects enterprise platform value — justified for S/4HANA transformation programs where process intelligence directly informs migration scope and automation prioritization decisions.",
+    bottomLine: "Enterprise platform pricing — justified for S/4HANA programs where process intelligence shapes migration scope.",
   },
   "rpa/laiye": {
     pricingModel: "per-seat",
@@ -3012,7 +3012,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "IDP document processing volume add-on",
       "Conversational AI platform tier for chatbot automation",
     ],
-    bottomLine: "Laiye offers 30–50% lower licensing cost than UiPath or Automation Anywhere for comparable bot and IDP capabilities — strongest value for APAC-headquartered enterprises and cost-sensitive organizations seeking automation platform alternatives.",
+    bottomLine: "30-50% cheaper than UiPath or Automation Anywhere for comparable bots and IDP — strongest value for APAC enterprises.",
   },
   "rpa/processmaker": {
     pricingModel: "platform-license",
@@ -3028,7 +3028,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "API connector count and integration complexity",
       "User seats for business-user task participation",
     ],
-    bottomLine: "ProcessMaker's open-source edition reduces evaluation risk to zero — the commercial platform pricing is competitive vs. enterprise BPM vendors and delivers strong value for API-embedded workflow automation use cases.",
+    bottomLine: "Open-source edition makes evaluation risk zero — commercial pricing competitive vs enterprise BPM for embedded use.",
   },
   "rpa/coupa-software": {
     pricingModel: "platform-license",
@@ -3043,7 +3043,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "User seat count across procurement, AP, and T&E modules",
       "Professional services for ERP integration and configuration",
     ],
-    bottomLine: "Coupa BSM platform investment is significant but TCO is favorable vs. assembling separate procurement, AP, and T&E systems — ROI is demonstrated through Community.ai-benchmarked savings and manual processing cost elimination.",
+    bottomLine: "Big BSM investment but favorable TCO vs separate procurement, AP, and T&E systems — Community.ai benchmarks the ROI.",
   },
 
 
@@ -3062,7 +3062,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Knowledge Graph index size and document ingestion volume",
       "AI app usage volume beyond base platform access",
     ],
-    bottomLine: "Writer's platform pricing is justified for organizations where brand consistency and compliance accuracy have direct business value — particularly regulated industries where AI hallucination costs exceed Writer licensing by orders of magnitude.",
+    bottomLine: "Justified in regulated industries where AI hallucination costs exceed Writer licensing by orders of magnitude.",
   },
   "agentops/assembled": {
     pricingModel: "per-seat",
@@ -3077,7 +3077,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Channel count (email, chat, phone, social queues) included in the plan",
       "Integration complexity with CCaaS and ITSM platforms",
     ],
-    bottomLine: "Assembled pricing is per-managed-agent and competitive with Genesys or NICE WFM for mid-market contact centers — ROI is demonstrated through overstaffing reduction and SLA improvement metrics.",
+    bottomLine: "Per-managed-agent pricing competitive with Genesys or NICE WFM — ROI shown via less overstaffing and SLA improvement.",
   },
   "agentops/crewai": {
     pricingModel: "freemium",
@@ -3093,7 +3093,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Monitoring and observability platform access for production agent oversight",
       "Enterprise support SLA tier",
     ],
-    bottomLine: "CrewAI's open-source tier enables zero-risk evaluation before Enterprise commitment — total cost includes significant engineering investment for production deployment beyond licensing fees.",
+    bottomLine: "Open-source tier enables zero-risk evaluation before Enterprise buy — total cost includes big engineering investment.",
   },
   "agentops/botpress": {
     pricingModel: "freemium",
@@ -3109,7 +3109,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "AI credits consumed for LLM API calls within the platform",
       "Self-hosted vs. Botpress Cloud managed deployment",
     ],
-    bottomLine: "Botpress delivers strong value with transparent consumption pricing — open-source community edition enables evaluation without risk and commercial tier scales cost predictably with conversation volume.",
+    bottomLine: "Strong value with transparent consumption pricing — open-source edition de-risks evaluation; cost scales with volume.",
   },
   "agentops/voiceflow": {
     pricingModel: "per-seat",
@@ -3125,7 +3125,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Workspaces needed for multi-project or multi-brand agent portfolios",
       "Integration and API usage volume beyond included limits",
     ],
-    bottomLine: "Voiceflow's editor-seat model is accessible for teams building AI agents collaboratively — the free tier enables meaningful evaluation and the team tier pricing is competitive vs. engineering-only platforms.",
+    bottomLine: "Editor-seat model suits collaborative agent building — free tier allows real evaluation; team tier priced to compete.",
   },
   "agentops/rasa": {
     pricingModel: "open-source-plus",
@@ -3141,7 +3141,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Infrastructure and ML operations overhead for on-premises deployment",
       "Professional services for initial deployment and model training",
     ],
-    bottomLine: "Rasa's total cost is high due to significant ML engineering and infrastructure requirements — the premium is justified for regulated industries where cloud AI data sovereignty risk exceeds on-premises operational cost.",
+    bottomLine: "Total cost is high given ML engineering and infra needs — justified where data sovereignty outweighs on-prem cost.",
   },
   "agentops/relevance-ai": {
     pricingModel: "consumption",
@@ -3157,7 +3157,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "User seat count for business team access",
       "Storage and knowledge base size for agent grounding",
     ],
-    bottomLine: "Relevance AI's consumption pricing is accessible for mid-market teams — the free trial and Starter tier enable genuine evaluation before commitment, with cost scaling predictably with agent usage volume.",
+    bottomLine: "Accessible consumption pricing for mid-market teams — free trial and Starter tier enable evaluation; scales with use.",
   },
   "agentops/guru": {
     pricingModel: "per-seat",
@@ -3173,7 +3173,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Knowledge base size (cards and documents stored)",
       "AI Answers feature tier and usage volume",
     ],
-    bottomLine: "Guru's per-seat pricing is accessible and ROI is measurable through agent handle time reduction — knowledge management programs with active SME participation show 20–30% reduction in time spent searching for information.",
+    bottomLine: "Accessible per-seat pricing with measurable ROI — active SME programs show 20-30% less time searching for information.",
   },
 
 
@@ -3191,7 +3191,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Module selection: Detect, Respond, Heal packages across different attack surfaces",
       "OT/ICS deployment complexity for industrial network monitoring",
     ],
-    bottomLine: "Darktrace commands a significant premium reflecting its AI research investment and enterprise deployment complexity — organizations compare cost against eliminating 2–3 separate point tools the AI platform replaces.",
+    bottomLine: "Significant premium reflecting AI research and deployment complexity — weigh against the 2-3 point tools it replaces.",
   },
   "secops/recorded-future": {
     pricingModel: "module-based",
@@ -3206,7 +3206,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "API volume and SIEM/SOAR integration call volume",
       "User analyst seat count for the intelligence portal",
     ],
-    bottomLine: "Recorded Future's modular pricing enables buyers to start with core threat intelligence and expand — total investment can be significant for full platform activation but ROI is measurable through analyst time savings and breach prevention.",
+    bottomLine: "Modular pricing lets buyers start with core threat intel and expand — full platform is costly but ROI is measurable.",
   },
   "secops/cyberark": {
     pricingModel: "module-based",
@@ -3221,7 +3221,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Session recording and monitoring volume",
       "Identity module add-ons: SSO, MFA, Lifecycle Management beyond PAM core",
     ],
-    bottomLine: "CyberArk is the most expensive PAM platform in the market — total deployment cost including infrastructure, professional services, and licensing regularly exceeds $1M for enterprise deployments, justified by proven breach prevention ROI.",
+    bottomLine: "Most expensive PAM on the market — enterprise deployments regularly top $1M; breach-prevention ROI justifies it.",
   },
   "secops/beyondtrust": {
     pricingModel: "module-based",
@@ -3236,7 +3236,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Endpoint privilege management seat count for EPM deployment",
       "Privileged Remote Access session count for vendor access management",
     ],
-    bottomLine: "BeyondTrust delivers 30–40% lower TCO than CyberArk for equivalent PAM functionality — particularly compelling for the mid-market enterprise segment where CyberArk's premium is difficult to justify.",
+    bottomLine: "30-40% lower TCO than CyberArk for equivalent PAM — compelling in mid-market where CyberArk premium is hard to sell.",
   },
   "secops/varonis": {
     pricingModel: "per-seat",
@@ -3251,7 +3251,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Data storage volume under management across file shares, M365, and SaaS",
       "MDDR managed service overlay pricing beyond platform licensing",
     ],
-    bottomLine: "Varonis pricing is per-user with data volume influence — organizations typically see immediate ROI from discovered data exposure findings that, if exploited, would cost orders of magnitude more than the platform investment.",
+    bottomLine: "Per-user pricing with data volume influence — discovered exposure findings typically deliver immediate ROI.",
   },
   "secops/orca-security": {
     pricingModel: "consumption",
@@ -3266,7 +3266,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Module add-ons: DSPM, secrets scanning beyond base CSPM+CWPP",
       "Remediation workflow integration complexity",
     ],
-    bottomLine: "Orca positions 20–30% below Wiz for comparable CNAPP coverage — strong value for cost-conscious cloud security buyers who don't need Wiz's Google marketplace distribution advantage.",
+    bottomLine: "Priced 20-30% below Wiz for comparable CNAPP coverage — strong value for cost-conscious cloud security buyers.",
   },
   "secops/lacework": {
     pricingModel: "consumption",
@@ -3281,7 +3281,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Container and Kubernetes cluster count for CWPP coverage",
       "IaC scanning pipeline volume for developer security features",
     ],
-    bottomLine: "Lacework's consumption model is competitive with Orca and Wiz — Fortinet partnership may offer bundled pricing advantages for Fortinet customers, reducing total cost vs. standalone CNAPP procurement.",
+    bottomLine: "Consumption model competitive with Orca and Wiz — Fortinet partnership may add bundle discounts for its customers.",
   },
   "secops/threatconnect": {
     pricingModel: "platform-license",
@@ -3296,7 +3296,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "SOAR playbook execution volume",
       "CAL intelligence sharing tier (community vs. enterprise feeds)",
     ],
-    bottomLine: "ThreatConnect's unified TIP+SOAR platform price is competitive vs. purchasing separate best-of-breed TIP and SOAR solutions — strongest value for organizations that can fully operationalize intelligence-driven automation.",
+    bottomLine: "Unified TIP+SOAR priced below separate best-of-breed tools — best for teams fully operationalizing intel automation.",
   },
   "secops/vectra-ai": {
     pricingModel: "consumption",
@@ -3311,7 +3311,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Cloud account and identity source count for cloud and identity detection",
       "Vectra MXDR managed service overlay pricing",
     ],
-    bottomLine: "Vectra AI's consumption pricing scales with network and cloud coverage — value is highest for organizations where lateral movement detection has direct breach prevention ROI that can be quantified against insurance and response costs.",
+    bottomLine: "Consumption pricing scales with network and cloud coverage — best where lateral movement detection ROI is measurable.",
   },
   "aiops/moogsoft": {
     pricingModel: "enterprise-license",
@@ -3326,7 +3326,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Deployment model — on-prem and hybrid add professional services and infrastructure cost",
       "APEX Observability bundling vs. standalone Moogsoft licensing from Dell",
     ],
-    bottomLine: "Enterprise-tier pricing bundled into Dell APEX Observability; best value for existing Dell infrastructure customers who can leverage bundle pricing against standalone AIOps spend.",
+    bottomLine: "Enterprise-tier pricing bundled into Dell APEX Observability — best value for Dell customers using bundle pricing.",
   },
 
 
@@ -3343,7 +3343,7 @@ export const pricingData: Record<string, PricingInfo> = {
       "Platform expansion: email + Slack + Zoom + collaboration platforms",
       "Enterprise vs. Enterprise Plus feature tier selection",
     ],
-    bottomLine: "Abnormal's per-mailbox pricing is premium vs. Microsoft Defender for Office 365 but its BEC and vendor fraud detection quality justifies cost for organizations with $500K+ exposure from a single compromised wire transfer.",
+    bottomLine: "Per-mailbox premium vs Defender for O365 — BEC and vendor fraud detection justify it at $500K+ wire-fraud exposure.",
   },
 
 

@@ -89,14 +89,19 @@ const SearchModal = ({ open, onClose }: SearchModalProps) => {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const previouslyFocused = useRef<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Focus input when opened
+  // Focus input when opened; return focus to the trigger when closed
   useEffect(() => {
     if (open) {
+      previouslyFocused.current = document.activeElement as HTMLElement | null;
       setQuery("");
       setActiveIndex(0);
       setTimeout(() => inputRef.current?.focus(), 80);
+    } else {
+      previouslyFocused.current?.focus?.();
+      previouslyFocused.current = null;
     }
   }, [open]);
 
@@ -166,6 +171,9 @@ const SearchModal = ({ open, onClose }: SearchModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -12 }}
             transition={{ duration: 0.18 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Search vendors"
             className="fixed top-[10vh] left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4"
           >
             <div className="bg-card border border-border rounded-2xl shadow-2xl overflow-hidden">
@@ -178,12 +186,13 @@ const SearchModal = ({ open, onClose }: SearchModalProps) => {
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Search 500+ vendors across AIOps, ITOM, RPA, AgentOps, SecOps…"
-                  className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground/50 text-sm outline-none"
+                  className="flex-1 rounded-md bg-transparent text-foreground placeholder:text-muted-foreground/50 text-sm outline-none focus-visible:ring-1 focus-visible:ring-ring/50"
                 />
                 {query && (
                   <button
                     onClick={() => setQuery("")}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="Clear search"
+                    className="rounded text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -207,7 +216,7 @@ const SearchModal = ({ open, onClose }: SearchModalProps) => {
                           <button
                             onClick={() => handleSelect(r)}
                             onMouseEnter={() => setActiveIndex(i)}
-                            className={`w-full text-left px-5 py-3.5 flex items-start gap-4 transition-colors border-b border-border/50 last:border-b-0 ${
+                            className={`w-full text-left px-5 py-3.5 flex items-start gap-4 transition-colors border-b border-border/50 last:border-b-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring ${
                               i === activeIndex ? "bg-secondary/60" : "hover:bg-secondary/30"
                             }`}
                           >

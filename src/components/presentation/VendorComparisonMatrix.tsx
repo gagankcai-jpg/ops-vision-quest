@@ -702,16 +702,18 @@ function MarketMap({
           </span>
         </span>
         <span>
-          <span className="font-semibold tabular-nums text-foreground">{visiblePoints.length}</span> shown ·{" "}
-          <span className="tabular-nums">{totalCount}</span> in filter
+          <span className="font-semibold tabular-nums text-foreground">{visiblePoints.length}</span> shown of{" "}
+          <span className="tabular-nums">{totalCount - notPlotted}</span> plottable
           {notPlotted > 0 && (
             <>
               {" · "}
               <span className="tabular-nums text-muted-foreground/70" title="Vendors with no disclosed revenue or growth — not enough data to place on the map">
-                +{notPlotted} not plotted
+                {notPlotted} lack rev/growth data
               </span>
             </>
           )}
+          {" · "}
+          <span className="tabular-nums">{totalCount}</span> in filter
         </span>
       </div>
     </Surface>

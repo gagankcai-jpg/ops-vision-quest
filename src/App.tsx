@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import type { RouteRecord } from "vite-react-ssg";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -22,6 +22,8 @@ function RootLayout() {
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          {/* Scroll to top on navigation; restores position on back/forward */}
+          <ScrollRestoration />
           <Outlet />
         </TooltipProvider>
       </QueryClientProvider>
