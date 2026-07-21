@@ -26892,4 +26892,61 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     },
     futureAreas: ["Developer SDK and agent app ecosystem", "Cross-device runtime and sync", "Privacy and permission frameworks", "Generative adaptive UI"],
   },
+
+  "rpa/skan-ai": {
+    "swot": {
+      "strengths": [
+        "Connector-free computer-vision capture — sees work in any app, including legacy and Citrix",
+        "Deep enterprise traction: 7 of the top 10 US banks and 1 in 4 Fortune 50 use Skan",
+        "Gartner MQ Process Intelligence honorable mention (2026) validates pure-play position",
+        "Documented nine-figure savings cases across banking, insurance, and healthcare",
+        "Early mover on agent context — Agentic Ontology of Work and ABCF frameworks"
+      ],
+      "weaknesses": [
+        "At ~$22M ARR, far smaller than Celonis — thinner ecosystem and partner bench",
+        "Endpoint screen capture raises employee-privacy concerns that demand governance",
+        "Brand recognition concentrated in North American financial services",
+        "Growth (~20% YoY) trails category leaders despite the agentic narrative"
+      ],
+      "opportunities": [
+        "AI agent mining — the context layer enterprises need before deploying agents",
+        "Task-mining spend rising as agentic programs expose missing process ground truth",
+        "Vertical expansion beyond banking into healthcare ops and insurance at scale",
+        "Dell Technologies Capital relationship opens infrastructure go-to-market channels"
+      ],
+      "threats": [
+        "Celonis, UiPath, and Microsoft bundle task mining into platforms at low marginal cost",
+        "Agent platforms may build their own telemetry, bypassing standalone process intel",
+        "Screen-capture regulation or EU works-council pushback could slow expansion",
+        "Process intelligence consolidation invites acquisition or pricing pressure"
+      ]
+    },
+    "userLikes": [
+      "Fast time-to-insight — no system integrations needed before first process maps",
+      "Accurate variant discovery across apps that log-based miners cannot see",
+      "Executive-friendly ROI framing — savings quantified per process",
+      "Works across Citrix and virtual desktops where competitors struggle"
+    ],
+    "userComplaints": [
+      "Endpoint agent rollout requires security review and change management effort",
+      "Dashboards take training to master; analyst support often needed early on",
+      "Pricing is opaque and quote-only, complicating budget planning"
+    ],
+    "customerProfile": {
+      "segments": ["Fortune 500 Enterprise", "Large Financial Services"],
+      "typicalBuyer": "VP Intelligent Automation / Transformation Office",
+      "topUseCases": [
+        "Automation discovery and ROI sizing",
+        "Agent-readiness process context",
+        "Compliance and SOP conformance checking"
+      ]
+    },
+    "futureAreas": [
+      "AI agent mining and agent-readiness assessment",
+      "Agentic Ontology of Work standardization",
+      "Real-time agent-vs-human workflow monitoring",
+      "Expansion from task mining into full process intelligence"
+    ],
+    "competitiveEdge": "Connector-free computer-vision capture yields ground-truth process data log-based miners like Celonis cannot see."
+  },
 };

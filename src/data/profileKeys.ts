@@ -505,5 +505,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "agentops/stack-ai",
   "agentops/ultravox",
   "agentops/hebbia",
-  "agentops/dev-agents"
+  "agentops/dev-agents",
+  "rpa/skan-ai"
 ]);
