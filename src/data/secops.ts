@@ -36,7 +36,7 @@ export const secopsData = {
     { year: "2030", value: 54.0 },
   ],
   vendors: [
-    { name: "CrowdStrike", type: "leader" as const, marketCap: "$174B", revenue: "$5.5B ARR", growth: "+24% YoY", highlight: "Falcon Platform", description: "Unified AI-native cybersecurity from endpoint to SIEM and SOAR", recentEvent: "Jun 2026: Q1 FY27 record net-new ARR $256M (+32%); 4-for-1 stock split" },
+    { name: "CrowdStrike", type: "leader" as const, marketCap: "$205B", revenue: "$5.5B ARR", growth: "+24% YoY", highlight: "Falcon Platform", description: "Unified AI-native cybersecurity from endpoint to SIEM and SOAR", recentEvent: "Jul 2026: 4-for-1 split effective Jul 2; cyber rally lifts cap past $200B" },
     { name: "Palo Alto Networks (XSOAR)", type: "leader" as const, marketCap: "$285B", revenue: "$9.2B Rev", growth: "+15% YoY", highlight: "SOAR + XDR Leader", description: "Most deployed SOAR platform with XDR and AI-native SOC capabilities", recentEvent: "Jun 2026: Q3 FY26 rev $3.0B +31%; NGS ARR $8.13B +60% (CyberArk/Chronosphere)" },
     { name: "Microsoft Sentinel", type: "leader" as const, marketCap: "Div. of $3.1T", revenue: "—", growth: "+52% YoY", highlight: "Fastest Cloud SIEM", description: "Cloud-native SIEM with Copilot for Security and deep M365 integration", recentEvent: "Apr 2026: Launched Security Copilot agents for autonomous threat triage" },
     { name: "Wiz (Google)", type: "leader" as const, marketCap: "Acq. $32B", revenue: "Est. $1B+ ARR", growth: "+100% YoY", highlight: "Cloud Security #1", description: "Fastest-growing cloud security platform for CSPM and CIEM — acquired by Google for $32B", recentEvent: "Mar 2026: Acquired by Google for $32B — largest cybersecurity acquisition" },
