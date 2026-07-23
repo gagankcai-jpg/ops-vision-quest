@@ -66,7 +66,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "rpa/windmill",
   "rpa/dify-ai",
   "rpa/flowise",
-  "rpa/stack-ai",
   "rpa/leap-ai",
   "rpa/rivet",
   "rpa/procesio",
@@ -83,7 +82,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "rpa/parabola",
   "rpa/cargo",
   "rpa/hotglue",
-  "rpa/sequin",
   "rpa/morph",
   "rpa/zudello",
   "rpa/stampli",
@@ -294,7 +292,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "rpa/ss-c-blue-prism",
   "rpa/appian",
   "rpa/lindy-ai",
-  "rpa/relay-app",
   "rpa/n8n",
   "rpa/pipedream",
   "rpa/activepieces",
@@ -506,5 +503,7 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "agentops/ultravox",
   "agentops/hebbia",
   "agentops/dev-agents",
-  "rpa/skan-ai"
+  "rpa/skan-ai",
+  "rpa/gumloop",
+  "rpa/soroco"
 ]);

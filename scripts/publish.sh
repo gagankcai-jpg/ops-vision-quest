@@ -46,6 +46,18 @@ rsync -avz -e "$SSH" dist/ "$REMOTE:$APP"
 # Vite never emits spaces in filenames, so removing them can't break a referenced asset.
 $SSH "$REMOTE" "find ${APP}assets -name '* *' -type f -delete 2>/dev/null" || true
 
+# Prune prerendered vendor routes that no longer exist locally (vendor removed from the
+# catalog). Without this, no-'t--delete' rsync leaves the old index.html serving a stale
+# 200 for a dead vendor. Scope is strictly app/vendor/<cat>/<slug> directories.
+find dist/vendor -mindepth 2 -maxdepth 2 -type d | sed 's|^dist/||' | sort > /tmp/ait-vendor-routes.txt
+STALE=$($SSH "$REMOTE" "cd ${APP} && find vendor -mindepth 2 -maxdepth 2 -type d | sort" | comm -13 /tmp/ait-vendor-routes.txt -)
+if [ -n "$STALE" ]; then
+  echo "▶ Pruning stale vendor routes:"
+  echo "$STALE" | while read -r d; do
+    case "$d" in vendor/*/*) echo "   $d"; $SSH "$REMOTE" "rm -rf ${APP}${d}" ;; esac
+  done
+fi
+
 echo "▶ Purging LiteSpeed cache…"
 $SSH "$REMOTE" "wp --path=$WP litespeed-purge all"
 

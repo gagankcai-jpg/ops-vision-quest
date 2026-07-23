@@ -485,22 +485,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Consumer-friendly pricing — accessible to individuals and small teams.",
   },
 
-  "rpa/relay-app": {
-    pricingModel: "per-seat",
-    transparency: "public-list",
-    startingPrice: "Free (1 user, limited steps); $9/user/month (Starter)",
-    typicalACV: "$2K–$30K",
-    marketSegment: ["smb", "mid-market"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Monthly step runs and workflow complexity",
-      "Number of collaborators / users on the platform",
-      "Human approval step volume",
-    ],
-    bottomLine: "Affordable human-in-loop automation for approval workflow teams.",
-  },
 
   "rpa/n8n": {
     pricingModel: "open-source-plus",

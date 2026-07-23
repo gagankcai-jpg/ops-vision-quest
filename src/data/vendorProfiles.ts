@@ -3345,59 +3345,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Production-grade features (monitoring, fine-tuning, cost optimization)"
     ]
   },
-  "rpa/stack-ai": {
-    "competitiveEdge": "Enterprise-grade no-code AI workflow automation with focus on security and compliance, bridging gap between SMB builders and large-scale deployment.",
-    "swot": {
-      "strengths": [
-        "Purpose-built for enterprise teams; focuses on security, RBAC, and compliance from ground up",
-        "Closed-loop SaaS platform with professional support and enterprise SLAs",
-        "Tightly integrated LLM workflow automation without requiring LangChain or coding knowledge"
-      ],
-      "weaknesses": [
-        "Private venture-backed startup; less brand recognition than open-source or incumbent platforms",
-        "Smaller user base and ecosystem vs. Zapier, Make, or Salesforce automation",
-        "Pricing and commercial model unclear relative to free/open-source alternatives"
-      ],
-      "opportunities": [
-        "Capture enterprise teams prioritizing governance and security over open-source flexibility",
-        "Build vertical-specific solutions (finance, healthcare, supply chain) to command pricing power",
-        "Integrate with major enterprise platforms (Salesforce, ServiceNow, Workday) for seamless workflows"
-      ],
-      "threats": [
-        "Open-source and low-cost alternatives (Flowise, Dify) suitable for many enterprise use cases",
-        "Larger platforms (Salesforce, Microsoft) adding similar LLM workflow capabilities",
-        "Venture funding environment shifting; smaller startups may struggle to compete with incumbents"
-      ]
-    },
-    "userLikes": [
-      "Enterprise-grade security and RBAC features absent in open-source or SMB-focused tools",
-      "No-code interface makes complex AI workflows accessible to business teams",
-      "Professional support and SLAs provide confidence for mission-critical deployments"
-    ],
-    "userComplaints": [
-      "Limited public documentation and smaller community vs. established platforms",
-      "Unclear differentiation from similar no-code AI builders and positioning",
-      "Pricing and licensing model not widely communicated; may require direct sales engagement"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market to enterprise organizations with AI initiatives and compliance requirements",
-        "Regulated industries (financial services, healthcare) needing audit trails and RBAC",
-        "Teams prioritizing vendor support and governance over cost optimization"
-      ],
-      "typicalBuyer": "VP of Operations or Chief Digital Officer at mid-market or large enterprise",
-      "topUseCases": [
-        "Enterprise GenAI workflows with audit and compliance requirements",
-        "Cross-functional automation combining LLMs with business processes",
-        "Secure LLM application deployment within enterprise infrastructure"
-      ]
-    },
-    "futureAreas": [
-      "Vertical-specific solutions (finance automation, supply chain, customer service)",
-      "Deep integration with major enterprise platforms and ERPs",
-      "Advanced observability and cost optimization for large-scale LLM usage"
-    ]
-  },
   "rpa/leap-ai": {
     "competitiveEdge": "AI-native workflow automation purpose-built for document and data processing, combining vision, NLP, and decision logic in unified platform.",
     "swot": {
@@ -4233,58 +4180,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "White-label marketplace for integrations; SaaS vendors sell third-party connectors to customers",
       "Embedded process mining and automation intelligence that surfaces high-impact data flows",
       "Multi-tenant iPaaS capabilities embedded in SaaS so customers build integrations natively"
-    ]
-  },
-  "rpa/sequin": {
-    "competitiveEdge": "Syncs live SaaS API data directly to Postgres, creating native database-backed automations and queries without middleware.",
-    "swot": {
-      "strengths": [
-        "Postgres-native approach appeals to data-driven technical teams comfortable with SQL and databases",
-        "Solves real workflow automation bottleneck: accessing live API data in databases without API calls",
-        "Strong positioning for startups and SMBs already running on Postgres (common in tech stack)"
-      ],
-      "weaknesses": [
-        "Niche technical audience; positioning requires SQL/database literacy, limiting enterprise TAM",
-        "Early-stage with minimal case studies, funding validation, or customer testimonials",
-        "Postgres-only approach excludes large populations on MySQL, SQL Server, or data warehouses"
-      ],
-      "opportunities": [
-        "Expand to other databases (MySQL, MongoDB) to broaden addressable market",
-        "Target data teams (dbt, Fivetran users) already comfortable with SQL transformations",
-        "Integrate with workflow automation tools (Zapier, Make) to surface Postgres data in visual builders"
-      ],
-      "threats": [
-        "Fivetran and cloud data platforms offer similar sync but with broader database and integration support",
-        "Larger iPaaS platforms adding Postgres connectors and real-time sync natively",
-        "Data warehouses (Snowflake, BigQuery) absorbing API sync functionality directly"
-      ]
-    },
-    "userLikes": [
-      "Direct Postgres sync eliminates need for middleware, reducing cost and latency",
-      "Native database approach allows complex joins and queries on live SaaS data",
-      "SQL-based automations integrate seamlessly with existing dbt and analytics workflows"
-    ],
-    "userComplaints": [
-      "Requires technical expertise; not accessible to non-technical business users",
-      "Limited integration breadth; only syncs SaaS APIs not currently supported",
-      "Postgres dependency limits adoption in enterprises standardized on other databases"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Technical-first startups and SMBs with in-house engineering and data teams",
-        "Data organizations at larger companies using dbt, Postgres, and modern data stacks"
-      ],
-      "typicalBuyer": "Data engineer or database administrator seeking to sync live SaaS data into Postgres",
-      "topUseCases": [
-        "Sync Salesforce leads and deals to Postgres; run SQL queries for segmentation and forecasting",
-        "Trigger workflows based on Postgres data changes (e.g., update customer records when payment API succeeds)",
-        "Consolidate data from multiple SaaS APIs into single Postgres schema for unified analytics"
-      ]
-    },
-    "futureAreas": [
-      "Expand to non-Postgres databases (MySQL, MongoDB, Snowflake) and data warehouses",
-      "AI-powered schema generation and transformation recommendations from API data structure",
-      "Native no-code UI for non-technical users to configure syncs without SQL knowledge"
     ]
   },
   "rpa/morph": {
@@ -15430,65 +15325,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/relay-app": {
-    competitiveEdge: "Relay.app is the only workflow automation platform designed specifically for processes that need human judgment — embedding human-in-the-loop approval and review steps as first-class workflow components, not afterthoughts.",
-    swot: {
-      strengths: [
-        "Human-in-the-loop design philosophy: approval steps, review gates, and escalations are native",
-        "Clean, modern UI that operations teams find intuitive without technical training",
-        "AI step integration allows mixing automated AI tasks with human review in one workflow",
-        "Integrates with common business tools: Slack, Gmail, Notion, Airtable, and HubSpot",
-        "Fast-growing community with strong word-of-mouth among ops and RevOps teams",
-      ],
-      weaknesses: [
-        "Early-stage platform: enterprise features (RBAC, SSO, audit trails) still developing",
-        "Limited RPA capabilities for desktop/screen automation compared to UiPath or AA",
-        "Smaller integration library than Zapier or Make.com at current stage",
-        "AI step accuracy depends heavily on prompt quality — requires iteration",
-      ],
-      opportunities: [
-        "Human-in-the-loop demand: as AI automation grows, human approval gates become more critical",
-        "Enterprise ops teams replacing manual email-based approval workflows",
-        "Process compliance: industries where human sign-off is legally required for automated actions",
-        "Expanding AI capabilities: more sophisticated AI agents with human oversight built in",
-      ],
-      threats: [
-        "Zapier and Make.com adding AI and human-in-the-loop steps to their established platforms",
-        "Microsoft Power Automate approval workflows already widely deployed in M365 environments",
-        "Notion and Airtable adding native automation with human review capabilities",
-        "AI-native workflow tools (Lindy.ai, n8n) adding human approval steps",
-      ],
-    },
-    userLikes: [
-      "Human approval steps feel natural — workflows pause for review exactly when needed",
-      "Beautiful UI makes workflow creation feel visual and intuitive",
-      "AI + human hybrid workflows are uniquely well-designed compared to bolt-on competitors",
-      "Slack integration for human review steps keeps approvals in the tools teams already use",
-      "Small, responsive team that implements user feedback quickly",
-    ],
-    userComplaints: [
-      "Integration library is still limited — many enterprise apps require custom API connections",
-      "Error handling and retry logic need improvement for production-critical workflows",
-      "No mobile app for approvers — reviewing workflow steps on mobile is clunky",
-      "Pricing model is unclear for high-volume or complex enterprise deployments",
-    ],
-    customerProfile: {
-      segments: ["Operations Teams at SaaS Companies", "RevOps and Marketing Ops Professionals", "Teams with Compliance-Required Human Approval Workflows"],
-      typicalBuyer: "Head of Operations, RevOps Manager, or Senior Business Operations Analyst",
-      topUseCases: [
-        "Approval workflows for content, budget, and procurement requiring human sign-off",
-        "AI-drafted + human-reviewed communications for customer operations",
-        "Multi-step operations workflows combining automated data processing with human judgment",
-      ],
-    },
-    futureAreas: [
-      "AI agents with configurable human oversight: set the AI autonomy level per workflow type",
-      "Enterprise compliance features: full audit trails for regulated industry human approval workflows",
-      "No-code AI agent builder competing directly with Lindy.ai and Zapier AI",
-      "Expanding integration library to 500+ connectors for enterprise app coverage",
-      "Workflow analytics: measuring where human review steps add the most value versus friction",
-    ],
-  },
 
   "rpa/n8n": {
     competitiveEdge: "n8n is the only enterprise workflow automation platform with a fully open-source self-hosted option — giving technical teams the ability to deploy it inside their own infrastructure with zero data leaving their network, at a fraction of Zapier's cost.",
@@ -26948,5 +26784,119 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Expansion from task mining into full process intelligence"
     ],
     "competitiveEdge": "Connector-free computer-vision capture yields ground-truth process data log-based miners like Celonis cannot see."
+  },
+
+  "rpa/gumloop": {
+    "swot": {
+      "strengths": [
+        "Benchmark-led $50M Series B (Mar 2026) — top-tier validation for a young company",
+        "Drag-and-drop AI workflow builder usable by non-engineers, not just developers",
+        "Named enterprise adopters: Shopify, Ramp, and Instacart teams build on it",
+        "Positioned as heir to shuttered rivals — momentum as the category consolidates",
+        "Fast shipping cadence from a small, focused team"
+      ],
+      "weaknesses": [
+        "Young platform — enterprise governance, SSO, and audit depth still maturing",
+        "Crowded space: competes with Zapier, Make, n8n, and every LLM vendor's builder",
+        "Small team must support fast-growing production usage",
+        "Pricing and packaging still evolving as the product finds its enterprise shape"
+      ],
+      "opportunities": [
+        "Absorb users stranded by Relay.app's Sep 2026 shutdown",
+        "Enterprise tier expansion — governance and compliance unlock bigger contracts",
+        "Agent marketplace and template ecosystem as a distribution moat",
+        "Deeper LLM-provider partnerships as models commoditize"
+      ],
+      "threats": [
+        "Zapier and Make bolting AI agents onto far larger install bases",
+        "Foundation-model vendors shipping native agent builders undercut thin wrappers",
+        "Enterprise buyers may wait out the category shakeout before committing",
+        "Usage-based costs of underlying LLMs squeeze margins at scale"
+      ]
+    },
+    "userLikes": [
+      "Genuinely approachable builder — ops people ship automations without engineers",
+      "Strong out-of-box nodes for scraping, enrichment, and document workflows",
+      "Fast support and visible product velocity",
+      "Credible logos (Shopify, Ramp) lower adoption risk for mid-market buyers"
+    ],
+    "userComplaints": [
+      "Complex branching workflows can get hard to debug",
+      "Enterprise admin controls thinner than incumbent iPaaS platforms",
+      "Costs climb with heavy LLM-powered runs"
+    ],
+    "customerProfile": {
+      "segments": ["Mid-Market", "Enterprise ops teams"],
+      "typicalBuyer": "Head of Operations / RevOps or automation lead",
+      "topUseCases": [
+        "LLM-powered document and data workflows",
+        "Go-to-market and RevOps automation",
+        "Replacing brittle Zapier chains with AI-native flows"
+      ]
+    },
+    "futureAreas": [
+      "Enterprise governance, SSO, and audit depth",
+      "Agent templates and marketplace ecosystem",
+      "Migration tooling for stranded Relay.app users",
+      "Deeper evals and observability for production agents"
+    ],
+    "competitiveEdge": "AI-native workflow building ops teams actually use — Benchmark-backed momentum while no-code rivals retrofit AI."
+  },
+
+  "rpa/soroco": {
+    "swot": {
+      "strengths": [
+        "Task-mining pioneer — the 'work graph' concept predates the current agent-context wave",
+        "200+ enterprise deployments including multiple Fortune 500 organizations",
+        "Scout rated 4.9/5 on Gartner Peer Insights in the task-mining category (2026)",
+        "Academic pedigree (MIT/Harvard founders) lends research credibility",
+        "Team-level friction analytics complement process-level miners like Celonis"
+      ],
+      "weaknesses": [
+        "Smaller commercial engine than Celonis or the platform vendors' bundled mining",
+        "Desktop capture raises the same employee-privacy governance burden as rivals",
+        "Quiet funding history vs venture-fueled competitors — slower go-to-market",
+        "Brand awareness lags product maturity outside existing accounts"
+      ],
+      "opportunities": [
+        "Agent-context demand — work graphs are natural grounding data for AI agents",
+        "Task-mining spend rising as automation programs need ground truth",
+        "Partnerships with agent platforms lacking their own capture technology",
+        "Expansion from friction analytics into transformation advisory workflows"
+      ],
+      "threats": [
+        "Celonis, UiPath, and Microsoft bundle task mining into broader platforms",
+        "Skan AI and newer CV-native rivals compete for the same pure-play budget",
+        "Screen-capture privacy regulation could raise deployment friction",
+        "Consolidation squeeze as buyers prefer suite vendors"
+      ]
+    },
+    "userLikes": [
+      "Work-graph view surfaces cross-team friction other tools miss",
+      "High-quality, consultative customer success — 4.9/5 Peer Insights rating",
+      "Actionable ROI cases tied to specific process fixes",
+      "Low-code setup relative to log-based process mining"
+    ],
+    "userComplaints": [
+      "Endpoint capture rollout needs security and works-council sign-off",
+      "Analytics depth takes time to operationalize into savings",
+      "Smaller partner ecosystem than the big mining platforms"
+    ],
+    "customerProfile": {
+      "segments": ["Fortune 500 Enterprise", "Global shared-services orgs"],
+      "typicalBuyer": "Head of Transformation / GBS or operational excellence leader",
+      "topUseCases": [
+        "Team-level friction and effort analytics",
+        "Automation opportunity discovery",
+        "Work-graph context for agent deployment"
+      ]
+    },
+    "futureAreas": [
+      "Work graphs as grounding context for enterprise AI agents",
+      "Deeper Gartner category positioning vs bundled miners",
+      "Expanded friction benchmarks across industries",
+      "Real-time work analytics beyond periodic studies"
+    ],
+    "competitiveEdge": "The original task-mining work graph — team-level ground truth on work that log-based miners cannot see."
   },
 };

@@ -63,7 +63,6 @@
   "rpa/windmill",
   "rpa/dify-ai",
   "rpa/flowise",
-  "rpa/stack-ai",
   "rpa/leap-ai",
   "rpa/rivet",
   "rpa/procesio",
@@ -80,7 +79,6 @@
   "rpa/parabola",
   "rpa/cargo",
   "rpa/hotglue",
-  "rpa/sequin",
   "rpa/morph",
   "rpa/zudello",
   "rpa/stampli",
@@ -291,7 +289,6 @@
   "rpa/ss-c-blue-prism",
   "rpa/appian",
   "rpa/lindy-ai",
-  "rpa/relay-app",
   "rpa/n8n",
   "rpa/pipedream",
   "rpa/activepieces",
@@ -503,5 +500,7 @@
   "agentops/ultravox",
   "agentops/hebbia",
   "agentops/dev-agents",
-  "rpa/skan-ai"
+  "rpa/skan-ai",
+  "rpa/gumloop",
+  "rpa/soroco"
 ]
