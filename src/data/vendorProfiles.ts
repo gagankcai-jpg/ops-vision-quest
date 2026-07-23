@@ -10752,59 +10752,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Enterprise-grade ITSM integrations to move upmarket into mid-market segment"
     ]
   },
-  "itom/electric": {
-    "competitiveEdge": "Purpose-built IT management platform for 10–500-employee companies combining device management, IT support, and security in one integrated pane of glass.",
-    "swot": {
-      "strengths": [
-        "Rapid growth (+50% YoY) and significant valuation ($150M+) signal strong product-market fit",
-        "Integrated support, device management, and security appeal to under-served mid-market segment",
-        "Modern SaaS-native architecture avoids legacy ITSM complexity for smaller enterprises"
-      ],
-      "weaknesses": [
-        "Positioning limits addressable market to small-to-mid IT teams; upmarket growth constrained",
-        "Lacks advanced ITAM and asset lifecycle capabilities vs specialized vendors",
-        "Limited API and integration depth vs enterprise ITSM platforms"
-      ],
-      "opportunities": [
-        "Expand into SaaS license governance and IT FinOps to capture spend management use case",
-        "Build AI-powered anomaly detection to enable proactive security and device health monitoring",
-        "Partner with cloud providers (AWS, Azure, Google Cloud) for device-to-cloud visibility"
-      ],
-      "threats": [
-        "Larger ITSM vendors (ServiceNow, Atlassian, Freshworks) expanding into small-business segment",
-        "IT management consolidation platforms (1E, Lansweeper, Axonius) moving into Electric's segment",
-        "MSP-focused tools (NinjaRMM, Syncro) gaining traction for internal IT and smaller companies"
-      ]
-    },
-    "userLikes": [
-      "Unified dashboard eliminates need for multiple point solutions (RMM, ITSM, MDM)",
-      "Modern UI and mobile app appeal to non-technical IT managers and executive sponsors",
-      "Quick deployment (days, not months) ideal for growing companies avoiding enterprise implementation"
-    ],
-    "userComplaints": [
-      "Advanced ITAM and asset lifecycle capabilities lag specialized tools",
-      "Reporting and custom workflow automation less flexible than enterprise ITSM platforms",
-      "Limited integrations with legacy enterprise tools enterprises may inherit"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Early-stage and growth-stage technology companies (10–300 employees)",
-        "Professional services and consulting firms with distributed IT teams",
-        "Mid-market companies consolidating redundant RMM and service desk tools"
-      ],
-      "typicalBuyer": "IT Manager or Chief Information Officer at small-to-mid company",
-      "topUseCases": [
-        "Device management and real-time endpoint support for geographically distributed teams",
-        "IT service desk automation and employee self-service portal",
-        "Security posture monitoring and vulnerability remediation workflows"
-      ]
-    },
-    "futureAreas": [
-      "AI-powered employee productivity analytics and device health scoring for DEX insights",
-      "Cloud infrastructure management integration for hybrid IT visibility",
-      "Automated SaaS and software license discovery with spend alerts and optimization"
-    ]
-  },
   "itom/1e": {
     "competitiveEdge": "Digital employee experience platform eliminating helpdesk tickets through real-time endpoint monitoring and autonomous remediation at scale.",
     "swot": {
@@ -10909,57 +10856,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI-powered access policy recommendations based on role, department, and peer access patterns",
       "Integration with broader SaaS cost management for visibility into access costs and optimization",
       "Identity risk scoring and anomalous access detection to prevent unauthorized account abuse"
-    ]
-  },
-  "itom/zenduty": {
-    "competitiveEdge": "Purpose-built SRE on-call platform with deep engineering-first integrations that outmaneuver general incident management suites.",
-    "swot": {
-      "strengths": [
-        "Engineering-native design lowers adoption friction for DevOps and SRE teams",
-        "Strong YoY growth (+100%) demonstrates product-market fit in modernized IT operations",
-        "Focused positioning creates defensible niche vs. broader incident management platforms"
-      ],
-      "weaknesses": [
-        "Small estimated ARR ($3M) limits R&D and go-to-market reach vs. incumbent competitors",
-        "Limited enterprise feature breadth compared to established incident management suites",
-        "Brand awareness heavily dependent on word-of-mouth within engineering communities"
-      ],
-      "opportunities": [
-        "Expand upmarket into mid-market enterprises with managed services and compliance features",
-        "Build integrated ITSM connectors to cross-sell into IT operations teams alongside DevOps",
-        "Develop AI-assisted on-call analytics to predict escalation and optimize schedules"
-      ],
-      "threats": [
-        "Incumbent platforms (PagerDuty, OpsGenie) commoditizing SRE features and bundling on-call",
-        "Open-source incident management tools eroding startup TAM by offering free alternatives"
-      ]
-    },
-    "userLikes": [
-      "Lightweight UX designed for engineers reduces training friction vs. legacy tooling",
-      "Fast incident triage and team communication loops improve mean-time-to-resolution",
-      "Native integrations with DevOps stacks (Kubernetes, Datadog, GitHub) minimize context switching"
-    ],
-    "userComplaints": [
-      "Limited reporting and analytics depth compared to enterprise incident management tools",
-      "Mobile app functionality lags web experience for on-the-go incident response",
-      "Integration ecosystem remains smaller than category incumbents, requiring custom webhooks"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market software companies with distributed engineering teams",
-        "Cloud-native and Kubernetes-first organizations running modern DevOps stacks"
-      ],
-      "typicalBuyer": "DevOps lead or SRE manager evaluating modern incident alerting replacements",
-      "topUseCases": [
-        "Engineering team on-call scheduling with escalation policies",
-        "Real-time incident routing and notification across multiple channels",
-        "Post-incident runbook automation and team retrospectives"
-      ]
-    },
-    "futureAreas": [
-      "AI-driven predictive alerting and anomaly detection to reduce noise and false positives",
-      "Observability platform integrations for seamless triage workflows across logs, metrics, traces",
-      "Native incident chaos engineering and war-game simulation capabilities"
     ]
   },
   "itom/spike-sh": {
@@ -11217,59 +11113,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Closed-loop remediation automation triggering IT ticketing and infrastructure changes automatically"
     ]
   },
-  "itom/nuvolo": {
-    "competitiveEdge": "Integrated workplace and facilities management purpose-built for ServiceNow ecosystems.",
-    "swot": {
-      "strengths": [
-        "Deep ServiceNow integration reduces IT-ops-to-facilities silos.",
-        "Emerging segment (connected work) with strong YoY growth rate.",
-        "IWMS specialization addresses underserved facilities management workflow."
-      ],
-      "weaknesses": [
-        "Small revenue base ($30M ARR) limits R&D and go-to-market resources.",
-        "ServiceNow dependency creates lock-in risk if customer strategy shifts.",
-        "Limited brand recognition outside ServiceNow user base."
-      ],
-      "opportunities": [
-        "Hybrid work normalization drives facilities and workplace optimization demand.",
-        "Adjacent markets: real estate optimization, space utilization, compliance tracking.",
-        "Platform expansion beyond ServiceNow to other ITSM systems."
-      ],
-      "threats": [
-        "ServiceNow native offerings may absorb similar functionality.",
-        "Larger ITSM incumbents entering connected work and facilities domain.",
-        "Consolidation pressure on small IWMS players."
-      ]
-    },
-    "userLikes": [
-      "Seamless ServiceNow ecosystem fit for existing customers.",
-      "Bridges IT and facilities teams with unified data model.",
-      "Faster deployment than point solutions."
-    ],
-    "userComplaints": [
-      "Limited functionality outside ServiceNow context.",
-      "Scaling implementation costs for large enterprises.",
-      "Small vendor support and feature velocity concerns."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market enterprises with ServiceNow investments",
-        "Hybrid-work-forward organizations managing facilities and IT together",
-        "Facility management teams dependent on IT infrastructure"
-      ],
-      "typicalBuyer": "Facilities manager or IT operations director in ServiceNow-centric org.",
-      "topUseCases": [
-        "Connected workplace management integrated with IT ticketing.",
-        "Facilities request workflow automation through ServiceNow.",
-        "Real estate and space optimization for hybrid workforce."
-      ]
-    },
-    "futureAreas": [
-      "AI-driven facilities analytics and predictive maintenance.",
-      "ESG compliance and sustainability tracking via workplace data.",
-      "Multi-cloud and hybrid IT-ops integration beyond ServiceNow."
-    ]
-  },
   "itom/vendr": {
     "competitiveEdge": "Benchmark-driven SaaS procurement platform that automates vendor negotiation and cost reduction.",
     "swot": {
@@ -11427,59 +11270,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Generative AI-powered knowledge articles and ticket resolution.",
       "Sentiment analysis and customer satisfaction prediction.",
       "Proactive IT incident detection and self-healing automation."
-    ]
-  },
-  "itom/squadcast": {
-    "competitiveEdge": "Specialized on-call and reliability workflows purpose-built for ITOM and incident management.",
-    "swot": {
-      "strengths": [
-        "Exceptional growth (+80% YoY) reflects strong market demand for on-call tools.",
-        "Focused positioning on ITOM and reliability aligns with modern ops stacks.",
-        "On-call automation reduces alert fatigue and improves team coordination."
-      ],
-      "weaknesses": [
-        "Small revenue ($5M ARR) limits feature depth and go-to-market reach.",
-        "Narrow focus (on-call management) vs broader ITOM platforms.",
-        "Dependent on upstream monitoring and alerting platforms."
-      ],
-      "opportunities": [
-        "ITOM consolidation and integration with monitoring and observability stacks.",
-        "Escalation and runbook automation for complex incidents.",
-        "Post-incident analytics and learning management."
-      ],
-      "threats": [
-        "Larger incident management platforms (PagerDuty) expanding scheduling.",
-        "Monitoring platforms (New Relic, Datadog) adding native on-call features.",
-        "Consolidation pressure as customers seek unified observability."
-      ]
-    },
-    "userLikes": [
-      "Focused on reliability workflows simplifies on-call toolchain.",
-      "Automated escalation and scheduling reduces manual burden.",
-      "Integration-ready for monitoring and ITOM stacks."
-    ],
-    "userComplaints": [
-      "Limited feature depth beyond on-call scheduling and escalation.",
-      "Dependency on upstream alerting platforms.",
-      "Small vendor support and feature roadmap uncertainty."
-    ],
-    "customerProfile": {
-      "segments": [
-        "DevOps and SRE teams managing production incident response",
-        "ITOM organizations with complex on-call and escalation needs",
-        "Mid-market cloud-native and infrastructure teams"
-      ],
-      "typicalBuyer": "Reliability engineer or on-call team lead.",
-      "topUseCases": [
-        "On-call scheduling and rotation management.",
-        "Automated alert escalation to on-call engineer.",
-        "Incident communication and team coordination workflows."
-      ]
-    },
-    "futureAreas": [
-      "Intelligent escalation using ML to optimize on-call routing.",
-      "Post-incident analytics and blameless post-mortem automation.",
-      "Integration with chaos engineering and reliability testing platforms."
     ]
   },
   "itom/opslevel": {
@@ -12786,7 +12576,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vertical compliance packs with pre-configured policies for regulated industries."
     ]
   },
-  "itom/goto-resolve": {
+  "itom/logmein-resolve": {
     "competitiveEdge": "Unified remote support and IT management in a single platform, competing directly against larger ITSM incumbents by combining remote connectivity with service desk and asset management capabilities.",
     "swot": {
       "strengths": [
@@ -23163,7 +22953,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Cloud infrastructure management expansion for MSPs supporting multi-cloud customer environments",
     ],
   },
-  "itom/ninjarmm": {
+  "itom/ninjaone": {
     competitiveEdge: "NinjaRMM (NinjaOne) is the fastest-growing RMM platform in the MSP and IT market — built with a modern, intuitive UX that experienced Kaseya and ConnectWise users adopt immediately, delivering comprehensive endpoint management and patch automation with the simplicity that legacy platforms sacrificed for feature depth.",
     swot: {
       strengths: [
@@ -26914,5 +26704,232 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Cross-language SDK maturity beyond Python"
     ],
     "competitiveEdge": "The observability layer of the Pydantic ecosystem — AI-native tracing where Python AI teams already live."
+  },
+  "itom/controlup": {
+    "swot": {
+      "strengths": [
+        "Deep real-time visibility across VDI, DaaS, physical endpoints, and SaaS apps",
+        "Crossed $100M ARR at $1B+ valuation; majority of ARR from 7,000+ seat enterprises",
+        "Unipath acquisition adds agentic AI for autonomous diagnosis and remediation",
+        "Strong heritage in Citrix and Omnissa environments where rivals are thin",
+        "ControlUp ONE unifies DEX, endpoint management, and remote support in one console"
+      ],
+      "weaknesses": [
+        "Roots in VDI monitoring; physical-endpoint DEX perception still catching up",
+        "Faces Nexthink, Lakeside, and Omnissa in nearly every DEX shortlist",
+        "Agentic AEM vision depends on multi-phase Unipath integration through 2026",
+        "Pricing can climb for full-platform deployments versus point monitoring tools"
+      ],
+      "opportunities": [
+        "AEM category leadership as DEX converges with autonomous endpoint management",
+        "MSP DEX platform and partner program (Jan 2026) opens channel revenue",
+        "ControlUp for Apps extends monitoring to SaaS and web apps beyond the desktop",
+        "Windows migration and VDI modernization waves drive experience monitoring demand"
+      ],
+      "threats": [
+        "Nexthink and 1E push aggressive AI roadmaps in the same DEX-to-AEM shift",
+        "Microsoft bundles endpoint analytics into Intune, squeezing standalone DEX",
+        "Consolidating UEM suites (Tanium, Ivanti) absorb DEX as a feature",
+        "Enterprise budget scrutiny on standalone monitoring tools"
+      ]
+    },
+    "userLikes": [
+      "Real-time metrics and fast root-cause drill-downs in VDI environments",
+      "Remediation actions and scripting directly from the console",
+      "Broad coverage of Citrix, Omnissa, AVD, and physical desktops",
+      "Responsive support and an active practitioner community"
+    ],
+    "userComplaints": [
+      "Learning curve across the full ControlUp ONE feature set",
+      "Historical reporting and dashboards less flexible than some rivals",
+      "Licensing complexity as modules and editions have expanded"
+    ],
+    "customerProfile": {
+      "segments": ["Large enterprise EUC and VDI shops", "Healthcare and financial services"],
+      "typicalBuyer": "VP End-User Computing / IT Operations Director",
+      "topUseCases": [
+        "VDI and DaaS performance monitoring and troubleshooting",
+        "Digital employee experience scoring and remediation",
+        "Autonomous endpoint fixes at enterprise scale"
+      ]
+    },
+    "futureAreas": [
+      "Phased Unipath agentic AI integration through 2026",
+      "Autonomous Endpoint Management category build-out",
+      "SaaS and web app experience monitoring",
+      "MSP-delivered DEX offerings"
+    ],
+    "competitiveEdge": "Only DEX vendor pairing deep VDI heritage with an agentic AEM push, now past $100M ARR at a $1B+ valuation"
+  },
+
+  "itom/action1": {
+    "swot": {
+      "strengths": [
+        "Fully cloud-native patching with no VPN or on-prem infrastructure needed",
+        "Free tier for first 200 endpoints drives bottom-up adoption",
+        "Founder-led and cash-flow positive; rebuffed a ~$1B CrowdStrike approach",
+        "127% revenue growth in 2025 with 98% customer retention",
+        "Cross-platform coverage spanning Windows, macOS, and third-party apps"
+      ],
+      "weaknesses": [
+        "No outside capital limits war chest versus PE- and VC-backed patch rivals",
+        "Narrower platform scope than full UEM suites like Intune or Tanium",
+        "Brand recognition still building in large-enterprise shortlists",
+        "Feature depth beyond patching (asset, remote mgmt) younger than incumbents"
+      ],
+      "opportunities": [
+        "Six-figure-deal ARR up 275% in H1 2026 signals enterprise headroom",
+        "MSP channel scaling fast (Q2 2025 MSP revenue up 340% YoY)",
+        "Vulnerability remediation expansion beyond patch deployment",
+        "CrowdStrike interest validated the category; standalone multibillion ambition"
+      ],
+      "threats": [
+        "Microsoft Intune and Autopatch bundling squeezes standalone patching",
+        "Well-funded rivals (NinjaOne, Automox, Tanium) compete on breadth",
+        "Platform vendors acquiring competitors could reset market pricing",
+        "Free-tier economics pressure if paid conversion slows"
+      ]
+    },
+    "userLikes": [
+      "Setup in minutes with a clean, intuitive cloud console",
+      "Generous free tier for the first 200 endpoints",
+      "Reliable automated third-party application patching",
+      "Responsive support and fast feature cadence"
+    ],
+    "userComplaints": [
+      "Reporting customization is limited",
+      "macOS and Linux coverage newer than Windows depth",
+      "Occasional patch detection lag for niche applications"
+    ],
+    "customerProfile": {
+      "segments": ["Mid-market IT teams", "MSPs", "Security-conscious SMBs"],
+      "typicalBuyer": "IT Director / Head of IT Operations",
+      "topUseCases": [
+        "Automated OS and third-party patch management",
+        "Vulnerability remediation and compliance reporting",
+        "Remote endpoint management and scripting"
+      ]
+    },
+    "futureAreas": [
+      "Deeper autonomous endpoint management capabilities",
+      "Expanded macOS and Linux parity with Windows",
+      "Enterprise-scale controls, RBAC, and integrations",
+      "Multi-tenant MSP platform expansion"
+    ],
+    "competitiveEdge": "Bootstrapped, cash-flow-positive patching pure-play growing 127% while giving away its first 200 endpoints free"
+  },
+
+  "itom/eptura": {
+    "swot": {
+      "strengths": [
+        "Broad worktech portfolio: IWMS, space planning, desk booking, visitor, asset/CMMS",
+        "16,000+ customers and 16M+ users across 115+ countries",
+        "Archibus FedRAMP authorization (Aug 2025) opens US federal deals",
+        "Backing from Thoma Bravo, JMI, and Waud provides capital for scale and M&A",
+        "New CEO Raj Batra brings 30 years of Siemens industrial-digital leadership"
+      ],
+      "weaknesses": [
+        "Nine-product merger heritage means uneven integration across the suite",
+        "Worktech focus sits at the edge of core ITOM buying centers",
+        "Legacy on-prem installs (Archibus) slow the full-cloud transition",
+        "PE ownership orients roadmap and pricing toward margin over goodwill"
+      ],
+      "opportunities": [
+        "Return-to-office and hybrid mandates revive space planning demand",
+        "AI features across workplace and asset operations shipped in 2025-26",
+        "Federal and public-sector expansion post-FedRAMP",
+        "Cross-selling asset management (CMMS) into the workplace customer base"
+      ],
+      "threats": [
+        "IWMS and CAFM rivals like Planon, Tango, and OfficeSpace",
+        "Corporate real estate contraction shrinks per-seat license bases",
+        "ServiceNow Workplace Service Delivery bundles into enterprise ITSM",
+        "PE exit timeline may drive a strategic sale or restructuring"
+      ]
+    },
+    "userLikes": [
+      "Comprehensive space and move management in one place",
+      "Condeco desk and room booking is simple for end users",
+      "Solid facility maintenance workflows in the asset/CMMS products",
+      "Helpful implementation and account teams"
+    ],
+    "userComplaints": [
+      "Integration gaps between the merged products",
+      "UI feels dated in older modules like Archibus",
+      "Reporting and admin configuration can be cumbersome"
+    ],
+    "customerProfile": {
+      "segments": ["Fortune 500 corporate real estate", "Government and education"],
+      "typicalBuyer": "Head of Workplace / Corporate Real Estate, with IT asset leads",
+      "topUseCases": [
+        "Space planning and desk/room booking",
+        "Enterprise asset and facility maintenance",
+        "Visitor management and workplace moves"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven workplace and asset analytics",
+      "FedRAMP-fueled public sector growth",
+      "Platform consolidation across the merged product lines",
+      "IoT and building-systems integrations"
+    ],
+    "competitiveEdge": "Spans space, visitor, and asset/CMMS at 16,000-customer scale with a FedRAMP-authorized IWMS in Archibus"
+  },
+
+  "itom/fleet": {
+    "swot": {
+      "strengths": [
+        "Open-source core built by the osquery creators; transparent, auditable agent",
+        "First cross-platform GitOps MDM for macOS, Windows, and Linux",
+        "2M+ managed endpoints across 1,300+ customers",
+        "6x revenue growth in two years; $27M Series B led by Ten Eleven (2025)",
+        "API- and config-as-code design fits security and platform engineering teams"
+      ],
+      "weaknesses": [
+        "Honorable mention, not Leader, in the 2026 Gartner endpoint management MQ",
+        "Self-hosted deployments demand engineering maturity",
+        "Apple-specific MDM depth younger than Jamf or Kandji niches",
+        "Open-core model invites free DIY use without paid conversion"
+      ],
+      "opportunities": [
+        "New partner program (Apr 2026) with MobileIron co-founder joining the board",
+        "Consolidating MDM, inventory, and vulnerability data into one agent",
+        "GitOps device management resonates with platform engineering trends",
+        "BYOD Apple support with per-host privacy opens corporate device programs"
+      ],
+      "threats": [
+        "Microsoft Intune bundling and Jamf incumbency in Apple estates",
+        "Big-vendor osquery adoption could commoditize the differentiator",
+        "Security platforms (CrowdStrike, Tanium) absorbing device management",
+        "Open-source forks and self-support capping enterprise deal sizes"
+      ]
+    },
+    "userLikes": [
+      "Osquery power exposed through a clean UI and REST API",
+      "Config-as-code workflows reviewable in git",
+      "Transparent roadmap and responsive open-source community",
+      "Single agent for MDM, live queries, and vulnerability data"
+    ],
+    "userComplaints": [
+      "Initial setup and tuning take engineering effort",
+      "Docs can lag the fast release cadence",
+      "Some MDM features newer and less polished than Jamf equivalents"
+    ],
+    "customerProfile": {
+      "segments": ["Cloud-native tech companies", "Security-mature enterprises"],
+      "typicalBuyer": "Director of IT or Security Engineering",
+      "topUseCases": [
+        "Cross-platform MDM with GitOps workflows",
+        "Device inventory and osquery-based telemetry",
+        "Vulnerability detection and posture compliance"
+      ]
+    },
+    "futureAreas": [
+      "Partner-first go-to-market expansion",
+      "BYOD and per-host privacy controls",
+      "Deeper Windows and Linux MDM parity",
+      "AI-assisted device troubleshooting"
+    ],
+    "competitiveEdge": "The only open-source, GitOps-driven cross-platform MDM, built by the creators of osquery"
   },
 };

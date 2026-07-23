@@ -2780,7 +2780,7 @@ export const pricingData: Record<string, PricingInfo> = {
     ],
     bottomLine: "Significant cost but strong MSP economics when PSA + RMM + security replace separate vendors — budget for services.",
   },
-  "itom/ninjarmm": {
+  "itom/ninjaone": {
     pricingModel: "per-seat",
     transparency: "limited-public",
     startingPrice: "$3/device/month",
