@@ -1348,7 +1348,7 @@ export const pricingData: Record<string, PricingInfo> = {
 
   // ── AgentOps Established ─────────────────────────────────────────────────
 
-  "agentops/ibm-watson-orchestrate": {
+  "agentops/ibm-watsonx-orchestrate": {
     pricingModel: "per-seat",
     transparency: "contact-sales",
     typicalACV: "$100K–$600K",
@@ -2249,7 +2249,7 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Premium per-conversation model adds up fast — justified for Salesforce-centric orgs where agents cut service cost.",
   },
 
-  "agentops/google-vertex-ai-agents": {
+  "agentops/google-gemini-enterprise-agents": {
     pricingModel: "consumption",
     transparency: "public-list",
     typicalACV: "$30K–$500K",
