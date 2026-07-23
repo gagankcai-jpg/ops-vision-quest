@@ -8944,59 +8944,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with AI/ML anomaly detection and automated remediation workflows"
     ]
   },
-  "aiops/blameless": {
-    "competitiveEdge": "SRE-first platform embedding SLO and error budget workflows directly into incident lifecycle.",
-    "swot": {
-      "strengths": [
-        "Pioneering SRE platform narrowly focused on SLO/error budget methodology; deep expertise in reliability engineering",
-        "Strong positioning in organizations adopting SLO/SLI/SLA disciplines; first choice for SRE teams building standards",
-        "Native Slack and incident workflow integration; lightweight adoption path for teams already managing incidents"
-      ],
-      "weaknesses": [
-        "Narrowly scoped to incident management and SLO; not a full observability platform; requires separate monitoring stack",
-        "Limited data science/ML capabilities vs. Datadog/Splunk; anomaly detection and prediction less advanced",
-        "Smaller customer base and ecosystem; integration options more limited than broader observability platforms"
-      ],
-      "opportunities": [
-        "SRE methodology adoption accelerating globally; positioning as canonical platform for SLO implementation",
-        "Enterprise chaos engineering and resilience testing growing; Blameless can bundle or partner in this space",
-        "Incident response and post-mortems becoming compliance requirement (SOX, HIPAA); premium market for audit-ready workflows"
-      ],
-      "threats": [
-        "Larger platforms (Datadog, New Relic, Splunk) bundling incident management and SLO features; broad ecosystems vs. niche",
-        "Open-source incident management tools (OpsGenie, Rootly) and SLO frameworks (SLO-spec) reduce need for SaaS platform",
-        "Market consolidation; smaller incident/SRE platforms facing acquisition or margin pressure from enterprise players"
-      ]
-    },
-    "userLikes": [
-      "SLO-first workflow enforces reliability thinking at org level; shifts culture from chaos to structured accountability",
-      "Clean Slack integration and runbook automation reduce friction in incident response; teams love speed",
-      "Post-incident review and blameless postmortem framework prevents blame culture; psychological safety improves"
-    ],
-    "userComplaints": [
-      "Requires separate observability platform (Datadog, New Relic, etc.); adds tool sprawl vs. all-in-one solutions",
-      "Limited querying and analytics on incident data; historical trending and forecasting weak compared to observability vendors",
-      "Automation capabilities lag PagerDuty and OpsGenie on escalation and cross-team orchestration"
-    ],
-    "customerProfile": {
-      "segments": [
-        "SRE-forward organizations with established reliability engineering practices",
-        "Mid-to-large tech companies (unicorns, Series C+) adopting formal SLO disciplines",
-        "Cloud-native and microservices-heavy companies measuring and managing reliability"
-      ],
-      "typicalBuyer": "Head of SRE or Reliability Engineering lead",
-      "topUseCases": [
-        "Implementing and tracking SLO/SLI metrics across critical services and incident workflows",
-        "Managing error budgets and capacity planning decisions based on reliability data",
-        "Driving blameless postmortem culture and capturing institutional learning from incidents"
-      ]
-    },
-    "futureAreas": [
-      "Chaos engineering and resilience testing platform integration to close loop from SLO definition to active testing",
-      "AI-powered incident classification and root cause suggestions using incident and observability data fusion",
-      "Compliance and audit automation for regulated industries (SOX, HIPAA, FedRAMP) around SLO reporting"
-    ]
-  },
   "aiops/squadcast": {
     "competitiveEdge": "On-call and reliability workflow orchestration with a significant share growth leveraging incident complexity across modern stacks.",
     "swot": {
@@ -9462,57 +9409,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with dbt, Airflow, and data catalogs to embed quality signals into data development workflows."
     ]
   },
-  "aiops/shoreline-io": {
-    "competitiveEdge": "Autonomous infrastructure remediation without manual playbook creation, using AI to learn and execute fixes in real-time.",
-    "swot": {
-      "strengths": [
-        "First-mover in autonomous remediation for cloud ops teams",
-        "Reduces MTTR by automating incident response without manual runbooks",
-        "Lightweight agent integration into existing cloud infrastructure"
-      ],
-      "weaknesses": [
-        "Small team and early revenue stage limit market reach and feature breadth",
-        "Requires cloud-native ops maturity to trust autonomous remediation",
-        "Limited adoption outside developer-first and cloud-native segments"
-      ],
-      "opportunities": [
-        "Expansion into hybrid and on-premises infrastructure beyond cloud-native",
-        "Platform partnerships with major cloud providers (AWS, Azure, GCP)",
-        "Integration with observability stacks as incident response layer"
-      ],
-      "threats": [
-        "Incumbents (Datadog, New Relic, Splunk) adding autonomous remediation features",
-        "Adoption friction from security teams skeptical of autonomous infrastructure changes"
-      ]
-    },
-    "userLikes": [
-      "Reduces mean-time-to-recovery by automating routine incident fixes",
-      "Intuitive learning approach that improves accuracy over time without manual configuration",
-      "Lightweight deployment footprint with minimal infrastructure overhead"
-    ],
-    "userComplaints": [
-      "Limited support for legacy systems and non-containerized infrastructure",
-      "Early product stage means fewer integrations with third-party tools",
-      "Requires significant time investment to train AI models on internal patterns"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Cloud-native SaaS companies",
-        "High-velocity DevOps teams"
-      ],
-      "typicalBuyer": "Platform engineering or DevOps lead at growth-stage SaaS",
-      "topUseCases": [
-        "Automated remediation of common cloud infrastructure faults",
-        "Reduction of on-call burden through preventive fixes",
-        "Learning incident patterns to improve future resilience"
-      ]
-    },
-    "futureAreas": [
-      "Expansion to multicloud and hybrid infrastructure scenarios",
-      "Integration with broader AIOps and incident management platforms",
-      "Autonomous cost optimization alongside reliability remediation"
-    ]
-  },
   "aiops/gremlin": {
     "competitiveEdge": "Purpose-built chaos engineering platform that makes failure injection safe and accessible to large enterprises seeking systematic resilience improvement.",
     "swot": {
@@ -9562,57 +9458,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with incident response and post-mortems workflows",
       "Continuous resilience validation as part of deployment pipelines",
       "Expansion into AI resilience and model robustness testing"
-    ]
-  },
-  "aiops/botkube": {
-    "competitiveEdge": "ChatOps-native Kubernetes monitoring and troubleshooting that brings incident response into chat platforms, eliminating context switching during Kubernetes events.",
-    "swot": {
-      "strengths": [
-        "Unique ChatOps positioning bridges operations teams and communication platforms",
-        "Lightweight open-source foundation reduces deployment friction",
-        "Fast issue identification through collaborative chat-based troubleshooting"
-      ],
-      "weaknesses": [
-        "Open-source monetization model limits revenue and feature velocity",
-        "Kubernetes-only focus narrows addressable market",
-        "Requires adoption of ChatOps culture which many orgs still resist"
-      ],
-      "opportunities": [
-        "Growing adoption of Slack and Teams in DevOps workflows",
-        "Expansion into broader cluster management and troubleshooting automation",
-        "Enterprise SaaS version capturing ChatOps-first teams"
-      ],
-      "threats": [
-        "Kubernetes vendors (CNCF, cloud providers) building competing ChatOps features",
-        "Observability platforms adding incident routing to chat natively"
-      ]
-    },
-    "userLikes": [
-      "Incident notifications and troubleshooting without leaving Slack or Teams",
-      "Collaborative approach encourages team learning during incident response",
-      "Low operational overhead with open-source foundation"
-    ],
-    "userComplaints": [
-      "Limited alerting and filtering rules compared to enterprise monitoring platforms",
-      "Requires active community contribution for desired feature development",
-      "Chat-only interface can be noisy when cluster events spike"
-    ],
-    "customerProfile": {
-      "segments": [
-        "DevOps and SRE teams already committed to ChatOps",
-        "Kubernetes-native early-stage companies"
-      ],
-      "typicalBuyer": "SRE or platform engineer at DevOps-first startup",
-      "topUseCases": [
-        "Real-time cluster event notifications into team chat channels",
-        "Collaborative troubleshooting of Kubernetes failures",
-        "Runbook execution and incident response coordination via ChatOps"
-      ]
-    },
-    "futureAreas": [
-      "Automation of routine Kubernetes remediation through ChatOps commands",
-      "Expanded visibility into application health beyond cluster events",
-      "Enhanced analytics on incident patterns and team response times"
     ]
   },
   "aiops/robusta": {
@@ -9717,7 +9562,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Enterprise features and compliance capabilities for regulated market expansion"
     ]
   },
-  "aiops/cloudfabrix": {
+  "aiops/fabrix-ai": {
     "competitiveEdge": "Purpose-built data pipeline for AIOps that ingests IT operations telemetry to power AI-driven automation and incident response.",
     "swot": {
       "strengths": [
@@ -26898,5 +26743,176 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Real-time work analytics beyond periodic studies"
     ],
     "competitiveEdge": "The original task-mining work graph — team-level ground truth on work that log-based miners cannot see."
+  },
+
+  "aiops/sedai": {
+    "swot": {
+      "strengths": [
+        "Acts autonomously in production rather than only recommending changes",
+        "25M+ autonomous actions executed across $3B in managed cloud spend",
+        "Backed by AVP, Norwest, Sierra Ventures, and Uncorrelated Ventures",
+        "Optimizes cost, latency, and availability together, not cost alone",
+        "Early mover in agentic infrastructure automation category"
+      ],
+      "weaknesses": [
+        "Small vendor versus FinOps and AIOps incumbents",
+        "Enterprises must build trust before enabling autonomous changes",
+        "Limited brand awareness outside cloud-native circles",
+        "Go-to-market scale-up still early after 2025 CRO hire"
+      ],
+      "opportunities": [
+        "Self-tuning for LLM applications and GPU workload optimization",
+        "Orchestration for Databricks and Snowflake platforms",
+        "Rising demand to consolidate FinOps and ops automation tooling",
+        "Agentic ops budgets expanding across enterprises"
+      ],
+      "threats": [
+        "Hyperscaler-native optimizers bundled free with cloud platforms",
+        "FinOps automation rivals such as CAST AI",
+        "AIOps incumbents adding autonomous remediation agents",
+        "Enterprise change-control policies restricting autonomy"
+      ]
+    },
+    "userLikes": [
+      "Hands-free cost savings without manual rightsizing work",
+      "Performance and latency gains alongside cost cuts",
+      "Safe, reversible autonomous actions in production",
+      "Low ongoing operational effort once connected"
+    ],
+    "userComplaints": [
+      "Trust ramp-up period before enabling full autonomy",
+      "Coverage varies across cloud services and platforms",
+      "Tuning autonomy policies has a learning curve"
+    ],
+    "customerProfile": {
+      "segments": ["Cloud-native enterprises", "Digital-native SaaS companies"],
+      "typicalBuyer": "VP of Engineering or Head of SRE/Platform Engineering with large cloud bills",
+      "topUseCases": [
+        "Autonomous cloud cost optimization at scale",
+        "Latency and performance tuning of microservices",
+        "Autonomous remediation of production issues"
+      ]
+    },
+    "futureAreas": [
+      "GPU and LLM workload self-tuning",
+      "Databricks and Snowflake orchestration",
+      "Deeper agentic incident remediation",
+      "Broader multi-cloud service coverage"
+    ],
+    "competitiveEdge": "Acts autonomously in production — 25M+ safe actions across $3B managed spend, beyond dashboards and advice."
+  },
+
+  "aiops/k8sgpt": {
+    "swot": {
+      "strengths": [
+        "CNCF Sandbox project with active, vendor-neutral governance",
+        "8k GitHub stars and 1k forks with steady release cadence into 2026",
+        "Supports many AI backends including OpenAI, Bedrock, Azure, and local models",
+        "Operator mode enables continuous in-cluster scanning, not just one-off CLI runs",
+        "Free and open source, easy bottom-up adoption by platform teams"
+      ],
+      "weaknesses": [
+        "No commercial support or SLA behind the project",
+        "Diagnostic quality depends on the chosen LLM backend",
+        "Scope limited to Kubernetes diagnostics, not full observability",
+        "Still Sandbox maturity; incubation not yet achieved"
+      ],
+      "opportunities": [
+        "CNCF incubation path underway per May 2026 governance prep",
+        "Local model support for privacy-sensitive enterprises",
+        "Integration into platform engineering golden paths",
+        "Agent and MCP ecosystem integrations"
+      ],
+      "threats": [
+        "AI assistants built into kubectl and hyperscaler consoles",
+        "Observability vendors bundling K8s AI troubleshooting",
+        "General-purpose coding agents handling cluster debugging",
+        "Maintainer and contributor sustainability risk"
+      ]
+    },
+    "userLikes": [
+      "Plain-English explanations of cryptic cluster errors",
+      "Fast triage that saves SRE investigation time",
+      "Simple install as CLI or Kubernetes operator",
+      "Built-in anonymization of sensitive cluster data"
+    ],
+    "userComplaints": [
+      "LLM token costs add up on large clusters",
+      "Remediation advice can be generic for complex failures",
+      "Configuring AI backends and auth can be fiddly"
+    ],
+    "customerProfile": {
+      "segments": ["Platform engineering teams", "Kubernetes-heavy enterprises"],
+      "typicalBuyer": "Platform engineering lead or SRE manager adopting bottom-up via OSS",
+      "topUseCases": [
+        "Triaging failing pods and misconfigurations",
+        "Continuous in-cluster scanning via operator",
+        "Helping junior engineers debug Kubernetes"
+      ]
+    },
+    "futureAreas": [
+      "CNCF incubation and graduated maturity",
+      "Deeper automated remediation workflows",
+      "Expanded local and open-model backends",
+      "Tighter observability stack integrations"
+    ],
+    "competitiveEdge": "De facto open-source standard for AI-assisted Kubernetes diagnostics, under CNCF governance."
+  },
+
+  "aiops/pydantic-logfire": {
+    "swot": {
+      "strengths": [
+        "Built by the Pydantic team — validation layer used across the Python AI ecosystem",
+        "Sequoia-led Series A gives credibility unusual for a young observability entrant",
+        "AI/LLM and agent tracing native from day one, not retrofitted",
+        "Generous perpetual free tier drives bottom-up developer adoption",
+        "SQL-queryable telemetry appeals to data-fluent engineering teams"
+      ],
+      "weaknesses": [
+        "Young platform — enterprise features and integrations still maturing",
+        "Python-ecosystem gravity; weaker pull for JVM and .NET shops",
+        "Small team against Datadog-scale competitors",
+        "Modest $12.5M war chest vs heavily funded obs rivals"
+      ],
+      "opportunities": [
+        "Every Python AI/agent stack already imports Pydantic — natural funnel",
+        "LLM observability spend forecast to hit half of obs budgets by 2028",
+        "OpenTelemetry-native positioning as OTel becomes default",
+        "Expansion from tracing into evals and agent debugging"
+      ],
+      "threats": [
+        "Datadog, Arize, and LangSmith all chasing LLM observability",
+        "Framework vendors bundling their own tracing",
+        "Open-source alternatives commoditize basic LLM tracing",
+        "Acquisition pressure typical for dev-tool startups at this stage"
+      ]
+    },
+    "userLikes": [
+      "Instrumentation feels native if you already use Pydantic",
+      "Clean developer experience and fast setup",
+      "SQL over telemetry beats learning a proprietary query DSL",
+      "Free tier generous enough for real projects"
+    ],
+    "userComplaints": [
+      "Enterprise controls (SSO, RBAC depth) still thin",
+      "Dashboarding less mature than incumbent APMs",
+      "Ecosystem outside Python requires more manual OTel wiring"
+    ],
+    "customerProfile": {
+      "segments": ["AI-native startups", "Python-heavy engineering teams"],
+      "typicalBuyer": "Head of Engineering / AI platform lead",
+      "topUseCases": [
+        "Tracing LLM and agent pipelines in production",
+        "Python application observability",
+        "Debugging AI behavior with SQL over telemetry"
+      ]
+    },
+    "futureAreas": [
+      "Agent evals and behavioral debugging",
+      "Deeper OpenTelemetry ecosystem coverage",
+      "Enterprise governance and compliance features",
+      "Cross-language SDK maturity beyond Python"
+    ],
+    "competitiveEdge": "The observability layer of the Pydantic ecosystem — AI-native tracing where Python AI teams already live."
   },
 };

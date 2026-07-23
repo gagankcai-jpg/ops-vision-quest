@@ -174,7 +174,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "aiops/lightstep",
   "aiops/middleware-io",
   "aiops/opsview",
-  "aiops/blameless",
   "aiops/squadcast",
   "aiops/opslevel",
   "aiops/cortex",
@@ -184,12 +183,10 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "aiops/ilert",
   "aiops/acceldata",
   "aiops/anomalo",
-  "aiops/shoreline-io",
   "aiops/gremlin",
-  "aiops/botkube",
   "aiops/robusta",
   "aiops/axiom",
-  "aiops/cloudfabrix",
+  "aiops/fabrix-ai",
   "aiops/causely",
   "aiops/sifflet",
   "aiops/bigeye",
@@ -505,5 +502,8 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "agentops/dev-agents",
   "rpa/skan-ai",
   "rpa/gumloop",
-  "rpa/soroco"
+  "rpa/soroco",
+  "aiops/sedai",
+  "aiops/k8sgpt",
+  "aiops/pydantic-logfire"
 ]);
