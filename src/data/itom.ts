@@ -43,7 +43,7 @@ export const itomData = {
     { year: "2030", value: 94.0 },
   ],
   vendors: [
-    { name: "ServiceNow", type: "leader" as const, marketCap: "$105B", revenue: "$15B Rev", growth: "+22% YoY", highlight: "44% Market Share", description: "Dominant ITSM/ITOM platform with AI-embedded workflows; completed $2.85B Moveworks acquisition (Dec 2025); 5-for-1 stock split Dec 2025", recentEvent: "May 2026: Knowledge '26 — Otto AI; Action Fabric for 3rd-party agents; Autonomous CRM" },
+    { name: "ServiceNow", type: "leader" as const, marketCap: "$123B", revenue: "$15.8B Rev", growth: "+24% YoY", highlight: "44% Market Share", description: "Dominant ITSM/ITOM platform with AI-embedded workflows; completed $2.85B Moveworks acquisition (Dec 2025); 5-for-1 stock split Dec 2025", recentEvent: "Jul 2026: Q2 sub rev $3.88B +24.5%; AI ACV tops $1B; FY guide raised" },
     { name: "Microsoft (SCSM/Azure)", type: "leader" as const, marketCap: "$3.1T", revenue: "—", growth: "—", highlight: "Azure-Native", description: "System Center + Azure Monitor for hybrid IT operations" },
     { name: "Atlassian Jira SM", type: "leader" as const, marketCap: "$22B", revenue: "$6.2B Rev", growth: "+32% YoY", highlight: "High Velocity", description: "Developer-centric ITSM with deep DevOps integrations", recentEvent: "May 2026: Team '26 — Agents in Jira GA, Rovo Incident Command, Teamwork Graph 150B nodes" },
     { name: "BMC Helix ITSM", type: "leader" as const, marketCap: "Private (Montagu) ~$1.5B", revenue: "Est. $1.2B Rev", growth: "—", highlight: "Autonomous IT", description: "AI-driven autonomous IT operations and service management", recentEvent: "Jun 2026: Montagu acquired majority stake from KKR — standalone since 2025 BMC split" },
