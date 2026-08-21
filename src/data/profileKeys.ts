@@ -59,7 +59,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "rpa/windmill",
   "rpa/dify-ai",
   "rpa/flowise",
-  "rpa/leap-ai",
   "rpa/rivet",
   "rpa/procesio",
   "rpa/quickwork",
@@ -505,5 +504,9 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "agentops/browserbase",
   "secops/cymulate",
   "secops/kela",
-  "secops/picus-security"
+  "secops/picus-security",
+  "secops/exaforce",
+  "secops/neo-security",
+  "rpa/happyrobot",
+  "itom/inforcer"
 ]);

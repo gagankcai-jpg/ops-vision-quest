@@ -2984,59 +2984,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Production-grade features (monitoring, fine-tuning, cost optimization)"
     ]
   },
-  "rpa/leap-ai": {
-    "competitiveEdge": "AI-native workflow automation purpose-built for document and data processing, combining vision, NLP, and decision logic in unified platform.",
-    "swot": {
-      "strengths": [
-        "Specialized AI capabilities (vision, NLP) for document and data processing; not generic no-code tool",
-        "AI-native design from ground up; reduces need for manual template creation or rule engineering",
-        "Closed-loop SaaS platform with professional support and enterprise reliability"
-      ],
-      "weaknesses": [
-        "Narrow focus on document/data processing; may not serve broader workflow automation needs",
-        "Private startup; less brand recognition and smaller customer base than incumbents",
-        "Pricing model and competitive positioning unclear relative to IDP and automation alternatives"
-      ],
-      "opportunities": [
-        "Expand use cases beyond documents to include email, forms, and transactional data processing",
-        "Build vertical solutions (finance, HR, legal) to capture high-margin segments",
-        "Integrate with procurement, AP, and HR automation platforms to extend TAM"
-      ],
-      "threats": [
-        "Established IDP platforms (ABBYY, Hyperscience) with mature products and ecosystems",
-        "Larger RPA incumbents (UiPath, Automation Anywhere) expanding document AI capabilities",
-        "Foundation models (GPT-4 Vision) enabling companies to build custom document workflows"
-      ]
-    },
-    "userLikes": [
-      "Purpose-built AI capabilities (vision, language understanding) excel at complex document automation",
-      "No-code interface with intelligent defaults reduce manual configuration vs. traditional IDP",
-      "Enterprise support and SLAs provide confidence for regulated and high-volume workflows"
-    ],
-    "userComplaints": [
-      "Limited documentation and market presence; harder to evaluate vs. established competitors",
-      "Narrow scope focused on documents may not serve broader process automation needs",
-      "Unclear differentiation from IDP platforms, RPA, and foundation model-based approaches"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Financial services and healthcare automating high-volume document processing",
-        "Mid-market organizations modernizing legacy document-intensive processes",
-        "Procurement, HR, and legal teams automating intake, classification, and extraction"
-      ],
-      "typicalBuyer": "Operations Manager or Process Automation Lead at mid-market enterprise",
-      "topUseCases": [
-        "Document classification and intelligent data extraction from invoices and forms",
-        "Email and attachment processing with automated routing and decision logic",
-        "High-volume data extraction from images, PDFs, and unstructured documents"
-      ]
-    },
-    "futureAreas": [
-      "Expansion beyond documents to multimodal data (video, audio, structured data)",
-      "Vertical-specific solutions with domain templates and ML models",
-      "Integration with downstream automation and ERP systems to complete end-to-end workflows"
-    ]
-  },
   "rpa/rivet": {
     "competitiveEdge": "Only open-source visual AI workflow builder purpose-built for LLM orchestration without vendor lock-in.",
     "swot": {
@@ -26984,5 +26931,228 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Exposure management platform expansion"
     ],
     "competitiveEdge": "Pioneer BAS depth plus Numi AI that converts live threat intel into safe, production-ready attack simulations"
+  },
+  "secops/exaforce": {
+    "swot": {
+      "strengths": [
+        "Real-time security knowledge graph correlates data at ingest, not query",
+        "Four Exabots cover detection, triage, investigation and response",
+        "Hybrid model pairs AI agents with 24/7 MDR analysts for oversight",
+        "$200M raised from HarbourVest, Peak XV, Mayfield and Khosla",
+        "5.0 G2 rating; reviewers cite accurate, explainable triage"
+      ],
+      "weaknesses": [
+        "Only about 20 customers at Series B; early reference base",
+        "Reviewers note missing integrations such as Cloudflare",
+        "Some log ingestion techniques still under development",
+        "$725M valuation sets a high bar for revenue growth"
+      ],
+      "opportunities": [
+        "Expansion into Japan and Europe funded by Series B",
+        "MDR attach for mid-market teams lacking 24/7 staff",
+        "Natural-language vibe hunting broadens who can investigate",
+        "Replacing legacy SIEM workflows with graph-native correlation"
+      ],
+      "threats": [
+        "Palo Alto and CrowdStrike bundling AI SOC into XSIAM and Falcon",
+        "Crowded AI SOC field: 7AI, Dropzone, Prophet, Torq, Tines",
+        "SIEM incumbents adding agentic triage to existing deployments",
+        "Enterprise caution over autonomous response actions"
+      ]
+    },
+    "userLikes": [
+      "Triage is fast and accurate with verifiable reasoning shown",
+      "Agents take a reliable first pass on every security event",
+      "Responsive team ships requested features quickly",
+      "Investigations clearly show affected systems and data"
+    ],
+    "userComplaints": [
+      "Gaps in integrations for some popular platforms",
+      "Certain ingestion methods still maturing",
+      "Young platform with limited third-party reviews"
+    ],
+    "customerProfile": {
+      "segments": ["Mid-size to large tech and healthcare firms", "Lean SOC teams seeking MDR plus AI"],
+      "typicalBuyer": "CISO or SOC director modernizing detection and response",
+      "topUseCases": [
+        "Automated alert triage and investigation",
+        "Cloud and identity threat detection",
+        "24/7 MDR with agentic augmentation"
+      ]
+    },
+    "futureAreas": [
+      "Multi-model AI reasoning across Exabots",
+      "Broader integration catalog and ingestion",
+      "Regional expansion in Japan and Europe",
+      "Autonomous response with analyst guardrails"
+    ],
+    "competitiveEdge": "Ingest-time knowledge graph plus four specialized Exabots and MDR deliver sub-minute investigations across the SOC"
+  },
+  "secops/neo-security": {
+    "swot": {
+      "strengths": [
+        "Founders led SentinelOne go-to-market and detection engineering",
+        "$100M raised at launch from a16z, Bessemer, Craft and Merlin",
+        "Continuous inventory of agents, models, extensions and MCP servers",
+        "Real-time attribution ties every software action to a user or app",
+        "Policy engine can pause tool calls, data movement and API access"
+      ],
+      "weaknesses": [
+        "Just out of stealth; no public customers or case studies yet",
+        "Product breadth still maturing versus established AI-SPM vendors",
+        "Agentic software control is an unproven budget line for CISOs",
+        "Boston and Tel Aviv team must scale sales from a standing start"
+      ],
+      "opportunities": [
+        "Gartner: agentic share of enterprise apps 5% in 2025 to 40% in 2026",
+        "MCP server and browser-agent sprawl creating urgent governance needs",
+        "Land with SecOps, expand into identity and data governance",
+        "Channel leverage via founders' SentinelOne partner relationships"
+      ],
+      "threats": [
+        "Wiz, Palo Alto and CrowdStrike adding AI agent security natively",
+        "Funded rivals Noma, Zenity and Astrix already selling AI security",
+        "Model and agent platforms shipping their own guardrails",
+        "Hype-cycle fatigue if agentic risk does not materialize quickly"
+      ]
+    },
+    "userLikes": [
+      "Unified view of agents, extensions and AI apps across the estate",
+      "Fast time to first inventory with agentless discovery",
+      "Attribution detail simplifies investigating autonomous actions"
+    ],
+    "userComplaints": [
+      "Early-stage product with integrations still being built out",
+      "Limited public documentation and community knowledge base",
+      "Pricing and packaging not yet publicly defined"
+    ],
+    "customerProfile": {
+      "segments": ["Large enterprises deploying AI agents", "Security-first tech and financial firms"],
+      "typicalBuyer": "CISO or SecOps lead governing AI adoption",
+      "topUseCases": [
+        "Discovering shadow AI agents and MCP servers",
+        "Enforcing least privilege for agent tool calls",
+        "Attributing autonomous actions during incidents"
+      ]
+    },
+    "futureAreas": [
+      "Runtime policy enforcement for agent-to-agent traffic",
+      "Browser and identity-layer agentic controls",
+      "Integrations with SIEM, XDR and identity providers",
+      "Agentic software risk scoring and benchmarks"
+    ],
+    "competitiveEdge": "SentinelOne-pedigree team with $100M backing building the control plane for agentic software, not just AI app discovery"
+  },
+  "rpa/happyrobot": {
+    "swot": {
+      "strengths": [
+        "150+ enterprise customers incl. DHL, Kuehne+Nagel, Uber and Repsol",
+        "Revenue up 5x since Series B with 150%+ net dollar retention",
+        "Agents complete work end to end and write back to TMS and CRM",
+        "Backed by Prysm, Eurazeo, a16z, Koch and Deutsche Telekom T.Capital",
+        "Founding team with computer vision and autonomous systems depth"
+      ],
+      "weaknesses": [
+        "Heavy logistics concentration; newer verticals less proven",
+        "Voice-first reputation may undersell document and web automation",
+        "Outcome-based value harder to benchmark than seat pricing",
+        "Rapid expansion from 2 to 8 offices strains delivery consistency"
+      ],
+      "opportunities": [
+        "Extending from logistics into energy, utilities, airlines, finance",
+        "Replacing legacy RPA bots with reasoning agents for exceptions",
+        "Account expansions like a 10x single-year supply chain customer",
+        "Global rollout across eight offices in four regions"
+      ],
+      "threats": [
+        "UiPath and Automation Anywhere adding agentic orchestration",
+        "Voice AI rivals Cresta, Sierra, Decagon, Bland and Synthflow",
+        "Hyperscalers and LLM vendors offering agent builders directly",
+        "Customer caution over AI negotiating prices with counterparties"
+      ]
+    },
+    "userLikes": [
+      "Fast deployment with new agents spun up from a prompt",
+      "Low-latency, natural voice handling of carrier calls",
+      "Call outcomes sync to Salesforce, McLeod and other systems",
+      "Measurable headcount relief on check calls and scheduling"
+    ],
+    "userComplaints": [
+      "Complex edge-case workflows need tuning before go-live",
+      "Pricing is opaque; enterprise quotes only",
+      "Integration depth varies outside core logistics systems"
+    ],
+    "customerProfile": {
+      "segments": ["Freight brokers, 3PLs and carriers", "Energy, utility and telecom operations teams"],
+      "typicalBuyer": "COO or head of operations automating high-volume workflows",
+      "topUseCases": [
+        "Carrier check calls, load updates and scheduling",
+        "Freight quoting and rate negotiation",
+        "Document intake and back-office exception handling"
+      ]
+    },
+    "futureAreas": [
+      "Deeper vertical agents beyond logistics",
+      "Multi-agent orchestration across channels",
+      "Expanded enterprise system integrations",
+      "International growth in Europe, LatAm and APAC"
+    ],
+    "competitiveEdge": "Outcome-owning AI agents proven at DHL and Uber scale that finish voice, email and document workflows, not draft them"
+  },
+  "itom/inforcer": {
+    "swot": {
+      "strengths": [
+        "300% year-over-year growth; valuation doubled Series B to C",
+        "$110M raised in 18 months from Insight, Meritech and Dawn",
+        "Multi-tenant baselines, drift detection and policy backup and restore",
+        "Copilot Manager and Shadow AI detection ride the M365 AI wave",
+        "New inforcer TDR adds threat detection and response to management"
+      ],
+      "weaknesses": [
+        "Entirely dependent on the Microsoft 365 ecosystem and roadmap",
+        "Small public review footprint relative to MSP tool incumbents",
+        "Per-client pricing can add up for MSPs with many small tenants",
+        "Young company scaling five offices on a three-year track record"
+      ],
+      "opportunities": [
+        "Millions of SMB tenants still lack standardized security baselines",
+        "Copilot rollout creates AI governance demand MSPs must meet",
+        "Consumption-based pricing planned for new AI products",
+        "Expansion in US, Australia and Europe via new regional offices"
+      ],
+      "threats": [
+        "Microsoft 365 Lighthouse and Intune absorbing baseline features",
+        "CIPP open source plus Augmentt and Nerdio competing for MSPs",
+        "RMM and PSA platforms bundling M365 management",
+        "SMB budget pressure squeezing MSP tooling spend"
+      ]
+    },
+    "userLikes": [
+      "Pre-built CIS-aligned policies deploy across all tenants at once",
+      "Consistent security posture across many client tenants",
+      "Quick tenant onboarding and policy rollback",
+      "Strong MSP community engagement and responsive support"
+    ],
+    "userComplaints": [
+      "Feature depth depends on Microsoft Graph API coverage",
+      "Reporting customization is still limited",
+      "Few independent reviews to benchmark against peers"
+    ],
+    "customerProfile": {
+      "segments": ["MSPs and MSSPs serving SMBs", "Microsoft CSP partners"],
+      "typicalBuyer": "MSP owner or service delivery manager",
+      "topUseCases": [
+        "Standardizing M365 security baselines across tenants",
+        "Detecting and remediating configuration drift",
+        "Managing Copilot licensing and shadow AI usage"
+      ]
+    },
+    "futureAreas": [
+      "Agentic automation of tenant remediation",
+      "Token-based pricing for AI products",
+      "Deeper threat detection and response",
+      "Compliance reporting for CIS and Cyber Essentials"
+    ],
+    "competitiveEdge": "Purpose-built MSP control plane uniting M365 baselines, Copilot and shadow AI governance, and TDR with 300% growth"
   },
 };
