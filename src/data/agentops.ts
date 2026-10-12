@@ -35,7 +35,7 @@ export const agentopsData = {
     { year: "2030", value: 8.0 },
   ],
   vendors: [
-    { name: "ServiceNow Now Assist", type: "leader" as const, marketCap: "Div. of $134B", revenue: "—", growth: "+22% YoY", highlight: "Enterprise #1", description: "Generative AI agents embedded across the entire Now Platform", recentEvent: "May 2026: AI Control Tower governs all enterprise AI agents; Traceloop acquired" },
+    { name: "ServiceNow Now Assist", type: "leader" as const, marketCap: "Div. of $134B", revenue: "—", growth: "+22% YoY", highlight: "Enterprise #1", description: "Generative AI agents embedded across the entire Now Platform", recentEvent: "Sep 2026: Closed ~$400M Sweep acquisition — agentic layer across enterprise systems" },
     { name: "Microsoft Copilot for IT", type: "leader" as const, marketCap: "Div. of $3.6T", revenue: "—", growth: "+48% YoY", highlight: "Fastest Adoption", description: "AI-powered IT automation across M365, Azure, and Intune", recentEvent: "Jun 2026: Build '26 — Autopilots category & Scout autonomous agent" },
     { name: "Atlassian Intelligence", type: "leader" as const, marketCap: "Div. of $44B", revenue: "—", growth: "+28% YoY", highlight: "Dev+Ops AI", description: "AI agents embedded in Jira, Confluence, and Jira Service Management", recentEvent: "Aug 2026: Q4 FY26 rev $1.77B +28%; MCP server 1M+ MAU; Rovo adopters grow ARR 2x faster" },
     { name: "Dynatrace Davis AI", type: "leader" as const, marketCap: "Div. of $14.2B", revenue: "—", growth: "+22% YoY", highlight: "Self-Healing Infra", description: "Autonomous AI engine for root cause detection and self-healing infrastructure" },
