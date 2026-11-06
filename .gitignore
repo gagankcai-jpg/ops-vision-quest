@@ -29,3 +29,7 @@ wordpress-plugin/autonomous-it-insights/app/
 
 # Untracked deploy target (server coordinates) — see deploy.env.example
 deploy.env
+
+# Claude Code local settings and Finder/iCloud duplicates (may contain server coordinates)
+.claude/settings.local*.json
+*\ [0-9].json
