@@ -60,7 +60,9 @@ if [ -n "$STALE" ]; then
 fi
 
 echo "▶ Purging LiteSpeed cache…"
-$SSH "$REMOTE" "wp --path=$WP litespeed-purge all"
+# The LiteSpeed CLI can print "Success: Purged all caches" and still exit non-zero with
+# "Could not notify the web server to purge" — the purge itself lands, so don't abort the deploy.
+$SSH "$REMOTE" "wp --path=$WP litespeed-purge all" || echo "   ⚠ purge command exited non-zero (usually the harmless web-server notify step); continuing"
 
 # Pre-warm the cache so the first real visitor after the purge doesn't eat a cold-render
 # 504/timeout. Warm the high-traffic shell routes sequentially (vendor detail pages warm
