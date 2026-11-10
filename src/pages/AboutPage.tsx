@@ -65,6 +65,12 @@ const AboutPage = () => {
               An independent research practice covering AIOps, ITOM, RPA, Agentic Operations, and SecOps —
               with hands-on advisory for both buyers and the vendors building the next generation.
             </p>
+
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              <span className="font-semibold text-foreground">Editorial independence:</span>{" "}
+              vendor coverage, rankings and profiles are based on our own research. We don't accept
+              payment for inclusion, placement or ranking, and advisory clients receive no preferential coverage.
+            </p>
           </motion.div>
         </div>
       </section>
