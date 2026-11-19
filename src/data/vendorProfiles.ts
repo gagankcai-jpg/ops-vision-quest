@@ -27155,4 +27155,120 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
     "competitiveEdge": "Purpose-built MSP control plane uniting M365 baselines, Copilot and shadow AI governance, and TDR with 300% growth"
   },
+  "secops/daylight": {
+    "swot": {
+      "strengths": [
+        "Aura AI agents plus human security engineers deliver MDR at agentic speed",
+        "Company reports revenue up more than 40x over the past year",
+        "$120M raised; Series B led by Goldman Sachs Alternatives with Okta Ventures",
+        "Named customers include LastPass, Miro, Lovable, dLocal and Rogo",
+        "Covers AI-platform threats such as prompt injection and risky MCP integrations"
+      ],
+      "weaknesses": [
+        "Roughly 80 employees; small team versus incumbent MDR providers",
+        "Speed claims (10x faster than legacy MDR) are company-reported, unverified",
+        "Revenue and customer count undisclosed; valuation only reported by sources",
+        "Plans to nearly 4x headcount in 12 months add execution risk"
+      ],
+      "opportunities": [
+        "Displacing legacy MDR, Big Four and consultancy security services",
+        "Co-managed and forward-deployed engineering offerings beyond full MDR",
+        "Expansion into EMEA and APAC funded by Series B",
+        "Securing enterprise AI adoption: agents, MCP and prompt-injection risk"
+      ],
+      "threats": [
+        "CrowdStrike Falcon Complete and Arctic Wolf dominate managed MDR",
+        "Agentic SOC rivals with MDR attach: Exaforce, 7AI, Torq",
+        "Accenture and Big Four adding AI agents to managed security services",
+        "Customer caution over AI-driven containment in production"
+      ]
+    },
+    "userLikes": [
+      "Fast detection and containment versus prior MDR providers",
+      "Human engineers available for complex decisions",
+      "Natural-language queries make investigations easier"
+    ],
+    "userComplaints": [
+      "Young platform with few independent third-party reviews",
+      "Integration coverage still expanding for some tools",
+      "Scaling support quality during rapid hiring is unproven"
+    ],
+    "customerProfile": {
+      "segments": [
+        "AI-native and high-growth technology companies",
+        "Mid-market to large enterprises replacing legacy MDR"
+      ],
+      "typicalBuyer": "CISO or head of security without an in-house 24/7 SOC",
+      "topUseCases": [
+        "Fully managed AI-driven detection and response",
+        "Co-managed SOC alongside internal security teams",
+        "Agentic threat hunting and DLP case investigation"
+      ]
+    },
+    "futureAreas": [
+      "Co-managed and forward-deployed security engineering",
+      "Agentic threat hunting and DLP investigation",
+      "Security for enterprise AI agents and MCP integrations",
+      "EMEA and APAC expansion"
+    ],
+    "competitiveEdge": "AI-agent-first MDR with human oversight, claiming detection in seconds and containment in minutes vs legacy MDR"
+  },
+  "secops/armadin": {
+    "swot": {
+      "strengths": [
+        "Led by Mandiant founder Kevin Mandia; deep incident response pedigree",
+        "$445M raised; Series B at over $2.5B co-led by a16z and Accel",
+        "Agent swarms chain low-severity flaws into validated attack paths",
+        "Fortune 500 and government customers running agentic attacks in production",
+        "Backed by In-Q-Tel, GV, Kleiner Perkins and Menlo Ventures"
+      ],
+      "weaknesses": [
+        "Emerged from stealth only in March 2026; short commercial track record",
+        "Revenue and customer counts undisclosed",
+        "$2.5B+ valuation sets a very high bar for revenue growth",
+        "Autonomous attacks in production require high customer trust"
+      ],
+      "opportunities": [
+        "Replacing periodic manual pen tests with continuous autonomous red teaming",
+        "Government and defense demand via In-Q-Tel relationship",
+        "Countering AI-accelerated attackers with offense-informed defense",
+        "Feeding validated attack paths into exposure management programs"
+      ],
+      "threats": [
+        "Autonomous pentest rivals: Horizon3.ai, XBOW, Pentera, RunSybil",
+        "Exposure management incumbents adding attack path validation",
+        "Platform vendors such as Google and Palo Alto building AI red teaming",
+        "Liability and safety concerns over agents attacking live systems"
+      ]
+    },
+    "userLikes": [
+      "Shows full attack paths and blast radius, not isolated findings",
+      "Validated exploits cut noise from low-severity vulnerability lists",
+      "Mandiant-grade offensive expertise encoded in agents"
+    ],
+    "userComplaints": [
+      "Young product with limited independent reviews",
+      "Premium pricing expected for enterprise deployments",
+      "Running autonomous attacks in production needs careful scoping"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Fortune 500 enterprises",
+        "Government and public-sector agencies"
+      ],
+      "typicalBuyer": "CISO or head of offensive security and red team",
+      "topUseCases": [
+        "Continuous autonomous red teaming and pen testing",
+        "Attack path validation from perimeter to cloud",
+        "Prioritizing remediation by validated blast radius"
+      ]
+    },
+    "futureAreas": [
+      "Scaling agentic offensive security platform",
+      "Offensive AI research and agent training",
+      "Cloud and identity lateral movement coverage",
+      "Go-to-market expansion in enterprise and government"
+    ],
+    "competitiveEdge": "Mandiant founder's team pairs elite offensive expertise with agent swarms that prove exploitable attack paths end to end"
+  },
 };

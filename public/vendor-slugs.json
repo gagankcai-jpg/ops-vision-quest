@@ -505,5 +505,7 @@
   "secops/exaforce",
   "secops/neo-security",
   "rpa/happyrobot",
-  "itom/inforcer"
+  "itom/inforcer",
+  "secops/daylight",
+  "secops/armadin"
 ]

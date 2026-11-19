@@ -508,5 +508,7 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "secops/exaforce",
   "secops/neo-security",
   "rpa/happyrobot",
-  "itom/inforcer"
+  "itom/inforcer",
+  "secops/daylight",
+  "secops/armadin"
 ]);
