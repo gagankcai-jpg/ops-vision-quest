@@ -245,58 +245,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Cross-platform IT operations orchestration beyond endpoints"
     ]
   },
-  "agentops/vane-ai": {
-    "competitiveEdge": "Purpose-built AI copilot for DevOps and platform engineering teams, automating runbooks, incident response, and operational workflows without requiring enterprise IT infrastructure.",
-    "swot": {
-      "strengths": [
-        "Focused on high-velocity DevOps teams that traditional ITSM vendors overlook",
-        "AI-native design avoids legacy ITSM constraints and bloat",
-        "Real-time incident response automation aligned with DevOps culture"
-      ],
-      "weaknesses": [
-        "Early-stage startup with limited brand awareness and customer references",
-        "Narrow TAM limited to DevOps/platform engineering; excludes traditional IT service desk",
-        "Resource constraints typical of early startups may slow feature development"
-      ],
-      "opportunities": [
-        "Rapid adoption among cloud-native and containerized organizations",
-        "Integration with Kubernetes, Terraform, and infrastructure-as-code platforms",
-        "Expansion into broader platform engineering and SRE automation"
-      ],
-      "threats": [
-        "Microsoft and AWS embedding AI agents into native cloud operations tools",
-        "ServiceNow acquiring DevOps automation startups to compete in platform engineering",
-        "Open-source alternatives (Temporal, Temporal + osquery) commoditizing workflow automation"
-      ]
-    },
-    "userLikes": [
-      "Built specifically for DevOps teams — understands modern infrastructure automation",
-      "Lightweight and agile compared to traditional enterprise ITSM platforms",
-      "Natural integration with cloud operations and CI/CD pipelines"
-    ],
-    "userComplaints": [
-      "Limited product maturity and feature breadth versus established platforms",
-      "Small vendor increases risk concerns for large-scale operations",
-      "Integration ecosystem still developing across monitoring and IaC tools"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Cloud-native organizations and microservices-heavy tech companies",
-        "Platform engineering and SRE teams managing Kubernetes and distributed systems"
-      ],
-      "typicalBuyer": "VP of Engineering or Director of Platform Engineering",
-      "topUseCases": [
-        "Automated incident response and runbook execution for infrastructure failures",
-        "AI-assisted triage and escalation for cloud operations alerts",
-        "Infrastructure-as-code validation and deployment automation"
-      ]
-    },
-    "futureAreas": [
-      "Kubernetes and container-native operations automation",
-      "Integration with observability platforms (Datadog, New Relic, Prometheus)",
-      "Self-healing infrastructure and autonomous deployment capabilities"
-    ]
-  },
   "agentops/yellow-ai": {
     "competitiveEdge": "Multilingual conversational AI platform automating IT service desk, HR, and customer operations with strong momentum across enterprise voice and chat channels.",
     "swot": {
@@ -27270,5 +27218,59 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Go-to-market expansion in enterprise and government"
     ],
     "competitiveEdge": "Mandiant founder's team pairs elite offensive expertise with agent swarms that prove exploitable attack paths end to end"
+  },
+  "agentops/daytona": {
+    "swot": {
+      "strengths": [
+        "$60M Series B at $1B led by FirstMark; ~$91M raised in total",
+        "Sandboxes give each agent an isolated computer to run code, browse and use apps",
+        "Revenue reported up about 25x between January and September 2026",
+        "Angel backing from Patrick Collison, Tobi Lutke and Aravind Srinivas"
+      ],
+      "weaknesses": [
+        "Infrastructure layer, not an end-user IT ops product",
+        "Revenue and customer counts are not disclosed",
+        "Young company scaling infrastructure reliability under fast growth"
+      ],
+      "opportunities": [
+        "Every enterprise agent rollout needs safe execution environments",
+        "Agent platforms and model labs outsourcing sandbox infrastructure",
+        "Security and compliance controls for regulated agent workloads"
+      ],
+      "threats": [
+        "Modal, E2B and hyperscaler sandboxes competing for the same workloads",
+        "Agent platforms building sandboxing in-house",
+        "Price pressure as compute-heavy agent usage scales"
+      ]
+    },
+    "userLikes": [
+      "Fast sandbox startup suited to interactive agent loops",
+      "Simple SDK for spinning up isolated environments per agent",
+      "Keeps untrusted agent actions away from production systems"
+    ],
+    "userComplaints": [
+      "Pricing can climb quickly with long-running agent workloads",
+      "Enterprise governance features still maturing",
+      "Few independent reviews for a young platform"
+    ],
+    "customerProfile": {
+      "segments": [
+        "AI labs and agent platform builders",
+        "Enterprises deploying autonomous agents"
+      ],
+      "typicalBuyer": "Head of AI platform or engineering lead running agents",
+      "topUseCases": [
+        "Isolated code execution for coding and ops agents",
+        "Browser and desktop sandboxes for computer-use agents",
+        "Safe testing of agent actions before production"
+      ]
+    },
+    "futureAreas": [
+      "Enterprise governance and audit for agent sandboxes",
+      "GPU and long-running agent workloads",
+      "Deeper integrations with agent frameworks",
+      "Regional and private-cloud deployment options"
+    ],
+    "competitiveEdge": "Purpose-built agent sandbox cloud that lets autonomous agents act on real software without touching core systems"
   },
 };
