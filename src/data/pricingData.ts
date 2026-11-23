@@ -1881,21 +1881,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Premium justified mainly by watsonx AI and mainframe automation — expensive for general RPA vs UiPath or Microsoft.",
   },
 
-  "rpa/workfusion": {
-    pricingModel: "enterprise-license",
-    transparency: "contact-sales",
-    typicalACV: "$100K–$500K",
-    marketSegment: ["enterprise", "fortune500"],
-    deploymentModel: ["saas", "on-prem"],
-    freeTrialOrTier: false,
-    tcoBadge: "high",
-    keyPricingDrivers: [
-      "Domain-specific AI model licensing for AML/KYC adds premium over base automation",
-      "Human-in-the-loop review volumes affect per-task pricing",
-      "UiPath acquisition may change pricing model — verify current terms",
-    ],
-    bottomLine: "Premium pricing for pre-trained financial compliance AI — justified only for high-volume AML/KYC document workflows.",
-  },
 
   "rpa/opentext": {
     pricingModel: "enterprise-license",
@@ -1999,21 +1984,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Best value for IT batch scheduling and legacy automation — 60-70% below enterprise RPA for comparable simple work.",
   },
 
-  "rpa/kryon": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$50K–$300K",
-    marketSegment: ["enterprise"],
-    deploymentModel: ["saas", "on-prem"],
-    freeTrialOrTier: false,
-    tcoBadge: "high",
-    keyPricingDrivers: [
-      "Process Discovery recording requires endpoint agent licensing per device",
-      "NICE CXone subscription prerequisite for attended contact centre use cases",
-      "Premium tier required for full analytics and process optimisation features",
-    ],
-    bottomLine: "Premium justified for NICE CXone customers automating contact centre work — poor value as standalone RPA.",
-  },
 
   "rpa/workato": {
     pricingModel: "consumption",
@@ -2842,22 +2812,6 @@ export const pricingData: Record<string, PricingInfo> = {
     ],
     bottomLine: "Targets large financial services deals where accuracy and compliance justify premium — ROI in risk and headcount.",
   },
-  "rpa/rossum": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    startingPrice: "From $2,000/month",
-    typicalACV: "$25K–$200K",
-    marketSegment: ["mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "medium",
-    keyPricingDrivers: [
-      "Document volume (invoices and transactional documents processed per month)",
-      "Number of document queues and workflow configurations",
-      "ERP integration complexity for AP and procurement system connections",
-    ],
-    bottomLine: "Competitive consumption pricing for AP automation — strong ROI above 1,000 invoices per month vs manual processing.",
-  },
   "rpa/signavio": {
     pricingModel: "enterprise-license",
     transparency: "contact-sales",
@@ -2888,7 +2842,7 @@ export const pricingData: Record<string, PricingInfo> = {
     ],
     bottomLine: "30-50% cheaper than UiPath or Automation Anywhere for comparable bots and IDP — strongest value for APAC enterprises.",
   },
-  "rpa/processmaker": {
+  "rpa/decisions": {
     pricingModel: "platform-license",
     transparency: "limited-public",
     startingPrice: "Open-source Community edition free; Enterprise from $1,495/month",

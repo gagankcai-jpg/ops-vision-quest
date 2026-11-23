@@ -1787,58 +1787,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Specialized agent templates and pre-built orchestration patterns for common IT operations workflows"
     ]
   },
-  "rpa/electroneek": {
-    "competitiveEdge": "MSP-native RPA platform with built-in multi-tenancy and partner enablement to let resellers scale automation services.",
-    "swot": {
-      "strengths": [
-        "Go-to-market model incentivizes partner ecosystem growth and customer retention",
-        "Multi-tenant architecture supports rapid customer onboarding at scale",
-        "Targets recurring revenue opportunity for MSPs seeking new service lines"
-      ],
-      "weaknesses": [
-        "Limited direct enterprise mindshare vs. UiPath, Blue Prism",
-        "Dependent on MSP partner quality and automation expertise",
-        "Smaller knowledge base and community compared to major RPA vendors"
-      ],
-      "opportunities": [
-        "SMB automation acceleration as business process efficiency becomes critical",
-        "Vertical process packs for common SMB workflows (accounting, HR)",
-        "AI-assisted bot development to reduce MSP skill requirements"
-      ],
-      "threats": [
-        "UiPath, Automation Anywhere entering MSP channel with aggressive pricing",
-        "AI-native workflow platforms (LLM-driven) bypassing traditional RPA",
-        "Larger SIs/consulting firms building proprietary RPA solutions"
-      ]
-    },
-    "userLikes": [
-      "Transparent MSP pricing model lets partners margin transparently",
-      "Pre-built process templates accelerate time-to-value for common workflows",
-      "Co-marketing and training support reduce partner ramp time"
-    ],
-    "userComplaints": [
-      "Platform documentation assumes MSP technical expertise; steep learning curve",
-      "Limited integration with modern cloud apps without custom connectors",
-      "Governance and audit trails lag enterprise-grade RPA incumbents"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market MSPs (50–300 technical staff)",
-        "Boutique system integrators in vertical markets (construction, manufacturing)"
-      ],
-      "typicalBuyer": "VP of Services or Managed Services Director",
-      "topUseCases": [
-        "Customer data migration and legacy system decommissioning",
-        "Recurring process automation for SMB customer bases",
-        "Invoice processing and AP/AR automation for financial services SMBs"
-      ]
-    },
-    "futureAreas": [
-      "Embedded AI copilot for MSP technicians to debug automation failures",
-      "White-label portal and SLAs to make RPA a true MSP service line",
-      "Industry-specific bot libraries (e.g., healthcare claims, construction scheduling)"
-    ]
-  },
   "rpa/flowforma": {
     "competitiveEdge": "Microsoft-native no-code BPM platform eliminates custom code and IT dependency for enterprise process automation.",
     "swot": {
@@ -2208,7 +2156,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with procurement robots (RPA) for end-to-end order-to-payment"
     ]
   },
-  "rpa/palette-software": {
+  "rpa/rillion": {
     "competitiveEdge": "Purpose-built for ERP-integrated AP automation with specialized invoice processing rather than broad RPA.",
     "swot": {
       "strengths": [
@@ -2363,165 +2311,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Fine-tuning and model management capabilities to customize LLMs per use case"
     ]
   },
-  "rpa/flowise": {
-    "competitiveEdge": "Open-source visual LangChain builder democratizing AI workflow automation without coding, appealing to non-technical users and rapid prototyping.",
-    "swot": {
-      "strengths": [
-        "Drag-and-drop interface abstracts LangChain complexity; non-technical users can build workflows",
-        "Open-source and self-hostable; no licensing costs or vendor dependencies",
-        "Community-driven development with active GitHub engagement and rapid feature releases"
-      ],
-      "weaknesses": [
-        "Primarily visual UI builder; lacks flexibility for complex, highly customized workflows",
-        "Smaller ecosystem and integration library vs. proprietary LLM platforms and competitors",
-        "Limited enterprise support and production-grade reliability guarantees"
-      ],
-      "opportunities": [
-        "Expand connector and API integrations for enterprise workflows and data sources",
-        "Build managed cloud offering with enterprise SLAs and support",
-        "Add advanced features (logging, monitoring, fine-tuning) for production deployments"
-      ],
-      "threats": [
-        "Larger LLM platforms (OpenAI, Anthropic, Hugging Face) building application layers directly",
-        "Funded competitors (Stack AI, Dify) with commercial backing and enterprise features",
-        "Microsoft Copilot Studio and other enterprise LLM builders bundled into platforms"
-      ]
-    },
-    "userLikes": [
-      "Intuitive drag-and-drop interface makes LLM workflows accessible to non-developers",
-      "Open-source and free; no cost barrier to experimentation and prototyping",
-      "Active community and GitHub engagement; rapid feature iteration"
-    ],
-    "userComplaints": [
-      "Limited extensibility for complex or highly custom workflows requiring code",
-      "Lacks enterprise features (audit, monitoring, fine-grained permissions) for production",
-      "Documentation could be more comprehensive; community support is inconsistent"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Non-technical operators and business teams building LLM workflows without coding",
-        "Startups and SMBs prototyping AI applications with minimal engineering resources",
-        "Organizations experimenting with GenAI before committing to enterprise platforms"
-      ],
-      "typicalBuyer": "Product Manager or Operations Lead at startup or non-technical department",
-      "topUseCases": [
-        "Chatbots and Q&A bots using LLMs and document retrieval",
-        "Content generation and summarization workflows",
-        "Rapid prototyping and experimentation with LLM chains and prompts"
-      ]
-    },
-    "futureAreas": [
-      "Managed cloud hosting with enterprise support and reliability guarantees",
-      "Advanced integrations with enterprise data platforms and knowledge bases",
-      "Production-grade features (monitoring, fine-tuning, cost optimization)"
-    ]
-  },
-  "rpa/rivet": {
-    "competitiveEdge": "Only open-source visual AI workflow builder purpose-built for LLM orchestration without vendor lock-in.",
-    "swot": {
-      "strengths": [
-        "Zero licensing cost attracts cost-conscious enterprises experimenting with GenAI automation",
-        "Developer-friendly open-source model enables community contribution and rapid innovation",
-        "Native LLM-first design captures growing demand for AI workflow composition"
-      ],
-      "weaknesses": [
-        "Limited enterprise support infrastructure typical of early open-source projects without commercial backing",
-        "Narrow positioning to LLM flows excludes traditional RPA and legacy system automation demand",
-        "Community-driven roadmap lacks predictable enterprise SLA commitments competitors provide"
-      ],
-      "opportunities": [
-        "Rapid adoption in startups and dev teams building AI applications before analysts/enterprise visibility",
-        "GitHub stardom increases awareness among engineering buyers skeptical of proprietary automation vendors",
-        "Hybrid model potential (freemium cloud + commercial support) proven by n8n and Activepieces"
-      ],
-      "threats": [
-        "Well-funded rivals (Make, Zapier) adding LLM capabilities with brand trust and sales orgs",
-        "Acquired competitors (Acquire.io + Rivet workflows) could consolidate LLM automation features into established platforms",
-        "Enterprise customers demand compliance/audit that open-source communities struggle to sustain"
-      ]
-    },
-    "userLikes": [
-      "No vendor lock-in — workflows portable across self-hosted and cloud deployments",
-      "Intuitive visual builder lowers barrier for non-engineers to compose LLM chains",
-      "Active open-source community and transparent development roadmap"
-    ],
-    "userComplaints": [
-      "Minimal commercial support and documentation outside developer-focused communities",
-      "Community features lag behind proprietary alternatives in AI-specific capabilities like prompt caching",
-      "Adoption hampered by lack of sales/marketing reach in enterprise accounts"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Engineering/developer teams building AI applications",
-        "Cost-sensitive startups automating workflows with generative AI",
-        "Open-source advocates skeptical of proprietary RPA vendors"
-      ],
-      "typicalBuyer": "Engineering lead or chief architect evaluating LLM orchestration infrastructure",
-      "topUseCases": [
-        "Composing multi-LLM chains for content generation and research automation",
-        "Building internal tools that reason across documents and data sources",
-        "Rapid prototyping of conversational workflows without licensing overhead"
-      ]
-    },
-    "futureAreas": [
-      "Enterprise-grade monitoring, compliance, and audit trails to compete in regulated industries",
-      "Vertical-specific workflow templates (finance, healthcare) to accelerate time-to-value",
-      "Managed cloud offering balancing open-source ethos with commercial sustainability model"
-    ]
-  },
-  "rpa/procesio": {
-    "competitiveEdge": "Only no-code RPA builder with integrated bot capabilities — removes need to choose between workflow platform and RPA tool.",
-    "swot": {
-      "strengths": [
-        "Integrated RPA eliminates toolchain fragmentation common in no-code + RPA combinations",
-        "Romanian engineering base provides cost-efficient development and support scaling",
-        "Early mover in no-code RPA reduces enterprise's learning curve between platforms"
-      ],
-      "weaknesses": [
-        "Limited brand recognition outside EMEA compared to Zapier, Make, and regional competitors",
-        "Smaller customer base means less public case study evidence and ecosystem integration maturity",
-        "Early-stage revenue model lacks predictable ARR traction to fund enterprise features (audit, SSO)"
-      ],
-      "opportunities": [
-        "EMEA digital transformation tailwinds as enterprises adopt no-code + RPA without large capex",
-        "Vertical specialization (finance, HR) to differentiate from broad-market Zapier/Make",
-        "Partnership with consulting firms and MSPs to resell bundled implementation services"
-      ],
-      "threats": [
-        "Zapier, Make, n8n adding lightweight RPA via browser automation eroding Procesio's differentiation",
-        "Global competitors with more funding and sales teams penetrating EMEA at lower price points",
-        "Acquired platform (Kofax/Tungsten, Microsoft/Power Automate) bundling RPA into existing stacks"
-      ]
-    },
-    "userLikes": [
-      "Single platform for both integration workflows and RPA bots reduces administrative overhead",
-      "User-friendly visual builder accessible to business users with minimal IT support",
-      "Transparent pricing and no-hidden-fee model popular with mid-market buyers"
-    ],
-    "userComplaints": [
-      "Smaller vendor ecosystem and integrations compared to Zapier or Make",
-      "Support responsiveness and documentation gaps during scaling bottlenecks",
-      "Limited advanced features (conditional logic, error handling) for complex automation scenarios"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market manufacturing and finance firms automating back-office processes",
-        "EMEA-based companies seeking regional support and GDPR-compliant hosting",
-        "No-code-first organizations wanting RPA without separate platform procurement"
-      ],
-      "typicalBuyer": "Operations or process improvement manager seeking unified automation platform",
-      "topUseCases": [
-        "Invoice processing and accounts payable automation combining AI extraction with rule-based RPA",
-        "Employee onboarding workflows linking HR systems (SAP, Oracle) with email and document platforms",
-        "Order-to-cash processes integrating CRM, ERP, and payment systems without custom code"
-      ]
-    },
-    "futureAreas": [
-      "AI-powered process discovery to help customers identify high-ROI automation candidates",
-      "Vertical solutions (finance automation, HR workflows) competing directly with legacy EOFY consolidation targets",
-      "Managed implementation services bundling platform access with consulting to accelerate customer adoption"
-    ]
-  },
   "rpa/bardeen": {
     "competitiveEdge": "AI-trained browser agent automates high-volume repetitive web tasks (lead research, competitor monitoring, data scraping) without RPA's heavyweight setup.",
     "swot": {
@@ -2572,58 +2361,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Multi-user workflows with approval and handoff support for team-based automation.",
       "Tighter CRM and sales platform integrations (Salesforce, HubSpot) for structured output and orchestration.",
       "Expansion into customer support and operations use cases (ticket routing, knowledge base search)."
-    ]
-  },
-  "rpa/axiom-ai": {
-    "competitiveEdge": "No-code visual builder for web scraping and browser bots reduces RPA learning curve and lowers deployment cost for teams without developer resources.",
-    "swot": {
-      "strengths": [
-        "Visual no-code interface lowers barrier to entry vs. script-based automation (Selenium, Playwright).",
-        "Strong YoY growth (+a significant share) with competitive positioning in emerging web automation market.",
-        "Cloud-hosted deployment avoids local infrastructure; pay-per-run pricing appeals to variable-workload users."
-      ],
-      "weaknesses": [
-        "Early-stage revenue (no public figures) limits enterprise support maturity and product breadth.",
-        "Positioned narrowly as 'web scraping bot'; lacks process orchestration, document handling, or backend system integration.",
-        "No native unattended RPA or long-running bot deployment; primarily ad-hoc data extraction workflows."
-      ],
-      "opportunities": [
-        "Expand into process orchestration: chain multiple bots into end-to-end workflows with approval steps.",
-        "Integrate lightweight document processing and form-filling for procure-to-pay and order-to-cash.",
-        "Enterprise offerings with team management, audit logging, and data governance compliance."
-      ],
-      "threats": [
-        "Commodity web scraping libraries and headless browser tools (Puppeteer, Playwright) reduce differentiation.",
-        "Larger platforms (Zapier, Make, n8n) add web scraping and API data extraction as features.",
-        "Browse AI and Skyvern position similarly as 'AI-powered browser bots'; direct competition."
-      ]
-    },
-    "userLikes": [
-      "Point-and-click bot builder requires no coding; SQL and JavaScript knowledge not needed for basic workflows.",
-      "Fast iteration and testing; record actions in real time, see results immediately without deployment cycles.",
-      "Cloud-native operation avoids VPN, proxy, and network setup friction; works on any computer with web browser."
-    ],
-    "userComplaints": [
-      "Limited conditional logic and error handling; workflows break on subtle page changes or unhandled JavaScript.",
-      "Output format flexibility lacking; difficult to export structured data in custom formats (JSON, CSV).",
-      "Performance slower than native scripts; high-volume scraping (millions of pages) uneconomical vs. coding approaches."
-    ],
-    "customerProfile": {
-      "segments": [
-        "E-commerce and retail teams scraping competitor pricing, inventory, and product data at scale.",
-        "Marketing agencies performing automated data collection for lead lists, industry research, and content feeds."
-      ],
-      "typicalBuyer": "Operations manager or analyst without coding background responsible for data collection and reporting.",
-      "topUseCases": [
-        "Real estate: automated MLS listing scrape, price trend analysis, and competitor property monitoring.",
-        "E-commerce: daily competitor product listing and pricing scrapes into inventory management systems.",
-        "Lead generation: multi-page web scraping for directory sites, review platforms, and industry directories."
-      ]
-    },
-    "futureAreas": [
-      "Workflow orchestration layer to chain bots into multi-step processes with human approval checkpoints.",
-      "AI-powered bot generation from natural language description of the desired extraction task.",
-      "Integration with data warehouses and BI platforms for structured output and analytics."
     ]
   },
   "rpa/browse-ai": {
@@ -2782,58 +2519,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Low-touch managed service offering workflows for customers who lack in-house expertise"
     ]
   },
-  "rpa/zudello": {
-    "competitiveEdge": "Localized AP/procurement automation purpose-built for Australasian mid-market and SMB finance teams.",
-    "swot": {
-      "strengths": [
-        "Regional focus enables deep understanding of AU/NZ finance workflows and compliance",
-        "Purpose-built for AP automation avoids bloated enterprise platform overhead",
-        "Early-stage agility to iterate rapidly on customer feedback"
-      ],
-      "weaknesses": [
-        "Limited scale and brand recognition outside Australasia restricts growth opportunities",
-        "Early-stage revenue may limit investment in AI/LLM feature development vs. incumbents",
-        "Smaller team reduces breadth of integration partnerships and support depth"
-      ],
-      "opportunities": [
-        "Expand to APAC (SE Asia, India) with similar finance automation use cases",
-        "Add supplier self-service and real-time payment status visibility",
-        "Vertical expansion into legal spend management and procurement"
-      ],
-      "threats": [
-        "Global automation platforms (Zapier, Make) expanding into AP space with a significant share lower friction",
-        "Stampli and Precoro scaling internationally may commoditize SMB AP market",
-        "Economic downturn could reduce finance automation budgets in AU/NZ"
-      ]
-    },
-    "userLikes": [
-      "Easy setup and quick ROI on invoice processing without heavy IT involvement",
-      "Responsive, local support team that understands AU/NZ business rules and terminology",
-      "Affordable per-transaction or per-invoice pricing vs. enterprise seat licenses"
-    ],
-    "userComplaints": [
-      "Limited integration ecosystem compared to larger platforms — fewer ERP/accounting sync options",
-      "Slower feature velocity than well-funded competitors; missing native AI/multi-language OCR",
-      "Mobile app and reporting dashboard need maturity for full visibility into approval workflows"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market finance (100–500 employees)",
-        "Professional services & SMB manufacturing"
-      ],
-      "typicalBuyer": "Finance manager or controller responsible for AP efficiency and spend visibility",
-      "topUseCases": [
-        "Automated invoice receipt, matching, and 3-way reconciliation",
-        "Approval routing and audit trail for compliance (audit requirements)",
-        "Supplier payment scheduling and cash flow forecasting"
-      ]
-    },
-    "futureAreas": [
-      "Real-time AP analytics dashboard with predictive cash flow modeling",
-      "Embedded supplier portal for self-service invoice submission and payment tracking",
-      "AI-powered dynamic discounting and early payment optimization"
-    ]
-  },
   "rpa/stampli": {
     "competitiveEdge": "Collaborative AP automation with native AI and approval workflow visibility designed for controller and CFO workflows.",
     "swot": {
@@ -2938,58 +2623,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Native IDP with GenAI for extracting structured data from scanned or unstructured documents",
       "Supplier portal for self-service agreement management and renewal tracking",
       "Analytics dashboard tracking cycle time and bottlenecks in document workflows"
-    ]
-  },
-  "rpa/lightyear": {
-    "competitiveEdge": "Purpose-built purchase order and supplier invoice automation for mid-market finance operations without full procurement system replacement.",
-    "swot": {
-      "strengths": [
-        "Focused on high-impact use case (PO-to-invoice) enables deep expertise in 3-way matching",
-        "Early-stage agility and rapid iteration on UK/EU mid-market feedback",
-        "Exceptional growth (+a significant share YoY) indicates strong product-market fit in target segment"
-      ],
-      "weaknesses": [
-        "Early-stage revenue severely limits R&D investment in AI and integration breadth",
-        "Single use case (PO automation) restricts total addressable market and upsell expansion",
-        "Geographic focus on UK may limit global scaling — requires localization for US, APAC"
-      ],
-      "opportunities": [
-        "Expand into full procure-to-pay with requisition, vendor management, and payment workflows",
-        "Add supplier self-service portal for real-time order status and payment visibility",
-        "Integrate with cloud ERPs (Netsuite, Intacct) and accounting platforms to expand TAM"
-      ],
-      "threats": [
-        "Precoro and Ivalua scaling internationally may saturate SMB/mid-market procurement segment",
-        "Coupa and Ivalua expanding downmarket with lower-cost offerings to mid-market",
-        "Zapier/Make templates for PO workflows may reduce willingness to adopt specialist tools"
-      ]
-    },
-    "userLikes": [
-      "Simple, purpose-built interface — no bloated features irrelevant to PO automation",
-      "Rapid implementation (weeks, not months) for PO matching and approval workflows",
-      "High accuracy on supplier invoice data extraction and 3-way matching"
-    ],
-    "userComplaints": [
-      "Limited integration ecosystem — fewer connectors to ERPs and accounting systems than incumbents",
-      "No supplier self-service or payment portal — requires manual status updates to suppliers",
-      "Reporting and analytics limited; lacks working capital optimization and spend visibility"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market manufacturing & distribution (100–500 employees)",
-        "Professional services & consulting"
-      ],
-      "typicalBuyer": "Finance manager or procurement officer responsible for invoice accuracy and payment timeliness",
-      "topUseCases": [
-        "Automated PO creation, distribution, and amendment management",
-        "Supplier invoice matching against PO and receipt data with exception handling",
-        "Payment approval and posting to accounting system with audit trail"
-      ]
-    },
-    "futureAreas": [
-      "Expand to full procure-to-pay with requisition, supplier management, and contract workflows",
-      "Supplier portal for real-time order status, invoice submission, and payment tracking",
-      "Working capital analytics and optimization, including early payment discounts"
     ]
   },
   "rpa/precoro": {
@@ -3146,109 +2779,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vertical industry solutions (banking, insurance) with pre-built modernization templates",
       "LLM-powered process discovery and optimization",
       "Broader ecosystem partnerships with system integrators and cloud platforms"
-    ]
-  },
-  "rpa/jiffy-ai": {
-    "competitiveEdge": "Multimodal AI (NLP + vision) purpose-built for document-heavy, decision-intensive enterprise workflows — differentiates from single-modality automation.",
-    "swot": {
-      "strengths": [
-        "Multimodal AI approach (NLP + computer vision) unique in hyperautomation space",
-        "Strong growth (+a significant share YoY) in document-automation niche",
-        "Positioned for high-value processes (procurement, finance, claims)"
-      ],
-      "weaknesses": [
-        "Requires significant upfront model training for custom business logic",
-        "Limited presence in mid-market SMB segment vs. enterprise",
-        "Competing directly against well-funded hyperautomation leaders"
-      ],
-      "opportunities": [
-        "Expanding into intelligent document processing (IDP) vertical consolidation",
-        "Broader API integrations with ERP/CRM systems",
-        "Industry-specific workflows (insurance claims, procurement approval)"
-      ],
-      "threats": [
-        "Large hyperautomation vendors (Blue Prism, Automation Anywhere) acquiring vision/NLP AI startups",
-        "Cloud giants (AWS Textract, Azure Document Intelligence) commoditizing document extraction"
-      ]
-    },
-    "userLikes": [
-      "Handles complex document extraction and classification without manual rules",
-      "AI-driven decision logic reduces downstream exceptions and rework",
-      "Accurate end-to-end process automation across unstructured data"
-    ],
-    "userComplaints": [
-      "Steep learning curve for configuring multimodal models and training datasets",
-      "Implementation timelines longer than low-code competitors due to customization required",
-      "Pricing less transparent; ROI harder to demonstrate pre-implementation"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large enterprises in finance, insurance, and procurement",
-        "Organizations with high-volume document processing workflows"
-      ],
-      "typicalBuyer": "Process automation manager or operations director",
-      "topUseCases": [
-        "Invoice and expense document processing and classification",
-        "Insurance claims intake and decision routing",
-        "Procurement document extraction and policy compliance automation"
-      ]
-    },
-    "futureAreas": [
-      "Vertical-specific models for regulated industries (finance, healthcare)",
-      "Deeper ERP integration for end-to-end financial process automation",
-      "LLM-based intelligent decision recommendation within document workflows"
-    ]
-  },
-  "rpa/levity-ai": {
-    "competitiveEdge": "No-code AI automation enabling ops teams to train custom models without engineering — democratizes intelligent automation.",
-    "swot": {
-      "strengths": [
-        "No-code model training removes dependency on data scientists/engineers",
-        "Exceptional growth (+a significant share YoY) indicates strong product-market fit",
-        "Lower barrier to entry vs. traditional RPA and AI automation platforms"
-      ],
-      "weaknesses": [
-        "Early-stage revenue base and funding may limit enterprise sales reach",
-        "Narrow focus on docs/emails/data limits positioning in broader hyperautomation",
-        "Limited track record in regulated industries demanding audit trails and control"
-      ],
-      "opportunities": [
-        "Horizontal expansion into CRM workflows, ticketing, and customer data automation",
-        "Building vertical templates to accelerate deployment for common workflows",
-        "Partnering with systems integrators for mid-market distribution"
-      ],
-      "threats": [
-        "Low-code automation platforms (Zapier, Make) adding AI models and capturing SMB market",
-        "Larger AI/ML platforms (Hugging Face, OpenAI) making model training more accessible",
-        "RPA vendors (UiPath, AA) integrating no-code AI training capabilities"
-      ]
-    },
-    "userLikes": [
-      "Intuitive no-code interface enables business users to build workflows independently",
-      "Fast iteration cycles — model retraining without code deployment",
-      "Lower cost of ownership vs. traditional automation and AI platforms"
-    ],
-    "userComplaints": [
-      "Limited API/integration ecosystem vs. enterprise workflow platforms",
-      "Scaling workflows from pilot to production requires engineering support",
-      "Model accuracy and edge-case handling less transparent than rule-based systems"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market and enterprise ops/business teams with limited IT resources",
-        "Organizations seeking accessible AI without AI/ML expertise"
-      ],
-      "typicalBuyer": "Operations manager, business analyst, or process owner",
-      "topUseCases": [
-        "Email triage and routing based on content and intent",
-        "Document classification and metadata extraction",
-        "Customer data validation and enrichment workflows"
-      ]
-    },
-    "futureAreas": [
-      "Expanding vertical-specific templates (HR, finance, customer support) with pre-trained models",
-      "Deeper ERP/CRM integrations for end-to-end process automation",
-      "LLM-native workflows for reasoning and multi-step decision automation"
     ]
   },
   "rpa/docyt": {
@@ -18111,62 +17641,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/workfusion": {
-    competitiveEdge: "WorkFusion pioneered AI-native document processing for financial crime compliance — its pre-trained AML and KYC models deliver out-of-the-box accuracy that general-purpose RPA vendors require months of training to match.",
-    swot: {
-      strengths: [
-        "Pre-trained AI models for AML, KYC, and financial compliance document processing",
-        "Domain-specific focus makes it best-in-class for financial crime operations",
-        "Intelligent Document Processing combines OCR, NLP, and ML in one platform",
-        "Reduced time-to-value vs training general-purpose models for financial use cases",
-        "Now integrated with UiPath's platform following 2026 acquisition",
-      ],
-      weaknesses: [
-        "Narrow focus means limited applicability outside financial services",
-        "UiPath acquisition creates product roadmap uncertainty for existing customers",
-        "Small developer community compared to horizontal RPA platforms",
-        "Less flexible for general-purpose enterprise automation beyond its core use cases",
-      ],
-      opportunities: [
-        "Growing global AML/KYC regulation creating mandatory automation demand",
-        "UiPath synergies expanding AI models to UiPath's large installed base",
-        "Trade finance and insurance document automation adjacencies",
-        "Generative AI enhancement of existing compliance document extraction models",
-      ],
-      threats: [
-        "UiPath integration changing go-to-market strategy post-acquisition",
-        "Hyperscaler AI services (AWS Textract, Azure Form Recognizer) commoditising document AI",
-        "Large fintechs building bespoke AML models in-house with LLMs",
-        "Regulation changes affecting AML/KYC document requirements and automation value",
-      ],
-    },
-    userLikes: [
-      "AML and KYC models work accurately out-of-the-box without weeks of training",
-      "Significant reduction in human review time for financial crime screening",
-      "Audit trail for regulatory compliance is thorough and examiner-friendly",
-      "Domain expertise in workflows that general RPA vendors don't understand deeply",
-    ],
-    userComplaints: [
-      "Very narrow applicability — not useful outside financial compliance use cases",
-      "UiPath acquisition has slowed direct WorkFusion roadmap communication",
-      "Pricing premium for the narrow domain — expensive for what it covers",
-    ],
-    customerProfile: {
-      segments: ["Global Banks & Financial Services", "Insurance Carriers", "Fintech Companies"],
-      typicalBuyer: "Head of Financial Crime / Chief Compliance Officer / VP Operations Technology",
-      topUseCases: [
-        "AML transaction monitoring alert review and disposition automation",
-        "KYC document extraction and customer due diligence workflows",
-        "Trade finance document processing (Letters of Credit, Bills of Lading)",
-      ],
-    },
-    futureAreas: [
-      "UiPath AI integration: WorkFusion models accessible within UiPath automation workflows",
-      "GenAI-enhanced document understanding for complex regulatory filings",
-      "Real-time sanctions screening automation with explainable AI decisions",
-      "Expanded coverage to insurance claims and trade finance compliance",
-    ],
-  },
 
   "rpa/opentext": {
     competitiveEdge: "OpenText's intelligent automation combines enterprise content management with RPA in a single governed platform — the only vendor where the document that triggers the bot and the output it generates are managed in the same ECM system.",
@@ -18516,62 +17990,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/kryon": {
-    competitiveEdge: "Kryon's process discovery engine automatically generates automation candidates by observing how employees actually perform tasks — eliminating the manual process mapping that makes traditional RPA deployments slow and expensive.",
-    swot: {
-      strengths: [
-        "Process Discovery automatically identifies and ranks automation candidates from user recordings",
-        "NICE acquisition provides access to large contact centre customer base",
-        "Full-cycle automation from discovery to deployment in one platform",
-        "Strong attended and unattended automation for contact centre workflows",
-        "Reduces time to first automation from weeks to days via automated process recording",
-      ],
-      weaknesses: [
-        "Integration into NICE creating product portfolio complexity and re-branding",
-        "Smaller standalone identity as NICE RPA absorbs Kryon capabilities",
-        "Less competitive outside NICE ecosystem contact centre context",
-        "Feature development slowed post-acquisition",
-      ],
-      opportunities: [
-        "Process mining convergence — same recording technology feeding mining and automation",
-        "NICE CXone customers adopting Kryon discovery for contact centre automation",
-        "Enterprise-wide process discovery for organisations mapping automation opportunities",
-        "AI-enhanced discovery identifying cognitive automation candidates beyond simple tasks",
-      ],
-      threats: [
-        "UiPath Task Capture and Automation Anywhere Process Discovery competing on same capability",
-        "Celonis and minit competing on process mining as an entry point for automation",
-        "NICE product rationalisation may reduce Kryon's standalone market presence",
-        "Low-code platforms with built-in task recording reducing need for dedicated discovery",
-      ],
-    },
-    userLikes: [
-      "Process recording genuinely reduces time-to-automation — no months of process mapping",
-      "Automated process analysis ranks candidates by ROI and complexity",
-      "Good interface for business users to understand what can be automated",
-      "Attended bot experience for contact centre agents works smoothly",
-    ],
-    userComplaints: [
-      "NICE acquisition roadmap is unclear — product direction uncertain",
-      "Process discovery accuracy requires review; not all captured processes are good automation candidates",
-      "Limited generality outside NICE/contact centre focus area",
-    ],
-    customerProfile: {
-      segments: ["Contact Centres", "Shared Service Centres", "NICE CXone Customers"],
-      typicalBuyer: "Head of RPA CoE / Head of Contact Centre Technology / VP Operations",
-      topUseCases: [
-        "Automated process discovery and opportunity identification for automation programs",
-        "Attended bot assistance for contact centre agents",
-        "End-to-end automation from process recording to bot deployment",
-      ],
-    },
-    futureAreas: [
-      "GenAI-enhanced process analysis suggesting automation and process redesign simultaneously",
-      "NICE Enlighten AI integration for intelligent bot decision-making during interactions",
-      "Expanded back-office discovery beyond contact centre workflows",
-      "Real-time process compliance monitoring via continuous recording analysis",
-    ],
-  },
 
   "rpa/workato": {
     competitiveEdge: "Workato's enterprise iPaaS + workflow automation platform is the only tool where a business operations team can build complex cross-application automations without IT involvement — and where those automations are enterprise-grade secure by default.",
@@ -21865,62 +21283,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Instabase Marketplace for pre-built financial services document models and workflows",
     ],
   },
-  "rpa/rossum": {
-    competitiveEdge: "Rossum delivers AI-native transactional document processing with an intent-detection architecture that understands the business meaning of documents — not just their structure — enabling it to process invoices, purchase orders, and contracts with 98%+ accuracy across arbitrary layouts without pre-defined templates.",
-    swot: {
-      strengths: [
-        "Intent-detection AI processes arbitrary document layouts without template configuration",
-        "Aurora AI cognitive document platform handles end-to-end transactional document workflows",
-        "Strong accounts payable focus with pre-built AP-specific extraction models out of the box",
-        "European data residency options addressing GDPR compliance requirements for EU customers",
-        "Rossum Queues orchestrates human exceptions and automated processing in one workflow",
-      ],
-      weaknesses: [
-        "AP and transactional document focus limits applicability outside finance department use cases",
-        "Brand recognition primarily in European market — less established in North America",
-        "Enterprise customization for complex approval workflows requires professional services",
-        "High-volume deployment maturity trails ABBYY and Hyperscience for the largest enterprises",
-      ],
-      opportunities: [
-        "Accounts payable automation market growth as finance transformation accelerates",
-        "North American expansion replicating European AP automation success",
-        "Aurora AI expansion beyond AP into order management and contract processing",
-        "GenAI integration enhancing contextual understanding for complex financial documents",
-      ],
-      threats: [
-        "ABBYY, Nanonets, and Hyperscience competing in transactional document processing",
-        "SAP and Oracle building native AP document automation into ERP platforms",
-        "AWS Textract and Google Document AI with AP-specific models reducing standalone IDP need",
-        "Platform consolidation toward RPA-native document AI reducing standalone IDP market",
-      ],
-    },
-    userLikes: [
-      "Template-free AP processing is genuine — new vendor invoice layouts process immediately without configuration",
-      "European data residency is a competitive differentiator for GDPR-compliant AP automation",
-      "Aurora AI accuracy on AP documents consistently exceeds competitive platforms in head-to-head tests",
-      "Rossum Queues exception management is intuitive for AP clerks to operate without training",
-    ],
-    userComplaints: [
-      "Use case narrow — excellent for AP but requires additional tools for broader automation programs",
-      "Integration with non-ERP systems requires custom API development",
-      "North American enterprise sales motion is less mature than European customer success",
-    ],
-    customerProfile: {
-      segments: ["Mid-Market", "Enterprise"],
-      typicalBuyer: "AP Manager or CFO at a mid-to-large organization processing high volumes of vendor invoices and purchase orders",
-      topUseCases: [
-        "Accounts payable invoice automation with AI extraction and ERP integration for touchless processing",
-        "Purchase order matching and three-way match automation for procurement teams",
-        "Transactional document workflow automation including remittance advice and delivery notes",
-      ],
-    },
-    futureAreas: [
-      "Aurora AI expansion to order management and contract analysis beyond AP",
-      "GenAI-powered financial document understanding for complex remittance and contract terms",
-      "North American market expansion with dedicated sales and channel partner investment",
-      "Rossum for MSPs providing multi-tenant AP automation for accounting firms",
-    ],
-  },
   "rpa/signavio": {
     competitiveEdge: "SAP Signavio is the process intelligence platform that enables organizations to discover, analyze, and transform business processes with enterprise-grade discipline — uniquely combining process mining, collaborative modeling, and change management in a single platform deeply integrated with SAP's ERP ecosystem for end-to-end process transformation.",
     swot: {
@@ -22033,7 +21395,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Expanded data residency and compliance certifications for regulated Western market access",
     ],
   },
-  "rpa/processmaker": {
+  "rpa/decisions": {
     competitiveEdge: "ProcessMaker is the most developer-friendly low-code BPM and workflow automation platform — its open architecture and REST API-first design enable technical teams to embed enterprise-grade workflow automation directly into existing applications and systems without the proprietary lock-in of enterprise BPM platforms.",
     swot: {
       strengths: [
@@ -27379,5 +26741,703 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Expanded BPO partnerships"
     ],
     "competitiveEdge": "Unified task, process and productivity mining sizes where automation and agents pay off"
+  },
+  "rpa/infrrd": {
+    "swot": {
+      "strengths": [
+        "Named a Leader in Gartner IDP Magic Quadrant in both 2025 and 2026",
+        "Everest Group IDP PEAK Matrix 2026 Leader",
+        "Deep mortgage, insurance and finance document models out of the box",
+        "Ally agentic auditor ships with 150 standard mortgage audit rules",
+        "IDPForge self-serve API opens a developer-led adoption channel"
+      ],
+      "weaknesses": [
+        "Small review footprint: about 14 G2 reviews and 1 on Peer Insights",
+        "Heavy concentration in US mortgage exposes it to lending cycles",
+        "Private and undisclosed revenue limits buyer visibility",
+        "Brand awareness trails ABBYY, Hyperscience and UiPath in IDP"
+      ],
+      "opportunities": [
+        "Extend Ally-style audit agents from mortgage into insurance and banking",
+        "Developer self-serve API to land smaller teams and ISVs",
+        "Replace manual post-close QC and offshore review teams",
+        "Partner with loan origination and servicing platforms"
+      ],
+      "threats": [
+        "Frontier LLMs commoditizing basic document extraction",
+        "UiPath, ABBYY and Microsoft bundling IDP into broader suites",
+        "Vertical mortgage AI startups targeting the same audit workflows",
+        "Mortgage volume downturns that shrink lender budgets"
+      ]
+    },
+    "userLikes": [
+      "Handles high document volumes at scale (G2 review theme)",
+      "Strong extraction on complex, semi-structured financial documents",
+      "Pre-built mortgage rules shorten time to first value",
+      "Responsive vendor team during onboarding and tuning"
+    ],
+    "userComplaints": [
+      "Limited public reviews make peer validation harder",
+      "Model tuning for new document types can need vendor help",
+      "UI and reporting less polished than larger IDP suites"
+    ],
+    "customerProfile": {
+      "segments": [
+        "US mortgage lenders and servicers",
+        "Insurers and financial services ops teams"
+      ],
+      "typicalBuyer": "VP of mortgage operations or QC/audit leader seeking faster loan file review",
+      "topUseCases": [
+        "Post-close mortgage loan auditing",
+        "Loan document classification and extraction",
+        "Insurance and finance document intake"
+      ]
+    },
+    "futureAreas": [
+      "Agentic audit workforces beyond mortgage",
+      "Developer self-serve document APIs",
+      "Regulatory and investor guideline automation",
+      "Human-in-the-loop exception handling"
+    ],
+    "competitiveEdge": "Two-time Gartner IDP Leader with mortgage-specific agentic auditing that few horizontal IDP vendors match"
+  },
+  "rpa/samsung-sds-brity-automation": {
+    "swot": {
+      "strengths": [
+        "In Gartner RPA Magic Quadrant 2026, one of 10 vendors and only Korean one",
+        "Seventh consecutive year in Gartner RPA MQ per Samsung SDS",
+        "Backed by Samsung SDS scale, cloud and services organization",
+        "MCP Hub exposes RPA bots as tools for external AI agents",
+        "Hybrid computer use verifies UI elements before executing actions"
+      ],
+      "weaknesses": [
+        "Revenue and customer base concentrated in Korea and Samsung affiliates",
+        "Limited brand recognition among Western enterprise buyers",
+        "Sparse English-language peer reviews and community resources",
+        "Global ranking claims are company-reported, not independently verified"
+      ],
+      "opportunities": [
+        "Expansion into Korean public sector and financial services markets",
+        "Agentic Bot upgrade path for its existing RPA installed base",
+        "Bundling with Samsung SDS cloud and generative AI services",
+        "Asia-Pacific enterprises seeking a non-US automation vendor"
+      ],
+      "threats": [
+        "UiPath, Automation Anywhere and Microsoft dominate global RPA deals",
+        "Microsoft Power Automate bundled into M365 erodes standalone RPA",
+        "Agent-native startups bypassing UI-based RPA entirely",
+        "Shrinking standalone RPA budgets as spend shifts to AI agents"
+      ]
+    },
+    "userLikes": [
+      "Stable bots for high-volume back-office processes",
+      "Local Korean support and services from Samsung SDS",
+      "Pragmatic AI Where Needed approach keeps RPA reliability",
+      "Integration with Samsung SDS generative AI and cloud stack"
+    ],
+    "userComplaints": [
+      "Thin English documentation and global community",
+      "Fewer marketplace connectors than global RPA leaders",
+      "Agentic features are new with limited production references"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large Korean enterprises and Samsung affiliates",
+        "Korean financial services and public sector"
+      ],
+      "typicalBuyer": "CIO or digital transformation lead at a large Korean enterprise",
+      "topUseCases": [
+        "High-volume back-office task automation",
+        "RPA workflows called by AI agents via MCP",
+        "Document and data entry automation"
+      ]
+    },
+    "futureAreas": [
+      "MCP-based agent and bot interoperability",
+      "Hybrid AI computer use with verified RPA steps",
+      "Agentic Bot for office task automation",
+      "Public sector and financial market expansion"
+    ],
+    "competitiveEdge": "Korea's leading RPA platform with Samsung SDS scale, bridging verified RPA execution and AI agents via MCP"
+  },
+  "rpa/evoluteiq": {
+    "swot": {
+      "strengths": [
+        "Named in Gartner RPA Magic Quadrant in 2025 and 2026",
+        "Unified platform spans RPA, orchestration, document AI and AI agents",
+        "$53M minority growth round led by Baird Capital in September 2025",
+        "Agentic Mesh Architecture and AI Workbench for composing agents",
+        "4.7 Gartner Peer Insights rating across 8 reviews"
+      ],
+      "weaknesses": [
+        "Small review base and limited public customer references",
+        "Lower brand awareness than UiPath, Automation Anywhere or Pega",
+        "Broad platform scope can stretch a mid-sized R&D team",
+        "Revenue and customer counts not publicly disclosed"
+      ],
+      "opportunities": [
+        "Fund-backed global expansion beyond its existing Fortune 500 base",
+        "Acquiring complementary technologies, as stated after its raise",
+        "Banking, insurance and healthcare process modernization",
+        "Consolidating point RPA, BPM and IDP tools onto one platform"
+      ],
+      "threats": [
+        "Incumbent RPA leaders rebranding as agentic automation platforms",
+        "Hyperscaler agent frameworks lowering build-your-own costs",
+        "Pega and Appian competing for complex process orchestration",
+        "Agent-native startups with larger venture war chests"
+      ]
+    },
+    "userLikes": [
+      "Single low-code platform covers many automation needs",
+      "Good fit for complex, multi-step business processes",
+      "Responsive implementation and support team",
+      "Strong Business Process Automation ratings on Peer Insights"
+    ],
+    "userComplaints": [
+      "Learning curve for the breadth of platform modules",
+      "Smaller partner ecosystem than larger RPA vendors",
+      "Few public case studies to benchmark against"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Banking, insurance and healthcare enterprises",
+        "Fortune 500 firms consolidating automation tools"
+      ],
+      "typicalBuyer": "Head of intelligent automation or COO seeking end-to-end process automation",
+      "topUseCases": [
+        "End-to-end process orchestration with AI agents",
+        "Document-heavy workflows in banking and insurance",
+        "Replacing fragmented RPA and BPM tooling"
+      ]
+    },
+    "futureAreas": [
+      "Agentic Mesh multi-agent orchestration",
+      "AI Workbench for business-built agents",
+      "Inorganic growth via tuck-in acquisitions",
+      "Expanded Bengaluru R&D and global delivery"
+    ],
+    "competitiveEdge": "Gartner RPA MQ vendor offering one unified platform for RPA, orchestration, document AI and agents"
+  },
+  "rpa/edgeverve": {
+    "swot": {
+      "strengths": [
+        "Wholly owned Infosys subsidiary with global delivery reach",
+        "Leader in Everest Digital Interaction Intelligence PEAK Matrix 2025",
+        "Leader in Everest IDP Products PEAK Matrix 2026",
+        "AI Next unifies Digital Observer, AssistEdge and XtractEdge",
+        "AssistEdge rated 4.5 across 44 Gartner Peer Insights RPA reviews"
+      ],
+      "weaknesses": [
+        "Not included in the 2025 or 2026 Gartner RPA Magic Quadrant",
+        "Often perceived as tied to Infosys services engagements",
+        "No independent accuracy benchmarks published for XtractEdge",
+        "Lower standalone brand awareness than pure-play RPA vendors"
+      ],
+      "opportunities": [
+        "Pull-through from Infosys outsourcing and GBS relationships",
+        "Task mining data to prioritize agentic automation candidates",
+        "Multi-country AI Next rollouts like the 2026 Incora deal",
+        "Global business services firms modernizing with AI agents"
+      ],
+      "threats": [
+        "Celonis, UiPath and Microsoft in task and process mining",
+        "AI agents reducing demand for traditional BPO and RPA",
+        "Hyperscaler document AI compressing IDP pricing",
+        "Competing IT services firms promoting their own platforms"
+      ]
+    },
+    "userLikes": [
+      "Reliable attended and unattended automation via AssistEdge",
+      "Digital Observer reveals desktop-level work patterns",
+      "Strong implementation support through Infosys",
+      "Integrated discovery, automation and document AI stack"
+    ],
+    "userComplaints": [
+      "Product roadmap tied closely to Infosys engagements",
+      "Configuration can require specialist skills",
+      "Fewer community resources than leading RPA platforms"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Global 2000 firms with Infosys relationships",
+        "Shared services and global business services centers"
+      ],
+      "typicalBuyer": "Global business services head or transformation leader at an Infosys client",
+      "topUseCases": [
+        "Desktop task discovery and process intelligence",
+        "Contact center and back-office RPA",
+        "Document extraction for insurance and finance"
+      ]
+    },
+    "futureAreas": [
+      "Agentic process discovery in Digital Observer",
+      "AI agent orchestration across AI Next",
+      "Generative AI document processing in XtractEdge",
+      "Multi-country platform rollouts with Infosys"
+    ],
+    "competitiveEdge": "Task mining, RPA and IDP in one AI Next platform, with Infosys scale for global rollouts"
+  },
+  "rpa/duvo": {
+    "swot": {
+      "strengths": [
+        "$32M Series A led by Balderton in Oct 2026; $48M total raised",
+        "Backed by Index Ventures, Northzone and Credo Ventures",
+        "Founded by the team behind Rohlik Group with retail ops depth",
+        "Agents run across ERP, supplier portals, spreadsheets and email",
+        "Named retail customers include Morrisons, Holland & Barrett, Boden"
+      ],
+      "weaknesses": [
+        "Founded in 2025 with a short production track record",
+        "Customer base concentrated in European retail and consumer goods",
+        "Around 60 employees limits enterprise support capacity",
+        "No public peer reviews on G2 or Gartner Peer Insights yet"
+      ],
+      "opportunities": [
+        "US expansion funded by the Series A",
+        "Expanding from retail back office into horizontal operations",
+        "Replacing brittle RPA on legacy apps and supplier portals",
+        "Capturing tacit process knowledge as reusable agent workflows"
+      ],
+      "threats": [
+        "UiPath and Automation Anywhere pushing agentic automation to retail",
+        "ERP vendors embedding agents natively in their platforms",
+        "Crowded field of well-funded agentic operations startups",
+        "Reliability concerns with UI-driven agents on legacy systems"
+      ]
+    },
+    "userLikes": [
+      "Fast time to live versus traditional RPA projects",
+      "Works on legacy apps and portals without APIs",
+      "Operators can see and adjust how work is executed",
+      "Cuts manual retail back-office work such as reconciliation"
+    ],
+    "userComplaints": [
+      "Young product with evolving features and connectors",
+      "Limited track record outside retail and consumer goods",
+      "Few independent reviews to validate vendor claims"
+    ],
+    "customerProfile": {
+      "segments": [
+        "European retailers and e-commerce firms",
+        "Consumer goods companies with heavy back-office ops"
+      ],
+      "typicalBuyer": "COO or head of retail operations aiming to cut manual back-office work",
+      "topUseCases": [
+        "Supplier and invoice reconciliation",
+        "Purchase order and supplier portal tasks",
+        "Cross-system data entry across ERP and email"
+      ]
+    },
+    "futureAreas": [
+      "US market expansion",
+      "Horizontal operations beyond retail",
+      "Process capture to agent workflow generation",
+      "Human and agent shared execution workflows"
+    ],
+    "competitiveEdge": "Retail-operator founders and an execution OS that runs agents across legacy apps, portals and inboxes"
+  },
+  "rpa/pace": {
+    "swot": {
+      "strengths": [
+        "$46M Series B co-led by Thrive Capital and Sequoia in May 2026",
+        "Customers include WTW, Prudential, Newfront and The Mutual Group",
+        "Over 250,000 insurance workflows completed autonomously per Pace",
+        "Agents navigate internal apps, reason over documents, make calls",
+        "Sharp focus on replacing BPO spend in insurance operations"
+      ],
+      "weaknesses": [
+        "Founded in 2024 with a short operating history",
+        "Single-vertical focus limits addressable market outside insurance",
+        "No public peer reviews on G2 or Gartner Peer Insights",
+        "Workflow volume figures are company-reported"
+      ],
+      "opportunities": [
+        "Insurance BPO spend shifting from offshore teams to AI agents",
+        "Expanding from brokers into carriers, MGAs and reinsurers",
+        "Claims handling and policy servicing at scale",
+        "Voice agents for carrier and broker phone-based tasks"
+      ],
+      "threats": [
+        "Large BPO firms launching their own AI agent offerings",
+        "Insurance-focused AI rivals such as Notch and Sixfold",
+        "Core system vendors like Guidewire adding native AI agents",
+        "Regulatory and data-privacy scrutiny of autonomous insurance work"
+      ]
+    },
+    "userLikes": [
+      "Absorbs manual policy servicing and intake workloads",
+      "Handles both documents and phone-based tasks",
+      "Works inside existing insurer applications",
+      "Hands-on partnership approach with insurance ops teams"
+    ],
+    "userComplaints": [
+      "Early-stage vendor with limited independent references",
+      "Scope limited to insurance operations",
+      "Exception handling still needs human oversight"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Insurance brokers and benefits consultancies",
+        "Life and P&C insurers with large back offices"
+      ],
+      "typicalBuyer": "Insurance COO or head of operations looking to replace BPO spend",
+      "topUseCases": [
+        "Submission intake and data entry",
+        "Policy servicing and issuance",
+        "Claims handling support"
+      ]
+    },
+    "futureAreas": [
+      "Agentic workforce replacing insurance BPO",
+      "Voice agents for insurance phone workflows",
+      "Expansion across carriers and MGAs",
+      "Deeper claims automation"
+    ],
+    "competitiveEdge": "Insurance-only AI agents backed by Sequoia and Thrive, already live at WTW and Prudential"
+  },
+  "rpa/basis": {
+    "swot": {
+      "strengths": [
+        "Long-horizon agents run multi-hour tax, audit and accounting workflows end to end",
+        "$1.15B valuation after $100M Series B led by Accel, with GV and Khosla",
+        "Says about 30% of the Top 25 US accounting firms deploy its agents",
+        "Pairs LLMs with rules-based controls, audit trails and human approval",
+        "Named firm customers include UHY, Clark Nuber and MarksNelson"
+      ],
+      "weaknesses": [
+        "Vertical focus on accounting firms limits horizontal reach",
+        "Founded in 2023; production track record is still short",
+        "Top-25 adoption figure is company-reported, not independently verified",
+        "Depends on frontier model providers for its supervising agent"
+      ],
+      "opportunities": [
+        "Accounting talent shortage pushes firms toward autonomous prep and review",
+        "Expanding from tax prep into audit testing and advisory workflows",
+        "Mid-size and regional firms beyond the Top 25",
+        "Fresh Series B capital to scale engineering and headcount"
+      ],
+      "threats": [
+        "Incumbent tax and audit suites adding native AI agents",
+        "Well-funded accounting AI rivals competing for the same firms",
+        "Professional liability and regulator scrutiny of AI-prepared filings",
+        "Frontier labs moving up the stack into finance workflows"
+      ]
+    },
+    "userLikes": [
+      "Agents complete full workflows such as a 1065 tax return, not just suggestions",
+      "Human review and approval steps keep accountants in control",
+      "Structured outputs and audit trails support firm quality reviews"
+    ],
+    "userComplaints": [
+      "Few independent user reviews published yet",
+      "Vertical scope means little use outside accounting firms",
+      "Firms must redesign review processes around agent output"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Top 25 and large US accounting firms",
+        "Regional CPA firms in tax and audit"
+      ],
+      "typicalBuyer": "Managing partner or head of innovation at an accounting firm",
+      "topUseCases": [
+        "Automated tax return preparation",
+        "Audit testing procedures and workpapers",
+        "Reconciliation and financial statement review"
+      ]
+    },
+    "futureAreas": [
+      "Deeper audit and advisory agent coverage",
+      "Longer autonomous runs with fewer handoffs",
+      "Expansion to more mid-size accounting firms",
+      "Stronger controls and audit evidence for regulators"
+    ],
+    "competitiveEdge": "Long-horizon accounting agents with rules-based controls, already deployed at roughly 30% of the Top 25 firms"
+  },
+  "rpa/hyphenate": {
+    "swot": {
+      "strengths": [
+        "Agents span order-to-cash, procure-to-pay, treasury, GL close and reporting",
+        "Layers onto existing ERP and bank systems instead of replacing them",
+        "$45M Series A led by Nexus; $54M raised in total",
+        "Named customers include Groupon, Synthesia, HiBid and Mini Melts USA",
+        "Founders led finance transformation at Microsoft"
+      ],
+      "weaknesses": [
+        "Rebranded from Maximor in late 2026; brand recognition is low",
+        "Founded in 2024; limited operating history",
+        "Most performance figures are company-reported",
+        "Only SAP is named as a proven ERP integration"
+      ],
+      "opportunities": [
+        "CFO demand to shrink month-end close and audit exceptions",
+        "Expanding modules per customer; average already runs six",
+        "Moving into forecasting and strategic finance on live transaction data",
+        "Mid-market firms lacking large finance operations teams"
+      ],
+      "threats": [
+        "ERP vendors such as SAP and Oracle embedding finance agents natively",
+        "Close and AP automation incumbents like BlackLine and Tipalti adding AI",
+        "Crowded field of autonomous finance startups",
+        "Audit and controls teams wary of autonomous postings"
+      ]
+    },
+    "userLikes": [
+      "HiBid reports cutting month-end close from three weeks to one day",
+      "Works on top of existing ERP without a rip-and-replace project",
+      "Evidence attached to each agent action helps audit review"
+    ],
+    "userComplaints": [
+      "Few independent user reviews published yet",
+      "Name change from Maximor can confuse buyers and references",
+      "Broad module set means a longer rollout to cover the full function"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and public companies on SAP and other ERPs",
+        "Fast-growing tech and marketplace finance teams"
+      ],
+      "typicalBuyer": "CFO or controller modernizing finance operations",
+      "topUseCases": [
+        "Month-end close and GL reconciliation",
+        "Order-to-cash invoicing, collections and cash application",
+        "Accounts payable and board reporting"
+      ]
+    },
+    "futureAreas": [
+      "Agents for forecasting and capital decisions",
+      "Deeper coverage across strategic finance",
+      "More ERP and banking integrations",
+      "Continuous close with built-in audit evidence"
+    ],
+    "competitiveEdge": "Agents across five finance domains layered on existing ERPs, with evidence attached to every action for audit"
+  },
+  "rpa/saris": {
+    "swot": {
+      "strengths": [
+        "Agentic workflow platform built specifically for banks and credit unions",
+        "Covers consumer, mortgage and commercial lending back-office tasks",
+        "Integrates with Fiserv, Encompass and MeridianLink",
+        "$28.8M Series A led by 8VC with Homebrew and Audacious"
+      ],
+      "weaknesses": [
+        "No named customers disclosed in funding coverage",
+        "Automation and cost-savings figures are company claims",
+        "Narrow focus on US financial institutions",
+        "Small team relative to bank technology incumbents"
+      ],
+      "opportunities": [
+        "Community banks and credit unions short on back-office staff",
+        "Compliance and document review workloads rising with regulation",
+        "Deeper integration with core and loan origination platforms",
+        "Expansion to more financial institutions with Series A capital"
+      ],
+      "threats": [
+        "Core banking vendors like Fiserv adding native AI automation",
+        "Loan origination platforms building their own agents",
+        "Bank regulators scrutinizing AI in lending decisions",
+        "Long procurement cycles at regulated institutions"
+      ]
+    },
+    "userLikes": [
+      "A community bank CRO praised results and ease of integration",
+      "Agents take over manual document review and data entry",
+      "Connects to lending systems banks already run"
+    ],
+    "userComplaints": [
+      "Few independent user reviews published yet",
+      "Limited public reference customers to validate claims",
+      "Scope tied to the integrations Saris already supports"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Community and regional banks",
+        "Credit unions"
+      ],
+      "typicalBuyer": "Chief operating or lending officer at a community bank",
+      "topUseCases": [
+        "Loan file document review and data entry",
+        "Compliance checks in lending workflows",
+        "Back-office operations task automation"
+      ]
+    },
+    "futureAreas": [
+      "Deeper Fiserv, Encompass and MeridianLink integration",
+      "Expansion to more banks and credit unions",
+      "Larger agent training and deployment team",
+      "Broader compliance workflow coverage"
+    ],
+    "competitiveEdge": "Banking-specific agents wired into Fiserv, Encompass and MeridianLink for lending and compliance back-office work"
+  },
+  "rpa/didero": {
+    "swot": {
+      "strengths": [
+        "Agent layer sits on top of existing ERP rather than replacing it",
+        "Reads supplier messages and executes the resulting procurement tasks",
+        "Covers sourcing, pricing, order tracking and payments in one flow",
+        "$30M Series A co-led by Chemistry and Headline, with Microsoft's M12",
+        "Founders bring McKinsey procurement and startup operating experience"
+      ],
+      "weaknesses": [
+        "Customer base described only as dozens of companies",
+        "Specific ERP integrations not publicly detailed",
+        "Founded in 2023; limited track record at large manufacturers"
+      ],
+      "opportunities": [
+        "Manufacturers and distributors buried in manual supplier email",
+        "Direct materials procurement underserved by corporate purchasing tools",
+        "Expanding autonomy from quote through to payment",
+        "Supply chain volatility raising value of faster order tracking"
+      ],
+      "threats": [
+        "Procurement platforms like Zip, Levelpath and ORO Labs adding agents",
+        "ERP vendors embedding procurement agents natively",
+        "Supplier and buyer resistance to agent-led negotiation"
+      ]
+    },
+    "userLikes": [
+      "Turns incoming supplier messages into ERP updates automatically",
+      "Customer Footprint uses it for supply chain procurement",
+      "Handles direct-materials work corporate purchasing tools miss"
+    ],
+    "userComplaints": [
+      "Few independent user reviews published yet",
+      "Limited public information on supported ERPs",
+      "Autonomous negotiation still needs buyer oversight"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Manufacturers sourcing raw materials and inputs",
+        "Distributors with high supplier volumes"
+      ],
+      "typicalBuyer": "VP of procurement or supply chain at a manufacturer",
+      "topUseCases": [
+        "Supplier communication handling and ERP updates",
+        "Order tracking and follow-up",
+        "Sourcing, price negotiation and payment"
+      ]
+    },
+    "futureAreas": [
+      "End-to-end autonomy from need to payment",
+      "Broader ERP integration coverage",
+      "Agent-led supplier negotiation",
+      "Expansion across manufacturing verticals"
+    ],
+    "competitiveEdge": "Supply-chain procurement agents on top of the ERP, handling direct materials from first quote to final payment"
+  },
+  "rpa/june": {
+    "swot": {
+      "strengths": [
+        "Scans existing systems to map processes and find bottlenecks",
+        "Generates an implementation roadmap and builds each step on request",
+        "$20M pre-seed led by Marc Benioff's Time Ventures",
+        "Backers include Michael Dell, Aaron Levie and George Kurtz",
+        "Founders previously sold Bonobo AI to Salesforce"
+      ],
+      "weaknesses": [
+        "Pre-seed stage; product only emerged from stealth in Aug 2026",
+        "Only one publicly named customer, mortgage lender CMG",
+        "Valuation and revenue undisclosed"
+      ],
+      "opportunities": [
+        "Stalled enterprise AI rollouts on Salesforce, ServiceNow and Workday",
+        "Reducing reliance on forward-deployed engineers and consultants",
+        "Combining process discovery with agent build-out in one tool",
+        "Large enterprises with legacy systems and technical debt"
+      ],
+      "threats": [
+        "Process mining leaders like Celonis adding agent build-out",
+        "Platform vendors shipping native agent deployment tooling",
+        "Systems integrators defending implementation revenue",
+        "Early stage leaves room for faster-funded rivals"
+      ]
+    },
+    "userLikes": [
+      "CMG got a clear view of where to deploy agents after stalled work",
+      "Click-to-build roadmap avoids hiring forward-deployed engineers",
+      "Notifies teams through existing communication channels"
+    ],
+    "userComplaints": [
+      "Very few customer references so far",
+      "Product is newly launched and still maturing",
+      "Little public detail on pricing or supported systems"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises on Salesforce, ServiceNow or Workday",
+        "Regulated firms with legacy systems, e.g. lending"
+      ],
+      "typicalBuyer": "Chief strategy or CIO-level leader driving AI deployment",
+      "topUseCases": [
+        "Mapping business processes and bottlenecks",
+        "Roadmaps for deploying agents into workflows",
+        "Automated build-out of integration tasks"
+      ]
+    },
+    "futureAreas": [
+      "Broader enterprise platform coverage",
+      "Agent-powered replacement of mapped processes",
+      "Less dependence on consultants for AI rollout",
+      "Scaling customer base beyond early adopters"
+    ],
+    "competitiveEdge": "Combines process discovery with one-click agent build-out, from a team that sold its last AI startup to Salesforce"
+  },
+  "rpa/notch": {
+    "swot": {
+      "strengths": [
+        "Prebuilt insurance agents for FNOL intake, submission triage and renewals",
+        "Built and proven inside its own specialty insurer before going external",
+        "$30M Series A led by Headline with Lightspeed participating",
+        "Ingests documents, extracts data, classifies and routes claims work",
+        "Covers insurance, banking and telecom operations"
+      ],
+      "weaknesses": [
+        "Only Phoenix Insurance named publicly, also an investor",
+        "Overlaps customer-facing CX agents, blurring positioning",
+        "US presence still being built from an Israel base",
+        "Total funding reported inconsistently across sources"
+      ],
+      "opportunities": [
+        "US expansion funded by the Series A",
+        "Carriers and brokers seeking to automate claims and underwriting intake",
+        "Banking back-office: credit, lending and servicing",
+        "Governed agents for regulated industries needing evals and audit"
+      ],
+      "threats": [
+        "Insurance-focused AI rivals like Pace and Sixfold",
+        "Core insurance platforms such as Guidewire adding native AI",
+        "Regulatory scrutiny of AI in claims and underwriting",
+        "CX agent vendors expanding into back-office work"
+      ]
+    },
+    "userLikes": [
+      "Prebuilt agents for SOV, loss run and FNOL tasks speed rollout",
+      "Adjusters and underwriters can query long claim files in plain language",
+      "Testing, evals and governance built into deployment"
+    ],
+    "userComplaints": [
+      "Few independent user reviews published yet",
+      "Limited named reference customers outside Israel",
+      "Mix of CX and back-office tools can complicate scoping"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Global insurers and large brokers",
+        "Banks and financial institutions"
+      ],
+      "typicalBuyer": "COO or head of claims and underwriting operations",
+      "topUseCases": [
+        "FNOL and claims intake, classification and routing",
+        "Underwriting submission triage and data extraction",
+        "Policy servicing and renewal processing"
+      ]
+    },
+    "futureAreas": [
+      "US market expansion",
+      "More prebuilt insurance and banking agents",
+      "Agent governance, evals and case analytics",
+      "Deeper telecom and healthcare operations"
+    ],
+    "competitiveEdge": "Agents built inside its own insurer, with prebuilt FNOL, submission and renewal workflows and built-in governance"
   },
 };
