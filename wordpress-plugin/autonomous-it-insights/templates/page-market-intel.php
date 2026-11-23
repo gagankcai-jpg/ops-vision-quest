@@ -34,6 +34,28 @@ if ( $ait_route_key === '' ) {
 }
 
 /*
+ * ── Renamed-vendor redirects ──────────────────────────────────────────────────
+ * When a vendor is renamed its slug changes and the old prerendered page is pruned on
+ * deploy. app/vendor-redirects.json (from public/, old route → new route) sends those
+ * old URLs to the new page with a 301 instead of a 404, preserving any query string.
+ */
+$ait_redirects_file = dirname( __DIR__ ) . '/app/vendor-redirects.json';
+if ( is_readable( $ait_redirects_file ) ) {
+	$ait_redirects = json_decode( file_get_contents( $ait_redirects_file ), true );
+	if (
+		is_array( $ait_redirects ) &&
+		isset( $ait_redirects[ $ait_route_key ] ) &&
+		preg_match( '#^vendor/[a-z0-9-]+/[a-z0-9-]+$#', $ait_redirects[ $ait_route_key ] )
+	) {
+		$ait_query = parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_QUERY );
+		$ait_target = home_url( '/market-intelligence/' . $ait_redirects[ $ait_route_key ] )
+			. ( $ait_query ? '?' . $ait_query : '' );
+		wp_redirect( $ait_target, 301 );
+		exit;
+	}
+}
+
+/*
  * ── Static build-file passthrough ─────────────────────────────────────────────
  * vite-react-ssg fetches its client-navigation loader-data manifest + per-route data
  * JSON relative to the ROUTER BASENAME (/market-intelligence/), not the Vite asset base.

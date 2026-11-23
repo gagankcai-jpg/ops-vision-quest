@@ -1,0 +1,11 @@
+{
+  "vendor/rpa/palette-software": "vendor/rpa/rillion",
+  "vendor/rpa/processmaker": "vendor/rpa/decisions",
+  "vendor/aiops/cloudfabrix": "vendor/aiops/fabrix-ai",
+  "vendor/itom/ninjarmm": "vendor/itom/ninjaone",
+  "vendor/itom/goto-resolve": "vendor/itom/logmein-resolve",
+  "vendor/agentops/ibm-watson-orchestrate": "vendor/agentops/ibm-watsonx-orchestrate",
+  "vendor/agentops/google-vertex-ai-agents": "vendor/agentops/google-gemini-enterprise-agents",
+  "vendor/agentops/multion": "vendor/agentops/agi-inc",
+  "vendor/agentops/sycamore-intelligence": "vendor/agentops/sycamore"
+}
