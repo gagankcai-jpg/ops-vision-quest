@@ -1094,21 +1094,6 @@ export const pricingData: Record<string, PricingInfo> = {
 
   // ── ITOM Startups ────────────────────────────────────────────────────────
 
-  "itom/productiv": {
-    pricingModel: "enterprise-license",
-    transparency: "contact-sales",
-    typicalACV: "$80K–$400K",
-    marketSegment: ["enterprise", "fortune500"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: false,
-    tcoBadge: "high",
-    keyPricingDrivers: [
-      "Number of employees and SaaS applications managed",
-      "Depth of engagement analytics and business unit reporting",
-      "Integrations: Okta, Workday, Slack, and SSO providers",
-    ],
-    bottomLine: "Premium SaaS management with ROI measured in license reclamation savings — typically 3–5x payback claimed.",
-  },
 
   "itom/zylo": {
     pricingModel: "enterprise-license",
@@ -2731,22 +2716,6 @@ export const pricingData: Record<string, PricingInfo> = {
       "On-premises vs. cloud hosting model",
     ],
     bottomLine: "Premium-capable ITSM at mid-market pricing — strong for LATAM and EMEA orgs wanting ITIL depth minus ServiceNow cost.",
-  },
-  "itom/zoho-desk": {
-    pricingModel: "per-seat",
-    transparency: "public-list",
-    startingPrice: "$14/agent/month for Standard",
-    typicalACV: "$5K–$75K",
-    marketSegment: ["smb", "mid-market"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Agent seat count at Standard, Professional, or Enterprise tier",
-      "Zoho One bundle pricing for organizations using multiple Zoho applications",
-      "Zia AI feature tier access at Professional and above",
-    ],
-    bottomLine: "Strongest price-to-feature ratio in the category — best for Zoho One users and cost-conscious SMB/mid-market teams.",
   },
 
 

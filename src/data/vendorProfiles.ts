@@ -813,58 +813,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Agent marketplace for pre-built workflows and integrations."
     ]
   },
-  "agentops/gumloop": {
-    "competitiveEdge": "Visual AI workflow builder optimized for IT complexity—enabling non-coders to orchestrate multi-step IT automation without YAML or code.",
-    "swot": {
-      "strengths": [
-        "Visual workflow editor reduces barrier to IT process automation versus code-first tools.",
-        "Strong growth (+a significant share YoY) indicates strong product adoption in target market.",
-        "Flexible enough for both simple helpdesk tasks and complex incident orchestration."
-      ],
-      "weaknesses": [
-        "Early-stage (private, early revenue) lacks brand recognition versus incumbents.",
-        "Visual abstraction trades depth; advanced logic still requires workarounds or custom code.",
-        "Limited ecosystem of pre-built templates or integrations compared to mature platforms."
-      ],
-      "opportunities": [
-        "Integrate with enterprise event systems (Datadog, New Relic, PagerDuty) for alerting workflows.",
-        "Vertical templates for specific IT domains (cloud cost optimization, security response).",
-        "API marketplace to extend ecosystem beyond initial integrations."
-      ],
-      "threats": [
-        "Low-code platforms (Zapier, Make, Integromat) shipping competitive visual builders for workflows.",
-        "RPA platforms (UiPath, Automation Anywhere) acquiring or bundling AI agent capabilities.",
-        "Established ITSM platforms adding native workflow builders (Jira Automation, ServiceNow Flow)."
-      ]
-    },
-    "userLikes": [
-      "Intuitive visual builder reduces IT teams' learning curve versus Ansible or scripting.",
-      "Fast workflow iteration (drag-drop versus code redeploy) accelerates automation delivery.",
-      "Strong IT-specific positioning attracts DevOps and SRE buyers over generic no-code tools."
-    ],
-    "userComplaints": [
-      "Visual builder hits complexity ceiling on highly nested or conditional workflows.",
-      "Limited pre-built templates; requires custom integration engineering for enterprise systems.",
-      "Unclear scalability story for thousands of simultaneous workflows or high-throughput operations."
-    ],
-    "customerProfile": {
-      "segments": [
-        "DevOps and SRE teams automating infrastructure and operational tasks",
-        "Mid-size IT operations departments seeking faster automation cycles"
-      ],
-      "typicalBuyer": "Site reliability engineer or IT operations automation engineer",
-      "topUseCases": [
-        "Incident response orchestration and automated remediation workflows.",
-        "IT infrastructure provisioning and decommissioning automation.",
-        "Cross-tool alerting aggregation and escalation logic."
-      ]
-    },
-    "futureAreas": [
-      "Intelligence layer predicting workflow failures and recommending optimizations.",
-      "Deep integrations with cloud monitoring and incident management platforms.",
-      "Horizontal scaling to support enterprise multi-team workflow governance."
-    ]
-  },
   "agentops/beam-ai": {
     "competitiveEdge": "AI agents replacing human-in-loop for repetitive IT processes—eliminating approval delays in ticket handling and routine operations.",
     "swot": {
@@ -1066,56 +1014,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     "futureAreas": [
       "Autonomous incident response and runbook execution integrated with ticketing systems",
       "Multi-source reasoning combining documentation, ticket history, and system telemetry"
-    ]
-  },
-  "agentops/alltius": {
-    "competitiveEdge": "Generalist enterprise AI agent designed for employee-facing IT and HR service automation with built-in governance for regulated IT environments.",
-    "swot": {
-      "strengths": [
-        "Dual IT and HR positioning reduces per-customer engineering and increases TAM",
-        "Enterprise-first approach prioritizes governance and compliance from day one",
-        "Strong growth (+a significant share YoY) indicates solid product-market fit in target segments"
-      ],
-      "weaknesses": [
-        "Early-stage revenue limits reference customers and proof-of-concept diversity",
-        "Generalist positioning across IT and HR may lack depth vs. specialized competitors",
-        "Competing directly against better-funded and more established platform vendors"
-      ],
-      "opportunities": [
-        "Expand into identity and access management (IAM) automation for IT governance",
-        "Industry-specific variants (healthcare IT, financial services IT) with pre-built compliance",
-        "Integration with major ITSM and HCM platforms for embedded agent capabilities"
-      ],
-      "threats": [
-        "Incumbent ITSM vendors (ServiceNow, BMC) and HCM platforms rapidly shipping native agents",
-        "Specialized IT and HR automation vendors outpacing on use-case depth and ROI"
-      ]
-    },
-    "userLikes": [
-      "Pre-built compliance and governance controls accelerate enterprise deployments",
-      "Unified agent for both IT and HR reduces vendor fragmentation",
-      "Natural language configuration enables rapid automation of employee service requests"
-    ],
-    "userComplaints": [
-      "Integration complexity with legacy ITSM, HCM, and identity management systems",
-      "Limited transparency into agent reasoning and decision logic for regulated compliance",
-      "Slower feature velocity compared to specialized point solutions in each domain"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-to-large enterprises (5,000–15,000 employees) with integrated IT and HR operations",
-        "Regulated industries (finance, healthcare, government) requiring audit-ready automation"
-      ],
-      "typicalBuyer": "Chief Information Officer or VP of IT Operations",
-      "topUseCases": [
-        "Employee-facing AI agent for IT helpdesk, provisioning, and self-service automation",
-        "HR service automation (benefits, onboarding, policy inquiries) integrated with IT access",
-        "Audit-ready agent with built-in compliance controls and decision logging"
-      ]
-    },
-    "futureAreas": [
-      "Deeper integration with identity governance and access management (IGA) systems",
-      "Vertical-specific compliance packs for healthcare, financial services, and government"
     ]
   },
   "agentops/sycamore": {
@@ -1631,57 +1529,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Multi-region/multi-jurisdiction compliance orchestration (EU GDPR, UK DPA, etc.).",
       "Embedded compliance agents in enterprise ITSM platforms.",
       "Real-time audit trail and forensic playback for regulatory investigators."
-    ]
-  },
-  "agentops/arcee-ai": {
-    "competitiveEdge": "Fine-tuned, domain-specific AI agents for IT operations at lower cost than general-purpose LLMs.",
-    "swot": {
-      "strengths": [
-        "Specialized models reduce hallucination and inference cost vs. GPT-4 in ITSM workflows.",
-        "Fine-tuning platform enables rapid customization to enterprise policies and legacy systems.",
-        "Smaller, faster models enable on-premises/air-gapped deployment critical for regulated sectors."
-      ],
-      "weaknesses": [
-        "Requires significant data and domain expertise to fine-tune; high implementation burden.",
-        "Smaller models may lack reasoning depth for complex multi-step IT operations.",
-        "Competes with larger vendors (Anthropic, OpenAI) now adding enterprise customization features."
-      ],
-      "opportunities": [
-        "Regulated industries (finance, healthcare, government) need on-premises, auditable AI agents.",
-        "Continuous fine-tuning from production incidents and ticket data improves model over time.",
-        "Partnership with ITSM vendors (ServiceNow, Atlassian) for pre-tuned ITSM agents."
-      ],
-      "threats": [
-        "Large foundational model providers (Anthropic, OpenAI, Meta) releasing cheaper, better models.",
-        "On-premises AI becoming table stakes; Arcee's specialization advantage may erode."
-      ]
-    },
-    "userLikes": [
-      "Fine-tuned models reduce hallucination and improve accuracy in specialized IT workflows.",
-      "Lower inference cost and latency enable real-time agent deployment in resource-constrained environments.",
-      "On-premises deployment and fine-tuning preserve sensitive operational data and enable air-gapped use."
-    ],
-    "userComplaints": [
-      "High implementation cost and data annotation burden to get specialized agents working.",
-      "Models may lack reasoning depth for complex, multi-step troubleshooting scenarios.",
-      "Limited pre-trained models for ITSM; most customization requires specialist consulting."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Regulated enterprises (banking, healthcare, government) requiring on-premises/auditable AI.",
-        "Global enterprises with data residency requirements (EU, Asia)."
-      ],
-      "typicalBuyer": "Enterprise AI/ML architect or IT operations director at regulated organizations.",
-      "topUseCases": [
-        "Specialized agents for ticket triage, routing, and first-response automation.",
-        "Fine-tuned incident response and runbook recommendation agents.",
-        "Knowledge extraction and policy-specific Q&A agents (HIPAA, SOC 2, PCI-compliant)."
-      ]
-    },
-    "futureAreas": [
-      "Continuous learning from production incident and ticket data to improve agent quality.",
-      "Multi-model orchestration (combining specialized agents for different ITSM functions).",
-      "Governance and explainability layers for regulatory audit and compliance reporting."
     ]
   },
   "agentops/inkeep": {
@@ -6402,108 +6249,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with Nutanix Cloud Platform observability and governance tools."
     ]
   },
-  "aiops/wavefront": {
-    "competitiveEdge": "Developer-first metrics platform enabling cloud-native teams to visualize and optimize application performance at scale.",
-    "swot": {
-      "strengths": [
-        "Strong developer appeal via cloud-native metrics orientation and ease of integration.",
-        "Backed by Broadcom scale, resources, and established enterprise distribution channels.",
-        "Time-series optimized platform for rapid metric queries and large-scale data retention."
-      ],
-      "weaknesses": [
-        "Part of larger conglomerate; may lack dedicated innovation focus versus pure-play vendors.",
-        "Limited visibility into revenue and growth; suggests smaller footprint within Broadcom portfolio.",
-        "Metrics-only positioning; requires additional tools for logs, traces, and broader observability."
-      ],
-      "opportunities": [
-        "Expand beyond metrics into correlated observability (traces, logs) as buyer expectations shift.",
-        "Leverage Broadcom relationships to cross-sell observability into existing infrastructure accounts.",
-        "Grow in AI/ML workloads where precise metric collection and correlation drives operational decisions."
-      ],
-      "threats": [
-        "Pure-play observability incumbents (Datadog, New Relic) increasingly commoditize metrics with broader platforms.",
-        "Open-source projects (Prometheus, Grafana) reduce premium metrics positioning among cost-sensitive buyers."
-      ]
-    },
-    "userLikes": [
-      "Fast, intuitive dashboards for cloud-native metrics and real-time alerting.",
-      "Strong developer experience; SDKs and integrations lower instrumentation friction.",
-      "Scales well with high-cardinality time-series data without significant cost inflation."
-    ],
-    "userComplaints": [
-      "Metrics-only scope creates tool sprawl; integration with logs and traces requires separate platforms.",
-      "Enterprise support and custom features less accessible than standalone vendors.",
-      "Higher data ingestion costs compared to open-source alternatives for cost-sensitive teams."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Cloud-native and microservices-heavy organizations",
-        "Developer-led SaaS and fintech teams requiring real-time metrics"
-      ],
-      "typicalBuyer": "DevOps engineer or platform engineer selecting observability stack",
-      "topUseCases": [
-        "Multi-cloud metrics aggregation and visualization across distributed systems",
-        "Real-time alerting and anomaly detection on application and infrastructure metrics",
-        "Capacity planning and cost optimization via historical metrics analysis"
-      ]
-    },
-    "futureAreas": [
-      "Deeper correlation between metrics and distributed traces to surface root causes faster.",
-      "AI-driven anomaly detection and predictive incident prevention at platform scale.",
-      "Broader observability consolidation: logs and traces alongside metrics in unified UI."
-    ]
-  },
-  "aiops/signalfx": {
-    "competitiveEdge": "Real-time infrastructure monitoring for microservices and containerized environments with Splunk platform ecosystem backing.",
-    "swot": {
-      "strengths": [
-        "Real-time streaming data architecture optimized for infrastructure monitoring at microsecond latency.",
-        "Cisco ownership provides global enterprise distribution and integration with network/IT infrastructure.",
-        "Strong positioning in microservices and container monitoring where latency matters."
-      ],
-      "weaknesses": [
-        "Part of larger vendor; unclear strategic priority within Splunk/Cisco combined entity.",
-        "Brand subordinated to parent; loses independent developer mindshare and thought leadership.",
-        "Infrastructure-focused positioning; limited full-stack APM or application-layer visibility."
-      ],
-      "opportunities": [
-        "Expand from infrastructure into application-layer observability as APM becomes table stakes.",
-        "Leverage Splunk's security and ITOM ecosystems to cross-sell infrastructure monitoring.",
-        "Drive adoption in edge computing and 5G network operations monitoring."
-      ],
-      "threats": [
-        "Datadog and New Relic offer richer full-stack observability, reducing infrastructure-only TAM.",
-        "Prometheus and open-source time-series tools remain strong for microservices-first teams."
-      ]
-    },
-    "userLikes": [
-      "Sub-second data latency for real-time incident detection in fast-moving containerized environments.",
-      "Excellent integrations with Kubernetes, Docker, and cloud platform metrics.",
-      "Cost-effective for infrastructure-heavy organizations with large metric volumes."
-    ],
-    "userComplaints": [
-      "Limited visibility into application-layer performance; requires separate APM tool for full context.",
-      "Integration with Splunk can feel heavyweight compared to lightweight open-source alternatives.",
-      "Perception of reduced innovation momentum since acquisition into larger vendor portfolio."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Splunk/Cisco-existing customers extending into containerized infrastructure",
-        "Large enterprises with microservices and cloud-native operations centers"
-      ],
-      "typicalBuyer": "Infrastructure or site reliability engineer responsible for distributed systems monitoring",
-      "topUseCases": [
-        "Real-time metrics collection and alerting across Kubernetes and container clusters.",
-        "Microservices topology discovery and dependency visualization for incident response.",
-        "Infrastructure cost attribution and cloud optimization via granular resource metrics."
-      ]
-    },
-    "futureAreas": [
-      "Application performance visibility to bridge infrastructure and app-layer observability gap.",
-      "AI-native incident correlation across infrastructure and application signals.",
-      "Hybrid and edge computing monitoring as workloads move beyond cloud-native perimeters."
-    ]
-  },
   "aiops/squaredup": {
     "competitiveEdge": "Purpose-built visual dashboards for System Center Operations Manager and hybrid IT estates, filling SCOM's native UI gap.",
     "swot": {
@@ -6655,57 +6400,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Unified observability: extending beyond logs to correlated metrics and trace data.",
       "AI-driven log analysis and anomaly detection to surface hidden operational issues.",
       "Compliance and security automation for regulated industries via structured log pipeline."
-    ]
-  },
-  "aiops/lightstep": {
-    "competitiveEdge": "Distributed tracing and change intelligence for understanding system behavior and deployment impact in complex microservices.",
-    "swot": {
-      "strengths": [
-        "Purpose-built for distributed tracing; deep expertise in complex microservices observability.",
-        "ServiceNow acquisition validates value and provides access to large enterprise customer base.",
-        "Change intelligence differentiator: connects traces to deployments and configuration changes."
-      ],
-      "weaknesses": [
-        "Part of ServiceNow; reduced independent product identity may slow innovation perception.",
-        "Traces-heavy positioning; requires logs and metrics from other tools for full observability.",
-        "Lighter brand awareness compared to Datadog, Splunk, and broader observability platforms."
-      ],
-      "opportunities": [
-        "Leverage ServiceNow CMDB and incident management for deeper change-aware observability.",
-        "Build compliance and audit trails around change impact for regulated industries.",
-        "Drive distributed tracing adoption as industry standard for microservices architectures."
-      ],
-      "threats": [
-        "Datadog and New Relic offer distributed tracing as part of broader platforms with lower TCO.",
-        "Open-source tracing (Jaeger, OpenTelemetry) rapidly mature and commoditize distributed tracing value."
-      ]
-    },
-    "userLikes": [
-      "Best-in-class distributed tracing for understanding flow and latency across microservices.",
-      "Change intelligence feature uniquely correlates deployments to performance degradation.",
-      "Strong OpenTelemetry support and standards alignment; future-proofs instrumentation investment."
-    ],
-    "userComplaints": [
-      "Requires complementary platforms for logs and metrics; fragmented observability toolchain.",
-      "Integration with ServiceNow can feel heavyweight compared to pure SaaS observability vendors.",
-      "Pricing can be high for organizations with high transaction volumes or fine-grained tracing."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large enterprises with complex microservices architectures and ServiceNow deployments",
-        "Financial services and high-reliability organizations requiring change tracking"
-      ],
-      "typicalBuyer": "Principal engineer or reliability architect responsible for distributed systems observability",
-      "topUseCases": [
-        "Distributed tracing and service topology discovery for microservices debugging and optimization.",
-        "Change intelligence: correlating deployments and configuration changes to performance shifts.",
-        "Service dependency mapping and critical path analysis for incident response and capacity planning."
-      ]
-    },
-    "futureAreas": [
-      "Deeper ServiceNow platform integration for change management and compliance workflows.",
-      "AI-driven anomaly detection and root cause analysis at the distributed trace level.",
-      "Extended observability: unified traces, logs, and metrics via OpenTelemetry standards adoption."
     ]
   },
   "aiops/middleware-io": {
@@ -7749,58 +7443,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Platform partnership expansion: deeper integrations with observability and on-call scheduling ecosystems"
     ]
   },
-  "aiops/parca": {
-    "competitiveEdge": "Open-source continuous profiling platform providing zero-cost visibility into CPU and memory consumption patterns at production scale.",
-    "swot": {
-      "strengths": [
-        "Open-source foundation: community-driven credibility and adoption without licensing friction",
-        "Addresses blind spot: continuous profiling underserved in observability market despite high ROI",
-        "Lower barrier to entry: self-hosted option appeals to enterprises avoiding vendor observability lock-in"
-      ],
-      "weaknesses": [
-        "Open-source revenue model challenges; Parca (company) struggles to monetize unless positioned as Polar Signals commercial fork",
-        "Profiling requires deep systems knowledge; limited adoption among typical DevOps/SRE orgs unfamiliar with pprof/FlameGraph tools",
-        "Performance overhead at scale: continuous profiling at 1000-node clusters complex; limited production maturity proof points"
-      ],
-      "opportunities": [
-        "Cloud cost optimization trend: profiling-driven memory/CPU tuning directly impacts cloud spend",
-        "eBPF-powered implementation: native kernel profiling reduces instrumentation overhead and adoption friction",
-        "Commercial fork or SaaS: Polar Signals positioned to monetize community builds with managed service"
-      ],
-      "threats": [
-        "Datadog, Dynatrace, Elastic shipping profiling natively; incumbents leverage existing telemetry infrastructure",
-        "Performance budgets and container resource limits commoditize profiling outcomes for many workloads",
-        "Kubernetes CPU/memory limits reduce perception of profiling necessity"
-      ]
-    },
-    "userLikes": [
-      "Low-overhead continuous profiling uncovers memory leaks and CPU hotspots invisible to APM tools",
-      "Open-source model eliminates licensing costs for self-hosted infrastructure teams",
-      "Flame graphs and call stack visualization intuitive for systems engineers optimizing performance"
-    ],
-    "userComplaints": [
-      "Limited integration with observability platforms; often requires exporting data to external tools",
-      "High barrier to adoption: unfamiliar with profiling tools and interpreting pprof output",
-      "Sparse commercial support and professional services compared to vendor-backed profiling solutions"
-    ],
-    "customerProfile": {
-      "segments": [
-        "High-performance infrastructure teams (game servers, financial systems, CDNs) optimizing resource efficiency",
-        "Cost-conscious engineering orgs running self-hosted infrastructure and seeking open-source solutions"
-      ],
-      "typicalBuyer": "Principal systems engineer or performance architect focused on resource optimization",
-      "topUseCases": [
-        "Identifying memory leaks and allocation hotspots in long-running services",
-        "Analyzing CPU consumption patterns to optimize compute-intensive workloads",
-        "Right-sizing container and VM resource requests based on actual profiling data"
-      ]
-    },
-    "futureAreas": [
-      "eBPF-native kernel profiling: removing instrumentation overhead and unlocking widespread adoption",
-      "Continuous profiling integration: embedding within observability platforms (Prometheus, OpenTelemetry)",
-      "AI-assisted optimization: automated recommendations for resource allocation based on profiling insights"
-    ]
-  },
   "aiops/polar-signals": {
     "competitiveEdge": "Enterprise continuous profiling infrastructure built on eBPF for agent-native CPU and memory visibility without code instrumentation.",
     "swot": {
@@ -7901,56 +7543,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     "futureAreas": [
       "Expand to integrated observability—metrics, logs, and traces from single agent",
       "Build commercial managed offering to compete with vendor-hosted platforms"
-    ]
-  },
-  "aiops/deepflow": {
-    "competitiveEdge": "eBPF-based observability eliminates agents and sampling; captures full-fidelity network telemetry for cloud-native infrastructure.",
-    "swot": {
-      "strengths": [
-        "eBPF kernel-level visibility; zero instrumentation, captures all traffic without sampling",
-        "High performance; sub-microsecond overhead; scales to large containerized environments",
-        "Open-source foundation; appeals to infrastructure teams skeptical of vendor lock-in"
-      ],
-      "weaknesses": [
-        "eBPF requires Linux kernel 5.8+; not portable to Windows or legacy infrastructure",
-        "Requires kernel-level access; deployment complexity in restricted/compliance environments",
-        "Early-stage; limited integration ecosystem compared to mature platforms"
-      ],
-      "opportunities": [
-        "Expand to application-layer observability (traces, application metrics) alongside network telemetry",
-        "Build commercial support and managed SaaS offering for enterprises",
-        "Become reference architecture for eBPF observability in cloud-native landscape"
-      ],
-      "threats": [
-        "Established observability vendors adding eBPF capabilities to existing platforms",
-        "Kubernetes and container runtimes evolving; reduces eBPF advantage if observability APIs improve"
-      ]
-    },
-    "userLikes": [
-      "eBPF observability requires no instrumentation or sampling; captures complete picture",
-      "Low resource footprint vs. traditional agents; scales efficiently in large deployments",
-      "Open-source; appeals to infrastructure and DevOps teams"
-    ],
-    "userComplaints": [
-      "Linux-only solution; not viable for Windows or mixed OS environments",
-      "Kernel-level access requirements complicate deployment in restricted/compliance-sensitive orgs",
-      "Limited ecosystem and integrations; primarily network-focused telemetry"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Linux/Kubernetes-first organizations with homogeneous infrastructure",
-        "Cloud-native teams prioritizing network and infrastructure observability"
-      ],
-      "typicalBuyer": "Infrastructure engineer or platform team lead",
-      "topUseCases": [
-        "Network-level observability and traffic analysis in Kubernetes clusters",
-        "Microservices communication tracing without application instrumentation",
-        "Incident detection and troubleshooting in large-scale containerized deployments"
-      ]
-    },
-    "futureAreas": [
-      "Expand beyond network to full-stack observability—application metrics and traces",
-      "Build managed/SaaS offering with compliance and enterprise support"
     ]
   },
   "aiops/victoriametrics": {
@@ -9036,59 +8628,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vendor risk and compliance scoring integrated with procurement decisions."
     ]
   },
-  "itom/halo-service-solutions": {
-    "competitiveEdge": "ITIL v4-certified ITSM platform purpose-built for IT service providers and MSPs.",
-    "swot": {
-      "strengths": [
-        "ITIL v4 certification differentiates from non-compliant competitors.",
-        "Strong growth (+30% YoY) indicates strong MSP and service provider demand.",
-        "CRM integration addresses unique MSP customer management needs."
-      ],
-      "weaknesses": [
-        "Small revenue ($10M ARR) limits scale, support, and feature development.",
-        "UK-based vendor; potential challenges entering US enterprise markets.",
-        "Niche focus (service providers) vs broader ITSM market."
-      ],
-      "opportunities": [
-        "ITIL v4 adoption wave among service providers and consultancies.",
-        "Adjacent markets: PSA (professional services automation) integration.",
-        "Global MSP consolidation and scale-up demand."
-      ],
-      "threats": [
-        "Larger ITSM platforms (ServiceNow, Atlassian) expanding MSP features.",
-        "Dedicated PSA platforms (Kimble, Kantata) adding ITSM capabilities.",
-        "Consolidation of small ITSM vendors into larger suites."
-      ]
-    },
-    "userLikes": [
-      "ITIL v4 alignment ensures compliance and industry recognition.",
-      "MSP-focused design addresses service provider unique workflows.",
-      "Integrated CRM reduces tool sprawl for customer-facing IT teams."
-    ],
-    "userComplaints": [
-      "Limited enterprise feature depth vs larger ITSM platforms.",
-      "Small vendor support and feature velocity concerns.",
-      "Scaling challenges for growing MSPs."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Managed Service Providers (MSPs) and IT service providers",
-        "IT consultancies and system integrators",
-        "Mid-market enterprises with managed services model"
-      ],
-      "typicalBuyer": "Service delivery manager or MSP operations director.",
-      "topUseCases": [
-        "ITIL v4-compliant service delivery and ticket management.",
-        "Customer relationship and project tracking for managed services.",
-        "Compliance documentation and audit support."
-      ]
-    },
-    "futureAreas": [
-      "AI-driven ticket classification and routing for service efficiency.",
-      "Integration with remote monitoring and management (RMM) tools.",
-      "Analytics and insights for service provider performance optimization."
-    ]
-  },
   "itom/happyfox": {
     "competitiveEdge": "AI-powered omni-channel help desk unifying ticket automation and self-service.",
     "swot": {
@@ -9193,59 +8732,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI-driven service dependency mapping and risk analysis.",
       "Automated compliance checks and audit trails for services.",
       "Integration with cloud cost allocation and FinOps workflows."
-    ]
-  },
-  "itom/backstage": {
-    "competitiveEdge": "Open-source developer portal from Spotify reduces IT onboarding friction by centralizing service discovery and platform governance without proprietary lock-in.",
-    "swot": {
-      "strengths": [
-        "CNCF-backed open-source model enables community contributions and rapid feature iteration.",
-        "Zero licensing cost and vendor neutrality appeal to organizations resistant to proprietary platforms.",
-        "Strong adoption among software engineering teams creates natural expansion path to IT operations."
-      ],
-      "weaknesses": [
-        "Open-source governance model creates implementation and customization burden versus commercial platforms.",
-        "Limited dedicated IT-specific features compared to purpose-built ITSM or IDP vendors.",
-        "Fragmented commercial support ecosystem; no single vendor guarantees production SLA."
-      ],
-      "opportunities": [
-        "Emerging platform engineering teams standardizing on Backstage create IT governance integration demand.",
-        "Hybrid cloud and multi-cloud environments drive need for unified service discovery across platforms.",
-        "AI-powered plugin ecosystem could automate infrastructure provisioning and cost optimization."
-      ],
-      "threats": [
-        "Commercial IDP vendors (Port, Cortex) offer dedicated support and IT governance features faster.",
-        "Organizations may choose managed Spotify Cloud offering, fragmenting self-hosted community.",
-        "Incumbents like ServiceNow expanding developer portal capabilities erode Backstage differentiation."
-      ]
-    },
-    "userLikes": [
-      "No licensing costs and open-source flexibility enable rapid customization for unique requirements.",
-      "Strong support from platform engineering community improves adoption and knowledge sharing.",
-      "Integrates naturally with cloud-native and infrastructure-as-code workflows."
-    ],
-    "userComplaints": [
-      "Implementation complexity and internal customization burden require significant engineering effort.",
-      "Limited out-of-the-box IT governance and compliance features compared to commercial solutions.",
-      "Production support and SLA guarantees depend on external vendors, not Spotify."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Engineering-driven organizations with mature platform engineering practices.",
-        "Tech companies and startups prioritizing flexibility and cost efficiency over managed support.",
-        "Large enterprises with in-house platform teams capable of implementing and maintaining Backstage."
-      ],
-      "typicalBuyer": "Platform Engineering Lead or Infrastructure Architect tasked with standardizing service discovery across teams.",
-      "topUseCases": [
-        "Centralized service catalog and discovery reducing onboarding friction for developers.",
-        "Self-service infrastructure and platform provisioning workflows powered by Backstage plugins.",
-        "Software bill of materials (SBOM) and architecture governance across polyglot microservices."
-      ]
-    },
-    "futureAreas": [
-      "AI-augmented service recommendations and anomaly detection from plugin ecosystem data.",
-      "Tighter integration with infrastructure observability and cost management platforms.",
-      "Enterprise governance layer (role-based access, audit trails) to support larger organizations."
     ]
   },
   "itom/port": {
@@ -10025,59 +9511,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with asset management and CMDB to enable context-aware resolution recommendations."
     ]
   },
-  "itom/pipefy": {
-    "competitiveEdge": "No-code automation platform enabling mid-market IT teams to design and optimize workflows without custom development, competing against low-code incumbents on ease-of-use and speed-to-value.",
-    "swot": {
-      "strengths": [
-        "Low barrier to entry and rapid workflow deployment without technical coding expertise required",
-        "Lightweight alternative to heavyweight ITSM platforms; flexible for process innovation beyond ticketing",
-        "Strong positioning for organizations seeking agile BPM without vendor lock-in or lengthy implementations"
-      ],
-      "weaknesses": [
-        "Limited native IT-specific modules compared to dedicated ITSM suites; requires customization for IT complexity",
-        "Smaller scale and brand recognition versus established players limits enterprise trust and partner ecosystem",
-        "Pricing and total cost of ownership transparency varies; scaling complexity may increase as workflows grow"
-      ],
-      "opportunities": [
-        "Growing demand for process automation in IT operations as organizations digitally transform legacy workflows",
-        "Cloud FinOps and cost optimization workflows represent new adjacent market within existing customer base",
-        "API-first and integration marketplace expansion to position as orchestration hub for dispersed IT tools"
-      ],
-      "threats": [
-        "Larger ITSM and BPM vendors expanding no-code capabilities, reducing differentiation in ease-of-use",
-        "Startups and specialized low-code platforms competing on faster time-to-value and niche IT automation",
-        "Economic pressure on IT budgets; customers may rationalize tools, favoring consolidated platforms over point solutions"
-      ]
-    },
-    "userLikes": [
-      "Fast setup and deployment; teams can build and iterate on workflows without IT backlogs",
-      "Intuitive visual interface lowers skills barrier; domain expertise in IT processes matters more than coding",
-      "Flexible enough to handle non-standard or emerging workflows that rigid ITSM templates cannot accommodate"
-    ],
-    "userComplaints": [
-      "Lacks depth in certain IT-specific features (e.g., asset management, configuration management integration) compared to purpose-built ITSM platforms",
-      "Scaling and performance concerns as workflow complexity and data volume increase; support responsiveness uneven",
-      "Limited out-of-the-box integrations with enterprise tools; custom connectors often required, adding time and cost"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market organizations (500–5,000 employees) modernizing legacy IT operations without full ITSM replacement",
-        "Departments and business units seeking rapid process automation for non-standard workflows outside core ticketing",
-        "Organizations prioritizing speed-to-value and agility over comprehensive feature depth in a single platform"
-      ],
-      "typicalBuyer": "IT Operations Manager or Process Improvement Lead tasked with automating workflows quickly and demonstrating ROI without enterprise software overhead",
-      "topUseCases": [
-        "IT request fulfillment and workflow automation (provisioning, access requests, change coordination)",
-        "Operational process optimization and business continuity workflows across IT and adjacent departments",
-        "Custom incident response, troubleshooting, and escalation workflows not well-served by standard ITSM ticketing"
-      ]
-    },
-    "futureAreas": [
-      "AI-assisted workflow design and intelligent process mining to help organizations identify automation opportunities",
-      "Deeper integrations with cloud infrastructure and observability tools to support FinOps and cost governance workflows",
-      "Enterprise-grade governance, audit, and compliance features to enable platform scaling into larger organizations"
-    ]
-  },
   "itom/deepser": {
     "competitiveEdge": "GDPR-compliant ITSM platform purpose-built for European enterprises prioritizing data sovereignty and regulatory compliance.",
     "swot": {
@@ -10497,112 +9930,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI-driven incident detection and predictive analytics to reduce mean time to resolution.",
       "Deeper mobile-first capabilities and native app support for frontline and field IT teams.",
       "Ecosystem partnerships with cloud and hybrid infrastructure platforms to expand integration reach."
-    ]
-  },
-  "itom/jotform-workflows": {
-    "competitiveEdge": "Lightweight form-driven workflow automation reduces IT service request friction without requiring large-scale ITSM platform licensing or implementation overhead.",
-    "swot": {
-      "strengths": [
-        "Low barrier to entry—forms-first approach requires minimal IT process redesign compared to enterprise ITSM suites.",
-        "Cost-effective for organizations with simpler workflows—avoids expensive ServiceNow, Atlassian, or BMC deployments.",
-        "Rapid iteration on service request templates—non-technical stakeholders can modify workflows without engineering involvement."
-      ],
-      "weaknesses": [
-        "Limited enterprise integrations—fewer out-of-box connectors to asset management, CMDB, and monitoring tools than ITSM incumbents.",
-        "Scaling challenges—form-based architecture may struggle with complex multi-step workflows or high-volume concurrent requests.",
-        "Vendor lock-in perception—lacking open standards or native IT ops APIs that larger platforms expose."
-      ],
-      "opportunities": [
-        "Mid-market ITSM adoption—organizations outgrowing homegrown ticketing but not ready for ServiceNow or Jira Service Management.",
-        "Vertical expansion into managed service providers—MSPs seeking lightweight, white-label request intake for multiple customers.",
-        "AI-driven workflow optimization—intelligent form field suggestions and automated routing based on content analysis.",
-        "Native ITAM/Cloud FinOps connectors—deep integrations with asset lifecycle and cloud cost governance platforms."
-      ],
-      "threats": [
-        "Incumbent consolidation—ServiceNow, Atlassian, and Microsoft expanding low-code/no-code offerings into form automation.",
-        "Open-source alternatives—self-hosted, community-driven workflow engines reducing demand for proprietary SaaS.",
-        "Customer churn to hyperscaler platforms—customers integrating AWS Service Catalog, Azure Automation, or GCP Cloud Tasks natively."
-      ]
-    },
-    "userLikes": [
-      "Simple, intuitive form builder—non-technical teams adopt quickly without vendor training.",
-      "Fast deployment relative to traditional ITSM—weeks, not months, to initial service request automation.",
-      "Transparent, predictable pricing—no per-user licensing surprises compared to enterprise ITSM vendors."
-    ],
-    "userComplaints": [
-      "Limited visibility into downstream fulfillment—forms capture requests but lack deep integration with actual resolution systems.",
-      "Insufficient customization for complex incident routing—rule-based logic insufficient for multi-team escalation or SLA-aware assignment.",
-      "Poor audit and compliance reporting—forms alone don't satisfy change management or compliance frameworks like ITIL or SOX."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market organizations (500–5000 employees) with distributed IT teams seeking lightweight intake automation.",
-        "Departments and business units avoiding enterprise ITSM licensing—line-of-business IT governance use cases.",
-        "Managed service providers and IT outsourcers needing simple, customer-facing request channels."
-      ],
-      "typicalBuyer": "IT Operations Manager or Service Delivery Lead responsible for reducing request handling overhead and improving intake consistency.",
-      "topUseCases": [
-        "Self-service IT request submission—password resets, access requests, hardware provisioning intake.",
-        "Vendor and contract renewal tracking—data gathering and approval workflows for software and cloud subscriptions.",
-        "Compliance and audit form collection—structured intake for change approvals, risk assessments, and incident reporting."
-      ]
-    },
-    "futureAreas": [
-      "Intelligent request classification and auto-routing—ML-based field parsing to route forms to appropriate fulfillment teams without manual triage.",
-      "Deeper IT ecosystem integrations—native connectors to leading CMDB, monitoring, and cost governance platforms.",
-      "Embedded analytics and optimization—visibility into request patterns, bottlenecks, and process improvement recommendations."
-    ]
-  },
-  "itom/freshdesk": {
-    "competitiveEdge": "Unified omnichannel support platform combining customer and IT service management, enabling organizations to manage IT and customer issues through a single, integrated interface rather than separate siloed tools.",
-    "swot": {
-      "strengths": [
-        "Strong omnichannel integration across customer support, IT service desk, and help desk functions in one platform.",
-        "Designed for mid-market and growing enterprises seeking cost-effective alternative to incumbent ITSM suites.",
-        "Cloud-native architecture enables rapid deployment with minimal IT overhead compared to on-premises ITSM tools."
-      ],
-      "weaknesses": [
-        "Limited enterprise-grade customization and advanced workflow capabilities versus established ITSM incumbents.",
-        "Smaller partner and ecosystem maturity relative to market leaders, limiting integrations and professional services.",
-        "Positioned as niche player; less brand recognition and enterprise adoption than ServiceNow or other major platforms."
-      ],
-      "opportunities": [
-        "Growing demand for unified support platforms as organizations seek to reduce tool sprawl and operational complexity.",
-        "Mid-market ITSM modernization cycles where cloud-first, integrated platforms compete against aging on-premises deployments.",
-        "Expansion into IT asset management and cloud FinOps as enterprises mature IT operations tooling."
-      ],
-      "threats": [
-        "Established ITSM incumbents expanding omnichannel and integrated capabilities, leveraging existing enterprise relationships.",
-        "Specialized competitors in ITAM and cloud FinOps consolidating those functions, fragmenting Freshworks' positioning.",
-        "Continued price compression in mid-market ITSM as cloud-native tooling commoditizes service desk functionality."
-      ]
-    },
-    "userLikes": [
-      "Unified interface that combines IT and customer support, reducing context switching and improving operational efficiency.",
-      "Cloud-based deployment with low implementation overhead, enabling faster time-to-value for growing organizations.",
-      "User-friendly design and mobile accessibility that resonates with modern IT teams and end-users."
-    ],
-    "userComplaints": [
-      "Limited advanced reporting and analytics capabilities compared to enterprise ITSM platforms, hindering complex IT governance needs.",
-      "Workflow customization feels restrictive for large enterprises with complex, non-standard IT processes.",
-      "Integration gaps with legacy systems and niche IT tools, requiring manual workarounds or custom development."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market enterprises (500–5000 employees) seeking unified IT and customer support consolidation.",
-        "High-growth SaaS and tech companies prioritizing simplicity and rapid ITSM adoption over extensive customization."
-      ],
-      "typicalBuyer": "IT Operations Manager or Service Delivery Lead at a growing enterprise seeking to unify fragmented support tooling.",
-      "topUseCases": [
-        "IT service desk and ticket management with omnichannel routing across email, chat, and knowledge base.",
-        "Integrated customer and employee support to reduce tool sprawl and licensing complexity.",
-        "Cloud-first IT operations with minimal on-premises infrastructure and dependency."
-      ]
-    },
-    "futureAreas": [
-      "AI-driven ticket automation and intelligent routing to reduce manual triage and improve MTTR.",
-      "Deeper integration with cloud infrastructure monitoring and observability tools to bridge ITSM and cloud operations.",
-      "Enhanced IT asset and financial management capabilities to compete in cloud FinOps and ITAM segments."
     ]
   },
   "itom/vantage": {
@@ -14977,62 +14304,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
      ITOM — Next 5 Startups
   ══════════════════════════════════════════════════════════════════════════ */
 
-  "itom/productiv": {
-    competitiveEdge: "Productiv is the only SaaS management platform built around actual engagement data — measuring whether employees actually use the apps IT is paying for, enabling precise right-sizing that saves 20–40% of SaaS spend.",
-    swot: {
-      strengths: [
-        "Engagement analytics go beyond license counts to measure actual feature usage per user",
-        "AI-powered renewal intelligence flags at-risk contracts 90+ days before renewal",
-        "Pre-negotiated benchmarks from $30B+ SaaS transaction database inform negotiation strategies",
-        "Integrates with Okta, Azure AD, and SSO providers for instant app discovery without agents",
-        "Executive dashboards align IT and finance on SaaS spend ROI with business outcome metrics",
-      ],
-      weaknesses: [
-        "Narrower platform scope vs. Zluri and BetterCloud for IT workflow automation and provisioning",
-        "Requires significant historical data to deliver accurate renewal optimization recommendations",
-        "Price point targets enterprise buyers, limiting reach to SMB and mid-market segments",
-        "Benchmark data accuracy depends on anonymized community data quality from peer companies",
-      ],
-      opportunities: [
-        "SaaS spend management becoming a board-level priority as software costs grow 15–25% annually",
-        "Procurement and IT convergence: extending from SaaS management into broader vendor management",
-        "AI-powered contract analysis to extract and compare terms from complex SaaS agreements",
-        "Expanding into hardware asset management for comprehensive IT spend visibility",
-      ],
-      threats: [
-        "Zylo and Vendr competing with similar SaaS intelligence and negotiation support features",
-        "Apptio Cloudability and Flexera adding SaaS spend management to FinOps platforms",
-        "Procurement platforms (Coupa, SAP Ariba) adding SaaS-specific spend management modules",
-        "IT consolidation reducing SaaS sprawl and therefore the need for SaaS management tools",
-      ],
-    },
-    userLikes: [
-      "Engagement data reveals which SaaS tools employees actually use vs. just have access to",
-      "Renewal calendar with 90-day advance notice prevents costly auto-renewals of underused apps",
-      "Benchmark pricing data gives IT procurement concrete leverage in vendor negotiations",
-      "Clean executive dashboard makes SaaS spend justification straightforward for business reviews",
-    ],
-    userComplaints: [
-      "Initial data ingestion and analysis takes weeks before actionable insights surface",
-      "Limited workflow automation for provisioning and deprovisioning compared to BetterCloud",
-      "Enterprise-only pricing model prevents smaller IT teams from accessing benchmark intelligence",
-    ],
-    customerProfile: {
-      segments: ["Mid-Market Enterprise", "Fortune 500 IT Finance", "Technology Companies"],
-      typicalBuyer: "VP IT, Director of IT Finance, or Chief Procurement Officer",
-      topUseCases: [
-        "SaaS spend optimization through usage-based license right-sizing before renewals",
-        "Vendor negotiation support using benchmark pricing from comparable company transactions",
-        "SaaS portfolio rationalization identifying redundant tools and consolidation opportunities",
-      ],
-    },
-    futureAreas: [
-      "AI contract intelligence: automatically extract, compare, and flag key terms across SaaS agreements",
-      "Predictive spend modeling: forecast SaaS budget requirements based on headcount and growth plans",
-      "Integration with HR systems to automate license provisioning and deprovisioning with hiring/offboarding",
-      "Extending benchmarking to cloud infrastructure spend beyond SaaS applications",
-    ],
-  },
 
   "itom/zylo": {
     competitiveEdge: "Zylo's SaaS negotiation intelligence — backed by $40B+ in SaaS transaction data — transforms IT procurement from reactive contract renewal to proactive, data-driven vendor negotiation.",
@@ -20652,62 +19923,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration ecosystem expansion with 100+ pre-built connectors for global IT toolchains",
     ],
   },
-  "itom/zoho-desk": {
-    competitiveEdge: "Zoho Desk delivers enterprise-grade IT service management at the most competitive price point in the category — tightly integrated with the Zoho One business suite that 700,000+ organizations already use, enabling IT teams to create unified employee and customer service workflows without multi-vendor complexity.",
-    swot: {
-      strengths: [
-        "Zia AI provides sentiment analysis, tag prediction, and automated response suggestions natively",
-        "Deep Zoho One integration with CRM, Analytics, Projects, and 50+ Zoho apps for unified workflows",
-        "Extremely competitive pricing — feature-complete ITSM at a fraction of Zendesk or Freshservice",
-        "Omnichannel support across email, phone, chat, social media, and web in one queue",
-        "Strong self-service portal with AI-powered article recommendation to deflect tickets",
-      ],
-      weaknesses: [
-        "ITIL process maturity (change, CMDB, problem management) less comprehensive than ServiceNow",
-        "Enterprise customization ceiling for very complex approval workflows",
-        "Less recognized in enterprise ITSM evaluations — primarily associated with SMB and CRM use cases",
-        "Professional services ecosystem thinner than Freshservice or ServiceNow for large implementations",
-      ],
-      opportunities: [
-        "Zoho One upsell — 700,000 Zoho customers are natural targets for Zoho Desk expansion",
-        "AI-powered ITSM automation as Zia evolves toward autonomous ticket resolution",
-        "Mid-market enterprise expansion competing against Zendesk and Freshservice on price",
-        "Developer-friendly API enabling deep integrations with legacy IT infrastructure tools",
-      ],
-      threats: [
-        "Freshdesk and Zendesk dominating mindshare in the competitive omnichannel help desk segment",
-        "Microsoft Copilot Studio embedding AI service automation inside M365 for near-zero cost",
-        "ServiceNow and Freshservice capturing enterprise ITSM budget at Zoho's target price point",
-        "SMB perception limiting Zoho Desk evaluations in Fortune 1000 ITSM bake-offs",
-      ],
-    },
-    userLikes: [
-      "Price-to-feature ratio is genuinely best-in-class — more ITSM capability per dollar than any competitor",
-      "Zoho One integration creates seamless workflows between CRM, billing, and IT support",
-      "Zia AI sentiment and tag automation reduces manual ticket triaging work significantly",
-      "Self-service portal deflection quality is high — article recommendation reduces repeat tickets",
-    ],
-    userComplaints: [
-      "Change management and CMDB workflows require workarounds vs. purpose-built ITSM platforms",
-      "Enterprise ITSM evaluation credibility limited — buyers associate Zoho with SMB not enterprise",
-      "Reporting depth requires Zoho Analytics subscription for advanced performance dashboards",
-    ],
-    customerProfile: {
-      segments: ["SMB", "Mid-Market"],
-      typicalBuyer: "IT Manager or VP of Customer Success at a Zoho One shop or cost-conscious mid-market organization",
-      topUseCases: [
-        "Omnichannel IT help desk with AI-powered ticket automation across email, chat, and phone",
-        "Zoho One-integrated service management linking IT support to CRM, billing, and project workflows",
-        "Self-service portal with AI-powered knowledge base deflecting common IT requests",
-      ],
-    },
-    futureAreas: [
-      "Zia AI evolution toward autonomous ticket resolution and predictive incident management",
-      "Zoho Desk for ITSM expansion with full ITIL change and problem management capabilities",
-      "Enhanced enterprise sales motion positioning Zoho Desk in Fortune 1000 ITSM evaluations",
-      "Zoho One deep integration creating unified employee experience across IT, HR, and Finance",
-    ],
-  },
 
 
 
@@ -23563,23 +22778,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     },
     futureAreas: ["Native Asana AI Studio integration", "Cross-system agent execution", "Enterprise governance and audit", "Prebuilt agent templates by function"],
   },
-  "agentops/ultravox": {
-    competitiveEdge: "Speech-native open-weight SLM skips speech-to-text for ~150ms latency, real-time voice agents",
-    swot: {
-      strengths: ["Direct audio-to-LLM design removes ASR stage for low latency", "Open-weight SLM on Hugging Face builds developer trust and adoption", "Managed Realtime platform offers build-and-deploy path for agents", "Speech-native handling enables more natural, fluid conversation", "Backed by Redpoint, Madrona, Zetta and SignalFire"],
-      weaknesses: ["Modest $17M funding versus well-capitalized voice-AI rivals", "Narrow voice focus limits cross-sell beyond conversational use", "Smaller team and ecosystem than incumbent CX platforms", "Open-weight model can aid competitors as well as customers"],
-      opportunities: ["Surging demand for real-time voice agents in support and ops", "Win developers wanting open, self-hostable voice infrastructure", "Embed as the voice layer inside broader agent platforms", "Differentiate on latency as voice UX expectations rise"],
-      threats: ["OpenAI, Google and ElevenLabs pushing realtime voice APIs", "Foundation-model vendors bundling native speech capabilities", "Commoditizing voice stack compressing pricing", "Larger players matching latency with deeper resources"],
-    },
-    userLikes: ["Genuinely real-time, low-latency conversational responsiveness", "Open weights allow self-hosting and customization", "Bypassing transcription yields more natural dialogue", "Developer-friendly model plus managed platform options"],
-    userComplaints: ["Smaller ecosystem and tooling than incumbent voice platforms", "Self-hosting open weights demands real ML infrastructure effort", "Enterprise features still maturing relative to scale"],
-    customerProfile: {
-      segments: ["Developers", "Startups", "Voice-AI builders"],
-      typicalBuyer: "Engineering lead or founder building voice products",
-      topUseCases: ["Real-time voice agents and assistants", "Speech-native conversational interfaces", "Self-hosted low-latency voice apps"],
-    },
-    futureAreas: ["Multilingual speech support", "Enterprise telephony and contact-center integrations", "Improved model size and accuracy", "Tooling for agent orchestration around voice"],
-  },
   "agentops/hebbia": {
     competitiveEdge: "Matrix agent platform reasons over huge document sets via ISD, returning cited, multi-step answers",
     swot: {
@@ -23843,62 +23041,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     "competitiveEdge": "Acts autonomously in production — 25M+ safe actions across $3B managed spend, beyond dashboards and advice."
   },
 
-  "aiops/k8sgpt": {
-    "swot": {
-      "strengths": [
-        "CNCF Sandbox project with active, vendor-neutral governance",
-        "8k GitHub stars and 1k forks with steady release cadence into 2026",
-        "Supports many AI backends including OpenAI, Bedrock, Azure, and local models",
-        "Operator mode enables continuous in-cluster scanning, not just one-off CLI runs",
-        "Free and open source, easy bottom-up adoption by platform teams"
-      ],
-      "weaknesses": [
-        "No commercial support or SLA behind the project",
-        "Diagnostic quality depends on the chosen LLM backend",
-        "Scope limited to Kubernetes diagnostics, not full observability",
-        "Still Sandbox maturity; incubation not yet achieved"
-      ],
-      "opportunities": [
-        "CNCF incubation path underway per May 2026 governance prep",
-        "Local model support for privacy-sensitive enterprises",
-        "Integration into platform engineering golden paths",
-        "Agent and MCP ecosystem integrations"
-      ],
-      "threats": [
-        "AI assistants built into kubectl and hyperscaler consoles",
-        "Observability vendors bundling K8s AI troubleshooting",
-        "General-purpose coding agents handling cluster debugging",
-        "Maintainer and contributor sustainability risk"
-      ]
-    },
-    "userLikes": [
-      "Plain-English explanations of cryptic cluster errors",
-      "Fast triage that saves SRE investigation time",
-      "Simple install as CLI or Kubernetes operator",
-      "Built-in anonymization of sensitive cluster data"
-    ],
-    "userComplaints": [
-      "LLM token costs add up on large clusters",
-      "Remediation advice can be generic for complex failures",
-      "Configuring AI backends and auth can be fiddly"
-    ],
-    "customerProfile": {
-      "segments": ["Platform engineering teams", "Kubernetes-heavy enterprises"],
-      "typicalBuyer": "Platform engineering lead or SRE manager adopting bottom-up via OSS",
-      "topUseCases": [
-        "Triaging failing pods and misconfigurations",
-        "Continuous in-cluster scanning via operator",
-        "Helping junior engineers debug Kubernetes"
-      ]
-    },
-    "futureAreas": [
-      "CNCF incubation and graduated maturity",
-      "Deeper automated remediation workflows",
-      "Expanded local and open-model backends",
-      "Tighter observability stack integrations"
-    ],
-    "competitiveEdge": "De facto open-source standard for AI-assisted Kubernetes diagnostics, under CNCF governance."
-  },
 
   "aiops/pydantic-logfire": {
     "swot": {
@@ -27439,5 +26581,911 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Deeper telecom and healthcare operations"
     ],
     "competitiveEdge": "Agents built inside its own insurer, with prebuilt FNOL, submission and renewal workflows and built-in governance"
+  },
+  "aiops/gigamon": {
+    "swot": {
+      "strengths": [
+        "650 Group: 51% share of the deep observability market in 2025",
+        "Ranked sixth largest vendor in the overall observability market by 650 Group",
+        "Serves 4,000+ organizations including 83 of the Fortune 100",
+        "Network-derived telemetry covers blind spots that agents and logs miss",
+        "AI Traffic Intelligence classifies GenAI and shadow AI traffic"
+      ],
+      "weaknesses": [
+        "Hardware-centric heritage; appliances add capex and deployment effort",
+        "Feeds other tools rather than offering full APM or log analytics",
+        "Private company with no disclosed revenue or growth figures",
+        "Pricing and licensing perceived as complex for smaller teams"
+      ],
+      "opportunities": [
+        "Deep observability segment forecast at 29% CAGR to ~$2.1B by 2030",
+        "Shadow AI and LLM traffic visibility for security teams",
+        "Cloud-delivered offerings projected to reach 54% of segment by 2030",
+        "Telemetry cost control by pre-processing before SIEM and APM ingest"
+      ],
+      "threats": [
+        "Cloud providers offering native packet mirroring and flow logs",
+        "Security vendors embedding network detection into their own sensors",
+        "Telemetry pipeline vendors such as Cribl competing for data routing budget",
+        "Encrypted traffic growth limiting depth of packet-level inspection"
+      ]
+    },
+    "userLikes": [
+      "Reliable packet brokering and traffic visibility at very high throughput",
+      "Metadata extraction reduces load on downstream security tools",
+      "Broad integrations with SIEM, NDR and observability platforms",
+      "Strong fit for hybrid and multi-cloud traffic visibility"
+    ],
+    "userComplaints": [
+      "Appliances and licenses can be expensive",
+      "Initial configuration and policy design has a learning curve",
+      "Management UI can feel dated compared to cloud-native tools"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises and Fortune 100 firms",
+        "Mobile network operators and public sector"
+      ],
+      "typicalBuyer": "Network or security architect responsible for hybrid cloud visibility",
+      "topUseCases": [
+        "Feeding network metadata to SIEM and NDR tools",
+        "Hybrid cloud traffic visibility and packet brokering",
+        "Detecting shadow AI and LLM traffic on the network"
+      ]
+    },
+    "futureAreas": [
+      "Distributed processing in the deep observability pipeline",
+      "GenAI and LLM traffic classification",
+      "Cloud-delivered deep observability offerings",
+      "AI-driven insights on network-derived telemetry"
+    ],
+    "competitiveEdge": "Dominant share in deep observability, turning network traffic into telemetry other tools cannot see"
+  },
+  "aiops/checkmk": {
+    "swot": {
+      "strengths": [
+        "Over 4,000 customers and tens of thousands of users in 50+ countries",
+        "Growth investment from PSG Equity announced Feb 2025",
+        "Free Community edition plus Pro, Ultimate and Cloud tiers",
+        "Thousands of auto-discovery checks for servers, network and cloud",
+        "Checkmk 2.5 adds OpenTelemetry, AI analysis and Relay"
+      ],
+      "weaknesses": [
+        "Brand awareness weaker in the US than in Europe",
+        "APM and tracing depth trails full-stack observability leaders",
+        "Configuration model has a learning curve for new users"
+      ],
+      "opportunities": [
+        "US expansion via Climb distribution partnership (Mar 2026)",
+        "Replacing legacy Nagios-era tools in hybrid IT estates",
+        "CMDB enrichment through Xurrent partnership",
+        "Cost-conscious buyers leaving per-host SaaS pricing"
+      ],
+      "threats": [
+        "Datadog and Dynatrace pushing down-market with bundled infra monitoring",
+        "Zabbix and other open-source tools competing on price",
+        "Paessler PRTG and SolarWinds in the same hybrid IT segment",
+        "Cloud-native buyers preferring OpenTelemetry-first platforms"
+      ]
+    },
+    "userLikes": [
+      "Auto-discovery sets up host and service checks quickly",
+      "Scales to large environments with modest hardware",
+      "Wide plugin library covers networking and legacy gear",
+      "Predictable licensing versus usage-based SaaS"
+    ],
+    "userComplaints": [
+      "Web UI can feel cluttered and technical",
+      "Rule-based configuration is hard to learn",
+      "Dashboards less polished than newer observability tools"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-size and large enterprises with hybrid IT",
+        "Managed service providers in Europe"
+      ],
+      "typicalBuyer": "Infrastructure or IT operations manager consolidating monitoring tools",
+      "topUseCases": [
+        "Server, network and storage monitoring",
+        "Hybrid cloud and Kubernetes infrastructure checks",
+        "Alerting and capacity tracking for IT ops"
+      ]
+    },
+    "futureAreas": [
+      "OpenTelemetry-based application observability",
+      "AI-assisted alert analysis",
+      "SaaS growth through Checkmk Cloud",
+      "Automated remediation via Relay"
+    ],
+    "competitiveEdge": "Mature, scalable hybrid infrastructure monitoring with a free tier and predictable licensing"
+  },
+  "aiops/kloudfuse": {
+    "swot": {
+      "strengths": [
+        "Single platform for metrics, logs, traces, RUM, APM and profiling",
+        "Telemetry stays inside the customer cloud for data control",
+        "Enterprise MCP server gives AI agents governed data access",
+        "Zscaler cited as a production reference customer",
+        "Workload isolation scales ingest, query and control plane separately"
+      ],
+      "weaknesses": [
+        "Small company; latest disclosed round is $23M from 2023",
+        "Customer runs infrastructure in its own cloud, adding ops overhead",
+        "Limited analyst coverage and third-party reviews"
+      ],
+      "opportunities": [
+        "Regulated buyers needing data residency and FIPS compliance",
+        "AI agent access to observability data via MCP",
+        "Cost-driven migrations away from usage-priced SaaS",
+        "Cardinality management as metric volumes grow"
+      ],
+      "threats": [
+        "Datadog and Grafana adding BYOC and data-residency options",
+        "Better-funded in-cloud rivals such as Tsuga and Groundcover",
+        "Hyperscaler-native observability bundled with cloud spend"
+      ]
+    },
+    "userLikes": [
+      "One interface across all telemetry types",
+      "Lower cost than per-GB SaaS observability",
+      "Responsive support during deployment"
+    ],
+    "userComplaints": [
+      "Self-managed deployment requires platform team effort",
+      "Smaller integration ecosystem than market leaders",
+      "Fewer community resources and tutorials"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Cloud-native mid-size and large enterprises",
+        "Regulated firms with data residency needs"
+      ],
+      "typicalBuyer": "Platform engineering or SRE lead consolidating observability spend",
+      "topUseCases": [
+        "Unified logs, metrics and traces in own cloud",
+        "Cost reduction versus SaaS observability",
+        "Governed AI agent access to telemetry"
+      ]
+    },
+    "futureAreas": [
+      "Agentic observability via MCP",
+      "Metrics cardinality optimization",
+      "SLO computation from raw data",
+      "FIPS-compliant deployments"
+    ],
+    "competitiveEdge": "Full-stack observability lake that runs in the customer's cloud, keeping data control and cost predictable"
+  },
+  "aiops/lightrun": {
+    "swot": {
+      "strengths": [
+        "$70M Series B (Apr 2025) led by Accel and Insight Partners",
+        "Dynamic instrumentation adds logs and metrics without redeploying",
+        "AI SRE validates root causes against live execution",
+        "Patented sandbox for safe interaction with production",
+        "Covers dev, test and live incident remediation"
+      ],
+      "weaknesses": [
+        "Agent-based instrumentation must be installed per runtime",
+        "Overlaps with observability tools buyers already own",
+        "Revenue and customer counts not publicly disclosed"
+      ],
+      "opportunities": [
+        "AI-generated code increasing production debugging demand",
+        "Enterprises seeking AI SRE grounded in runtime evidence",
+        "Cutting log volume by capturing telemetry only on demand"
+      ],
+      "threats": [
+        "Datadog and Dynatrace adding live debugging and AI agents",
+        "Well-funded AI SRE rivals such as Resolve AI and Traversal",
+        "Security reviews slowing approval of production instrumentation"
+      ]
+    },
+    "userLikes": [
+      "Add log lines to running services without a redeploy",
+      "Speeds root cause analysis in production",
+      "IDE integration fits developer workflows"
+    ],
+    "userComplaints": [
+      "Agent setup across many services takes effort",
+      "Language and runtime support is not universal",
+      "Pricing can be hard to justify alongside existing APM"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprise engineering organizations",
+        "Financial services and SaaS companies"
+      ],
+      "typicalBuyer": "VP of engineering or SRE lead reducing incident resolution time",
+      "topUseCases": [
+        "Live production debugging",
+        "AI-driven incident investigation",
+        "Reducing logging costs with on-demand telemetry"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous remediation of live incidents",
+      "Validating AI-generated code in production",
+      "Deeper MCP and agent integrations",
+      "Proactive issue detection pre-release"
+    ],
+    "competitiveEdge": "AI SRE grounded in live runtime context it can generate on demand, not just stored telemetry"
+  },
+  "aiops/tsuga": {
+    "swot": {
+      "strengths": [
+        "$35M Series A in Jun 2026 after $10M seed; about $45M raised",
+        "Founders sold Madumbo to Datadog and know the market well",
+        "Runs in customer cloud so telemetry never leaves the perimeter",
+        "Automated root-cause analysis on unsampled data",
+        "Bundled MCP server and CLI for building agents"
+      ],
+      "weaknesses": [
+        "Young company launched Dec 2025 with a small customer base",
+        "Revenue figures are company-stated and unaudited",
+        "Forward-deployed engineering model may limit scale"
+      ],
+      "opportunities": [
+        "European data sovereignty demands favor in-cloud deployment",
+        "Buyers frustrated by per-byte observability pricing",
+        "AI agents needing direct access to full-fidelity telemetry"
+      ],
+      "threats": [
+        "Datadog and Grafana offering BYOC and data-residency tiers",
+        "In-cloud rivals such as Kloudfuse and Groundcover",
+        "Hyperscaler observability bundles reducing standalone demand"
+      ]
+    },
+    "userLikes": [
+      "Telemetry stays in own cloud account",
+      "Predictable pricing versus usage-based SaaS",
+      "Hands-on engineering support during rollout"
+    ],
+    "userComplaints": [
+      "Early product with feature gaps versus incumbents",
+      "Limited integrations compared with mature platforms",
+      "Few public reviews to benchmark against"
+    ],
+    "customerProfile": {
+      "segments": [
+        "European scale-ups and AI companies",
+        "Mid-size enterprises with data residency needs"
+      ],
+      "typicalBuyer": "CTO or platform engineering lead seeking sovereign observability",
+      "topUseCases": [
+        "Full-stack observability in own cloud",
+        "Automated root-cause analysis",
+        "Agent access to telemetry via MCP"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven incident investigation",
+      "US market expansion",
+      "Agent-building tooling on telemetry",
+      "Scaling for AI-era data volumes"
+    ],
+    "competitiveEdge": "In-cloud, AI-native observability from ex-Datadog founders without per-byte pricing"
+  },
+  "aiops/ciroos": {
+    "swot": {
+      "strengths": [
+        "$21M raised in Jun 2025, led by Energy Impact Partners",
+        "CEO previously ran AppDynamics and full-stack observability at Cisco",
+        "Founding team holds 84 patents across networking and software",
+        "Investigates across cloud, network and application layers",
+        "Certified ServiceNow Store app with two-way incident sync"
+      ],
+      "weaknesses": [
+        "Early-stage company with few public customer references",
+        "Depends on existing observability tools for underlying data",
+        "Limited independent reviews of investigation accuracy"
+      ],
+      "opportunities": [
+        "ITSM-integrated AI SRE for ServiceNow-centric enterprises",
+        "Network-plus-application root cause that app-only tools miss",
+        "Multi-agent interoperability via A2A and MCP"
+      ],
+      "threats": [
+        "Heavily funded AI SRE rivals such as Resolve AI and Traversal",
+        "Observability platforms building native AI SRE agents",
+        "Enterprise caution over autonomous production actions"
+      ]
+    },
+    "userLikes": [
+      "Integrates with existing tools instead of replacing them",
+      "Investigations span network and application context",
+      "Human approval keeps remediation actions safe"
+    ],
+    "userComplaints": [
+      "Young product still adding integrations",
+      "Autopilot mode needs trust-building before use",
+      "Limited documentation and community"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with hybrid infrastructure",
+        "ServiceNow-centric IT operations teams"
+      ],
+      "typicalBuyer": "SRE or IT operations leader reducing MTTR and on-call load",
+      "topUseCases": [
+        "Autonomous incident investigation",
+        "Cross-domain root cause analysis",
+        "ServiceNow incident enrichment"
+      ]
+    },
+    "futureAreas": [
+      "Expanded autopilot remediation",
+      "More ITSM and observability integrations",
+      "A2A multi-agent workflows",
+      "Network-aware AI SRE depth"
+    ],
+    "competitiveEdge": "AI SRE that reasons across network and application layers, built by ex-Cisco observability leaders"
+  },
+  "agentops/airia": {
+    "swot": {
+      "strengths": [
+        "Single platform spanning agent orchestration, security and governance",
+        "$100M backing from AirWatch co-founder John Marshall",
+        "300+ enterprise customers reported within roughly a year of founding",
+        "Model-agnostic guardrails, AI firewalls and role-based permissions",
+        "Agent and model registry provides a system of record for all agents"
+      ],
+      "weaknesses": [
+        "Funding comes from a single investor rather than institutional VCs",
+        "Broad scope risks being shallower than point tools in each pillar",
+        "Young company with limited independent reviews",
+        "No disclosed revenue figures"
+      ],
+      "opportunities": [
+        "IT teams needing a control plane for sprawling agent deployments",
+        "A2A and MCP governance as agent interoperability grows",
+        "Regulatory compliance demand for AI audit trails and risk tiers",
+        "Channel expansion via partners such as Performa IT in Brazil"
+      ],
+      "threats": [
+        "Hyperscalers bundling agent governance into Azure, AWS and Google",
+        "ITSM platforms adding native AI control towers",
+        "Crowded AI security field: Zenity, Noma, Credal, Runlayer",
+        "Enterprise budget scrutiny as agentic AI projects get cancelled"
+      ]
+    },
+    "userLikes": [
+      "One console to build, secure and monitor AI agents",
+      "Guardrails and permissions are easy to apply across models",
+      "Audit logs make agent activity reviewable for compliance",
+      "Supports many LLM providers without lock-in"
+    ],
+    "userComplaints": [
+      "Breadth of features creates a learning curve",
+      "Some capabilities are new and still maturing",
+      "Limited third-party reviews to benchmark against"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises in regulated industries",
+        "IT and security teams governing agent rollouts"
+      ],
+      "typicalBuyer": "CIO, CISO or head of AI platform",
+      "topUseCases": [
+        "Central registry and policy control for enterprise AI agents",
+        "Guardrails and data-access enforcement for LLM apps",
+        "Orchestrating multi-model agent workflows"
+      ]
+    },
+    "futureAreas": [
+      "Deeper A2A and MCP protocol governance",
+      "Automated risk classification of agents",
+      "Expanded regional data residency options",
+      "Industry-specific compliance packs"
+    ],
+    "competitiveEdge": "Combines agent orchestration, security and governance in one model-agnostic platform for enterprise IT"
+  },
+  "agentops/treeline": {
+    "swot": {
+      "strengths": [
+        "$25M Series A led by Andreessen Horowitz",
+        "Software and AI layer standardizes IT workflows before humans step in",
+        "Claims AI augments or resolves 98% of customer requests",
+        "Partners with established MSPs instead of competing head-on",
+        "Founders bring venture and operating experience, incl. Accel"
+      ],
+      "weaknesses": [
+        "Services-heavy model may carry lower margins than pure software",
+        "Customer count and revenue undisclosed",
+        "Dependence on partner MSP quality for human work",
+        "Early-stage brand with few public references"
+      ],
+      "opportunities": [
+        "Over 80% of US businesses outsource IT to MSPs",
+        "Fragmented MSP market of roughly 40,000 firms ripe for software",
+        "Bringing enterprise-grade IT automation to smaller firms",
+        "Onboarding and provisioning automation as an entry wedge"
+      ],
+      "threats": [
+        "AI-enabled MSP rollups competing for the same customers",
+        "Human+AI help desks such as Fixify",
+        "Incumbent MSP platforms adding agentic automation",
+        "Execution risk scaling a blended services model"
+      ]
+    },
+    "userLikes": [
+      "Fast resolution of routine IT requests",
+      "Onboarding cut from about 20 minutes to 2 per company claims",
+      "Single point of contact for software and human support",
+      "Consistent, standardized IT processes"
+    ],
+    "userComplaints": [
+      "Limited public reviews to validate claims",
+      "Complex issues still depend on human technicians",
+      "Young provider with evolving service catalog"
+    ],
+    "customerProfile": {
+      "segments": [
+        "SMB and mid-market firms outsourcing IT",
+        "Companies without a full in-house IT department"
+      ],
+      "typicalBuyer": "COO, IT lead or founder at a growing company",
+      "topUseCases": [
+        "Automated employee onboarding and offboarding",
+        "AI triage and resolution of IT help desk requests",
+        "Device and SaaS access management"
+      ]
+    },
+    "futureAreas": [
+      "Expanding MSP partner network",
+      "More autonomous resolution with less human touch",
+      "Security and compliance services for SMBs",
+      "Insights from resolved tickets to prevent issues"
+    ],
+    "competitiveEdge": "Software-and-AI-first IT operating system that delivers MSP-grade service with partner technicians"
+  },
+  "agentops/risotto": {
+    "swot": {
+      "strengths": [
+        "$10M seed led by Bonfire with 645 Ventures and Y Combinator",
+        "Executes tasks like password resets, access and provisioning",
+        "Connects chat, ticketing, identity, MDM and HR systems",
+        "Named customers include Gusto, Jobber, ThoughtSpot, Ironclad",
+        "Gusto reports about 60% of monthly support tickets automated"
+      ],
+      "weaknesses": [
+        "Small team and early-stage go-to-market",
+        "Depends on existing ticketing systems like Jira",
+        "Limited independent reviews",
+        "No disclosed revenue"
+      ],
+      "opportunities": [
+        "Expansion beyond IT into HR and other departments, as at Jobber",
+        "Mid-market firms seeking automation without replacing ITSM",
+        "Identity and access request automation demand",
+        "Agentic upsell to existing Jira Service Management users"
+      ],
+      "threats": [
+        "Atlassian and ServiceNow embedding native AI agents",
+        "Crowded field: Atomicwork, Siit, Ravenna, Serval",
+        "Moveworks under ServiceNow pushing into the same buyers",
+        "Security concerns about agents holding admin permissions"
+      ]
+    },
+    "userLikes": [
+      "Resolves routine tickets end to end, not just answers",
+      "Hands off complex cases with full context",
+      "Works inside existing Jira and Slack workflows",
+      "Saves IT teams significant hours each month"
+    ],
+    "userComplaints": [
+      "Setup of integrations takes initial effort",
+      "Coverage of niche internal tools can vary",
+      "Young product with few public reviews"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and growth-stage tech companies",
+        "IT teams running Jira-based help desks"
+      ],
+      "typicalBuyer": "Head of IT or IT operations manager",
+      "topUseCases": [
+        "Automating password resets and access requests",
+        "SaaS and device provisioning for employees",
+        "Ticket triage and escalation with context"
+      ]
+    },
+    "futureAreas": [
+      "Broader multi-department service automation",
+      "Deeper identity and MDM action coverage",
+      "Enterprise governance and audit controls",
+      "Analytics on automation rates and savings"
+    ],
+    "competitiveEdge": "Autonomously executes help desk tasks on top of existing ticketing rather than replacing it"
+  },
+  "agentops/ravenna": {
+    "swot": {
+      "strengths": [
+        "$15M seed from Madrona, Khosla and Founders' Co-op",
+        "Native Slack experience where employees already ask for help",
+        "Founders from Zapier AI engineering and AWS go-to-market",
+        "Angels include Zapier co-founders and Vercel CEO",
+        "Covers IT, HR and business ops requests in one desk"
+      ],
+      "weaknesses": [
+        "Tied to Slack; less relevant for Teams-centric firms",
+        "No follow-on round disclosed since 2025",
+        "Small team relative to ITSM incumbents",
+        "Revenue undisclosed"
+      ],
+      "opportunities": [
+        "Mid-market firms replacing legacy ITSM with AI-native tools",
+        "Expansion into HR and revenue operations support",
+        "Agentic actions for access and provisioning requests",
+        "Analytics on internal support performance"
+      ],
+      "threats": [
+        "Slack-native rivals: Siit, Atomicwork, Risotto, Serval",
+        "ServiceNow and Atlassian adding Slack-based AI agents",
+        "Slack platform and API policy changes",
+        "Price pressure in a crowded mid-market segment"
+      ]
+    },
+    "userLikes": [
+      "Employees can file and track requests without leaving Slack",
+      "AI quickly handles repetitive requests like access",
+      "Simple setup compared with legacy ITSM",
+      "Useful reporting on support metrics"
+    ],
+    "userComplaints": [
+      "AI agent requires a paid Slack plan",
+      "Fewer advanced ITSM features than incumbents",
+      "Limited options outside the Slack ecosystem"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and growth-stage software companies",
+        "Slack-first IT, HR and ops teams"
+      ],
+      "typicalBuyer": "IT manager or head of business operations",
+      "topUseCases": [
+        "Slack-based IT help desk ticketing",
+        "Automating password resets and access requests",
+        "Internal HR and ops request handling"
+      ]
+    },
+    "futureAreas": [
+      "More autonomous agentic resolution",
+      "Expansion into HR and RevOps workflows",
+      "Deeper integrations with identity and SaaS tools",
+      "Advanced support analytics"
+    ],
+    "competitiveEdge": "Slack-native AI service desk from ex-Zapier AI leaders, built for mid-market internal support"
+  },
+  "itom/jamf": {
+    "swot": {
+      "strengths": [
+        "Deepest Apple device management depth, often same-day support for new OS releases",
+        "Named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Management Tools",
+        "$729M ARR at Sep 2025, up 16% YoY, with security ARR up 44%",
+        "Combines MDM, identity and endpoint security in one Apple-focused stack",
+        "Large admin community and long enterprise and education install base"
+      ],
+      "weaknesses": [
+        "Apple-centric focus limits fit for mixed Windows and Android fleets",
+        "Take-private adds debt and ends public financial disclosure",
+        "Pricing climbs as security add-ons are bundled",
+        "Console complexity can be steep for small IT teams"
+      ],
+      "opportunities": [
+        "Mac adoption growth in the enterprise expands the core market",
+        "Cross-selling security to the existing management base",
+        "Private ownership enables M&A to broaden platform coverage"
+      ],
+      "threats": [
+        "Microsoft Intune bundling in E3/E5 licenses pressures pricing",
+        "Iru, Mosyle and Addigy compete aggressively on price for Apple MDM",
+        "Unified endpoint vendors like NinjaOne and Tanium add Apple depth"
+      ]
+    },
+    "userLikes": [
+      "Reliable zero-touch Apple deployment and policy control",
+      "Fast support for new macOS and iOS versions",
+      "Strong documentation and active user community"
+    ],
+    "userComplaints": [
+      "Expensive compared with newer Apple MDM rivals",
+      "Some features require separate product licenses",
+      "Support quality can vary by tier"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprises with large Mac and iOS fleets",
+        "K-12 and higher education institutions"
+      ],
+      "typicalBuyer": "Head of end-user computing or IT director managing Apple devices",
+      "topUseCases": [
+        "Zero-touch Apple device enrollment and configuration",
+        "Mac endpoint security and compliance",
+        "iPad and iPhone fleet management for education"
+      ]
+    },
+    "futureAreas": [
+      "AI-assisted device policy and remediation",
+      "Deeper identity and access integration",
+      "Expanded endpoint threat detection",
+      "Broader non-Apple platform coverage"
+    ],
+    "competitiveEdge": "Category-defining Apple management depth plus integrated security at $700M+ ARR scale"
+  },
+  "itom/hcl-bigfix": {
+    "swot": {
+      "strengths": [
+        "Leader in the 2026 Gartner Magic Quadrant for Endpoint Management Tools",
+        "Broad OS coverage including Linux and Unix servers alongside desktops",
+        "Single lightweight agent scales to very large, distributed estates",
+        "Strong patch and compliance automation heritage from IBM era",
+        "Backed by HCLSoftware with $1.05B ARR across its portfolio"
+      ],
+      "weaknesses": [
+        "Console and relevance language have a steep learning curve",
+        "UI feels dated compared with cloud-native rivals",
+        "HCLSoftware ARR dipped 0.5% CC in FY26, signaling slow growth",
+        "Less mindshare in mid-market than NinjaOne or Intune"
+      ],
+      "opportunities": [
+        "Autonomous endpoint management with agentic AI remediation",
+        "Regulated sectors needing on-prem and air-gapped options",
+        "Server patching for hybrid data centers outside MDM reach"
+      ],
+      "threats": [
+        "Microsoft Intune bundling erodes Windows desktop deals",
+        "Tanium competes directly for large real-time endpoint estates",
+        "Cloud-native tools like Automox and NinjaOne win simpler accounts"
+      ]
+    },
+    "userLikes": [
+      "Patches thousands of endpoints quickly and reliably",
+      "Works across many operating systems in one tool",
+      "Powerful compliance reporting for audits"
+    ],
+    "userComplaints": [
+      "Steep learning curve for new administrators",
+      "Interface looks dated",
+      "Custom content authoring takes specialist skills"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with mixed OS estates",
+        "Government and regulated industries"
+      ],
+      "typicalBuyer": "VP of infrastructure or endpoint engineering lead",
+      "topUseCases": [
+        "Enterprise patch management across servers and desktops",
+        "Continuous compliance and audit reporting",
+        "Software distribution at scale"
+      ]
+    },
+    "futureAreas": [
+      "Agentic AI for autonomous remediation",
+      "Deeper vulnerability prioritization",
+      "Expanded cloud-delivered management",
+      "Digital employee experience analytics"
+    ],
+    "competitiveEdge": "Proven single-agent patching across desktops and Unix/Linux servers at very large scale"
+  },
+  "itom/matrix42": {
+    "swot": {
+      "strengths": [
+        "Integrated ITSM, ITAM, SAM, SaaS management and UEM in one suite",
+        "Neo agentic AI layer lets customers choose their own models and data",
+        "Strong European presence across DACH, Nordics, France and Southern Europe",
+        "Acquired Efecte (2024) and Viio (2025) to broaden ESM and SaaS management",
+        "Sovereignty positioning appeals to EU public sector buyers"
+      ],
+      "weaknesses": [
+        "Limited brand presence outside Europe",
+        "No public revenue disclosure",
+        "Integrating several acquired products adds complexity"
+      ],
+      "opportunities": [
+        "European digital sovereignty push favors EU-based vendors",
+        "Cross-selling SaaS management from the Viio acquisition",
+        "HR and enterprise service management expansion"
+      ],
+      "threats": [
+        "ServiceNow and Ivanti dominate large enterprise deals",
+        "Microsoft Intune bundling pressures the UEM line",
+        "Freshservice and TOPdesk compete in the European mid-market"
+      ]
+    },
+    "userLikes": [
+      "Asset, service and endpoint data in one platform",
+      "Flexible workflows without heavy coding",
+      "Good fit for European compliance needs"
+    ],
+    "userComplaints": [
+      "Setup and configuration can take time",
+      "Interface can feel inconsistent across modules",
+      "Smaller partner ecosystem outside Europe"
+    ],
+    "customerProfile": {
+      "segments": [
+        "European mid-market and large enterprises",
+        "Public sector organizations"
+      ],
+      "typicalBuyer": "IT director or head of IT service management in Europe",
+      "topUseCases": [
+        "IT service desk and ESM workflows",
+        "Software asset and license management",
+        "Unified endpoint management"
+      ]
+    },
+    "futureAreas": [
+      "Agentic AI assistants and custom agents",
+      "SaaS spend and license optimization",
+      "AI consumption cost visibility",
+      "HR service management"
+    ],
+    "competitiveEdge": "European-sovereign suite unifying ITSM, asset and endpoint management with bring-your-own-model AI"
+  },
+  "itom/absolute-security": {
+    "swot": {
+      "strengths": [
+        "Embedded in the firmware of 600 million endpoints via OEM partners",
+        "Persistence lets agents self-heal after removal or tampering",
+        "Combines endpoint visibility, recovery and SSE in one platform",
+        "Lenovo ThinkShield TraceLock partnership for offline PC control",
+        "GovRAMP authorization opens public sector deals"
+      ],
+      "weaknesses": [
+        "Not a full UEM; usually paired with Intune or another MDM",
+        "Private ownership means no public financials",
+        "Value depends on OEM firmware support on each device"
+      ],
+      "opportunities": [
+        "Agentic AI for automated endpoint recovery",
+        "MSP reach through the Pax8 Marketplace launch",
+        "Resilience demand after high-profile outage events"
+      ],
+      "threats": [
+        "EDR and UEM vendors adding self-healing agent features",
+        "Microsoft bundling endpoint and access controls",
+        "SSE incumbents like Zscaler and Netskope dominate access"
+      ]
+    },
+    "userLikes": [
+      "Device tracking and recovery are reliable",
+      "Agent persistence keeps security tools running",
+      "Helpful for asset inventory of laptops"
+    ],
+    "userComplaints": [
+      "Console can be complex to navigate",
+      "Pricing adds up with add-on modules",
+      "Reporting customization is limited"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprises with large laptop fleets",
+        "Education and public sector"
+      ],
+      "typicalBuyer": "IT asset or endpoint security manager",
+      "topUseCases": [
+        "Lost and stolen device tracking and freeze",
+        "Self-healing of critical security agents",
+        "Endpoint compliance before network access"
+      ]
+    },
+    "futureAreas": [
+      "Agentic AI resilience and recovery",
+      "Linux endpoint coverage",
+      "Deeper OEM firmware partnerships",
+      "Pay-on-recovery service models"
+    ],
+    "competitiveEdge": "Only endpoint platform persisting from device firmware, surviving wipes and agent tampering"
+  },
+  "itom/iru": {
+    "swot": {
+      "strengths": [
+        "Crossed $100M ARR in Oct 2026 per CEO, with accelerating growth",
+        "Unifies identity, endpoint management, EDR and compliance in one stack",
+        "Expanded from Apple-only to Windows and Android in Oct 2025",
+        "$100M Series D led by General Catalyst at $850M valuation (2024)",
+        "Iru AI and Context Model connect users, devices and policy"
+      ],
+      "weaknesses": [
+        "Windows and Android management are newer than its Apple depth",
+        "Rebrand from a well-known name may confuse buyers",
+        "Broad scope stretches a mid-size team"
+      ],
+      "opportunities": [
+        "Consolidation of point tools for IT and security teams",
+        "Compliance automation for SOC 2 and ISO audits",
+        "MSP channel program launched in 2026"
+      ],
+      "threats": [
+        "Jamf dominates enterprise Apple management",
+        "Microsoft Intune bundling for Windows fleets",
+        "Rippling and Vanta overlap on identity and compliance"
+      ]
+    },
+    "userLikes": [
+      "Clean, modern interface that is easy to learn",
+      "Fast Apple device onboarding and automation",
+      "Responsive support team"
+    ],
+    "userComplaints": [
+      "Pricing has risen as features expand",
+      "Windows support less mature than Apple",
+      "Rebrand changes caused some admin confusion"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market tech companies",
+        "Fast-growing startups with Mac fleets"
+      ],
+      "typicalBuyer": "IT manager or head of IT and security",
+      "topUseCases": [
+        "Apple device enrollment and management",
+        "Endpoint detection and vulnerability patching",
+        "Compliance evidence automation"
+      ]
+    },
+    "futureAreas": [
+      "Agentic AI for IT and security tasks",
+      "Deeper Windows and Android management",
+      "Passwordless workforce identity",
+      "MSP channel expansion"
+    ],
+    "competitiveEdge": "Single AI-native platform combining device management, identity, EDR and compliance"
+  },
+  "itom/automox": {
+    "swot": {
+      "strengths": [
+        "Cloud-native agent patches Windows, macOS and Linux without on-prem servers",
+        "Trusted by 3,000+ organizations per company",
+        "Canopy extends Jamf Pro and Intune with automated Apple Silicon patching",
+        "MCP Server 2.2 lets AI assistants create patch policies and review results",
+        "Covers 600+ third-party applications plus OS updates"
+      ],
+      "weaknesses": [
+        "Narrower scope than full UEM suites",
+        "Revenue and funding details not publicly disclosed",
+        "Mid-size player against much larger endpoint vendors"
+      ],
+      "opportunities": [
+        "Agentic AI driving autonomous endpoint operations",
+        "Augmenting existing MDMs instead of replacing them",
+        "Vulnerability-to-remediation integrations with scanners"
+      ],
+      "threats": [
+        "Microsoft Intune bundling patching into E3 and E5",
+        "NinjaOne, Tanium and Action1 compete on patching",
+        "Free tiers from rivals pressure SMB pricing"
+      ]
+    },
+    "userLikes": [
+      "Easy setup and quick time to value",
+      "Reliable cross-platform patching",
+      "Worklets make scripting automation simple"
+    ],
+    "userComplaints": [
+      "Reporting could be more flexible",
+      "Some third-party app coverage gaps",
+      "Pricing rises with endpoint count"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market IT teams",
+        "Distributed and remote-first organizations"
+      ],
+      "typicalBuyer": "IT operations manager or endpoint administrator",
+      "topUseCases": [
+        "Automated OS and third-party patching",
+        "Apple Silicon update enforcement with MDM",
+        "Scripted endpoint configuration via Worklets"
+      ]
+    },
+    "futureAreas": [
+      "Agentic AI endpoint operations",
+      "Deeper vulnerability remediation",
+      "MDM extension integrations",
+      "Expanded Linux and server coverage"
+    ],
+    "competitiveEdge": "Cloud-native cross-OS patching that extends existing MDMs rather than replacing them"
   },
 };
