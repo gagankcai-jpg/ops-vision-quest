@@ -55,7 +55,8 @@ STALE=$($SSH "$REMOTE" "cd ${APP} && find vendor -mindepth 2 -maxdepth 2 -type d
 if [ -n "$STALE" ]; then
   echo "▶ Pruning stale vendor routes:"
   echo "$STALE" | while read -r d; do
-    case "$d" in vendor/*/*) echo "   $d"; $SSH "$REMOTE" "rm -rf ${APP}${d}" ;; esac
+    # < /dev/null: without it ssh reads the rest of $STALE from stdin and only the first dir is removed.
+    case "$d" in vendor/*/*) echo "   $d"; $SSH "$REMOTE" "rm -rf ${APP}${d}" < /dev/null ;; esac
   done
 fi
 
