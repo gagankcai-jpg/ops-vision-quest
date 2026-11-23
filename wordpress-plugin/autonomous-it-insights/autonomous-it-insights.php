@@ -500,7 +500,7 @@ function ait_run_refresh() {
     $markets = [
         'aiops'    => 'AIOps & Observability',
         'itom'     => 'IT Operations Management (ITOM)',
-        'rpa'      => 'RPA & Intelligent Automation',
+        'rpa'      => 'Intelligent Automation & Process Intelligence',
         'agentops' => 'Agentic IT Operations',
         'secops'   => 'Security Operations (SecOps/SOAR)',
     ];

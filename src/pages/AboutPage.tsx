@@ -62,7 +62,7 @@ const AboutPage = () => {
             </h1>
 
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              An independent research practice covering AIOps, ITOM, RPA, Agentic Operations, and SecOps —
+              An independent research practice covering AIOps, ITOM, intelligent automation & process intelligence, Agentic Operations, and SecOps —
               with hands-on advisory for both buyers and the vendors building the next generation.
             </p>
 

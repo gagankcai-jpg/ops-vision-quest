@@ -59,8 +59,8 @@ const Index = () => {
       },
       {
         "@type": "Dataset",
-        "name": "RPA & Intelligent Automation Market 2025–2030",
-        "description": "Market sizing, CAGR projections, and vendor profiles for 100+ RPA and intelligent automation vendors. TAM reaches $74B by 2030 at 25% CAGR.",
+        "name": "Intelligent Automation & Process Intelligence Market 2025–2030",
+        "description": "Market sizing, CAGR projections, and vendor profiles for 100 intelligent automation and process intelligence vendors (RPA, process & task mining, orchestration, document AI). TAM reaches $49.7B by 2030 at 25.4% CAGR.",
         "url": "https://aienterpriseit.com/market-intelligence/market/rpa",
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "creator": { "@type": "Organization", "name": "AI Enterprise IT", "url": "https://aienterpriseit.com" },
@@ -88,7 +88,7 @@ const Index = () => {
     <PageShell noTopPadding dataDate={displayDate} isLive={status === "live"}>
       <Helmet>
         <title>Autonomous IT Market Intelligence 2025–2030 | AI Enterprise IT</title>
-        <meta name="description" content="Analyst-grade market intelligence covering AIOps, ITOM, RPA, Agentic Operations, and Security Operations. 500+ vendors profiled. $330B+ combined TAM by 2030. Updated weekly." />
+        <meta name="description" content="Analyst-grade market intelligence covering AIOps, ITOM, intelligent automation & process intelligence, Agentic Operations, and Security Operations. 500+ vendors profiled. $300B+ combined TAM by 2030. Updated weekly." />
         <link rel="canonical" href="https://aienterpriseit.com/market-intelligence/" />
         <meta property="og:title" content="Autonomous IT Market Intelligence 2025–2030 | AI Enterprise IT" />
         <meta property="og:description" content="Free analyst-grade coverage of the five pillars of the autonomous enterprise stack. AIOps, ITOM, RPA, AgentOps, SecOps. 500+ vendors. Weekly refresh." />

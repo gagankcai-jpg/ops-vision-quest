@@ -125,7 +125,7 @@ interface ComparisonChartProps {
 const COMPARISON_BARS = [
   { key: "aiops",    label: "AIOps",       fill: "hsl(199 89% 60%)" },
   { key: "itom",     label: "ITOM",        fill: "hsl(262 83% 64%)" },
-  { key: "rpa",      label: "RPA / IA",    fill: "hsl(152 76% 50%)" },
+  { key: "rpa",      label: "IA & PI",     fill: "hsl(152 76% 50%)" },
   { key: "agentops", label: "Agentic Ops", fill: "hsl(38 95% 58%)"  },
   { key: "secops",   label: "SecOps",      fill: "hsl(350 89% 62%)" },
 ] as const;

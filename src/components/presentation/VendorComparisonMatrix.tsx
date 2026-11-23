@@ -151,7 +151,7 @@ function parseEventDate(event?: string): number {
 const CATEGORY_LABELS: Record<string, string> = {
   aiops: "AIOps",
   itom: "ITOM",
-  rpa: "RPA",
+  rpa: "Automation",
   agentops: "AgentOps",
   secops: "SecOps",
 };
@@ -159,7 +159,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 const categoryColors: Record<string, string> = {
   "AIOps":    "hsl(199 89% 48%)",
   "ITOM":     "hsl(262 83% 58%)",
-  "RPA":      "hsl(142 71% 45%)",
+  "Automation": "hsl(142 71% 45%)",
   "AgentOps": "hsl(38 92% 50%)",
   "SecOps":   "hsl(346 77% 49%)",
 };
@@ -167,7 +167,7 @@ const categoryColors: Record<string, string> = {
 const categoryIcons: Record<string, typeof BarChart3> = {
   "AIOps":    BarChart3,
   "ITOM":     Cpu,
-  "RPA":      Bot,
+  "Automation": Bot,
   "AgentOps": Sparkles,
   "SecOps":   ShieldCheck,
 };
@@ -216,7 +216,7 @@ const allVendorRows: VendorRow[] = allCategories.flatMap((cat) => {
   ];
 });
 
-const ALL_CATEGORIES = ["AIOps", "ITOM", "RPA", "AgentOps", "SecOps"];
+const ALL_CATEGORIES = ["AIOps", "ITOM", "Automation", "AgentOps", "SecOps"];
 const ALL_TYPES = ["leader", "challenger", "niche", "startup", "emerging"];
 
 // Growth-filter bounds derived from the data — must span negatives (e.g. OpenText -10%)

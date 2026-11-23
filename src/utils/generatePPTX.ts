@@ -1,4 +1,5 @@
 import { aiopsData, itomData, rpaData } from "@/data/marketData";
+import { marketSummaryRows } from "@/utils/marketSummaryRows";
 
 const COLORS = {
   background: "0D0D0E",
@@ -86,15 +87,7 @@ export const generatePPTX = async () => {
     fontFace: "Arial",
   });
 
-  const summaryData = [
-    ["Category", "TAM 2025", "TAM 2030", "CAGR"],
-    ["AIOps & Observability", "$22.0B", "$52.5B", "19.0%"],
-    ["IT Service & Operations Mgmt", "$31.8B", "$54.8B", "11.5%"],
-    ["RPA & Intelligent Automation", "$17.8B", "$44.7B", "20.2%"],
-    ["Agentic IT Operations", "$7.8B", "$49.8B", "44.8%"],
-    ["Security Operations (SecOps)", "$28.2B", "$54.1B", "13.9%"],
-    ["Combined Total", "$107.6B", "$255.9B", "~21.9% avg"],
-  ];
+  const summaryData = [["Category", "TAM 2025", "TAM 2030", "CAGR"], ...marketSummaryRows()];
 
   summarySlide.addTable(toTableRows(summaryData), {
     x: 0.5,

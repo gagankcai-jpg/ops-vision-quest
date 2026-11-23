@@ -1,6 +1,7 @@
 import type jsPDFType from "jspdf";
 import autoTable from "jspdf-autotable";
 import { aiopsData, itomData, rpaData } from "@/data/marketData";
+import { marketSummaryRows } from "@/utils/marketSummaryRows";
 
 const COLORS = {
   background: [13, 13, 14] as [number, number, number],
@@ -200,14 +201,7 @@ export const generatePDF = async () => {
   autoTable(doc, {
     startY: 42,
     head: [["Category", "TAM 2025", "TAM 2030", "CAGR"]],
-    body: [
-      ["AIOps & Observability", "$22.0B", "$52.5B", "19.0%"],
-      ["IT Service & Operations Mgmt", "$31.8B", "$54.8B", "11.5%"],
-      ["RPA & Intelligent Automation", "$17.8B", "$44.7B", "20.2%"],
-      ["Agentic IT Operations", "$7.8B", "$49.8B", "44.8%"],
-      ["Security Operations (SecOps)", "$28.2B", "$54.1B", "13.9%"],
-      ["Combined Total", "$107.6B", "$255.9B", "~21.9% avg"],
-    ],
+    body: marketSummaryRows(),
     theme: "grid",
     styles: { fillColor: COLORS.cardBg, textColor: COLORS.text, fontSize: 10, cellPadding: 5, lineColor: COLORS.border },
     headStyles: { fillColor: [30, 30, 34], textColor: COLORS.primary, fontStyle: "bold" },

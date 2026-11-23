@@ -59,7 +59,7 @@ export const TYPE_LABEL: Record<string, string> = {
 export const CATEGORY_ICONS_TEXT: Record<string, string> = {
   aiops:    "AIOps",
   itom:     "ITOM",
-  rpa:      "RPA",
+  rpa:      "Automation & PI",
   agentops: "AgentOps",
   secops:   "SecOps",
 };

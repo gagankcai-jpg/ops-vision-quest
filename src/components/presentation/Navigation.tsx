@@ -32,7 +32,7 @@ import { cn } from "@/lib/utils";
 const MARKETS = [
   { label: "AIOps & Observability", short: "AIOps", to: "/market/aiops", icon: BarChart3 },
   { label: "IT Service & Ops Mgmt", short: "ITOM", to: "/market/itom", icon: Cpu },
-  { label: "RPA & Intelligent Auto.", short: "RPA / IA", to: "/market/rpa", icon: Bot },
+  { label: "Automation & Process Intel.", short: "IA & PI", to: "/market/rpa", icon: Bot },
   { label: "Agentic Operations", short: "AgentOps", to: "/market/agentops", icon: Sparkles },
   { label: "Security Operations", short: "SecOps", to: "/market/secops", icon: ShieldCheck },
 ];

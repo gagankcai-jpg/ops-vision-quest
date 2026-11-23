@@ -32,8 +32,8 @@ const MARKET_JSONLD: Record<string, object> = {
   },
   rpa: {
     "@context": "https://schema.org", "@type": "Dataset",
-    "name": "RPA & Intelligent Automation Market 2025–2030",
-    "description": "Market sizing, CAGR projections, and vendor profiles for 100+ RPA and intelligent automation vendors. TAM reaches $74B by 2030 at 25% CAGR.",
+    "name": "Intelligent Automation & Process Intelligence Market 2025–2030",
+    "description": "Market sizing, CAGR projections, and vendor profiles for 100 intelligent automation and process intelligence vendors (RPA, process & task mining, orchestration, document AI). TAM reaches $49.7B by 2030 at 25.4% CAGR.",
     "url": `${BASE_URL}/market/rpa`,
     "license": LICENSE, "creator": ORG, "provider": ORG,
   },
@@ -56,7 +56,7 @@ const MARKET_JSONLD: Record<string, object> = {
 const MARKET_META: Record<string, { title: string; description: string }> = {
   aiops:    { title: "AIOps & Observability Market 2025–2030", description: "AIOps market reaches $100B by 2030 at 22% CAGR. 100+ vendor profiles covering Dynatrace, Datadog, New Relic, Splunk, and more." },
   itom:     { title: "IT Service, Operations & Asset Management Market 2025–2030", description: "ITSM, ITAM, and Cloud FinOps market reaches $94B by 2030 at 13% CAGR. 100+ vendor profiles: ServiceNow, BMC, Flexera, Tanium, Apptio, CAST AI, and more." },
-  rpa:      { title: "RPA & Intelligent Automation Market 2025–2030", description: "RPA market reaches $74B by 2030 at 25% CAGR. UiPath, Automation Anywhere, Blue Prism, and 97 more vendors analyzed." },
+  rpa:      { title: "Intelligent Automation & Process Intelligence Market 2025–2030", description: "Process intelligence + RPA market reaches $49.7B by 2030 at 25.4% CAGR. Celonis, UiPath, SAP Signavio, Pega, Automation Anywhere and 95 more vendors analyzed." },
   agentops: { title: "Agentic IT Operations Market 2025–2030", description: "Agentic IT — AI service agents, ops orchestration & enterprise agent platforms — reaches $8B by 2030 at 45% CAGR, the fastest-growing autonomous IT segment." },
   secops:   { title: "Security Operations Market 2025–2030", description: "SecOps market reaches $54B by 2030 at 21% CAGR. CrowdStrike, Palo Alto Networks, SentinelOne, and 97 more vendors profiled." },
 };

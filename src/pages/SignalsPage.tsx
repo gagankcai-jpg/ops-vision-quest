@@ -33,7 +33,7 @@ const FILTER_ITEMS = [
   { id: "all",      label: "All" },
   { id: "aiops",    label: "AIOps" },
   { id: "itom",     label: "ITOM" },
-  { id: "rpa",      label: "RPA" },
+  { id: "rpa",      label: "Automation & PI" },
   { id: "agentops", label: "AgentOps" },
   { id: "secops",   label: "SecOps" },
 ];

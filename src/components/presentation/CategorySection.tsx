@@ -26,6 +26,8 @@ export interface VendorEntry {
   growth?: string;
   /** short badge: "Gartner Leader", "Fastest Growth", "YC W23" */
   highlight?: string;
+  /** primary sub-segment within the category, e.g. "Process Intelligence" */
+  segment?: string;
   description: string;
   /** recent funding / acquisition event */
   recentEvent?: string;
@@ -177,10 +179,22 @@ function SpotlightCard({
 
 /* ─── Full vendor table ───────────────────────────────────────────────────── */
 function VendorTable({
-  entries, color, initialRows = 10, categoryId,
-}: { entries: VendorEntry[]; color: string; initialRows?: number; categoryId: string }) {
+  entries, color, initialRows = 10, categoryId, rankOf,
+}: {
+  entries: VendorEntry[]; color: string; initialRows?: number; categoryId: string;
+  /** original rank by vendor name, so filtered views keep each vendor's real position */
+  rankOf?: Map<string, number>;
+}) {
   const [expanded, setExpanded] = useState(false);
   const visible = expanded ? entries : entries.slice(0, initialRows);
+
+  if (entries.length === 0) {
+    return (
+      <p className="rounded-xl border border-dashed border-border px-4 py-6 text-center text-sm text-muted-foreground">
+        No companies in this segment.
+      </p>
+    );
+  }
 
   return (
     <div>
@@ -205,7 +219,7 @@ function VendorTable({
               const hasProfile = profiledVendorKeys.has(`${categoryId}/${slug}`);
               return (
                 <tr key={v.name} className="border-b border-border/40 align-top transition-colors last:border-b-0 hover:bg-secondary/25">
-                  <td className="px-4 py-3 font-mono text-xs text-muted-foreground tabular-nums">{i + 1}</td>
+                  <td className="px-4 py-3 font-mono text-xs text-muted-foreground tabular-nums">{rankOf?.get(v.name) ?? i + 1}</td>
                   <td className="px-4 py-3">
                     {hasProfile ? (
                       <Link
@@ -228,6 +242,9 @@ function VendorTable({
                     <span className={cn("rounded-full border px-2 py-0.5 text-[10px] font-medium", TYPE_BADGE[v.type] ?? TYPE_BADGE.niche)}>
                       {TYPE_LABEL[v.type] ?? v.type}
                     </span>
+                    {v.segment && (
+                      <div className="mt-1 whitespace-nowrap text-[10px] text-muted-foreground">{v.segment}</div>
+                    )}
                   </td>
                   <td className="hidden whitespace-nowrap px-4 py-3 text-xs text-muted-foreground tabular-nums md:table-cell">
                     {v.marketCap ?? v.metric ?? "—"}
@@ -349,6 +366,18 @@ const CategorySection = ({ data }: CategorySectionProps) => {
   const topVendors  = vendors.slice(0, 5);
   const topStartups = startups.slice(0, 5);
 
+  // Optional sub-segment breakdown (only for categories whose vendors carry a `segment` tag).
+  const [segmentFilter, setSegmentFilter] = useState<string | null>(null);
+  const segmentCounts = new Map<string, number>();
+  for (const v of [...vendors, ...startups]) {
+    if (v.segment) segmentCounts.set(v.segment, (segmentCounts.get(v.segment) ?? 0) + 1);
+  }
+  const segments = [...segmentCounts.entries()].sort((a, b) => b[1] - a[1]);
+  const bySegment = (list: VendorEntry[]) =>
+    segmentFilter ? list.filter((v) => v.segment === segmentFilter) : list;
+  const vendorRank  = new Map(vendors.map((v, i) => [v.name, i + 1]));
+  const startupRank = new Map(startups.map((v, i) => [v.name, i + 1]));
+
   const subNavItems: SubNavItem[] = [
     { id: "overview",  label: "Overview" },
     { id: "vendors",   label: "Vendors" },
@@ -420,6 +449,42 @@ const CategorySection = ({ data }: CategorySectionProps) => {
             color={data.color}
             gradientId={`gradient-${data.id}`}
           />
+
+          {segments.length > 0 && (
+            <div>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Coverage by segment
+              </p>
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Filter vendors by segment">
+                {segments.map(([seg, count]) => {
+                  const active = segmentFilter === seg;
+                  return (
+                    <button
+                      key={seg}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setSegmentFilter(active ? null : seg)}
+                      className={cn(
+                        "rounded-full border px-3 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                        active ? "text-foreground" : "border-border text-muted-foreground hover:text-foreground",
+                      )}
+                      style={active ? { borderColor: data.color, backgroundColor: `${data.color}20` } : undefined}
+                    >
+                      {seg} <span className="tabular-nums opacity-70">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {segmentFilter && (
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Vendor and startup tables below are filtered to <span className="font-semibold text-foreground">{segmentFilter}</span>.{" "}
+                  <button type="button" onClick={() => setSegmentFilter(null)} className="underline hover:text-foreground">
+                    Clear filter
+                  </button>
+                </p>
+              )}
+            </div>
+          )}
         </section>
 
         {/* ── Vendors ───────────────────────────────────────────────────── */}
@@ -448,7 +513,13 @@ const CategorySection = ({ data }: CategorySectionProps) => {
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Full list
               </p>
-              <VendorTable entries={vendors} color={data.color} categoryId={data.id} />
+              <VendorTable
+                key={segmentFilter ?? "all"}
+                entries={bySegment(vendors)}
+                color={data.color}
+                categoryId={data.id}
+                rankOf={vendorRank}
+              />
             </div>
           )}
         </section>
@@ -479,7 +550,13 @@ const CategorySection = ({ data }: CategorySectionProps) => {
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Full list
               </p>
-              <VendorTable entries={startups} color={data.color} categoryId={data.id} />
+              <VendorTable
+                key={segmentFilter ?? "all"}
+                entries={bySegment(startups)}
+                color={data.color}
+                categoryId={data.id}
+                rankOf={startupRank}
+              />
             </div>
           )}
         </section>

@@ -1312,22 +1312,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Unified API removes the N×M integration problem — per-linked-account pricing aligns cost directly with customer growth.",
   },
 
-  "rpa/retool": {
-    pricingModel: "per-seat",
-    transparency: "public-list",
-    startingPrice: "Free (5 users, 5 apps)",
-    typicalACV: "$10K–$150K",
-    marketSegment: ["smb", "mid-market", "enterprise"],
-    deploymentModel: ["saas", "on-prem"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Number of editor (builder) seats versus end-user seats",
-      "Self-hosted deployment adds infrastructure costs",
-      "Retool Workflows: automation step execution volume",
-    ],
-    bottomLine: "Developer-friendly internal tool builder — free tier drives adoption; predictable per-seat growth model.",
-  },
 
   "rpa/superblocks": {
     pricingModel: "per-seat",
@@ -2144,21 +2128,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Mid-range iPaaS pricing with strong EDI and legacy value — 40-50% lower TCO than MuleSoft absent Anypoint needs.",
   },
 
-  "rpa/mulesoft": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$150K–$2M",
-    marketSegment: ["enterprise", "fortune500"],
-    deploymentModel: ["saas", "on-prem", "hybrid"],
-    freeTrialOrTier: true,
-    tcoBadge: "very-high",
-    keyPricingDrivers: [
-      "vCores (processing capacity) drive runtime cost — scales with message throughput",
-      "Anypoint Platform subscription plus CloudHub runtime plus premium connectors",
-      "Professional services for complex implementations regularly exceed licence cost",
-    ],
-    bottomLine: "Highest TCO in iPaaS — justified only for global enterprises needing API governance and Salesforce ecosystem depth.",
-  },
 
   "rpa/tray-ai": {
     pricingModel: "consumption",

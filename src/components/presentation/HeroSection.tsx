@@ -28,7 +28,7 @@ interface CategorySpec {
 const CATEGORIES: CategorySpec[] = [
   { slug: "aiops",    short: "AIOps",     title: "AIOps & Observability",   icon: BarChart3,   accent: "text-executive-cyan",   hex: "hsl(199 89% 60%)" },
   { slug: "itom",     short: "ITOM",      title: "IT Service & Ops Mgmt",   icon: Cpu,         accent: "text-executive-purple", hex: "hsl(262 83% 64%)" },
-  { slug: "rpa",      short: "RPA / IA",  title: "RPA & Intelligent Auto.", icon: Bot,         accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
+  { slug: "rpa",      short: "IA & PI",   title: "Automation & Process Intel.", icon: Bot,         accent: "text-executive-green",  hex: "hsl(152 76% 50%)" },
   { slug: "agentops", short: "AgentOps",  title: "Agentic Operations",      icon: Sparkles,    accent: "text-executive-amber",  hex: "hsl(38 95% 58%)" },
   { slug: "secops",   short: "SecOps",    title: "Security Operations",     icon: ShieldCheck, accent: "text-executive-rose",   hex: "hsl(350 89% 62%)" },
 ];

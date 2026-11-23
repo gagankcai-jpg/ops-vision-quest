@@ -30,7 +30,7 @@ const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
 const CATEGORY_TITLES = {
   aiops:    'AIOps & Observability',
   itom:     'IT Service, Operations & Asset Management',
-  rpa:      'RPA & Intelligent Automation',
+  rpa:      'Intelligent Automation & Process Intelligence',
   agentops: 'Agentic IT Operations',
   secops:   'Security Operations (SecOps)',
 };
@@ -39,7 +39,7 @@ const CATEGORY_TITLES = {
 const MARKET_META = {
   aiops:    { title: 'AIOps & Observability Market 2025–2030', description: 'AIOps market reaches $100B by 2030 at 22% CAGR. 100+ vendor profiles covering Dynatrace, Datadog, New Relic, Splunk, and more.' },
   itom:     { title: 'IT Service, Operations & Asset Management Market 2025–2030', description: 'ITSM, ITAM, and Cloud FinOps market reaches $94B by 2030 at 13% CAGR. 100+ vendor profiles: ServiceNow, BMC, Flexera, Tanium, Apptio, CAST AI, and more.' },
-  rpa:      { title: 'RPA & Intelligent Automation Market 2025–2030', description: 'RPA market reaches $74B by 2030 at 25% CAGR. UiPath, Automation Anywhere, Blue Prism, and 97 more vendors analyzed.' },
+  rpa:      { title: 'Intelligent Automation & Process Intelligence Market 2025–2030', description: 'Process intelligence + RPA market reaches $49.7B by 2030 at 25.4% CAGR. Celonis, UiPath, SAP Signavio, Pega, Automation Anywhere and 95 more vendors analyzed.' },
   agentops: { title: 'Agentic Operations Market 2025–2030', description: 'Agentic IT Operations market reaches $8B by 2030 at 45% CAGR — the fastest-growing segment in the autonomous IT stack.' },
   secops:   { title: 'Security Operations Market 2025–2030', description: 'SecOps market reaches $54B by 2030 at 21% CAGR. CrowdStrike, Palo Alto Networks, SentinelOne, and 97 more vendors profiled.' },
 };
@@ -90,7 +90,7 @@ const routes = {};
 // ── Static pages (mirror PageMeta / Index Helmet) ──────────────────────────────
 routes['overview'] = {
   title: 'Autonomous IT Market Intelligence 2025–2030 | AI Enterprise IT',
-  description: 'Analyst-grade market intelligence covering AIOps, ITOM, RPA, Agentic Operations, and Security Operations. 500+ vendors profiled. $330B+ combined TAM by 2030. Updated weekly.',
+  description: 'Analyst-grade market intelligence covering AIOps, ITOM, intelligent automation & process intelligence, Agentic Operations, and Security Operations. 500+ vendors profiled. $300B+ combined TAM by 2030. Updated weekly.',
   canonical: `${BASE_URL}/`,
   ogType: 'website',
 };

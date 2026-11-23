@@ -1787,108 +1787,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Specialized agent templates and pre-built orchestration patterns for common IT operations workflows"
     ]
   },
-  "rpa/cyclr": {
-    "competitiveEdge": "Embedded-first iPaaS architecture lets SaaS vendors build integration-as-a-feature into their products.",
-    "swot": {
-      "strengths": [
-        "Embedded API-driven design reduces customer setup friction",
-        "Targets high-growth SaaS market with built-in workflow orchestration",
-        "Strong retention via deep product integration"
-      ],
-      "weaknesses": [
-        "Limited brand recognition vs. standalone iPaaS incumbents",
-        "Narrow TAM confined to SaaS product teams, not enterprise operations",
-        "Depends on SaaS vendor adoption; lacks direct end-user base"
-      ],
-      "opportunities": [
-        "SMB SaaS expansion as embedded automation becomes table stakes",
-        "API standardization (OpenAPI, webhooks) reduces switching costs",
-        "Vertical SaaS specialization (e.g., healthcare, financial SaaS platforms)"
-      ],
-      "threats": [
-        "Large iPaaS players (Zapier, Integromat) adding embedded capabilities",
-        "Cloud-native workflow platforms (n8n, Temporal) commoditizing orchestration"
-      ]
-    },
-    "userLikes": [
-      "Rapid integration setup without complex backend coding",
-      "Native API abstractions simplify workflow design for SaaS teams",
-      "Usage-based pricing aligns cost with customer value"
-    ],
-    "userComplaints": [
-      "Documentation gaps for niche integration scenarios",
-      "Audit and compliance logging feel basic for enterprise SaaS",
-      "Limited visibility into workflow performance at scale"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market SaaS vendors (10–500 employees)",
-        "Vertical SaaS platforms (HR tech, finance tech, supply chain)"
-      ],
-      "typicalBuyer": "VP Engineering or Product Manager at SaaS company",
-      "topUseCases": [
-        "Customer data sync across third-party apps",
-        "Embedded workflow orchestration for end-user automation",
-        "API-driven B2B2C integration patterns"
-      ]
-    },
-    "futureAreas": [
-      "AI-assisted workflow generation from natural language",
-      "Real-time data pipelines as alternative to batch integrations",
-      "Multi-tenant workflow governance and audit frameworks"
-    ]
-  },
-  "rpa/jacada": {
-    "competitiveEdge": "Agent-assist platform purpose-built for contact center efficiency via real-time guidance and screen automation.",
-    "swot": {
-      "strengths": [
-        "Specialized for contact center; deep domain expertise in agent workflows",
-        "Real-time guidance reduces handle time and CSAT variance",
-        "Desktop automation minimizes agent training on legacy systems"
-      ],
-      "weaknesses": [
-        "Narrow vertical focus limits addressable market growth",
-        "Competes against larger RPA vendors entering contact center verticals",
-        "Integration with legacy CRM/IVR systems can be brittle"
-      ],
-      "opportunities": [
-        "AI voice and chat transcription integration for agent coaching",
-        "Work-from-anywhere enablement as contact centers decentralize",
-        "Cross-process automation (customer onboarding, billing dispute handling)"
-      ],
-      "threats": [
-        "Cloud contact center platforms (AWS Connect, Genesys) adding RPA natively",
-        "Chatbots and LLM-driven automation reducing agent headcount demand"
-      ]
-    },
-    "userLikes": [
-      "Immediate reduction in average handle time per agent",
-      "Agents spend less time wrestling with multiple systems",
-      "Knowledge base integration surfaces solutions without context-switching"
-    ],
-    "userComplaints": [
-      "Screen automation can break when legacy applications update",
-      "Licensing per-agent creates cost scaling challenges for large teams",
-      "Reporting lacks predictive insights (e.g., bottleneck forecasting)"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market contact centers (500–5,000 agents)",
-        "BPO and outsourcing firms handling customer service"
-      ],
-      "typicalBuyer": "Director of Contact Center Operations or CX Transformation Lead",
-      "topUseCases": [
-        "Desktop automation for legacy CRM/billing system navigation",
-        "Real-time agent guidance and knowledge recommendation",
-        "Quality monitoring and call script compliance"
-      ]
-    },
-    "futureAreas": [
-      "Voice and emotion AI for real-time sentiment-driven escalation",
-      "Omnichannel agent workspace consolidation (chat, voice, email, social)",
-      "Predictive workload balancing and shift planning"
-    ]
-  },
   "rpa/electroneek": {
     "competitiveEdge": "MSP-native RPA platform with built-in multi-tenancy and partner enablement to let resellers scale automation services.",
     "swot": {
@@ -1941,58 +1839,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Industry-specific bot libraries (e.g., healthcare claims, construction scheduling)"
     ]
   },
-  "rpa/softomotive": {
-    "competitiveEdge": "Microsoft ecosystem integration and zero-friction licensing via Office 365 make desktop automation accessible to large enterprises.",
-    "swot": {
-      "strengths": [
-        "Native Windows integration reduces setup and compliance complexity",
-        "Enterprise licensing bundling drives competitive pricing and adoption",
-        "Microsoft backing ensures long-term investment and product roadmap"
-      ],
-      "weaknesses": [
-        "Positioning as desktop automation limits cloud-first, API-first use cases",
-        "Smaller developer community vs. independent RPA platforms",
-        "Limited cross-cloud portability (heavy Windows/Azure lock-in)"
-      ],
-      "opportunities": [
-        "Power Platform ecosystem integration (Power Apps, Power BI automation)",
-        "Citizen developer enablement via low-code GUI and AI co-pilot",
-        "Hybrid cloud automation as enterprises embrace multi-cloud strategies"
-      ],
-      "threats": [
-        "Open-source workflow engines (Apache Airflow, Temporal) reduce reliance on licensed RPA",
-        "Cloud-native automation (Lambda, Container Orchestration) for new builds",
-        "Competitor focus on API-first architectures vs. desktop-centric approach"
-      ]
-    },
-    "userLikes": [
-      "Licensing bundled with Microsoft enterprise agreements simplifies procurement",
-      "No learning curve for Windows administrators familiar with Task Scheduler",
-      "Deep integration with Outlook, Excel, Teams reduces context-switching"
-    ],
-    "userComplaints": [
-      "Desktop automation struggles with modern cloud-native SaaS workflows",
-      "Licensing model can be opaque; unclear cost per bot or process",
-      "Community and third-party connectors lag independent RPA vendors"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large enterprises with heavy Microsoft stack (Office 365, Dynamics, Azure)",
-        "Financial services and government with compliance requirements"
-      ],
-      "typicalBuyer": "Enterprise Architect or Automation COE Lead",
-      "topUseCases": [
-        "Legacy ERP/mainframe screen scraping and data entry",
-        "Email and Excel-based process automation (invoice approval, reporting)",
-        "Windows-based application integration (on-premises + cloud hybrid)"
-      ]
-    },
-    "futureAreas": [
-      "AI co-pilot for automatic bot generation from business process recordings",
-      "Serverless bot execution to reduce on-premises infrastructure dependency",
-      "Advanced analytics on automation ROI across enterprise process portfolio"
-    ]
-  },
   "rpa/flowforma": {
     "competitiveEdge": "Microsoft-native no-code BPM platform eliminates custom code and IT dependency for enterprise process automation.",
     "swot": {
@@ -2043,58 +1889,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI-powered process mining to identify automation opportunities automatically",
       "Citizen developer tools to empower non-technical staff to build workflows",
       "Advanced analytics and simulation for process optimization before deployment"
-    ]
-  },
-  "rpa/processgo": {
-    "competitiveEdge": "Process discovery and optimization insights reduce automation risk by identifying the highest-ROI workflows before RPA investment.",
-    "swot": {
-      "strengths": [
-        "Data-driven approach prevents costly automation of non-optimal processes",
-        "Early-stage positioning lets product adapt to market feedback rapidly",
-        "Complements RPA platforms as pre-implementation discovery tool"
-      ],
-      "weaknesses": [
-        "Early-stage maturity limits feature depth vs. established process mining vendors",
-        "Revenue model unclear (licensing, subscription, consulting); uncertain unit economics",
-        "Limited customer references or case studies to validate ROI"
-      ],
-      "opportunities": [
-        "Integration partnerships with major RPA and BPM platforms",
-        "Industry-specific process benchmarks to guide automation prioritization",
-        "AI-assisted anomaly detection and root-cause analysis for process failures"
-      ],
-      "threats": [
-        "Established process mining vendors (Celonis, UiPath Process Intelligence) with brand dominance",
-        "RPA platforms (UiPath, Automation Anywhere) embedding process mining natively",
-        "Consulting firms building proprietary discovery methodologies"
-      ]
-    },
-    "userLikes": [
-      "Visual process maps make optimization priorities clear to executives",
-      "Quantified bottleneck analysis justifies automation investment business cases",
-      "Vendor-agnostic approach means recommendations aren't biased toward RPA"
-    ],
-    "userComplaints": [
-      "Data extraction and system logging requirements can be complex to implement",
-      "Insights are only as good as data quality and completeness",
-      "Standalone tool creates another system; integration roadmap unclear"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market enterprises evaluating process automation programs",
-        "Consulting firms building RPA delivery methodologies for clients"
-      ],
-      "typicalBuyer": "Automation Program Manager or Continuous Improvement Leader",
-      "topUseCases": [
-        "Process discovery and bottleneck analysis before automation ROI decision",
-        "Workflow optimization to reduce manual task duration before RPA",
-        "Compliance and audit trail documentation for regulated processes"
-      ]
-    },
-    "futureAreas": [
-      "AI-native process optimization using LLM-driven recommendations",
-      "Real-time process monitoring and anomaly alerts for deployed automations",
-      "Benchmarking insights comparing process efficiency across peer organizations"
     ]
   },
   "rpa/minit": {
@@ -2516,57 +2310,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with supply chain finance and early payment discount orchestration."
     ]
   },
-  "rpa/tradeshift": {
-    "competitiveEdge": "End-to-end supply chain network platform automating procurement workflows across buyer-supplier ecosystems.",
-    "swot": {
-      "strengths": [
-        "Network effects create defensible moat as supplier adoption grows across buyer relationships.",
-        "Broad procurement scope (orders, invoices, compliance) vs. point-solution competitors.",
-        "Well-capitalized ($1.1B valuation) with proven enterprise traction and global presence."
-      ],
-      "weaknesses": [
-        "Success depends on supplier ecosystem adoption; fragmented supplier base limits network effects.",
-        "Slower growth (+a significant share YoY) suggests market saturation or competitive pressure in core procurement.",
-        "Supply chain scope narrower than general RPA or intelligent automation platforms."
-      ],
-      "opportunities": [
-        "Embed AI-driven demand forecasting and supplier performance prediction.",
-        "Expand into supplier onboarding, compliance verification, and dynamic discounting.",
-        "Integrate ESG and supply chain sustainability reporting for regulatory compliance."
-      ],
-      "threats": [
-        "Enterprise procurement platforms (Coupa, Ariba, SAP Procurement) adding network capabilities.",
-        "Point-solution competitors in supplier onboarding, invoice automation, and spend analytics."
-      ]
-    },
-    "userLikes": [
-      "Network-driven supplier collaboration reduces manual order-to-invoice cycle time significantly.",
-      "Centralized procurement visibility and compliance management across fragmented supplier ecosystem.",
-      "Supplier portal reduces buyer effort in onboarding and performance management workflows."
-    ],
-    "userComplaints": [
-      "Supplier adoption requires buyer incentives or mandate; not automatic network participation.",
-      "Integration complexity when supplier is using competing procurement platforms or legacy EDI.",
-      "Limited configurability for highly specialized procurement workflows in capital-intensive industries."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Large enterprises (10K+ employees) with complex, multi-tier supplier ecosystems",
-        "Capital-intensive industries (manufacturing, automotive, retail) with fragmented supplier bases"
-      ],
-      "typicalBuyer": "Procurement Director or VP of Supply Chain Operations",
-      "topUseCases": [
-        "Purchase order creation, transmission, and exception handling across supplier network",
-        "Supplier invoice receipt, matching, and payment orchestration at scale",
-        "Supplier compliance verification, performance KPI tracking, and tiered management"
-      ]
-    },
-    "futureAreas": [
-      "Supplier financial health monitoring and early warning signals for default risk.",
-      "Dynamic pricing and contract optimization based on spend analytics.",
-      "Supply chain resilience automation (alternative sourcing, inventory rebalancing)."
-    ]
-  },
   "rpa/apideck": {
     "competitiveEdge": "Lightweight API aggregation layer enabling rapid multi-SaaS integrations without custom connector builds.",
     "swot": {
@@ -2616,57 +2359,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI-driven API schema mapping and automatic data transformation.",
       "Managed integration execution and compliance for regulated industries.",
       "Vertical-specific API bundles with pre-built workflows for industries."
-    ]
-  },
-  "rpa/appsmith": {
-    "competitiveEdge": "Open-source low-code platform offering source-code control and self-hosted deployment versus proprietary Retool.",
-    "swot": {
-      "strengths": [
-        "Open-source model with community contributions accelerates feature development and adoption.",
-        "Self-hosted option appeals to enterprises with data residency and vendor lock-in concerns.",
-        "Rapid growth (+a significant share YoY) indicates strong developer and enterprise adoption trajectory."
-      ],
-      "weaknesses": [
-        "Small commercial revenue ($5M ARR) constrains product polish, enterprise support, and SaaS ops.",
-        "Open-source sustainability risk; vendor viability dependent on continued commercial traction.",
-        "Feature parity with proprietary low-code incumbents (Retool, OutSystems) remains incomplete."
-      ],
-      "opportunities": [
-        "Expand into citizen developer workflows and workflow automation beyond internal tools.",
-        "Build vertical-specific application templates and accelerators (admin dashboards, CRM frontends).",
-        "Monetize premium support, managed hosting, and enterprise compliance/security features."
-      ],
-      "threats": [
-        "Proprietary low-code incumbents (Retool, Mendix) adding open-source-inspired features.",
-        "Larger RPA vendors offering embedded low-code for process automation and forms."
-      ]
-    },
-    "userLikes": [
-      "Open-source code enables customization and avoids vendor lock-in versus proprietary platforms.",
-      "Self-hosted option meets data residency and compliance requirements for regulated industries.",
-      "Active community contributions accelerate feature development and issue resolution."
-    ],
-    "userComplaints": [
-      "Smaller ecosystem and plugin/integration library compared to Retool or OutSystems.",
-      "Enterprise support and SLA commitments lag behind larger, established low-code vendors.",
-      "Feature stability and performance optimization gaps on complex, data-heavy applications."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Tech-forward enterprises comfortable with open-source software and self-hosting",
-        "Startups and mid-market companies prioritizing cost efficiency and vendor independence"
-      ],
-      "typicalBuyer": "Director or VP of Engineering / Technical Operations",
-      "topUseCases": [
-        "Internal admin dashboards and CRUD tools for data management",
-        "Customer-facing forms, surveys, and lightweight applications",
-        "Backend process automation and data integration workflows"
-      ]
-    },
-    "futureAreas": [
-      "AI-assisted UI generation and low-code component automation.",
-      "Marketplace and ecosystem of third-party plugins and industry templates.",
-      "Compliance and governance features for regulated industries and enterprise deployments."
     ]
   },
   "rpa/budibase": {
@@ -17237,62 +16929,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/retool": {
-    competitiveEdge: "Retool enables engineers to build internal tools in hours instead of weeks by providing a drag-and-drop interface that connects to any database or API — making it the default platform for teams needing fast, powerful admin panels and dashboards.",
-    swot: {
-      strengths: [
-        "Best-in-class developer experience for internal tool building with drag-and-drop + custom code",
-        "Connects to 100+ data sources: PostgreSQL, Snowflake, Salesforce, and any REST API out of the box",
-        "Retool AI: embed LLM actions and AI components directly into internal tools without separate APIs",
-        "Self-hosted and cloud options with SOC 2 compliance for enterprise security requirements",
-        "Large developer community with extensive component library and reusable templates",
-      ],
-      weaknesses: [
-        "User interface quality of built tools limited by component library — not suitable for customer-facing apps",
-        "Pricing based on users can become expensive for tools with many internal stakeholders",
-        "Performance limitations for very large datasets without additional optimization",
-        "No visual process automation for non-developers — requires JavaScript knowledge for complex logic",
-      ],
-      opportunities: [
-        "AI-powered internal tools becoming essential for operations teams managing LLM workflows",
-        "Retool Workflows: expanding from UI tools to automated data pipeline and workflow execution",
-        "Mobile app builder for internal tools across iOS and Android",
-        "Enterprise expansion: larger organizations replacing bespoke internal apps with faster Retool builds",
-      ],
-      threats: [
-        "Appsmith and Budibase offering open-source alternatives with self-hosting at zero licensing cost",
-        "Superblocks targeting enterprise segment with stronger governance and permissions model",
-        "No-code platforms (Bubble, Webflow) expanding into internal tool use cases",
-        "AI coding assistants reducing the time savings Retool provides for developer-comfortable teams",
-      ],
-    },
-    userLikes: [
-      "Building admin panels that would take weeks of dev time done in hours with Retool",
-      "Native database query interface with instant results without writing an API layer",
-      "AI components enable LLM-powered internal tools without dedicated AI engineering",
-      "Excellent documentation and active Slack community for troubleshooting",
-    ],
-    userComplaints: [
-      "Per-user pricing makes Retool expensive when rolling out internal tools to all employees",
-      "Complex frontend interactions requiring custom JavaScript feel less intuitive than pure code",
-      "Built tools can't match custom-coded applications in polish and performance for large data",
-    ],
-    customerProfile: {
-      segments: ["Engineering Teams at Tech Companies", "Operations Teams", "Growth-Stage Startups"],
-      typicalBuyer: "Engineering Manager, Head of Operations, or Product Manager",
-      topUseCases: [
-        "Admin panels: internal CRUD interfaces for managing customer data, orders, and content",
-        "Operations dashboards: real-time visibility into business metrics connecting multiple data sources",
-        "AI-powered internal tools: embedding LLM actions into approval workflows and data review interfaces",
-      ],
-    },
-    futureAreas: [
-      "Retool AI agents: autonomous agents that can query databases and take actions inside Retool apps",
-      "Retool Workflows scaling to replace cron jobs and ETL pipelines for data operations teams",
-      "Mobile-first internal app builder for field operations and logistics use cases",
-      "Enterprise governance: advanced audit logs, compliance reporting, and SSO for large-scale deployments",
-    ],
-  },
 
   "rpa/superblocks": {
     competitiveEdge: "Superblocks is purpose-built for enterprise internal tools — offering the only internal tool platform with granular column-level permissions, complete audit logs, and SOC 2/HIPAA compliance that regulated industries require.",
@@ -20065,62 +19701,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/mulesoft": {
-    competitiveEdge: "MuleSoft's Anypoint Platform is the only enterprise integration platform that combines API-led connectivity with a reusable asset catalogue — enabling organisations to build once, publish, and reuse integrations across the entire business without rebuilding.",
-    swot: {
-      strengths: [
-        "API-led connectivity methodology creates reusable, governed integration assets",
-        "Anypoint Exchange marketplace for sharing and discovering pre-built APIs across teams",
-        "Deep Salesforce ecosystem integration with Data Cloud and Einstein AI",
-        "Largest certified integration consultant community of any iPaaS vendor",
-        "Proven at the largest enterprise scale with Fortune 100 customer references",
-      ],
-      weaknesses: [
-        "Very high total cost of ownership — licence, platform, and professional services",
-        "Steep learning curve for DataWeave transformation language",
-        "Implementation timelines measured in months for complex enterprise deployments",
-        "Business user accessibility poor — requires skilled Mule developers",
-      ],
-      opportunities: [
-        "Salesforce Data Cloud + MuleSoft integration as unified customer data platform",
-        "Einstein AI + MuleSoft: data activation from integrated sources for AI use cases",
-        "Government digital transformation requiring API-led services modernisation",
-        "Healthcare interoperability mandates driving API integration investment",
-      ],
-      threats: [
-        "Boomi and Workato offering comparable integration at 30-50% lower cost",
-        "Hyperscaler native integration (AWS API Gateway, Azure APIM) reducing MuleSoft need",
-        "Tray.ai and Workato winning new evaluations on time-to-value",
-        "Salesforce pricing increases and vendor concentration risk pushing customers to evaluate alternatives",
-      ],
-    },
-    userLikes: [
-      "API-led connectivity methodology forces good architecture discipline across teams",
-      "Anypoint Studio IDE is powerful for complex transformation logic",
-      "Pre-built accelerators for common enterprise integration patterns",
-      "Salesforce integration is unmatched for Salesforce-centric organisations",
-    ],
-    userComplaints: [
-      "Highest cost iPaaS in the market — difficult to justify for mid-market budgets",
-      "DataWeave language requires dedicated developer training",
-      "CloudHub runtime costs can escalate significantly with message volume",
-    ],
-    customerProfile: {
-      segments: ["Fortune 500 Enterprise", "Salesforce-Heavy Organisations", "Global Manufacturing & Retail"],
-      typicalBuyer: "Enterprise Integration Architect / VP Enterprise Technology / CTO",
-      topUseCases: [
-        "API-led enterprise integration with reusable system, process, and experience APIs",
-        "Salesforce Data Cloud + ERP integration for unified customer data",
-        "Healthcare and financial services regulatory API compliance",
-      ],
-    },
-    futureAreas: [
-      "Einstein AI-powered integration suggestions and automated API generation",
-      "Flex Gateway for unified API management across cloud and on-prem",
-      "RPA + MuleSoft convergence: bot orchestration via API-led patterns",
-      "MuleSoft AI Chain: LLM orchestration using MuleSoft as the integration backbone",
-    ],
-  },
 
   "rpa/tray-ai": {
     competitiveEdge: "Tray's Universal Automation Cloud is the first enterprise automation platform architected for AI-native execution — agentic workflows where AI makes decisions at each step rather than following predefined conditional logic.",
@@ -27272,5 +26852,477 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Regional and private-cloud deployment options"
     ],
     "competitiveEdge": "Purpose-built agent sandbox cloud that lets autonomous agents act on real software without touching core systems"
+  },
+  "rpa/aris": {
+    "swot": {
+      "strengths": [
+        "Decades-deep process modeling repository plus mining, governance and DTO in one platform",
+        "Self-reported Leader in 2026 Gartner Process Intelligence and Process Mining MQs",
+        "Also named Leader in first Gartner MQ for Digital Twin of an Organization (Jul 2026)",
+        "Process Context for Enterprise AI adds object-centric mining and MCP for agents",
+        "Native SAP and Salesforce connectors and accelerators speed time to insight"
+      ],
+      "weaknesses": [
+        "Standalone since Jan 2025 spin-out from Software AG; still building independent GTM",
+        "New CEO Guillaume Bacuvier (2026) means strategy and org are in transition",
+        "Reviewers cite a learning curve and rigid compliance-check setup",
+        "Mining analysis can be restrictive for non-standard processes"
+      ],
+      "opportunities": [
+        "Supplying governed process context to enterprise AI agents via MCP",
+        "Cross-selling mining and DTO into large installed modeling base",
+        "Silver Lake backing for M&A and AI product investment",
+        "Agentic AI governance and control as a new buying center"
+      ],
+      "threats": [
+        "Celonis and SAP Signavio dominate process intelligence mindshare",
+        "Hyperscalers and ServiceNow embedding process mining natively",
+        "Agent platforms building their own process context layers",
+        "PE ownership may prioritize margins over long-term R&D"
+      ]
+    },
+    "userLikes": [
+      "Tight link between process mining results and the ARIS BPM repository",
+      "Out-of-box SAP and Salesforce connectors shorten data onboarding",
+      "Strong governance, risk and compliance modeling depth",
+      "Responsive account team and support"
+    ],
+    "userComplaints": [
+      "Steep learning curve for new and occasional users",
+      "Limited visualization types and rigid compliance configuration",
+      "Analysis of non-standard process variants is constrained"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large regulated enterprises and global manufacturers",
+        "Long-standing ARIS modeling customers"
+      ],
+      "typicalBuyer": "Head of process excellence, enterprise architecture or GRC leader",
+      "topUseCases": [
+        "Enterprise process modeling and governance",
+        "SAP-centric process mining and conformance",
+        "Governed process context for AI agents"
+      ]
+    },
+    "futureAreas": [
+      "Object-centric process mining at scale",
+      "MCP-based process context for AI agents",
+      "Digital twin of the organization simulation",
+      "AI agent governance and controls"
+    ],
+    "competitiveEdge": "Combines decades of governed process models with mining and MCP so AI agents act on trusted enterprise context"
+  },
+  "rpa/apromore": {
+    "swot": {
+      "strengths": [
+        "Owned by Salesforce since Nov 2025, now native on Data 360 and Agentforce",
+        "Research-grade roots at University of Melbourne with open-core heritage",
+        "Process and task mining, simulation and digital twins in one product",
+        "Natural-language process analysis via Agentforce (bottlenecks, SLAs, what-ifs)",
+        "4.7 ratings on G2 and Gartner Peer Insights; support scored highly"
+      ],
+      "weaknesses": [
+        "Small review base and limited public customer count",
+        "Reviewers cite missing features and some UI complexity",
+        "Roadmap now tied to Salesforce priorities and release cycles",
+        "Unclear future for customers mining non-Salesforce systems"
+      ],
+      "opportunities": [
+        "Process intelligence as a differentiator for Agentforce deals",
+        "Cross-sell into Salesforce's large enterprise installed base",
+        "Simulation to model agent impact before automating a process",
+        "MuleSoft connectivity to pull events from ERP and other systems"
+      ],
+      "threats": [
+        "Celonis, SAP Signavio and ServiceNow bundling mining in their stacks",
+        "Customers wary of locking process intelligence to one CRM vendor",
+        "Agent platforms building native process discovery",
+        "Integration distraction typical after acquisition"
+      ]
+    },
+    "userLikes": [
+      "Easy to use with a clean user interface",
+      "Simulation and what-if analysis are strong",
+      "Highly rated service and support",
+      "Straightforward integration and deployment"
+    ],
+    "userComplaints": [
+      "Some advanced features still lacking versus larger rivals",
+      "Learning curve for complex analyses",
+      "Wants more source-system connectors and faster processing"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Salesforce enterprise customers",
+        "Banks, utilities and insurers with complex processes"
+      ],
+      "typicalBuyer": "Salesforce platform owner, COO or process excellence lead",
+      "topUseCases": [
+        "Process mining of CRM and service workflows",
+        "Simulation of process and agent changes",
+        "Finding Agentforce automation opportunities"
+      ]
+    },
+    "futureAreas": [
+      "Deeper Agentforce natural-language analysis",
+      "Agent impact simulation and digital twins",
+      "Data 360-native event processing",
+      "Compliance assurance for agent workflows"
+    ],
+    "competitiveEdge": "Process mining and simulation built natively into Salesforce Data 360 and Agentforce, not bolted on"
+  },
+  "rpa/mpmx": {
+    "swot": {
+      "strengths": [
+        "Runs natively on Qlik, Snowflake and Databricks, reusing existing data stacks",
+        "Leader in 2025 Gartner Magic Quadrant for Process Mining Platforms",
+        "4.8 average on Gartner Peer Insights with no ratings below four stars",
+        "Fortino Capital ownership since Jul 2025 funds AI and interoperability",
+        "Feb 2026 Bizzdesign partnership pairs mining with EA and DTO"
+      ],
+      "weaknesses": [
+        "Small vendor with limited brand awareness outside DACH",
+        "Qlik heritage can read as a niche fit for non-Qlik shops",
+        "Thin review base and modest global partner network",
+        "Rebrand from MEHRWERK to mpmX may confuse buyers"
+      ],
+      "opportunities": [
+        "Process intelligence inside data lakehouses customers already own",
+        "Joint DTO offering with Bizzdesign for enterprise architects",
+        "Expansion beyond DACH with PE-backed sales investment",
+        "Supplying process data to AI agents and copilots"
+      ],
+      "threats": [
+        "Celonis and SAP Signavio winning large global deals",
+        "Snowflake and Databricks partners building their own mining apps",
+        "Qlik platform changes could affect the core user base",
+        "Consolidation among mid-size process mining vendors"
+      ]
+    },
+    "userLikes": [
+      "Powerful when combined with existing Qlik analytics",
+      "Practical dashboards and strong visualization layer",
+      "Intuitive to use for business analysts",
+      "Helpful and knowledgeable vendor team"
+    ],
+    "userComplaints": [
+      "Advanced setup often needs Qlik or data engineering skills",
+      "Smaller ecosystem of templates and partners",
+      "Documentation and community resources are limited"
+    ],
+    "customerProfile": {
+      "segments": [
+        "DACH mid-size and large enterprises",
+        "Organizations standardized on Qlik, Snowflake or Databricks"
+      ],
+      "typicalBuyer": "BI or data platform lead and process excellence manager",
+      "topUseCases": [
+        "Order-to-cash and procure-to-pay mining",
+        "Process KPIs inside existing BI dashboards",
+        "Process digital twin with enterprise architecture"
+      ]
+    },
+    "futureAreas": [
+      "AI-driven process intelligence features",
+      "Deeper Snowflake and Databricks native apps",
+      "Integrated DTO with Bizzdesign",
+      "Process data feeds for AI agents"
+    ],
+    "competitiveEdge": "Process mining that runs inside the customer's existing Qlik, Snowflake or Databricks stack"
+  },
+  "rpa/igrafx": {
+    "swot": {
+      "strengths": [
+        "Leader in Forrester Wave for Process Intelligence Software, Q3 2025",
+        "Unifies modeling, mining, simulation and digital twin in Process360 Live",
+        "Governed process repository serves as a system of record",
+        "2,000+ customers worldwide per company figures",
+        "Jan 2026 NTT DATA INTRAMART deal extends reach in Japan"
+      ],
+      "weaknesses": [
+        "Smaller marketing presence than Celonis or SAP Signavio",
+        "Reviewers report performance dips as more users join",
+        "Support response can be slow on reported issues",
+        "Simulation training resources are hard to find"
+      ],
+      "opportunities": [
+        "Autonomous operations combining process intelligence and execution",
+        "Japan growth via INTRAMART's 11,900+ customer base",
+        "Digital twin simulation to test agentic AI changes",
+        "Replacing Visio-based modeling with governed repositories"
+      ],
+      "threats": [
+        "Celonis and SAP Signavio dominating large mining deals",
+        "Platform vendors bundling free process modeling",
+        "Agent platforms adding their own process discovery",
+        "Price pressure from low-cost diagramming tools"
+      ]
+    },
+    "userLikes": [
+      "Clean, attractive flowcharts and process diagrams",
+      "Strong simulation capability for what-if analysis",
+      "Easy to learn and update models live in workshops",
+      "Better value than many competing suites"
+    ],
+    "userComplaints": [
+      "Performance slows with larger concurrent user counts",
+      "Support can be slow to respond",
+      "Hard to find training on advanced simulation"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Regulated enterprises in finance, healthcare and manufacturing",
+        "Process excellence and Lean Six Sigma teams"
+      ],
+      "typicalBuyer": "Director of process excellence or continuous improvement",
+      "topUseCases": [
+        "Process modeling and documentation",
+        "Process mining with simulation",
+        "Digital twin of the organization"
+      ]
+    },
+    "futureAreas": [
+      "Agentic AI decision support",
+      "Autonomous operations with INTRAMART",
+      "Expanded digital twin simulation",
+      "AI-assisted process modeling"
+    ],
+    "competitiveEdge": "One governed platform spanning modeling, mining and simulation to build a digital twin of operations"
+  },
+  "rpa/bizagi": {
+    "swot": {
+      "strengths": [
+        "Low-code process automation with orchestration of people, systems and AI agents",
+        "Feb 2026 Microsoft Certified Software designation for Financial Services AI",
+        "AI Agents, AI Workers and Ask Ada built on Azure OpenAI and M365 Copilot",
+        "Named in 2025 Gartner MQ for Business Orchestration and Automation Tech",
+        "4.6 average on G2 from 300+ reviews; free Modeler drives adoption"
+      ],
+      "weaknesses": [
+        "Reviewers say complex builds need significant technical skills",
+        "Customers often need to budget for professional services",
+        "Documentation and customization flexibility draw criticism",
+        "Smaller ecosystem than Appian, Pega or ServiceNow"
+      ],
+      "opportunities": [
+        "Governed AI agents for banking onboarding and KYC/AML",
+        "Microsoft Marketplace co-sell with Azure customers",
+        "AI Ignite packages to get agents live in weeks",
+        "Process orchestration as enterprises scale agentic AI"
+      ],
+      "threats": [
+        "Appian, Pega and ServiceNow pushing agentic orchestration",
+        "Microsoft Power Platform overlapping in the Microsoft base",
+        "UiPath and Automation Anywhere expanding into BPM",
+        "AI-native agent startups targeting the same workflows"
+      ]
+    },
+    "userLikes": [
+      "Intuitive drag-and-drop modeling and interface builder",
+      "Free modeler makes BPMN process mapping easy to start",
+      "Effective for automating complex approval workflows",
+      "Good fit with Microsoft and Azure environments"
+    ],
+    "userComplaints": [
+      "Complex for non-technical users on advanced builds",
+      "Professional services needed and can be hard to access",
+      "Integration and customization limits in some scenarios"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Banks, insurers and other regulated industries",
+        "Mid-size to large enterprises on Microsoft Azure"
+      ],
+      "typicalBuyer": "CIO or head of digital transformation in regulated industries",
+      "topUseCases": [
+        "Customer onboarding and KYC/AML automation",
+        "Case management and approvals",
+        "Governed AI agents in business processes"
+      ]
+    },
+    "futureAreas": [
+      "Governed agentic orchestration",
+      "Ask Ada analytics and conversational insights",
+      "Deeper Microsoft Copilot integration",
+      "Industry AI agent accelerators"
+    ],
+    "competitiveEdge": "Low-code orchestration with Microsoft-certified, governed AI agents for regulated industries"
+  },
+  "rpa/qpr-software": {
+    "swot": {
+      "strengths": [
+        "Visionary in Gartner Process Intelligence MQ for four straight years (2026)",
+        "ProcessAnalyzer plus enterprise architecture and modeling in one suite",
+        "Decades of process-mining heritage and loyal Nordic customer base",
+        "Reviewers rate support and ease of deployment highly",
+        "Publicly listed on Nasdaq Helsinki with transparent financials"
+      ],
+      "weaknesses": [
+        "Sub-scale: FY2025 net sales about EUR 5.6M",
+        "Aug 2026 profit warning cut SaaS revenue guidance",
+        "Loss of significant SaaS customer contracts in 2026",
+        "Small review base and limited global sales reach"
+      ],
+      "opportunities": [
+        "Process data and context for enterprise AI agents",
+        "Partner-led expansion outside the Nordics",
+        "Cross-selling ProcessAnalyzer to EA and modeling customers",
+        "Potential acquisition target for a larger platform"
+      ],
+      "threats": [
+        "Celonis, SAP Signavio and ARIS out-investing on AI",
+        "Customer churn concentrated in few large SaaS contracts",
+        "Hyperscaler and platform-native mining commoditizing core features",
+        "Limited capital to fund R&D at competitive pace"
+      ]
+    },
+    "userLikes": [
+      "Easy to deploy and straightforward to configure",
+      "Responsive, knowledgeable customer support",
+      "Solid integrations for a smaller vendor",
+      "Deep process mining expertise behind the product"
+    ],
+    "userComplaints": [
+      "Wants more machine learning and AI capabilities",
+      "Task mining features lag larger rivals",
+      "Smaller user community and ecosystem"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Nordic and European mid-size enterprises",
+        "Public sector and process-mature organizations"
+      ],
+      "typicalBuyer": "Process development manager or enterprise architect",
+      "topUseCases": [
+        "Process mining of ERP processes",
+        "Enterprise architecture and process modeling",
+        "Conformance and performance analysis"
+      ]
+    },
+    "futureAreas": [
+      "AI-assisted process analysis",
+      "Process context for AI agents",
+      "Task mining capabilities",
+      "Partner-led international growth"
+    ],
+    "competitiveEdge": "Long-tenured Gartner Visionary combining process mining with EA and modeling at mid-market price points"
+  },
+  "rpa/mimica": {
+    "swot": {
+      "strengths": [
+        "Task mining records clicks and keystrokes and auto-builds process maps",
+        "$26.2M Series B (Sep 2025) led by Paladin with Khosla and LGVP",
+        "Positioned to map real desktop work for training AI agents",
+        "Reported 30+ large enterprises including Fortune 500 firms",
+        "Everest Group Leader and Star Performer in task mining"
+      ],
+      "weaknesses": [
+        "Small vendor with thin public review base",
+        "Desktop recording raises privacy and works council concerns",
+        "Narrow focus on task mining versus full process intelligence",
+        "Limited brand awareness against larger platforms"
+      ],
+      "opportunities": [
+        "Agent-readiness assessments as enterprises deploy AI agents",
+        "Partnerships with consultancies and automation platforms",
+        "US enterprise expansion funded by Series B",
+        "Feeding task data directly into agent builders"
+      ],
+      "threats": [
+        "Celonis, UiPath and Microsoft bundling task mining",
+        "Skan, Soroco and Scribe competing for desktop work data",
+        "Agents that learn workflows directly from screen use",
+        "Data privacy regulation limiting desktop capture"
+      ]
+    },
+    "userLikes": [
+      "Fast discovery of automation opportunities",
+      "Accurate, detailed process maps from real work",
+      "Setup possible without heavy consulting support",
+      "Easy to use for analysts"
+    ],
+    "userComplaints": [
+      "Few public reviews make peer validation hard",
+      "Employee monitoring requires careful change management",
+      "Insight depends on broad recording coverage"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises in finance, insurance and manufacturing",
+        "Shared services and operations teams"
+      ],
+      "typicalBuyer": "Head of automation, operations excellence or AI transformation",
+      "topUseCases": [
+        "Task mining of desktop workflows",
+        "Identifying AI agent and automation opportunities",
+        "Process maps to train AI agents"
+      ]
+    },
+    "futureAreas": [
+      "Agent training data from real work",
+      "Integration with agent platforms",
+      "Privacy-preserving capture",
+      "Automated process documentation"
+    ],
+    "competitiveEdge": "Turns recorded desktop work into the process maps enterprises need to train and deploy AI agents"
+  },
+  "rpa/scribe": {
+    "swot": {
+      "strengths": [
+        "Passed $100M ARR in May 2026, months after Series C",
+        "$75M Series C at $1.3B valuation (Nov 2025)",
+        "Massive bottom-up adoption across hundreds of thousands of organizations",
+        "Optimize mines workflows in the background to find friction",
+        "MCP server delivers structured workflow context to AI systems"
+      ],
+      "weaknesses": [
+        "Brand rooted in documentation, not enterprise process mining",
+        "Capture can include unnecessary steps that need manual cleanup",
+        "Limited formatting, customization and video capture",
+        "Enterprise governance depth still maturing"
+      ],
+      "opportunities": [
+        "Becoming the workflow context layer for enterprise AI agents",
+        "Upsell Optimize from documentation users to enterprise buyers",
+        "Agents that execute captured workflows",
+        "Workflow intelligence replacing traditional task mining"
+      ],
+      "threats": [
+        "Celonis, Skan and Mimica targeting workflow intelligence",
+        "Microsoft, Google and browser vendors adding native capture",
+        "AI agents learning tasks directly from screens",
+        "Privacy and security scrutiny of background capture"
+      ]
+    },
+    "userLikes": [
+      "Very easy to use and quick to set up",
+      "Creates clear step-by-step guides in minutes",
+      "AI cleanup of captured guides saves editing time",
+      "Great for training, onboarding and SOPs"
+    ],
+    "userComplaints": [
+      "Captures extra steps that must be deleted manually",
+      "Slows down on long procedures and occasional capture bugs",
+      "Limited formatting and design customization"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise operations teams",
+        "Training, IT support and customer success teams"
+      ],
+      "typicalBuyer": "Operations, enablement or IT leader standardizing workflows",
+      "topUseCases": [
+        "Step-by-step SOP and training guides",
+        "Workflow mining with Scribe Optimize",
+        "Workflow context for AI agents via MCP"
+      ]
+    },
+    "futureAreas": [
+      "Scribe Optimize workflow intelligence",
+      "Agents that execute captured workflows",
+      "MCP context for enterprise AI",
+      "Enterprise governance and admin controls"
+    ],
+    "competitiveEdge": "Captures how work really happens at massive scale and serves it to AI agents via MCP"
   },
 };
