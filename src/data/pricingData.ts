@@ -503,22 +503,6 @@ export const pricingData: Record<string, PricingInfo> = {
     bottomLine: "Lowest TCO in class — self-hosted option eliminates licensing cost entirely.",
   },
 
-  "rpa/pipedream": {
-    pricingModel: "consumption",
-    transparency: "public-list",
-    startingPrice: "Free (10K events/month); from $19/month (Basic)",
-    typicalACV: "$1K–$20K",
-    marketSegment: ["smb", "mid-market"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Compute credits (invocations × execution time)",
-      "Number of connected accounts and premium app integrations",
-      "Concurrency and execution timeout limits",
-    ],
-    bottomLine: "Developer-native pricing — negligible cost for most automation workloads.",
-  },
 
   "rpa/activepieces": {
     pricingModel: "open-source-plus",
@@ -1262,73 +1246,10 @@ export const pricingData: Record<string, PricingInfo> = {
 
   // ── RPA Startups ─────────────────────────────────────────────────────────
 
-  "rpa/nango": {
-    pricingModel: "consumption",
-    transparency: "public-list",
-    startingPrice: "Free (3 integrations, development)",
-    typicalACV: "$5K–$60K",
-    marketSegment: ["smb", "mid-market"],
-    deploymentModel: ["saas", "on-prem"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Number of active OAuth integrations and monthly API operations",
-      "Self-hosted versus Nango Cloud deployment",
-      "Enterprise: dedicated infrastructure and SLA tiers",
-    ],
-    bottomLine: "Developer-first integration infrastructure at startup-friendly pricing — open-source option keeps lock-in minimal.",
-  },
-
-  "rpa/paragon": {
-    pricingModel: "consumption",
-    transparency: "contact-sales",
-    typicalACV: "$20K–$150K",
-    marketSegment: ["smb", "mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Number of end-user integrations enabled in the product",
-      "Monthly active users connecting third-party apps",
-      "Premium connectors and enterprise workflow steps",
-    ],
-    bottomLine: "Embedded integration infrastructure priced per end-user adoption — costs scale with product success, not headcount.",
-  },
-
-  "rpa/merge-dev": {
-    pricingModel: "consumption",
-    transparency: "public-list",
-    startingPrice: "Free (Launch plan, limited linked accounts)",
-    typicalACV: "$10K–$120K",
-    marketSegment: ["smb", "mid-market", "enterprise"],
-    deploymentModel: ["saas"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Number of linked customer accounts (API connections)",
-      "Unified API categories: HRIS, ATS, CRM, accounting, etc.",
-      "Advanced features: Field Mapping, Selective Sync, Webhooks",
-    ],
-    bottomLine: "Unified API removes the N×M integration problem — per-linked-account pricing aligns cost directly with customer growth.",
-  },
 
 
-  "rpa/superblocks": {
-    pricingModel: "per-seat",
-    transparency: "public-list",
-    startingPrice: "Free (unlimited internal users)",
-    typicalACV: "$10K–$120K",
-    marketSegment: ["smb", "mid-market", "enterprise"],
-    deploymentModel: ["saas", "on-prem"],
-    freeTrialOrTier: true,
-    tcoBadge: "low",
-    keyPricingDrivers: [
-      "Number of developer/builder seats",
-      "Self-hosted on-prem deployment tier for compliance buyers",
-      "Enterprise: SSO, audit logs, granular RBAC, dedicated support",
-    ],
-    bottomLine: "Free unlimited end-users is a strong differentiator — costs driven by developer seat count, not user scale.",
-  },
+
+
 
   // ── AgentOps Established ─────────────────────────────────────────────────
 

@@ -2310,214 +2310,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Integration with supply chain finance and early payment discount orchestration."
     ]
   },
-  "rpa/apideck": {
-    "competitiveEdge": "Lightweight API aggregation layer enabling rapid multi-SaaS integrations without custom connector builds.",
-    "swot": {
-      "strengths": [
-        "Reduces integration engineering effort and time-to-value for customers building connected products.",
-        "Startup agility and high growth (+a significant share YoY) indicate strong product-market fit with developers.",
-        "API-first approach aligns with modern low-code/no-code platform architecture requirements."
-      ],
-      "weaknesses": [
-        "Very early stage ($3M ARR); limited resources for enterprise support and service reliability.",
-        "Dependent on third-party API availability and stability; cannot control upstream vendor changes.",
-        "Revenue base too small to match support, compliance, and SLA commitments of enterprise competitors."
-      ],
-      "opportunities": [
-        "Expand API coverage into emerging SaaS categories (supply chain, sustainability, fintech).",
-        "Build domain-specific API bundles (HR tech stack, finance stack) with pre-configured mappings.",
-        "Offer managed connectors and support services for critical enterprise integrations."
-      ],
-      "threats": [
-        "Larger integration platforms (Zapier, Integromat, IFTTT) expanding API aggregation offerings.",
-        "SaaS vendors building native integrations directly, reducing demand for aggregation layers."
-      ]
-    },
-    "userLikes": [
-      "Dramatically reduces engineering effort compared to building and maintaining custom API connectors.",
-      "Unified API schema simplifies developer experience across heterogeneous third-party SaaS tools.",
-      "Rapid iteration and deployment of integrations without waiting on SaaS vendor API improvements."
-    ],
-    "userComplaints": [
-      "Coverage gaps in niche or emerging SaaS tools require fallback to custom connector builds.",
-      "Limited support for complex API workflows and edge case handling.",
-      "Dependency risk if Apideck experiences outages or discontinues connector support."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Startup and scale-up B2B SaaS companies building multi-tenant integration platforms",
-        "Mid-market system integrators automating customer workflow integrations"
-      ],
-      "typicalBuyer": "Director of Product Engineering or Head of Integration Engineering",
-      "topUseCases": [
-        "Multi-SaaS data synchronization and workflow orchestration for customers",
-        "Rapid connector deployment for new third-party app integrations",
-        "Unified error handling and logging across heterogeneous SaaS API integrations"
-      ]
-    },
-    "futureAreas": [
-      "AI-driven API schema mapping and automatic data transformation.",
-      "Managed integration execution and compliance for regulated industries.",
-      "Vertical-specific API bundles with pre-built workflows for industries."
-    ]
-  },
-  "rpa/budibase": {
-    "competitiveEdge": "Lightweight open-source low-code platform emphasizing simplicity and rapid internal tool development over feature complexity.",
-    "swot": {
-      "strengths": [
-        "Low-code simplicity appeals to non-technical users and smaller organizations avoiding feature bloat.",
-        "Open-source model with permissive license enables customization and self-hosted control.",
-        "High growth (+a significant share YoY) indicates product resonance with SMB and startup markets."
-      ],
-      "weaknesses": [
-        "Minimal commercial revenue ($3M ARR); early-stage viability risk and limited support capacity.",
-        "Feature set narrower than Appsmith; more constrained for complex application workflows.",
-        "Small community and ecosystem limits third-party integrations and extensibility options."
-      ],
-      "opportunities": [
-        "Expand connector library to cover ERP, CRM, and major SaaS platforms.",
-        "Build vertical accelerators for common SMB workflows (HR, finance, project management).",
-        "Introduce collaborative features for citizen developer and cross-functional teams."
-      ],
-      "threats": [
-        "Larger open-source low-code platforms (Appsmith) may absorb market share as they scale.",
-        "Proprietary incumbents (Retool, Mendix) incorporating simplicity-focused features."
-      ]
-    },
-    "userLikes": [
-      "Intuitive UI and minimal learning curve enable non-technical users to build applications.",
-      "Lightweight and self-contained; deploys quickly without heavy infrastructure overhead.",
-      "Strong focus on data-driven internal tools reduces boilerplate and configuration complexity."
-    ],
-    "userComplaints": [
-      "Connector ecosystem smaller than competitors; integrations often require custom API work.",
-      "Performance optimization needed for large datasets and complex, multi-table workflows.",
-      "Limited documentation and community support for advanced use cases and troubleshooting."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Small-to-mid-market organizations (under 1K employees) with limited IT resources",
-        "Departments or teams building internal tools without dedicated development budgets"
-      ],
-      "typicalBuyer": "Operations Manager, Business Analyst, or Non-Technical Team Lead",
-      "topUseCases": [
-        "Internal inventory, asset, or resource management tools",
-        "Workflow approval and request management applications",
-        "Data entry and simple CRUD frontends for backend databases"
-      ]
-    },
-    "futureAreas": [
-      "AI-assisted application scaffolding and form generation from data schemas.",
-      "Industry-specific application templates and accelerators for common SMB workflows.",
-      "Mobile app capability and offline-first workflows for field operations."
-    ]
-  },
-  "rpa/tooljet": {
-    "competitiveEdge": "Community-driven open-source low-code platform for internal tools, offering deployment flexibility and transparency that proprietary builders cannot match.",
-    "swot": {
-      "strengths": [
-        "Fully open-source codebase removes vendor lock-in and licensing costs; self-hosting option appeals to enterprises",
-        "Strong developer community and rapid feature iteration; no enterprise licensing friction for large deployments",
-        "Fast database-to-UI creation with built-in components for common internal tool patterns"
-      ],
-      "weaknesses": [
-        "Limited commercial support and SLA guarantees vs. enterprise competitors like Retool or Appian",
-        "Smaller customer base and ecosystem compared to funded low-code incumbents",
-        "Self-hosting requires ops/DevOps skills; cloud hosting is early stage"
-      ],
-      "opportunities": [
-        "Expand managed cloud offering to reduce self-hosting friction for SMBs and mid-market",
-        "Build professional services and partner ecosystems to compete with enterprise platforms",
-        "Integrate AI-assisted UI generation to accelerate tool-building for non-technical users"
-      ],
-      "threats": [
-        "Well-funded competitors (Retool, Budibase, Supabase) with commercial support and brand recognition",
-        "Microsoft Power Apps and low-code suites bundled into enterprise software stacks",
-        "Shift toward AI-first code generation (GitHub Copilot, Claude) reducing demand for drag-and-drop builders"
-      ]
-    },
-    "userLikes": [
-      "Fully open-source; no licensing costs or vendor lock-in regardless of scale",
-      "Self-hosting option appeals to security-conscious and regulated enterprises",
-      "Fast rapid iteration with strong developer-first tooling and API-first design"
-    ],
-    "userComplaints": [
-      "Lack of professional support and enterprise SLAs for mission-critical internal tools",
-      "Documentation gaps and smaller community vs. Retool/Appsmith for troubleshooting",
-      "Database connectivity setup and permission management require DevOps knowledge"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Developer-first teams and startups valuing transparency and cost control",
-        "Enterprise IT departments with self-hosting and on-prem requirements",
-        "Organizations building internal tools at scale without enterprise vendor lock-in"
-      ],
-      "typicalBuyer": "Engineering Lead or VP of Engineering at mid-market or fast-growing startup",
-      "topUseCases": [
-        "CRUD apps and internal dashboards for operations and admin teams",
-        "Integration layer connecting legacy databases to modern workflows",
-        "Self-hosted internal tools within security and compliance boundaries"
-      ]
-    },
-    "futureAreas": [
-      "Managed cloud offering with enterprise support to reduce self-hosting burden",
-      "AI-assisted UI generation and workflow templates to accelerate tool-building",
-      "Ecosystem of integrations and templates to compete with commercial low-code platforms"
-    ]
-  },
-  "rpa/windmill": {
-    "competitiveEdge": "Developer-centric open-source automation platform bridging scripting and workflows, targeting technical teams automating data pipelines and ops tasks.",
-    "swot": {
-      "strengths": [
-        "Supports multiple languages (Python, TypeScript, Go) natively; appeals to developer-first organizations",
-        "Lightweight, fast execution model suited for data pipelines and scheduled job execution",
-        "True open-source with no vendor lock-in; self-hosted and self-managed infrastructure appeals to DevOps teams"
-      ],
-      "weaknesses": [
-        "Smaller community and ecosystem relative to Zapier, Make, or established RPA platforms",
-        "Limited out-of-the-box connectors; requires custom code for third-party integrations",
-        "No visual workflow builder for non-technical users; higher barrier to entry for citizen developers"
-      ],
-      "opportunities": [
-        "Expand pre-built connector library to reduce custom coding for common SaaS integrations",
-        "Build visual workflow layer on top of scripting core to serve non-technical users",
-        "Target data ops and ML engineering teams automating ETL and feature engineering pipelines"
-      ],
-      "threats": [
-        "Low-code incumbents (Zapier, Make, n8n) with larger communities and connector marketplaces",
-        "Cloud data platforms (dbt, Airflow, Prefect) consolidating data workflow automation",
-        "Enterprise platforms (UiPath, Automation Anywhere) expanding into developer automation"
-      ]
-    },
-    "userLikes": [
-      "Multi-language scripting support (Python, TypeScript) resonates with engineering teams",
-      "Lightweight and fast execution; minimal overhead for scheduled automation",
-      "Full control via open source and self-hosting; no vendor lock-in or licensing creep"
-    ],
-    "userComplaints": [
-      "Steep learning curve for non-technical users; requires coding knowledge for workflows",
-      "Limited pre-built connectors; many integrations require custom code",
-      "Smaller ecosystem and fewer managed service providers vs. Zapier or n8n"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Engineering teams and data ops automating internal pipelines and scheduled jobs",
-        "DevOps organizations deploying and managing on-prem automation infrastructure",
-        "Startups prioritizing developer experience and cost over visual interfaces"
-      ],
-      "typicalBuyer": "Engineering Manager or Data Ops Lead at mid-market or growth-stage startup",
-      "topUseCases": [
-        "Scheduled data pipelines and ETL job orchestration",
-        "Internal tool automation and DevOps workflow execution",
-        "Multi-step automation requiring custom logic and third-party API calls"
-      ]
-    },
-    "futureAreas": [
-      "Visual workflow designer overlaying scripting core for non-technical users",
-      "Expanded SaaS connector library to reduce custom coding friction",
-      "Enterprise features (RBAC, audit, compliance) to compete in mid-market automation"
-    ]
-  },
   "rpa/dify-ai": {
     "competitiveEdge": "Open-source LLM application platform enabling enterprises to build and deploy GenAI workflows without vendor lock-in or licensing restrictions.",
     "swot": {
@@ -2730,268 +2522,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Managed implementation services bundling platform access with consulting to accelerate customer adoption"
     ]
   },
-  "rpa/quickwork": {
-    "competitiveEdge": "Asia-first automation platform with conversational interfaces designed for emerging-market users unfamiliar with visual workflow builders.",
-    "swot": {
-      "strengths": [
-        "Deep product localization for Indian market (language, payment methods, support timezone)",
-        "Conversational workflow approach differentiates from visual builders, appeals to non-technical users",
-        "High growth (+a significant share YoY) in emerging market with limited competitor presence and rising digital transformation spend"
-      ],
-      "weaknesses": [
-        "Limited presence in North America and Europe reduces total addressable market and investor visibility",
-        "Dependence on India for revenue concentration creates single-region risk and commoditized pricing pressure",
-        "Smaller team and budget limits feature velocity and enterprise compliance capabilities (SOC2, HIPAA)"
-      ],
-      "opportunities": [
-        "Rapid expansion across Southeast Asia, Bangladesh, Pakistan where Zapier/Make have minimal presence",
-        "Vertical specialization in e-commerce and SMB operations automation where Quickwork has early traction",
-        "AI-powered chatbot-to-workflow conversion leveraging India's LLM talent pool and low training costs"
-      ],
-      "threats": [
-        "Zapier and Make expanding into Asia with aggressive pricing and global brand recognition",
-        "Local competitors in India (Integrately, Pabbly) with deeper product parity and comparable pricing",
-        "Global talent and market shifts reduce emerging-market willingness-to-pay as automation commoditizes"
-      ]
-    },
-    "userLikes": [
-      "Conversational interface lowers barrier for non-technical SMB owners and operations teams in Asia",
-      "Localized payment and support makes adoption frictionless for India and APAC markets",
-      "Aggressive pricing (subsidy vs Western vendors) enables rapid scale in price-sensitive regions"
-    ],
-    "userComplaints": [
-      "Product documentation and educational resources lag behind Zapier and Make in depth",
-      "Limited integration ecosystem compared to larger platforms with more app partnerships",
-      "Support response times and technical depth sometimes insufficient for complex enterprise workflows"
-    ],
-    "customerProfile": {
-      "segments": [
-        "SMB e-commerce and marketplace sellers across India and Southeast Asia",
-        "Mid-market operations teams in retail and logistics automating order fulfillment",
-        "Emerging-market companies digitizing finance and HR workflows without large IT budgets"
-      ],
-      "typicalBuyer": "Operations manager or founder leading digital transformation in SMB or regional business",
-      "topUseCases": [
-        "E-commerce order management linking marketplaces (Amazon, Flipkart) with fulfillment and payment processing",
-        "Customer support ticket routing from messaging apps (WhatsApp, Telegram) to CRM and ticketing systems",
-        "Accounts receivable and payroll processing for distributed regional operations across India/APAC"
-      ]
-    },
-    "futureAreas": [
-      "Vertical solutions for Indian e-commerce and logistics automation to compete with global platforms",
-      "AI-powered process automation templates pre-built for common SMB workflows to reduce setup time",
-      "International expansion to Southeast Asia and South Asia with localized onboarding and support"
-    ]
-  },
-  "rpa/albato": {
-    "competitiveEdge": "European no-code integration platform with GDPR-native compliance and EU-hosted data residency eliminating procurement friction in regulated markets.",
-    "swot": {
-      "strengths": [
-        "GDPR-compliant architecture and EU data residency reduce procurement cycle for European enterprises",
-        "Regional focus enables tight partnerships with European consultants, agencies, and solution providers",
-        "Strong growth (+a significant share YoY) in Europe where competitor mindshare trails US vendors like Zapier and Make"
-      ],
-      "weaknesses": [
-        "Limited brand awareness and customer references outside EMEA constrains total addressable market",
-        "Smaller engineering and product team vs funded competitors limits feature velocity and enterprise capabilities",
-        "Dependence on EMEA for revenue concentration exposes business to regional economic and regulatory volatility"
-      ],
-      "opportunities": [
-        "Rapid expansion into UK, Middle East, and Africa as Brexit and GDPR solidify demand for regional alternatives",
-        "Vertical specialization in European industries (insurance, financial services, government) with compliance requirements",
-        "Strategic partnerships with European ERP vendors (SAP, Infor) and consultancies to drive enterprise adoption"
-      ],
-      "threats": [
-        "Zapier and Make launching EU data residency and GDPR-compliant compliance reducing Albato's unique value",
-        "Larger European IT vendors (Bosch, Siemens, SAP) bundling integration and automation into enterprise suites",
-        "Price competition from Indian vendors (Pabbly, Integrately) undercutting Albato's value proposition in cost-conscious markets"
-      ]
-    },
-    "userLikes": [
-      "European regulatory compliance built-in reduces IT and legal review overhead for data-sensitive enterprises",
-      "Regional customer support and documentation in native languages increases adoption velocity",
-      "Transparent pricing and fair use policies contrast favorably with US SaaS vendors' potential overages"
-    ],
-    "userComplaints": [
-      "Smaller integration ecosystem vs Zapier (6000+ apps) and Make (1500+ apps) limits use case coverage",
-      "Product documentation and onboarding sometimes less polished than larger competitors with larger product teams",
-      "Performance and reliability in large-scale workflows not yet battle-tested against enterprise-grade competitors"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market manufacturing and financial services firms requiring GDPR and data localization compliance",
-        "European digital agencies and consultancies automating client processes across regulated industries",
-        "Government and public sector organizations subject to EU procurement and data residency mandates"
-      ],
-      "typicalBuyer": "IT operations manager or digital transformation lead in mid-market European enterprise",
-      "topUseCases": [
-        "Financial reporting and compliance data pipelines linking ERP (SAP, Oracle) with audit and regulatory systems",
-        "Customer data management automating consent collection and GDPR subject-access requests across CRM and marketing tools",
-        "Procurement-to-payment automation linking supplier systems with ERP and financial systems across multiple European entities"
-      ]
-    },
-    "futureAreas": [
-      "Vertical solutions and compliance templates for European industries (insurance, pharma, finance) competing with legacy vendors",
-      "AI-powered process discovery and optimization targeting European enterprises' reluctance to adopt US-based SaaS platforms",
-      "International expansion to Middle East and Africa leveraging GDPR expertise and regional trust advantage"
-    ]
-  },
-  "rpa/pabbly-connect": {
-    "competitiveEdge": "Ultra-affordable automation platform dominating emerging-market SMBs willing to optimize for cost over features.",
-    "swot": {
-      "strengths": [
-        "Lowest pricing tier in market ($20–100/month) enables mass adoption in India and emerging markets where Zapier is out of reach",
-        "Indian customer base with high volume offsets lower per-user revenue, enabling profitable unit economics",
-        "Brand recognition and grassroots adoption in India/APAC makes Pabbly trusted by regional SMBs and consultancies"
-      ],
-      "weaknesses": [
-        "Low price point limits investment in enterprise features (audit trails, SSO, advanced permissions) required for large deals",
-        "Limited resources for product R&D and support depth compared to funded competitors like Zapier and Make",
-        "Reputation for basic feature set and reliability gaps limits expansion into mid-market and enterprise segments"
-      ],
-      "opportunities": [
-        "Rapid expansion across Southeast Asia, Latin America where SMBs seek low-cost automation alternatives",
-        "Vertical solutions and templates for e-commerce, SaaS, and digital agency workflows where Pabbly is strongest",
-        "Freemium to low-cost paid migration model capturing SMBs unable to afford Zapier's $19.99 minimum"
-      ],
-      "threats": [
-        "Zapier and Make aggressive pricing (Make free tier, Zapier budget plans) compressing Pabbly's cost advantage",
-        "Regional competitors (Integrately, Albato, Quickwork) with better funding and product parity eroding Pabbly's market share",
-        "Global automation commoditization reducing willingness-to-pay for pure integration and workflow tools"
-      ]
-    },
-    "userLikes": [
-      "Lowest-cost automation platform enables SMBs to experiment with automation without budget justification",
-      "Sufficient feature depth for common SMB workflows (form submission, CRM sync, email notifications) at minimal cost",
-      "Indian customer support and community lowers friction for emerging-market SMBs uncomfortable with Western SaaS"
-    ],
-    "userComplaints": [
-      "Feature gaps for complex workflows; advanced conditional logic and error handling lag Zapier and Make",
-      "Reliability and uptime issues reported during peak usage periods compared to more mature competitors",
-      "Limited documentation and educational resources for new users; steep learning curve for advanced features"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Solo entrepreneurs and micro-SMBs in India and emerging markets seeking minimum viable automation",
-        "Digital agencies and consultancies reselling automation to clients as managed service add-on",
-        "E-commerce sellers and SaaS startups optimizing for runway and avoiding SaaS overhead"
-      ],
-      "typicalBuyer": "Founder, digital marketer, or operations consultant automating workflows with minimal budget",
-      "topUseCases": [
-        "Lead capture and follow-up automation linking web forms to email marketing and CRM systems",
-        "E-commerce order notifications and inventory sync across multiple storefronts and fulfillment platforms",
-        "Social media posting and engagement automation scheduling content across LinkedIn, Instagram, and Facebook"
-      ]
-    },
-    "futureAreas": [
-      "Vertical solutions targeting Indian and APAC e-commerce and digital marketing to compete with general-purpose platforms",
-      "AI-powered automation templates and guided workflows reducing setup friction for cost-conscious SMBs",
-      "International expansion to Southeast Asia and Latin America leveraging proven low-cost playbook and regional growth"
-    ]
-  },
-  "rpa/integrately": {
-    "competitiveEdge": "Frictionless one-click setup across 1,000+ integrations targets SMB adoption fatigue with traditional low-code platforms.",
-    "swot": {
-      "strengths": [
-        "Minimal learning curve with one-click setup reduces time-to-automation for non-technical users.",
-        "Broad app coverage (1,000+ integrations) appeals to SMB/mid-market seeking breadth over depth.",
-        "Aggressive growth (+a significant share YoY) and India origin enable competitive pricing vs. Western incumbents."
-      ],
-      "weaknesses": [
-        "Early-stage revenue ($3M ARR) limits R&D and enterprise support infrastructure.",
-        "Positioning as 'simple automation' may limit complex multi-step workflows vs. Zapier/Make.",
-        "Limited process mining, document handling, and vertical AI capabilities vs. RPA platform suites."
-      ],
-      "opportunities": [
-        "Expand into mid-market via AI-assisted workflow generation and template libraries.",
-        "Vertical automation packs for e-commerce, SMB ops, freelancer workflows.",
-        "Integrate lightweight RPA (form-fill, web scraping) to compete with Browse AI/Axiom.ai."
-      ],
-      "threats": [
-        "Zapier and Make (1,500+–2,000+ integrations) dominate SMB; Microsoft Power Automate bundling erodes pricing power.",
-        "Browser automation startups (Axiom, Bardeen, Browse AI) shift use cases toward RPA; data automation niche shrinking."
-      ]
-    },
-    "userLikes": [
-      "Simple no-code interface without configuration overhead appeals to solo operators and SMBs.",
-      "Affordable per-task pricing model beats traditional integration platforms for light workloads.",
-      "One-click app sync reduces manual mapping errors common in manual data entry."
-    ],
-    "userComplaints": [
-      "Limited conditional logic and advanced filtering for complex workflows vs. professional iPaaS.",
-      "Support and documentation lag behind Zapier; community smaller, fewer third-party integrations.",
-      "High latency and frequency limits on free tier push early-stage teams to paid tiers quickly."
-    ],
-    "customerProfile": {
-      "segments": [
-        "E-commerce and freelancer platforms seeking lightweight order-to-fulfillment automation.",
-        "Regional SMBs in India/emerging markets with cost sensitivity and simple integration needs."
-      ],
-      "typicalBuyer": "Operations coordinator or solopreneur managing multiple SaaS tools without IT support.",
-      "topUseCases": [
-        "Lead capture and CRM sync across forms, email, and sales tools.",
-        "Spreadsheet data sync from e-commerce, invoicing, and accounting software.",
-        "Email-triggered notifications and approval workflows across SaaS applications."
-      ]
-    },
-    "futureAreas": [
-      "AI-powered automation suggestion based on app usage patterns (reduce configuration time).",
-      "Vertical template library (SMB accounting, e-commerce ops) to reduce setup friction.",
-      "Lightweight RPA layer for web form-filling and screen scraping to compete with browser automation startups."
-    ]
-  },
-  "rpa/coupler-io": {
-    "competitiveEdge": "Specialized data pipeline automation—connecting business apps directly to spreadsheets and BI tools—solves the analyst's recurring export-and-import pain.",
-    "swot": {
-      "strengths": [
-        "Narrow focus on data sync (CRM→Sheet, accounting→BI) provides deep product-market fit.",
-        "Favorable Ukraine origin enables lower cost-per-engineer vs. US/Western competitors.",
-        "Strong YoY growth (+a significant share) and recurring integration workflows provide retention and upsell."
-      ],
-      "weaknesses": [
-        "Niche positioning limits total addressable market vs. horizontal platforms (Zapier, Make).",
-        "Limited to data sync; no document processing, RPA, or process mining capabilities.",
-        "Early-stage revenue ($3M ARR) constrains enterprise SLA, security certifications, and support."
-      ],
-      "opportunities": [
-        "Expand into reverse sync (Sheet→app) and real-time streaming for data warehouse automation.",
-        "Partner with BI tools (Tableau, Looker) and accounting platforms (Xero, QuickBooks) for embedded integrations.",
-        "Add lightweight AI for data quality validation and anomaly detection on incoming feeds."
-      ],
-      "threats": [
-        "Zapier and Make offer data sync as subset of broader automation; bundling pressure.",
-        "Specialist competitors (Coefficient, Parabola) also target data automation with different angles.",
-        "Cloud data warehouse vendors (Snowflake, Databricks) embed native connectors, reducing need for third-party sync."
-      ]
-    },
-    "userLikes": [
-      "Solves the 'export and paste' pain—hands-off scheduled syncs to spreadsheets and BI tools reduce manual effort.",
-      "Simple mapping UI tailored to non-developers familiar with spreadsheets; less intimidating than traditional ETL.",
-      "Reliable scheduling and error handling for recurring data pipelines; triggers retries without user intervention."
-    ],
-    "userComplaints": [
-      "Limited transformation logic; complex data mapping (aggregation, join, pivot) requires custom code or external tools.",
-      "Slower than native database connectors; latency unacceptable for real-time dashboards or fast-moving operations.",
-      "Sparse documentation and limited template library; DIY setup for each new connector integration."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Accounting, finance ops teams syncing invoice/payable data into spreadsheets for reporting.",
-        "Regional SMBs and startups using low-code BI (Google Sheets, Airtable, Excel) without data warehouse."
-      ],
-      "typicalBuyer": "Finance manager or operations analyst responsible for recurring reporting and data consolidation.",
-      "topUseCases": [
-        "Automated daily/weekly CRM data export to spreadsheet for sales pipeline reporting.",
-        "Real-time accounting app (QuickBooks, Xero) sync to Google Sheets for P&L and cash flow monitoring.",
-        "Lead database consolidation from multiple sources into central Airtable for marketing nurture."
-      ]
-    },
-    "futureAreas": [
-      "Reverse sync and bidirectional data flow (update source app from spreadsheet changes).",
-      "Data quality monitoring and AI-assisted anomaly detection on incoming pipelines.",
-      "Embedded Coupler for SaaS product teams to offer native data export features to customers."
-    ]
-  },
   "rpa/bardeen": {
     "competitiveEdge": "AI-trained browser agent automates high-volume repetitive web tasks (lead research, competitor monitoring, data scraping) without RPA's heavyweight setup.",
     "swot": {
@@ -3200,58 +2730,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Tighter CRM and workflow platform integrations for structured downstream action (create contact, assign task, send notification)."
     ]
   },
-  "rpa/coefficient": {
-    "competitiveEdge": "Native spreadsheet data automation bridges the gap between BI tools and workflow engines, eliminating manual CRM-to-sheet syncs.",
-    "swot": {
-      "strengths": [
-        "Direct CRM/database integration with real-time sync and automation triggers",
-        "Low-code approach reduces dependence on IT or specialized RPA training",
-        "Strong revenue growth (+a significant share YoY) signals product-market fit in spreadsheet-centric workflows"
-      ],
-      "weaknesses": [
-        "Early-stage startup with limited enterprise support and onboarding resources",
-        "Spreadsheet automation is narrower use case than full RPA platforms",
-        "Likely lacks sophisticated audit, compliance, and governance controls needed for regulated industries"
-      ],
-      "opportunities": [
-        "Expand to non-CRM data sources (ERP, supply chain, HR systems) to widen addressable market",
-        "Develop mobile and reporting layers for business users who don't work in sheets",
-        "Partner with spreadsheet-native vendors (Airtable, Notion) to embed automation natively"
-      ],
-      "threats": [
-        "Larger iPaaS players (Zapier, Make) adding spreadsheet connectors and visual automation",
-        "Enterprise RPA vendors (UiPath, Automation Anywhere) targeting spreadsheet use cases with governance",
-        "Spreadsheet skill decline in future workforces may reduce TAM"
-      ]
-    },
-    "userLikes": [
-      "Eliminates manual data entry between CRM and spreadsheets",
-      "Visual workflow builder is intuitive for non-technical users",
-      "Real-time sync keeps dashboards and reports current without IT involvement"
-    ],
-    "userComplaints": [
-      "Limited integration breadth compared to enterprise iPaaS platforms",
-      "Lacks advanced error handling and retry logic for mission-critical workflows",
-      "Documentation and community support sparse due to early-stage maturity"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market operations and finance teams using spreadsheets as primary data hub",
-        "SMB sales and marketing teams managing CRM data outside native tools"
-      ],
-      "typicalBuyer": "Operations manager or finance analyst seeking to automate manual CRM-to-Excel workflows",
-      "topUseCases": [
-        "Sync Salesforce/HubSpot leads and deals to living spreadsheet without manual copy-paste",
-        "Trigger email or Slack alerts when spreadsheet values cross thresholds",
-        "Consolidate data from multiple CRMs into single source-of-truth sheet"
-      ]
-    },
-    "futureAreas": [
-      "Expansion into financial consolidation, expense management, and FP&A automation",
-      "AI-assisted workflow design that infers automation rules from spreadsheet patterns",
-      "White-label embedded version for CRM and spreadsheet vendors to offer natively"
-    ]
-  },
   "rpa/parabola": {
     "competitiveEdge": "Visual no-code workflow builder purpose-built for operations teams and ecommerce, not IT; fast time-to-value for non-technical users.",
     "swot": {
@@ -3302,162 +2780,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vertical-specific solutions for verticals adjacent to ecommerce (food service, logistics, hospitality)",
       "AI-powered process discovery to identify automation opportunities from transaction data",
       "Low-touch managed service offering workflows for customers who lack in-house expertise"
-    ]
-  },
-  "rpa/cargo": {
-    "competitiveEdge": "Unified RevOps automation platform combining data orchestration, workflow triggers, and CRM-native execution for revenue teams.",
-    "swot": {
-      "strengths": [
-        "RevOps is a high-growth, high-budget segment with low automation penetration",
-        "Dual-focus on data sync and workflows addresses both analytics and execution gaps",
-        "Early-stage team positioned directly in GTM/sales operations where urgency and ROI are clear"
-      ],
-      "weaknesses": [
-        "French-based startup with likely limited US enterprise sales and support infrastructure",
-        "Early-stage funding and revenue suggest product may lack depth in governance or compliance",
-        "Direct competition with larger iPaaS (Zapier, integromat) and CRM-native (Salesforce, HubSpot) automation"
-      ],
-      "opportunities": [
-        "Expand beyond Salesforce to entire GTM stack (LinkedIn Sales Navigator, Outreach, Gong integration)",
-        "Offer analytics and attribution on automated campaigns to close feedback loop for revenue teams",
-        "Develop IP-centric go-to-market automation (account-based marketing, expansion workflows)"
-      ],
-      "threats": [
-        "Salesforce expanding Flow and integrated data sync; HubSpot building native automation",
-        "Large iPaaS consolidators (Workato, MuleSoft) entering RevOps vertical with enterprise credibility",
-        "Standalone RevOps platforms (Platypus, Salesloft, Pavilion) adding workflow automation natively"
-      ]
-    },
-    "userLikes": [
-      "Solves RevOps pain point of syncing CRM data to marketing tools and vice versa",
-      "Purpose-built for revenue teams reduces onboarding and training compared to generic iPaaS",
-      "Workflow automations reduce manual GTM process steps (lead scoring, account assignment, nurture)"
-    ],
-    "userComplaints": [
-      "Limited integration breadth compared to established iPaaS platforms",
-      "Scaling to multi-team GTM stacks may require significant configuration and data mapping",
-      "Vendor lock-in risk; switching platforms requires rebuilding entire automation layer"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market B2B SaaS companies with 50-300 salespeople",
-        "Enterprise revenue operations centers with dedicated RevOps teams"
-      ],
-      "typicalBuyer": "VP/Director of RevOps or Sales Operations responsible for Salesforce data quality and team productivity",
-      "topUseCases": [
-        "Sync Salesforce leads/accounts to HubSpot, Outreach, and Gong for coordinated engagement",
-        "Auto-assign leads to salespeople based on territory, industry, and sales capacity rules",
-        "Consolidate data from multiple tools (website, ATS, HR) into single source-of-truth CRM"
-      ]
-    },
-    "futureAreas": [
-      "Customer Success operations automation (onboarding, expansion, churn prevention workflows)",
-      "AI-powered process mining to uncover RevOps bottlenecks and automation opportunities",
-      "Vertical-specific packages for different GTM models (land-and-expand, channel, product-led growth)"
-    ]
-  },
-  "rpa/hotglue": {
-    "competitiveEdge": "Embedded ETL-as-a-service lets SaaS vendors offer native data integration and sync to customers without building connectors.",
-    "swot": {
-      "strengths": [
-        "Embedded integration solves major SaaS product gap; customers want data flows without leaving app",
-        "B2B2C model creates sticky revenue from multiple SaaS vendors embedding one integration layer",
-        "Early-stage timing captures emerging pattern of data integration becoming table-stakes feature"
-      ],
-      "weaknesses": [
-        "Dependent on SaaS vendor adoption and integration partner ecosystem; high churn risk if vendors don't adopt",
-        "Early stage with limited case studies, customer base, and proven product-market fit",
-        "Competitive threat from embedded solutions built by larger iPaaS (Workato, Zapier) and cloud data platforms"
-      ],
-      "opportunities": [
-        "Expand beyond SaaS to mobile app and browser-extension markets needing lightweight integration",
-        "Become de facto integration layer for vertical SaaS categories (real estate, legal tech, HR tech)",
-        "Partner with enterprise middleware (Mulesoft, Talen) to embed in their no-code designer"
-      ],
-      "threats": [
-        "Large iPaaS players (Zapier, Make) building lightweight embedded integration offerings",
-        "SaaS vendors building proprietary integrations directly rather than relying on third-party layer",
-        "Rise of composable SaaS may reduce need for integration layer if data is natively portable"
-      ]
-    },
-    "userLikes": [
-      "Eliminates need for SaaS users to leave product to configure data sync with other tools",
-      "Pre-built connectors to common business apps (Salesforce, Slack, HubSpot) reduce configuration time",
-      "Workflow automation within SaaS app increases product stickiness and reduces churn"
-    ],
-    "userComplaints": [
-      "Dependent on SaaS vendor building and maintaining embedded integration UI; adoption risk",
-      "Custom integrations to niche or legacy systems often not available out-of-box",
-      "Limited visibility and control when integration layer is embedded inside third-party product"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-market SaaS vendors (50-200 employees) building data sync features for customers",
-        "Enterprise software vendors seeking lightweight integration solution for platform"
-      ],
-      "typicalBuyer": "VP of Product or Head of Integrations at SaaS vendor responsible for integration roadmap",
-      "topUseCases": [
-        "Embed data sync between vendor's app and customer's CRM/ERP without building custom connectors",
-        "Allow end customers to trigger workflows from vendor app to downstream tools (Slack, email, webhooks)",
-        "Offer customers visibility into data freshness and sync history without leaving vendor's UI"
-      ]
-    },
-    "futureAreas": [
-      "White-label marketplace for integrations; SaaS vendors sell third-party connectors to customers",
-      "Embedded process mining and automation intelligence that surfaces high-impact data flows",
-      "Multi-tenant iPaaS capabilities embedded in SaaS so customers build integrations natively"
-    ]
-  },
-  "rpa/morph": {
-    "competitiveEdge": "Collaborative, Git-enabled data transformation platform for analytics teams; version control and code reuse for data pipelines.",
-    "swot": {
-      "strengths": [
-        "Positions at intersection of data engineering and analytics, addressing gap in collaborative transformation",
-        "Git-based approach appeals to technical teams already comfortable with version control and CI/CD",
-        "Low-code transformation reduces data team toil and accelerates analytics velocity"
-      ],
-      "weaknesses": [
-        "Early-stage with unproven product and market adoption; lacks customer case studies",
-        "Narrower positioning (analysts) vs. broader data engineering/ETL platforms (dbt, Matillion, Talend)",
-        "Limited integration breadth and ecosystem compared to established analytics tools"
-      ],
-      "opportunities": [
-        "Embed in analytics platforms (Tableau, Looker, Metabase) as native transformation layer",
-        "Expand from transformation to full analytics orchestration (scheduling, alerting, documentation)",
-        "Become the 'dbt for analytics workflows' by offering managed hosting, CI/CD, and observability"
-      ],
-      "threats": [
-        "dbt dominates analytics transformation space with larger community and ecosystem",
-        "Cloud data platforms (Snowflake, BigQuery) embedding SQL transformation and scheduling natively",
-        "Large BI platforms (Tableau, Looker) building transformation capabilities directly into products"
-      ]
-    },
-    "userLikes": [
-      "Collaborative workflow and Git version control reduce friction in analytics teams",
-      "Visual and code-based transformation modes accommodate both technical and non-technical analysts",
-      "Reusable transformation components and libraries reduce time spent on repetitive data cleaning"
-    ],
-    "userComplaints": [
-      "Learning curve for teams unfamiliar with Git workflows and collaborative development patterns",
-      "Limited automation and orchestration features compared to dedicated ETL/ELT platforms",
-      "Unclear differentiation from dbt or similar open-source transformation tools"
-    ],
-    "customerProfile": {
-      "segments": [
-        "Growth-stage startups with data-driven culture and dedicated analytics teams",
-        "Mid-market enterprises with analytics centers of excellence (CoE)"
-      ],
-      "typicalBuyer": "Analytics engineer or data analyst owning transformation logic and data quality",
-      "topUseCases": [
-        "Collaboratively build and version-control data transformation pipelines using Git workflows",
-        "Share transformation components across multiple dashboards and analytics products",
-        "Document and test data transformations with integrated testing and observability"
-      ]
-    },
-    "futureAreas": [
-      "AI-assisted transformation generation from raw data schema and business requirements",
-      "Native integration with modern data stack (dbt, Airbyte, Databricks) for orchestrated workflows",
-      "Managed SaaS offering with embedded scheduling, alerting, and analytics governance"
     ]
   },
   "rpa/zudello": {
@@ -4082,59 +3404,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Vertical-specific data extraction APIs for high-value industries (real estate, e-commerce)",
       "AI-powered web structure understanding and dynamic selector discovery",
       "Enterprise data quality, validation, and compliance layers on extracted data"
-    ]
-  },
-  "rpa/whalesync": {
-    "competitiveEdge": "Only platform purpose-built for real-time bidirectional sync between databases (Airtable, Notion) and SaaS tools — eliminating manual data reconciliation.",
-    "swot": {
-      "strengths": [
-        "First-mover in bidirectional sync automation; solves acute pain point of data duplication across tools",
-        "Lightweight, no-code setup; appeals to non-technical teams managing disparate SaaS tools",
-        "Early a significant share YoY growth signals product-market fit within data-driven SMB and mid-market segment"
-      ],
-      "weaknesses": [
-        "Early-stage startup with limited resources vs. enterprise RPA incumbents and iPaaS incumbents",
-        "Narrow niche (database + SaaS sync) vs. broader automation platforms covering RPA, IDP, and workflows",
-        "Private, early-stage funding constrains go-to-market scale and feature velocity"
-      ],
-      "opportunities": [
-        "Expand beyond Airtable/Notion to enterprise data warehouses (Snowflake, BigQuery) as more orgs adopt modern data stacks",
-        "Enterprise use cases: revenue ops, product management, customer success teams relying on multi-tool workflows",
-        "Partner integrations with adjacent platforms (Zapier, Make, n8n) to offer bidirectional sync as drop-in module"
-      ],
-      "threats": [
-        "Larger iPaaS players (Workato, Boomi, Tray.ai) can add bidirectional sync as table-stakes feature",
-        "Native integrations by Airtable, Notion, and Webflow reduce need for third-party sync layer",
-        "Low-code/no-code automation adoption by Zapier, Make, and Microsoft Power Automate commoditizes simple sync use cases"
-      ]
-    },
-    "userLikes": [
-      "Eliminates manual data entry and sync errors between Airtable, Notion, and SaaS tools — instant alignment",
-      "No-code setup; non-technical users can configure bidirectional workflows without developer involvement",
-      "Real-time updates mean single source of truth across disconnected tools — improves team collaboration and data accuracy"
-    ],
-    "userComplaints": [
-      "Limited app coverage compared to Zapier/Make (smaller connector library — mostly focuses on Airtable/Notion ecosystem)",
-      "Occasional sync delays or conflicts when multiple tools try to update the same record simultaneously — not always clear which source wins",
-      "Early-stage support and documentation; fewer use-case templates and pre-built recipes vs. mature platforms"
-    ],
-    "customerProfile": {
-      "segments": [
-        "SMBs and mid-market teams (10–500 employees) managing workflows across Airtable, Notion, Webflow, and CRMs",
-        "Data-heavy departments: product management, operations, customer success, revenue ops teams",
-        "SaaS product teams building internal workflows relying on multiple databases and SaaS tools"
-      ],
-      "typicalBuyer": "Operations manager, product manager, or head of ops — responsible for cross-functional workflows and data accuracy",
-      "topUseCases": [
-        "Real-time database-to-CRM sync (keep Airtable projects in sync with Salesforce/Pipedrive customer records)",
-        "Notion + Webflow integration (auto-populate website forms and blog metadata from Notion database without manual entry)",
-        "Multi-tool operational workflows (Airtable as source of truth synced to Slack, Google Sheets, and SaaS apps automatically)"
-      ]
-    },
-    "futureAreas": [
-      "Enterprise data warehouse connectors (Snowflake, BigQuery, Redshift) to unlock large-scale data sync and analytics automation",
-      "Conditional sync rules and transform logic (filter, aggregate, manipulate data before syncing between tools) — move beyond 1:1 field mapping",
-      "AI-powered conflict resolution when multiple systems attempt simultaneous updates — automatically determine source of truth and resolution strategy"
     ]
   },
   "secops/trellix": {
@@ -14092,65 +13361,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     ],
   },
 
-  "rpa/pipedream": {
-    competitiveEdge: "Pipedream is the most developer-friendly automation platform available — running on serverless infrastructure with full code execution capabilities, making it the choice for engineers who need automation that behaves like actual software.",
-    swot: {
-      strengths: [
-        "Code-first architecture: every workflow step can run arbitrary Node.js, Python, or Go code",
-        "500+ pre-built actions and triggers covering popular SaaS APIs and developer tools",
-        "Serverless execution model — no infrastructure to manage, scales to zero when idle",
-        "GitHub integration: workflows stored as code with version control built-in",
-        "Generous free tier accelerates developer adoption and experimentation",
-      ],
-      weaknesses: [
-        "Not designed for non-technical users — citizen automation market is not Pipedream's target",
-        "Limited visual workflow builder UX compared to Zapier or Make.com",
-        "Enterprise features (SSO, RBAC, compliance certifications) still developing",
-        "Workflow execution limits on free/growth tiers create friction at scale",
-      ],
-      opportunities: [
-        "Developer-led automation growth: more engineers automating internal ops with code-friendly tools",
-        "AI workflow building: LLM orchestration using Pipedream's code-first approach",
-        "API product companies: Pipedream as the automation backbone for SaaS integrations",
-        "Enterprise dev teams: growing beyond individual developer adoption to team-wide deployments",
-      ],
-      threats: [
-        "Zapier and Make.com adding code capabilities to reduce developer friction",
-        "n8n's self-hosted open-source option appealing to the same developer audience",
-        "AWS EventBridge, Azure Logic Apps, and GCP Workflows competing for cloud-native developer automation",
-        "Inngest and Trigger.dev competing specifically for background job and event-driven automation",
-      ],
-    },
-    userLikes: [
-      "Running real code in workflow steps is a game-changer for complex integration logic",
-      "GitHub integration means automation workflows are treated like real software with version history",
-      "Serverless execution removes all infrastructure management from the developer",
-      "npm package support in Node.js steps means any library is available for automation",
-      "Excellent documentation and active developer community on Discord",
-    ],
-    userComplaints: [
-      "Execution timeout limits (30 seconds on lower tiers) create problems for slow external APIs",
-      "Debugging experience is limited — tracing through complex multi-step failures is harder than it should be",
-      "Pricing structure is complex and can escalate unexpectedly with high event volume",
-      "Non-technical team members can't contribute to or understand Pipedream workflows",
-    ],
-    customerProfile: {
-      segments: ["Individual Developers and Small Engineering Teams", "SaaS Companies Building Integration Workflows", "Technical Ops Teams at Startups and Scale-ups"],
-      typicalBuyer: "Software Developer, DevOps Engineer, or Technical Founder",
-      topUseCases: [
-        "API integration automation between SaaS tools using custom business logic",
-        "Event-driven automation triggered by webhooks, schedules, and API events",
-        "Internal developer tooling: Slack bots, automated notifications, and data sync pipelines",
-      ],
-    },
-    futureAreas: [
-      "AI code generation: Copilot-style assistance for writing and debugging workflow steps",
-      "Pipedream AI agents: LLM-powered steps that reason about data and make decisions",
-      "Enterprise team features: shared workspaces, RBAC, and centralized credential management",
-      "Expanded Python and TypeScript SDK for building strongly-typed, testable workflow components",
-      "Connect product: enabling SaaS companies to embed Pipedream automation in their own products",
-    ],
-  },
 
   "rpa/activepieces": {
     competitiveEdge: "Activepieces is the open-source, self-hosted alternative to Zapier and Make.com — giving technical teams no-code automation capabilities with full data sovereignty and zero per-task pricing surprises.",
@@ -16758,234 +15968,10 @@ export const vendorProfiles: Record<string, VendorProfile> = {
      RPA — Next 5 Startups
   ══════════════════════════════════════════════════════════════════════════ */
 
-  "rpa/nango": {
-    competitiveEdge: "Nango provides a unified API layer for building product integrations — allowing engineering teams to add 250+ SaaS integrations in days rather than months, with pre-built auth, sync, and webhook infrastructure that never needs rebuilding.",
-    swot: {
-      strengths: [
-        "250+ pre-built integration connectors with OAuth, API key, and basic auth handled automatically",
-        "Open-source core builds developer trust and enables inspection of integration logic",
-        "Hosted and self-hosted options for teams with data residency requirements",
-        "Real-time sync, webhooks, and action patterns cover all common integration patterns",
-        "Strong developer experience with TypeScript SDK and comprehensive documentation",
-      ],
-      weaknesses: [
-        "Early stage: smaller connector catalog than established iPaaS vendors Mulesoft and Boomi",
-        "Enterprise governance features (RBAC, audit logs, SLA) still maturing",
-        "Less no-code tooling for non-technical business users vs. Zapier and Make.com",
-        "Brand awareness limited outside developer-centric engineering teams",
-      ],
-      opportunities: [
-        "AI agent integration layer: enabling LLM-based agents to access and modify enterprise SaaS data",
-        "Platform engineering teams building internal developer portals need reliable integration infrastructure",
-        "Expanding enterprise connector catalog for ERP, HRIS, and financial systems",
-        "Managed integration service for companies that want pre-built but customizable integrations",
-      ],
-      threats: [
-        "Merge.dev competing with similar unified API approach and deeper HRIS and ATS coverage",
-        "Mulesoft and Boomi offering enterprise iPaaS with larger connector ecosystems",
-        "Zapier and Make.com serving the no-code integration use case that Nango doesn't address",
-        "Hyperscalers (AWS EventBridge, Azure Logic Apps) providing integration primitives developers use directly",
-      ],
-    },
-    userLikes: [
-      "OAuth flows and token management handled automatically — eliminates most integration boilerplate",
-      "Open-source codebase means engineers can understand and debug integration behavior",
-      "Pre-built sync templates cut integration development time from weeks to hours",
-      "Active Discord community and responsive engineering team for troubleshooting",
-    ],
-    userComplaints: [
-      "Some niche SaaS connectors missing requiring custom integration code",
-      "Enterprise-grade monitoring and alerting for integration failures still developing",
-      "Self-hosted deployment requires Docker expertise not every team possesses",
-    ],
-    customerProfile: {
-      segments: ["SaaS Product Companies", "Platform Engineering Teams", "Developer-Led Organizations"],
-      typicalBuyer: "Engineering Manager, CTO, or Staff Software Engineer",
-      topUseCases: [
-        "Building native product integrations for customers without writing per-integration auth code",
-        "AI agent infrastructure: providing LLM agents access to customer SaaS data via unified API",
-        "Internal tool integration: connecting internal platforms to external SaaS for data synchronization",
-      ],
-    },
-    futureAreas: [
-      "AI agent integration hub: purpose-built tooling for LLM agents accessing enterprise applications",
-      "Workflow orchestration layer beyond data sync for multi-step integration automation",
-      "Enterprise governance dashboard for monitoring integration health and compliance across 250+ connectors",
-      "Expanding HRIS, ERP, and financial system connectors for enterprise platform engineering teams",
-    ],
-  },
-
-  "rpa/paragon": {
-    competitiveEdge: "Paragon is the embedded iPaaS that lets SaaS companies offer native integrations to their customers as a product feature — without building and maintaining integration infrastructure internally.",
-    swot: {
-      strengths: [
-        "Purpose-built for embedded integrations: SaaS companies deploy Paragon inside their product UI",
-        "White-label integration experience matches the host application's branding and UX",
-        "Pre-built integrations with 100+ enterprise SaaS applications (Salesforce, HubSpot, Slack)",
-        "No-code integration designer for customer-facing integration configuration",
-        "Handles auth, data sync, and webhook management without backend engineering",
-      ],
-      weaknesses: [
-        "Niche positioning limits TAM compared to general-purpose automation platforms",
-        "Smaller connector catalog than Mulesoft or Boomi for complex enterprise data sources",
-        "Enterprise security certifications still early in maturity for SOC 2 and HIPAA use cases",
-        "Less developer flexibility for highly custom integration logic vs. Nango's open-source approach",
-      ],
-      opportunities: [
-        "Integration as a product feature becoming standard expectation for B2B SaaS buyers",
-        "PLG SaaS companies reducing engineering burden of building and maintaining native integrations",
-        "Expanding connector catalog for ERP and HRIS systems to serve enterprise SaaS companies",
-        "AI-powered integration configuration helping customers set up connections without support",
-      ],
-      threats: [
-        "Merge.dev, Nango, and Apideck competing with similar embedded integration approaches",
-        "Internal build vs. buy: larger SaaS companies choosing to build custom integration infrastructure",
-        "Zapier and Make.com enabling customers to build self-serve integrations outside the SaaS product",
-        "AI coding assistants reducing the development cost of building custom integrations in-house",
-      ],
-    },
-    userLikes: [
-      "Customers can configure integrations themselves without submitting support tickets to the SaaS vendor",
-      "White-label UI makes integrations feel native to the host application experience",
-      "Engineering teams save months of integration development and maintenance effort",
-      "Pre-built connectors for popular enterprise tools (Salesforce, HubSpot) work reliably in production",
-    ],
-    userComplaints: [
-      "Complex integration logic beyond standard CRUD operations requires significant custom configuration",
-      "Connector reliability issues for less-common third-party APIs require workarounds",
-      "Pricing tied to connected customers can scale unexpectedly as product grows",
-    ],
-    customerProfile: {
-      segments: ["B2B SaaS Companies", "Product-Led Growth Platforms", "Vertical SaaS Vendors"],
-      typicalBuyer: "CTO, Head of Product, or VP Engineering at SaaS company",
-      topUseCases: [
-        "Native integration feature: allowing customers to connect their CRM, HRIS, or ERP to the SaaS product",
-        "Reducing engineering bandwidth spent building and maintaining point-to-point integrations",
-        "Accelerating product roadmap by deploying pre-built integrations instead of building custom connectors",
-      ],
-    },
-    futureAreas: [
-      "AI integration assistant: helping customers configure complex integration logic via natural language",
-      "Usage analytics for integration health monitoring with automatic error detection",
-      "Enterprise-grade compliance: SOC 2 Type II and HIPAA certifications for regulated SaaS markets",
-      "Expanding ERP and HRIS connector catalog for enterprise SaaS companies targeting IT buyer personas",
-    ],
-  },
-
-  "rpa/merge-dev": {
-    competitiveEdge: "Merge's Unified API collapses hundreds of HRIS, ATS, CRM, and accounting APIs into single endpoints per category — so a SaaS company writes one integration and connects to every HR or ATS system its customers use.",
-    swot: {
-      strengths: [
-        "Category-leading unified API approach: one HRIS integration connects to Workday, ADP, BambooHR, and 60+ others",
-        "Covers four high-demand categories: HRIS, ATS, CRM, and Accounting with deep data models",
-        "Automated testing and maintenance: Merge handles API changes from third-party vendors automatically",
-        "Strong enterprise data model that normalizes differences across vendor APIs",
-        "Growing customer base including Drata, Vanta, and major HR tech companies",
-      ],
-      weaknesses: [
-        "Less flexible for highly customized integration logic beyond Merge's standard data model",
-        "Dependency on Merge for API reliability means outages in third-party APIs affect customers",
-        "Pricing based on connected accounts can grow significantly with product adoption",
-        "Limited coverage outside four core verticals (no Salesforce CRM depth yet vs. HubSpot)",
-      ],
-      opportunities: [
-        "Expanding into new verticals: project management, ERP, and financial data aggregation",
-        "AI data foundation: providing normalized employee and HR data for people analytics applications",
-        "Compliance data layer: feeding HRIS and ATS data into compliance monitoring platforms",
-        "International expansion: adding global HRIS connectors for UK, European, and APAC markets",
-      ],
-      threats: [
-        "Nango and Finch competing with similar unified API approaches in HR tech",
-        "Individual vendor SDKs improving, reducing the complexity Merge was built to eliminate",
-        "SaaS vendors building their own unified APIs (Salesforce Mulesoft, Workday API platform)",
-        "Customers building custom integration layers once scale makes Merge pricing less attractive",
-      ],
-    },
-    userLikes: [
-      "One integration replaces 60+ individual HRIS connectors — transformative ROI for HR tech companies",
-      "Merge handles breaking API changes from third-party vendors without customer-facing outages",
-      "Clean TypeScript SDK and excellent documentation reduce time-to-first-integration",
-      "Data normalization quality high for standard HRIS objects like employees and time-off",
-    ],
-    userComplaints: [
-      "Custom fields and non-standard data from enterprise HRIS systems require additional mapping work",
-      "Some vendor connections less reliable with occasional data sync delays",
-      "Pricing model can become expensive for products with large numbers of customer integrations",
-    ],
-    customerProfile: {
-      segments: ["HR Tech SaaS Companies", "B2B Software Platforms", "People Analytics Vendors"],
-      typicalBuyer: "CTO, Head of Integrations, or VP Engineering",
-      topUseCases: [
-        "HRIS integration for HR tech platforms needing employee data from Workday, ADP, and 60+ systems",
-        "ATS integration for recruiting tools connecting to Greenhouse, Lever, and Workday Recruiting",
-        "Accounting and CRM integration for fintech and sales tools requiring financial and customer data",
-      ],
-    },
-    futureAreas: [
-      "Expanding coverage to ERP systems (SAP, Oracle, NetSuite) for financial data unification",
-      "Real-time webhook support for event-driven integrations beyond polling sync",
-      "AI-powered data mapping: automatically normalizing custom fields from enterprise HRIS systems",
-      "Compliance reporting APIs: standardized audit data export for SOC 2 and ISO compliance tools",
-    ],
-  },
 
 
-  "rpa/superblocks": {
-    competitiveEdge: "Superblocks is purpose-built for enterprise internal tools — offering the only internal tool platform with granular column-level permissions, complete audit logs, and SOC 2/HIPAA compliance that regulated industries require.",
-    swot: {
-      strengths: [
-        "Strongest enterprise security model in internal tool category: column-level permissions and full audit trail",
-        "SOC 2 Type II and HIPAA compliant for regulated industries building internal healthcare and fintech tools",
-        "Git integration enables version control and code review for internal tools as software artifacts",
-        "Supports custom React components for maximum UI flexibility beyond standard component library",
-        "Fast performance with optimized query execution for large dataset internal tools",
-      ],
-      weaknesses: [
-        "Smaller market share and community compared to Retool's dominant mindshare",
-        "Steeper learning curve than Retool for teams without strong frontend engineering background",
-        "Component library breadth behind Retool for non-developers building simpler tools",
-        "Less established ecosystem of templates and community examples",
-      ],
-      opportunities: [
-        "Regulated industries (healthcare, financial services) needing compliance-grade internal tools",
-        "Platform engineering teams standardizing on compliant internal tool infrastructure",
-        "AI-native internal tools requiring governance and audit trails for AI action accountability",
-        "Enterprise consolidation: replacing dozens of bespoke scripts with auditable Superblocks apps",
-      ],
-      threats: [
-        "Retool investing in enterprise features to close the compliance gap",
-        "Tooljet and Appsmith open-source options providing self-hosted governance at zero cost",
-        "Cloud hyperscaler internal tool services (AWS AppFabric, Azure Low Code) bundled with cloud spend",
-        "AI coding assistants accelerating custom internal app development eliminating the tool builder category",
-      ],
-    },
-    userLikes: [
-      "Column-level permissions for PII data is the security control enterprise compliance teams demand",
-      "Git-based version control makes internal tools auditable with the same rigor as production software",
-      "Full audit log of every action taken in every tool satisfies SOC 2 and HIPAA requirements",
-      "Custom React support enables design-system-compliant tools that feel native to the enterprise",
-    ],
-    userComplaints: [
-      "Smaller component library means more custom React code required for common UI patterns",
-      "Fewer ready-made templates compared to Retool's extensive community library",
-      "Documentation less comprehensive for edge cases requiring engineering support engagement",
-    ],
-    customerProfile: {
-      segments: ["Enterprise Engineering Teams", "FinTech and HealthTech Companies", "Platform Engineering Organizations"],
-      typicalBuyer: "VP Engineering, Head of Platform, or Engineering Manager at regulated company",
-      topUseCases: [
-        "Compliant internal admin tools handling PII with column-level access control",
-        "Audited operations dashboards for SOC 2 environments requiring action traceability",
-        "AI operations tools with governance: LLM-powered review interfaces with complete audit trails",
-      ],
-    },
-    futureAreas: [
-      "AI agent governance: audit-grade tracking of autonomous AI agent actions within internal tools",
-      "Expanding component library to match Retool's breadth while maintaining enterprise security model",
-      "Automated compliance reporting: generating SOC 2 and HIPAA audit evidence from Superblocks logs",
-      "Mobile support for regulated internal tools used by field operations teams",
-    ],
-  },
+
+
 
   /* ══════════════════════════════════════════════════════════════════════════
      AgentOps — Next 5 Established Vendors
@@ -24512,62 +23498,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Broader tool and data-source coverage",
     ],
   },
-  "rpa/ottokit": {
-    competitiveEdge: "No-code automation built natively for WordPress, now MCP-native with AI agents at a fraction of Zapier's price.",
-    swot: {
-      strengths: [
-        "Only automation platform built ground-up for deep WordPress integration",
-        "1,300+ app integrations with drag-and-drop visual workflow builder",
-        "MCP-native: connects AI agents like Claude and ChatGPT to workflows",
-        "AI Agents handle multi-step tasks and exceptions autonomously",
-        "Aggressive pricing and lifetime deals undercut Zapier-class rivals",
-      ],
-      weaknesses: [
-        "WordPress-centric roots limit appeal to non-WP enterprises",
-        "Younger brand than Zapier, Make or enterprise iPaaS",
-        "SMB-leaning positioning caps large-enterprise credibility",
-        "Recent rebrand from SureTriggers may dilute name recognition",
-      ],
-      opportunities: [
-        "Capture price-sensitive SMBs and agencies leaving Zapier",
-        "Ride MCP and agentic-automation momentum as a native platform",
-        "Expand WooCommerce and LearnDash automation depth",
-        "Grow beyond WordPress into general SaaS automation",
-      ],
-      threats: [
-        "Zapier, Make and n8n adding AI agents and lower tiers",
-        "Native AI-agent platforms bypassing workflow middleware",
-        "Commoditization of connectors and triggers",
-        "Reliance on WordPress ecosystem health",
-      ],
-    },
-    userLikes: [
-      "Zapier-level automation at a far lower price point",
-      "Native WordPress, WooCommerce and LearnDash triggers",
-      "Easy drag-and-drop builder for non-developers",
-      "Generous lifetime-deal value",
-    ],
-    userComplaints: [
-      "Some advanced integrations and edge cases still maturing",
-      "Strongest fit is WordPress-centric rather than general SaaS",
-      "Rebrand and rapid feature changes can cause confusion",
-    ],
-    customerProfile: {
-      segments: ["SMB", "Agencies", "WordPress and WooCommerce businesses"],
-      typicalBuyer: "WordPress site owner / agency operator",
-      topUseCases: [
-        "WordPress and WooCommerce workflow automation",
-        "Connecting SaaS apps without code",
-        "AI-agent-driven multi-step tasks",
-      ],
-    },
-    futureAreas: [
-      "Deeper agentic and MCP-native automation",
-      "Expansion beyond the WordPress ecosystem",
-      "More native enterprise-app connectors",
-      "Autonomous exception handling",
-    ],
-  },
   "agentops/onyx": {
     competitiveEdge: "Open-source AI search and assistant that unifies internal knowledge with self-hosting and LLM choice.",
     swot: {
@@ -27324,5 +26254,1130 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Enterprise governance and admin controls"
     ],
     "competitiveEdge": "Captures how work really happens at massive scale and serves it to AI agents via MCP"
+  },
+  "rpa/distyl-ai": {
+    "swot": {
+      "strengths": [
+        "Distillery platform turns written SOPs into auditable AI workflows called Routines",
+        "Captures every input, output, tool call and reasoning step for audit",
+        "$175M Series B co-led by Khosla and Lightspeed at a $1.8B valuation",
+        "Palantir-alumni team with forward-deployed delivery into Fortune 500 operations",
+        "OpenAI services partner with enterprise deployment credibility"
+      ],
+      "weaknesses": [
+        "Revenue bundles platform with embedded consulting, limiting software margins",
+        "Few public, independently verified customer references",
+        "Heavy services model may slow scaling versus pure self-serve platforms"
+      ],
+      "opportunities": [
+        "Shift from bespoke deployments toward repeatable platform licenses",
+        "Federal agency and regulated-industry demand for auditable AI workflows",
+        "Replacing legacy RPA and BPO for complex operational processes",
+        "Expansion across CPG, retail, healthcare, finance and manufacturing"
+      ],
+      "threats": [
+        "Palantir AIP and hyperscaler agent platforms targeting the same buyers",
+        "Big consultancies building in-house agentic delivery practices",
+        "UiPath, ServiceNow and Microsoft adding agentic orchestration to suites",
+        "High valuation demands rapid conversion of pilots into large contracts"
+      ]
+    },
+    "userLikes": [
+      "Engineers embed with ops teams and ship working workflows quickly",
+      "Clear audit trail of how each AI decision was made",
+      "Workflows built from existing SOPs rather than from scratch",
+      "Measurable savings reported on root cause and ops processes"
+    ],
+    "userComplaints": [
+      "Engagements are costly and sized for large enterprises only",
+      "Depends on Distyl staff for initial build-out and changes",
+      "Limited public reviews to benchmark against alternatives"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Fortune 500 operators in CPG, retail, healthcare and finance",
+        "Federal agencies and manufacturers"
+      ],
+      "typicalBuyer": "COO, Chief AI Officer or transformation lead at a large enterprise",
+      "topUseCases": [
+        "Converting SOPs into auditable AI-run operational workflows",
+        "Root cause analysis for hardware and supply chain operations",
+        "Claims, refunds and back-office decision processing"
+      ]
+    },
+    "futureAreas": [
+      "Repeatable vertical workflow packages licensed as software",
+      "Long-running agents on open models via NVIDIA AI Enterprise",
+      "Self-serve Routine authoring for business operations teams",
+      "Deeper government and defense deployments"
+    ],
+    "competitiveEdge": "Palantir-style forward-deployed model fused with an auditable SOP-to-AI workflow engine"
+  },
+  "rpa/oro-labs": {
+    "swot": {
+      "strengths": [
+        "Procurement orchestration layer sits atop existing ERP and P2P systems",
+        "Blue-chip customers incl. Coca-Cola, Pfizer, Novartis, Roche and Bayer",
+        "$100M Series C led by Goldman Sachs Growth and Brighton Park",
+        "Company reports 300% revenue growth in the year before Series C",
+        "AI agents route intake requests and check policy compliance automatically"
+      ],
+      "weaknesses": [
+        "Focused on procurement; limited breadth beyond source-to-pay",
+        "Value depends on integration quality with each customer ERP",
+        "Growth figures are company-reported rather than audited"
+      ],
+      "opportunities": [
+        "Replacing manual intake and approvals in Fortune 500 procurement",
+        "Agentic supplier risk, compliance and contract checks",
+        "Expansion into adjacent finance and legal intake workflows",
+        "International growth with large European pharma and industrial accounts"
+      ],
+      "threats": [
+        "Zip and other intake-to-procure rivals competing for the same layer",
+        "SAP Ariba and Coupa adding native AI intake and orchestration",
+        "Agentic procurement startups such as Lio entering with lower cost",
+        "Long enterprise sales cycles in procurement transformations"
+      ]
+    },
+    "userLikes": [
+      "Single front door for purchase requests across many systems",
+      "No-code workflow builder that procurement teams can own",
+      "Speeds approvals by routing to the right stakeholders",
+      "Works with existing ERP instead of replacing it"
+    ],
+    "userComplaints": [
+      "Initial configuration across many systems takes effort",
+      "Reporting and analytics depth still maturing",
+      "Premium pricing aimed at large enterprises"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Fortune 500 enterprises with complex procurement",
+        "Global pharma, life sciences and industrial firms"
+      ],
+      "typicalBuyer": "Chief Procurement Officer or procurement operations leader",
+      "topUseCases": [
+        "Purchase request intake and guided buying",
+        "Supplier onboarding and compliance checks",
+        "Approval routing across ERP, legal and finance"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous agents for sourcing and supplier negotiation",
+      "AI-driven third-party risk and policy enforcement",
+      "Deeper analytics on spend and cycle time",
+      "Orchestration beyond procurement into finance ops"
+    ],
+    "competitiveEdge": "Neutral agentic orchestration layer over any ERP, proven at top global pharma and CPG firms"
+  },
+  "rpa/tennr": {
+    "swot": {
+      "strengths": [
+        "Reads faxed, emailed and portal referrals and turns them into structured data",
+        "Works with existing EMRs with no rip-and-replace required",
+        "$101M Series C led by IVP at a $605M valuation",
+        "Backed by a16z, Lightspeed, GV and ICONIQ",
+        "Tennr Network connects referring and receiving providers"
+      ],
+      "weaknesses": [
+        "Narrow focus on referral and intake workflows in healthcare",
+        "Exposure to HIPAA and payer-rule complexity across specialties",
+        "Limited independent third-party reviews available"
+      ],
+      "opportunities": [
+        "Expanding from imaging and DME into more specialty care settings",
+        "Network effects as more providers join the Tennr Network",
+        "Prior authorization and eligibility automation adjacent to intake",
+        "Reducing claim denials through better upfront qualification"
+      ],
+      "threats": [
+        "EHR vendors such as Epic adding native AI intake features",
+        "Healthcare document AI rivals and RCM platforms moving upstream",
+        "Provider budget pressure and slow healthcare procurement",
+        "Regulatory scrutiny of AI in patient-facing workflows"
+      ]
+    },
+    "userLikes": [
+      "Eliminates much of the manual fax sorting and data entry",
+      "Faster intake and scheduling for referred patients",
+      "Fewer denials from missing documentation",
+      "Fits into existing systems without heavy IT work"
+    ],
+    "userComplaints": [
+      "Edge-case documents still need human review",
+      "Setup requires mapping each practice's qualification rules",
+      "Pricing can be steep for smaller practices"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Specialty providers, imaging centers and DME suppliers",
+        "Multi-site outpatient and home-care groups"
+      ],
+      "typicalBuyer": "VP of operations or revenue cycle leader at a specialty care provider",
+      "topUseCases": [
+        "Automating inbound patient referral intake",
+        "Checking referral completeness and insurance qualification",
+        "Scheduling referred patients faster"
+      ]
+    },
+    "futureAreas": [
+      "Prior authorization and benefits verification agents",
+      "Broader provider-to-provider referral network",
+      "Patient outreach and follow-up automation",
+      "Analytics on referral leakage and conversion"
+    ],
+    "competitiveEdge": "Healthcare-specific referral AI that fits fax-heavy workflows with no EMR replacement"
+  },
+  "rpa/reducto": {
+    "swot": {
+      "strengths": [
+        "Vision-model parsing handles complex PDFs, tables and forms accurately",
+        "$75M Series B led by a16z; $108M total raised",
+        "Volume grew over 6x after Series A to near a billion pages processed",
+        "Developer-friendly API built for LLM and RAG pipelines",
+        "Backed by Benchmark, First Round and Y Combinator"
+      ],
+      "weaknesses": [
+        "API-first product requires engineering resources to adopt",
+        "Few publicly named enterprise customers",
+        "Usage-based pricing can grow quickly at high volumes"
+      ],
+      "opportunities": [
+        "Document ingestion demand from enterprise agent and RAG builds",
+        "Regulated industries needing high-accuracy extraction",
+        "Moving up-stack into workflow and agent tooling",
+        "On-prem and private deployments for sensitive data"
+      ],
+      "threats": [
+        "Hyperscaler document AI from Azure, Google and AWS",
+        "Frontier models improving native PDF understanding",
+        "Close rivals Extend, Unstructured and LlamaParse",
+        "Price compression in per-page parsing"
+      ]
+    },
+    "userLikes": [
+      "High accuracy on messy tables and multi-column layouts",
+      "Simple API and fast integration into AI pipelines",
+      "Responsive team that iterates quickly",
+      "Clean chunked output ready for LLMs"
+    ],
+    "userComplaints": [
+      "Costs rise with large document volumes",
+      "Some edge-case layouts still need tuning",
+      "Fewer no-code tools for business users"
+    ],
+    "customerProfile": {
+      "segments": [
+        "AI-native startups building on LLMs",
+        "Enterprise data and ML engineering teams"
+      ],
+      "typicalBuyer": "Head of AI or ML engineering lead building document-heavy apps",
+      "topUseCases": [
+        "Parsing PDFs and forms into LLM-ready data",
+        "Table and figure extraction for RAG pipelines",
+        "Structured field extraction from financial documents"
+      ]
+    },
+    "futureAreas": [
+      "Proprietary parsing models at lower per-page cost",
+      "Document agents for end-to-end workflows",
+      "Expanded on-prem and VPC deployment options",
+      "Deeper support for handwriting and scans"
+    ],
+    "competitiveEdge": "Vision-first parsing accuracy on complex documents, built for LLM and agent pipelines"
+  },
+  "rpa/orkes": {
+    "swot": {
+      "strengths": [
+        "Founded by the engineers who built Netflix Conductor",
+        "Proven open-source engine used by 3,000+ enterprises",
+        "$60M Series B led by AVP with Battery, Nexus and Vertex",
+        "Customer base tripled since the 2024 Series A",
+        "Agentic Workflows blend deterministic steps, LLMs and human review"
+      ],
+      "weaknesses": [
+        "Developer-centric platform less suited to business users",
+        "Smaller brand than Temporal in durable execution",
+        "Open-source core can limit paid conversion"
+      ],
+      "opportunities": [
+        "Durable runtime demand for production AI agents",
+        "Modernizing legacy BPM and workflow engines",
+        "Agentspan open-source agent runtime driving adoption",
+        "Regulated enterprises needing auditable orchestration"
+      ],
+      "threats": [
+        "Temporal, Camunda and AWS Step Functions",
+        "Agent frameworks adding their own orchestration layers",
+        "Hyperscalers bundling workflow services",
+        "Open-source forks diluting commercial value"
+      ]
+    },
+    "userLikes": [
+      "Scales reliably for high-volume microservice workflows",
+      "Visual workflow view helps debugging",
+      "Language-agnostic SDKs and strong APIs",
+      "Managed cloud removes Conductor ops burden"
+    ],
+    "userComplaints": [
+      "Learning curve for complex workflow definitions",
+      "Documentation gaps on advanced features",
+      "Enterprise pricing can be high for small teams"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large enterprises with microservice architectures",
+        "Engineering teams deploying AI agents in production"
+      ],
+      "typicalBuyer": "VP of engineering or platform engineering lead",
+      "topUseCases": [
+        "Microservice and API workflow orchestration",
+        "Durable execution for AI agent workflows",
+        "Human-in-the-loop business process automation"
+      ]
+    },
+    "futureAreas": [
+      "Agentic orchestration with LLM decision steps",
+      "Open-source Agentspan agent runtime",
+      "Governance and observability for AI workflows",
+      "Low-code builders for business process owners"
+    ],
+    "competitiveEdge": "Netflix-scale proven Conductor engine extended into durable agentic orchestration"
+  },
+  "rpa/convey": {
+    "swot": {
+      "strengths": [
+        "No-code platform lets non-technical staff build AI teammates",
+        "Teammates own outcomes such as invoices, reconciliation and reporting",
+        "$38M Series A led by a16z with Khosla and Pear VC",
+        "Setup reportedly about three hours per teammate",
+        "Early enterprise users include NBCUniversal and Faire"
+      ],
+      "weaknesses": [
+        "Very young company with a short operating history",
+        "Broad horizontal scope risks shallow depth per function",
+        "Limited independent reviews and case studies"
+      ],
+      "opportunities": [
+        "Replacing BPO and manual back-office work in finance and RevOps",
+        "Expansion into HR, support and marketing ops",
+        "Mid-market firms lacking automation engineering teams",
+        "Marketplace of prebuilt teammate templates"
+      ],
+      "threats": [
+        "Microsoft Copilot agents and Salesforce Agentforce",
+        "UiPath and Automation Anywhere agentic offerings",
+        "Many well-funded AI employee startups",
+        "Accuracy concerns in finance-critical workflows"
+      ]
+    },
+    "userLikes": [
+      "Business teams can build automations without engineers",
+      "Teammates learn team context and conventions",
+      "Fast time to value on repetitive tasks",
+      "Hands-on onboarding support"
+    ],
+    "userComplaints": [
+      "Complex exceptions still require human handling",
+      "Integration coverage still growing",
+      "Early product with evolving features"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise operations teams",
+        "Media, marketplace and tech companies"
+      ],
+      "typicalBuyer": "Head of finance ops, RevOps or business operations",
+      "topUseCases": [
+        "Invoice processing and financial reconciliation",
+        "Campaign and performance reporting",
+        "Ingesting and managing advertising assets"
+      ]
+    },
+    "futureAreas": [
+      "Prebuilt teammates for finance, HR and support",
+      "Deeper ERP and CRM integrations",
+      "Governance and audit for AI teammates",
+      "Multi-teammate collaboration on workflows"
+    ],
+    "competitiveEdge": "No-code AI teammates owned by business users, not engineers, for back-office outcomes"
+  },
+  "rpa/lio": {
+    "swot": {
+      "strengths": [
+        "Multi-agent virtual procurement workforce runs requests end to end",
+        "Agents operate on top of existing ERPs and procurement tools",
+        "$30M Series A led by a16z; about $33M total raised",
+        "Company reports 85% reduction in manual procurement work",
+        "Backed by Y Combinator and SV Angel"
+      ],
+      "weaknesses": [
+        "No publicly named customers to validate claims",
+        "Early-stage team expanding from Munich into the US",
+        "Narrow procurement focus limits deal size breadth"
+      ],
+      "opportunities": [
+        "US enterprise expansion funded by Series A",
+        "Autonomous supplier comparison and negotiation",
+        "Tail-spend management in large enterprises",
+        "Partnering with ERP and P2P vendors"
+      ],
+      "threats": [
+        "ORO Labs and Zip in procurement orchestration",
+        "SAP Ariba and Coupa adding native agents",
+        "Procurement BPO providers adopting AI",
+        "Enterprise caution over autonomous purchasing"
+      ]
+    },
+    "userLikes": [
+      "Requests processed with little manual work",
+      "High adoption among business requesters",
+      "No need to replace existing procurement systems",
+      "Fast responses on supplier comparisons"
+    ],
+    "userComplaints": [
+      "Edge-case purchases still need buyer review",
+      "Integration setup varies by ERP",
+      "Young product with limited public references"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large European and US enterprises",
+        "Procurement teams handling high request volumes"
+      ],
+      "typicalBuyer": "Chief Procurement Officer or head of procurement operations",
+      "topUseCases": [
+        "End-to-end purchase request processing",
+        "Supplier comparison and quote handling",
+        "Order processing across ERP systems"
+      ]
+    },
+    "futureAreas": [
+      "Autonomous supplier negotiation agents",
+      "Tail-spend and catalog automation",
+      "US market expansion and partnerships",
+      "Spend analytics driven by agent data"
+    ],
+    "competitiveEdge": "Agentic virtual procurement workforce that executes requests over existing ERPs"
+  },
+  "rpa/simular": {
+    "swot": {
+      "strengths": [
+        "Computer-use agent operates macOS desktops like a human",
+        "Neuro-symbolic design converts LLM output into deterministic code",
+        "Agent S2 research reached state of the art on OSWorld",
+        "$21.5M Series A led by Felicis with NVentures participation",
+        "Open-source Agent S framework builds developer mindshare"
+      ],
+      "weaknesses": [
+        "Windows agent still in development at Series A",
+        "Consumer-leaning product with early enterprise traction",
+        "Few third-party reviews available"
+      ],
+      "opportunities": [
+        "Replacing brittle UI-based RPA scripts",
+        "Windows release opens enterprise desktop market",
+        "Automating multi-app knowledge work for SMBs",
+        "Licensing agent tech to OEMs and platforms"
+      ],
+      "threats": [
+        "OpenAI, Anthropic and Google computer-use agents",
+        "OS vendors embedding native agents",
+        "RPA incumbents adding computer-use AI",
+        "Reliability and security concerns with desktop control"
+      ]
+    },
+    "userLikes": [
+      "Handles repetitive multi-app desktop tasks",
+      "Repeatable workflows once a task succeeds",
+      "Works across apps without APIs",
+      "Strong research pedigree"
+    ],
+    "userComplaints": [
+      "Can be slow on long multi-step tasks",
+      "Occasional errors require supervision",
+      "Limited platform support beyond macOS"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Knowledge workers and small businesses",
+        "Operations teams with desktop-heavy workflows"
+      ],
+      "typicalBuyer": "Operations lead or individual power user automating desktop work",
+      "topUseCases": [
+        "Automating repetitive multi-app desktop tasks",
+        "Data entry and copy-paste between applications",
+        "Web research and form filling"
+      ]
+    },
+    "futureAreas": [
+      "Windows desktop agent",
+      "Enterprise controls and audit logging",
+      "Reusable workflow library",
+      "Mobile and cloud VM agents"
+    ],
+    "competitiveEdge": "Research-led computer-use agent pairing LLM reasoning with deterministic, repeatable code"
+  },
+  "rpa/sola": {
+    "swot": {
+      "strengths": [
+        "Records a process once and builds a self-healing automation agent",
+        "Computer-use approach works across portals without APIs",
+        "$17.5M Series A led by a16z; about $21M total raised",
+        "Customers include Morgan & Morgan, AllyLogistics and Firstbase",
+        "Deployed across 20+ enterprise customers per company"
+      ],
+      "weaknesses": [
+        "Small team relative to RPA incumbents",
+        "Limited independent reviews and benchmarks",
+        "Self-healing reliability unproven at very large scale"
+      ],
+      "opportunities": [
+        "Replacing brittle legacy RPA bots",
+        "Disrupting BPO back-office services",
+        "Logistics, legal and healthcare data entry workflows",
+        "Mid-market firms without RPA teams"
+      ],
+      "threats": [
+        "UiPath and Automation Anywhere agentic upgrades",
+        "Frontier-model computer-use agents",
+        "Agentic RPA startups such as Automat",
+        "Customer concern over AI errors in critical workflows"
+      ]
+    },
+    "userLikes": [
+      "Fast to automate by recording a workflow",
+      "Automations adapt when UIs change",
+      "Less maintenance than traditional RPA",
+      "Responsive support during rollout"
+    ],
+    "userComplaints": [
+      "Complex exceptions still need human review",
+      "Young platform with evolving features",
+      "Limited prebuilt templates"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise ops teams",
+        "Legal, logistics and healthcare firms"
+      ],
+      "typicalBuyer": "Operations leader or automation CoE lead",
+      "topUseCases": [
+        "Shipment coordination across portals",
+        "EMR and system data entry",
+        "Back-office document and case processing"
+      ]
+    },
+    "futureAreas": [
+      "Broader self-healing agent coverage",
+      "Enterprise governance and audit",
+      "Prebuilt industry workflow templates",
+      "Migration tooling from legacy RPA"
+    ],
+    "competitiveEdge": "Record-once, self-healing computer-use agents positioned as a direct RPA replacement"
+  },
+  "rpa/extend": {
+    "swot": {
+      "strengths": [
+        "Document processing cloud for parsing, classifying and extracting data",
+        "Customers include Brex, Square, Checkr and Flatiron Health",
+        "Cash-flow positive before its Series A",
+        "$17M seed and Series A led by Innovation Endeavors with YC",
+        "LLM-based splitting and classification of complex documents"
+      ],
+      "weaknesses": [
+        "Small team competing against larger document AI vendors",
+        "Developer-focused tools may need engineering support",
+        "Limited independent reviews"
+      ],
+      "opportunities": [
+        "Fintech and healthcare document-heavy workflows",
+        "Agentic document workflows beyond extraction",
+        "Replacing legacy IDP and OCR deployments",
+        "Enterprise expansion funded by new capital"
+      ],
+      "threats": [
+        "Reducto, Unstructured and LlamaParse",
+        "Hyperscaler document AI services",
+        "Frontier models improving native document reading",
+        "Per-page price compression"
+      ]
+    },
+    "userLikes": [
+      "High extraction accuracy on complex documents",
+      "Fast setup with evaluation tooling",
+      "Responsive and technical support team",
+      "Handles large volumes reliably"
+    ],
+    "userComplaints": [
+      "Pricing scales with document volume",
+      "Some edge cases need schema tuning",
+      "Fewer prebuilt connectors than legacy IDP"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Fintech and financial services firms",
+        "Healthcare and background-check companies"
+      ],
+      "typicalBuyer": "Engineering or operations leader running document workflows",
+      "topUseCases": [
+        "Extracting data from financial documents",
+        "Classifying and splitting document packets",
+        "Automating onboarding and compliance paperwork"
+      ]
+    },
+    "futureAreas": [
+      "Agentic document workflow automation",
+      "Built-in evaluation and accuracy tuning",
+      "Expanded enterprise deployment options",
+      "Industry-specific extraction templates"
+    ],
+    "competitiveEdge": "Production-grade document processing cloud trusted by fintech leaders like Brex and Square"
+  },
+  "rpa/interloom": {
+    "swot": {
+      "strengths": [
+        "Context graph captures tacit expert know-how from emails, tickets and transcripts",
+        "Graph updates as each case closes, so agent guidance improves over time",
+        "$16.5M seed led by DN Capital with Bek Ventures and Air Street Capital",
+        "Early enterprise users include Zurich, JLL and Commerzbank"
+      ],
+      "weaknesses": [
+        "Seed-stage company with a small reference base",
+        "Value depends on access to large volumes of historical case records",
+        "Valuation and revenue undisclosed; limited public traction data"
+      ],
+      "opportunities": [
+        "Supplying memory and context to enterprise AI agent rollouts",
+        "Service-heavy operations in insurance, real estate and banking",
+        "Partnering with agent platforms that lack operational context"
+      ],
+      "threats": [
+        "Process mining leaders adding agent context layers",
+        "Hyperscaler and LLM vendors building native enterprise memory",
+        "Data privacy concerns over ingesting emails and call transcripts",
+        "Crowded agentic automation field competing for the same budgets"
+      ]
+    },
+    "userLikes": [
+      "Surfaces how experts actually resolve cases, not just documented SOPs",
+      "Gives agents grounded context that reduces guesswork",
+      "Knowledge keeps improving as new cases close"
+    ],
+    "userComplaints": [
+      "Onboarding requires significant data integration effort",
+      "Young product with limited third-party reviews",
+      "ROI takes time to show while the graph builds up"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large insurers, banks and real estate services firms",
+        "Operations teams with high-volume case work"
+      ],
+      "typicalBuyer": "COO or head of operations scaling AI agents across service processes",
+      "topUseCases": [
+        "Capturing tacit expert knowledge from case history",
+        "Guiding agents through complex case resolution",
+        "Onboarding staff with expert decision patterns"
+      ]
+    },
+    "futureAreas": [
+      "Deeper integration with agent orchestration platforms",
+      "Broader connectors to ticketing and CRM systems",
+      "Expansion beyond Europe into US enterprises",
+      "Governance and audit trails for agent decisions"
+    ],
+    "competitiveEdge": "Context graph built from real case outcomes gives agents expert-level operational memory"
+  },
+  "rpa/automat": {
+    "swot": {
+      "strengths": [
+        "AI agents operate enterprise software like people, covering click-based RPA work",
+        "Blends deterministic and AI methods for speed and self-healing on UI changes",
+        "$15.5M Series A led by Felicis with Khosla, Initialized and Y Combinator",
+        "Handles both UI automation and document processing workflows"
+      ],
+      "weaknesses": [
+        "Early-stage company with a short enterprise track record",
+        "Limited public customer references and reviews",
+        "Computer-use agents can be slower than API integrations"
+      ],
+      "opportunities": [
+        "Replacing brittle legacy RPA bots at enterprises",
+        "Automating legacy apps without APIs",
+        "Reducing need for large specialist RPA implementation teams"
+      ],
+      "threats": [
+        "UiPath, Automation Anywhere and Microsoft adding agentic features",
+        "Computer-use agents from OpenAI, Anthropic and Google",
+        "Many well-funded agentic RPA startups such as Sola and Simular",
+        "Enterprise caution over agents acting in production systems"
+      ]
+    },
+    "userLikes": [
+      "Faster to build automations than traditional RPA",
+      "Automations adapt when screens change instead of breaking",
+      "Responsive founding team and hands-on support"
+    ],
+    "userComplaints": [
+      "Product still maturing for complex edge cases",
+      "Limited third-party reviews available",
+      "Governance tooling lighter than incumbent RPA suites"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Mid-market and enterprise operations teams",
+        "Companies running legacy RPA estates"
+      ],
+      "typicalBuyer": "Head of operations or automation CoE lead replacing brittle bots",
+      "topUseCases": [
+        "Data entry across legacy web and desktop apps",
+        "Document intake and processing",
+        "Migrating existing RPA workflows to agents"
+      ]
+    },
+    "futureAreas": [
+      "Broader enterprise governance and audit controls",
+      "More prebuilt templates for common back-office tasks",
+      "Scaling to larger multi-process deployments",
+      "Tighter integration with document AI"
+    ],
+    "competitiveEdge": "Hybrid deterministic plus AI agents give self-healing automations without RPA teams"
+  },
+  "rpa/coplane": {
+    "swot": {
+      "strengths": [
+        "AI-native back-office layer that works over existing legacy ERPs",
+        "Combines autonomous agents, deterministic rules and human review in one system",
+        "$14M seed led by Ribbit with Stripe, Optum Ventures and Terrain",
+        "Auditable design suited to regulated, essential enterprises"
+      ],
+      "weaknesses": [
+        "Seed-stage with few public customer references",
+        "Founded recently; product breadth still limited",
+        "ERP integration projects can be long and complex"
+      ],
+      "opportunities": [
+        "Invoice exception handling and order entry in ERP-heavy firms",
+        "Mid-market essential industries underserved by modern software",
+        "Avoiding costly ERP replacement programs"
+      ],
+      "threats": [
+        "ERP vendors such as SAP and Oracle embedding native agents",
+        "AP and finance automation specialists",
+        "Agentic RPA startups targeting the same back-office tasks"
+      ]
+    },
+    "userLikes": [
+      "Keeps humans in the loop for exceptions",
+      "Works with the ERP already in place",
+      "Clear audit trail of agent and rule decisions"
+    ],
+    "userComplaints": [
+      "Early product with limited out-of-box workflows",
+      "Implementation needs upfront process mapping",
+      "Few independent reviews so far"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Essential-industry enterprises on legacy ERPs",
+        "Finance and operations back offices"
+      ],
+      "typicalBuyer": "CFO or COO modernizing back-office work without a full ERP replacement",
+      "topUseCases": [
+        "Invoice exception handling",
+        "Sales order entry",
+        "Procurement workflow automation"
+      ]
+    },
+    "futureAreas": [
+      "More prebuilt back-office process modules",
+      "Additional ERP connectors",
+      "Deeper finance close and reconciliation",
+      "Expanded human review and controls tooling"
+    ],
+    "competitiveEdge": "Agents plus deterministic rules and human review modernize back offices atop legacy ERPs"
+  },
+  "rpa/tekst": {
+    "swot": {
+      "strengths": [
+        "Reconstructs workflows from emails, PDFs and system actions, not interviews",
+        "Builds a live process model, then layers AI agents on top",
+        "EUR 11.5M Series A led by Elephant with Entourage",
+        "Customers include Daikin Europe, Colruyt Group, Securex and Becton Dickinson",
+        "Reports 90% automation of a complex BD back-office process in three weeks"
+      ],
+      "weaknesses": [
+        "Team of about 35 limits enterprise delivery capacity",
+        "Mainly Benelux customer base so far",
+        "Must prove accuracy versus established process mining tools"
+      ],
+      "opportunities": [
+        "Quote-to-cash and procure-to-pay automation",
+        "International expansion funded by the Series A",
+        "Process intelligence as the prerequisite layer for AI agents"
+      ],
+      "threats": [
+        "Celonis and SAP Signavio extending into agentic automation",
+        "Task mining vendors such as KYP.ai and Mimica",
+        "Privacy and works-council scrutiny of activity capture in Europe"
+      ]
+    },
+    "userLikes": [
+      "Shows how processes really run without long consulting projects",
+      "Moves quickly from discovery to working automation",
+      "Hands-on team support during rollout"
+    ],
+    "userComplaints": [
+      "Young platform with limited third-party reviews",
+      "Data access setup can require IT and privacy sign-off",
+      "Narrower process coverage than larger suites"
+    ],
+    "customerProfile": {
+      "segments": [
+        "European mid-size and large enterprises",
+        "Back-office teams in order and procurement ops"
+      ],
+      "typicalBuyer": "COO or process excellence lead preparing operations for AI agents",
+      "topUseCases": [
+        "Process discovery from digital activity",
+        "Order-to-cash automation",
+        "Procure-to-pay automation"
+      ]
+    },
+    "futureAreas": [
+      "Deeper quote-to-cash and procure-to-pay agents",
+      "Expansion beyond Benelux",
+      "More connectors to ERP and email systems",
+      "Continuous process monitoring"
+    ],
+    "competitiveEdge": "Discovery from real digital trails feeds agents directly, cutting time from insight to automation"
+  },
+  "rpa/fileai": {
+    "swot": {
+      "strengths": [
+        "Extracts, validates and reconciles data from unstructured files into systems",
+        "Reports more than 1 billion files handled",
+        "Enterprise users include MS&AD, Toshiba, KFC and Ernst & Young",
+        "Backed by Illuminate Financial, Insignia, SMBC Asia Rising Fund and Singtel Innov8"
+      ],
+      "weaknesses": [
+        "Smaller scale and brand than global IDP vendors",
+        "Customer base concentrated in Asia-Pacific",
+        "About $20M raised limits go-to-market spend versus rivals"
+      ],
+      "opportunities": [
+        "Japanese and APAC financial services via SMBC and Singtel ties",
+        "Insurance document automation across Asia",
+        "US expansion for file-heavy enterprise workflows"
+      ],
+      "threats": [
+        "Global IDP players such as ABBYY, Hyperscience and Tungsten",
+        "LLM-native parsing APIs commoditizing extraction",
+        "Hyperscaler document AI services bundled with cloud"
+      ]
+    },
+    "userLikes": [
+      "Handles messy, mixed-format files well",
+      "Saves significant manual data entry time",
+      "Straightforward to connect into business systems"
+    ],
+    "userComplaints": [
+      "Complex layouts can still need manual review",
+      "Limited independent reviews outside APAC",
+      "Custom workflows can take time to configure"
+    ],
+    "customerProfile": {
+      "segments": [
+        "APAC insurers and financial services firms",
+        "Enterprises with high-volume file processing"
+      ],
+      "typicalBuyer": "Operations or digital transformation lead automating document-heavy work",
+      "topUseCases": [
+        "Insurance claims and policy document intake",
+        "Invoice and finance document extraction",
+        "Data reconciliation into enterprise systems"
+      ]
+    },
+    "futureAreas": [
+      "Agentic workflows on top of fileForge",
+      "Expansion in Japan via SMBC relationship",
+      "Telco and enterprise channels via Singtel",
+      "Broader US market presence"
+    ],
+    "competitiveEdge": "Capture-to-reconcile file automation with strong APAC insurance and finance footprint"
+  },
+  "rpa/indico-data": {
+    "swot": {
+      "strengths": [
+        "Insurance-specific agentic intake for submissions, underwriting and claims",
+        "Strategic investors include Guidewire and Aviva Ventures",
+        "Integrates with Guidewire PolicyCenter for intake",
+        "HDI Global US partnership to automate underwriting intake"
+      ],
+      "weaknesses": [
+        "Narrow focus on insurance limits addressable market",
+        "Total funding around $50M is modest versus IDP leaders",
+        "Earlier general IDP positioning required repositioning"
+      ],
+      "opportunities": [
+        "Carriers modernizing submission and FNOL intake with agents",
+        "Guidewire ecosystem cross-sell",
+        "Expansion with Aviva and other European insurers"
+      ],
+      "threats": [
+        "Guidewire, Duck Creek and core vendors building native AI intake",
+        "Insurtech rivals such as Hyperscience and Federato",
+        "LLM-native document APIs lowering entry barriers"
+      ]
+    },
+    "userLikes": [
+      "Strong understanding of insurance documents and workflows",
+      "Reduces manual submission triage time",
+      "Good fit with Guidewire environments"
+    ],
+    "userComplaints": [
+      "Model tuning can take effort on unusual documents",
+      "Implementation timelines vary by carrier",
+      "Pricing seen as enterprise-oriented"
+    ],
+    "customerProfile": {
+      "segments": [
+        "P&C and specialty insurers",
+        "Commercial underwriting and claims teams"
+      ],
+      "typicalBuyer": "Chief underwriting or claims officer automating intake",
+      "topUseCases": [
+        "Commercial submission intake and triage",
+        "Claims FNOL document processing",
+        "Underwriting data extraction"
+      ]
+    },
+    "futureAreas": [
+      "Agentic underwriting assistants",
+      "Deeper Guidewire workflow integration",
+      "European carrier expansion",
+      "Claims automation beyond FNOL"
+    ],
+    "competitiveEdge": "Insurance-native agentic intake backed by Guidewire and Aviva for carrier workflows"
+  },
+  "rpa/ocrolus": {
+    "swot": {
+      "strengths": [
+        "Mature lending document AI; 2021 $80M Series C valued it above $500M",
+        "Classifies bank statements, pay stubs and tax forms with cash-flow analytics",
+        "Reports 400+ customers incl. SoFi, PayPal, Brex, Plaid and CrossCountry",
+        "Detect fraud checks now included free for all mortgage customers",
+        "4.6/5 G2 rating from lender users"
+      ],
+      "weaknesses": [
+        "Concentrated in US lending; exposed to credit and mortgage cycles",
+        "Human-in-the-loop verification can add cost and latency",
+        "No new primary round disclosed since 2021"
+      ],
+      "opportunities": [
+        "Mortgage QC and condition automation via Inspect",
+        "Document fraud detection demand from rising doctored files",
+        "Small business and consumer lending analytics"
+      ],
+      "threats": [
+        "Plaid and open-banking data reducing need for statement parsing",
+        "LLM-native document APIs lowering extraction costs",
+        "IDP and mortgage tech rivals bundling fraud and QC"
+      ]
+    },
+    "userLikes": [
+      "Accurate bank statement and income analysis",
+      "Fraud flags catch tampered documents early",
+      "Encompass integration fits mortgage workflows"
+    ],
+    "userComplaints": [
+      "Pricing can be high for smaller lenders",
+      "Turnaround slows on unusual document types",
+      "Customization options seen as limited"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Fintech and small business lenders",
+        "Mortgage lenders and banks"
+      ],
+      "typicalBuyer": "Head of credit or lending operations automating underwriting docs",
+      "topUseCases": [
+        "Bank statement and cash-flow analysis",
+        "Income verification for mortgages",
+        "Document fraud detection"
+      ]
+    },
+    "futureAreas": [
+      "Agentic mortgage condition clearing",
+      "Expanded fraud forensics",
+      "Deeper LOS integrations",
+      "Analytics for SMB and consumer credit"
+    ],
+    "competitiveEdge": "Lending-specific document AI with built-in fraud detection and a large fintech customer base"
+  },
+  "rpa/unstructured": {
+    "swot": {
+      "strengths": [
+        "Turns PDFs, emails and office docs into LLM-ready data across 60+ file types",
+        "Popular open-source library plus managed enterprise ETL platform",
+        "$40M Series B led by Menlo with Databricks, IBM and NVIDIA investing",
+        "FedRAMP High and IL5 authorization plus SOC 2, ISO 27001 and HIPAA",
+        "Partnerships with Microsoft Azure and Teradata"
+      ],
+      "weaknesses": [
+        "Open-source version cannibalizes paid platform usage",
+        "Parsing quality on complex tables trails some specialists",
+        "Infrastructure role rather than end-to-end automation"
+      ],
+      "opportunities": [
+        "Enterprise RAG and agent data pipelines",
+        "Regulated and government workloads via FedRAMP and IL5",
+        "Embedding inside data platforms such as Teradata and Azure"
+      ],
+      "threats": [
+        "Document parsing APIs such as Reducto, LlamaParse and Unsiloed",
+        "Hyperscaler and Databricks native ingestion features",
+        "Frontier models parsing documents directly"
+      ]
+    },
+    "userLikes": [
+      "Wide file type coverage out of the box",
+      "Open-source library is easy to start with",
+      "Many connectors to sources and vector stores"
+    ],
+    "userComplaints": [
+      "Table and layout extraction can be inconsistent",
+      "Open-source setup and dependencies can be heavy",
+      "Processing large volumes can be slow"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Enterprises building RAG and AI agents",
+        "Data and ML platform teams"
+      ],
+      "typicalBuyer": "Head of data or AI platform building LLM ingestion pipelines",
+      "topUseCases": [
+        "Document preprocessing for RAG",
+        "ETL of unstructured data into vector stores",
+        "Secure ingestion for regulated AI workloads"
+      ]
+    },
+    "futureAreas": [
+      "Agent-ready data pipelines",
+      "Deeper hyperscaler integrations",
+      "Government and regulated expansion",
+      "Higher-fidelity table and layout parsing"
+    ],
+    "competitiveEdge": "Open-source reach plus FedRAMP-grade managed ETL makes it a default LLM ingestion layer"
+  },
+  "rpa/unsiloed-ai": {
+    "swot": {
+      "strengths": [
+        "Vision models parse, extract and split complex enterprise documents",
+        "Dual-stream text and image processing with heat-map chunking",
+        "$7.5M seed led by Felicis with Y Combinator participation",
+        "Claims top olmOCR-Bench score in its own evaluation"
+      ],
+      "weaknesses": [
+        "Very early company with small team and customer base",
+        "Benchmark claims not independently verified",
+        "Limited brand recognition versus funded rivals"
+      ],
+      "opportunities": [
+        "Document infrastructure for enterprise AI agents",
+        "Displacing legacy OCR in document-heavy industries",
+        "API-first adoption by developers building agents"
+      ],
+      "threats": [
+        "Reducto, Extend, LlamaParse and Unstructured in parsing APIs",
+        "Frontier multimodal models parsing documents natively",
+        "Hyperscaler document AI price pressure"
+      ]
+    },
+    "userLikes": [
+      "Handles complex layouts and tables well",
+      "Developer-friendly API and fast integration",
+      "Responsive founders and quick support"
+    ],
+    "userComplaints": [
+      "Young product with limited reviews",
+      "Feature coverage still expanding",
+      "Enterprise compliance credentials still maturing"
+    ],
+    "customerProfile": {
+      "segments": [
+        "AI-native startups building agents",
+        "Enterprises in finance and legal with complex docs"
+      ],
+      "typicalBuyer": "AI engineering lead needing reliable document parsing for agents",
+      "topUseCases": [
+        "Parsing complex PDFs and tables",
+        "Structured extraction for agent workflows",
+        "Document splitting and classification"
+      ]
+    },
+    "futureAreas": [
+      "Enterprise security and compliance certifications",
+      "Agent-native document workflows",
+      "Independent benchmark validation",
+      "Broader language and format coverage"
+    ],
+    "competitiveEdge": "Purpose-built vision models aim for higher parsing accuracy than generic OCR and LLMs"
+  },
+  "rpa/kyp-ai": {
+    "swot": {
+      "strengths": [
+        "Combines task and process mining from desktop-level work data",
+        "Gartner Representative Vendor in Task Mining guides 2023, 2025 and 2026",
+        "Everest Group DII PEAK Leader and Forrester Wave Strong Performer in 2025",
+        "Available on SAP Store alongside SAP Signavio"
+      ],
+      "weaknesses": [
+        "EUR 17.5M Series A in 2023 is modest versus process mining leaders",
+        "Customer outcomes are mostly vendor-reported",
+        "Desktop monitoring raises employee privacy concerns"
+      ],
+      "opportunities": [
+        "Sizing AI agent and automation opportunities from real work data",
+        "BPO and contact center productivity programs",
+        "SAP ecosystem partnerships"
+      ],
+      "threats": [
+        "Celonis, SAP Signavio and UiPath task mining",
+        "Microsoft and workforce analytics vendors",
+        "EU privacy regulation limiting activity capture"
+      ]
+    },
+    "userLikes": [
+      "Clear view of how time is actually spent",
+      "Helps prioritize automation with hard data",
+      "Useful productivity dashboards for managers"
+    ],
+    "userComplaints": [
+      "Agent deployment needs IT and privacy approvals",
+      "Insights can take time to configure",
+      "Limited independent reviews available"
+    ],
+    "customerProfile": {
+      "segments": [
+        "BPOs and contact center operators",
+        "Shared services and financial services firms"
+      ],
+      "typicalBuyer": "Head of transformation or shared services sizing automation and AI",
+      "topUseCases": [
+        "Task and process discovery",
+        "Productivity and capacity analysis",
+        "Automation and agent opportunity sizing"
+      ]
+    },
+    "futureAreas": [
+      "Agent opportunity scoring",
+      "Deeper SAP Signavio integration",
+      "Generative AI insights on work patterns",
+      "Expanded BPO partnerships"
+    ],
+    "competitiveEdge": "Unified task, process and productivity mining sizes where automation and agents pay off"
   },
 };
