@@ -24257,16 +24257,16 @@ export const vendorProfiles: Record<string, VendorProfile> = {
     "swot": {
       "strengths": [
         "Connector-free computer-vision capture — sees work in any app, including legacy and Citrix",
-        "Deep enterprise traction: 7 of the top 10 US banks and 1 in 4 Fortune 50 use Skan",
-        "Gartner MQ Process Intelligence honorable mention (2026) validates pure-play position",
-        "Documented nine-figure savings cases across banking, insurance, and healthcare",
+        "Deep traction: 7 of top 10 US banks, 3 of top 5 US insurers, 1 in 4 Fortune 50",
+        "Everest DII PEAK Matrix Leader 2024-26 plus Gartner PI MQ 2026 honorable mention",
+        "Claims $500M+ customer value identified, though part is still-unrealized opportunity",
         "Early mover on agent context — Agentic Ontology of Work and ABCF frameworks"
       ],
       "weaknesses": [
-        "At ~$22M ARR, far smaller than Celonis — thinner ecosystem and partner bench",
+        "Revenue undisclosed but far smaller than Celonis — thinner ecosystem and partner bench",
         "Endpoint screen capture raises employee-privacy concerns that demand governance",
         "Brand recognition concentrated in North American financial services",
-        "Growth (~20% YoY) trails category leaders despite the agentic narrative"
+        "Growth claims (300%+ YoY, ~150% NDR) are company-reported; revenue never disclosed"
       ],
       "opportunities": [
         "AI agent mining — the context layer enterprises need before deploying agents",
@@ -24305,7 +24305,7 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "AI agent mining and agent-readiness assessment",
       "Agentic Ontology of Work standardization",
       "Real-time agent-vs-human workflow monitoring",
-      "Expansion from task mining into full process intelligence"
+      "Scaling Skan AI Agents and Blueprint, both GA since Aug 2026"
     ],
     "competitiveEdge": "Connector-free computer-vision capture yields ground-truth process data log-based miners like Celonis cannot see."
   },
