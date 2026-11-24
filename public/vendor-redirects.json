@@ -7,5 +7,6 @@
   "vendor/agentops/ibm-watson-orchestrate": "vendor/agentops/ibm-watsonx-orchestrate",
   "vendor/agentops/google-vertex-ai-agents": "vendor/agentops/google-gemini-enterprise-agents",
   "vendor/agentops/multion": "vendor/agentops/agi-inc",
-  "vendor/agentops/sycamore-intelligence": "vendor/agentops/sycamore"
+  "vendor/agentops/sycamore-intelligence": "vendor/agentops/sycamore",
+  "vendor/itom/opsramp": "vendor/aiops/opsramp"
 }

@@ -202,7 +202,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "itom/hornbill",
   "itom/alemba-vfire",
   "itom/device42",
-  "itom/opsramp",
   "itom/footprints",
   "itom/virima",
   "itom/alloy-navigator",
@@ -509,5 +508,6 @@ export const profiledVendorKeys: ReadonlySet<string> = new Set([
   "itom/matrix42",
   "itom/absolute-security",
   "itom/iru",
-  "itom/automox"
+  "itom/automox",
+  "itom/stonebranch"
 ]);

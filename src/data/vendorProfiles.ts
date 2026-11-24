@@ -10419,61 +10419,6 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Autonomous remediation playbooks triggered by discovery findings."
     ]
   },
-  "itom/opsramp": {
-    "competitiveEdge": "Hybrid cloud ITOM with AIOps copilot and network observability natively integrated into HPE GreenLake—eliminating multi-tool sprawl for edge-to-cloud environments.",
-    "swot": {
-      "strengths": [
-        "Deep HPE GreenLake integration reduces vendor sprawl for hybrid cloud IT operations—single pane across on-prem, edge, multicloud.",
-        "Native AIOps with event correlation and automated workflows cuts incident response time; recognized by analysts in hybrid observability.",
-        "Operations copilot (natural language queries for dashboards and insights) differentiates labor-intensive ITOM and reduces team cognitive load.",
-        "Unified ITOM + Network Observability + ITSM consolidation—fewer point tools, lower TCO, simplified onboarding."
-      ],
-      "weaknesses": [
-        "Market position: still emerging as standalone brand post-HPE acquisition (2024); customer awareness lags Datadog, New Relic, ServiceNow.",
-        "Network observability suite is recent; proven track record vs. dedicated vendors (Cisco Crosswork, Juniper Mist) not yet established.",
-        "Limited installed base outside HPE ecosystem; migration lock-in risk deters multi-cloud-first enterprises seeking vendor-neutral platforms.",
-        "Pricing opaque post-acquisition; GreenLake consumption model may alienate enterprises used to perpetual/subscription alternatives."
-      ],
-      "opportunities": [
-        "Hybrid cloud ITOM TAM growing at double-digit CAGR; HPE GreenLake expansion into Fortune 500 creates greenfield demand.",
-        "AI/copilot features in ITOM nascent; OpsRamp can establish thought leadership with advanced AIOps as FinOps + sustainability monitoring emerge.",
-        "Network observability bundling untaps enterprises managing multi-vendor networks (Cisco, Juniper, Arista); native topology + AI remediation unique."
-      ],
-      "threats": [
-        "Datadog, New Relic, Splunk dominate observability narrative; consumer-grade awareness heavily favors incumbents with billion-dollar marketing.",
-        "ServiceNow consolidating ITOM + ITSM; tight Salesforce/AWS/Azure integrations erode OpsRamp's multi-cloud pitch if GreenLake fails to scale.",
-        "Private equity and strategic acquirers (Broadcom, Cisco, IBM) may disrupt market with aggressive bundling; OpsRamp constrained by HPE's slower innovation cadence."
-      ]
-    },
-    "userLikes": [
-      "Unified hybrid cloud visibility—single dashboard for on-prem, edge, AWS, Azure eliminates tool-switching overhead.",
-      "AIOps event correlation and auto-remediation workflows significantly cut mean-time-to-resolution for critical incidents.",
-      "Native network observability + ITOM in one platform reduces operational silos between infrastructure and network teams."
-    ],
-    "userComplaints": [
-      "Post-acquisition roadmap unclear; feature parity with pre-HPE OpsRamp unclear, causing some customer churn and feature gaps.",
-      "GreenLake consumption pricing model confusing and requires capacity planning; total cost of ownership can exceed point-solution alternatives.",
-      "Onboarding and change management complexity steep; AIOps tuning demands skilled engineers, creating internal adoption friction despite platform promise."
-    ],
-    "customerProfile": {
-      "segments": [
-        "Mid-to-large enterprises (1000+ employees) with hybrid cloud infrastructure (on-prem + multicloud) and complex IT operations.",
-        "Organizations already committed to HPE GreenLake or considering it; IT-centric buyers in insurance, finance, manufacturing, telecom.",
-        "Enterprises seeking consolidated ITOM+observability+networking to reduce operational complexity and headcount."
-      ],
-      "typicalBuyer": "VP/Director of IT Operations or Infrastructure; sometimes Chief Infrastructure Officer (CIO staff) in large enterprises.",
-      "topUseCases": [
-        "Hybrid cloud incident detection and response—correlating events across on-prem, edge, and multicloud to pinpoint root cause in <10 min.",
-        "Network operations integration—topology mapping, configuration drift detection, synthetic monitoring combined with IT automation.",
-        "AI-driven capacity planning and FinOps—cost anomaly detection, resource optimization recommendations via copilot interface."
-      ]
-    },
-    "futureAreas": [
-      "Sustainability and carbon monitoring for IT operations—tracking energy use across hybrid cloud estate alongside cost and performance.",
-      "Autonomous IT operations (agents): moving beyond copilot to fully autonomous remediation for predictable incident classes.",
-      "AI-native ITSM—intelligent ticket routing, auto-categorization, and incident correlation spanning ITOM + ITSM + change management."
-    ]
-  },
   "itom/footprints": {
     "competitiveEdge": "Legacy BMC ITSM with configurable workflows and integrated asset management—targets budget-conscious SMBs on fixed pricing.",
     "swot": {
@@ -27487,5 +27432,64 @@ export const vendorProfiles: Record<string, VendorProfile> = {
       "Expanded Linux and server coverage"
     ],
     "competitiveEdge": "Cloud-native cross-OS patching that extends existing MDMs rather than replacing them"
+  },
+  "itom/stonebranch": {
+    "swot": {
+      "strengths": [
+        "Gartner SOAP Magic Quadrant Leader three years running (2024, 2025, 2026)",
+        "Vendor-neutral UAC orchestrates mainframe, distributed, cloud and SaaS jobs",
+        "Deep SAP automation, strengthened by the Sep 2025 HONICO acquisition",
+        "Built-in managed file transfer via Universal Data Mover Gateway",
+        "Robi AI assistant and AI Workflow Builder turn plain language into workflows"
+      ],
+      "weaknesses": [
+        "Private and undisclosed financials; much smaller than BMC or Broadcom",
+        "Lower brand awareness outside workload automation buyers",
+        "Revenue, growth and customer metrics are not publicly reported",
+        "Agentic orchestration features in UAC 8.1 are newly released"
+      ],
+      "opportunities": [
+        "Replacing legacy schedulers during mainframe and SAP RISE migrations",
+        "Governing AI agents inside deterministic, auditable enterprise workflows",
+        "DataOps orchestration, recognized in Gartner DataOps market guides",
+        "SaaS delivery for teams consolidating multiple job schedulers"
+      ],
+      "threats": [
+        "BMC Control-M and Broadcom Automic dominate large scheduler estates",
+        "Redwood RunMyJobs competes hard for SAP-centric automation buyers",
+        "Cloud-native orchestrators like Airflow erode data pipeline demand",
+        "Hyperscaler and ITSM platforms bundling basic orchestration"
+      ]
+    },
+    "userLikes": [
+      "Single console spans on-prem, cloud and mainframe workloads",
+      "Responsive support and smooth migrations from legacy schedulers",
+      "Broad integration library through Universal Extensions",
+      "Event-driven triggers reduce reliance on fixed batch windows"
+    ],
+    "userComplaints": [
+      "Learning curve for advanced workflow and agent configuration",
+      "Documentation can lag behind new feature releases",
+      "Licensing can be hard to estimate as job volumes grow"
+    ],
+    "customerProfile": {
+      "segments": [
+        "Large financial services firms",
+        "Manufacturing, healthcare and energy enterprises"
+      ],
+      "typicalBuyer": "Head of IT operations or automation CoE lead modernizing enterprise job scheduling",
+      "topUseCases": [
+        "Hybrid IT workload automation and job scheduling",
+        "SAP job orchestration during S/4HANA and RISE moves",
+        "Data pipeline and managed file transfer orchestration"
+      ]
+    },
+    "futureAreas": [
+      "Governed orchestration of autonomous AI agents",
+      "Natural-language workflow creation via Robi AI",
+      "Expanded DataOps and data pipeline orchestration",
+      "Deeper SAP and cloud ERP automation"
+    ],
+    "competitiveEdge": "Vendor-neutral control plane that runs jobs, AI agents and human approvals as one governed hybrid workflow"
   },
 };
